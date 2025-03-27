@@ -1,0 +1,58 @@
+{
+  "question": "Which direction leads to an aquarium from Bohemian Flats Park, Minneapolis, MN within a span of 70 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.24104 44.975305)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.24104 44.975305)',4326)::geography, 70000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 25908,
+      "geometry": "POINT (-93.240076 44.854752)",
+      "poi_name": "SEA LIFE Minnesota Aquarium",
+      "osm_id": 5739830095,
+      "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+      "operator": "Merlin Entertainments'",
+      "website": "https://www.visitsealife.com/minnesota/",
+      "phone": "+1-952-883-0202",
+      "addr_state": "MN",
+      "addr_city": "Bloomington",
+      "addr_postcode": "55425",
+      "addr_street": "East Broadway",
+      "addr_housenumber": "120",
+      "angle": 179.67411642761968
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Bohemian Flats Park, Minneapolis, MN",
+      "geo_wkt": "POINT (-93.24104 44.975305)",
+      "poi": {
+        "id": 267374,
+        "geometry": "POINT (-93.24104 44.975305)",
+        "poi_name": "Bohemian Flats Park",
+        "osm_id": 5928852176,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "website": "https://www.minneapolisparks.org/parks__destinations/parks__lakes/bohemian_flats_park/",
+        "addr_state": "MN",
+        "addr_city": "Minneapolis",
+        "addr_postcode": "55454",
+        "addr_street": "West River Parkway",
+        "addr_housenumber": "2150"
+      }
+    }
+  },
+  "id": 1024,
+  "type": "range+angle"
+}

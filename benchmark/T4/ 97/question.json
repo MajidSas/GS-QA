@@ -1,0 +1,85 @@
+{
+  "question": "What park is available on the path leading to Camp Nelson Visitor Center, Nicholasville, KY from Whitney Avenue Community Garden, Lexington, KY, within a radius of 60 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, ST_GeomFromText('POINT (-84.600606 37.796995)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 60000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 245558,
+      "geometry": "POINT (-84.508642 38.028267)",
+      "poi_name": "Alumni Plaza",
+      "osm_id": 3122452723,
+      "leisure": "park",
+      "value": 196.08221871903152
+    },
+    {
+      "id": 245582,
+      "geometry": "POINT (-84.50333 38.02618)",
+      "poi_name": "Student Football Tailgating",
+      "osm_id": 3179788257,
+      "leisure": "park",
+      "value": 196.08221871903152
+    },
+    {
+      "id": 245740,
+      "geometry": "POINT (-84.574867 37.883957)",
+      "poi_name": "Rock Fence Park",
+      "osm_id": 3497329897,
+      "leisure": "park",
+      "addr_state": "KY",
+      "addr_city": "Nicholasville",
+      "addr_postcode": "40356",
+      "addr_street": "N 3rd Street",
+      "value": 196.08221871903152
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Camp Nelson Visitor Center, Nicholasville, KY",
+      "geo_wkt": "POINT (-84.600606 37.796995)",
+      "poi": {
+        "id": 2259,
+        "geometry": "POINT (-84.600606 37.796995)",
+        "poi_name": "Camp Nelson Visitor Center",
+        "osm_id": 3355731294,
+        "tourism": "museum",
+        "website": "http://www.campnelson.org/home.htm",
+        "phone": "+1-859-881-5716",
+        "addr_state": "KY",
+        "addr_city": "Nicholasville",
+        "addr_postcode": "40356",
+        "addr_street": "Danville Road",
+        "addr_housenumber": "6614"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    }
+  },
+  "id": 1696,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,51 @@
+{
+  "question": "Where's the closest gallery positioned towards the west of Bascayne Apt Garden at Urban Farm, Lexington, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.473564 38.063439)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5211,
+      "geometry": "POINT (-84.473564 38.063439)",
+      "poi_name": "Hoosier Salon",
+      "osm_id": 9800341137,
+      "tourism": "gallery",
+      "website": "https://hoosiersalon.org/new-harmony-current-exhibition/",
+      "addr_state": "IN",
+      "addr_city": "New Harmony",
+      "addr_postcode": "47631",
+      "addr_street": "Church Street",
+      "addr_housenumber": "507"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Bascayne Apt Garden at Urban Farm, Lexington, KY",
+      "geo_wkt": "POINT (-84.473564 38.063439)",
+      "poi": {
+        "id": 248379,
+        "geometry": "POINT (-84.473564 38.063439)",
+        "poi_name": "Bascayne Apt Garden at Urban Farm",
+        "osm_id": 4070492707,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "North Limestone",
+        "addr_housenumber": "1411"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 1107,
+  "type": "knn:direction+loc"
+}

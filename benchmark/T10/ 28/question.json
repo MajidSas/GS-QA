@@ -1,0 +1,65 @@
+{
+  "question": "What's the nearest restaurant heading towards Sculpture Plaza, Mountain View, CA from the View Lounge, San Francisco, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.078458 37.420875)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 164218,
+      "geometry": "POINT (-122.403464 37.784526)",
+      "poi_name": "Bonchon Chicken",
+      "osm_id": 9456812856,
+      "amenity": "restaurant",
+      "cuisine": "chicken;korean;sushi",
+      "website": "https://order.bonchon.com/web/3882",
+      "value": 144.4797210377348
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sculpture Plaza, Mountain View, CA",
+      "geo_wkt": "POINT (-122.078458 37.420875)",
+      "poi": {
+        "id": 247592,
+        "geometry": "POINT (-122.078458 37.420875)",
+        "poi_name": "Sculpture Plaza",
+        "osm_id": 6943795235,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Mountain View",
+        "addr_postcode": "94043"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 127,
+  "type": "knn:towards+name"
+}

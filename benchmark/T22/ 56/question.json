@@ -1,0 +1,41 @@
+{
+  "question": "Which direction points towards the nearest zoo from Norwood Park, Norwood, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.130475 35.231399)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.130475 35.231399)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25293,
+      "geometry": "POINT (-80.720774 35.622932)",
+      "poi_name": "Lazy 5 Ranch",
+      "osm_id": 4440501003,
+      "tourism": "zoo",
+      "angle": 309.19072636952
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Norwood Park, Norwood, NC",
+      "geo_wkt": "POINT (-80.130475 35.231399)",
+      "poi": {
+        "id": 265628,
+        "geometry": "POINT (-80.130475 35.231399)",
+        "poi_name": "Norwood Park",
+        "osm_id": 10763716150,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Norwood",
+        "addr_postcode": "28128",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "782"
+      }
+    }
+  },
+  "id": 1455,
+  "type": "knn+angle"
+}

@@ -1,0 +1,36 @@
+{
+  "question": "Within a 40 kilometers radius from JB Rodeo Arena, TX, how many museums are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.375836 30.914074)',4326)::geography, 40000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 6
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "JB Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.375836 30.914074)",
+      "poi": {
+        "id": 265395,
+        "geometry": "POINT (-97.375836 30.914074)",
+        "poi_name": "JB Rodeo Arena",
+        "osm_id": 368165372,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 2223,
+  "type": "range+count"
+}

@@ -1,0 +1,53 @@
+{
+  "question": "What's the distance between Sea Life Aquarium, San Antonio, TX and a nature reserve within a radius of 120 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, 120000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 246012,
+      "geometry": "POINT (-98.194766 29.848573)",
+      "poi_name": "James C. Curry Nature Center",
+      "osm_id": 5449527323,
+      "leisure": "nature_reserve",
+      "operator": "Comal County",
+      "addr_state": "TX",
+      "addr_city": "Canyon Lake",
+      "addr_postcode": "78133",
+      "addr_street": "Skyline Drive",
+      "addr_housenumber": "1889",
+      "distance": 54846.41370139
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "poi": {
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
+      }
+    }
+  },
+  "id": 740,
+  "type": "range+distance"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "Where's the nearest attraction from Track 21, Houston, TX located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.647681 29.845137)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14598,
+      "geometry": "POINT (-95.561614 29.798748)",
+      "poi_name": "Texas knife makers supply",
+      "osm_id": 4666287189,
+      "tourism": "attraction",
+      "website": "https://www.texasknife.com/",
+      "addr_state": "TX",
+      "addr_postcode": "77043",
+      "addr_street": "Haddington Drive",
+      "addr_housenumber": "10649"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Track 21, Houston, TX",
+      "geo_wkt": "POINT (-95.647681 29.845137)",
+      "poi": {
+        "id": 23532,
+        "geometry": "POINT (-95.647681 29.845137)",
+        "poi_name": "Track 21",
+        "osm_id": 5245875822,
+        "tourism": "theme_park",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_street": "North Highway 6",
+        "addr_housenumber": "4815"
+      }
+    }
+  },
+  "id": 1860,
+  "type": "knn+loc"
+}

@@ -1,0 +1,67 @@
+{
+  "question": "Could you help me find the location of an art museum, preferably within a 150 kilometers radius of Bird Rookery Swamp Trail, Naples, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.633933 26.312334)',4326)::geography, 150000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "answers": [
+    {
+      "id": 235,
+      "geometry": "POINT (-82.529024 27.325641)",
+      "poi_name": "Sarasota Art Museum",
+      "osm_id": 8248296789,
+      "tourism": "museum",
+      "operator": "Ringling College of Art + Design",
+      "phone": "+1 (941) 309-4300",
+      "museum": "art",
+      "addr_state": "FL",
+      "addr_city": "Sarasota",
+      "addr_postcode": "34236",
+      "addr_street": "South Tamiami Trail",
+      "addr_housenumber": "1001"
+    },
+    {
+      "id": 24027,
+      "geometry": "POINT (-80.254706 26.118711)",
+      "poi_name": "Young At Art",
+      "osm_id": 9268720941,
+      "tourism": "museum",
+      "website": "https://youngatartmuseum.org/",
+      "museum": "art",
+      "addr_state": "FL",
+      "addr_city": "Plantation",
+      "addr_street": "W Broward Blvd",
+      "addr_housenumber": "8000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Bird Rookery Swamp Trail, Naples, FL",
+      "geo_wkt": "POINT (-81.633933 26.312334)",
+      "poi": {
+        "id": 25612,
+        "geometry": "POINT (-81.633933 26.312334)",
+        "poi_name": "Bird Rookery Swamp Trail",
+        "osm_id": 4555346682,
+        "tourism": "attraction",
+        "operator": "CREW Land & Water Trust",
+        "addr_state": "FL",
+        "addr_city": "Naples",
+        "addr_street": "Shady Hollow Boulevard West",
+        "addr_housenumber": "1295"
+      }
+    }
+  },
+  "id": 483,
+  "type": "range:non_spat_filter+loc"
+}

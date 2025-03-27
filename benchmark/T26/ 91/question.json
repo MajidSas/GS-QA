@@ -1,0 +1,43 @@
+{
+  "question": "How far away is the nearest theme park from Tablerocks Goodnight Amphitheater, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1735,
+      "geometry": "POINT (-97.166138 30.231527)",
+      "poi_name": "Sherwood Forest Faire",
+      "osm_id": 3129085781,
+      "tourism": "theme_park",
+      "website": "https://www.sherwoodforestfaire.com/",
+      "addr_state": "TX",
+      "addr_city": "McDade",
+      "addr_postcode": "78650",
+      "addr_street": "Old Highway 20",
+      "addr_housenumber": "1883",
+      "distance": 86081.21526797
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Tablerocks Goodnight Amphitheater, TX",
+      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "poi": {
+        "id": 265396,
+        "geometry": "POINT (-97.532231 30.940462)",
+        "poi_name": "Tablerocks Goodnight Amphitheater",
+        "osm_id": 368165373,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 2490,
+  "type": "knn+distance"
+}

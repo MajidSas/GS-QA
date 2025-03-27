@@ -1,0 +1,51 @@
+{
+  "question": "Where is the nearest chicken restaurant available from New Mexico Slaughter House, Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chicken%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 46514,
+      "geometry": "POINT (-106.595148 35.075515)",
+      "poi_name": "Frank's Famous Chicken & Waffles",
+      "osm_id": 3269830033,
+      "amenity": "restaurant",
+      "cuisine": "chicken",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87108",
+      "addr_street": "Washington Street Southeast",
+      "addr_housenumber": "400"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "chicken restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%chicken%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "poi": {
+        "id": 10873,
+        "geometry": "POINT (-106.657079 35.199273)",
+        "poi_name": "New Mexico Slaughter House",
+        "osm_id": 8107941834,
+        "tourism": "theme_park",
+        "opening_hours": "Oct Fr-Su 19:00-22:00",
+        "website": "https://www.nmslaughterhouse.com/",
+        "phone": "+1-505-764-2868",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87114",
+        "addr_street": "Coors Boulevard Bypass Northwest",
+        "addr_housenumber": "10000"
+      }
+    }
+  },
+  "id": 340,
+  "type": "knn:non_spat_filter+loc"
+}

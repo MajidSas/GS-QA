@@ -1,0 +1,44 @@
+{
+  "question": "How far away is the nearest beach resort from Ferry Street Farm, New Haven, CT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247506,
+      "geometry": "POINT (-72.619587 40.800436)",
+      "poi_name": "Quantuck Beach Club",
+      "osm_id": 6712661219,
+      "leisure": "beach_resort",
+      "website": "http://quantuckbeachclub.com/",
+      "distance": 61857.34907631
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ferry Street Farm, New Haven, CT",
+      "geo_wkt": "POINT (-72.89683 41.31639)",
+      "poi": {
+        "id": 246385,
+        "geometry": "POINT (-72.89683 41.31639)",
+        "poi_name": "Ferry Street Farm",
+        "osm_id": 11413367607,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "http://www.gathernewhaven.org/",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "Ferry Street",
+        "addr_housenumber": "613"
+      }
+    }
+  },
+  "id": 2450,
+  "type": "knn+distance"
+}

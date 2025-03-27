@@ -1,0 +1,45 @@
+{
+  "question": "Seeking the nearest caf\u00e9 from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 193328,
+      "geometry": "POINT (-119.689941 34.41254)",
+      "poi_name": "State Street Cafe",
+      "osm_id": 1521699547,
+      "amenity": "cafe",
+      "addr_street": "State Street",
+      "addr_housenumber": "29"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 240,
+  "type": "knn+name"
+}

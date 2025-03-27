@@ -1,0 +1,51 @@
+{
+  "question": "Where is the closest aquarium north of UTRGV McAllen Teaching Site, McAllen, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.238958 26.187887)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3121,
+      "geometry": "POINT (-98.238958 26.187887)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 10184935041,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/san-antonio/",
+      "wikidata": "Q664334",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78205",
+      "addr_street": "East Commerce Street",
+      "addr_housenumber": "849"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "UTRGV McAllen Teaching Site, McAllen, TX",
+      "geo_wkt": "POINT (-98.238958 26.187887)",
+      "poi": {
+        "id": 152821,
+        "geometry": "POINT (-98.238958 26.187887)",
+        "poi_name": "UTRGV McAllen Teaching Site",
+        "osm_id": 4162022714,
+        "amenity": "university",
+        "addr_state": "TX",
+        "addr_city": "McAllen",
+        "addr_postcode": "78503",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "1800"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1163,
+  "type": "knn:direction+loc"
+}

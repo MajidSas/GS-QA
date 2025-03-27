@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest emergency hospital available from Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 211246,
+      "geometry": "POINT (-112.331391 34.591083)",
+      "poi_name": "Emergency Room",
+      "osm_id": 5148494284,
+      "amenity": "hospital",
+      "description": "Yavapai Medical Emergency Room\n",
+      "healthcare": "hospital",
+      "emergency": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "poi": {
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
+      }
+    }
+  },
+  "id": 691,
+  "type": "knn:non_spat_filter+name"
+}

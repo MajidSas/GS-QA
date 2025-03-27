@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find an attraction positioned within 130 kilometers towards the east of Velveteria: the Museum of Velvet Art, Los Angeles, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.238693 34.060391)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.238693 34.060391)',4326)::geography, 130000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 15135,
+      "geometry": "POINT (-118.238693 34.060391)",
+      "poi_name": "Gilman Ranch",
+      "osm_id": 4811068290,
+      "tourism": "attraction",
+      "addr_city": "Banning"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Velveteria: The Museum of Velvet Art, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.238693 34.060391)",
+      "poi": {
+        "id": 7941,
+        "geometry": "POINT (-118.238693 34.060391)",
+        "poi_name": "Velveteria: The Museum of Velvet Art",
+        "osm_id": 6482627115,
+        "tourism": "museum",
+        "website": "https://www.facebook.com/Velveteria/",
+        "wikidata": "Q16960028",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90012",
+        "addr_street": "New High Street",
+        "addr_housenumber": "711"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 96,
+  "type": "range:direction+loc"
+}

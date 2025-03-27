@@ -1,0 +1,43 @@
+{
+  "question": "Could you tell me the closest restaurant relative to Zao Island, Valparaiso, IN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.067399 41.458418)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 227993,
+      "geometry": "POINT (-87.065088 41.457325)",
+      "poi_name": "PePe's",
+      "osm_id": 4326351273,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Zao Island, Valparaiso, IN",
+      "geo_wkt": "POINT (-87.067399 41.458418)",
+      "poi": {
+        "id": 22695,
+        "geometry": "POINT (-87.067399 41.458418)",
+        "poi_name": "Zao Island",
+        "osm_id": 7217435771,
+        "tourism": "theme_park",
+        "website": "https://zaoisland.net/",
+        "phone": "+1-219-462-1194",
+        "addr_state": "IN",
+        "addr_city": "Valparaiso",
+        "addr_postcode": "46385",
+        "addr_street": "Horse Prairie Avenue",
+        "addr_housenumber": "1050"
+      }
+    }
+  },
+  "id": 259,
+  "type": "knn+name"
+}

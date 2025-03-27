@@ -1,0 +1,38 @@
+{
+  "question": "In what direction can I find the closest stadium situated from Red Roof Inn, NJ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.069915 40.208041)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.069915 40.208041)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246348,
+      "geometry": "POINT (-74.171068 40.73335)",
+      "poi_name": "Prudential Center",
+      "osm_id": 11343840343,
+      "leisure": "stadium",
+      "angle": 351.66696812008047
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Red Roof Inn, NJ",
+      "geo_wkt": "POINT (-74.069915 40.208041)",
+      "poi": {
+        "id": 23868,
+        "geometry": "POINT (-74.069915 40.208041)",
+        "poi_name": "Red Roof Inn",
+        "osm_id": 9170581565,
+        "tourism": "hotel",
+        "addr_state": "NJ",
+        "addr_street": "NJ-33"
+      }
+    }
+  },
+  "id": 1457,
+  "type": "knn+angle"
+}

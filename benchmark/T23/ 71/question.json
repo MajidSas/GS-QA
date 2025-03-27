@@ -1,0 +1,43 @@
+{
+  "question": "What's the total count of nature reserves within 20 kilometers from the Willough At Naples, Naples, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.73631 26.096028)',4326)::geography, 20000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "The Willough At Naples, Naples, FL",
+      "geo_wkt": "POINT (-81.73631 26.096028)",
+      "poi": {
+        "id": 181398,
+        "geometry": "POINT (-81.73631 26.096028)",
+        "poi_name": "The Willough At Naples",
+        "osm_id": 10844780198,
+        "amenity": "hospital",
+        "website": "https://www.thewilloughatnaples.com",
+        "phone": "+1 239 775 4500",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Naples",
+        "addr_postcode": "34113",
+        "addr_street": "Tamiami Trail East",
+        "addr_housenumber": "9001"
+      }
+    }
+  },
+  "id": 2270,
+  "type": "range+count"
+}

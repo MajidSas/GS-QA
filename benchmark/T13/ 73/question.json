@@ -1,0 +1,53 @@
+{
+  "question": "Could you help me locate a stadium that's within 80 kilometers from Dutch Country Safari Park, Horse Cave, KY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.92361 37.225846)',4326)::geography, 80000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 267102,
+      "geometry": "POINT (-86.441176 36.996563)",
+      "poi_name": "Bowling Green Ballpark",
+      "osm_id": 4514482625,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "wikidata": "Q4951144",
+      "addr_state": "KY",
+      "addr_city": "Bowling Green",
+      "addr_postcode": "42101",
+      "addr_street": "East 8th Avenue",
+      "addr_housenumber": "300"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Dutch Country Safari Park, Horse Cave, KY",
+      "geo_wkt": "POINT (-85.92361 37.225846)",
+      "poi": {
+        "id": 15625,
+        "geometry": "POINT (-85.92361 37.225846)",
+        "poi_name": "Dutch Country Safari Park",
+        "osm_id": 9418210883,
+        "tourism": "zoo",
+        "website": "http://dutchcountrysafaripark.com/",
+        "zoo": "safari_park",
+        "addr_state": "KY",
+        "addr_city": "Horse Cave",
+        "addr_postcode": "42749",
+        "addr_street": "L and N Turnpike Road",
+        "addr_housenumber": "2125"
+      }
+    }
+  },
+  "id": 2072,
+  "type": "range+loc"
+}

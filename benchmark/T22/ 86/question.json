@@ -1,0 +1,54 @@
+{
+  "question": "What direction does one need to follow to reach the closest aquarium from 3 Palms Zoo & Education Center, Townsend, DE?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24354,
+      "geometry": "POINT (-75.496486 39.155267)",
+      "poi_name": "Super Cichlids Inc",
+      "osm_id": 11016560740,
+      "tourism": "aquarium",
+      "phone": "302-608-3846",
+      "addr_state": "DE",
+      "addr_city": "Dover",
+      "addr_postcode": "19901",
+      "addr_street": "Barl Court",
+      "addr_housenumber": "1055",
+      "angle": 138.33652631307578
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
+      "geo_wkt": "POINT (-75.695391 39.329473)",
+      "poi": {
+        "id": 9742,
+        "geometry": "POINT (-75.695391 39.329473)",
+        "poi_name": "3 Palms Zoo & Education Center",
+        "osm_id": 8969296347,
+        "tourism": "zoo",
+        "wheelchair": "limited",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-15:00",
+        "operator": "3 Palms Zoo LLC",
+        "website": "https://3palmszoo.org",
+        "phone": "+1 302-504-6500",
+        "zoo": "petting_zoo",
+        "addr_state": "DE",
+        "addr_city": "Townsend",
+        "addr_postcode": "19734",
+        "addr_street": "Vandyke Greenspring Road",
+        "addr_housenumber": "1060"
+      }
+    }
+  },
+  "id": 1485,
+  "type": "knn+angle"
+}

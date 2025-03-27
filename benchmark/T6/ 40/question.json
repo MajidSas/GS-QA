@@ -1,0 +1,51 @@
+{
+  "question": "What's the nearest emergency hospital situated from Gardens of the Blue Ridge, Newland, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.88824 35.992246)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167556,
+      "geometry": "POINT (-81.965661 35.362621)",
+      "poi_name": "Rutherford Regional Health System",
+      "osm_id": 357810213,
+      "amenity": "hospital",
+      "website": "https://www.myrutherfordregional.com/",
+      "phone": "+1 828 286 5000",
+      "emergency": "yes",
+      "addr_city": "Rutherfordton",
+      "addr_postcode": "28139",
+      "addr_street": "South Ridgecrest Street",
+      "addr_housenumber": "288"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Gardens of the Blue Ridge, Newland, NC",
+      "geo_wkt": "POINT (-81.88824 35.992246)",
+      "poi": {
+        "id": 266319,
+        "geometry": "POINT (-81.88824 35.992246)",
+        "poi_name": "Gardens of the Blue Ridge",
+        "osm_id": 7175345109,
+        "leisure": "nature_reserve",
+        "website": "https://www.gardensoftheblueridge.com",
+        "phone": "(828) 733-2417",
+        "addr_state": "NC",
+        "addr_city": "Newland",
+        "addr_postcode": "28657",
+        "addr_street": "Pittmans Gap Road",
+        "addr_housenumber": "9056"
+      }
+    }
+  },
+  "id": 639,
+  "type": "knn:non_spat_filter+name"
+}

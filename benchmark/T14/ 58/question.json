@@ -1,0 +1,55 @@
+{
+  "question": "Could you track down an art museum and is conveniently situated within 150 kilometers from Glass Rice, San Francisco, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.413852 37.788672)',4326)::geography, 150000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "answers": [
+    {
+      "id": 1026,
+      "geometry": "POINT (-121.921383 36.551348)",
+      "poi_name": "Center for Photographic Art",
+      "osm_id": 2799337563,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "fee": "yes",
+      "opening_hours": "Mo-Su 09:00-21:00",
+      "website": "https://photography.org/",
+      "museum": "art",
+      "addr_state": "CA",
+      "addr_city": "Carmel",
+      "addr_postcode": "93921",
+      "addr_street": "San Carlos Street",
+      "addr_housenumber": "9"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Glass Rice, San Francisco, CA",
+      "geo_wkt": "POINT (-122.413852 37.788672)",
+      "poi": {
+        "id": 11082,
+        "geometry": "POINT (-122.413852 37.788672)",
+        "poi_name": "Glass Rice",
+        "osm_id": 9849528031,
+        "tourism": "gallery",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_street": "Sutter Street",
+        "addr_housenumber": "808"
+      }
+    }
+  },
+  "id": 457,
+  "type": "range:non_spat_filter+loc"
+}

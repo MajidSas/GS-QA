@@ -1,0 +1,42 @@
+{
+  "question": "What is the total number of zoos within 140 kilometers from Honey Acres, Neosho, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.519843 43.248953)',4326)::geography, 140000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Honey Acres, Neosho, WI",
+      "geo_wkt": "POINT (-88.519843 43.248953)",
+      "poi": {
+        "id": 13195,
+        "geometry": "POINT (-88.519843 43.248953)",
+        "poi_name": "Honey Acres",
+        "osm_id": 4076047372,
+        "tourism": "museum",
+        "opening_hours": "Mo-Fr 09:00-15:30",
+        "website": "https://honeyacres.com/",
+        "addr_state": "WI",
+        "addr_city": "Neosho",
+        "addr_postcode": "53059",
+        "addr_street": "WI-67",
+        "addr_housenumber": "N1557"
+      }
+    }
+  },
+  "id": 2251,
+  "type": "range+count"
+}

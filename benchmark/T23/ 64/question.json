@@ -1,0 +1,36 @@
+{
+  "question": "Within a 100 kilometers distance from Dunham Log House Historic Site, NM, how many museums are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.578877 36.903133)',4326)::geography, 100000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 5
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Dunham Log House Historic Site, NM",
+      "geo_wkt": "POINT (-106.578877 36.903133)",
+      "poi": {
+        "id": 16519,
+        "geometry": "POINT (-106.578877 36.903133)",
+        "poi_name": "Dunham Log House Historic Site",
+        "osm_id": 366377563,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 2263,
+  "type": "range+count"
+}

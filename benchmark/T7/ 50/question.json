@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest park from Tiger Creek Wildlife Refuge, Tyler, TX established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.264008 32.522834)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 252921,
+      "geometry": "POINT (-95.247222 32.575833)",
+      "poi_name": "Little Sandy National Wildlife Refuge",
+      "osm_id": 356860497,
+      "leisure": "park",
+      "operator": "United States Fish and Wildlife Service",
+      "wikidata": "Q28404987",
+      "multihop_answer": "1986",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Little Sandy National Wildlife Refuge Established: 1986"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Tiger Creek Wildlife Refuge, Tyler, TX",
+      "geo_wkt": "POINT (-95.264008 32.522834)",
+      "poi": {
+        "id": 9557,
+        "geometry": "POINT (-95.264008 32.522834)",
+        "poi_name": "Tiger Creek Wildlife Refuge",
+        "osm_id": 3883238421,
+        "tourism": "zoo",
+        "website": "http://www.tigercreek.org/",
+        "addr_state": "TX",
+        "addr_city": "Tyler",
+        "addr_postcode": "75706",
+        "addr_street": "Werner Lane"
+      }
+    }
+  },
+  "id": 949,
+  "type": "knn+name+multihop1"
+}

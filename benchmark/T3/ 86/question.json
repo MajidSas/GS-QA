@@ -1,0 +1,48 @@
+{
+  "question": "Which zoo is available in the south direction of Le Meridien Cambridge-MIT, Cambridge, MA within 130 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.09994 42.362054)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.09994 42.362054)',4326)::geography, 130000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 16194,
+      "geometry": "POINT (-71.09994 42.362054)",
+      "poi_name": "Roger Williams Park Zoo",
+      "osm_id": 357266630,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Le Meridien Cambridge-MIT, Cambridge, MA",
+      "geo_wkt": "POINT (-71.09994 42.362054)",
+      "poi": {
+        "id": 2665,
+        "geometry": "POINT (-71.09994 42.362054)",
+        "poi_name": "Le Meridien Cambridge-MIT",
+        "osm_id": 542929848,
+        "tourism": "hotel",
+        "addr_state": "MA",
+        "addr_city": "Cambridge",
+        "addr_postcode": "02139",
+        "addr_street": "Sidney Street",
+        "addr_housenumber": "20"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2685,
+  "type": "range:direction+name"
+}

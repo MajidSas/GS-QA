@@ -1,0 +1,95 @@
+{
+  "question": "Would you be able to find me a thai restaurant located within 140 kilometers from Ice Arena, MN?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography, 140000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%thai%';\n",
+  "answers": [
+    {
+      "id": 82666,
+      "geometry": "POINT (-92.479883 44.028532)",
+      "poi_name": "Soriya Cuisine",
+      "osm_id": 1707802212,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "addr_postcode": "55901",
+      "addr_street": "Civic Center Drive Northwest",
+      "addr_housenumber": "1123"
+    },
+    {
+      "id": 119274,
+      "geometry": "POINT (-92.4628 44.019835)",
+      "poi_name": "Mango Thai",
+      "osm_id": 9094659688,
+      "amenity": "restaurant",
+      "cuisine": "thai"
+    },
+    {
+      "id": 125340,
+      "geometry": "POINT (-91.239415 43.817665)",
+      "poi_name": "Hmong's Golden Egg Rolls",
+      "osm_id": 6956318322,
+      "amenity": "restaurant",
+      "cuisine": "thai"
+    },
+    {
+      "id": 214146,
+      "geometry": "POINT (-91.499921 44.8112)",
+      "poi_name": "Rice Palace",
+      "osm_id": 5266277643,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Eau Claire",
+      "addr_postcode": "54701",
+      "addr_street": "South Barstow Street",
+      "addr_housenumber": "210"
+    },
+    {
+      "id": 235614,
+      "geometry": "POINT (-91.501252 44.814806)",
+      "poi_name": "Thai Orchid",
+      "osm_id": 5760847445,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Eau Claire",
+      "addr_postcode": "54703",
+      "addr_street": "North Barstow Street",
+      "addr_housenumber": "203"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "thai restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%thai%'"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ice Arena, MN",
+      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "poi": {
+        "id": 265357,
+        "geometry": "POINT (-91.694594 44.04413)",
+        "poi_name": "Ice Arena",
+        "osm_id": 367067698,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    }
+  },
+  "id": 554,
+  "type": "range:non_spat_filter+name"
+}

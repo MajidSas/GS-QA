@@ -1,0 +1,47 @@
+{
+  "question": "Where's the closest zoo located in the direction of northeast from Algonquin Woods, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24437,
+      "geometry": "POINT (-87.872175 42.023616)",
+      "poi_name": "Rainbow Valley Family Farms",
+      "osm_id": 11054966206,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "MI",
+      "addr_city": "Traverse City",
+      "addr_postcode": "49685",
+      "addr_street": "Culver Road",
+      "addr_housenumber": "6040"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Algonquin Woods, IL",
+      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "poi": {
+        "id": 265397,
+        "geometry": "POINT (-87.872175 42.023616)",
+        "poi_name": "Algonquin Woods",
+        "osm_id": 369047872,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1165,
+  "type": "knn:direction+loc"
+}

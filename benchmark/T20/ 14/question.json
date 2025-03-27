@@ -1,0 +1,69 @@
+{
+  "question": "Where is the nearest caf\u00e9 as you progress towards Anderson Park, Hometown, IL from Gabis Arboretum at Purdue Northwest, Valparaiso, IN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography, ST_GeomFromText('POINT (-87.730972 41.727764)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 226744,
+      "geometry": "POINT (-87.338275 41.47301)",
+      "poi_name": "The Region Cat Caf\u00e9",
+      "osm_id": 11167177504,
+      "amenity": "cafe",
+      "website": "https://theregioncatcafe.com/",
+      "addr_state": "IN",
+      "addr_city": "Merrillville",
+      "addr_postcode": "46410",
+      "addr_street": "West 80th Place",
+      "addr_housenumber": "281",
+      "value": 303.14577402477477
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Gabis Arboretum at Purdue Northwest, Valparaiso, IN",
+      "geo_wkt": "POINT (-87.149569 41.444803)",
+      "poi": {
+        "id": 266246,
+        "geometry": "POINT (-87.149569 41.444803)",
+        "poi_name": "Gabis Arboretum at Purdue Northwest",
+        "osm_id": 7086478117,
+        "leisure": "nature_reserve",
+        "opening_hours": "Mo-Su 08:00-sunset",
+        "website": "https://www.pnw.edu/gabis-arboretum/",
+        "phone": "+1 219 462 0025",
+        "addr_state": "IN",
+        "addr_city": "Valparaiso",
+        "addr_postcode": "46385",
+        "addr_street": "West 100 North",
+        "addr_housenumber": "450"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Anderson Park, Hometown, IL",
+      "geo_wkt": "POINT (-87.730972 41.727764)",
+      "poi": {
+        "id": 249602,
+        "geometry": "POINT (-87.730972 41.727764)",
+        "poi_name": "Anderson Park",
+        "osm_id": 354176524,
+        "leisure": "park",
+        "operator": "Hometown Park District",
+        "addr_state": "IL",
+        "addr_city": "Hometown",
+        "addr_postcode": "60456",
+        "addr_street": "Southwest Highway",
+        "addr_housenumber": "4401"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1313,
+  "type": "knn:towards+loc"
+}

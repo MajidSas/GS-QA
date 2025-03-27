@@ -1,0 +1,40 @@
+{
+  "question": "In the vicinity of Shechem Ministries, Lawrenceburg, KY, within 180 kilometers, how many hospitals are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 180000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 17
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    }
+  },
+  "id": 2206,
+  "type": "range+count"
+}

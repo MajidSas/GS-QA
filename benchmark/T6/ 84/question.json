@@ -1,0 +1,53 @@
+{
+  "question": "What's the nearest buffet situated from Oxbow Park and Zollman Zoo, Byron, MN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%buffet%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 164817,
+      "geometry": "POINT (-93.215216 44.731317)",
+      "poi_name": "Super World Buffet",
+      "osm_id": 9501992043,
+      "amenity": "restaurant",
+      "cuisine": "buffet",
+      "website": "superworldbuffetmn.com",
+      "phone": "+1 (952) 997-9888",
+      "addr_state": "MN",
+      "addr_city": "Apple Valley",
+      "addr_postcode": "55124",
+      "addr_street": "Cedar Avenue",
+      "addr_housenumber": "15050"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "buffet",
+      "poi_filter_sql": "cuisine ILIKE '%buffet%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
+      "geo_wkt": "POINT (-92.648741 44.083478)",
+      "poi": {
+        "id": 8983,
+        "geometry": "POINT (-92.648741 44.083478)",
+        "poi_name": "Oxbow Park and Zollman Zoo",
+        "osm_id": 3606133825,
+        "tourism": "zoo",
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "operator": "Olmsted County",
+        "addr_state": "MN",
+        "addr_city": "Byron",
+        "addr_postcode": "55920",
+        "addr_street": "County Road 105 Northwest",
+        "addr_housenumber": "5731"
+      }
+    }
+  },
+  "id": 683,
+  "type": "knn:non_spat_filter+name"
+}

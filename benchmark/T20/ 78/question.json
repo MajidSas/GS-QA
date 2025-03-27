@@ -1,0 +1,74 @@
+{
+  "question": "Where is the closest fast food restaurant in the direction of Christian County Coal Mine Museum, Taylorville, IL from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, ST_GeomFromText('POINT (-89.294774 39.548782)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 97922,
+      "geometry": "POINT (-89.668009 39.783357)",
+      "poi_name": "Little Caesars",
+      "osm_id": 6501102199,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Su 11:00-22:00",
+      "website": "https://littlecaesars.com/en-us/store/8245/",
+      "phone": "+1-217-522-3727",
+      "takeaway": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "South MacArthur Boulevard",
+      "addr_housenumber": "1614",
+      "value": 128.45142709908487
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Christian County Coal Mine Museum, Taylorville, IL",
+      "geo_wkt": "POINT (-89.294774 39.548782)",
+      "poi": {
+        "id": 3357,
+        "geometry": "POINT (-89.294774 39.548782)",
+        "poi_name": "Christian County Coal Mine Museum",
+        "osm_id": 5371048578,
+        "tourism": "museum",
+        "website": "https://www.countyoffice.org/christian-county-coal-mine-museum-taylorville-il-5fe/",
+        "phone": "+1-217-823-1819",
+        "museum": "history",
+        "addr_state": "IL",
+        "addr_city": "Taylorville",
+        "addr_postcode": "62568",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "118"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1377,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What's the distance between Funkmeyer New Reality Garden, Los Angeles, CA and the nearest museum?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12122,
+      "geometry": "POINT (-118.340452 34.040033)",
+      "poi_name": "Lowell Ryan Projects",
+      "osm_id": 6197156486,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 11:00-18:00",
+      "website": "https://www.lowellryanprojects.com/",
+      "distance": 2447.08438825
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "poi": {
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
+      }
+    }
+  },
+  "id": 2408,
+  "type": "knn+distance"
+}

@@ -1,0 +1,69 @@
+{
+  "question": "Which fast food is nearest towards Hollywood Car Museum, Las Vegas, NV from Hoover Dam Visitor Center, Boulder City, NV?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-114.739396 36.016176)',4326)::geography, ST_GeomFromText('POINT (-115.181932 36.09658)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-114.739396 36.016176)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-114.739396 36.016176)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 72939,
+      "geometry": "POINT (-114.96468 36.026488)",
+      "poi_name": "Friendly Donut House",
+      "osm_id": 9596053002,
+      "amenity": "fast_food",
+      "cuisine": "donut",
+      "addr_state": "NV",
+      "addr_city": "Henderson",
+      "addr_postcode": "89015",
+      "addr_street": "S Boulder Highway",
+      "addr_housenumber": "856",
+      "value": 282.7426618081966
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hoover Dam Visitor Center, Boulder City, NV",
+      "geo_wkt": "POINT (-114.739396 36.016176)",
+      "poi": {
+        "id": 10625,
+        "geometry": "POINT (-114.739396 36.016176)",
+        "poi_name": "Hoover Dam Visitor Center",
+        "osm_id": 6952790777,
+        "tourism": "attraction",
+        "opening_hours": "09:00-16:30",
+        "operator": "U.S. Bureau of Reclamation",
+        "phone": "+1-702-494-2517",
+        "addr_state": "NV",
+        "addr_city": "Boulder City",
+        "addr_postcode": "89006",
+        "addr_street": "Hoover Dam Access Road"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Hollywood Car Museum, Las Vegas, NV",
+      "geo_wkt": "POINT (-115.181932 36.09658)",
+      "poi": {
+        "id": 14730,
+        "geometry": "POINT (-115.181932 36.09658)",
+        "poi_name": "Hollywood Car Museum",
+        "osm_id": 4697358281,
+        "tourism": "museum",
+        "website": "http://hollywoodcarsmuseum.com/",
+        "phone": "7023316400",
+        "addr_state": "NV",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "89118",
+        "addr_street": "Dean Martin Drive",
+        "addr_housenumber": "5115"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 148,
+  "type": "knn:towards+name"
+}

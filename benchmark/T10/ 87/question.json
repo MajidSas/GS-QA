@@ -1,0 +1,61 @@
+{
+  "question": "What's the closest fast food on the path leading to Hoop-Dee-Doo Musical Revue, FL from Winter Haven Women's Hospital, Winter Haven, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.726178 28.008976)',4326)::geography, ST_GeomFromText('POINT (-81.561715 28.411566)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.726178 28.008976)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.726178 28.008976)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 106380,
+      "geometry": "POINT (-81.637703 28.105428)",
+      "poi_name": "China Wok",
+      "osm_id": 8677497683,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "value": 19.854988229207382
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Winter Haven Women's Hospital, Winter Haven, FL",
+      "geo_wkt": "POINT (-81.726178 28.008976)",
+      "poi": {
+        "id": 181397,
+        "geometry": "POINT (-81.726178 28.008976)",
+        "poi_name": "Winter Haven Women's Hospital",
+        "osm_id": 10844779985,
+        "amenity": "hospital",
+        "website": "https://baycare.org/hospitals/winter-haven-womens-hospital/patients-visitors",
+        "phone": "+1 863 294 7010",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Winter Haven",
+        "addr_postcode": "33880",
+        "addr_street": "Avenue O Southeast",
+        "addr_housenumber": "101"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hoop-Dee-Doo Musical Revue, FL",
+      "geo_wkt": "POINT (-81.561715 28.411566)",
+      "poi": {
+        "id": 2529,
+        "geometry": "POINT (-81.561715 28.411566)",
+        "poi_name": "Hoop-Dee-Doo Musical Revue",
+        "osm_id": 3507891368,
+        "amenity": "restaurant",
+        "tourism": "attraction",
+        "addr_state": "FL"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 186,
+  "type": "knn:towards+name"
+}

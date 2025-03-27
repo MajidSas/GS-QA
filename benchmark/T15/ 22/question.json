@@ -1,0 +1,91 @@
+{
+  "question": "Where can I find a golf course located in the northwest of Gary Lapelusa Landscaping LLC, Bayonne, NJ, within a radius of 190 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, 190000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 247935,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "All Weather Golf",
+      "osm_id": 6110180969,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Wilkes-Barre",
+      "addr_postcode": "18705",
+      "addr_street": "North Pennsylvania Avenue",
+      "addr_housenumber": "634"
+    },
+    {
+      "id": 246812,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Great Bear Golf Club",
+      "osm_id": 6466631565,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "East Stroudsburg",
+      "addr_postcode": "18302",
+      "addr_street": "Great Bear Court",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 246819,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Country Club of the Poconos Municipal Golf Course",
+      "osm_id": 6471208669,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "East Stroudsburg",
+      "addr_postcode": "18302",
+      "addr_street": "Big Ridge Drive",
+      "addr_housenumber": "1445"
+    },
+    {
+      "id": 246826,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Pinecrest Lake Golf Club",
+      "osm_id": 6480941365,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Pocono Pines",
+      "addr_postcode": "18350",
+      "addr_street": "Pinecrest Drive",
+      "addr_housenumber": "679"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "poi": {
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 21,
+  "type": "range:direction+loc"
+}

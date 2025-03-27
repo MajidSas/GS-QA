@@ -1,0 +1,70 @@
+{
+  "question": "Where can I find a hospital within 80 kilometers drive from Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 80000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 44384,
+      "geometry": "POINT (-84.50939 38.031077)",
+      "poi_name": "UK Healthcare",
+      "osm_id": 3158012209,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "opening_hours": "24/7",
+      "website": "https://ukhealthcare.uky.edu/",
+      "phone": "+1 859 257 1000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Lexington",
+      "addr_postcode": "40536",
+      "addr_street": "South Limestone",
+      "addr_housenumber": "1000"
+    },
+    {
+      "id": 224017,
+      "geometry": "POINT (-84.271352 37.73258)",
+      "poi_name": "Marshall Pediatric Therapy - Richmond",
+      "osm_id": 11071241664,
+      "amenity": "hospital",
+      "opening_hours": "Mo-Th 08:00-12:00,13:00-18:00; Fr 08:00-12:00,13:00-17:00",
+      "website": "https://marshallpediatrictherapy.com/locations/richmond",
+      "phone": "859-444-5330",
+      "healthcare": "hospital",
+      "addr_state": "KY",
+      "addr_city": "Richmond",
+      "addr_postcode": "40475",
+      "addr_street": "Center Drive",
+      "addr_housenumber": "1013"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    }
+  },
+  "id": 2088,
+  "type": "range+loc"
+}

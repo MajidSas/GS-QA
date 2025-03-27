@@ -1,0 +1,102 @@
+{
+  "question": "Which fast food restaurant is available in the west direction of Pioneer Stadium, Ogden, UT within 50 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, 50000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 51136,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "McDonald's",
+      "osm_id": 513052480,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ut/west-haven/2085-s-1100-w/23491.html",
+      "takeaway": "yes"
+    },
+    {
+      "id": 166743,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Blimpie",
+      "osm_id": 310654366,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 55248,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Burly Burger",
+      "osm_id": 10178757655,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Sa 11:00-21:00",
+      "drive_through": "yes"
+    },
+    {
+      "id": 81342,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Subway",
+      "osm_id": 1627855833,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_street": "South 1900 West",
+      "addr_housenumber": "2355"
+    },
+    {
+      "id": 201820,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Taco Bell",
+      "osm_id": 660916063,
+      "amenity": "fast_food",
+      "cuisine": "tex-mex",
+      "website": "https://locations.tacobell.com/ut/ogden/1670-w-12th-st.html",
+      "takeaway": "yes"
+    },
+    {
+      "id": 201822,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Subway",
+      "osm_id": 660916071,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2671,
+  "type": "range:direction+name"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "Which way should I go to reach the closest park from Adventure Sports in Hershey, Hershey, PA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 254023,
+      "geometry": "POINT (-76.725248 40.214258)",
+      "poi_name": "Swatara Park",
+      "osm_id": 357315761,
+      "leisure": "park",
+      "angle": 254.49560012044952
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Sports in Hershey, Hershey, PA",
+      "geo_wkt": "POINT (-76.62265 40.236123)",
+      "poi": {
+        "id": 18427,
+        "geometry": "POINT (-76.62265 40.236123)",
+        "poi_name": "Adventure Sports in Hershey",
+        "osm_id": 2295840835,
+        "tourism": "theme_park",
+        "website": "https://www.adventurehershey.com/",
+        "phone": "717.533.7479",
+        "addr_state": "PA",
+        "addr_city": "Hershey",
+        "addr_postcode": "17033",
+        "addr_street": "Elizabethtown Road",
+        "addr_housenumber": "3010"
+      }
+    }
+  },
+  "id": 1466,
+  "type": "knn+angle"
+}

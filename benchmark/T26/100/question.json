@@ -1,0 +1,43 @@
+{
+  "question": "How far is the nearest golf course situated from Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 252533,
+      "geometry": "POINT (-98.483958 28.982712)",
+      "poi_name": "Pleasanton Country Club",
+      "osm_id": 356848744,
+      "leisure": "golf_course",
+      "distance": 48923.72839223
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "poi": {
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
+      }
+    }
+  },
+  "id": 2499,
+  "type": "knn+distance"
+}

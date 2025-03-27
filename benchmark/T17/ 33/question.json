@@ -1,0 +1,50 @@
+{
+  "question": "Do you know where the closest caf\u00e9 from Public Gazebo, San Diego, CA is located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.108294 32.909732)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 244278,
+      "geometry": "POINT (-117.114007 32.916569)",
+      "poi_name": "Sharetea",
+      "osm_id": 7711480334,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea",
+      "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 11:00-00:00; Su 11:00-23:00",
+      "website": "https://www.1992sharetea.com",
+      "phone": "+1-858-860-5985",
+      "takeaway": "yes",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92131",
+      "addr_street": "Mira Mesa Boulevard",
+      "addr_housenumber": "9827"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Public Gazebo, San Diego, CA",
+      "geo_wkt": "POINT (-117.108294 32.909732)",
+      "poi": {
+        "id": 246026,
+        "geometry": "POINT (-117.108294 32.909732)",
+        "poi_name": "Public Gazebo",
+        "osm_id": 5474499377,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92131",
+        "addr_street": "Meanley Drive",
+        "addr_housenumber": "10084-10126 Meanley"
+      }
+    }
+  },
+  "id": 1832,
+  "type": "knn+loc"
+}

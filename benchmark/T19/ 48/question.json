@@ -1,0 +1,52 @@
+{
+  "question": "Where's the closest stadium towards the west of Indian Hot Springs, Idaho Springs, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.512663 39.739082)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266188,
+      "geometry": "POINT (-105.512663 39.739082)",
+      "poi_name": "Pioneer Stadium",
+      "osm_id": 598066080,
+      "leisure": "stadium",
+      "sport": "equestrian",
+      "wikidata": "Q7079951",
+      "addr_state": "UT",
+      "addr_city": "Ogden",
+      "addr_street": "17th Street",
+      "addr_housenumber": "668"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Indian Hot Springs, Idaho Springs, CO",
+      "geo_wkt": "POINT (-105.512663 39.739082)",
+      "poi": {
+        "id": 15892,
+        "geometry": "POINT (-105.512663 39.739082)",
+        "poi_name": "Indian Hot Springs",
+        "osm_id": 9588812190,
+        "amenity": "public_bath",
+        "tourism": "hotel",
+        "fee": "yes",
+        "addr_state": "CO",
+        "addr_city": "Idaho Springs",
+        "addr_postcode": "80452",
+        "addr_street": "Soda Creek Road",
+        "addr_housenumber": "302"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 1147,
+  "type": "knn:direction+loc"
+}

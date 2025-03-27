@@ -1,0 +1,54 @@
+{
+  "question": "Where is the nearest attraction towards the northwest of Hellsgate Farms, Astoria, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23386,
+      "geometry": "POINT (-73.930068 40.768724)",
+      "poi_name": "Urban Air Trampoline & Adventure Park",
+      "osm_id": 5159110696,
+      "leisure": "playground",
+      "description": "Trampoline Park in South Hackensack.",
+      "tourism": "attraction",
+      "operator": "Urban Air LLC",
+      "website": "https://www.urbanairtrampolinepark.com/trampoline-park-locations/south-hackensack-nj/",
+      "phone": "+1-201- 212-6454",
+      "addr_state": "NJ",
+      "addr_city": "South Hackensack",
+      "addr_postcode": "07606",
+      "addr_street": "Wesley Street",
+      "addr_housenumber": "69"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
+      "poi": {
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1136,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,77 @@
+{
+  "question": "Which restaurant is nearest towards White Memorial Foundation, Litchfield, CT from Discovery Depot at Nature's Art Village, Montville, CT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography, ST_GeomFromText('POINT (-73.213489 41.724615)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 109031,
+      "geometry": "POINT (-72.222426 41.431796)",
+      "poi_name": "Cobalt Cafe at Nature's Art Village",
+      "osm_id": 3646701863,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "opening_hours": "10:00-17:00",
+      "website": "http://www.naturesartvillage.com",
+      "capacity": "100",
+      "phone": "860-443-4367",
+      "takeaway": "yes",
+      "delivery": "no",
+      "addr_state": "CT",
+      "addr_city": "Montville",
+      "addr_postcode": "06370",
+      "addr_street": "Hartford-New London Turnpike",
+      "addr_housenumber": "1650",
+      "value": 291.8113514104954
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "poi": {
+        "id": 9052,
+        "geometry": "POINT (-72.222213 41.431675)",
+        "poi_name": "Discovery Depot at Nature's Art Village",
+        "osm_id": 3646715046,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-17:00 \"seasonal\"",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "White Memorial Foundation, Litchfield, CT",
+      "geo_wkt": "POINT (-73.213489 41.724615)",
+      "poi": {
+        "id": 245812,
+        "geometry": "POINT (-73.213489 41.724615)",
+        "poi_name": "White Memorial Foundation",
+        "osm_id": 10112095367,
+        "leisure": "nature_reserve",
+        "description": "The White Memorial Foundation is the result of the vision of two generous and creative people, Alain C. White and his sister, May W. White. Between 1908 and 1912 they purchased several tracts of land surrounding their family\u2019s Whitehall property on the no",
+        "operator": "White Memorial Foundation",
+        "website": "www.whitememorialcc.org",
+        "phone": "860-567-0857",
+        "addr_state": "CT",
+        "addr_city": "Litchfield",
+        "addr_postcode": "06759",
+        "addr_street": "Whitehall Road",
+        "addr_housenumber": "72"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 160,
+  "type": "knn:towards+name"
+}

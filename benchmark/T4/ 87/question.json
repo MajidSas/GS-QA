@@ -1,0 +1,158 @@
+{
+  "question": "What attraction can I find as I progress towards House of Air, San Francisco, CA from the View Lounge, San Francisco, CA, within a radius of 130 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, 130000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 14224,
+      "geometry": "POINT (-122.585725 37.86281)",
+      "poi_name": "Muir Beach Overlook",
+      "osm_id": 4252751969,
+      "tourism": "attraction",
+      "operator": "National Park Service",
+      "website": "https://www.nps.gov/goga/planyourvisit/muirbeach.htm",
+      "wikidata": "Q14683443",
+      "addr_state": "CA",
+      "addr_city": "Muir Beach",
+      "addr_street": "Muir Beach Overlook",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 6043,
+      "geometry": "POINT (-122.708811 38.004232)",
+      "poi_name": "Leo T. Cronin Fish Viewing Area",
+      "osm_id": 1723510720,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 8306,
+      "geometry": "POINT (-122.626735 37.888348)",
+      "poi_name": "Stinson tree",
+      "osm_id": 6615298190,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 15150,
+      "geometry": "POINT (-122.95336 38.187132)",
+      "poi_name": "Tule Elk Reserve, Pierce Pt., Pt. Reyes NS",
+      "osm_id": 4812831522,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 22058,
+      "geometry": "POINT (-122.803296 38.045596)",
+      "poi_name": "Kule Loklo",
+      "osm_id": 973293819,
+      "tourism": "attraction",
+      "operator": "National Park Service",
+      "website": "https://www.nps.gov/places/point_reyes_kule_loklo.htm",
+      "wikidata": "Q6442907",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 22078,
+      "geometry": "POINT (-122.574126 37.893752)",
+      "poi_name": "Pinchot Tree",
+      "osm_id": 981394462,
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 22545,
+      "geometry": "POINT (-122.945403 38.093802)",
+      "poi_name": "Cypress Tree Tunnel",
+      "osm_id": 7150225517,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 25201,
+      "geometry": "POINT (-122.426696 37.789638)",
+      "poi_name": "Tobin House",
+      "osm_id": 4421547689,
+      "tourism": "attraction",
+      "addr_postcode": "94109",
+      "addr_street": "California Street",
+      "addr_housenumber": "1969",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 23450,
+      "geometry": "POINT (-122.573489 37.893414)",
+      "poi_name": "Redwood Tree Slice",
+      "osm_id": 5212949764,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    },
+    {
+      "id": 25070,
+      "geometry": "POINT (-122.850986 38.097312)",
+      "poi_name": "Point Reyes Shipwrecks",
+      "osm_id": 4390191891,
+      "tourism": "attraction",
+      "value": 290.9554775697551
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "House of Air, San Francisco, CA",
+      "geo_wkt": "POINT (-122.468617 37.804932)",
+      "poi": {
+        "id": 14569,
+        "geometry": "POINT (-122.468617 37.804932)",
+        "poi_name": "House of Air",
+        "osm_id": 4659836677,
+        "tourism": "theme_park",
+        "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+        "website": "https://www.houseofair.com/",
+        "phone": "+1 (415) 345-9675",
+        "wikidata": "Q5914641",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94129",
+        "addr_street": "Mason Street",
+        "addr_housenumber": "926"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1686,
+  "type": "range:towards+name"
+}

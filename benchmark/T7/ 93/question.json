@@ -1,0 +1,49 @@
+{
+  "question": "When was the nearest stadium from the Dinosaur Place at Nature's Art Village, Montville, CT first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245936,
+      "geometry": "POINT (-72.089711 41.491106)",
+      "poi_name": "Mohegan Sun Arena",
+      "osm_id": 5339696382,
+      "leisure": "stadium",
+      "operator": "Mohegan Gaming and Entertainment",
+      "sport": "basketball",
+      "wikidata": "Q2056942",
+      "multihop_answer": "October 2001",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Mohegan Sun Arena Opened: October 2001"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "poi": {
+        "id": 9051,
+        "geometry": "POINT (-72.222926 41.432518)",
+        "poi_name": "The Dinosaur Place at Nature's Art Village",
+        "osm_id": 3646707526,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-dusk",
+        "website": "www.naturesartvillage.com",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    }
+  },
+  "id": 992,
+  "type": "knn+name+multihop1"
+}

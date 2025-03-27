@@ -1,0 +1,61 @@
+{
+  "question": "What's the nearest fast food on the way to Fisher Woods, IL from Porter - Starke Services, Valparaiso, IN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography, ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 155946,
+      "geometry": "POINT (-87.140404 41.550808)",
+      "poi_name": "Subway",
+      "osm_id": 4636076362,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 303.7809835868429
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Porter - Starke Services, Valparaiso, IN",
+      "geo_wkt": "POINT (-87.052033 41.48969)",
+      "poi": {
+        "id": 182074,
+        "geometry": "POINT (-87.052033 41.48969)",
+        "poi_name": "Porter - Starke Services",
+        "osm_id": 10876711802,
+        "amenity": "hospital",
+        "website": "https://www.porterstarke.org",
+        "phone": "+1 219 531 3500",
+        "healthcare": "hospital",
+        "addr_state": "IN",
+        "addr_city": "Valparaiso",
+        "addr_postcode": "46383",
+        "addr_street": "Wall Street",
+        "addr_housenumber": "701"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Fisher Woods, IL",
+      "geo_wkt": "POINT (-87.964233 41.941696)",
+      "poi": {
+        "id": 265405,
+        "geometry": "POINT (-87.964233 41.941696)",
+        "poi_name": "Fisher Woods",
+        "osm_id": 369051083,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of DuPage County",
+        "addr_state": "IL"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 113,
+  "type": "knn:towards+name"
+}

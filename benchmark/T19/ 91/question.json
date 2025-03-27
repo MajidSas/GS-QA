@@ -1,0 +1,56 @@
+{
+  "question": "Where's the nearest caf\u00e9 located in the north of Luthy Botanical Garden, Peoria, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 208002,
+      "geometry": "POINT (-89.575754 40.71863)",
+      "poi_name": "Flour House Bakery",
+      "osm_id": 4970973593,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;bakery",
+      "opening_hours": "Th-Mo 7:00-16:00",
+      "internet_access": "wlan",
+      "outdoor_seating": "yes",
+      "addr_state": "IL",
+      "addr_city": "Princeton",
+      "addr_postcode": "61356",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "950"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
+      "poi": {
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1190,
+  "type": "knn:direction+loc"
+}

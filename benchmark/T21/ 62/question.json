@@ -1,0 +1,47 @@
+{
+  "question": "What's the course towards a viewpoint from Ferry Street Farm, New Haven, CT within 10 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography, 10000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 5198,
+      "geometry": "POINT (-72.961232 41.332295)",
+      "poi_name": "South Overlook",
+      "osm_id": 9796048964,
+      "tourism": "viewpoint",
+      "angle": 288.16080480062345
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ferry Street Farm, New Haven, CT",
+      "geo_wkt": "POINT (-72.89683 41.31639)",
+      "poi": {
+        "id": 246385,
+        "geometry": "POINT (-72.89683 41.31639)",
+        "poi_name": "Ferry Street Farm",
+        "osm_id": 11413367607,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "http://www.gathernewhaven.org/",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "Ferry Street",
+        "addr_housenumber": "613"
+      }
+    }
+  },
+  "id": 1061,
+  "type": "range+angle"
+}

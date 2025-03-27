@@ -1,0 +1,54 @@
+{
+  "question": "Where can I find the closest emergency hospital from Sea Life Aquarium, Auburn Hills, MI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.296505 42.70361)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 189986,
+      "geometry": "POINT (-84.555122 42.993121)",
+      "poi_name": "Sparrow Clinton Hospital",
+      "osm_id": 1260156516,
+      "amenity": "hospital",
+      "website": "https://www.sparrow.org/sparrowclinton",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Saint Johns",
+      "addr_postcode": "48879",
+      "addr_street": "South Oakland Street",
+      "addr_housenumber": "805"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, Auburn Hills, MI",
+      "geo_wkt": "POINT (-83.296505 42.70361)",
+      "poi": {
+        "id": 27034,
+        "geometry": "POINT (-83.296505 42.70361)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 7653305135,
+        "tourism": "aquarium",
+        "wheelchair": "yes",
+        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-19:00; Su 11:00-18:00",
+        "website": "https://www.visitsealife.com/michigan/",
+        "phone": "+1 248-409-6001",
+        "toilets": "yes",
+        "addr_state": "MI",
+        "addr_city": "Auburn Hills",
+        "addr_postcode": "48326",
+        "addr_street": "Baldwin Road",
+        "addr_housenumber": "4316"
+      }
+    }
+  },
+  "id": 314,
+  "type": "knn:non_spat_filter+loc"
+}

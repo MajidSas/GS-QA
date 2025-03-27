@@ -1,0 +1,63 @@
+{
+  "question": "What's the nearest restaurant heading towards James C. Curry Nature Center, Canyon Lake, TX from Baptist Neighborhood Hospital Kelly, San Antonio, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography, ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 129970,
+      "geometry": "POINT (-98.5247 29.449178)",
+      "poi_name": "Charrito's Cafe",
+      "osm_id": 9848502059,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "value": 34.58911071541372
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Baptist Neighborhood Hospital Kelly, San Antonio, TX",
+      "geo_wkt": "POINT (-98.547766 29.402768)",
+      "poi": {
+        "id": 183208,
+        "geometry": "POINT (-98.547766 29.402768)",
+        "poi_name": "Baptist Neighborhood Hospital Kelly",
+        "osm_id": 10917049935,
+        "amenity": "hospital",
+        "website": "https://www.baptisthealthsystem.com/locations/detail/baptist-emergency-hospital---kelly",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78237",
+        "addr_street": "Cupples Road",
+        "addr_housenumber": "806"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
+      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "poi": {
+        "id": 246012,
+        "geometry": "POINT (-98.194766 29.848573)",
+        "poi_name": "James C. Curry Nature Center",
+        "osm_id": 5449527323,
+        "leisure": "nature_reserve",
+        "operator": "Comal County",
+        "addr_state": "TX",
+        "addr_city": "Canyon Lake",
+        "addr_postcode": "78133",
+        "addr_street": "Skyline Drive",
+        "addr_housenumber": "1889"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 184,
+  "type": "knn:towards+name"
+}

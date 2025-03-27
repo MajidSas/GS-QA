@@ -1,0 +1,69 @@
+{
+  "question": "Which restaurant is nearest as you move towards Charlotte's Quest Nature Center, Manchester, MD from United States Naval Academy, Annapolis, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.483216 38.981598)',4326)::geography, ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.483216 38.981598)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.483216 38.981598)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 119614,
+      "geometry": "POINT (-76.506049 39.029417)",
+      "poi_name": "Bella Italia Restaurant",
+      "osm_id": 9109583538,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "website": "https://bellaitaliaarnold.com/",
+      "addr_city": "Arnold",
+      "addr_postcode": "21012",
+      "addr_street": "Ritchie Highway",
+      "addr_housenumber": "1460",
+      "value": 335.7861001987714
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "United States Naval Academy, Annapolis, MD",
+      "geo_wkt": "POINT (-76.483216 38.981598)",
+      "poi": {
+        "id": 167598,
+        "geometry": "POINT (-76.483216 38.981598)",
+        "poi_name": "United States Naval Academy",
+        "osm_id": 358250114,
+        "amenity": "university",
+        "operator": "United States Navy",
+        "website": "https://www.usna.edu/",
+        "wikidata": "Q559549",
+        "addr_state": "MD",
+        "addr_city": "Annapolis",
+        "addr_postcode": "21402",
+        "addr_street": "Blake Road",
+        "addr_housenumber": "121"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
+      "poi": {
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
+        "leisure": "nature_reserve",
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 187,
+  "type": "knn:towards+name"
+}

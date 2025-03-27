@@ -1,0 +1,48 @@
+{
+  "question": "I'm searching for a stadium within 160 kilometers radii from Golden Gate Bridge Lookout, Sausalito, CA, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 246975,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Bowditch Middle School Auditorium",
+      "osm_id": 8468035653,
+      "leisure": "stadium",
+      "sport": "basketball;volleyball",
+      "addr_state": "CA",
+      "addr_city": "Foster City",
+      "addr_postcode": "94404",
+      "addr_street": "Tarpon Street",
+      "addr_housenumber": "1450"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
+      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "poi": {
+        "id": 20450,
+        "geometry": "POINT (-122.486003 37.82872)",
+        "poi_name": "Golden Gate Bridge Lookout",
+        "osm_id": 1183476394,
+        "tourism": "viewpoint",
+        "addr_state": "CA",
+        "addr_city": "Sausalito",
+        "addr_street": "Conzelman Road"
+      }
+    }
+  },
+  "id": 2071,
+  "type": "range+loc"
+}

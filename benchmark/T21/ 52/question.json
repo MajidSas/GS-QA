@@ -1,0 +1,91 @@
+{
+  "question": "In what direction can I find a university situated from Harriott II Riverboat, Montgomery, AL within 170 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.31404 32.381806)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.31404 32.381806)',4326)::geography, 170000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 30325,
+      "geometry": "POINT (-86.177796 32.369421)",
+      "poi_name": "Liberal Arts Building",
+      "osm_id": 8349666513,
+      "amenity": "university",
+      "angle": 96.0774903064479
+    },
+    {
+      "id": 30326,
+      "geometry": "POINT (-86.177689 32.369068)",
+      "poi_name": "Education Building",
+      "osm_id": 8349666514,
+      "amenity": "university",
+      "angle": 96.24568642493587
+    },
+    {
+      "id": 167798,
+      "geometry": "POINT (-85.491005 32.606716)",
+      "poi_name": "Ludwig von Mises Institute",
+      "osm_id": 360195422,
+      "amenity": "university",
+      "wikidata": "Q2457448",
+      "angle": 71.90756407596368
+    },
+    {
+      "id": 167755,
+      "geometry": "POINT (-86.285246 32.350972)",
+      "poi_name": "Huntingdon College",
+      "osm_id": 358974322,
+      "amenity": "university",
+      "angle": 141.59344884969784
+    },
+    {
+      "id": 168206,
+      "geometry": "POINT (-85.960251 31.799575)",
+      "poi_name": "Colley Hall",
+      "osm_id": 367932236,
+      "amenity": "university",
+      "addr_state": "AL",
+      "angle": 152.5537477513509
+    },
+    {
+      "id": 168207,
+      "geometry": "POINT (-85.95963 31.799979)",
+      "poi_name": "Anderson Hall",
+      "osm_id": 367932248,
+      "amenity": "university",
+      "addr_state": "AL",
+      "angle": 152.4963686425668
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Harriott II Riverboat, Montgomery, AL",
+      "geo_wkt": "POINT (-86.31404 32.381806)",
+      "poi": {
+        "id": 21152,
+        "geometry": "POINT (-86.31404 32.381806)",
+        "poi_name": "Harriott II Riverboat",
+        "osm_id": 1427520471,
+        "tourism": "attraction",
+        "operator": "City of Montgomery",
+        "website": "https://www.funinmontgomery.com/Home/Components/FacilityDirectory/FacilityDirectory/224/3052",
+        "phone": "+1-334-625-2100",
+        "addr_state": "AL",
+        "addr_city": "Montgomery",
+        "addr_postcode": "36104",
+        "addr_street": "Commerce Street",
+        "addr_housenumber": "255"
+      }
+    }
+  },
+  "id": 1051,
+  "type": "range+angle"
+}

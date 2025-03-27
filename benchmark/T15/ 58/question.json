@@ -1,0 +1,80 @@
+{
+  "question": "Where can I find an attraction located within 120 kilometers in the direction of southwest from Douglas Motorsports Park, Nicholls, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography, 120000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 228998,
+      "geometry": "POINT (-82.721626 31.422596)",
+      "poi_name": "Frogtown Cellars Hahira Tasting Room",
+      "osm_id": 4362122222,
+      "amenity": "cafe",
+      "cuisine": "sandwich",
+      "tourism": "attraction",
+      "opening_hours": "Mo-Th 12:00-18:00; Fr 12:00-22:00; Sa 12:00-18:00; Su 12:30-18:00",
+      "operator": "Frogtown Cellars",
+      "website": "http://frogtown.us/",
+      "internet_access": "no",
+      "phone": "+1 (229) 794-1600",
+      "addr_state": "GA",
+      "addr_city": "Hahira",
+      "addr_postcode": "31632",
+      "addr_street": "Union Road",
+      "addr_housenumber": "7495"
+    },
+    {
+      "id": 24965,
+      "geometry": "POINT (-82.721626 31.422596)",
+      "poi_name": "Frogtown Cellars Hahira Tasting Room",
+      "osm_id": 4362122222,
+      "amenity": "cafe",
+      "cuisine": "sandwich",
+      "tourism": "attraction",
+      "opening_hours": "Mo-Th 12:00-18:00; Fr 12:00-22:00; Sa 12:00-18:00; Su 12:30-18:00",
+      "operator": "Frogtown Cellars",
+      "website": "http://frogtown.us/",
+      "internet_access": "no",
+      "phone": "+1 (229) 794-1600",
+      "addr_state": "GA",
+      "addr_city": "Hahira",
+      "addr_postcode": "31632",
+      "addr_street": "Union Road",
+      "addr_housenumber": "7495"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Douglas Motorsports Park, Nicholls, GA",
+      "geo_wkt": "POINT (-82.721626 31.422596)",
+      "poi": {
+        "id": 246444,
+        "geometry": "POINT (-82.721626 31.422596)",
+        "poi_name": "Douglas Motorsports Park",
+        "osm_id": 9673566883,
+        "leisure": "stadium",
+        "sport": "motor",
+        "addr_state": "GA",
+        "addr_city": "Nicholls",
+        "addr_postcode": "31554",
+        "addr_street": "Ronnie Walker Road",
+        "addr_housenumber": "1560"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 57,
+  "type": "range:direction+loc"
+}

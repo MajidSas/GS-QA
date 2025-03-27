@@ -1,0 +1,49 @@
+{
+  "question": "What's the distance between South Venice Lemon Bay Preserve - South Entrance, Venice, FL and the nearest attraction?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.41031 27.022499)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.41031 27.022499)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23680,
+      "geometry": "POINT (-82.261141 27.058896)",
+      "poi_name": "Warm Mineral Springs",
+      "osm_id": 5271146121,
+      "tourism": "attraction",
+      "website": "http://www.warmmineral.com",
+      "phone": "+1 941-426-1692",
+      "addr_postcode": "34287",
+      "addr_street": "San Servando Avenue",
+      "addr_housenumber": "12200",
+      "distance": 15340.01277026
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "South Venice Lemon Bay Preserve - South Entrance, Venice, FL",
+      "geo_wkt": "POINT (-82.41031 27.022499)",
+      "poi": {
+        "id": 247840,
+        "geometry": "POINT (-82.41031 27.022499)",
+        "poi_name": "South Venice Lemon Bay Preserve - South Entrance",
+        "osm_id": 11461500012,
+        "leisure": "nature_reserve",
+        "opening_hours": "06:00-sunset",
+        "operator": "Sarasota County",
+        "website": "https://www.sarasotacountyparks.com/Home/Components/FacilityDirectory/FacilityDirectory/499/6484",
+        "addr_state": "FL",
+        "addr_city": "Venice",
+        "addr_postcode": "34293",
+        "addr_street": "Osprey Road",
+        "addr_housenumber": "6200"
+      }
+    }
+  },
+  "id": 2464,
+  "type": "knn+distance"
+}

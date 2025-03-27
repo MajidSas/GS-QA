@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest local museum situated from Portland Trails, Falmouth, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.265885 43.717725)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17430,
+      "geometry": "POINT (-70.704658 44.053556)",
+      "poi_name": "Bridgton Historical Society Museum",
+      "osm_id": 367795464,
+      "historic": "yes",
+      "tourism": "museum",
+      "website": "https://www.bridgtonhistory.org/",
+      "museum": "local",
+      "addr_state": "ME"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Portland Trails, Falmouth, ME",
+      "geo_wkt": "POINT (-70.265885 43.717725)",
+      "poi": {
+        "id": 266339,
+        "geometry": "POINT (-70.265885 43.717725)",
+        "poi_name": "Portland Trails",
+        "osm_id": 7188370158,
+        "leisure": "park",
+        "addr_state": "ME",
+        "addr_city": "Falmouth",
+        "addr_postcode": "04105",
+        "addr_street": "Allen Avenue Extension",
+        "addr_housenumber": "88"
+      }
+    }
+  },
+  "id": 673,
+  "type": "knn:non_spat_filter+name"
+}

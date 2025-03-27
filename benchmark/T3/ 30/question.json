@@ -1,0 +1,48 @@
+{
+  "question": "Which garden can I find west of ECPI University Denver, Centennial, CO, within a radius of 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.860994 39.595547)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.860994 39.595547)',4326)::geography, 120000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 245516,
+      "geometry": "POINT (-104.860994 39.595547)",
+      "poi_name": "Denver Botanic Gardens at Chatfield",
+      "osm_id": 3021327418,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "ECPI University Denver, Centennial, CO",
+      "geo_wkt": "POINT (-104.860994 39.595547)",
+      "poi": {
+        "id": 70277,
+        "geometry": "POINT (-104.860994 39.595547)",
+        "poi_name": "ECPI University Denver",
+        "osm_id": 11356406020,
+        "amenity": "university",
+        "addr_state": "CO",
+        "addr_city": "Centennial",
+        "addr_postcode": "80111",
+        "addr_street": "South Kenton Street",
+        "addr_housenumber": "6675"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2629,
+  "type": "range:direction+name"
+}

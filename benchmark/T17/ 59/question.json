@@ -1,0 +1,51 @@
+{
+  "question": "Seeking the closest theme park from Kaanapali Beach Club, Lahaina, HI, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-156.690973 20.94863)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14569,
+      "geometry": "POINT (-122.468617 37.804932)",
+      "poi_name": "House of Air",
+      "osm_id": 4659836677,
+      "tourism": "theme_park",
+      "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+      "website": "https://www.houseofair.com/",
+      "phone": "+1 (415) 345-9675",
+      "wikidata": "Q5914641",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94129",
+      "addr_street": "Mason Street",
+      "addr_housenumber": "926"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Kaanapali Beach Club, Lahaina, HI",
+      "geo_wkt": "POINT (-156.690973 20.94863)",
+      "poi": {
+        "id": 21327,
+        "geometry": "POINT (-156.690973 20.94863)",
+        "poi_name": "Kaanapali Beach Club",
+        "osm_id": 1504061748,
+        "tourism": "hotel",
+        "website": "https://www.diamondresortsandhotels.com/Resorts/Ka'anapali-Beach-Club",
+        "phone": "+1-800-438-2929",
+        "addr_state": "HI",
+        "addr_city": "Lahaina",
+        "addr_postcode": "96761",
+        "addr_street": "Kaanapali Shores Place",
+        "addr_housenumber": "104"
+      }
+    }
+  },
+  "id": 1858,
+  "type": "knn+loc"
+}

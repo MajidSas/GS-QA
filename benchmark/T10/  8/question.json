@@ -1,0 +1,66 @@
+{
+  "question": "What's the nearest fast food heading towards Go Ape Treetop Adventure Course, Strongsville, OH from Elyria Arts Council, Elyria, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 74750,
+      "geometry": "POINT (-82.077518 41.364744)",
+      "poi_name": "McDonald's",
+      "osm_id": 9694722980,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/oh/elyria/1010-e-broad-st/3215.html",
+      "takeaway": "yes",
+      "value": 101.71589185305439
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
+      "poi": {
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Go Ape Treetop Adventure Course, Strongsville, OH",
+      "geo_wkt": "POINT (-81.818381 41.322133)",
+      "poi": {
+        "id": 14029,
+        "geometry": "POINT (-81.818381 41.322133)",
+        "poi_name": "Go Ape Treetop Adventure Course",
+        "osm_id": 4214519779,
+        "tourism": "theme_park",
+        "operator": "Go Ape",
+        "website": "https://goape.com/zip-line/mill-stream-run-reservation",
+        "addr_state": "OH",
+        "addr_city": "Strongsville",
+        "addr_postcode": "44136",
+        "addr_street": "Valley Parkway",
+        "addr_housenumber": "16200"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 107,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,57 @@
+{
+  "question": "Where is the nearest attraction as you head towards Artesia Historical Museum and Art Center, NM from Home2 Suites by Hilton Carlsbad, Carlsbad, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.223978 32.381411)',4326)::geography, ST_GeomFromText('POINT (-104.403296 32.842334)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.223978 32.381411)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-104.223978 32.381411)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16571,
+      "geometry": "POINT (-104.228834 32.420669)",
+      "poi_name": "Eddy County Courthouse Historic Site",
+      "osm_id": 366378029,
+      "tourism": "attraction",
+      "addr_state": "NM",
+      "value": 341.8229838027447
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Home2 Suites by Hilton Carlsbad, Carlsbad, NM",
+      "geo_wkt": "POINT (-104.223978 32.381411)",
+      "poi": {
+        "id": 27178,
+        "geometry": "POINT (-104.223978 32.381411)",
+        "poi_name": "Home2 Suites by Hilton Carlsbad",
+        "osm_id": 7740445886,
+        "tourism": "hotel",
+        "official_name": "Home2 Suites by Hilton",
+        "addr_state": "NM",
+        "addr_city": "Carlsbad",
+        "addr_postcode": "88220",
+        "addr_street": "National Parks Highway",
+        "addr_housenumber": "3500"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Artesia Historical Museum and Art Center, NM",
+      "geo_wkt": "POINT (-104.403296 32.842334)",
+      "poi": {
+        "id": 16659,
+        "geometry": "POINT (-104.403296 32.842334)",
+        "poi_name": "Artesia Historical Museum and Art Center",
+        "osm_id": 366378674,
+        "tourism": "museum",
+        "addr_state": "NM"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1338,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant located en route to Glenhill Farmhouse, Erie, PA from Surroundings Art Gallery, Westfield, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.57611 42.323581)',4326)::geography, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.57611 42.323581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.57611 42.323581)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 88766,
+      "geometry": "POINT (-79.576818 42.32309)",
+      "poi_name": "Food King Chinese",
+      "osm_id": 8795323732,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "NY",
+      "addr_city": "Westfield",
+      "addr_postcode": "14787",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "51",
+      "value": 236.2659331890034
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Surroundings Art Gallery, Westfield, NY",
+      "geo_wkt": "POINT (-79.57611 42.323581)",
+      "poi": {
+        "id": 6982,
+        "geometry": "POINT (-79.57611 42.323581)",
+        "poi_name": "Surroundings Art Gallery",
+        "osm_id": 8795325506,
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "Westfield",
+        "addr_postcode": "14787",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "73"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "poi": {
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1396,
+  "type": "knn:towards+loc"
+}

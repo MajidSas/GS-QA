@@ -1,0 +1,88 @@
+{
+  "question": "Could you locate a nature reserve within a 110 kilometers radius of Carter Burden Gallery, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.004165 40.751605)',4326)::geography, 110000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 265643,
+      "geometry": "POINT (-74.867494 40.980105)",
+      "poi_name": "Johnsonburg Swamp Preserve",
+      "osm_id": 10780285209,
+      "leisure": "nature_reserve",
+      "operator": "The Nature Conservancy",
+      "addr_state": "NJ",
+      "addr_city": "Johnsonburg",
+      "addr_postcode": "07860",
+      "addr_street": "Old Stage Road"
+    },
+    {
+      "id": 267301,
+      "geometry": "POINT (-74.512049 40.625497)",
+      "poi_name": "Stransky Nature Trails",
+      "osm_id": 5810940582,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "173"
+    },
+    {
+      "id": 267302,
+      "geometry": "POINT (-74.506528 40.625648)",
+      "poi_name": "Dealaman Nature Trail and Pond",
+      "osm_id": 5811042630,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "182"
+    },
+    {
+      "id": 267602,
+      "geometry": "POINT (-74.895166 41.300832)",
+      "poi_name": "Dwarfskill Preserve",
+      "osm_id": 7740705080,
+      "leisure": "nature_reserve",
+      "addr_state": "PA",
+      "addr_city": "Milford",
+      "addr_postcode": "18337",
+      "addr_street": "Dwarfskill Falls Lane",
+      "addr_housenumber": "132"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Carter Burden Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.004165 40.751605)",
+      "poi": {
+        "id": 19691,
+        "geometry": "POINT (-74.004165 40.751605)",
+        "poi_name": "Carter Burden Gallery",
+        "osm_id": 10860703822,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Fr 11:00-17:00; Sa 11:00-18:00",
+        "website": "https://www.carterburdengallery.org",
+        "phone": "+1-212-564-8405",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 28th Street",
+        "addr_housenumber": "548"
+      }
+    }
+  },
+  "id": 2010,
+  "type": "range+loc"
+}

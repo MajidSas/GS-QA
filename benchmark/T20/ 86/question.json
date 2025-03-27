@@ -1,0 +1,63 @@
+{
+  "question": "Where's the nearest attraction heading towards Residence Inn by Marriott Chicago Deerfield, Deerfield, IL from Tilt Studio, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, ST_GeomFromText('POINT (-87.840986 42.156931)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4910,
+      "geometry": "POINT (-88.577658 42.273191)",
+      "poi_name": "Cody's Farm and Orchard",
+      "osm_id": 9678058418,
+      "tourism": "attraction",
+      "website": "https://www.codysfarm.com/",
+      "phone": "+1-815-568-7976",
+      "addr_state": "IL",
+      "addr_city": "Marengo",
+      "addr_postcode": "60152",
+      "addr_street": "River Road",
+      "addr_housenumber": "19502",
+      "value": 95.64708403754312
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Tilt Studio, IL",
+      "geo_wkt": "POINT (-88.973072 42.24581)",
+      "poi": {
+        "id": 5126,
+        "geometry": "POINT (-88.973072 42.24581)",
+        "poi_name": "Tilt Studio",
+        "osm_id": 9768506456,
+        "tourism": "theme_park",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn by Marriott Chicago Deerfield, Deerfield, IL",
+      "geo_wkt": "POINT (-87.840986 42.156931)",
+      "poi": {
+        "id": 24065,
+        "geometry": "POINT (-87.840986 42.156931)",
+        "poi_name": "Residence Inn by Marriott Chicago Deerfield",
+        "osm_id": 9289177051,
+        "tourism": "hotel",
+        "official_name": "Residence Inn by Marriott",
+        "addr_state": "IL",
+        "addr_city": "Deerfield",
+        "addr_postcode": "60015",
+        "addr_street": "Lake Cook Road",
+        "addr_housenumber": "530"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1385,
+  "type": "knn:towards+loc"
+}

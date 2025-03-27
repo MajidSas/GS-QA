@@ -1,0 +1,66 @@
+{
+  "question": "Where is the closest restaurant along the way to Speert Green, Wayne, NJ from Jay Heritage Center, Rye, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.706068 40.95728)',4326)::geography, ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.706068 40.95728)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.706068 40.95728)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 95742,
+      "geometry": "POINT (-73.731873 40.956783)",
+      "poi_name": "Mili's Restaurant",
+      "osm_id": 6410338270,
+      "amenity": "restaurant",
+      "cuisine": "latin_american",
+      "addr_state": "NY",
+      "addr_city": "Mamaroneck",
+      "addr_postcode": "10543",
+      "addr_street": "Halstead Avenue",
+      "addr_housenumber": "540",
+      "value": 268.2115310195288
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Jay Heritage Center, Rye, NY",
+      "geo_wkt": "POINT (-73.706068 40.95728)",
+      "poi": {
+        "id": 248470,
+        "geometry": "POINT (-73.706068 40.95728)",
+        "poi_name": "Jay Heritage Center",
+        "osm_id": 4196086062,
+        "leisure": "park",
+        "description": "National Historic Landmark home of John Jay. Historic Site and Park. Member Site of New York State's Path Through History, Hudson River Valley National Heritage Area and Westchester County African American Heritage Trail. Hours Wed. thru Fri. 10am - 4pm ",
+        "addr_state": "NY",
+        "addr_city": "Rye",
+        "addr_postcode": "10580",
+        "addr_street": "Boston Post Road",
+        "addr_housenumber": "210"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1303,
+  "type": "knn:towards+loc"
+}

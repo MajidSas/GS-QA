@@ -1,0 +1,54 @@
+{
+  "question": "What is the nearest emergency hospital from the Kroschel Wildlife Center, Haines, AK?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-136.031682 59.44478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 190341,
+      "geometry": "POINT (-132.955361 56.812884)",
+      "poi_name": "Petersburg Medical Center",
+      "osm_id": 1286891893,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.pmcak.org/",
+      "phone": "+1 907 772 4291",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "AK",
+      "addr_city": "Petersburg",
+      "addr_postcode": "99833",
+      "addr_street": "Fram Street",
+      "addr_housenumber": "103"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "The Kroschel Wildlife Center, Haines, AK",
+      "geo_wkt": "POINT (-136.031682 59.44478)",
+      "poi": {
+        "id": 13940,
+        "geometry": "POINT (-136.031682 59.44478)",
+        "poi_name": "The Kroschel Wildlife Center",
+        "osm_id": 4194954120,
+        "tourism": "zoo",
+        "website": "https://www.kroschelfilms.com/",
+        "phone": "+1-907-767-5464",
+        "addr_state": "AK",
+        "addr_city": "Haines",
+        "addr_postcode": "99827",
+        "addr_street": "Mosquito Lake Road",
+        "addr_housenumber": "1.8 mile"
+      }
+    }
+  },
+  "id": 646,
+  "type": "knn:non_spat_filter+name"
+}

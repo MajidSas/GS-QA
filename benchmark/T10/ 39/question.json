@@ -1,0 +1,70 @@
+{
+  "question": "What is the closest fast food from Croatian Cultural Garden, Cleveland, OH towards Mentor Civic Arena, Mentor, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography, ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 154591,
+      "geometry": "POINT (-81.577619 41.552923)",
+      "poi_name": "Kim's Wings",
+      "osm_id": 4244827333,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "opening_hours": "10:00-24:00",
+      "phone": "+1-216-681-6644",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44110",
+      "addr_street": "Saint Clair Avenue",
+      "addr_housenumber": "14909",
+      "value": 51.562978054411296
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Croatian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.62453 41.524911)",
+      "poi": {
+        "id": 247019,
+        "geometry": "POINT (-81.62453 41.524911)",
+        "poi_name": "Croatian Cultural Garden",
+        "osm_id": 8567373872,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1141"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Mentor Civic Arena, Mentor, OH",
+      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "poi": {
+        "id": 246704,
+        "geometry": "POINT (-81.332139 41.698458)",
+        "poi_name": "Mentor Civic Arena",
+        "osm_id": 8842654476,
+        "leisure": "stadium",
+        "operator": "City of Mentor",
+        "addr_state": "OH",
+        "addr_city": "Mentor",
+        "addr_postcode": "44060",
+        "addr_street": "Munson Road",
+        "addr_housenumber": "8600"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 138,
+  "type": "knn:towards+name"
+}

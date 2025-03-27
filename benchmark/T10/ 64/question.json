@@ -1,0 +1,59 @@
+{
+  "question": "What's the closest museum on the route to Wilderness Park, Lincoln, NE from Center for Drug Delivery and Nanomedicine, Omaha, NE?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography, ST_GeomFromText('POINT (-96.716962 40.75139)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16738,
+      "geometry": "POINT (-96.440886 40.96062)",
+      "poi_name": "Greenwood Depot Museum",
+      "osm_id": 366492311,
+      "tourism": "museum",
+      "website": "https://www.facebook.com/GreenwoodDepotMuseumGreenwoodHistoricalSociety/",
+      "addr_state": "NE",
+      "value": 228.13222690983264
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Center for Drug Delivery and Nanomedicine, Omaha, NE",
+      "geo_wkt": "POINT (-95.980829 41.255456)",
+      "poi": {
+        "id": 147575,
+        "geometry": "POINT (-95.980829 41.255456)",
+        "poi_name": "Center for Drug Delivery and Nanomedicine",
+        "osm_id": 7546124073,
+        "amenity": "university",
+        "website": "cddn.unmc.edu",
+        "phone": "+1-402-559-9330",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68198"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wilderness Park, Lincoln, NE",
+      "geo_wkt": "POINT (-96.716962 40.75139)",
+      "poi": {
+        "id": 257917,
+        "geometry": "POINT (-96.716962 40.75139)",
+        "poi_name": "Wilderness Park",
+        "osm_id": 357793476,
+        "leisure": "park",
+        "wikidata": "Q8001152",
+        "addr_state": "NE",
+        "addr_city": "Lincoln"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 163,
+  "type": "knn:towards+name"
+}

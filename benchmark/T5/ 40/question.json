@@ -1,0 +1,38 @@
+{
+  "question": "Looking for the closest fast food restaurant in relation to Ice Arena, MN, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 230522,
+      "geometry": "POINT (-91.677205 44.048943)",
+      "poi_name": "Subway",
+      "osm_id": 4428410442,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ice Arena, MN",
+      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "poi": {
+        "id": 265357,
+        "geometry": "POINT (-91.694594 44.04413)",
+        "poi_name": "Ice Arena",
+        "osm_id": 367067698,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    }
+  },
+  "id": 239,
+  "type": "knn+name"
+}

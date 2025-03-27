@@ -1,0 +1,48 @@
+{
+  "question": "What's the closest restaurant nearby Hilton Garden Inn Jeffersonville Louisville North, Jeffersonville, IN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.709116 38.345825)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 223529,
+      "geometry": "POINT (-85.708937 38.346085)",
+      "poi_name": "Fuzzy\u2019s The 15th Club, Food & Spirits",
+      "osm_id": 11056001352,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "website": "https://www.fuzzysthe15thclub.com/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Water Tower Rd",
+      "addr_housenumber": "4900"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn Jeffersonville Louisville North, Jeffersonville, IN",
+      "geo_wkt": "POINT (-85.709116 38.345825)",
+      "poi": {
+        "id": 24439,
+        "geometry": "POINT (-85.709116 38.345825)",
+        "poi_name": "Hilton Garden Inn Jeffersonville Louisville North",
+        "osm_id": 11056001351,
+        "tourism": "hotel",
+        "website": "https://www.hilton.com/",
+        "addr_state": "IN",
+        "addr_city": "Jeffersonville",
+        "addr_postcode": "47130",
+        "addr_street": "Water Tower Rd",
+        "addr_housenumber": "4900"
+      }
+    }
+  },
+  "id": 289,
+  "type": "knn+name"
+}

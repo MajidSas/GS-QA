@@ -1,0 +1,70 @@
+{
+  "question": "Where's the closest fast food restaurant on the path leading to Memory Garden, Baltimore, MD from the River Inn, Washington, DC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 43192,
+      "geometry": "POINT (-77.049528 38.905108)",
+      "poi_name": "Sweetgreen",
+      "osm_id": 3099875496,
+      "amenity": "fast_food",
+      "cuisine": "salad",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "addr_state": "DC",
+      "addr_city": "Washington",
+      "addr_postcode": "20037",
+      "addr_street": "M Street Northwest",
+      "addr_housenumber": "2238",
+      "value": 38.92250373427801
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The River Inn, Washington, DC",
+      "geo_wkt": "POINT (-77.053622 38.901408)",
+      "poi": {
+        "id": 5425,
+        "geometry": "POINT (-77.053622 38.901408)",
+        "poi_name": "The River Inn",
+        "osm_id": 759570079,
+        "tourism": "hotel",
+        "website": "https://www.theriverinn.com/",
+        "phone": "+1 202-337-7600",
+        "addr_state": "DC",
+        "addr_city": "Washington",
+        "addr_postcode": "20037",
+        "addr_street": "25th Street Northwest",
+        "addr_housenumber": "924"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "poi": {
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1329,
+  "type": "knn:towards+loc"
+}

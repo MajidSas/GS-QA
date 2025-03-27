@@ -1,0 +1,41 @@
+{
+  "question": "In which direction should I proceed to reach the closest restaurant from Columbia Cultural Garden, Cleveland, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.619167 41.520496)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.619167 41.520496)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 161879,
+      "geometry": "POINT (-81.618776 41.505841)",
+      "poi_name": "Phuel Cafe",
+      "osm_id": 4904968853,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "angle": 178.85131192638775
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Columbia Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.619167 41.520496)",
+      "poi": {
+        "id": 246677,
+        "geometry": "POINT (-81.619167 41.520496)",
+        "poi_name": "Columbia Cultural Garden",
+        "osm_id": 8809939746,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive"
+      }
+    }
+  },
+  "id": 1432,
+  "type": "knn+angle"
+}

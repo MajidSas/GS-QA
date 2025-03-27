@@ -1,0 +1,69 @@
+{
+  "question": "Where is the nearest caf\u00e9 as you progress towards Wellington Reservation, Wellington, OH from Mentor Civic Arena, Mentor, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 106122,
+      "geometry": "POINT (-81.366879 41.65948)",
+      "poi_name": "Starbucks",
+      "osm_id": 8665711328,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Mentor Avenue",
+      "addr_housenumber": "7681",
+      "value": 231.14238284513158
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Mentor Civic Arena, Mentor, OH",
+      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "poi": {
+        "id": 246704,
+        "geometry": "POINT (-81.332139 41.698458)",
+        "poi_name": "Mentor Civic Arena",
+        "osm_id": 8842654476,
+        "leisure": "stadium",
+        "operator": "City of Mentor",
+        "addr_state": "OH",
+        "addr_city": "Mentor",
+        "addr_postcode": "44060",
+        "addr_street": "Munson Road",
+        "addr_housenumber": "8600"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
+      "poi": {
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1376,
+  "type": "knn:towards+loc"
+}

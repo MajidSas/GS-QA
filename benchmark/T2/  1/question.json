@@ -1,0 +1,141 @@
+{
+  "question": "Can you find me a takeout restaurant within 20 kilometers from Monmouth Museum, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.135278 40.326111)',4326)::geography, 20000)\nAND amenity = 'restaurant'\nAND takeaway ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 30788,
+      "geometry": "POINT (-74.090904 40.211174)",
+      "poi_name": "Delvetto's Pizzeria & Pub",
+      "osm_id": 8382031453,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "website": "https://www.delvettospizzeriapub.com/",
+      "phone": "+1-732-922-1116",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Neptune City",
+      "addr_postcode": "07753",
+      "addr_street": "State Route 33",
+      "addr_housenumber": "3705"
+    },
+    {
+      "id": 115719,
+      "geometry": "POINT (-74.065637 40.351251)",
+      "poi_name": "The Robinson Ale House",
+      "osm_id": 8910700639,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "opening_hours": "Mo-Th 11:00-22:00; Fr 11:00-23:00; Sa 10:30-23:00; Su 10:30-22:00",
+      "website": "https://therobinsonalehouseredbank.com",
+      "phone": "+1 732 383 8219",
+      "takeaway": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Red Bank",
+      "addr_postcode": "07701",
+      "addr_street": "Broad Street",
+      "addr_housenumber": "26"
+    },
+    {
+      "id": 112210,
+      "geometry": "POINT (-74.201476 40.436788)",
+      "poi_name": "First Wok",
+      "osm_id": 3783405272,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "delivery": "yes"
+    },
+    {
+      "id": 154348,
+      "geometry": "POINT (-74.101699 40.424084)",
+      "poi_name": "Pizza & Pasta Factory",
+      "osm_id": 4234079394,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Sa 10:30-23:00; Su 11:00-22:30",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Middletown",
+      "addr_postcode": "07758",
+      "addr_street": "NJ-36",
+      "addr_housenumber": "430"
+    },
+    {
+      "id": 116726,
+      "geometry": "POINT (-74.181563 40.418043)",
+      "poi_name": "Xing Wok",
+      "osm_id": 8957618496,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Hazlet Township",
+      "addr_postcode": "07730",
+      "addr_street": "NJ 35",
+      "addr_housenumber": "3040"
+    },
+    {
+      "id": 208208,
+      "geometry": "POINT (-74.160243 40.424767)",
+      "poi_name": "Romeo's Pizza & Italian Restaurant",
+      "osm_id": 4978359823,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Fr 10:30-22:30; Sa 11:00-23:00; Su 11:00-22:30; PH off",
+      "capacity": "25",
+      "phone": "+1-732-264-8182",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "NJ",
+      "addr_city": "Hazlet Township",
+      "addr_postcode": "07730",
+      "addr_street": "Union Avenue",
+      "addr_housenumber": "1721"
+    },
+    {
+      "id": 242207,
+      "geometry": "POINT (-74.040006 40.328618)",
+      "poi_name": "Willow Deli",
+      "osm_id": 6061539704,
+      "amenity": "restaurant",
+      "cuisine": "coffee_shop;sandwich;american",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "addr_city": "Little Silver",
+      "addr_street": "Willow Drive",
+      "addr_housenumber": "290"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "takeout restaurant",
+      "poi_filter_sql": "takeaway ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Monmouth Museum, NJ",
+      "geo_wkt": "POINT (-74.135278 40.326111)",
+      "poi": {
+        "id": 17314,
+        "geometry": "POINT (-74.135278 40.326111)",
+        "poi_name": "Monmouth Museum",
+        "osm_id": 367697465,
+        "tourism": "museum",
+        "addr_state": "NJ"
+      }
+    }
+  },
+  "id": 500,
+  "type": "range:non_spat_filter+name"
+}

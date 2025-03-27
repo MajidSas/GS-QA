@@ -1,0 +1,47 @@
+{
+  "question": "Which zoo is nearest in the west direction from Historic Trade: Book Binder, Williamsburg, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.697631 37.271544)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 20911,
+      "geometry": "POINT (-76.697631 37.271544)",
+      "poi_name": "grandview dog pens",
+      "osm_id": 1313291073,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Historic Trade: Book Binder, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.697631 37.271544)",
+      "poi": {
+        "id": 19083,
+        "geometry": "POINT (-76.697631 37.271544)",
+        "poi_name": "Historic Trade: Book Binder",
+        "osm_id": 2501701019,
+        "tourism": "attraction",
+        "wheelchair": "no",
+        "opening_hours": "Tu-Sa 09:00-17:00",
+        "operator": "Colonial Williamsburg Foundation",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "East Duke of Gloucester Street",
+        "addr_housenumber": "303"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2591,
+  "type": "knn:direction+name"
+}

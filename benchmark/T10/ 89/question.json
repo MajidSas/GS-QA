@@ -1,0 +1,67 @@
+{
+  "question": "What's the closest caf\u00e9 located en route to Creatura House Gallery, Seattle, WA from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, ST_GeomFromText('POINT (-122.323035 47.613945)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 58188,
+      "geometry": "POINT (-122.430361 47.235885)",
+      "poi_name": "Classics Cafe",
+      "osm_id": 5367077437,
+      "amenity": "cafe",
+      "website": "http://www.classicscafetacoma.com",
+      "phone": "+1-253-8614560",
+      "addr_city": "Tacoma",
+      "addr_postcode": "98421",
+      "addr_street": "East D Street",
+      "addr_housenumber": "2702",
+      "value": 8.752658362931843
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "poi": {
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Creatura House Gallery, Seattle, WA",
+      "geo_wkt": "POINT (-122.323035 47.613945)",
+      "poi": {
+        "id": 7446,
+        "geometry": "POINT (-122.323035 47.613945)",
+        "poi_name": "Creatura House Gallery",
+        "osm_id": 2159323089,
+        "tourism": "gallery",
+        "website": "https://creatura.house",
+        "addr_state": "WA",
+        "addr_city": "Seattle",
+        "addr_postcode": "98122",
+        "addr_street": "East Pike Street",
+        "addr_housenumber": "705"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 188,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,51 @@
+{
+  "question": "What's the nearest beach resort near the university established in the year 1975 in Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-87.546195 30.279291)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "poi": {
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
+      }
+    }
+  },
+  "id": 2740,
+  "type": "knn+name+multihop2"
+}

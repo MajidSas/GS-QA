@@ -1,0 +1,65 @@
+{
+  "question": "Which fast food is nearest when approaching Harper's Chelsea, New York, NY from Speert Green, Wayne, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.005432 40.747232)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 113250,
+      "geometry": "POINT (-74.177296 40.922644)",
+      "poi_name": "Little Caesars",
+      "osm_id": 3827242752,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "https://littlecaesars.com/en-us/store/10308/",
+      "takeaway": "yes",
+      "value": 143.28680150203837
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Harper's Chelsea, New York, NY",
+      "geo_wkt": "POINT (-74.005432 40.747232)",
+      "poi": {
+        "id": 19737,
+        "geometry": "POINT (-74.005432 40.747232)",
+        "poi_name": "Harper's Chelsea",
+        "osm_id": 10861543616,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://www.harpersgallery.com",
+        "phone": "+1-917-675-6124\u200b\u200b\u200b\u200b\u200b",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 22nd Street",
+        "addr_housenumber": "512"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 140,
+  "type": "knn:towards+name"
+}

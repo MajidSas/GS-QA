@@ -1,0 +1,45 @@
+{
+  "question": "What is the closest city from the nearest nature reserve from Voorhees College, Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265997,
+      "geometry": "POINT (-81.100209 32.160618)",
+      "poi_name": "Savannah National Wildlife Refuge",
+      "osm_id": 1549137171,
+      "leisure": "nature_reserve",
+      "wikidata": "Q7427867",
+      "multihop_answer": "Savannah, Georgia",
+      "multihop_attribute": "Nearest\u00a0city",
+      "multihop_long_answer": "Savannah National Wildlife Refuge Nearest\u00a0city: Savannah, Georgia"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "poi": {
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
+      }
+    }
+  },
+  "id": 963,
+  "type": "knn+name+multihop1"
+}

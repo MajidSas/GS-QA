@@ -1,0 +1,48 @@
+{
+  "question": "Any recommendations for the closest university from the stadium that can hold 2856 spectators in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 187290,
+      "geometry": "POINT (-92.72049 44.954815)",
+      "poi_name": "University of Wisconsin-River Falls Hudson Center",
+      "osm_id": 1050485267,
+      "amenity": "university",
+      "operator": "University of Wisconsin-River Falls",
+      "website": "https://www.uwrf.edu/HudsonCenter/",
+      "addr_state": "WI",
+      "addr_city": "Hudson",
+      "addr_postcode": "54016",
+      "addr_street": "Hanley Road",
+      "addr_housenumber": "2501"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2787,
+  "type": "knn+name+multihop2"
+}

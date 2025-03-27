@@ -1,0 +1,47 @@
+{
+  "question": "Where can I find the nearest hotel relative to ATSF Depot, Fort Madison, IA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.313649 40.629533)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13949,
+      "geometry": "POINT (-91.37501 40.624802)",
+      "poi_name": "Boulders Inn & Suites",
+      "osm_id": 4199715315,
+      "tourism": "hotel",
+      "website": "http://www.bouldersinnandsuites.com/hotel/7/Fort_Madison_Iowa",
+      "phone": "+1-319-246-1401",
+      "addr_state": "IA",
+      "addr_city": "Fort Madison",
+      "addr_postcode": "52627",
+      "addr_street": "Avenue O",
+      "addr_housenumber": "4901"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "ATSF Depot, Fort Madison, IA",
+      "geo_wkt": "POINT (-91.313649 40.629533)",
+      "poi": {
+        "id": 1922,
+        "geometry": "POINT (-91.313649 40.629533)",
+        "poi_name": "ATSF Depot",
+        "osm_id": 3218326489,
+        "description": "Historic Santa Fe depot which houses the Santa Fe Depot Museum. Amtrak plans to move into the depot once work is completed on the passenger waiting area and a new passenger platform is constructed.",
+        "tourism": "attraction",
+        "addr_state": "IA",
+        "addr_city": "Fort Madison",
+        "addr_street": "10th Street",
+        "addr_housenumber": "814"
+      }
+    }
+  },
+  "id": 1841,
+  "type": "knn+loc"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "When was the nearest theme park from Spella Park, Algonquin, IL first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.351252 42.161567)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21492,
+      "geometry": "POINT (-88.034026 42.039672)",
+      "poi_name": "Legoland Discovery Center Chicago",
+      "osm_id": 10285659853,
+      "tourism": "theme_park",
+      "operator": "Merlin Entertainments",
+      "website": "https://www.legolanddiscoverycenter.com/chicago/",
+      "wikidata": "Q20711319",
+      "addr_state": "IL",
+      "addr_city": "Schaumburg",
+      "addr_postcode": "60173",
+      "addr_street": "North Martingale Road",
+      "addr_housenumber": "601",
+      "multihop_answer": "2008; 16\u00a0years ago",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Legoland Discovery Center Chicago Opened: 2008; 16\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Spella Park, Algonquin, IL",
+      "geo_wkt": "POINT (-88.351252 42.161567)",
+      "poi": {
+        "id": 245791,
+        "geometry": "POINT (-88.351252 42.161567)",
+        "poi_name": "Spella Park",
+        "osm_id": 10061767035,
+        "leisure": "park",
+        "opening_hours": "06:00-sunset",
+        "operator": "Village of Algonquin",
+        "website": "https://www.algonquin.org/egov/apps/locations/facilities.egov?view=detail&id=17",
+        "addr_state": "IL",
+        "addr_city": "Algonquin",
+        "addr_postcode": "60102",
+        "addr_street": "Harnish Drive",
+        "addr_housenumber": "2610"
+      }
+    }
+  },
+  "id": 948,
+  "type": "knn+name+multihop1"
+}

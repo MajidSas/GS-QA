@@ -1,0 +1,40 @@
+{
+  "question": "Within 170 kilometers from Tiger Creek Wildlife Refuge, Tyler, TX, how many universities are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.264008 32.522834)',4326)::geography, 170000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Tiger Creek Wildlife Refuge, Tyler, TX",
+      "geo_wkt": "POINT (-95.264008 32.522834)",
+      "poi": {
+        "id": 9557,
+        "geometry": "POINT (-95.264008 32.522834)",
+        "poi_name": "Tiger Creek Wildlife Refuge",
+        "osm_id": 3883238421,
+        "tourism": "zoo",
+        "website": "http://www.tigercreek.org/",
+        "addr_state": "TX",
+        "addr_city": "Tyler",
+        "addr_postcode": "75706",
+        "addr_street": "Werner Lane"
+      }
+    }
+  },
+  "id": 2269,
+  "type": "range+count"
+}

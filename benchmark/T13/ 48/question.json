@@ -1,0 +1,78 @@
+{
+  "question": "Could you locate a golf course within a 190 kilometers radius of Adams Inn, Adams, WI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.816583 43.939163)',4326)::geography, 190000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 246216,
+      "geometry": "POINT (-89.487491 45.61236)",
+      "poi_name": "Northwood Golf Club",
+      "osm_id": 5714562863,
+      "leisure": "golf_course",
+      "website": "https://www.northwoodgolfclub.com/",
+      "phone": "+1-715-282-6565",
+      "addr_city": "Rhinelander",
+      "addr_postcode": "54501",
+      "addr_street": "Golf Course Road",
+      "addr_housenumber": "3131"
+    },
+    {
+      "id": 247233,
+      "geometry": "POINT (-88.328136 44.394033)",
+      "poi_name": "Irish Waters Clubhouse",
+      "osm_id": 3833403519,
+      "leisure": "golf_course",
+      "opening_hours": "sunrise-sunset",
+      "addr_state": "WI",
+      "addr_city": "Freedom",
+      "addr_postcode": "54130",
+      "addr_street": "Murphy Road",
+      "addr_housenumber": "N4265"
+    },
+    {
+      "id": 266573,
+      "geometry": "POINT (-90.792442 43.950068)",
+      "poi_name": "River Run Golf Course",
+      "osm_id": 5278256119,
+      "leisure": "golf_course",
+      "addr_state": "WI",
+      "addr_city": "Sparta",
+      "addr_postcode": "54656",
+      "addr_street": "East Montgomery Street",
+      "addr_housenumber": "1210"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Adams Inn, Adams, WI",
+      "geo_wkt": "POINT (-89.816583 43.939163)",
+      "poi": {
+        "id": 7125,
+        "geometry": "POINT (-89.816583 43.939163)",
+        "poi_name": "Adams Inn",
+        "osm_id": 8873215799,
+        "tourism": "hotel",
+        "website": "http://www.adams-inn.com/",
+        "internet_access": "yes",
+        "phone": "+1-608-339-6088",
+        "addr_state": "WI",
+        "addr_city": "Adams",
+        "addr_postcode": "53910",
+        "addr_street": "State Highway 13",
+        "addr_housenumber": "2188"
+      }
+    }
+  },
+  "id": 2047,
+  "type": "range+loc"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "Can you recommend the nearest hospital from Hilton Garden Inn Rochester/University & Medical Center, Rochester, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.619434 43.124283)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 129347,
+      "geometry": "POINT (-77.66369 42.356559)",
+      "poi_name": "St. James Hospital",
+      "osm_id": 8238077529,
+      "amenity": "hospital",
+      "website": "https://www.urmc.rochester.edu/st-james/patients-visitors/location-maps.aspx",
+      "phone": "+1 607-247-2200",
+      "addr_state": "NY",
+      "addr_city": "Hornell",
+      "addr_postcode": "14843",
+      "addr_street": "Seneca Road North",
+      "addr_housenumber": "7329"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn Rochester/University & Medical Center, Rochester, NY",
+      "geo_wkt": "POINT (-77.619434 43.124283)",
+      "poi": {
+        "id": 14265,
+        "geometry": "POINT (-77.619434 43.124283)",
+        "poi_name": "Hilton Garden Inn Rochester/University & Medical Center",
+        "osm_id": 4263059377,
+        "tourism": "hotel",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14610",
+        "addr_street": "Celebration Drive",
+        "addr_housenumber": "30"
+      }
+    }
+  },
+  "id": 276,
+  "type": "knn+name"
+}

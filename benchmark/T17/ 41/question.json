@@ -1,0 +1,48 @@
+{
+  "question": "Where's the nearest golf course from Bay Shore Blufflands Nature Preserve, Sturgeon Bay, WI located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.368569 44.938122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247233,
+      "geometry": "POINT (-88.328136 44.394033)",
+      "poi_name": "Irish Waters Clubhouse",
+      "osm_id": 3833403519,
+      "leisure": "golf_course",
+      "opening_hours": "sunrise-sunset",
+      "addr_state": "WI",
+      "addr_city": "Freedom",
+      "addr_postcode": "54130",
+      "addr_street": "Murphy Road",
+      "addr_housenumber": "N4265"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Bay Shore Blufflands Nature Preserve, Sturgeon Bay, WI",
+      "geo_wkt": "POINT (-87.368569 44.938122)",
+      "poi": {
+        "id": 248118,
+        "geometry": "POINT (-87.368569 44.938122)",
+        "poi_name": "Bay Shore Blufflands Nature Preserve",
+        "osm_id": 6346595862,
+        "leisure": "nature_reserve",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/bay-shore-blufflands-nature-preserve_2/",
+        "addr_state": "WI",
+        "addr_city": "Sturgeon Bay",
+        "addr_postcode": "54235",
+        "addr_street": "Reynolds Road",
+        "addr_housenumber": "5519"
+      }
+    }
+  },
+  "id": 1840,
+  "type": "knn+loc"
+}

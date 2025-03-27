@@ -1,0 +1,48 @@
+{
+  "question": "Which aquarium is nearest in the west direction from Manatee Viewing Center, Apollo Beach, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.400924 27.792747)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18669,
+      "geometry": "POINT (-82.400924 27.792747)",
+      "poi_name": "Sea Center Texas",
+      "osm_id": 2373700701,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Manatee Viewing Center, Apollo Beach, FL",
+      "geo_wkt": "POINT (-82.400924 27.792747)",
+      "poi": {
+        "id": 772,
+        "geometry": "POINT (-82.400924 27.792747)",
+        "poi_name": "Manatee Viewing Center",
+        "osm_id": 2676923692,
+        "tourism": "attraction",
+        "opening_hours": "Nov 01-Apr 15 10:00-17:00; Nov: Th[4] off; Dec 24-25 off; easter off",
+        "operator": "TECO",
+        "website": "https://www.tampaelectric.com/company/mvc/",
+        "phone": "+1 (813) 228-4289",
+        "addr_state": "FL",
+        "addr_city": "Apollo Beach",
+        "addr_postcode": "33572",
+        "addr_street": "Dickman Road",
+        "addr_housenumber": "6990"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2539,
+  "type": "knn:direction+name"
+}

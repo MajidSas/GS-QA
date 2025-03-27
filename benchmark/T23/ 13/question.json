@@ -1,0 +1,42 @@
+{
+  "question": "What is the total number of gardens within 130 kilometers from Kentucky Action Park, Cave City, KY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.0041 37.132939)',4326)::geography, 130000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kentucky Action Park, Cave City, KY",
+      "geo_wkt": "POINT (-86.0041 37.132939)",
+      "poi": {
+        "id": 14316,
+        "geometry": "POINT (-86.0041 37.132939)",
+        "poi_name": "Kentucky Action Park",
+        "osm_id": 4268014471,
+        "tourism": "theme_park",
+        "website": "https://www.kentuckyactionpark.com/",
+        "phone": "+1 270-773-2560",
+        "addr_state": "KY",
+        "addr_city": "Cave City",
+        "addr_postcode": "42127",
+        "addr_street": "Mammoth Cave Road",
+        "addr_housenumber": "3057"
+      }
+    }
+  },
+  "id": 2212,
+  "type": "range+count"
+}

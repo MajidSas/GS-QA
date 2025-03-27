@@ -1,0 +1,55 @@
+{
+  "question": "Where's the closest museum positioned towards the northeast of United Methodist Behavioral Hospital, Maumelle, AR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-92.394722 34.876667)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18803,
+      "geometry": "POINT (-92.394722 34.876667)",
+      "poi_name": "Arkansas State University Museum",
+      "osm_id": 2411449582,
+      "tourism": "museum",
+      "opening_hours": "Mo 09:00-17:00; Tu 09:00-19:00; We-Sa 09:00-17:00; PH off",
+      "website": "http://www.astate.edu/museum/",
+      "phone": "+1 870 972 2074",
+      "addr_state": "AR",
+      "addr_city": "Jonesboro",
+      "addr_street": "University Loop",
+      "addr_housenumber": "320"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "United Methodist Behavioral Hospital, Maumelle, AR",
+      "geo_wkt": "POINT (-92.394722 34.876667)",
+      "poi": {
+        "id": 167771,
+        "geometry": "POINT (-92.394722 34.876667)",
+        "poi_name": "United Methodist Behavioral Hospital",
+        "osm_id": 359024359,
+        "amenity": "hospital",
+        "website": "https://www.methodistfamily.org/services/methodist-behavioral-hospital/",
+        "phone": "+1 501 803 3388",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "AR",
+        "addr_city": "Maumelle",
+        "addr_postcode": "72113",
+        "addr_street": "Murphy Drive",
+        "addr_housenumber": "1601"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1176,
+  "type": "knn:direction+loc"
+}

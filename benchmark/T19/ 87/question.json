@@ -1,0 +1,52 @@
+{
+  "question": "Where is the nearest hospital situated towards the northwest of Ramada Vicksburg, Vicksburg, MS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.880423 32.316222)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182446,
+      "geometry": "POINT (-90.880423 32.316222)",
+      "poi_name": "Cypress Grove Behavioral Health",
+      "osm_id": 10892282629,
+      "amenity": "hospital",
+      "website": "https://cypressgrovehealth.com",
+      "phone": "+1 318 281 2448",
+      "healthcare": "hospital",
+      "addr_state": "LA",
+      "addr_city": "Bastrop",
+      "addr_postcode": "71220",
+      "addr_street": "Eugene Ware Boulevard",
+      "addr_housenumber": "4673"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Ramada Vicksburg, Vicksburg, MS",
+      "geo_wkt": "POINT (-90.880423 32.316222)",
+      "poi": {
+        "id": 13564,
+        "geometry": "POINT (-90.880423 32.316222)",
+        "poi_name": "Ramada Vicksburg",
+        "osm_id": 4119156424,
+        "tourism": "hotel",
+        "addr_state": "MS",
+        "addr_city": "Vicksburg",
+        "addr_postcode": "39180",
+        "addr_street": "Orme Drive",
+        "addr_housenumber": "20"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1186,
+  "type": "knn:direction+loc"
+}

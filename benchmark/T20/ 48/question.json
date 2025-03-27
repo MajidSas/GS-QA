@@ -1,0 +1,71 @@
+{
+  "question": "Where's the closest gallery in the direction of the Sunnyside Sisters Bed and Breakfast, with a Dutch Touch, Clarksville, VA from Raynay Alpaca Farm, Ruffin, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, ST_GeomFromText('POINT (-78.569256 36.613599)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25618,
+      "geometry": "POINT (-77.560834 37.534206)",
+      "poi_name": "McCools of Bon Air",
+      "osm_id": 4556710162,
+      "tourism": "gallery",
+      "website": "http://mccoolsofbonair.com",
+      "phone": "+1 804-272-3161",
+      "addr_state": "VA",
+      "addr_city": "Richmond",
+      "addr_postcode": "23235",
+      "addr_street": "Buford Road",
+      "addr_housenumber": "2614",
+      "value": 71.32380064149642
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
+      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "poi": {
+        "id": 5116,
+        "geometry": "POINT (-79.503121 36.362766)",
+        "poi_name": "Raynay Alpaca Farm",
+        "osm_id": 9761648623,
+        "tourism": "zoo",
+        "phone": "+13369393645",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Ruffin",
+        "addr_postcode": "27326",
+        "addr_street": "Ashland Road",
+        "addr_housenumber": "1897"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Sunnyside Sisters Bed and Breakfast, with a Dutch Touch, Clarksville, VA",
+      "geo_wkt": "POINT (-78.569256 36.613599)",
+      "poi": {
+        "id": 24483,
+        "geometry": "POINT (-78.569256 36.613599)",
+        "poi_name": "The Sunnyside Sisters Bed and Breakfast, with a Dutch Touch",
+        "osm_id": 11072063402,
+        "tourism": "hotel",
+        "website": "https://www.sunnysidesisters.com",
+        "internet_access": "yes",
+        "phone": "4342100964",
+        "addr_state": "VA",
+        "addr_city": "Clarksville",
+        "addr_postcode": "23927",
+        "addr_street": "Shiney Rock Road",
+        "addr_housenumber": "104"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    }
+  },
+  "id": 1347,
+  "type": "knn:towards+loc"
+}

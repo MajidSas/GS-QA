@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find the closest emergency hospital from Friendship Park, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.122398 32.535349)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167717,
+      "geometry": "POINT (-117.055952 32.996822)",
+      "poi_name": "Palomar Medical Center Poway",
+      "osm_id": 358845273,
+      "amenity": "hospital",
+      "operator": "Palomar Health",
+      "website": "http://www.pph.org/ContentPage.aspx?nd=420",
+      "phone": "+18586134000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7227263",
+      "addr_state": "CA",
+      "addr_city": "Poway",
+      "addr_postcode": "92064",
+      "addr_street": "Pomerado Road",
+      "addr_housenumber": "15615"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Friendship Park, CA",
+      "geo_wkt": "POINT (-117.122398 32.535349)",
+      "poi": {
+        "id": 245802,
+        "geometry": "POINT (-117.122398 32.535349)",
+        "poi_name": "Friendship Park",
+        "osm_id": 10080698512,
+        "leisure": "park",
+        "opening_hours": "Sa-Su 10:00-14:00",
+        "operator": "U.S. Border Patrol",
+        "website": "https://www.friendshippark.org",
+        "phone": "+16198514083",
+        "addr_state": "CA",
+        "addr_postcode": "92154",
+        "addr_street": "Monument Road"
+      }
+    }
+  },
+  "id": 332,
+  "type": "knn:non_spat_filter+loc"
+}

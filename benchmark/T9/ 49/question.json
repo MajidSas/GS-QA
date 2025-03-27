@@ -1,0 +1,46 @@
+{
+  "question": "Which hotel is closest when moving in the northeast direction from Raynay Alpaca Farm, Ruffin, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24472,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Inn at Blackstone",
+      "osm_id": 11068156122,
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
+      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "poi": {
+        "id": 5116,
+        "geometry": "POINT (-79.503121 36.362766)",
+        "poi_name": "Raynay Alpaca Farm",
+        "osm_id": 9761648623,
+        "tourism": "zoo",
+        "phone": "+13369393645",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Ruffin",
+        "addr_postcode": "27326",
+        "addr_street": "Ashland Road",
+        "addr_housenumber": "1897"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2548,
+  "type": "knn:direction+name"
+}

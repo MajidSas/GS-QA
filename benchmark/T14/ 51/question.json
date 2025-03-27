@@ -1,0 +1,73 @@
+{
+  "question": "Could you assist me in locating an emergency hospital within a 90 kilometers radius originating from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, 90000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 63365,
+      "geometry": "POINT (-89.416974 40.418512)",
+      "poi_name": "Hopedale Medical Complex",
+      "osm_id": 5612743006,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.hopedalemc.com/",
+      "phone": "+1 309 449 3321",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hopedale",
+      "addr_postcode": "61747",
+      "addr_street": "Tremont Street",
+      "addr_housenumber": "107"
+    },
+    {
+      "id": 233215,
+      "geometry": "POINT (-89.697466 39.763463)",
+      "poi_name": "Springfield Clinic Wabash",
+      "osm_id": 4563757800,
+      "amenity": "hospital",
+      "website": "https://www.springfieldclinic.com/",
+      "phone": "+1-217-528-7541",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62705",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2200"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    }
+  },
+  "id": 450,
+  "type": "range:non_spat_filter+loc"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "I'm searching for a museum within 40 kilometers radius from Shechem Ministries, Lawrenceburg, KY, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 40000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "id": 2260,
+      "geometry": "POINT (-84.738413 37.818833)",
+      "poi_name": "Shaker Village of Pleasant Hill",
+      "osm_id": 3355742655,
+      "tourism": "museum",
+      "website": "https://shakervillageky.org/",
+      "phone": "+1-859-734-5411;+1-800-734-5611",
+      "museum": "history",
+      "addr_state": "KY",
+      "addr_city": "Harrodsburg",
+      "addr_postcode": "40330",
+      "addr_street": "Lexington Road",
+      "addr_housenumber": "3501"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    }
+  },
+  "id": 2018,
+  "type": "range+loc"
+}

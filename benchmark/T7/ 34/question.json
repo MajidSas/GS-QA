@@ -1,0 +1,45 @@
+{
+  "question": "When was the the nearest hospital from Hairpin Turn, Clarksburg, MA built?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167369,
+      "geometry": "POINT (-72.562619 42.859373)",
+      "poi_name": "Brattleboro Retreat",
+      "osm_id": 356557575,
+      "amenity": "hospital",
+      "website": "https://www.brattlebororetreat.org/",
+      "phone": "+1 802 257 7785",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q4958128",
+      "multihop_answer": "1834",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Brattleboro Retreat Built: 1834"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "poi": {
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
+      }
+    }
+  },
+  "id": 933,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Where is the nearest railway museum available from Four Mile Old West Town, Custer, SD?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-103.673239 43.733023)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 20241,
+      "geometry": "POINT (-96.476728 42.529033)",
+      "poi_name": "The Railroad Museum",
+      "osm_id": 7959730516,
+      "tourism": "museum",
+      "website": "https://www.siouxcityrailroadmuseum.org/",
+      "museum": "railway",
+      "addr_state": "IA",
+      "addr_city": "Sioux City",
+      "addr_postcode": "51102",
+      "addr_street": "Sioux River Road",
+      "addr_housenumber": "3400"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Four Mile Old West Town, Custer, SD",
+      "geo_wkt": "POINT (-103.673239 43.733023)",
+      "poi": {
+        "id": 25745,
+        "geometry": "POINT (-103.673239 43.733023)",
+        "poi_name": "Four Mile Old West Town",
+        "osm_id": 4588836146,
+        "tourism": "attraction",
+        "phone": "+1 605-673-3905",
+        "addr_state": "SD",
+        "addr_city": "Custer",
+        "addr_street": "Mount Rushmore Road",
+        "addr_housenumber": "11921"
+      }
+    }
+  },
+  "id": 308,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Seeking the closest beach resort from Edisto Island Serpentarium, Edisto Island, SC, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.279256 32.557517)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248000,
+      "geometry": "POINT (-80.4022 27.773371)",
+      "poi_name": "Orchid Island Beach Club",
+      "osm_id": 6231201516,
+      "leisure": "beach_resort",
+      "addr_state": "FL",
+      "addr_city": "Orchid",
+      "addr_postcode": "32963",
+      "addr_street": "Beachside Drive",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Edisto Island Serpentarium, Edisto Island, SC",
+      "geo_wkt": "POINT (-80.279256 32.557517)",
+      "poi": {
+        "id": 25121,
+        "geometry": "POINT (-80.279256 32.557517)",
+        "poi_name": "Edisto Island Serpentarium",
+        "osm_id": 4406997323,
+        "tourism": "zoo",
+        "opening_hours": "Th-Sa 10:00-16:00",
+        "website": "https://edistoserpentarium.com",
+        "phone": "1- (843) 869-1171",
+        "addr_state": "SC",
+        "addr_city": "Edisto Island",
+        "addr_postcode": "29438",
+        "addr_street": "Highway 174",
+        "addr_housenumber": "1374"
+      }
+    }
+  },
+  "id": 1866,
+  "type": "knn+loc"
+}

@@ -1,0 +1,69 @@
+{
+  "question": "Could you help me find a local museum, preferably within a 180 kilometers radius of Downtown Gazebo, Lake Jackson, TX?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.450044 29.041946)',4326)::geography, 180000)\nAND tourism = 'museum'\nAND museum = 'local';\n",
+  "answers": [
+    {
+      "id": 17984,
+      "geometry": "POINT (-96.772755 29.702178)",
+      "poi_name": "The Heritage Society Museum of Weimar",
+      "osm_id": 368165030,
+      "tourism": "museum",
+      "operator": "The Heritage Society of Weimar",
+      "phone": "+1 (979) 725-8203",
+      "museum": "local",
+      "addr_state": "TX",
+      "addr_city": "Weimar",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "125"
+    },
+    {
+      "id": 25794,
+      "geometry": "POINT (-95.826565 29.791165)",
+      "poi_name": "Katy Heritage Museum",
+      "osm_id": 4609702465,
+      "tourism": "museum",
+      "opening_hours": "Th-Su 11:00-17:00",
+      "operator": "Katy Heritage Society",
+      "website": "https://www.cityofkaty.com/visitors/museums",
+      "phone": "+1-281-574-8618",
+      "museum": "local",
+      "addr_state": "TX",
+      "addr_city": "Katy",
+      "addr_postcode": "77493",
+      "addr_street": "George Bush Drive",
+      "addr_housenumber": "6002"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Downtown Gazebo, Lake Jackson, TX",
+      "geo_wkt": "POINT (-95.450044 29.041946)",
+      "poi": {
+        "id": 248644,
+        "geometry": "POINT (-95.450044 29.041946)",
+        "poi_name": "Downtown Gazebo",
+        "osm_id": 4714526068,
+        "leisure": "garden",
+        "addr_state": "TX",
+        "addr_city": "Lake Jackson",
+        "addr_postcode": "77566",
+        "addr_street": "Parking Way"
+      }
+    }
+  },
+  "id": 568,
+  "type": "range:non_spat_filter+name"
+}

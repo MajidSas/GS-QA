@@ -1,0 +1,47 @@
+{
+  "question": "Do you know of any stadium within 30 kilometers drive from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, 30000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 251032,
+      "geometry": "POINT (-122.449013 47.267043)",
+      "poi_name": "Stadium Bowl",
+      "osm_id": 356543183,
+      "leisure": "stadium",
+      "sport": "athletics",
+      "wikidata": "Q7596473"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "poi": {
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
+      }
+    }
+  },
+  "id": 840,
+  "type": "range+name"
+}

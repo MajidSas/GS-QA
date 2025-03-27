@@ -1,0 +1,91 @@
+{
+  "question": "Could you assist me in locating a burger place within a 30 kilometers radius originating from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%burger%';\n",
+  "answers": [
+    {
+      "id": 136786,
+      "geometry": "POINT (-119.724704 34.434854)",
+      "poi_name": "Yellow Belly Tap",
+      "osm_id": 6070243464,
+      "amenity": "restaurant",
+      "cuisine": "pizza;burger",
+      "opening_hours": "Mo-Fr 16:00-21:00; Sa 12:00-21:00; Su 10:00-15:00",
+      "website": "https://www.yellowbellytap.com",
+      "phone": "+1-805-770-5694",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "addr_state": "CA",
+      "addr_city": "Santa Barbara",
+      "addr_postcode": "93105",
+      "addr_street": "De La Vina Street",
+      "addr_housenumber": "2611"
+    },
+    {
+      "id": 136788,
+      "geometry": "POINT (-119.690386 34.412866)",
+      "poi_name": "Finney's Crafthouse",
+      "osm_id": 6070268216,
+      "amenity": "restaurant",
+      "cuisine": "barbecue;cocktails;bar&grill;burger;american",
+      "opening_hours": "11:00-00:00",
+      "phone": "+1-805-845-3100",
+      "addr_city": "Santa Barbara",
+      "addr_postcode": "93101",
+      "addr_street": "State Street",
+      "addr_housenumber": "35"
+    },
+    {
+      "id": 244817,
+      "geometry": "POINT (-119.52285 34.39547)",
+      "poi_name": "The Spot",
+      "osm_id": 7742164791,
+      "amenity": "restaurant",
+      "cuisine": "burger;diner;american;fast_food",
+      "wheelchair": "limited",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "toilets": "yes",
+      "addr_state": "CA",
+      "addr_city": "Carpinteria",
+      "addr_postcode": "93013",
+      "addr_street": "Linden Avenue",
+      "addr_housenumber": "389"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 467,
+  "type": "range:non_spat_filter+loc"
+}

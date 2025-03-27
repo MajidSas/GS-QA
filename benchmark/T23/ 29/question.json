@@ -1,0 +1,39 @@
+{
+  "question": "Within a 180 kilometers radius from Snail Garden, Lake Jackson, TX, how many galleries are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.452235 29.043376)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Snail Garden, Lake Jackson, TX",
+      "geo_wkt": "POINT (-95.452235 29.043376)",
+      "poi": {
+        "id": 248645,
+        "geometry": "POINT (-95.452235 29.043376)",
+        "poi_name": "Snail Garden",
+        "osm_id": 4714529268,
+        "leisure": "garden",
+        "addr_state": "TX",
+        "addr_city": "Lake Jackson",
+        "addr_postcode": "77566",
+        "addr_street": "West Way Street"
+      }
+    }
+  },
+  "id": 2228,
+  "type": "range+count"
+}

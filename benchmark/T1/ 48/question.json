@@ -1,0 +1,66 @@
+{
+  "question": "Can you recommend a stadium that's not too far from Sauk Trail Woods, IL? Maximum distance: 140 kilometers",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography, 140000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265389,
+      "geometry": "POINT (-88.082005 41.605308)",
+      "poi_name": "Neil Carey Arena",
+      "osm_id": 368073990,
+      "leisure": "stadium",
+      "operator": "Lewis University",
+      "sport": "basketball;volleyball",
+      "addr_state": "IL"
+    },
+    {
+      "id": 249391,
+      "geometry": "POINT (-86.308998 41.983136)",
+      "poi_name": "Beaver Stadium",
+      "osm_id": 354042116,
+      "leisure": "stadium"
+    },
+    {
+      "id": 266107,
+      "geometry": "POINT (-87.688467 41.661626)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 10655734023,
+      "leisure": "stadium"
+    },
+    {
+      "id": 267121,
+      "geometry": "POINT (-86.494444 42.088955)",
+      "poi_name": "Dickenson Stadium (St. Joseph High School)",
+      "osm_id": 4567937947,
+      "leisure": "stadium",
+      "sport": "american_football"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Sauk Trail Woods, IL",
+      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "poi": {
+        "id": 265408,
+        "geometry": "POINT (-87.649076 41.489705)",
+        "poi_name": "Sauk Trail Woods",
+        "osm_id": 369059365,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 847,
+  "type": "range+name"
+}

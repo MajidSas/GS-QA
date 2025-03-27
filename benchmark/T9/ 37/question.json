@@ -1,0 +1,51 @@
+{
+  "question": "What is the closest stadium positioned towards the east of Humboldt Botanical Garden, Eureka, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266188,
+      "geometry": "POINT (-124.203982 40.700941)",
+      "poi_name": "Pioneer Stadium",
+      "osm_id": 598066080,
+      "leisure": "stadium",
+      "sport": "equestrian",
+      "wikidata": "Q7079951",
+      "addr_state": "UT",
+      "addr_city": "Ogden",
+      "addr_street": "17th Street",
+      "addr_housenumber": "668"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Humboldt Botanical Garden, Eureka, CA",
+      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "poi": {
+        "id": 266946,
+        "geometry": "POINT (-124.203982 40.700941)",
+        "poi_name": "Humboldt Botanical Garden",
+        "osm_id": 11161511489,
+        "leisure": "garden",
+        "website": "https://www.hbgf.org/",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95503",
+        "addr_street": "Tompkins Hill Road",
+        "addr_housenumber": "7707"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2536,
+  "type": "knn:direction+name"
+}

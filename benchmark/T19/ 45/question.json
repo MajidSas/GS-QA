@@ -1,0 +1,47 @@
+{
+  "question": "Where is the closest fast food restaurant in the north direction starting from Tablerocks Goodnight Amphitheater, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 203329,
+      "geometry": "POINT (-97.532231 30.940462)",
+      "poi_name": "Subway",
+      "osm_id": 7078547578,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "TX",
+      "addr_city": "Salado",
+      "addr_postcode": "76571",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "882"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Tablerocks Goodnight Amphitheater, TX",
+      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "poi": {
+        "id": 265396,
+        "geometry": "POINT (-97.532231 30.940462)",
+        "poi_name": "Tablerocks Goodnight Amphitheater",
+        "osm_id": 368165373,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1144,
+  "type": "knn:direction+loc"
+}

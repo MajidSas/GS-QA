@@ -1,0 +1,40 @@
+{
+  "question": "How many restaurants can be found within a 20 kilometers radius from Outdoor Biological Research Facility, Vestal, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography, 20000)\nAND amenity = 'restaurant';\n",
+  "answers": [
+    {
+      "count": 65
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
+      "geo_wkt": "POINT (-75.978456 42.082185)",
+      "poi": {
+        "id": 246670,
+        "geometry": "POINT (-75.978456 42.082185)",
+        "poi_name": "Outdoor Biological Research Facility",
+        "osm_id": 8793514697,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Vestal",
+        "addr_postcode": "13850",
+        "addr_street": "Bunn Hill Road",
+        "addr_housenumber": "906"
+      }
+    }
+  },
+  "id": 2265,
+  "type": "range+count"
+}

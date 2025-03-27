@@ -1,0 +1,72 @@
+{
+  "question": "Where can I find fast food restaurant located en route to Swampspace, Miami, FL from Dolphins Plus Bayside, Key Largo, FL, within a radius of 20 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, ST_GeomFromText('POINT (-80.195617 25.812906)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, 20000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 42353,
+      "geometry": "POINT (-80.379161 25.16636)",
+      "poi_name": "Subway",
+      "osm_id": 3056801953,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_city": "Key Largo",
+      "addr_postcode": "33037",
+      "addr_street": "Overseas Highway",
+      "addr_housenumber": "105970",
+      "value": 16.242481924166317
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
+      "poi": {
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
+        "tourism": "aquarium",
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Swampspace, Miami, FL",
+      "geo_wkt": "POINT (-80.195617 25.812906)",
+      "poi": {
+        "id": 11912,
+        "geometry": "POINT (-80.195617 25.812906)",
+        "poi_name": "Swampspace",
+        "osm_id": 6086040183,
+        "tourism": "gallery",
+        "website": "http://swampspace.blogspot.com/",
+        "phone": "(305) 710 8631",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33127",
+        "addr_street": "North Miami Avenue",
+        "addr_housenumber": "3940"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1285,
+  "type": "range:towards+loc"
+}

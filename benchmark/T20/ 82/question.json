@@ -1,0 +1,68 @@
+{
+  "question": "Where's the closest caf\u00e9 located en route to Oasis Villa Resort, Palm Springs, CA from Sugarplum Zoo, Temecula, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, ST_GeomFromText('POINT (-116.502215 33.795619)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 222593,
+      "geometry": "POINT (-116.720188 33.739097)",
+      "poi_name": "Alpaca Coffee and Tea",
+      "osm_id": 11026602487,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea;coffee_shop",
+      "outdoor_seating": "yes",
+      "addr_state": "CA",
+      "addr_city": "Idyllwild",
+      "addr_postcode": "92549",
+      "value": 61.570668480342974
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sugarplum Zoo, Temecula, CA",
+      "geo_wkt": "POINT (-117.055191 33.546915)",
+      "poi": {
+        "id": 24034,
+        "geometry": "POINT (-117.055191 33.546915)",
+        "poi_name": "Sugarplum Zoo",
+        "osm_id": 9270599265,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-18:00",
+        "addr_state": "CA",
+        "addr_city": "Temecula",
+        "addr_postcode": "92591",
+        "addr_street": "Berenda Rd",
+        "addr_housenumber": "39695"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Oasis Villa Resort, Palm Springs, CA",
+      "geo_wkt": "POINT (-116.502215 33.795619)",
+      "poi": {
+        "id": 1853,
+        "geometry": "POINT (-116.502215 33.795619)",
+        "poi_name": "Oasis Villa Resort",
+        "osm_id": 3186044335,
+        "tourism": "hotel",
+        "website": "https://www.viresorts.com/resorts/Oasis.html",
+        "phone": "+1 760-324-3422",
+        "addr_state": "CA",
+        "addr_city": "Palm Springs",
+        "addr_postcode": "92264",
+        "addr_street": "East Palm Canyon Drive",
+        "addr_housenumber": "4190"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1381,
+  "type": "knn:towards+loc"
+}

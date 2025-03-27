@@ -1,0 +1,65 @@
+{
+  "question": "Which museum is closest when moving towards Obie Knutson Park, Windom, MN from Getting's Garden, Sanborn, IA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography, ST_GeomFromText('POINT (-95.054538 43.838174)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16973,
+      "geometry": "POINT (-94.919002 43.934732)",
+      "poi_name": "Heritage Village Museum",
+      "osm_id": 367068289,
+      "tourism": "museum",
+      "website": "https://www.heritagevillagemountainlake.com/",
+      "addr_state": "MN",
+      "value": 38.69911098414574
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Getting's Garden, Sanborn, IA",
+      "geo_wkt": "POINT (-95.724521 43.234748)",
+      "poi": {
+        "id": 266116,
+        "geometry": "POINT (-95.724521 43.234748)",
+        "poi_name": "Getting's Garden",
+        "osm_id": 10686198179,
+        "leisure": "garden",
+        "opening_hours": "Su off",
+        "website": "https://www.gettingsgarden.com/",
+        "shop": "farm",
+        "addr_state": "IA",
+        "addr_city": "Sanborn",
+        "addr_postcode": "51248",
+        "addr_street": "Pierce Avenue",
+        "addr_housenumber": "2861"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Obie Knutson Park, Windom, MN",
+      "geo_wkt": "POINT (-95.054538 43.838174)",
+      "poi": {
+        "id": 248141,
+        "geometry": "POINT (-95.054538 43.838174)",
+        "poi_name": "Obie Knutson Park",
+        "osm_id": 7278723645,
+        "leisure": "park",
+        "toilets": "yes",
+        "addr_state": "MN",
+        "addr_city": "Windom",
+        "addr_postcode": "56101",
+        "addr_street": "outh Shore Dr",
+        "addr_housenumber": "608 S"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 103,
+  "type": "knn:towards+name"
+}

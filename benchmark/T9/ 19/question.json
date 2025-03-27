@@ -1,0 +1,43 @@
+{
+  "question": "Which golf course is nearest when considering the south direction of Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265660,
+      "geometry": "POINT (-83.120136 40.100971)",
+      "poi_name": "The Lakes Golf Course(Closed)",
+      "osm_id": 10796261124,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2518,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest emergency hospital from Super Cichlids Inc, Dover, DE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 240413,
+      "geometry": "POINT (-76.346498 39.519421)",
+      "poi_name": "Upper Chesapeake Hospital",
+      "osm_id": 5973533451,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    }
+  },
+  "id": 685,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "In what direction can I find the closest theme park situated from Leonard Slatkin, University City, MO?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.302665 38.655645)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.302665 38.655645)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2504,
+      "geometry": "POINT (-90.331071 37.635858)",
+      "poi_name": "Huck's Cove",
+      "osm_id": 3487755259,
+      "tourism": "theme_park",
+      "operator": "Boy Scouts of America",
+      "angle": 181.26896935808304
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Leonard Slatkin, University City, MO",
+      "geo_wkt": "POINT (-90.302665 38.655645)",
+      "poi": {
+        "id": 1865,
+        "geometry": "POINT (-90.302665 38.655645)",
+        "poi_name": "Leonard Slatkin",
+        "osm_id": 3189018461,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "website": "https://www.stlouiswalkoffame.org/inductees/leonard-slatkin.html",
+        "addr_state": "MO",
+        "addr_city": "University City",
+        "addr_postcode": "63130",
+        "addr_street": "Delmar Boulevard",
+        "addr_housenumber": "6318"
+      }
+    }
+  },
+  "id": 1404,
+  "type": "knn+angle"
+}

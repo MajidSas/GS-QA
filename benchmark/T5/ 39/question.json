@@ -1,0 +1,41 @@
+{
+  "question": "Seeking suggestions for the nearest hotel in relation to Heart of the Raven Gallery, Carrizozo, NM.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-105.876166 33.641883)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16607,
+      "geometry": "POINT (-105.877826 33.643213)",
+      "poi_name": "Western Hotel",
+      "osm_id": 366378325,
+      "tourism": "hotel",
+      "addr_state": "NM"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Heart of the Raven Gallery, Carrizozo, NM",
+      "geo_wkt": "POINT (-105.876166 33.641883)",
+      "poi": {
+        "id": 10118,
+        "geometry": "POINT (-105.876166 33.641883)",
+        "poi_name": "Heart of the Raven Gallery",
+        "osm_id": 6711388565,
+        "tourism": "gallery",
+        "addr_state": "NM",
+        "addr_city": "Carrizozo",
+        "addr_postcode": "88301",
+        "addr_street": "12th Street",
+        "addr_housenumber": "415"
+      }
+    }
+  },
+  "id": 238,
+  "type": "knn+name"
+}

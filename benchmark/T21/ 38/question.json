@@ -1,0 +1,90 @@
+{
+  "question": "What's the route to a university from Joy Burns Arena, CO within 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, 50000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 40329,
+      "geometry": "POINT (-104.838662 39.744649)",
+      "poi_name": "University of Colorado Anschutz Medical Campus",
+      "osm_id": 2967173424,
+      "amenity": "university",
+      "angle": 56.64865508463007
+    },
+    {
+      "id": 57434,
+      "geometry": "POINT (-104.996847 39.749178)",
+      "poi_name": "University of the Rockies",
+      "osm_id": 5336796189,
+      "amenity": "university",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80202",
+      "addr_street": "16th Street Mall",
+      "addr_housenumber": "1201",
+      "angle": 337.52634661813545
+    },
+    {
+      "id": 70277,
+      "geometry": "POINT (-104.860994 39.595547)",
+      "poi_name": "ECPI University Denver",
+      "osm_id": 11356406020,
+      "amenity": "university",
+      "addr_state": "CO",
+      "addr_city": "Centennial",
+      "addr_postcode": "80111",
+      "addr_street": "South Kenton Street",
+      "addr_housenumber": "6675",
+      "angle": 138.29227298013
+    },
+    {
+      "id": 93202,
+      "geometry": "POINT (-105.00434 39.743465)",
+      "poi_name": "Metropolitan State University of Denver",
+      "osm_id": 2155391509,
+      "amenity": "university",
+      "wikidata": "Q613736",
+      "angle": 331.30679969932373
+    },
+    {
+      "id": 152208,
+      "geometry": "POINT (-105.002296 39.745727)",
+      "poi_name": "Facility For Advanced Spatial Technology",
+      "osm_id": 4131746182,
+      "amenity": "university",
+      "wheelchair": "limited",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80217",
+      "addr_street": "Larimer Street",
+      "addr_housenumber": "1200",
+      "angle": 333.30767024937967
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Joy Burns Arena, CO",
+      "geo_wkt": "POINT (-104.961111 39.6825)",
+      "poi": {
+        "id": 265350,
+        "geometry": "POINT (-104.961111 39.6825)",
+        "poi_name": "Joy Burns Arena",
+        "osm_id": 366396382,
+        "leisure": "stadium",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 1037,
+  "type": "range+angle"
+}

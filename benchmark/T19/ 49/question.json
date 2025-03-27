@@ -1,0 +1,50 @@
+{
+  "question": "Where's the nearest golf course located in the southwest of Georgia Veterans Education Center, Warner Robins, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.597294 32.601434)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247631,
+      "geometry": "POINT (-83.597294 32.601434)",
+      "poi_name": "Houston Lake Country Club",
+      "osm_id": 153999480,
+      "leisure": "golf_course",
+      "addr_state": "GA",
+      "addr_city": "Perry",
+      "addr_postcode": "31069",
+      "addr_street": "Champions Way",
+      "addr_housenumber": "100"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Georgia Veterans Education Center, Warner Robins, GA",
+      "geo_wkt": "POINT (-83.597294 32.601434)",
+      "poi": {
+        "id": 155741,
+        "geometry": "POINT (-83.597294 32.601434)",
+        "poi_name": "Georgia Veterans Education Center",
+        "osm_id": 4300023753,
+        "amenity": "university",
+        "website": "https://gavectr.org/",
+        "addr_state": "GA",
+        "addr_city": "Warner Robins",
+        "addr_postcode": "31093",
+        "addr_street": "Armed Forces Boulevard",
+        "addr_housenumber": "1001"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1148,
+  "type": "knn:direction+loc"
+}

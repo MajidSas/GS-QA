@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find the nearest railway museum from Lifestream Behavioral Center, Leesburg, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.895483 28.836904)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17638,
+      "geometry": "POINT (-80.122289 26.316622)",
+      "poi_name": "South Florida Railway Museum",
+      "osm_id": 367827378,
+      "tourism": "museum",
+      "website": "https://sfrm.org/",
+      "museum": "railway",
+      "wikidata": "Q7567245",
+      "addr_state": "FL",
+      "addr_city": "Deerfield Beach",
+      "addr_postcode": "33442",
+      "addr_street": "West Hillsboro Boulevard",
+      "addr_housenumber": "1300"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Lifestream Behavioral Center, Leesburg, FL",
+      "geo_wkt": "POINT (-81.895483 28.836904)",
+      "poi": {
+        "id": 181410,
+        "geometry": "POINT (-81.895483 28.836904)",
+        "poi_name": "Lifestream Behavioral Center",
+        "osm_id": 10844834163,
+        "amenity": "hospital",
+        "website": "https://www.lsbc.net",
+        "phone": "+1 352 315 7800",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Leesburg",
+        "addr_postcode": "34748",
+        "addr_street": "Tally Road",
+        "addr_housenumber": "2020"
+      }
+    }
+  },
+  "id": 384,
+  "type": "knn:non_spat_filter+loc"
+}

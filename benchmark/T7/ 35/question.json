@@ -1,0 +1,56 @@
+{
+  "question": "When was the nearest nature reserve from Malibu Jack's, Springfield, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267118,
+      "geometry": "POINT (-89.61996 39.802443)",
+      "poi_name": "Margery Adams Wildlife Sanctuary",
+      "osm_id": 4567499757,
+      "leisure": "nature_reserve",
+      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+      "phone": "+1-217-544-5781",
+      "wikidata": "Q4680461",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Clear Lake Avenue",
+      "addr_housenumber": "2315",
+      "multihop_answer": "1983",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Margery Adams Wildlife Sanctuary Established: 1983"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    }
+  },
+  "id": 934,
+  "type": "knn+name+multihop1"
+}

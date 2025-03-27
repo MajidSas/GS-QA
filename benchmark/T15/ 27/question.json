@@ -1,0 +1,65 @@
+{
+  "question": "Where can I find a university towards the north of Brigham and Women's, Foxborough, MA within 60 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.266184 42.092705)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.266184 42.092705)',4326)::geography, 60000)\nAND amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 70992,
+      "geometry": "POINT (-71.266184 42.092705)",
+      "poi_name": "Radcliffe Institute for Advanced Studies",
+      "osm_id": 11378728082,
+      "amenity": "university",
+      "wikidata": "Q7280030",
+      "addr_state": "MA"
+    },
+    {
+      "id": 163970,
+      "geometry": "POINT (-71.266184 42.092705)",
+      "poi_name": "Harvard Graduate School of Education",
+      "osm_id": 9444773346,
+      "amenity": "university",
+      "operator": "Harvard University",
+      "wikidata": "Q14715517",
+      "addr_state": "MA",
+      "addr_city": "Cambridge",
+      "addr_postcode": "02138",
+      "addr_street": "Appian Way",
+      "addr_housenumber": "13"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Brigham and Women's, Foxborough, MA",
+      "geo_wkt": "POINT (-71.266184 42.092705)",
+      "poi": {
+        "id": 68228,
+        "geometry": "POINT (-71.266184 42.092705)",
+        "poi_name": "Brigham and Women's",
+        "osm_id": 11264710210,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "MA",
+        "addr_city": "Foxborough",
+        "addr_postcode": "02035",
+        "addr_street": "Patriot Place",
+        "addr_housenumber": "20"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 26,
+  "type": "range:direction+loc"
+}

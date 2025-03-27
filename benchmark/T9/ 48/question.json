@@ -1,0 +1,49 @@
+{
+  "question": "What is the nearest garden in the southeast direction of WellSpan Surgery and Rehabilitation Hospital, York, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.718936 39.926176)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246951,
+      "geometry": "POINT (-76.718936 39.926176)",
+      "poi_name": "Shamrock Park Memorial Tree Grove",
+      "osm_id": 6631814748,
+      "leisure": "garden",
+      "operator": "Town of Bel Air"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "WellSpan Surgery and Rehabilitation Hospital, York, PA",
+      "geo_wkt": "POINT (-76.718936 39.926176)",
+      "poi": {
+        "id": 234454,
+        "geometry": "POINT (-76.718936 39.926176)",
+        "poi_name": "WellSpan Surgery and Rehabilitation Hospital",
+        "osm_id": 4623740758,
+        "amenity": "hospital",
+        "wheelchair": "yes",
+        "operator": "WellSpan Health",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "PA",
+        "addr_city": "York",
+        "addr_postcode": "17403",
+        "addr_street": "Monument Rd",
+        "addr_housenumber": "55"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2547,
+  "type": "knn:direction+name"
+}

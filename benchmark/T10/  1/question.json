@@ -1,0 +1,71 @@
+{
+  "question": "What is the nearest fast food as you progress towards Montefiore Medical Center - Wakefield Campus, Bronx, NY from CUNY Graduate School of Journalism, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.988988 40.755324)',4326)::geography, ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.988988 40.755324)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.988988 40.755324)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 240774,
+      "geometry": "POINT (-73.987814 40.757422)",
+      "poi_name": "Los Tacos No.1",
+      "osm_id": 5987980586,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+      "website": "https://www.lostacos1.com/location/los-tacos-times-square/",
+      "phone": "+1 212-574-4696",
+      "addr_postcode": "10036",
+      "addr_street": "West 43rd Street",
+      "addr_housenumber": "229",
+      "value": 35.01836009642115
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY Graduate School of Journalism, New York, NY",
+      "geo_wkt": "POINT (-73.988988 40.755324)",
+      "poi": {
+        "id": 232217,
+        "geometry": "POINT (-73.988988 40.755324)",
+        "poi_name": "CUNY Graduate School of Journalism",
+        "osm_id": 4515559287,
+        "amenity": "university",
+        "operator": "City University of New York (CUNY)",
+        "website": "https://www.journalism.cuny.edu/",
+        "phone": "+1 646 758 7700",
+        "wikidata": "Q14706210",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10018",
+        "addr_street": "West 40th Street",
+        "addr_housenumber": "219"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Montefiore Medical Center - Wakefield Campus, Bronx, NY",
+      "geo_wkt": "POINT (-73.861082 40.893776)",
+      "poi": {
+        "id": 37608,
+        "geometry": "POINT (-73.861082 40.893776)",
+        "poi_name": "Montefiore Medical Center - Wakefield Campus",
+        "osm_id": 2822777418,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10466",
+        "addr_street": "Carpenter Avenue",
+        "addr_housenumber": "4141"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 100,
+  "type": "knn:towards+name"
+}

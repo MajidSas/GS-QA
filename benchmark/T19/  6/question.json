@@ -1,0 +1,51 @@
+{
+  "question": "Where is the nearest hospital towards the south of Falls Ridge Preserve, Elliston, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 191433,
+      "geometry": "POINT (-80.321578 37.193218)",
+      "poi_name": "Old Vineyard Behavioral Health Services",
+      "osm_id": 1366901650,
+      "amenity": "hospital",
+      "website": "https://oldvineyardbhs.com/",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "NC",
+      "addr_city": "Winston-Salem",
+      "addr_postcode": "27104",
+      "addr_street": "Old Vineyard Road",
+      "addr_housenumber": "3637"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Falls Ridge Preserve, Elliston, VA",
+      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "poi": {
+        "id": 266492,
+        "geometry": "POINT (-80.321578 37.193218)",
+        "poi_name": "Falls Ridge Preserve",
+        "osm_id": 5189591887,
+        "leisure": "nature_reserve",
+        "addr_state": "VA",
+        "addr_city": "Elliston",
+        "addr_postcode": "24087",
+        "addr_street": "Falls Ridge Rd"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1105,
+  "type": "knn:direction+loc"
+}

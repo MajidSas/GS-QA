@@ -1,0 +1,65 @@
+{
+  "question": "Where is the closest museum from Discovery Park, Freeport, ME towards Augusta Nature Education Center, Augusta, ME?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography, ST_GeomFromText('POINT (-69.752722 44.311919)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17426,
+      "geometry": "POINT (-69.803176 44.088348)",
+      "poi_name": "CHTJ Southard House Museum",
+      "osm_id": 367795437,
+      "tourism": "museum",
+      "website": "https://www.richmondmaine.com/SouthardHouseMuseum",
+      "phone": "+1 (207) 737-8202",
+      "museum": "history",
+      "addr_state": "ME",
+      "addr_city": "Richmond",
+      "addr_postcode": "04357",
+      "addr_street": "Main Street",
+      "addr_housenumber": "75",
+      "value": 29.038334347943188
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Discovery Park, Freeport, ME",
+      "geo_wkt": "POINT (-70.104409 43.857601)",
+      "poi": {
+        "id": 246631,
+        "geometry": "POINT (-70.104409 43.857601)",
+        "poi_name": "Discovery Park",
+        "osm_id": 1957691568,
+        "leisure": "park",
+        "addr_state": "ME",
+        "addr_city": "Freeport",
+        "addr_postcode": "04032",
+        "addr_street": "Morse St"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Augusta Nature Education Center, Augusta, ME",
+      "geo_wkt": "POINT (-69.752722 44.311919)",
+      "poi": {
+        "id": 245779,
+        "geometry": "POINT (-69.752722 44.311919)",
+        "poi_name": "Augusta Nature Education Center",
+        "osm_id": 10046271240,
+        "leisure": "nature_reserve",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Cony Street"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1321,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "Which way should I go to reach the closest caf\u00e9 from Praxis Gallery, New York, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.005758 40.746061)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.005758 40.746061)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 152067,
+      "geometry": "POINT (-74.005459 40.745718)",
+      "poi_name": "Cookshop",
+      "osm_id": 4124782089,
+      "amenity": "cafe",
+      "phone": "(212) 924-4440",
+      "addr_street": "10th Avenue",
+      "addr_housenumber": "156",
+      "angle": 146.48592025580558
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Praxis Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.005758 40.746061)",
+      "poi": {
+        "id": 19768,
+        "geometry": "POINT (-74.005758 40.746061)",
+        "poi_name": "Praxis Gallery",
+        "osm_id": 10873196744,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 9:00-17:00",
+        "website": "https://www.praxis-art.com",
+        "phone": "+1-212-772-9478",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 20th Street",
+        "addr_housenumber": "501"
+      }
+    }
+  },
+  "id": 1487,
+  "type": "knn+angle"
+}

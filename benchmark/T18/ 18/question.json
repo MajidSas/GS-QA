@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find the nearest restaurant with outdoor seating near Outdoor Biological Research Facility, Vestal, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 157723,
+      "geometry": "POINT (-75.913389 42.09744)",
+      "poi_name": "The Stone Fox",
+      "osm_id": 4723142484,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Tu-Th 11:30-01:00; Fr-Sa 11:30-03:00; Su 11:30-20:00",
+      "website": "https://www.stonefoxbing.com/",
+      "phone": "+16072353312",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "NY",
+      "addr_city": "Binghamton",
+      "addr_postcode": "13901",
+      "addr_street": "Hawley Street",
+      "addr_housenumber": "15"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
+      "geo_wkt": "POINT (-75.978456 42.082185)",
+      "poi": {
+        "id": 246670,
+        "geometry": "POINT (-75.978456 42.082185)",
+        "poi_name": "Outdoor Biological Research Facility",
+        "osm_id": 8793514697,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Vestal",
+        "addr_postcode": "13850",
+        "addr_street": "Bunn Hill Road",
+        "addr_housenumber": "906"
+      }
+    }
+  },
+  "id": 317,
+  "type": "knn:non_spat_filter+loc"
+}

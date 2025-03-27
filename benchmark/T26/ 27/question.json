@@ -1,0 +1,47 @@
+{
+  "question": "What's the distance between Dignity Health Rehabilitation Hospital, Henderson, NV and the nearest caf\u00e9?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-115.117006 36.003071)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-115.117006 36.003071)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 216062,
+      "geometry": "POINT (-115.127774 35.996681)",
+      "poi_name": "Starbucks",
+      "osm_id": 9152445929,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "distance": 1202.25795784
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Dignity Health Rehabilitation Hospital, Henderson, NV",
+      "geo_wkt": "POINT (-115.117006 36.003071)",
+      "poi": {
+        "id": 182555,
+        "geometry": "POINT (-115.117006 36.003071)",
+        "poi_name": "Dignity Health Rehabilitation Hospital",
+        "osm_id": 10895050633,
+        "amenity": "hospital",
+        "website": "https://www.dignityhealthrehab.com",
+        "phone": "+1 725 726 2000",
+        "healthcare": "rehabilitation",
+        "addr_state": "NV",
+        "addr_city": "Henderson",
+        "addr_postcode": "89052",
+        "addr_street": "Siena Heights Drive",
+        "addr_housenumber": "2930"
+      }
+    }
+  },
+  "id": 2426,
+  "type": "knn+distance"
+}

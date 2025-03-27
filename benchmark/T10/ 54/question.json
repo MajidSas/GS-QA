@@ -1,0 +1,60 @@
+{
+  "question": "What's the closest fast food in the direction of Sunset Views, South Brunswick, NJ from Camel's Hump Farm Nature Education Center, Bethlehem, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography, ST_GeomFromText('POINT (-74.576389 40.361847)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 107448,
+      "geometry": "POINT (-75.307854 40.666038)",
+      "poi_name": "Dunkin' Donuts",
+      "osm_id": 3561965409,
+      "amenity": "fast_food",
+      "cuisine": "donut",
+      "value": 117.20697460138628
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Camel's Hump Farm Nature Education Center, Bethlehem, PA",
+      "geo_wkt": "POINT (-75.351884 40.66941)",
+      "poi": {
+        "id": 247086,
+        "geometry": "POINT (-75.351884 40.66941)",
+        "poi_name": "Camel's Hump Farm Nature Education Center",
+        "osm_id": 3518135469,
+        "leisure": "nature_reserve",
+        "addr_state": "PA",
+        "addr_city": "Bethlehem",
+        "addr_postcode": "18017",
+        "addr_street": "Santee Mill Road",
+        "addr_housenumber": "1311"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Sunset Views, South Brunswick, NJ",
+      "geo_wkt": "POINT (-74.576389 40.361847)",
+      "poi": {
+        "id": 25931,
+        "geometry": "POINT (-74.576389 40.361847)",
+        "poi_name": "Sunset Views",
+        "osm_id": 5744513374,
+        "tourism": "attraction",
+        "addr_state": "NJ",
+        "addr_city": "South Brunswick",
+        "addr_postcode": "08852",
+        "addr_street": "Perrine Road",
+        "addr_housenumber": "100"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 153,
+  "type": "knn:towards+name"
+}

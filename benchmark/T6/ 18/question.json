@@ -1,0 +1,51 @@
+{
+  "question": "What is the nearest fusion restaurant from Holiday Inn Express & Suites Emporia, Emporia, VA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fusion%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.557403 36.706505)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 225999,
+      "geometry": "POINT (-78.930486 35.910568)",
+      "poi_name": "Kokyu",
+      "osm_id": 11146259018,
+      "amenity": "restaurant",
+      "cuisine": "sandwich;asian_fusion",
+      "opening_hours": "Tu,We,Su 11:00-21:00; Th,Fr,Sa 11:00-22:00",
+      "website": "http://www.kokyubbq.com/",
+      "phone": "+19192519017",
+      "addr_state": "NC",
+      "addr_city": "Durham",
+      "addr_postcode": "27713",
+      "addr_street": "NC-54",
+      "addr_housenumber": "254 E"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fusion restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fusion%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn Express & Suites Emporia, Emporia, VA",
+      "geo_wkt": "POINT (-77.557403 36.706505)",
+      "poi": {
+        "id": 19877,
+        "geometry": "POINT (-77.557403 36.706505)",
+        "poi_name": "Holiday Inn Express & Suites Emporia",
+        "osm_id": 10925371816,
+        "tourism": "hotel",
+        "addr_state": "VA",
+        "addr_city": "Emporia",
+        "addr_postcode": "23847",
+        "addr_street": "West Atlantic Street",
+        "addr_housenumber": "1350"
+      }
+    }
+  },
+  "id": 617,
+  "type": "knn:non_spat_filter+name"
+}

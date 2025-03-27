@@ -1,0 +1,53 @@
+{
+  "question": "I'm looking for a hospital within 70 kilometers from Eddy Lookout Tower, Sanderson, FL, any ideas?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography, 70000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 168203,
+      "geometry": "POINT (-82.35821 29.98852)",
+      "poi_name": "Florida Corrections Medical Center",
+      "osm_id": 367822245,
+      "amenity": "hospital",
+      "website": "http://www.dc.state.fl.us/facilities/region2/209.html",
+      "phone": "+1 386 496 6000",
+      "emergency": "no",
+      "wikidata": "Q28446527",
+      "addr_state": "FL",
+      "addr_city": "Lake Butler",
+      "addr_postcode": "32054",
+      "addr_street": "South CR 231",
+      "addr_housenumber": "7765"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Eddy Lookout Tower, Sanderson, FL",
+      "geo_wkt": "POINT (-82.34337 30.543305)",
+      "poi": {
+        "id": 8681,
+        "geometry": "POINT (-82.34337 30.543305)",
+        "poi_name": "Eddy Lookout Tower",
+        "osm_id": 8618634369,
+        "tourism": "viewpoint",
+        "addr_state": "FL",
+        "addr_city": "Sanderson",
+        "addr_postcode": "32087",
+        "addr_street": "State Road 2",
+        "addr_housenumber": "18568"
+      }
+    }
+  },
+  "id": 833,
+  "type": "range+name"
+}

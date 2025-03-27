@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest nature reserve positioned towards the northwest of University of South Carolina Beaufort - Bluffton campus, Bluffton, SC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.973603 32.303243)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248864,
+      "geometry": "POINT (-80.973603 32.303243)",
+      "poi_name": "Georgia Nature Center",
+      "osm_id": 4873065186,
+      "leisure": "nature_reserve",
+      "website": "www.naturecenter.com",
+      "addr_state": "GA",
+      "addr_city": "Watkinsville",
+      "addr_postcode": "30677",
+      "addr_street": "Salem Road",
+      "addr_housenumber": "3001"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of South Carolina Beaufort - Bluffton campus, Bluffton, SC",
+      "geo_wkt": "POINT (-80.973603 32.303243)",
+      "poi": {
+        "id": 217111,
+        "geometry": "POINT (-80.973603 32.303243)",
+        "poi_name": "University of South Carolina Beaufort - Bluffton campus",
+        "osm_id": 9205449468,
+        "amenity": "university",
+        "addr_state": "SC",
+        "addr_city": "Bluffton",
+        "addr_postcode": "29909",
+        "addr_street": "University Boulevard",
+        "addr_housenumber": "1"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1177,
+  "type": "knn:direction+loc"
+}

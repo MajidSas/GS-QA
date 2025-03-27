@@ -1,0 +1,69 @@
+{
+  "question": "Can you recommend a hospital that's not too far from Captain Mike's Fun Park, Bridgman, MI? Maximum distance: 40 kilometers",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography, 40000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 167302,
+      "geometry": "POINT (-86.301606 41.955414)",
+      "poi_name": "Lakeland Specialty Hospital",
+      "osm_id": 354025968,
+      "amenity": "hospital",
+      "website": "https://www.lakelandcare.com/",
+      "phone": "+1-269-471-7761",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "MI",
+      "addr_city": "Berrien Center",
+      "addr_postcode": "49102",
+      "addr_street": "Deans Hill Road",
+      "addr_housenumber": "6418"
+    },
+    {
+      "id": 182094,
+      "geometry": "POINT (-86.381464 41.720046)",
+      "poi_name": "A Rosie Place",
+      "osm_id": 10876824376,
+      "amenity": "hospital",
+      "website": "https://arosieplace.org",
+      "phone": "+1 574 235 8899",
+      "healthcare": "hospital",
+      "addr_state": "IN",
+      "addr_city": "South Bend",
+      "addr_postcode": "46628",
+      "addr_street": "Quince Road",
+      "addr_housenumber": "53131"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
+      "geo_wkt": "POINT (-86.576965 41.919871)",
+      "poi": {
+        "id": 4790,
+        "geometry": "POINT (-86.576965 41.919871)",
+        "poi_name": "Captain Mike's Fun Park",
+        "osm_id": 9625343406,
+        "tourism": "theme_park",
+        "website": "https://captainmikesamusementpark.com/",
+        "addr_state": "MI",
+        "addr_city": "Bridgman",
+        "addr_postcode": "49106",
+        "addr_street": "Red Arrow Highway",
+        "addr_housenumber": "10975"
+      }
+    }
+  },
+  "id": 871,
+  "type": "range+name"
+}

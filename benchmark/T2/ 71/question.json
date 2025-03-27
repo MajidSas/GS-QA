@@ -1,0 +1,89 @@
+{
+  "question": "Looking for an emergency hospital that is conveniently located within 150 kilometers from Woodmen of the World Park, Chapin, SC. Can you assist me?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.276369 34.117288)',4326)::geography, 150000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 64374,
+      "geometry": "POINT (-80.824345 35.212772)",
+      "poi_name": "Hemby Children's Hospital",
+      "osm_id": 5650582468,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Novant Health",
+      "website": "https://www.novanthealth.org/hemby-childrens-hospital.aspx",
+      "phone": "+1 704 384 4021",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28204",
+      "addr_street": "Hawthorne Lane",
+      "addr_housenumber": "200"
+    },
+    {
+      "id": 167687,
+      "geometry": "POINT (-82.125856 33.430338)",
+      "poi_name": "Eisenhower Army Medical Center",
+      "osm_id": 358774235,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "http://eisenhower.amedd.army.mil/",
+      "phone": "+1 706 787 5811",
+      "official_name": "Dwight David Eisenhower Army Medical Center",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q5318131",
+      "addr_state": "GA",
+      "addr_city": "Fort Gordon",
+      "addr_postcode": "30905",
+      "addr_street": "Hospital Road",
+      "addr_housenumber": "300"
+    },
+    {
+      "id": 171108,
+      "geometry": "POINT (-82.628856 34.545478)",
+      "poi_name": "AnMed Health Medical Center",
+      "osm_id": 2360895792,
+      "amenity": "hospital",
+      "website": "http://www.anmedhealth.org",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q4749693"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Woodmen of the World Park, Chapin, SC",
+      "geo_wkt": "POINT (-81.276369 34.117288)",
+      "poi": {
+        "id": 245927,
+        "geometry": "POINT (-81.276369 34.117288)",
+        "poi_name": "Woodmen of the World Park",
+        "osm_id": 5331951469,
+        "leisure": "park",
+        "tourism": "camp_site",
+        "phone": "+1-803-732-2963",
+        "addr_state": "SC",
+        "addr_city": "Chapin",
+        "addr_postcode": "29036",
+        "addr_street": "Johnson Marina Road",
+        "addr_housenumber": "2000"
+      }
+    }
+  },
+  "id": 570,
+  "type": "range:non_spat_filter+name"
+}

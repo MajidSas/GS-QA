@@ -1,0 +1,57 @@
+{
+  "question": "What's the nearest caf\u00e9 located in the southeast of Old Woman Creek Nature Center, Huron, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.50891 41.377571)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 216061,
+      "geometry": "POINT (-82.50891 41.377571)",
+      "poi_name": "Happy Lotus Nutrition",
+      "osm_id": 9152250363,
+      "amenity": "cafe",
+      "description": "Nutritional Shakes and Teas sold Cafe style.",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 07:00-17:00",
+      "internet_access": "yes",
+      "phone": "+1-419-239-3969",
+      "outdoor_seating": "yes",
+      "addr_state": "OH",
+      "addr_city": "Wakeman",
+      "addr_postcode": "44889",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "21"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Old Woman Creek Nature Center, Huron, OH",
+      "geo_wkt": "POINT (-82.50891 41.377571)",
+      "poi": {
+        "id": 246823,
+        "geometry": "POINT (-82.50891 41.377571)",
+        "poi_name": "Old Woman Creek Nature Center",
+        "osm_id": 6476932244,
+        "leisure": "nature_reserve",
+        "information": "nature_center",
+        "operator": "Ohio Department of Natural Resources",
+        "addr_state": "OH",
+        "addr_city": "Huron",
+        "addr_postcode": "44839",
+        "addr_street": "Cleveland Road East",
+        "addr_housenumber": "2514"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2572,
+  "type": "knn:direction+name"
+}

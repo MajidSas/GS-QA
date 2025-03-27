@@ -1,0 +1,41 @@
+{
+  "question": "Can you recommend the nearest museum from Our Lady of the Rivers Shrine, Portage Des Sioux, MO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17024,
+      "geometry": "POINT (-90.3788 38.7858)",
+      "poi_name": "Museum of Western Jesuit Missions",
+      "osm_id": 367087365,
+      "tourism": "museum"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Our Lady of the Rivers Shrine, Portage Des Sioux, MO",
+      "geo_wkt": "POINT (-90.338654 38.931031)",
+      "poi": {
+        "id": 2278,
+        "geometry": "POINT (-90.338654 38.931031)",
+        "poi_name": "Our Lady of the Rivers Shrine",
+        "osm_id": 3362489091,
+        "description": "Our Lady of the Rivers Shrine gets its name from the fact that three major rivers-the Illinois, Missouri, and the Mississippi-meet within a few miles of the site. Dedicated October 1957 to commemorate an event in July 1951.",
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://ourladyoftheriversshrine.org/",
+        "addr_state": "MO",
+        "addr_city": "Portage Des Sioux",
+        "addr_postcode": "63373"
+      }
+    }
+  },
+  "id": 263,
+  "type": "knn+name"
+}

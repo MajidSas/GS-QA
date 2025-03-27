@@ -1,0 +1,132 @@
+{
+  "question": "Within a radius of 190 kilometers, which viewpoint is in the southeast direction from the Potted Plant Inc., Scottsdale, AZ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, 190000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 8531,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Wildlife Viewing Area",
+      "osm_id": 8530528325,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 2758,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Gates Pass",
+      "osm_id": 578003043,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 6035,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Thimble Mountain Vista",
+      "osm_id": 1717422415,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 8687,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Three Sisters",
+      "osm_id": 8623168198,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 12953,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Overlook",
+      "osm_id": 3983272710,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10009,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Weaver's Needle Lookout",
+      "osm_id": 9109441796,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10012,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Observation Lookout",
+      "osm_id": 9109442932,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10014,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Barrier-Free Lookout",
+      "osm_id": 9109442936,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26263,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Indecision Ranch",
+      "osm_id": 5828009292,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18566,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Windy Point",
+      "osm_id": 2336696359,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18567,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Geology Vista",
+      "osm_id": 2337592320,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18446,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "San Pedro Vista",
+      "osm_id": 2303353696,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26831,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Seven Cateracts Vista",
+      "osm_id": 175513446,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.920729 33.631545)",
+      "poi": {
+        "id": 247645,
+        "geometry": "POINT (-111.920729 33.631545)",
+        "poi_name": "The Potted Plant Inc.",
+        "osm_id": 8008054008,
+        "leisure": "garden",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85260",
+        "addr_street": "North Dial Boulevard",
+        "addr_housenumber": "16055"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2661,
+  "type": "range:direction+name"
+}

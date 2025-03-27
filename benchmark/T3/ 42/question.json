@@ -1,0 +1,61 @@
+{
+  "question": "Which hospital is located to the northeast of Longfellow Arboretum, Portland, ME, within a radius of 70 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, 70000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 167594,
+      "geometry": "POINT (-70.269893 43.680714)",
+      "poi_name": "Mid Coast Hospital",
+      "osm_id": 358229036,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "website": "https://www.midcoasthealth.com/",
+      "phone": "+1-207-373-6000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q6840946",
+      "addr_state": "ME",
+      "addr_city": "Brunswick",
+      "addr_postcode": "04011",
+      "addr_street": "Medical Center Drive",
+      "addr_housenumber": "123"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Longfellow Arboretum, Portland, ME",
+      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "poi": {
+        "id": 265852,
+        "geometry": "POINT (-70.269893 43.680714)",
+        "poi_name": "Longfellow Arboretum",
+        "osm_id": 7922996124,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_street": "Baxter Boulevard",
+        "addr_housenumber": "755"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2641,
+  "type": "range:direction+name"
+}

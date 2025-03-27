@@ -1,0 +1,65 @@
+{
+  "question": "Which restaurant is closest on the route towards Homewood Suites by Hilton Richmond-Downtown, Richmond, VA from Historic Trade: Leather Breeches Maker, Williamsburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography, ST_GeomFromText('POINT (-77.437596 37.539521)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 28142,
+      "geometry": "POINT (-76.706785 37.272074)",
+      "poi_name": "Blue Talon",
+      "osm_id": 469920793,
+      "amenity": "restaurant",
+      "value": 294.6322561802412
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Historic Trade: Leather Breeches Maker, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.697625 37.271652)",
+      "poi": {
+        "id": 4572,
+        "geometry": "POINT (-76.697625 37.271652)",
+        "poi_name": "Historic Trade: Leather Breeches Maker",
+        "osm_id": 11333534528,
+        "tourism": "attraction",
+        "wheelchair": "no",
+        "opening_hours": "Tu-Sa 09:00-17:00",
+        "operator": "Colonial Williamsburg Foundation",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "East Duke of Gloucester Street",
+        "addr_housenumber": "303 C"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites by Hilton Richmond-Downtown, Richmond, VA",
+      "geo_wkt": "POINT (-77.437596 37.539521)",
+      "poi": {
+        "id": 27085,
+        "geometry": "POINT (-77.437596 37.539521)",
+        "poi_name": "Homewood Suites by Hilton Richmond-Downtown",
+        "osm_id": 7686351579,
+        "tourism": "hotel",
+        "website": "https://www.hilton.com/en/hotels/ricdohw-homewood-suites-richmond-downtown/",
+        "phone": "+1 804-643-2900",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_postcode": "23219",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "700"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 124,
+  "type": "knn:towards+name"
+}

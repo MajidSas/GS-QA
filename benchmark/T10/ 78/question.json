@@ -1,0 +1,60 @@
+{
+  "question": "What is the closest fast food from J P Riddle Stadium, Fayetteville, NC towards Department of Mechanical and Aerospace Engineering, Raleigh, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography, ST_GeomFromText('POINT (-78.673807 35.771076)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 213991,
+      "geometry": "POINT (-78.884803 35.055001)",
+      "poi_name": "Subway",
+      "osm_id": 5263295805,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 14.144851232593643
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
+      "poi": {
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
+        "leisure": "stadium",
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Department of Mechanical and Aerospace Engineering, Raleigh, NC",
+      "geo_wkt": "POINT (-78.673807 35.771076)",
+      "poi": {
+        "id": 174237,
+        "geometry": "POINT (-78.673807 35.771076)",
+        "poi_name": "Department of Mechanical and Aerospace Engineering",
+        "osm_id": 2470669436,
+        "amenity": "university",
+        "website": "https://www.mae.ncsu.edu/",
+        "addr_state": "NC",
+        "addr_city": "Raleigh",
+        "addr_postcode": "27606"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 177,
+  "type": "knn:towards+name"
+}

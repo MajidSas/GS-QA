@@ -1,0 +1,60 @@
+{
+  "question": "Where is the closest restaurant in the direction of Holiday Inn Express & Suites Merrillville, Merrillville, IN from Allison Woods, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography, ST_GeomFromText('POINT (-87.317221 41.464937)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 164805,
+      "geometry": "POINT (-87.869084 42.086452)",
+      "poi_name": "Buncha Hanoi",
+      "osm_id": 9501707406,
+      "amenity": "restaurant",
+      "cuisine": "vietnamese",
+      "opening_hours": "11:00-20:30",
+      "addr_state": "IL",
+      "addr_city": "Glenview",
+      "addr_postcode": "60025",
+      "addr_street": "Milwaukee Avenue",
+      "addr_housenumber": "1705",
+      "value": 145.83940024509414
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Allison Woods, IL",
+      "geo_wkt": "POINT (-87.888401 42.099472)",
+      "poi": {
+        "id": 265398,
+        "geometry": "POINT (-87.888401 42.099472)",
+        "poi_name": "Allison Woods",
+        "osm_id": 369049527,
+        "leisure": "nature_reserve",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn Express & Suites Merrillville, Merrillville, IN",
+      "geo_wkt": "POINT (-87.317221 41.464937)",
+      "poi": {
+        "id": 11402,
+        "geometry": "POINT (-87.317221 41.464937)",
+        "poi_name": "Holiday Inn Express & Suites Merrillville",
+        "osm_id": 9959057465,
+        "tourism": "hotel",
+        "addr_state": "IN",
+        "addr_city": "Merrillville",
+        "addr_postcode": "46410"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1306,
+  "type": "knn:towards+loc"
+}

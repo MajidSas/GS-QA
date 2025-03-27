@@ -1,0 +1,126 @@
+{
+  "question": "Is it possible for you to discover an emergency hospital that is situated within 150 kilometers of Chestatee Overlook, Dahlonega, GA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography, 150000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 56631,
+      "geometry": "POINT (-85.263699 34.947252)",
+      "poi_name": "CHI Memorial Hospital",
+      "osm_id": 10245316896,
+      "amenity": "hospital",
+      "operator": "Catholic Health Initiatives",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Fort Oglethorpe",
+      "addr_postcode": "30742",
+      "addr_street": "Gross Crescent",
+      "addr_housenumber": "100"
+    },
+    {
+      "id": 104081,
+      "geometry": "POINT (-84.353134 33.90853)",
+      "poi_name": "Emergency Room at Northside Hospital",
+      "osm_id": 8544395406,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes"
+    },
+    {
+      "id": 167681,
+      "geometry": "POINT (-83.348036 34.592997)",
+      "poi_name": "Stephens County Hospital",
+      "osm_id": 358760090,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://stephenscountyhospital.com/",
+      "phone": "+1 (706) 282-4200",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Toccoa",
+      "addr_postcode": "30577",
+      "addr_street": "Hospital Drive",
+      "addr_housenumber": "163"
+    },
+    {
+      "id": 190046,
+      "geometry": "POINT (-82.942738 35.525231)",
+      "poi_name": "Haywood Regional Medical Center",
+      "osm_id": 1264230416,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Duke Lifepoint",
+      "website": "https://www.myhaywoodregional.com/",
+      "phone": "+1 828 456 7311",
+      "emergency": "yes",
+      "addr_city": "Clyde",
+      "addr_postcode": "28721",
+      "addr_street": "Leroy George Drive",
+      "addr_housenumber": "262"
+    },
+    {
+      "id": 171108,
+      "geometry": "POINT (-82.628856 34.545478)",
+      "poi_name": "AnMed Health Medical Center",
+      "osm_id": 2360895792,
+      "amenity": "hospital",
+      "website": "http://www.anmedhealth.org",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q4749693"
+    },
+    {
+      "id": 197907,
+      "geometry": "POINT (-84.493214 34.678734)",
+      "poi_name": "Piedmont Mountainside - Ellijay",
+      "osm_id": 10681451676,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "operator": "Piedmont",
+      "phone": "+1-706-515-4000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Ellijay",
+      "addr_postcode": "30540",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "1360"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Chestatee Overlook, Dahlonega, GA",
+      "geo_wkt": "POINT (-83.982699 34.665048)",
+      "poi": {
+        "id": 12945,
+        "geometry": "POINT (-83.982699 34.665048)",
+        "poi_name": "Chestatee Overlook",
+        "osm_id": 3980488412,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "opening_hours": "sunrise-sunset",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
+        "addr_state": "GA",
+        "addr_city": "Dahlonega",
+        "addr_postcode": "30533",
+        "addr_street": "GA 60"
+      }
+    }
+  },
+  "id": 514,
+  "type": "range:non_spat_filter+name"
+}

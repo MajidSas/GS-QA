@@ -1,0 +1,47 @@
+{
+  "question": "What's the nearest aerospace museum situated from Amazing Air, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'aerospace'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10224,
+      "geometry": "POINT (-95.174587 29.604343)",
+      "poi_name": "Lone Star Flight Museum",
+      "osm_id": 6754376778,
+      "tourism": "museum",
+      "website": "https://lonestarflight.org/",
+      "museum": "aerospace"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "aerospace museum",
+      "poi_filter_sql": "museum = 'aerospace'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Amazing Air, San Antonio, TX",
+      "geo_wkt": "POINT (-98.39639 29.503891)",
+      "poi": {
+        "id": 7732,
+        "geometry": "POINT (-98.39639 29.503891)",
+        "poi_name": "Amazing Air",
+        "osm_id": 6382562047,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
+        "website": "https://amazingairsa.com/",
+        "phone": "+1-210-946-9800",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78218",
+        "addr_street": "North Interstate Highway 35",
+        "addr_housenumber": "7702"
+      }
+    }
+  },
+  "id": 671,
+  "type": "knn:non_spat_filter+name"
+}

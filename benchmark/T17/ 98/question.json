@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find the nearest zoo relative to Epic Strides, Plano, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-96.773886 33.056774)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9557,
+      "geometry": "POINT (-95.264008 32.522834)",
+      "poi_name": "Tiger Creek Wildlife Refuge",
+      "osm_id": 3883238421,
+      "tourism": "zoo",
+      "website": "http://www.tigercreek.org/",
+      "addr_state": "TX",
+      "addr_city": "Tyler",
+      "addr_postcode": "75706",
+      "addr_street": "Werner Lane"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Epic Strides, Plano, TX",
+      "geo_wkt": "POINT (-96.773886 33.056774)",
+      "poi": {
+        "id": 75100,
+        "geometry": "POINT (-96.773886 33.056774)",
+        "poi_name": "Epic Strides",
+        "osm_id": 9710971199,
+        "amenity": "hospital",
+        "website": "https://epicstrides.net/",
+        "phone": "(972) 596-0035",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Plano",
+        "addr_postcode": "75024",
+        "addr_street": "West Spring Creek Parkway",
+        "addr_housenumber": "4105"
+      }
+    }
+  },
+  "id": 1897,
+  "type": "knn+loc"
+}

@@ -1,0 +1,76 @@
+{
+  "question": "Within a radius of 150 kilometers, what hotel is available located en route to Robert Morris University Illinois\u2014Peoria Campus, Peoria, IL from Margery Adams Wildlife Sanctuary, Springfield, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.61996 39.802443)',4326)::geography, ST_GeomFromText('POINT (-89.590248 40.690162)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.61996 39.802443)',4326)::geography, 150000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.61996 39.802443)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 22022,
+      "geometry": "POINT (-89.590417 40.683539)",
+      "poi_name": "Embassy Suites",
+      "osm_id": 965375846,
+      "tourism": "hotel",
+      "official_name": "Embassy Suites by Hilton",
+      "addr_state": "IL",
+      "addr_city": "East Peoria",
+      "addr_postcode": "61611",
+      "addr_street": "Conference Center Drive",
+      "addr_housenumber": "100",
+      "value": 1.459566148996358
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Margery Adams Wildlife Sanctuary, Springfield, IL",
+      "geo_wkt": "POINT (-89.61996 39.802443)",
+      "poi": {
+        "id": 267118,
+        "geometry": "POINT (-89.61996 39.802443)",
+        "poi_name": "Margery Adams Wildlife Sanctuary",
+        "osm_id": 4567499757,
+        "leisure": "nature_reserve",
+        "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+        "phone": "+1-217-544-5781",
+        "wikidata": "Q4680461",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "Clear Lake Avenue",
+        "addr_housenumber": "2315"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Robert Morris University Illinois\u2014Peoria Campus, Peoria, IL",
+      "geo_wkt": "POINT (-89.590248 40.690162)",
+      "poi": {
+        "id": 139542,
+        "geometry": "POINT (-89.590248 40.690162)",
+        "poi_name": "Robert Morris University Illinois\u2014Peoria Campus",
+        "osm_id": 6202521229,
+        "amenity": "university",
+        "operator": "Robert Morris University Illinois",
+        "website": "https://robertmorris.edu/peoria/",
+        "phone": "+1 309 636 8600",
+        "wikidata": "Q7347822",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_postcode": "61602",
+        "addr_street": "Fulton Street",
+        "addr_housenumber": "211"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1676,
+  "type": "range:towards+name"
+}

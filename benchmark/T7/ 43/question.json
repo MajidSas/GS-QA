@@ -1,0 +1,45 @@
+{
+  "question": "What is the motto of the nearest university from Pioneer Stadium, Ogden, UT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 166740,
+      "geometry": "POINT (-112.011577 41.232867)",
+      "poi_name": "Stevens-Henager College",
+      "osm_id": 310631403,
+      "amenity": "university",
+      "wikidata": "Q7615552",
+      "multihop_answer": "Educating professionals since 1891",
+      "multihop_attribute": "Motto",
+      "multihop_long_answer": "Stevens-Henager College Motto: Educating professionals since 1891"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    }
+  },
+  "id": 942,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "What is the closest aquarium in the northeast direction of Role Play Bldg, Wayne, NJ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.222484 40.967732)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3269,
+      "geometry": "POINT (-74.222484 40.967732)",
+      "poi_name": "Aquatic Wildlife",
+      "osm_id": 5327521505,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Role Play Bldg, Wayne, NJ",
+      "geo_wkt": "POINT (-74.222484 40.967732)",
+      "poi": {
+        "id": 63246,
+        "geometry": "POINT (-74.222484 40.967732)",
+        "poi_name": "Role Play Bldg",
+        "osm_id": 5605978385,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "1600"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2587,
+  "type": "knn:direction+name"
+}

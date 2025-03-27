@@ -1,0 +1,48 @@
+{
+  "question": "Looking for the closest attraction in relation to the museum that was built in 1891 in Ventura, CA, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7846,
+      "geometry": "POINT (-118.955916 34.268873)",
+      "poi_name": "Hartley Botanica",
+      "osm_id": 6433373485,
+      "tourism": "attraction",
+      "website": "https://hartleybotanica.com/",
+      "addr_postcode": "93066",
+      "addr_street": "Balcom Canyon Road",
+      "addr_housenumber": "4465"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Dudley House, Ventura, CA",
+      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "poi": {
+        "id": 1032,
+        "geometry": "POINT (-119.24024 34.277629)",
+        "poi_name": "Dudley House",
+        "osm_id": 2800250595,
+        "tourism": "museum",
+        "operator": "San Buenaventura Heritage",
+        "website": "https://dudleyhouse.org/",
+        "phone": "+1 (805) 644-3286",
+        "wikidata": "Q14681880",
+        "addr_state": "CA",
+        "addr_city": "Ventura",
+        "addr_postcode": "93003",
+        "addr_street": "North Ashwood Avenue",
+        "addr_housenumber": "197"
+      }
+    }
+  },
+  "id": 2789,
+  "type": "knn+name+multihop2"
+}

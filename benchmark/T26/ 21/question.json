@@ -1,0 +1,48 @@
+{
+  "question": "How distant is the closest zoo in relation to the Escape Game Chicago, Chicago, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.626591 41.893408)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.626591 41.893408)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16137,
+      "geometry": "POINT (-87.911048 42.278444)",
+      "poi_name": "Lambs Farm Petting Zoo and Amusement Park",
+      "osm_id": 354282642,
+      "tourism": "zoo",
+      "fee": "yes",
+      "zoo": "petting_zoo",
+      "wikidata": "Q6481575",
+      "distance": 48816.09552676
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "The Escape Game Chicago, Chicago, IL",
+      "geo_wkt": "POINT (-87.626591 41.893408)",
+      "poi": {
+        "id": 11047,
+        "geometry": "POINT (-87.626591 41.893408)",
+        "poi_name": "The Escape Game Chicago",
+        "osm_id": 9832986504,
+        "description": "The Escape Game Chicago is America\u2019s premier provider of uniquely premium escape rooms. Our adventures bring epic stories to life in a one-of-a-kind hands on experience. You might escape. You will have fun!",
+        "tourism": "attraction",
+        "operator": "Escape Room",
+        "website": "https://theescapegame.com/chicago/",
+        "phone": "+1-312-453-7753",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60611",
+        "addr_street": "E Ontario St",
+        "addr_housenumber": "42"
+      }
+    }
+  },
+  "id": 2420,
+  "type": "knn+distance"
+}

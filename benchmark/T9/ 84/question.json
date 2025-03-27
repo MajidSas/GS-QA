@@ -1,0 +1,48 @@
+{
+  "question": "What's the closest golf course towards the west of Hole N'' the Rock, Moab, UT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-109.454349 38.390826)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246381,
+      "geometry": "POINT (-109.454349 38.390826)",
+      "poi_name": "Snow Canyon Country Club",
+      "osm_id": 11408666953,
+      "leisure": "golf_course",
+      "addr_state": "UT",
+      "addr_city": "St.George",
+      "addr_postcode": "84770",
+      "addr_street": "Entrada Trail",
+      "addr_housenumber": "2537"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hole N'' The Rock, Moab, UT",
+      "geo_wkt": "POINT (-109.454349 38.390826)",
+      "poi": {
+        "id": 1455,
+        "geometry": "POINT (-109.454349 38.390826)",
+        "poi_name": "Hole N'' The Rock",
+        "osm_id": 2991185281,
+        "tourism": "attraction",
+        "website": "https://www.theholeintherock.com/",
+        "addr_state": "UT",
+        "addr_city": "Moab",
+        "addr_street": "US-191"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2583,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Do you know of any nature reserve within 100 kilometers from Franklin Pierce University at Lebanon, West Lebanon, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.317718 43.628022)',4326)::geography, 100000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 251140,
+      "geometry": "POINT (-72.003706 44.426169)",
+      "poi_name": "Saint Johnsbury Municipal Forest",
+      "osm_id": 356556734,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University at Lebanon, West Lebanon, NH",
+      "geo_wkt": "POINT (-72.317718 43.628022)",
+      "poi": {
+        "id": 104485,
+        "geometry": "POINT (-72.317718 43.628022)",
+        "poi_name": "Franklin Pierce University at Lebanon",
+        "osm_id": 8570371294,
+        "amenity": "university",
+        "website": "https://www.franklinpierce.edu/academics/gradstudies/lebanon-new-hampshire.htm",
+        "phone": "+1-603-298-5549",
+        "addr_state": "NH",
+        "addr_city": "West Lebanon",
+        "addr_postcode": "03784",
+        "addr_street": "Airport Road",
+        "addr_housenumber": "24"
+      }
+    }
+  },
+  "id": 818,
+  "type": "range+name"
+}

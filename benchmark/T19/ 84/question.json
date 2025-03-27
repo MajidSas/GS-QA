@@ -1,0 +1,46 @@
+{
+  "question": "Where is the nearest zoo situated towards the northwest of Dub Day Arena, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.952353 31.220703)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1846,
+      "geometry": "POINT (-101.952353 31.220703)",
+      "poi_name": "Out of Africa Wildlife Park",
+      "osm_id": 3181394247,
+      "tourism": "zoo",
+      "opening_hours": "09:30-17:00",
+      "addr_state": "AZ",
+      "addr_city": "Camp Verde",
+      "addr_postcode": "86322",
+      "addr_street": "State Route 260",
+      "addr_housenumber": "3505"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Dub Day Arena, TX",
+      "geo_wkt": "POINT (-101.952353 31.220703)",
+      "poi": {
+        "id": 265392,
+        "geometry": "POINT (-101.952353 31.220703)",
+        "poi_name": "Dub Day Arena",
+        "osm_id": 368165254,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1183,
+  "type": "knn:direction+loc"
+}

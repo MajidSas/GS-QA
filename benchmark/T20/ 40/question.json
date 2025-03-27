@@ -1,0 +1,68 @@
+{
+  "question": "Where's the closest caf\u00e9 on the path leading to Medical Behavioral Hospital Of Northern Arizona, Prescott, AZ from Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, ST_GeomFromText('POINT (-112.471431 34.556411)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 210342,
+      "geometry": "POINT (-112.335077 34.595216)",
+      "poi_name": "Open Book Cafe & Coffeehouse",
+      "osm_id": 5098155778,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;bakery",
+      "addr_state": "AZ",
+      "addr_city": "Prescott Valley",
+      "addr_postcode": "86314",
+      "addr_street": "East Civic Circle",
+      "addr_housenumber": "7401",
+      "value": 263.1187138457265
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "poi": {
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Medical Behavioral Hospital Of Northern Arizona, Prescott, AZ",
+      "geo_wkt": "POINT (-112.471431 34.556411)",
+      "poi": {
+        "id": 181765,
+        "geometry": "POINT (-112.471431 34.556411)",
+        "poi_name": "Medical Behavioral Hospital Of Northern Arizona",
+        "osm_id": 10863761294,
+        "amenity": "hospital",
+        "phone": "+1 928 227 3424",
+        "healthcare": "hospital",
+        "addr_state": "AZ",
+        "addr_city": "Prescott",
+        "addr_postcode": "86301",
+        "addr_street": "Whipple Street",
+        "addr_housenumber": "181"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1339,
+  "type": "knn:towards+loc"
+}

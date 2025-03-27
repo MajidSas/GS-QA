@@ -1,0 +1,43 @@
+{
+  "question": "I'm looking for an aquarium within 110 kilometers from Golden Gate Bridge Lookout, Sausalito, CA, any ideas?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, 110000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 18181,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Steinhart Aquarium",
+      "osm_id": 368173914,
+      "tourism": "aquarium",
+      "addr_state": "CA"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
+      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "poi": {
+        "id": 20450,
+        "geometry": "POINT (-122.486003 37.82872)",
+        "poi_name": "Golden Gate Bridge Lookout",
+        "osm_id": 1183476394,
+        "tourism": "viewpoint",
+        "addr_state": "CA",
+        "addr_city": "Sausalito",
+        "addr_street": "Conzelman Road"
+      }
+    }
+  },
+  "id": 832,
+  "type": "range+name"
+}

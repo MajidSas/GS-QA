@@ -1,0 +1,50 @@
+{
+  "question": "Where can I find the nearest transport museum near Courtyard Portland East, Portland, OR?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'transport'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.479153 45.543729)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23837,
+      "geometry": "POINT (-122.970847 46.665552)",
+      "poi_name": "The Vintage Antique Motorcycle Museum",
+      "osm_id": 9159990852,
+      "tourism": "museum",
+      "operator": "Don and Peggy Doman",
+      "museum": "transport",
+      "addr_state": "WA",
+      "addr_city": "Chehalis",
+      "addr_postcode": "98532",
+      "addr_street": "North Market Boulevard",
+      "addr_housenumber": "545"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "transport museum",
+      "poi_filter_sql": "museum = 'transport'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Courtyard Portland East, Portland, OR",
+      "geo_wkt": "POINT (-122.479153 45.543729)",
+      "poi": {
+        "id": 27148,
+        "geometry": "POINT (-122.479153 45.543729)",
+        "poi_name": "Courtyard Portland East",
+        "osm_id": 7738230232,
+        "tourism": "hotel",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97230",
+        "addr_street": "Northeast 181st Avenue",
+        "addr_housenumber": "2811"
+      }
+    }
+  },
+  "id": 347,
+  "type": "knn:non_spat_filter+loc"
+}

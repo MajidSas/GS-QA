@@ -1,0 +1,39 @@
+{
+  "question": "Which way should I head to access the closest museum from Silver City Water Works Building Historic Site, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-108.279118 32.783402)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.279118 32.783402)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16636,
+      "geometry": "POINT (-108.282516 32.776993)",
+      "poi_name": "Western New Mexico University Museum",
+      "osm_id": 366378559,
+      "tourism": "museum",
+      "website": "https://museum.wnmu.edu/?lang=en",
+      "addr_state": "NM",
+      "angle": 204.12778441794921
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Silver City Water Works Building Historic Site, NM",
+      "geo_wkt": "POINT (-108.279118 32.783402)",
+      "poi": {
+        "id": 16530,
+        "geometry": "POINT (-108.279118 32.783402)",
+        "poi_name": "Silver City Water Works Building Historic Site",
+        "osm_id": 366377705,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 1445,
+  "type": "knn+angle"
+}

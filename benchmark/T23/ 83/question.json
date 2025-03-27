@@ -1,0 +1,42 @@
+{
+  "question": "What's the total count of hospitals within 40 kilometers from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, 40000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 2282,
+  "type": "range+count"
+}

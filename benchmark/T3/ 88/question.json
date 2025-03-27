@@ -1,0 +1,51 @@
+{
+  "question": "Within a radius of 180 kilometers, what aquarium is available towards the southeast of Animal Haven Farm Zoo, Weyauwega, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography, 180000)\nAND tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 8156,
+      "geometry": "POINT (-88.961358 44.301611)",
+      "poi_name": "Reiman Aquarium",
+      "osm_id": 6578835963,
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Apr-Sep Mo-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off; Sep-Apr Tu-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Animal Haven Farm Zoo, Weyauwega, WI",
+      "geo_wkt": "POINT (-88.961358 44.301611)",
+      "poi": {
+        "id": 23088,
+        "geometry": "POINT (-88.961358 44.301611)",
+        "poi_name": "Animal Haven Farm Zoo",
+        "osm_id": 5030324218,
+        "tourism": "zoo",
+        "phone": "+1-920-867-3707",
+        "addr_state": "WI",
+        "addr_city": "Weyauwega",
+        "addr_postcode": "54983",
+        "addr_street": "Bucholtz Road",
+        "addr_housenumber": "N1720"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2687,
+  "type": "range:direction+name"
+}

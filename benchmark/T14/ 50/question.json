@@ -1,0 +1,117 @@
+{
+  "question": "Seeking a greek restaurant, ideally within 120 kilometers of Kettering Behavioral Medicine Center, Dayton, OH. Can you find me its location?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.211011 39.675396)',4326)::geography, 120000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%greek%';\n",
+  "answers": [
+    {
+      "id": 60018,
+      "geometry": "POINT (-84.603033 39.123734)",
+      "poi_name": "Sebastian\u2019s",
+      "osm_id": 5452377725,
+      "amenity": "restaurant",
+      "cuisine": "greek",
+      "opening_hours": "Mo-Sa 10:30-20:00",
+      "website": "https://www.sebastiansgyros.com/",
+      "phone": "+1-513-471-2100",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45238",
+      "addr_street": "Glenway Avenue",
+      "addr_housenumber": "5209"
+    },
+    {
+      "id": 208090,
+      "geometry": "POINT (-82.99908 40.108555)",
+      "poi_name": "Yappy Greek",
+      "osm_id": 4973008380,
+      "amenity": "restaurant",
+      "cuisine": "greek",
+      "opening_hours": "Mo-Fr 10:30-20:00; Sa 11:30-20:00",
+      "operator": "Alex Mousa",
+      "website": "https://yappygreek.biz",
+      "phone": "+1-614-505-6789",
+      "addr_state": "OH",
+      "addr_city": "Worthington",
+      "addr_postcode": "43085",
+      "addr_street": "East Wilson Bridge Road",
+      "addr_housenumber": "455"
+    },
+    {
+      "id": 92279,
+      "geometry": "POINT (-84.519447 39.127686)",
+      "poi_name": "Chicago Gyros and Dogs",
+      "osm_id": 2109412888,
+      "amenity": "restaurant",
+      "cuisine": "greek;hot_dog",
+      "website": "http://chicagogyrosanddogs.com",
+      "phone": "+1-513-621-3828",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45219",
+      "addr_street": "West McMillan Avenue",
+      "addr_housenumber": "201"
+    },
+    {
+      "id": 108342,
+      "geometry": "POINT (-84.518706 39.115302)",
+      "poi_name": "Areti\u2019s Gyros",
+      "osm_id": 3609413465,
+      "amenity": "restaurant",
+      "cuisine": "greek;mediterranean;lebanese",
+      "opening_hours": "Tu-Fr 09:00-18:00; Sa 08:00-18:00; Su 10:00-16:00",
+      "phone": "+1-513-720-9034",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45202",
+      "addr_street": "Race Street",
+      "addr_housenumber": "1801"
+    },
+    {
+      "id": 169454,
+      "geometry": "POINT (-83.089472 40.115716)",
+      "poi_name": "Anna's Greek Cuisine",
+      "osm_id": 2301014213,
+      "amenity": "restaurant",
+      "cuisine": "greek",
+      "addr_city": "Columbus",
+      "addr_postcode": "43235",
+      "addr_street": "Sawmill Road",
+      "addr_housenumber": "7370"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "greek restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%greek%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Kettering Behavioral Medicine Center, Dayton, OH",
+      "geo_wkt": "POINT (-84.211011 39.675396)",
+      "poi": {
+        "id": 182755,
+        "geometry": "POINT (-84.211011 39.675396)",
+        "poi_name": "Kettering Behavioral Medicine Center",
+        "osm_id": 10904083441,
+        "amenity": "hospital",
+        "website": "https://ketteringhealth.org/services/behavioral-mental-health/",
+        "phone": "+1 937 534 4600",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Dayton",
+        "addr_postcode": "45439",
+        "addr_street": "Lamme Road",
+        "addr_housenumber": "5350"
+      }
+    }
+  },
+  "id": 449,
+  "type": "range:non_spat_filter+loc"
+}

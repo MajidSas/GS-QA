@@ -1,0 +1,46 @@
+{
+  "question": "Looking for the closest golf course in relation to Stratton Fire Tower, Stratton, Vermont, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267461,
+      "geometry": "POINT (-74.301636 43.783544)",
+      "poi_name": "Cedar River Golf Course",
+      "osm_id": 6033212585,
+      "leisure": "golf_course",
+      "description": "Cedar River Golf Course, Driving Range, Restaurant, & Motel",
+      "website": "https://cedarrivergolf.com/",
+      "addr_state": "NY",
+      "addr_city": "Indian Lake",
+      "addr_postcode": "12842",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "6689"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Stratton Fire Tower, Stratton, Vermont",
+      "geo_wkt": "POINT (-72.924966 43.086214)",
+      "poi": {
+        "id": 16156,
+        "geometry": "POINT (-72.924966 43.086214)",
+        "poi_name": "Stratton Fire Tower",
+        "osm_id": 356555377,
+        "tourism": "viewpoint",
+        "addr_state": "Vermont",
+        "addr_city": "Stratton",
+        "addr_street": "Maintenance Road",
+        "addr_housenumber": "2148"
+      }
+    }
+  },
+  "id": 217,
+  "type": "knn+name"
+}

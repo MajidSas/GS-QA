@@ -1,0 +1,54 @@
+{
+  "question": "When was the the nearest hospital from DoubleTree by Hilton Hotel, Bedford, MA built?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 188947,
+      "geometry": "POINT (-71.21808 42.606947)",
+      "poi_name": "Tewksbury Hospital",
+      "osm_id": 257489501,
+      "amenity": "hospital",
+      "emergency": "no",
+      "wikidata": "Q7707206",
+      "addr_state": "MA",
+      "addr_city": "Tewksbury",
+      "addr_street": "East Street",
+      "addr_housenumber": "365",
+      "multihop_answer": "1854",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Tewksbury Hospital Built: 1854"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
+      "poi": {
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
+      }
+    }
+  },
+  "id": 977,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,60 @@
+{
+  "question": "Where can I find a nature reserve in the north direction of Malibu Jack's, Springfield, IL, within a radius of 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, 120000)\nAND leisure = 'nature_reserve'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 246437,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Ulrich Wildlife Preserve",
+      "osm_id": 9654359178,
+      "leisure": "nature_reserve",
+      "opening_hours": "dawn-dusk",
+      "operator": "Morton Park District",
+      "addr_state": "IL",
+      "addr_city": "Morton",
+      "addr_postcode": "61550",
+      "addr_street": "Turtle Creek Trail",
+      "addr_housenumber": "100"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 15,
+  "type": "range:direction+loc"
+}

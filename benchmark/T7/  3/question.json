@@ -1,0 +1,52 @@
+{
+  "question": "Does the nearest hospital from Amazing Fun Center, Coram, MT have a helipad?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-114.04441 48.42455)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 226998,
+      "geometry": "POINT (-114.323317 48.214604)",
+      "poi_name": "Logan Health Medical Center",
+      "osm_id": 11176850386,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Logan Healthcare",
+      "website": "https://www.logan.org/health/locations/logan-health-medical-center",
+      "phone": "+1 406 752 5111",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q14704640",
+      "multihop_answer": "Yes",
+      "multihop_attribute": "Helipad",
+      "multihop_long_answer": "Logan Health Medical Center Helipad: Yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Amazing Fun Center, Coram, MT",
+      "geo_wkt": "POINT (-114.04441 48.42455)",
+      "poi": {
+        "id": 8767,
+        "geometry": "POINT (-114.04441 48.42455)",
+        "poi_name": "Amazing Fun Center",
+        "osm_id": 8685774536,
+        "tourism": "theme_park",
+        "operator": "AFC",
+        "phone": "(406) 387-5902",
+        "addr_state": "MT",
+        "addr_city": "Coram",
+        "addr_postcode": "59912",
+        "addr_street": "US Hwy 2 E",
+        "addr_housenumber": "10265"
+      }
+    }
+  },
+  "id": 902,
+  "type": "knn+name+multihop1"
+}

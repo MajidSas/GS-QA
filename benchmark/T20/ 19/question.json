@@ -1,0 +1,69 @@
+{
+  "question": "Where's the nearest restaurant on the way to Gannon University, Erie, PA from Glenhill Farmhouse, Erie, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, ST_GeomFromText('POINT (-80.086729 42.128105)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 242552,
+      "geometry": "POINT (-80.015801 42.121289)",
+      "poi_name": "Fine Restaurant & Bar",
+      "osm_id": 7578562309,
+      "amenity": "restaurant",
+      "cuisine": "indian",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16510",
+      "addr_street": "East 38th Street",
+      "addr_housenumber": "2330",
+      "value": 276.79245447745154
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "poi": {
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Gannon University, Erie, PA",
+      "geo_wkt": "POINT (-80.086729 42.128105)",
+      "poi": {
+        "id": 133663,
+        "geometry": "POINT (-80.086729 42.128105)",
+        "poi_name": "Gannon University",
+        "osm_id": 10003127082,
+        "amenity": "university",
+        "operator": "Gannon University",
+        "wikidata": "Q5521430",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16541",
+        "addr_street": "University Square",
+        "addr_housenumber": "109"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1318,
+  "type": "knn:towards+loc"
+}

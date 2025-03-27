@@ -1,0 +1,49 @@
+{
+  "question": "What's the nearest restaurant from the stadium that was built in 1936 in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 241477,
+      "geometry": "POINT (-91.509958 44.801985)",
+      "poi_name": "Quick Wok",
+      "osm_id": 6026050460,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "WI",
+      "addr_city": "Eau Claire",
+      "addr_postcode": "54703",
+      "addr_street": "Water Street"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2722,
+  "type": "knn+name+multihop2"
+}

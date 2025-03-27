@@ -1,0 +1,48 @@
+{
+  "question": "What's the closest fast food restaurant in proximity to the attraction founded by New York State Agricultural Society in Syracuse, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.21418 43.072956)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 111963,
+      "geometry": "POINT (-76.221222 43.061636)",
+      "poi_name": "The Fish Friar",
+      "osm_id": 3772720159,
+      "amenity": "fast_food",
+      "cuisine": "seafood",
+      "addr_state": "NY",
+      "addr_city": "Solvay",
+      "addr_postcode": "13209",
+      "addr_street": "Milton Avenue",
+      "addr_housenumber": "2409"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Great New York State Fair, Syracuse, NY",
+      "geo_wkt": "POINT (-76.21418 43.072956)",
+      "poi": {
+        "id": 6163,
+        "geometry": "POINT (-76.21418 43.072956)",
+        "poi_name": "Great New York State Fair",
+        "osm_id": 1768042644,
+        "tourism": "attraction",
+        "phone": "315 487 7711",
+        "wikidata": "Q5599624",
+        "addr_state": "NY",
+        "addr_city": "Syracuse",
+        "addr_postcode": "13209",
+        "addr_street": "State Fair Boulevard",
+        "addr_housenumber": "581"
+      }
+    }
+  },
+  "id": 2708,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,65 @@
+{
+  "question": "Where's the closest restaurant on the path leading to William Paterson University School of Continuing and Professional Education, Wayne, NJ from Speert Green, Wayne, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.222565 40.967502)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 219075,
+      "geometry": "POINT (-74.199549 40.946324)",
+      "poi_name": "Wayne Dining Hall",
+      "osm_id": 9314851681,
+      "amenity": "restaurant",
+      "cuisine": "cafeteria",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Pompton Road",
+      "addr_housenumber": "300",
+      "value": 321.8249547361837
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "William Paterson University School of Continuing and Professional Education, Wayne, NJ",
+      "geo_wkt": "POINT (-74.222565 40.967502)",
+      "poi": {
+        "id": 63247,
+        "geometry": "POINT (-74.222565 40.967502)",
+        "poi_name": "William Paterson University School of Continuing and Professional Education",
+        "osm_id": 5605978386,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "1600"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1370,
+  "type": "knn:towards+loc"
+}

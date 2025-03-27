@@ -1,0 +1,52 @@
+{
+  "question": "Which emergency hospital nearby SEP Stadium, Pleasant Hill, Iowa?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.449931 41.596353)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167587,
+      "geometry": "POINT (-93.06726 39.774602)",
+      "poi_name": "General John J Pershing Memorial Hospital",
+      "osm_id": 358084364,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Pershing Health System",
+      "website": "https://www.phsmo.org/",
+      "phone": "+1 660 258 2222",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Brookfield",
+      "addr_postcode": "64628",
+      "addr_street": "East Lockling Avenue",
+      "addr_housenumber": "130"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "SEP Stadium, Pleasant Hill, Iowa",
+      "geo_wkt": "POINT (-93.449931 41.596353)",
+      "poi": {
+        "id": 265707,
+        "geometry": "POINT (-93.449931 41.596353)",
+        "poi_name": "SEP Stadium",
+        "osm_id": 10856875747,
+        "leisure": "stadium",
+        "addr_state": "Iowa",
+        "addr_city": "Pleasant Hill",
+        "addr_postcode": "50327",
+        "addr_street": "Martha L. Miller Drive",
+        "addr_housenumber": "7755"
+      }
+    }
+  },
+  "id": 601,
+  "type": "knn:non_spat_filter+name"
+}

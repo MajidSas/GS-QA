@@ -1,0 +1,44 @@
+{
+  "question": "What's the closest attraction in proximity to the museum that was built in 1830 in Arlington, MA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5277,
+      "geometry": "POINT (-71.156228 42.417385)",
+      "poi_name": "Central Street Historical District",
+      "osm_id": 36303521,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
+      "poi": {
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
+      }
+    }
+  },
+  "id": 2785,
+  "type": "knn+name+multihop2"
+}

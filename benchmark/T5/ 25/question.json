@@ -1,0 +1,42 @@
+{
+  "question": "Can you recommend the nearest nature reserve from Glendeven Inn & Lodge, Little River, CA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-123.790372 39.278105)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 262694,
+      "geometry": "POINT (-123.774458 39.276287)",
+      "poi_name": "Van Damme State Park",
+      "osm_id": 358809611,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Glendeven Inn & Lodge, Little River, CA",
+      "geo_wkt": "POINT (-123.790372 39.278105)",
+      "poi": {
+        "id": 13493,
+        "geometry": "POINT (-123.790372 39.278105)",
+        "poi_name": "Glendeven Inn & Lodge",
+        "osm_id": 4102724869,
+        "tourism": "hotel",
+        "website": "https://www.glendeven.com",
+        "internet_access": "yes",
+        "addr_state": "CA",
+        "addr_city": "Little River",
+        "addr_postcode": "95456",
+        "addr_street": "N Hwy 1",
+        "addr_housenumber": "8211"
+      }
+    }
+  },
+  "id": 224,
+  "type": "knn+name"
+}

@@ -1,0 +1,82 @@
+{
+  "question": "Where is the nearest restaurant as you progress towards the Mapparium, Boston, MA from DTR Modern Galleries, Boston, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.078966 42.350802)',4326)::geography, ST_GeomFromText('POINT (-71.086177 42.345206)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.078966 42.350802)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.078966 42.350802)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 236929,
+      "geometry": "POINT (-71.079749 42.350543)",
+      "poi_name": "Joe\u2019s American Bar & Grill",
+      "osm_id": 5812516253,
+      "amenity": "restaurant",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 11:00-24:00, Sa-Su 09:00-24:00",
+      "operator": "Tavistock Restaurants, LLC",
+      "website": "https://www.joesamerican.com/ma/boston-newbury/",
+      "internet_access": "wlan",
+      "phone": "+1-617-536-4200",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "MA",
+      "addr_city": "Boston",
+      "addr_postcode": "02116",
+      "addr_street": "Newbury Street",
+      "addr_housenumber": "181",
+      "value": 223.7097972031929
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "DTR Modern Galleries, Boston, MA",
+      "geo_wkt": "POINT (-71.078966 42.350802)",
+      "poi": {
+        "id": 19936,
+        "geometry": "POINT (-71.078966 42.350802)",
+        "poi_name": "DTR Modern Galleries",
+        "osm_id": 7770903363,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Sa 10:00-18:00; Su 11:00-18:00",
+        "website": "http://www.dtrmodern.com/aboutus.php#Boston",
+        "phone": "+1-617-424-9700",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02116",
+        "addr_street": "Newbury Street",
+        "addr_housenumber": "167"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "The Mapparium, Boston, MA",
+      "geo_wkt": "POINT (-71.086177 42.345206)",
+      "poi": {
+        "id": 23753,
+        "geometry": "POINT (-71.086177 42.345206)",
+        "poi_name": "The Mapparium",
+        "osm_id": 5296603923,
+        "amenity": "planetarium",
+        "tourism": "attraction",
+        "information": "map",
+        "fee": "yes",
+        "operator": "The Mary Baker Eddy Library",
+        "website": "https://www.marybakereddylibrary.org/project/mapparium/",
+        "wikidata": "Q6754152",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02215",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "200"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1304,
+  "type": "knn:towards+loc"
+}

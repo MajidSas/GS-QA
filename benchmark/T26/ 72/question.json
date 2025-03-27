@@ -1,0 +1,41 @@
+{
+  "question": "How far is the nearest gallery situated from Dayton Historic Depot, WA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-117.980043 46.320886)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.980043 46.320886)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25003,
+      "geometry": "POINT (-117.001179 46.731206)",
+      "poi_name": "Pritchard Art Gallery",
+      "osm_id": 4371622394,
+      "tourism": "gallery",
+      "fee": "no",
+      "operator": "University of Idaho",
+      "shop": "art",
+      "distance": 87868.71165686
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Dayton Historic Depot, WA",
+      "geo_wkt": "POINT (-117.980043 46.320886)",
+      "poi": {
+        "id": 16403,
+        "geometry": "POINT (-117.980043 46.320886)",
+        "poi_name": "Dayton Historic Depot",
+        "osm_id": 366030375,
+        "historic": "yes",
+        "tourism": "viewpoint",
+        "addr_state": "WA"
+      }
+    }
+  },
+  "id": 2471,
+  "type": "knn+distance"
+}

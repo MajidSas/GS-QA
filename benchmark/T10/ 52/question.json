@@ -1,0 +1,70 @@
+{
+  "question": "What's the nearest fast food on the way to Simple Blessings Bed and Breakfast, Lake City, MN from SEA LIFE Minnesota Aquarium, Bloomington, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, ST_GeomFromText('POINT (-92.26946 44.447678)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 82910,
+      "geometry": "POINT (-93.16548 44.826925)",
+      "poi_name": "Papa Murphy's",
+      "osm_id": 1719957731,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "only",
+      "official_name": "Papa Murphy's Take 'N' Bake Pizza",
+      "value": 120.09404083114624
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
+      "geo_wkt": "POINT (-93.240076 44.854752)",
+      "poi": {
+        "id": 25908,
+        "geometry": "POINT (-93.240076 44.854752)",
+        "poi_name": "SEA LIFE Minnesota Aquarium",
+        "osm_id": 5739830095,
+        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+        "tourism": "aquarium",
+        "fee": "yes",
+        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+        "operator": "Merlin Entertainments'",
+        "website": "https://www.visitsealife.com/minnesota/",
+        "phone": "+1-952-883-0202",
+        "addr_state": "MN",
+        "addr_city": "Bloomington",
+        "addr_postcode": "55425",
+        "addr_street": "East Broadway",
+        "addr_housenumber": "120"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Simple Blessings Bed and Breakfast, Lake City, MN",
+      "geo_wkt": "POINT (-92.26946 44.447678)",
+      "poi": {
+        "id": 20074,
+        "geometry": "POINT (-92.26946 44.447678)",
+        "poi_name": "Simple Blessings Bed and Breakfast",
+        "osm_id": 7855158853,
+        "tourism": "hotel",
+        "website": "https://simpleblessingsllcmn.com/",
+        "internet_access": "wlan",
+        "addr_state": "MN",
+        "addr_city": "Lake City",
+        "addr_postcode": "55041",
+        "addr_street": "West Lyon Avenue",
+        "addr_housenumber": "312"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 151,
+  "type": "knn:towards+name"
+}

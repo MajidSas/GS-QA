@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the closest children museum from Sea Life Aquarium Kansas City, Kansas City, MO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'children'\nORDER BY geometry <-> ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21488,
+      "geometry": "POINT (-94.422727 39.09212)",
+      "poi_name": "The Peace Pavilion",
+      "osm_id": 10282682519,
+      "tourism": "museum",
+      "website": "https://www.thepeacepavilion.org/",
+      "museum": "children",
+      "addr_state": "MO",
+      "addr_city": "Independence",
+      "addr_postcode": "64050",
+      "addr_street": "West Lexington Avenue",
+      "addr_housenumber": "607"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "children museum",
+      "poi_filter_sql": "museum = 'children'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
+      "geo_wkt": "POINT (-94.5816 39.082158)",
+      "poi": {
+        "id": 12063,
+        "geometry": "POINT (-94.5816 39.082158)",
+        "poi_name": "Sea Life Aquarium Kansas City",
+        "osm_id": 6171269243,
+        "tourism": "zoo",
+        "website": "https://www.visitsealife.com/kansas-city/",
+        "phone": "+1 (816)471-4386",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64108",
+        "addr_street": "Grand Boulevard",
+        "addr_housenumber": "2475"
+      }
+    }
+  },
+  "id": 346,
+  "type": "knn:non_spat_filter+loc"
+}

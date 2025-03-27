@@ -1,0 +1,62 @@
+{
+  "question": "Where's the nearest hotel on the way to Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio from Barons Bus Arena, Parma, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, ST_GeomFromText('POINT (-80.844899 41.715412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6990,
+      "geometry": "POINT (-81.524438 41.429064)",
+      "poi_name": "Economy Inn & Suites",
+      "osm_id": 8804126271,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "North Randall",
+      "addr_postcode": "44128",
+      "addr_street": "Northfield Road",
+      "addr_housenumber": "4751",
+      "value": 66.1125680743461
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Barons Bus Arena, Parma, OH",
+      "geo_wkt": "POINT (-81.758046 41.416012)",
+      "poi": {
+        "id": 247265,
+        "geometry": "POINT (-81.758046 41.416012)",
+        "poi_name": "Barons Bus Arena",
+        "osm_id": 8888267688,
+        "leisure": "stadium",
+        "addr_state": "OH",
+        "addr_city": "Parma",
+        "addr_postcode": "44129",
+        "addr_street": "Hauserman Road",
+        "addr_housenumber": "5310"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio",
+      "geo_wkt": "POINT (-80.844899 41.715412)",
+      "poi": {
+        "id": 246522,
+        "geometry": "POINT (-80.844899 41.715412)",
+        "poi_name": "Eagleville Road WRGT Trailhead and Parking",
+        "osm_id": 9804147199,
+        "leisure": "park",
+        "operator": "Western Reserve Greenway Trail",
+        "addr_state": "Ohio",
+        "addr_city": "Jefferson"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1351,
+  "type": "knn:towards+loc"
+}

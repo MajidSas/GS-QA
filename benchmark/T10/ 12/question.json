@@ -1,0 +1,68 @@
+{
+  "question": "Which restaurant is nearest on the path towards Hebrew Senior Care, West Hartford, CT from Norman Rockwell Museum, Stockbridge, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.335944 42.287829)',4326)::geography, ST_GeomFromText('POINT (-72.729549 41.802734)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.335944 42.287829)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.335944 42.287829)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 87303,
+      "geometry": "POINT (-73.24178 42.183752)",
+      "poi_name": "Roadside Store & Caf\u00e9",
+      "osm_id": 8706935869,
+      "amenity": "restaurant",
+      "website": "https://www.gouldfarm.org/roadside-store-and-cafe/",
+      "phone": "+1 413 528 2633",
+      "addr_housenumber": "275",
+      "value": 136.81973567307278
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Norman Rockwell Museum, Stockbridge, MA",
+      "geo_wkt": "POINT (-73.335944 42.287829)",
+      "poi": {
+        "id": 17361,
+        "geometry": "POINT (-73.335944 42.287829)",
+        "poi_name": "Norman Rockwell Museum",
+        "osm_id": 367781196,
+        "tourism": "museum",
+        "website": "https://www.nrm.org/",
+        "phone": "+1-413-298-4100",
+        "wikidata": "Q713204",
+        "addr_state": "MA",
+        "addr_city": "Stockbridge",
+        "addr_postcode": "01262",
+        "addr_street": "Glendale Road",
+        "addr_housenumber": "9"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Hebrew Senior Care, West Hartford, CT",
+      "geo_wkt": "POINT (-72.729549 41.802734)",
+      "poi": {
+        "id": 63311,
+        "geometry": "POINT (-72.729549 41.802734)",
+        "poi_name": "Hebrew Senior Care",
+        "osm_id": 5610228229,
+        "amenity": "hospital",
+        "website": "http://www.hebrewhealthcare.org/",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CT",
+        "addr_city": "West Hartford",
+        "addr_postcode": "06117",
+        "addr_street": "Abrahms Boulevard",
+        "addr_housenumber": "1"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 111,
+  "type": "knn:towards+name"
+}

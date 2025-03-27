@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest history museum from Hilton Garden Inn Mt. Juliet, Mount Juliet, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.517783 36.165803)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15843,
+      "geometry": "POINT (-86.336725 36.092503)",
+      "poi_name": "Cedars of Lebanon: Sadie Ford Hertitage Farm & Arts Center",
+      "osm_id": 9556882326,
+      "tourism": "museum",
+      "website": "https://tnstateparks.com/parks/activity-detail/cedars-of-lebanon-sadie-ford-heritage-farm",
+      "museum": "history",
+      "addr_state": "TN",
+      "addr_city": "Lebanon",
+      "addr_postcode": "37090",
+      "addr_street": "Cedar Forest Rd.",
+      "addr_housenumber": "328"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn Mt. Juliet, Mount Juliet, TN",
+      "geo_wkt": "POINT (-86.517783 36.165803)",
+      "poi": {
+        "id": 5188,
+        "geometry": "POINT (-86.517783 36.165803)",
+        "poi_name": "Hilton Garden Inn Mt. Juliet",
+        "osm_id": 9794782575,
+        "tourism": "hotel",
+        "website": "https://www.hilton.com/en/hotels/bnamagi-hilton-garden-inn-mt-juliet/",
+        "internet_access": "yes",
+        "phone": "+1 615-637-0400",
+        "addr_state": "TN",
+        "addr_city": "Mount Juliet",
+        "addr_postcode": "37122",
+        "addr_street": "Providence Parkway",
+        "addr_housenumber": "1975"
+      }
+    }
+  },
+  "id": 656,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,65 @@
+{
+  "question": "Which golf course is available north of Acushnet Sawmill, Acushnet, MA, within a radius of 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography, 120000)\nAND leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 267203,
+      "geometry": "POINT (-70.919597 41.683778)",
+      "poi_name": "Bass Rocks Golf Club",
+      "osm_id": 5741921794,
+      "leisure": "golf_course",
+      "website": "https://www.bassrocksgolfclub.org/",
+      "phone": "+1 978-283-1866",
+      "addr_state": "MA",
+      "addr_city": "Gloucester",
+      "addr_postcode": "01930",
+      "addr_street": "Beach Road",
+      "addr_housenumber": "34"
+    },
+    {
+      "id": 267465,
+      "geometry": "POINT (-70.919597 41.683778)",
+      "poi_name": "Boston Golf Club",
+      "osm_id": 6038628091,
+      "leisure": "golf_course",
+      "addr_street": "Old County Road",
+      "addr_housenumber": "19"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
+      "poi": {
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
+        "leisure": "park",
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2605,
+  "type": "range:direction+name"
+}

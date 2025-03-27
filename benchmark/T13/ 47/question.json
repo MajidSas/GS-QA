@@ -1,0 +1,71 @@
+{
+  "question": "Could you help me locate a viewpoint that's within 190 kilometers from Steinhart Aquarium, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, 190000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 5810,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "The View Lounge",
+      "osm_id": 1612808193,
+      "amenity": "bar",
+      "description": "39th floor bar with city views; enter through hotel",
+      "tourism": "viewpoint",
+      "opening_hours": "Mo-Su 16:00-24:00",
+      "operator": "Marriott",
+      "website": "https://www.sfmarquis.com/theview",
+      "phone": "+1 415-896-1600",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94103",
+      "addr_street": "4th Street",
+      "addr_housenumber": "55"
+    },
+    {
+      "id": 6747,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "Strawberry Hill",
+      "osm_id": 1948074360,
+      "tourism": "viewpoint",
+      "internet_access": "no",
+      "addr_state": "CA",
+      "addr_city": "San Francisco"
+    },
+    {
+      "id": 20450,
+      "geometry": "POINT (-122.486003 37.82872)",
+      "poi_name": "Golden Gate Bridge Lookout",
+      "osm_id": 1183476394,
+      "tourism": "viewpoint",
+      "addr_state": "CA",
+      "addr_city": "Sausalito",
+      "addr_street": "Conzelman Road"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Steinhart Aquarium, CA",
+      "geo_wkt": "POINT (-122.465976 37.769485)",
+      "poi": {
+        "id": 18181,
+        "geometry": "POINT (-122.465976 37.769485)",
+        "poi_name": "Steinhart Aquarium",
+        "osm_id": 368173914,
+        "tourism": "aquarium",
+        "addr_state": "CA"
+      }
+    }
+  },
+  "id": 2046,
+  "type": "range+loc"
+}

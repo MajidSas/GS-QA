@@ -1,0 +1,50 @@
+{
+  "question": "Could you tell me the closest hospital relative to the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 181376,
+      "geometry": "POINT (-75.184168 40.011821)",
+      "poi_name": "Haven Behavioral Hospital Of Philadelphia",
+      "osm_id": 10844708981,
+      "amenity": "hospital",
+      "website": "https://www.havenphiladelphia.com",
+      "phone": "+1 215 475 3400",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19129",
+      "addr_street": "Henry Avenue",
+      "addr_housenumber": "3300"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "poi": {
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
+      }
+    }
+  },
+  "id": 2737,
+  "type": "knn+name+multihop2"
+}

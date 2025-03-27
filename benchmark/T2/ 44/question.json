@@ -1,0 +1,84 @@
+{
+  "question": "Looking for a thai restaurant that is conveniently located within 80 kilometers from Greater Binghamton Eye Surgery Center, Johnson City, NY. Can you assist me?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.959806 42.130892)',4326)::geography, 80000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%thai%';\n",
+  "answers": [
+    {
+      "id": 76671,
+      "geometry": "POINT (-76.49602 42.439779)",
+      "poi_name": "A Taste of Thai",
+      "osm_id": 9786870677,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "website": "https://www.tasteofthainy.com/",
+      "phone": "+1 607 256-5487",
+      "addr_state": "NY",
+      "addr_city": "Ithaca",
+      "addr_postcode": "14850",
+      "addr_street": "East State Street",
+      "addr_housenumber": "216E"
+    },
+    {
+      "id": 117153,
+      "geometry": "POINT (-76.015157 42.107249)",
+      "poi_name": "Thai on Main",
+      "osm_id": 8978609237,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "opening_hours": "Tu-Su 13:00-19:45",
+      "website": "https://thaionmainendicott.com/32740",
+      "phone": "+1 607 748 2385",
+      "addr_state": "NY",
+      "addr_city": "Endicott",
+      "addr_postcode": "13760",
+      "addr_street": "George F Highway",
+      "addr_housenumber": "3600"
+    },
+    {
+      "id": 154164,
+      "geometry": "POINT (-76.49858 42.439427)",
+      "poi_name": "15 Below",
+      "osm_id": 4226641409,
+      "amenity": "restaurant",
+      "cuisine": "thai_ice_cream",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Ithaca",
+      "addr_postcode": "14850",
+      "addr_street": "Ithaca Commons"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "thai restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%thai%'"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Greater Binghamton Eye Surgery Center, Johnson City, NY",
+      "geo_wkt": "POINT (-75.959806 42.130892)",
+      "poi": {
+        "id": 218741,
+        "geometry": "POINT (-75.959806 42.130892)",
+        "poi_name": "Greater Binghamton Eye Surgery Center",
+        "osm_id": 9293752867,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Johnson City",
+        "addr_postcode": "13790",
+        "addr_street": "Columbia Drive",
+        "addr_housenumber": "530"
+      }
+    }
+  },
+  "id": 543,
+  "type": "range:non_spat_filter+name"
+}

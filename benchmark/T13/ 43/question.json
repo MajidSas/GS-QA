@@ -1,0 +1,55 @@
+{
+  "question": "Could you help me locate a golf course that's within 100 kilometers from Audubon Insectarium, New Orleans, LA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography, 100000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 245942,
+      "geometry": "POINT (-89.766425 30.308978)",
+      "poi_name": "PInewood Golf and Country Club",
+      "osm_id": 5347458590,
+      "leisure": "golf_course",
+      "addr_state": "LA",
+      "addr_city": "Slidell",
+      "addr_postcode": "70458",
+      "addr_street": "Country Club Boulevard",
+      "addr_housenumber": "405"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Audubon Insectarium, New Orleans, LA",
+      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "poi": {
+        "id": 15891,
+        "geometry": "POINT (-90.063318 29.951359)",
+        "poi_name": "Audubon Insectarium",
+        "osm_id": 9588493777,
+        "tourism": "zoo",
+        "wheelchair": "yes",
+        "building": "yes",
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "website": "http://www.auduboninstitute.org/visit/insectarium",
+        "zoo": "insectarium",
+        "wikidata": "Q4820238",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Canal Street",
+        "addr_housenumber": "403"
+      }
+    }
+  },
+  "id": 2042,
+  "type": "range+loc"
+}

@@ -1,0 +1,70 @@
+{
+  "question": "Which gallery is available in the north direction of Ritter Park Rose Garden, Huntington, WV within 10 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography, 10000)\nAND tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 12103,
+      "geometry": "POINT (-82.440699 38.406448)",
+      "poi_name": "Charles W. & Norma C. Carroll Gallery",
+      "osm_id": 6186670657,
+      "tourism": "gallery",
+      "operator": "Marshall University"
+    },
+    {
+      "id": 10349,
+      "geometry": "POINT (-82.440699 38.406448)",
+      "poi_name": "3rd Avenue Art Gallery",
+      "osm_id": 6804063817,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Sa 10:00-16:00",
+      "phone": "+1-740-442-2438",
+      "addr_state": "WV",
+      "addr_city": "Huntington",
+      "addr_postcode": "25701",
+      "addr_street": "3rd Avenue"
+    },
+    {
+      "id": 26617,
+      "geometry": "POINT (-82.440699 38.406448)",
+      "poi_name": "Windsor House Gallery",
+      "osm_id": 5939972822,
+      "tourism": "gallery",
+      "wheelchair": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ritter Park Rose Garden, Huntington, WV",
+      "geo_wkt": "POINT (-82.440699 38.406448)",
+      "poi": {
+        "id": 248616,
+        "geometry": "POINT (-82.440699 38.406448)",
+        "poi_name": "Ritter Park Rose Garden",
+        "osm_id": 4683706042,
+        "leisure": "garden",
+        "addr_state": "WV",
+        "addr_city": "Huntington",
+        "addr_postcode": "25701",
+        "addr_street": "McCoy Road",
+        "addr_housenumber": "1501"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2663,
+  "type": "range:direction+name"
+}

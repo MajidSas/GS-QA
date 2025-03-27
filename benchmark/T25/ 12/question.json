@@ -1,0 +1,95 @@
+{
+  "question": "What's the distance to a nature reserve from Urban Air Adventure Park, Port Saint Lucie, FL within 120 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography, 120000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 245673,
+      "geometry": "POINT (-80.225729 26.379466)",
+      "poi_name": "Daggerwing Nature Center",
+      "osm_id": 3369070600,
+      "leisure": "nature_reserve",
+      "distance": 102510.97149027
+    },
+    {
+      "id": 245998,
+      "geometry": "POINT (-80.19366 26.857865)",
+      "poi_name": "Loxahatchee Slough Natural Area",
+      "osm_id": 5411289604,
+      "leisure": "nature_reserve",
+      "phone": "(561) 233-2400",
+      "addr_state": "FL",
+      "addr_city": "Jupiter",
+      "addr_postcode": "33478",
+      "addr_street": "West Indiantown Road",
+      "addr_housenumber": "9060",
+      "distance": 50410.34247251
+    },
+    {
+      "id": 246018,
+      "geometry": "POINT (-80.153265 27.120055)",
+      "poi_name": "Gomez",
+      "osm_id": 5463219913,
+      "leisure": "nature_reserve",
+      "distance": 25080.01925755
+    },
+    {
+      "id": 246059,
+      "geometry": "POINT (-80.249765 26.578325)",
+      "poi_name": "Strazzulla Tract",
+      "osm_id": 5501872066,
+      "leisure": "nature_reserve",
+      "distance": 80363.48181923
+    },
+    {
+      "id": 261546,
+      "geometry": "POINT (-80.469219 27.851136)",
+      "poi_name": "Indian River-Malabar to Sebastian Aquatic Preserve",
+      "osm_id": 358721392,
+      "leisure": "nature_reserve",
+      "wikidata": "Q49504939",
+      "distance": 63004.85491942
+    },
+    {
+      "id": 266210,
+      "geometry": "POINT (-81.406053 27.531065)",
+      "poi_name": "Lake Wales Ridge Wildlife and Environmental Area - Carter Creek",
+      "osm_id": 7037221226,
+      "leisure": "nature_reserve",
+      "distance": 111907.89875786
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
+      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "poi": {
+        "id": 27036,
+        "geometry": "POINT (-80.303867 27.301988)",
+        "poi_name": "Urban Air Adventure Park",
+        "osm_id": 7656494335,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+        "phone": "+1-772-408-9349",
+        "addr_state": "FL",
+        "addr_city": "Port Saint Lucie",
+        "addr_postcode": "34952",
+        "addr_street": "S US Highway 1",
+        "addr_housenumber": "9020"
+      }
+    }
+  },
+  "id": 711,
+  "type": "range+distance"
+}

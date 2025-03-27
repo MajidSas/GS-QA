@@ -1,0 +1,72 @@
+{
+  "question": "Where is the closest restaurant in the direction of Niagara Cave, Harmony, MN from Oxbow Park and Zollman Zoo, Byron, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography, ST_GeomFromText('POINT (-92.055069 43.513963)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 73315,
+      "geometry": "POINT (-92.512048 44.017718)",
+      "poi_name": "Shawnee Dining Room",
+      "osm_id": 9625594559,
+      "amenity": "restaurant",
+      "cuisine": "fine_dining",
+      "operator": "Rochester Golf & Country Club",
+      "website": "https://www.rgcc.org/dining/shawnee-dining-room",
+      "phone": "+1 507 282 2708",
+      "addr_state": "MN",
+      "addr_city": "Rochester",
+      "addr_postcode": "55902",
+      "addr_street": "Country Club Road SW",
+      "addr_housenumber": "3100",
+      "value": 142.74019210391535
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
+      "geo_wkt": "POINT (-92.648741 44.083478)",
+      "poi": {
+        "id": 8983,
+        "geometry": "POINT (-92.648741 44.083478)",
+        "poi_name": "Oxbow Park and Zollman Zoo",
+        "osm_id": 3606133825,
+        "tourism": "zoo",
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "operator": "Olmsted County",
+        "addr_state": "MN",
+        "addr_city": "Byron",
+        "addr_postcode": "55920",
+        "addr_street": "County Road 105 Northwest",
+        "addr_housenumber": "5731"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Niagara Cave, Harmony, MN",
+      "geo_wkt": "POINT (-92.055069 43.513963)",
+      "poi": {
+        "id": 6625,
+        "geometry": "POINT (-92.055069 43.513963)",
+        "poi_name": "Niagara Cave",
+        "osm_id": 1897357863,
+        "tourism": "attraction",
+        "website": "www.niagaracave.com",
+        "phone": "507-886-6606",
+        "addr_state": "MN",
+        "addr_city": "Harmony",
+        "addr_street": "County 30",
+        "addr_housenumber": "29842"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1358,
+  "type": "knn:towards+loc"
+}

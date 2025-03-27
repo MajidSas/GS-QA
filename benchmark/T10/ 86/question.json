@@ -1,0 +1,68 @@
+{
+  "question": "Which hospital is closest when traveling towards Pocono Go-Karts and Play Park, East Stroudsburg, PA from Tank Masters, Pennsburg, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'hospital'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 181337,
+      "geometry": "POINT (-75.463855 40.592608)",
+      "poi_name": "The Good Shepherd Rehabilitation Hospital",
+      "osm_id": 10840926126,
+      "amenity": "hospital",
+      "website": "https://www.goodshepherdrehab.org",
+      "phone": "+1 610 776 3100",
+      "healthcare": "rehabilitation",
+      "addr_state": "PA",
+      "addr_city": "Allentown",
+      "addr_postcode": "18103",
+      "addr_street": "South Fifth Street",
+      "addr_housenumber": "850",
+      "value": 24.254974150639036
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Pocono Go-Karts and Play Park, East Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.108007 41.052123)",
+      "poi": {
+        "id": 26207,
+        "geometry": "POINT (-75.108007 41.052123)",
+        "poi_name": "Pocono Go-Karts and Play Park",
+        "osm_id": 5809688278,
+        "tourism": "theme_park",
+        "website": "http://poconogokarts.com/",
+        "addr_state": "PA",
+        "addr_city": "East Stroudsburg",
+        "addr_postcode": "18302",
+        "addr_street": "Milford Road",
+        "addr_housenumber": "5021"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    }
+  },
+  "id": 185,
+  "type": "knn:towards+name"
+}

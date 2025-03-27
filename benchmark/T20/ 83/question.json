@@ -1,0 +1,66 @@
+{
+  "question": "Where's the closest caf\u00e9 located en route to Horatio Colony Museum, Keene, NH from Hairpin Turn, Clarksburg, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, ST_GeomFromText('POINT (-72.278043 42.928864)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 82163,
+      "geometry": "POINT (-72.596271 42.851539)",
+      "poi_name": "Cai's Dim Sum Teahouse",
+      "osm_id": 1685305407,
+      "amenity": "cafe",
+      "cuisine": "asian",
+      "website": "https://www.dimsumvt.com/",
+      "addr_state": "VT",
+      "addr_city": "Brattleboro",
+      "addr_postcode": "05301",
+      "addr_street": "Western Avenue",
+      "addr_housenumber": "814",
+      "value": 68.93388854450993
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "poi": {
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Horatio Colony Museum, Keene, NH",
+      "geo_wkt": "POINT (-72.278043 42.928864)",
+      "poi": {
+        "id": 4923,
+        "geometry": "POINT (-72.278043 42.928864)",
+        "poi_name": "Horatio Colony Museum",
+        "osm_id": 9683180665,
+        "tourism": "museum",
+        "website": "https://horatiocolonymuseum.org/",
+        "phone": "+1 (603) 352-0460",
+        "museum": "history",
+        "addr_state": "NH",
+        "addr_city": "Keene",
+        "addr_postcode": "03431",
+        "addr_street": "Main Street",
+        "addr_housenumber": "199"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1382,
+  "type": "knn:towards+loc"
+}

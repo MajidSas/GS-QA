@@ -1,0 +1,111 @@
+{
+  "question": "Within a radius of 80 kilometers, where can I find a caf\u00e9 towards the southwest of Malibu Jack's, Springfield, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, 80000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 56400,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Mel-O-Cream Donuts",
+      "osm_id": 10235022220,
+      "amenity": "cafe",
+      "cuisine": "donut",
+      "opening_hours": "Mo-Su 05:30-12:00",
+      "website": "https://www.melocreamspringfield.com/",
+      "phone": "+1-217-679-1107",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62711",
+      "addr_street": "Yucan Drive",
+      "addr_housenumber": "4411"
+    },
+    {
+      "id": 70470,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Hae's Bakery & Coffee Shoppe",
+      "osm_id": 11364464711,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:30-17:00; Su 07:00-15:00",
+      "website": "https://www.haesbakeryandcoffee.com/",
+      "phone": "+1-217-741-8073",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62711",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "3844"
+    },
+    {
+      "id": 197321,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Vextor Boba Tea Lounge",
+      "osm_id": 10633857000,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "website": "https://www.vextortealoungellc.com/",
+      "phone": "+1-217-670-1797",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62711",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "4310"
+    },
+    {
+      "id": 95170,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Grab-a-Java",
+      "osm_id": 6388292176,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 06:00-18:00; Sa 06:30-18:00; Su 07:00-17:00",
+      "website": "https://grabajava.com/",
+      "phone": "+1-217-698-9773",
+      "outdoor_seating": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "West Hedley Road",
+      "addr_housenumber": "3115"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 4,
+  "type": "range:direction+loc"
+}

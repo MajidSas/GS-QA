@@ -1,0 +1,44 @@
+{
+  "question": "What's the nearest hospital near the museum directed by Jason T. Busch in New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.981596 40.77323)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 195721,
+      "geometry": "POINT (-73.992777 40.768828)",
+      "poi_name": "Mount Sinai",
+      "osm_id": 10363943866,
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "American Folk Art Museum, New York, NY",
+      "geo_wkt": "POINT (-73.981596 40.77323)",
+      "poi": {
+        "id": 1950,
+        "geometry": "POINT (-73.981596 40.77323)",
+        "poi_name": "American Folk Art Museum",
+        "osm_id": 3224793125,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "website": "http://www.folkartmuseum.org",
+        "museum": "art",
+        "wikidata": "Q464354",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Lincoln Square",
+        "addr_housenumber": "2"
+      }
+    }
+  },
+  "id": 2753,
+  "type": "knn+name+multihop2"
+}

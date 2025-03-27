@@ -1,0 +1,55 @@
+{
+  "question": "Which way should I head to get to a museum from Wellington Reservation, Wellington, OH within 10 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, 10000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "id": 21857,
+      "geometry": "POINT (-82.217682 41.168979)",
+      "poi_name": "Spirit of '76 Museum",
+      "osm_id": 10695458939,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Apr-Oct Sa,Su 13:00-15:30",
+      "website": "https://thespiritof76museum.org/",
+      "phone": "+4406475312",
+      "addr_state": "OH",
+      "addr_city": "Wellington",
+      "addr_postcode": "44090",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "201",
+      "angle": 25.832515619327165
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
+      "poi": {
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
+      }
+    }
+  },
+  "id": 1053,
+  "type": "range+angle"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "What's the course towards a garden from Black Hills Children's Home, Rapid City, SD within 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-103.377592 43.909219)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-103.377592 43.909219)',4326)::geography, 160000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 248928,
+      "geometry": "POINT (-103.226621 44.086436)",
+      "poi_name": "Memorial Park Rose Gardens",
+      "osm_id": 4939470062,
+      "leisure": "garden",
+      "angle": 31.537674802463734
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Black Hills Children's Home, Rapid City, SD",
+      "geo_wkt": "POINT (-103.377592 43.909219)",
+      "poi": {
+        "id": 182856,
+        "geometry": "POINT (-103.377592 43.909219)",
+        "poi_name": "Black Hills Children's Home",
+        "osm_id": 10906756024,
+        "amenity": "hospital",
+        "website": "https://chssd.org/residential-treatment-and-education",
+        "phone": "+1 605 343 5422",
+        "healthcare": "hospital",
+        "addr_state": "SD",
+        "addr_city": "Rapid City",
+        "addr_postcode": "57702-7422",
+        "addr_street": "S. Rockerville Rd.",
+        "addr_housenumber": "24100"
+      }
+    }
+  },
+  "id": 1017,
+  "type": "range+angle"
+}

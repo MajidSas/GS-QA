@@ -1,0 +1,54 @@
+{
+  "question": "Which history museum nearby Portland Seminary, Tigard, OR?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.747463 45.427886)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23863,
+      "geometry": "POINT (-122.632035 45.526844)",
+      "poi_name": "Hellenic-American Cultural Center & Museum",
+      "osm_id": 9169923137,
+      "tourism": "museum",
+      "opening_hours": "Tu-Fr 11:00-15:00, Su 12:00-13:00",
+      "website": "https://hellenicamericancc.org/",
+      "phone": "+1 503-858-8567",
+      "museum": "history",
+      "addr_state": "OR",
+      "addr_city": "Portland",
+      "addr_postcode": "97232",
+      "addr_street": "Northeast Glisan Street",
+      "addr_housenumber": "3131"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Portland Seminary, Tigard, OR",
+      "geo_wkt": "POINT (-122.747463 45.427886)",
+      "poi": {
+        "id": 223704,
+        "geometry": "POINT (-122.747463 45.427886)",
+        "poi_name": "Portland Seminary",
+        "osm_id": 11061306203,
+        "amenity": "university",
+        "operator": "George Fox University",
+        "website": "https://www.georgefox.edu/seminary/",
+        "phone": "+1-503-554-6150",
+        "addr_state": "OR",
+        "addr_city": "Tigard",
+        "addr_postcode": "97223",
+        "addr_street": "Southwest 68th Avenue",
+        "addr_housenumber": "12753"
+      }
+    }
+  },
+  "id": 626,
+  "type": "knn:non_spat_filter+name"
+}

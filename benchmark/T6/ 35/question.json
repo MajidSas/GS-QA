@@ -1,0 +1,51 @@
+{
+  "question": "Which emergency hospital nearby Lakeland College-Central Wisconsin Center, Wisconsin Rapids, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.783214 44.39316)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 239830,
+      "geometry": "POINT (-90.178312 44.6769)",
+      "poi_name": "Marshfield Children's Hospital",
+      "osm_id": 5940818235,
+      "amenity": "hospital",
+      "operator": "Marshfield Clinic",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WI",
+      "addr_city": "Marshfield",
+      "addr_postcode": "54449",
+      "addr_street": "Saint Joseph Avenue",
+      "addr_housenumber": "611"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Lakeland College- Central Wisconsin Center, Wisconsin Rapids, WI",
+      "geo_wkt": "POINT (-89.783214 44.39316)",
+      "poi": {
+        "id": 110443,
+        "geometry": "POINT (-89.783214 44.39316)",
+        "poi_name": "Lakeland College- Central Wisconsin Center",
+        "osm_id": 3703484054,
+        "amenity": "university",
+        "operator": "Lakeland College",
+        "addr_state": "WI",
+        "addr_city": "Wisconsin Rapids",
+        "addr_postcode": "54494",
+        "addr_street": "32nd Street North",
+        "addr_housenumber": "500"
+      }
+    }
+  },
+  "id": 634,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "What is the nearest garden in the north direction of Allen Park Civic Arena, Allen Park, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.211376 42.258691)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267398,
+      "geometry": "POINT (-83.211376 42.258691)",
+      "poi_name": "butterfly garden",
+      "osm_id": 5961960457,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Allen Park Civic Arena, Allen Park, MI",
+      "geo_wkt": "POINT (-83.211376 42.258691)",
+      "poi": {
+        "id": 265370,
+        "geometry": "POINT (-83.211376 42.258691)",
+        "poi_name": "Allen Park Civic Arena",
+        "osm_id": 367815831,
+        "leisure": "stadium",
+        "addr_state": "MI",
+        "addr_city": "Allen Park",
+        "addr_postcode": "48101",
+        "addr_street": "White Avenue",
+        "addr_housenumber": "15800"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2585,
+  "type": "knn:direction+name"
+}

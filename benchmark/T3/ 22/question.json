@@ -1,0 +1,183 @@
+{
+  "question": "What park is located within 110 kilometers in the east direction of Plaza Sports Center, Edinburg, TX?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography, 110000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 252284,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Marine Military Academy Stadium",
+      "osm_id": 356845324,
+      "leisure": "park"
+    },
+    {
+      "id": 248596,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Adolph Thomae Jr. County Park",
+      "osm_id": 4664440129,
+      "leisure": "park"
+    },
+    {
+      "id": 251795,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Travis Park",
+      "osm_id": 356725942,
+      "leisure": "park"
+    },
+    {
+      "id": 252088,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Wood Park",
+      "osm_id": 356788782,
+      "leisure": "park"
+    },
+    {
+      "id": 252089,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Sunrise Hill County Park",
+      "osm_id": 356788878,
+      "leisure": "park"
+    },
+    {
+      "id": 252090,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Lower Rio Grande Valley National Wildlife Refuge",
+      "osm_id": 356788906,
+      "leisure": "park",
+      "wikidata": "Q6693750"
+    },
+    {
+      "id": 252604,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Kenedy Park",
+      "osm_id": 356849143,
+      "leisure": "park"
+    },
+    {
+      "id": 252643,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Hermosa Park",
+      "osm_id": 356849751,
+      "leisure": "park"
+    },
+    {
+      "id": 252552,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Tucker Unit",
+      "osm_id": 356848875,
+      "leisure": "park"
+    },
+    {
+      "id": 252561,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Ebony Unit",
+      "osm_id": 356848984,
+      "leisure": "park"
+    },
+    {
+      "id": 252566,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Longoria Unit",
+      "osm_id": 356848995,
+      "leisure": "park"
+    },
+    {
+      "id": 252579,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Landrum Park",
+      "osm_id": 356849082,
+      "leisure": "park"
+    },
+    {
+      "id": 252582,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Arroyo Colorado Unit",
+      "osm_id": 356849089,
+      "leisure": "park"
+    },
+    {
+      "id": 252508,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Bowie Park",
+      "osm_id": 356848581,
+      "leisure": "park"
+    },
+    {
+      "id": 252873,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Stokey Park",
+      "osm_id": 356851940,
+      "leisure": "park"
+    },
+    {
+      "id": 252681,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "San Benito City Park",
+      "osm_id": 356850223,
+      "leisure": "park"
+    },
+    {
+      "id": 252586,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Carricitos Unit",
+      "osm_id": 356849097,
+      "leisure": "park"
+    },
+    {
+      "id": 252590,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Las Palomas Wildlife Management Area - Deshazo",
+      "osm_id": 356849103,
+      "leisure": "park"
+    },
+    {
+      "id": 252875,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Sunrise Hill County Park",
+      "osm_id": 356851973,
+      "leisure": "park"
+    },
+    {
+      "id": 267331,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Saint Fransis of Assisi Park",
+      "osm_id": 5871761680,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Plaza Sports Center, Edinburg, TX",
+      "geo_wkt": "POINT (-98.166433 26.232776)",
+      "poi": {
+        "id": 248451,
+        "geometry": "POINT (-98.166433 26.232776)",
+        "poi_name": "Plaza Sports Center",
+        "osm_id": 4161977645,
+        "leisure": "stadium",
+        "sport": "soccer",
+        "addr_state": "TX",
+        "addr_city": "Edinburg",
+        "addr_postcode": "78577",
+        "addr_street": "E. Nolana Loop",
+        "addr_housenumber": "1101"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2621,
+  "type": "range:direction+name"
+}

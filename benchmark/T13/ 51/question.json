@@ -1,0 +1,49 @@
+{
+  "question": "Could you locate a stadium within a 120 kilometers radius of Ocean View Farm Reserve, Dartmouth, MA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.00607 41.532254)',4326)::geography, 120000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265368,
+      "geometry": "POINT (-70.191131 41.690388)",
+      "poi_name": "Cape Cod Coliseum",
+      "osm_id": 367781392,
+      "leisure": "stadium",
+      "wikidata": "Q5034679",
+      "addr_state": "MA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ocean View Farm Reserve, Dartmouth, MA",
+      "geo_wkt": "POINT (-71.00607 41.532254)",
+      "poi": {
+        "id": 246667,
+        "geometry": "POINT (-71.00607 41.532254)",
+        "poi_name": "Ocean View Farm Reserve",
+        "osm_id": 8790489939,
+        "leisure": "nature_reserve",
+        "description": "In partnership with the Buzzards Bay Coalition (BBC) and Round The Bend Farm, the 115-acre Ocean View Farm was purchased and protected in August 2017.  The northern 55 acres remains as protected farmland owned by Round the Bend Farm, a neighboring working",
+        "opening_hours": "Mo-Su 06:00-18:00",
+        "operator": "Dartmouth Natural Resources Trust",
+        "website": "https://dnrt.org/oceanview/",
+        "addr_state": "MA",
+        "addr_city": "Dartmouth",
+        "addr_postcode": "02748",
+        "addr_street": "Allens Neck Road"
+      }
+    }
+  },
+  "id": 2050,
+  "type": "range+loc"
+}

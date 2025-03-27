@@ -1,0 +1,74 @@
+{
+  "question": "What's the closest restaurant in the direction of Safari West, Sant Rosa, CA from the View Lounge, San Francisco, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.695392 38.557332)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 210207,
+      "geometry": "POINT (-122.404441 37.785663)",
+      "poi_name": "Delarosa",
+      "osm_id": 5085031722,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "wheelchair": "yes",
+      "outdoor_seating": "patio",
+      "addr_postcode": "94103",
+      "addr_street": "Yerba Buena Lane",
+      "addr_housenumber": "37",
+      "value": 343.51293904457236
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Safari West, Sant Rosa, CA",
+      "geo_wkt": "POINT (-122.695392 38.557332)",
+      "poi": {
+        "id": 14066,
+        "geometry": "POINT (-122.695392 38.557332)",
+        "poi_name": "Safari West",
+        "osm_id": 4217522083,
+        "tourism": "zoo",
+        "website": "https://www.safariwest.com/",
+        "phone": "(800) 616-2695",
+        "wikidata": "Q7398400",
+        "addr_state": "CA",
+        "addr_city": "Sant Rosa",
+        "addr_postcode": "95404",
+        "addr_street": "Porter Creek Road",
+        "addr_housenumber": "3115"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 145,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "Could you tell me the closest restaurant relative to the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 236350,
+      "geometry": "POINT (-75.124749 40.090139)",
+      "poi_name": "Hibachi of Jenkintown",
+      "osm_id": 5790719735,
+      "amenity": "restaurant",
+      "cuisine": "hibachi;japanese"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "poi": {
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
+      }
+    }
+  },
+  "id": 2735,
+  "type": "knn+name+multihop2"
+}

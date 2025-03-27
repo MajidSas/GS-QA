@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest beach resort southeast of Patron Gallery, Chicago, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.667963 41.896253)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248000,
+      "geometry": "POINT (-87.667963 41.896253)",
+      "poi_name": "Orchid Island Beach Club",
+      "osm_id": 6231201516,
+      "leisure": "beach_resort",
+      "addr_state": "FL",
+      "addr_city": "Orchid",
+      "addr_postcode": "32963",
+      "addr_street": "Beachside Drive",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Patron Gallery, Chicago, IL",
+      "geo_wkt": "POINT (-87.667963 41.896253)",
+      "poi": {
+        "id": 2892,
+        "geometry": "POINT (-87.667963 41.896253)",
+        "poi_name": "Patron Gallery",
+        "osm_id": 10067042360,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 11:00-18:00",
+        "website": "https://patrongallery.com/",
+        "phone": "+1 312-846-1500",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60622",
+        "addr_street": "West Chicago Avenue",
+        "addr_housenumber": "1612"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1154,
+  "type": "knn:direction+loc"
+}

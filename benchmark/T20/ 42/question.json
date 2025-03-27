@@ -1,0 +1,70 @@
+{
+  "question": "Where's the nearest restaurant heading towards Springhill Suites By Marriott Wichita East At Plazzio, Wichita, KS from Riverfront Stadium, Wichita, KS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography, ST_GeomFromText('POINT (-97.206274 37.705279)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 83219,
+      "geometry": "POINT (-97.327322 37.68623)",
+      "poi_name": "Larkspur",
+      "osm_id": 1734899666,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_city": "Wichita",
+      "addr_street": "East Douglas Avenue",
+      "addr_housenumber": "904",
+      "value": 77.76945881794862
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Riverfront Stadium, Wichita, KS",
+      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "poi": {
+        "id": 260589,
+        "geometry": "POINT (-97.345485 37.681386)",
+        "poi_name": "Riverfront Stadium",
+        "osm_id": 358627835,
+        "leisure": "stadium",
+        "website": "https://www.milb.com/wichita/ballpark",
+        "phone": "+1-316-221-8000",
+        "addr_state": "KS",
+        "addr_city": "Wichita",
+        "addr_postcode": "67213",
+        "addr_street": "South McLean Boulevard",
+        "addr_housenumber": "275"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Springhill Suites By Marriott Wichita East At Plazzio, Wichita, KS",
+      "geo_wkt": "POINT (-97.206274 37.705279)",
+      "poi": {
+        "id": 14501,
+        "geometry": "POINT (-97.206274 37.705279)",
+        "poi_name": "Springhill Suites By Marriott Wichita East At Plazzio",
+        "osm_id": 4644239731,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.marriott.com/en-us/hotels/ictsh-springhill-suites-wichita-east-at-plazzio/overview/",
+        "internet_access": "wlan",
+        "phone": "+1-316-681-1800",
+        "official_name": "SpringHill Suites by Marriott",
+        "addr_state": "KS",
+        "addr_city": "Wichita",
+        "addr_postcode": "67206",
+        "addr_street": "North Greenwich Road",
+        "addr_housenumber": "1220"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1341,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "What's the distance to the closest garden with respect to Blue Ocean Discovery Center, Hampton, NH?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265735,
+      "geometry": "POINT (-70.925294 43.038633)",
+      "poi_name": "Great Bay Community Wildlife Garden",
+      "osm_id": 10888687993,
+      "leisure": "garden",
+      "distance": 17095.29854977
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "poi": {
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
+      }
+    }
+  },
+  "id": 2460,
+  "type": "knn+distance"
+}

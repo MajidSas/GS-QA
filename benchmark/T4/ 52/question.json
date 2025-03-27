@@ -1,0 +1,71 @@
+{
+  "question": "Which viewpoint can I find towards Watson-Curtze Mansion, Erie, PA within 150 kilometers from Northwest Arena, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography, ST_GeomFromText('POINT (-80.093623 42.126779)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'viewpoint'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography, 150000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 241,
+      "geometry": "POINT (-79.985748 42.119196)",
+      "poi_name": "Glenhill Farmhouse",
+      "osm_id": 8255522795,
+      "tourism": "viewpoint",
+      "opening_hours": "Mo-Fr 08:00-17:00",
+      "operator": "Penn State Behrend",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16563",
+      "addr_street": "College Drive",
+      "addr_housenumber": "4701",
+      "value": 273.1393003155542
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Northwest Arena, NY",
+      "geo_wkt": "POINT (-79.245278 42.095278)",
+      "poi": {
+        "id": 265388,
+        "geometry": "POINT (-79.245278 42.095278)",
+        "poi_name": "Northwest Arena",
+        "osm_id": 368061371,
+        "leisure": "stadium",
+        "sport": "skating",
+        "addr_state": "NY"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Watson-Curtze Mansion, Erie, PA",
+      "geo_wkt": "POINT (-80.093623 42.126779)",
+      "poi": {
+        "id": 20273,
+        "geometry": "POINT (-80.093623 42.126779)",
+        "poi_name": "Watson-Curtze Mansion",
+        "osm_id": 7977022499,
+        "tourism": "museum",
+        "operator": "Hagan History Center",
+        "website": "https://www.eriehistory.org/",
+        "museum": "history",
+        "wikidata": "Q7974795",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16507",
+        "addr_street": "West 6th Street",
+        "addr_housenumber": "356"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    }
+  },
+  "id": 1651,
+  "type": "range:towards+name"
+}

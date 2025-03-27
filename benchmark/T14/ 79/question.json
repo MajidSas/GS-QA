@@ -1,0 +1,52 @@
+{
+  "question": "Could you assist me in locating an emergency hospital within a 100 kilometers radius originating from Harley Wilson Park, Fort Smith, AR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.417715 35.392591)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 204594,
+      "geometry": "POINT (-95.414609 35.76517)",
+      "poi_name": "Jack C. Montgomery VA Medical Center",
+      "osm_id": 7133183976,
+      "amenity": "hospital",
+      "operator": "Department of Veterans Affairs",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "OK",
+      "addr_city": "Muskogee",
+      "addr_postcode": "74401",
+      "addr_street": "Honor Heights Drive",
+      "addr_housenumber": "1011"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Harley Wilson Park, Fort Smith, AR",
+      "geo_wkt": "POINT (-94.417715 35.392591)",
+      "poi": {
+        "id": 264692,
+        "geometry": "POINT (-94.417715 35.392591)",
+        "poi_name": "Harley Wilson Park",
+        "osm_id": 359001633,
+        "leisure": "park",
+        "addr_state": "AR",
+        "addr_city": "Fort Smith",
+        "addr_postcode": "72901"
+      }
+    }
+  },
+  "id": 478,
+  "type": "range:non_spat_filter+loc"
+}

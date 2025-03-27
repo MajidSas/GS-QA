@@ -1,0 +1,73 @@
+{
+  "question": "Do you have any suggestions for a stadium within 90 kilometers radius from the Mapparium, Boston, MA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.086177 42.345206)',4326)::geography, 90000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 247338,
+      "geometry": "POINT (-71.267493 42.09481)",
+      "poi_name": "Gate P2",
+      "osm_id": 8969236699,
+      "leisure": "stadium",
+      "description": "Gate P2"
+    },
+    {
+      "id": 246343,
+      "geometry": "POINT (-71.515966 41.717988)",
+      "poi_name": "McCarthy Field",
+      "osm_id": 11331230041,
+      "leisure": "stadium",
+      "wikidata": "Q14709442"
+    },
+    {
+      "id": 259620,
+      "geometry": "POINT (-71.045057 42.761758)",
+      "poi_name": "Trinity Stadium",
+      "osm_id": 358258731,
+      "leisure": "stadium"
+    },
+    {
+      "id": 259649,
+      "geometry": "POINT (-71.040395 42.400998)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 358260110,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "The Mapparium, Boston, MA",
+      "geo_wkt": "POINT (-71.086177 42.345206)",
+      "poi": {
+        "id": 23753,
+        "geometry": "POINT (-71.086177 42.345206)",
+        "poi_name": "The Mapparium",
+        "osm_id": 5296603923,
+        "amenity": "planetarium",
+        "tourism": "attraction",
+        "information": "map",
+        "fee": "yes",
+        "operator": "The Mary Baker Eddy Library",
+        "website": "https://www.marybakereddylibrary.org/project/mapparium/",
+        "wikidata": "Q6754152",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02215",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "200"
+      }
+    }
+  },
+  "id": 820,
+  "type": "range+name"
+}

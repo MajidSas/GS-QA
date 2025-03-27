@@ -1,0 +1,45 @@
+{
+  "question": "Seeking the closest museum from Freedom Fields, Bossier City, LA, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.713886 32.527662)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15720,
+      "geometry": "POINT (-93.720864 32.528469)",
+      "poi_name": "Mardi Gras Museum",
+      "osm_id": 9473042070,
+      "tourism": "museum",
+      "addr_state": "LA",
+      "addr_city": "Bossier City",
+      "addr_postcode": "71111",
+      "addr_street": "East Texas Street",
+      "addr_housenumber": "2101"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Freedom Fields, Bossier City, LA",
+      "geo_wkt": "POINT (-93.713886 32.527662)",
+      "poi": {
+        "id": 248969,
+        "geometry": "POINT (-93.713886 32.527662)",
+        "poi_name": "Freedom Fields",
+        "osm_id": 9473393309,
+        "leisure": "stadium",
+        "addr_state": "LA",
+        "addr_city": "Bossier City",
+        "addr_postcode": "71111",
+        "addr_street": "East Texas Street",
+        "addr_housenumber": "2810"
+      }
+    }
+  },
+  "id": 1884,
+  "type": "knn+loc"
+}

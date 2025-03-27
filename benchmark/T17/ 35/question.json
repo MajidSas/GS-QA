@@ -1,0 +1,52 @@
+{
+  "question": "Do you know where the nearest university is from Mulberry Center, Harrisburg, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.523579 37.730671)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167573,
+      "geometry": "POINT (-89.531114 37.312622)",
+      "poi_name": "Southeast Missouri State University",
+      "osm_id": 358042295,
+      "amenity": "university",
+      "website": "https://semo.edu/",
+      "phone": "+1 573 651 2000",
+      "wikidata": "Q635118",
+      "addr_city": "Cape Girardeau",
+      "addr_postcode": "63701",
+      "addr_street": "University Plaza",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mulberry Center, Harrisburg, IL",
+      "geo_wkt": "POINT (-88.523579 37.730671)",
+      "poi": {
+        "id": 199507,
+        "geometry": "POINT (-88.523579 37.730671)",
+        "poi_name": "Mulberry Center",
+        "osm_id": 967238288,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "website": "https://www.harrisburgmc.com/services/behavioral-health-services/",
+        "phone": "+1-618-252-0999",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "IL",
+        "addr_city": "Harrisburg",
+        "addr_postcode": "62946",
+        "addr_street": "Dr. Warren Tuttle Drive",
+        "addr_housenumber": "100"
+      }
+    }
+  },
+  "id": 1834,
+  "type": "knn+loc"
+}

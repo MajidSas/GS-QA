@@ -1,0 +1,46 @@
+{
+  "question": "What's the closest aquarium positioned towards the southwest of Saint Vincent Surgery Center, Erie, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.080993 42.110692)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24095,
+      "geometry": "POINT (-80.080993 42.110692)",
+      "poi_name": "The Reef Aquarium Shop",
+      "osm_id": 9310064911,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Saint Vincent Surgery Center, Erie, PA",
+      "geo_wkt": "POINT (-80.080993 42.110692)",
+      "poi": {
+        "id": 31592,
+        "geometry": "POINT (-80.080993 42.110692)",
+        "poi_name": "Saint Vincent Surgery Center",
+        "osm_id": 8435416614,
+        "amenity": "hospital",
+        "operator": "Allegheny Health Network",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16544",
+        "addr_street": "West 25th Street",
+        "addr_housenumber": "312"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2562,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "What's the proximity of the nearest aquarium relative to River Deck, Edgewater, MD?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1512,
+      "geometry": "POINT (-76.48474 39.339761)",
+      "poi_name": "Go Fish",
+      "osm_id": 3026471881,
+      "tourism": "aquarium",
+      "addr_state": "MD",
+      "addr_city": "Rosedale",
+      "addr_postcode": "21237",
+      "addr_street": "Philadelphia Road",
+      "addr_housenumber": "8767 G",
+      "distance": 44445.39808543
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    }
+  },
+  "id": 2470,
+  "type": "knn+distance"
+}

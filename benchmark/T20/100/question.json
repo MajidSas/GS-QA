@@ -1,0 +1,66 @@
+{
+  "question": "Where is the nearest hotel as you head towards Mikee Huber Studio & Gallery, Dayton, OH from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, ST_GeomFromText('POINT (-84.183448 39.77631)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2467,
+      "geometry": "POINT (-83.838391 39.939911)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 3461886974,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-springfield-oh",
+      "phone": "+1-937-322-2200",
+      "addr_state": "OH",
+      "addr_city": "Springfield",
+      "addr_postcode": "45504",
+      "addr_street": "West 1st Street",
+      "addr_housenumber": "1751",
+      "value": 248.7061115544597
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Mikee Huber Studio & Gallery, Dayton, OH",
+      "geo_wkt": "POINT (-84.183448 39.77631)",
+      "poi": {
+        "id": 19966,
+        "geometry": "POINT (-84.183448 39.77631)",
+        "poi_name": "Mikee Huber Studio & Gallery",
+        "osm_id": 7787687261,
+        "tourism": "gallery",
+        "website": "https://www.mikeehuber.com/",
+        "addr_state": "OH",
+        "addr_city": "Dayton",
+        "addr_postcode": "45404",
+        "addr_street": "North Keowee Street",
+        "addr_housenumber": "903"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1399,
+  "type": "knn:towards+loc"
+}

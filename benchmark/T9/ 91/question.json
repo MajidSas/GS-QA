@@ -1,0 +1,48 @@
+{
+  "question": "Which hospital is closest in the north direction of Neil Carey Arena, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 88126,
+      "geometry": "POINT (-88.082005 41.605308)",
+      "poi_name": "Oakbrook Pediatrician",
+      "osm_id": 8766021338,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "IL",
+      "addr_city": "Downers Grove",
+      "addr_postcode": "60515",
+      "addr_street": "Highland Avenue Tower 1",
+      "addr_housenumber": "3825"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Neil Carey Arena, IL",
+      "geo_wkt": "POINT (-88.082005 41.605308)",
+      "poi": {
+        "id": 265389,
+        "geometry": "POINT (-88.082005 41.605308)",
+        "poi_name": "Neil Carey Arena",
+        "osm_id": 368073990,
+        "leisure": "stadium",
+        "operator": "Lewis University",
+        "sport": "basketball;volleyball",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2590,
+  "type": "knn:direction+name"
+}

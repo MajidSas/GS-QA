@@ -1,0 +1,52 @@
+{
+  "question": "Where can I find the nearest hospital relative to Qubed, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.401168 29.484507)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62285,
+      "geometry": "POINT (-98.473444 29.587966)",
+      "poi_name": "Baptist Emergency Hospital",
+      "osm_id": 5561067570,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "http://www.baptistemergencyhospital.com/thousand-oaks/",
+      "phone": "+1-210-402-4092",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78232",
+      "addr_street": "North US Highway 281",
+      "addr_housenumber": "16088"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Qubed, San Antonio, TX",
+      "geo_wkt": "POINT (-98.401168 29.484507)",
+      "poi": {
+        "id": 24304,
+        "geometry": "POINT (-98.401168 29.484507)",
+        "poi_name": "Qubed",
+        "osm_id": 10997144465,
+        "tourism": "hotel",
+        "opening_hours": "24/7",
+        "website": "https://qubedliving.com/",
+        "phone": "+1-210-653-6325",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78218",
+        "addr_street": "Rittiman Road",
+        "addr_housenumber": "4321"
+      }
+    }
+  },
+  "id": 1819,
+  "type": "knn+loc"
+}

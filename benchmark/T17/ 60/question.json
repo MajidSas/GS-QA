@@ -1,0 +1,47 @@
+{
+  "question": "Where can I find the nearest beach resort relative to Carson Park Stadium, Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245281,
+      "geometry": "POINT (-91.491978 46.302048)",
+      "poi_name": "Traut's Resort LLC",
+      "osm_id": 2669382020,
+      "leisure": "beach_resort",
+      "phone": "1-715-795-2529",
+      "addr_state": "WI",
+      "addr_city": "Solon Springs",
+      "addr_postcode": "54873",
+      "addr_street": "Twin Bay Road",
+      "addr_housenumber": "3855"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 1859,
+  "type": "knn+loc"
+}

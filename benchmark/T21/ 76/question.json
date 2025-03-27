@@ -1,0 +1,52 @@
+{
+  "question": "What direction does one need to follow to reach a zoo from Hidden Hills Ice Arena, CO within 100 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography, 100000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 5788,
+      "geometry": "POINT (-105.129607 39.976701)",
+      "poi_name": "My Nature Lab",
+      "osm_id": 1588879863,
+      "tourism": "zoo",
+      "opening_hours": "We-Fr 09:00-17:00; Sa,Su 10:00-16:00",
+      "website": "https://www.mynaturelab.org/",
+      "zoo": "reptile",
+      "angle": 327.8019440248097
+    },
+    {
+      "id": 12897,
+      "geometry": "POINT (-104.254326 39.406558)",
+      "poi_name": "Prairy Wind Animal Refuge",
+      "osm_id": 3945064487,
+      "tourism": "zoo",
+      "angle": 126.96720997953865
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Hidden Hills Ice Arena, CO",
+      "geo_wkt": "POINT (-105.041111 39.868611)",
+      "poi": {
+        "id": 265351,
+        "geometry": "POINT (-105.041111 39.868611)",
+        "poi_name": "Hidden Hills Ice Arena",
+        "osm_id": 366396389,
+        "leisure": "stadium",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 1075,
+  "type": "range+angle"
+}

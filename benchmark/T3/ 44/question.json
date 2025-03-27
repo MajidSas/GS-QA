@@ -1,0 +1,68 @@
+{
+  "question": "Within a radius of 170 kilometers, which stadium is in the southeast direction from Homewood Suites, Atlanta, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 247372,
+      "geometry": "POINT (-84.460938 33.87927)",
+      "poi_name": "Dekalb Schools Memorial Stadium",
+      "osm_id": 8984677094,
+      "leisure": "stadium"
+    },
+    {
+      "id": 266839,
+      "geometry": "POINT (-84.460938 33.87927)",
+      "poi_name": "Hawkins Arena",
+      "osm_id": 11024041666,
+      "leisure": "stadium",
+      "operator": "Mercer University"
+    },
+    {
+      "id": 247100,
+      "geometry": "POINT (-84.460938 33.87927)",
+      "poi_name": "McConnell-Talbert Stadium",
+      "osm_id": 3529306056,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites, Atlanta, GA",
+      "geo_wkt": "POINT (-84.460938 33.87927)",
+      "poi": {
+        "id": 1442,
+        "geometry": "POINT (-84.460938 33.87927)",
+        "poi_name": "Homewood Suites",
+        "osm_id": 2986245627,
+        "tourism": "hotel",
+        "opening_hours": "24/7",
+        "operator": "Hilton",
+        "website": "https://homewoodsuites3.hilton.com/en/hotels/georgia/homewood-suites-by-hilton-atlanta-galleria-cumberland-ATLCLHW/index.html",
+        "phone": "+1 (770) 988-9449",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30339",
+        "addr_street": "Cobb Parkway",
+        "addr_housenumber": "3200"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2643,
+  "type": "range:direction+name"
+}

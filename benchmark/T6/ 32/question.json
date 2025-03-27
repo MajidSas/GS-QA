@@ -1,0 +1,53 @@
+{
+  "question": "What's the nearest emergency hospital situated from River Deck, Edgewater, MD?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 204829,
+      "geometry": "POINT (-77.222205 38.878159)",
+      "poi_name": "Dominion Plastic Surgery",
+      "osm_id": 7143550380,
+      "amenity": "hospital",
+      "opening_hours": "Mo-Fr 09:00-17:00",
+      "website": "https://www.dominionplasticsurgery.com/",
+      "phone": "+1 703-544-8971",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Falls Church",
+      "addr_postcode": "22043",
+      "addr_street": "Hartland Road",
+      "addr_housenumber": "2755"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    }
+  },
+  "id": 631,
+  "type": "knn:non_spat_filter+name"
+}

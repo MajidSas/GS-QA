@@ -1,0 +1,78 @@
+{
+  "question": "In which direction is a golf course located from Glenhill Farmhouse, Erie, PA within 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 50000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 245163,
+      "geometry": "POINT (-80.205379 42.062406)",
+      "poi_name": "B&B Sportland",
+      "osm_id": 8321441909,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16506",
+      "addr_street": "West Ridge Road",
+      "addr_housenumber": "6000",
+      "angle": 250.92919384439864
+    },
+    {
+      "id": 247719,
+      "geometry": "POINT (-79.849038 42.21104)",
+      "poi_name": "The Clubhouse Indoor Golf",
+      "osm_id": 8188142743,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "North East",
+      "addr_postcode": "16428",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "10722",
+      "angle": 47.87103527130193
+    },
+    {
+      "id": 245198,
+      "geometry": "POINT (-80.082768 42.125255)",
+      "poi_name": "Golf Evolution",
+      "osm_id": 8412227139,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16501",
+      "addr_street": "State Street",
+      "addr_housenumber": "1002",
+      "angle": 274.82753481490516
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "poi": {
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
+      }
+    }
+  },
+  "id": 1090,
+  "type": "range+angle"
+}

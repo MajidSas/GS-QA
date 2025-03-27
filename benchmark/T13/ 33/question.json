@@ -1,0 +1,45 @@
+{
+  "question": "Could you help me locate a stadium that's within 170 kilometers from Curious Kids' Museum, IA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.160793 42.504136)',4326)::geography, 170000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265707,
+      "geometry": "POINT (-93.449931 41.596353)",
+      "poi_name": "SEP Stadium",
+      "osm_id": 10856875747,
+      "leisure": "stadium",
+      "addr_state": "Iowa",
+      "addr_city": "Pleasant Hill",
+      "addr_postcode": "50327",
+      "addr_street": "Martha L. Miller Drive",
+      "addr_housenumber": "7755"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Curious Kids' Museum, IA",
+      "geo_wkt": "POINT (-94.160793 42.504136)",
+      "poi": {
+        "id": 17110,
+        "geometry": "POINT (-94.160793 42.504136)",
+        "poi_name": "Curious Kids' Museum",
+        "osm_id": 367089557,
+        "tourism": "museum",
+        "addr_state": "IA"
+      }
+    }
+  },
+  "id": 2032,
+  "type": "range+loc"
+}

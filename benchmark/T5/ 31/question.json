@@ -1,0 +1,42 @@
+{
+  "question": "What's the closest zoo nearby Edgebrook Woods, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.765024 41.993433)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16137,
+      "geometry": "POINT (-87.911048 42.278444)",
+      "poi_name": "Lambs Farm Petting Zoo and Amusement Park",
+      "osm_id": 354282642,
+      "tourism": "zoo",
+      "fee": "yes",
+      "zoo": "petting_zoo",
+      "wikidata": "Q6481575"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Edgebrook Woods, IL",
+      "geo_wkt": "POINT (-87.765024 41.993433)",
+      "poi": {
+        "id": 265409,
+        "geometry": "POINT (-87.765024 41.993433)",
+        "poi_name": "Edgebrook Woods",
+        "osm_id": 369059632,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/edgebrook-woods/",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 230,
+  "type": "knn+name"
+}

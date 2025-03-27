@@ -1,0 +1,50 @@
+{
+  "question": "Which university can I find southeast of Memory Garden, Baltimore, MD, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography, 160000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 69468,
+      "geometry": "POINT (-76.638575 39.300016)",
+      "poi_name": "Johns Hopkins Carey Business School",
+      "osm_id": 11306162108,
+      "amenity": "university",
+      "wikidata": "Q5039173"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "poi": {
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2665,
+  "type": "range:direction+name"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "Seeking suggestions for the nearest garden in relation to Home2 Suites by Hilton Oxford, Oxford, MS.",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.522002 34.348581)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245817,
+      "geometry": "POINT (-89.0172 35.27736)",
+      "poi_name": "Pleasant Run Creek Community Garden",
+      "osm_id": 10119730327,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Home2 Suites by Hilton Oxford, Oxford, MS",
+      "geo_wkt": "POINT (-89.522002 34.348581)",
+      "poi": {
+        "id": 4166,
+        "geometry": "POINT (-89.522002 34.348581)",
+        "poi_name": "Home2 Suites by Hilton Oxford",
+        "osm_id": 5700620327,
+        "tourism": "hotel",
+        "addr_state": "MS",
+        "addr_city": "Oxford",
+        "addr_postcode": "38655",
+        "addr_street": "South Lamar Court",
+        "addr_housenumber": "101"
+      }
+    }
+  },
+  "id": 278,
+  "type": "knn+name"
+}

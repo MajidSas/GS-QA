@@ -1,0 +1,57 @@
+{
+  "question": "Which hotel is nearest towards Andrew J. Conner Nature Center, Erie, PA from Northwest Arena, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography, ST_GeomFromText('POINT (-80.171826 42.061617)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.245278 42.095278)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 614,
+      "geometry": "POINT (-79.735553 42.062284)",
+      "poi_name": "Inn at the Peak",
+      "osm_id": 2622509922,
+      "tourism": "hotel",
+      "value": 267.51868330794963
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Northwest Arena, NY",
+      "geo_wkt": "POINT (-79.245278 42.095278)",
+      "poi": {
+        "id": 265388,
+        "geometry": "POINT (-79.245278 42.095278)",
+        "poi_name": "Northwest Arena",
+        "osm_id": 368061371,
+        "leisure": "stadium",
+        "sport": "skating",
+        "addr_state": "NY"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Andrew J. Conner Nature Center, Erie, PA",
+      "geo_wkt": "POINT (-80.171826 42.061617)",
+      "poi": {
+        "id": 267515,
+        "geometry": "POINT (-80.171826 42.061617)",
+        "poi_name": "Andrew J. Conner Nature Center",
+        "osm_id": 7617074952,
+        "leisure": "nature_reserve",
+        "operator": "Millcreek Township",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16506",
+        "addr_street": "Asbury Road",
+        "addr_housenumber": "4105"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 196,
+  "type": "knn:towards+name"
+}

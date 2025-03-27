@@ -1,0 +1,77 @@
+{
+  "question": "Where is the closest restaurant from Lowe Art Museum, Coral Gables, FL towards Xtreme Action Park, Fort Lauderdale, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography, ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 55942,
+      "geometry": "POINT (-80.264298 25.749716)",
+      "poi_name": "P.Pole Pizza",
+      "osm_id": 10216469147,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Mo 11:00-22:00; We-Sa 10:00-23:00",
+      "website": "https://ppolepizza.com/",
+      "phone": "786-618-5287",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "FL",
+      "addr_city": "Coral Gables",
+      "addr_postcode": "33134",
+      "addr_street": "Miracle Mile",
+      "addr_housenumber": "279",
+      "value": 13.139263106903723
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lowe Art Museum, Coral Gables, FL",
+      "geo_wkt": "POINT (-80.27561 25.719383)",
+      "poi": {
+        "id": 17633,
+        "geometry": "POINT (-80.27561 25.719383)",
+        "poi_name": "Lowe Art Museum",
+        "osm_id": 367827364,
+        "tourism": "museum",
+        "website": "http://www6.miami.edu/lowe/",
+        "phone": "+1-305-284-3535",
+        "wikidata": "Q3837886",
+        "addr_state": "FL",
+        "addr_city": "Coral Gables",
+        "addr_postcode": "33124-6310",
+        "addr_street": "Stanford Drive",
+        "addr_housenumber": "1301"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "poi": {
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1349,
+  "type": "knn:towards+loc"
+}

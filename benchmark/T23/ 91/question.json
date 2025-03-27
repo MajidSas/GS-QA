@@ -1,0 +1,41 @@
+{
+  "question": "What is the total number of fast food restaurants within 160 kilometers from Pioneer Stadium, Ogden, UT?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, 160000)\nAND amenity = 'fast_food';\n",
+  "answers": [
+    {
+      "count": 805
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    }
+  },
+  "id": 2290,
+  "type": "range+count"
+}

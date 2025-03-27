@@ -1,0 +1,53 @@
+{
+  "question": "Which restaurant with outdoor seating nearby Derby Wharf, Salem, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.884804 42.517957)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 67126,
+      "geometry": "POINT (-70.892639 42.520027)",
+      "poi_name": "Casa Tequila",
+      "osm_id": 11224170097,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "opening_hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-23:00",
+      "website": "http://casatequilasalemma.com/",
+      "phone": "+1-978-224-2298",
+      "outdoor_seating": "yes",
+      "addr_state": "MA",
+      "addr_city": "Salem",
+      "addr_postcode": "01970",
+      "addr_street": "Derby Street",
+      "addr_housenumber": "300"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Derby Wharf, Salem, MA",
+      "geo_wkt": "POINT (-70.884804 42.517957)",
+      "poi": {
+        "id": 248974,
+        "geometry": "POINT (-70.884804 42.517957)",
+        "poi_name": "Derby Wharf",
+        "osm_id": 9480977928,
+        "leisure": "park",
+        "historic": "maritime",
+        "description": "Begun in 1762 and completed in 1806, it extends 2,045 feet into the Salem Harbor. At one time, it was home to nearly twenty structures, During the Revolution privateers used the wharf probably more than any other port facility in the colonies.",
+        "addr_state": "MA",
+        "addr_city": "Salem",
+        "addr_postcode": "01970",
+        "addr_street": "Derby Street"
+      }
+    }
+  },
+  "id": 692,
+  "type": "knn:non_spat_filter+name"
+}

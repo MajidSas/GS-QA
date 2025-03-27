@@ -1,0 +1,44 @@
+{
+  "question": "Looking for the closest beach resort in relation to Xtreme Action Park, Fort Lauderdale, FL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248774,
+      "geometry": "POINT (-80.071556 26.340163)",
+      "poi_name": "Boca Beach Club",
+      "osm_id": 4791674684,
+      "leisure": "beach_resort"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "poi": {
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
+      }
+    }
+  },
+  "id": 206,
+  "type": "knn+name"
+}

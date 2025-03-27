@@ -1,0 +1,71 @@
+{
+  "question": "What's the nearest restaurant heading towards Wilmington & Western Railroad, Wilmington, DE from S. 15th St. Community Garden, Philadelphia, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography, ST_GeomFromText('POINT (-75.632218 39.738888)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 34402,
+      "geometry": "POINT (-75.175395 39.928985)",
+      "poi_name": "Great Wall",
+      "osm_id": 2699324359,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "wheelchair": "no",
+      "internet_access": "no",
+      "phone": "+1 215 336 7105",
+      "takeaway": "only",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19145",
+      "addr_street": "Moore Street",
+      "addr_housenumber": "1801",
+      "value": 241.5524778571754
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "poi": {
+        "id": 247115,
+        "geometry": "POINT (-75.169239 39.933457)",
+        "poi_name": "S. 15th St. Community Garden",
+        "osm_id": 3559344406,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_street": "S. 15th St.",
+        "addr_housenumber": "1329"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Wilmington & Western Railroad, Wilmington, DE",
+      "geo_wkt": "POINT (-75.632218 39.738888)",
+      "poi": {
+        "id": 25779,
+        "geometry": "POINT (-75.632218 39.738888)",
+        "poi_name": "Wilmington & Western Railroad",
+        "osm_id": 4601510422,
+        "tourism": "attraction",
+        "website": "http://www.wwrr.com/",
+        "phone": "+1 302-998-1930",
+        "wikidata": "Q8022799",
+        "addr_state": "DE",
+        "addr_city": "Wilmington",
+        "addr_street": "Newport Gap Pike",
+        "addr_housenumber": "2201"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 195,
+  "type": "knn:towards+name"
+}

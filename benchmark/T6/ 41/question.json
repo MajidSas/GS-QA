@@ -1,0 +1,47 @@
+{
+  "question": "Which emergency hospital nearby Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143774,
+      "geometry": "POINT (-101.891285 33.587996)",
+      "poi_name": "Universty Medical Center",
+      "osm_id": 6350686701,
+      "amenity": "hospital",
+      "operator": "UMC Health Systems",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "TX",
+      "addr_city": "Lubbock",
+      "addr_postcode": "79415",
+      "addr_street": "Indiana Avenue",
+      "addr_housenumber": "602"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX",
+      "geo_wkt": "POINT (-102.376579 31.844)",
+      "poi": {
+        "id": 150549,
+        "geometry": "POINT (-102.376579 31.844)",
+        "poi_name": "Texas Tech University Health Sciences Center at the Permian Basin",
+        "osm_id": 4059065537,
+        "amenity": "university",
+        "addr_state": "TX",
+        "addr_city": "Odessa"
+      }
+    }
+  },
+  "id": 640,
+  "type": "knn:non_spat_filter+name"
+}

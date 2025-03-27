@@ -1,0 +1,40 @@
+{
+  "question": "What is the total number of caf\u00e9s within 150 kilometers from Southern Property Preservation, Middleburg, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.859164 30.079715)',4326)::geography, 150000)\nAND amenity = 'cafe';\n",
+  "answers": [
+    {
+      "count": 176
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Southern Property Preservation, Middleburg, FL",
+      "geo_wkt": "POINT (-81.859164 30.079715)",
+      "poi": {
+        "id": 266081,
+        "geometry": "POINT (-81.859164 30.079715)",
+        "poi_name": "Southern Property Preservation",
+        "osm_id": 10577992723,
+        "leisure": "nature_reserve",
+        "addr_state": "FL",
+        "addr_city": "Middleburg",
+        "addr_postcode": "32068",
+        "addr_street": "Lee Drive South",
+        "addr_housenumber": "175"
+      }
+    }
+  },
+  "id": 2285,
+  "type": "range+count"
+}

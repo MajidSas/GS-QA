@@ -1,0 +1,70 @@
+{
+  "question": "What is the closest caf\u00e9 from Caldwell Woods, Chicago, IL towards Expo 72, Chicago, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 142547,
+      "geometry": "POINT (-87.766304 41.983808)",
+      "poi_name": "Yellow Rose Cafe",
+      "osm_id": 6317078369,
+      "amenity": "cafe",
+      "phone": "+1-773-631-2297",
+      "outdoor_seating": "yes",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60630",
+      "addr_street": "North Elston Avenue",
+      "addr_housenumber": "5640",
+      "value": 133.13693790302187
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Caldwell Woods, Chicago, IL",
+      "geo_wkt": "POINT (-87.786491 41.997567)",
+      "poi": {
+        "id": 245668,
+        "geometry": "POINT (-87.786491 41.997567)",
+        "poi_name": "Caldwell Woods",
+        "osm_id": 3358252547,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60646"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Expo 72, Chicago, IL",
+      "geo_wkt": "POINT (-87.625356 41.88463)",
+      "poi": {
+        "id": 12085,
+        "geometry": "POINT (-87.625356 41.88463)",
+        "poi_name": "Expo 72",
+        "osm_id": 6179056467,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "24/7",
+        "operator": "Chicago Department of Cultural Affairs and Special Events (DCASE)",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60601",
+        "addr_street": "East Randolph Street",
+        "addr_housenumber": "72"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 117,
+  "type": "knn:towards+name"
+}

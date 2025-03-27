@@ -1,0 +1,43 @@
+{
+  "question": "Looking for the closest zoo in relation to Augusta Nature Education Center, Augusta, ME, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-69.752722 44.311919)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10743,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Joppa Hill Farm",
+      "osm_id": 8014170407,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "NH",
+      "addr_city": "Bedford",
+      "addr_postcode": "03110"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Augusta Nature Education Center, Augusta, ME",
+      "geo_wkt": "POINT (-69.752722 44.311919)",
+      "poi": {
+        "id": 245779,
+        "geometry": "POINT (-69.752722 44.311919)",
+        "poi_name": "Augusta Nature Education Center",
+        "osm_id": 10046271240,
+        "leisure": "nature_reserve",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Cony Street"
+      }
+    }
+  },
+  "id": 1883,
+  "type": "knn+loc"
+}

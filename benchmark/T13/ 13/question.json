@@ -1,0 +1,77 @@
+{
+  "question": "Could you locate a hospital within a 40 kilometers radius of Kuna History Center, Kuna, ID?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-116.41686 43.49053)',4326)::geography, 40000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 141407,
+      "geometry": "POINT (-116.517177 43.597494)",
+      "poi_name": "Saint Alphonsus Medical Center - Nampa",
+      "osm_id": 6283888336,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "ID",
+      "addr_city": "Nampa",
+      "addr_postcode": "83687",
+      "addr_street": "East Flamingo Avenue",
+      "addr_housenumber": "4300"
+    },
+    {
+      "id": 167644,
+      "geometry": "POINT (-116.266786 43.60711)",
+      "poi_name": "Intermountain Hospital",
+      "osm_id": 358668072,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "ID"
+    },
+    {
+      "id": 181992,
+      "geometry": "POINT (-116.531261 43.600374)",
+      "poi_name": "State Hospital West",
+      "osm_id": 10874330196,
+      "amenity": "hospital",
+      "website": "https://healthandwelfare.idaho.gov/dhw/state-hospital-west",
+      "phone": "+1 208 606 7777",
+      "healthcare": "hospital",
+      "addr_state": "ID",
+      "addr_city": "Nampa",
+      "addr_postcode": "83687",
+      "addr_street": "11th Avenue North",
+      "addr_housenumber": "1652"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Kuna History Center, Kuna, ID",
+      "geo_wkt": "POINT (-116.41686 43.49053)",
+      "poi": {
+        "id": 355,
+        "geometry": "POINT (-116.41686 43.49053)",
+        "poi_name": "Kuna History Center",
+        "osm_id": 8331528757,
+        "tourism": "museum",
+        "website": "http://kunahistoricalsociety.org/",
+        "museum": "history",
+        "addr_state": "ID",
+        "addr_city": "Kuna",
+        "addr_postcode": "83634",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "329"
+      }
+    }
+  },
+  "id": 2012,
+  "type": "range+loc"
+}

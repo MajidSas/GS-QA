@@ -1,0 +1,36 @@
+{
+  "question": "What's the total count of zoos within 90 kilometers from Hidden Hills Ice Arena, CO?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography, 90000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Hidden Hills Ice Arena, CO",
+      "geo_wkt": "POINT (-105.041111 39.868611)",
+      "poi": {
+        "id": 265351,
+        "geometry": "POINT (-105.041111 39.868611)",
+        "poi_name": "Hidden Hills Ice Arena",
+        "osm_id": 366396389,
+        "leisure": "stadium",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2249,
+  "type": "range+count"
+}

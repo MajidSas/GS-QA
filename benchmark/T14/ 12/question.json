@@ -1,0 +1,71 @@
+{
+  "question": "Could you assist me in locating an emergency hospital within a 120 kilometers radius originating from Magnetic Originals, Minneapolis, MN?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.297652 44.948093)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 96431,
+      "geometry": "POINT (-93.238254 44.967745)",
+      "poi_name": "M Health West Bank Emergency Department",
+      "osm_id": 6433194754,
+      "amenity": "hospital",
+      "operator": "M Health Fairview",
+      "website": "https://www.mhealth.org/care/overarching-care/emergency-services-adult",
+      "phone": "+1 612 273 8383",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55454",
+      "addr_street": "South 6th Street",
+      "addr_housenumber": "2312"
+    },
+    {
+      "id": 205596,
+      "geometry": "POINT (-93.369978 45.183406)",
+      "poi_name": "Mercy Hospital Emergency Department",
+      "osm_id": 7175471467,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MN",
+      "addr_city": "Coon Rapids",
+      "addr_postcode": "55433",
+      "addr_street": "Coon Rapids Boulevard Northwest",
+      "addr_housenumber": "4050"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Magnetic Originals, Minneapolis, MN",
+      "geo_wkt": "POINT (-93.297652 44.948093)",
+      "poi": {
+        "id": 3286,
+        "geometry": "POINT (-93.297652 44.948093)",
+        "poi_name": "Magnetic Originals",
+        "osm_id": 5338231281,
+        "tourism": "gallery",
+        "website": "https://www.magnetdude.com",
+        "addr_state": "MN",
+        "addr_city": "Minneapolis",
+        "addr_postcode": "55408",
+        "addr_street": "Hennepin Avenue South",
+        "addr_housenumber": "3001"
+      }
+    }
+  },
+  "id": 411,
+  "type": "range:non_spat_filter+loc"
+}

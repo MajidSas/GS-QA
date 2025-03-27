@@ -1,0 +1,62 @@
+{
+  "question": "What's the nearest fast food on the way to Fairfield Inn & Suites by Marriott Kansas City Airport, Kansas City, MO from University of Kansas - Lawrence Campus Parker Hall, KS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.262028 38.94894)',4326)::geography, ST_GeomFromText('POINT (-94.685149 39.308554)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.262028 38.94894)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.262028 38.94894)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 34641,
+      "geometry": "POINT (-95.236133 38.963169)",
+      "poi_name": "Fuzzy's Taco Shop",
+      "osm_id": 2702635297,
+      "amenity": "fast_food",
+      "opening_hours": "Mo-We 10:00-22:00; Th-Sa 10:00-03:00, Su 10:00-22:00",
+      "website": "http://www.fuzzystacoshop.com/locations/30089-fuzzys-taco-shop-lawrence-ks",
+      "phone": "+1-785-841-8226",
+      "value": 51.145985999827275
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Kansas - Lawrence Campus Parker Hall, KS",
+      "geo_wkt": "POINT (-95.262028 38.94894)",
+      "poi": {
+        "id": 167639,
+        "geometry": "POINT (-95.262028 38.94894)",
+        "poi_name": "University of Kansas - Lawrence Campus Parker Hall",
+        "osm_id": 358648340,
+        "amenity": "university",
+        "addr_state": "KS",
+        "addr_postcode": "66047",
+        "addr_street": "Constant Avenue",
+        "addr_housenumber": "1930"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Fairfield Inn & Suites by Marriott Kansas City Airport, Kansas City, MO",
+      "geo_wkt": "POINT (-94.685149 39.308554)",
+      "poi": {
+        "id": 7286,
+        "geometry": "POINT (-94.685149 39.308554)",
+        "poi_name": "Fairfield Inn & Suites by Marriott Kansas City Airport",
+        "osm_id": 2056515537,
+        "tourism": "hotel",
+        "official_name": "Fairfield Inn & Suites by Marriott",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64153",
+        "addr_street": "Northwest Plaza Circle",
+        "addr_housenumber": "11820"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 171,
+  "type": "knn:towards+name"
+}

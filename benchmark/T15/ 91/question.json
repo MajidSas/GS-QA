@@ -1,0 +1,89 @@
+{
+  "question": "Where can I find a hotel northeast of Main Street Art, Girard, PA, within a radius of 40 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, 40000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 7135,
+      "geometry": "POINT (-80.318615 42.000159)",
+      "poi_name": "Red Roof PLUS+ & Suites Erie - Downtown",
+      "osm_id": 8880951349,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16501",
+      "addr_street": "West 18th Street",
+      "addr_housenumber": "10"
+    },
+    {
+      "id": 10941,
+      "geometry": "POINT (-80.318615 42.000159)",
+      "poi_name": "Four Creeks Bed & Breakfast",
+      "osm_id": 8162234380,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Girard",
+      "addr_postcode": "16417",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "159"
+    },
+    {
+      "id": 11539,
+      "geometry": "POINT (-80.318615 42.000159)",
+      "poi_name": "Avalon Hotel & Conference Center",
+      "osm_id": 10003035974,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16501",
+      "addr_street": "West 10th Street",
+      "addr_housenumber": "16"
+    },
+    {
+      "id": 15706,
+      "geometry": "POINT (-80.318615 42.000159)",
+      "poi_name": "Gilded Eagle Inn",
+      "osm_id": 9463348839,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16505",
+      "addr_street": "Sycamore Road",
+      "addr_housenumber": "3630"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Main Street Art, Girard, PA",
+      "geo_wkt": "POINT (-80.318615 42.000159)",
+      "poi": {
+        "id": 253,
+        "geometry": "POINT (-80.318615 42.000159)",
+        "poi_name": "Main Street Art",
+        "osm_id": 8262672118,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Girard",
+        "addr_postcode": "16417",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "138"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 90,
+  "type": "range:direction+loc"
+}

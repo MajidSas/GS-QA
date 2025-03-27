@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest fast food restaurant on the route to Blasingame Soccer Complex, Alma, AR from Bryan University, Rogers, AR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography, ST_GeomFromText('POINT (-94.213871 35.478418)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 188078,
+      "geometry": "POINT (-94.179764 36.312579)",
+      "poi_name": "Slim Chickens",
+      "osm_id": 1127240348,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "takeaway": "yes",
+      "addr_state": "AR",
+      "addr_city": "Rogers",
+      "addr_postcode": "72758",
+      "addr_street": "Promenade Boulevard",
+      "addr_housenumber": "2002",
+      "value": 182.39977753483785
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Bryan University, Rogers, AR",
+      "geo_wkt": "POINT (-94.170029 36.334108)",
+      "poi": {
+        "id": 188088,
+        "geometry": "POINT (-94.170029 36.334108)",
+        "poi_name": "Bryan University",
+        "osm_id": 1127253817,
+        "amenity": "university",
+        "addr_state": "AR",
+        "addr_city": "Rogers",
+        "addr_postcode": "72756",
+        "addr_street": "West Walnut Street",
+        "addr_housenumber": "3704"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Blasingame Soccer Complex, Alma, AR",
+      "geo_wkt": "POINT (-94.213871 35.478418)",
+      "poi": {
+        "id": 247497,
+        "geometry": "POINT (-94.213871 35.478418)",
+        "poi_name": "Blasingame Soccer Complex",
+        "osm_id": 9138991278,
+        "leisure": "park",
+        "operator": "Boys & Girls Club of the Diamond Hills",
+        "addr_state": "AR",
+        "addr_city": "Alma",
+        "addr_postcode": "72921",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "410"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1331,
+  "type": "knn:towards+loc"
+}

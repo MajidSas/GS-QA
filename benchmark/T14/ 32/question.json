@@ -1,0 +1,98 @@
+{
+  "question": "Could you assist me in locating a local museum within a 130 kilometers radius originating from Anliot-Davidson Woods, Clarksville, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.933145 39.417646)',4326)::geography, 130000)\nAND tourism = 'museum'\nAND museum = 'local';\n",
+  "answers": [
+    {
+      "id": 6042,
+      "geometry": "POINT (-82.953319 39.713858)",
+      "poi_name": "Ohio\u2019s Small Town Museum",
+      "osm_id": 1722835400,
+      "tourism": "museum",
+      "operator": "Ashville Area Heritage Society",
+      "website": "https://www.ohiosmalltownmuseum.org/",
+      "museum": "local",
+      "wikidata": "Q110811506",
+      "addr_state": "OH",
+      "addr_city": "Ashville",
+      "addr_postcode": "43103",
+      "addr_street": "Long Street",
+      "addr_housenumber": "34"
+    },
+    {
+      "id": 17854,
+      "geometry": "POINT (-83.434918 39.538951)",
+      "poi_name": "Fayette County Museum",
+      "osm_id": 368155533,
+      "tourism": "museum",
+      "website": "https://ohio.org/things-to-do/destinations/fayette-county-museum",
+      "museum": "local",
+      "addr_state": "OH"
+    },
+    {
+      "id": 17860,
+      "geometry": "POINT (-83.75073 40.36141)",
+      "poi_name": "Logan County Historical Society Museum",
+      "osm_id": 368155550,
+      "tourism": "museum",
+      "website": "https://www.loganhistory.org/",
+      "museum": "local",
+      "addr_state": "OH"
+    },
+    {
+      "id": 17875,
+      "geometry": "POINT (-82.806008 40.080619)",
+      "poi_name": "Kerr-Harrington House Museum",
+      "osm_id": 368155596,
+      "tourism": "museum",
+      "museum": "local",
+      "addr_state": "OH"
+    },
+    {
+      "id": 17880,
+      "geometry": "POINT (-84.382396 40.438603)",
+      "poi_name": "New Bremen Historical Museum",
+      "osm_id": 368155602,
+      "tourism": "museum",
+      "website": "https://newbremenhistory.org/en/",
+      "museum": "local",
+      "addr_state": "OH",
+      "addr_city": "New Bremen",
+      "addr_postcode": "45869",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "120"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Anliot-Davidson Woods, Clarksville, OH",
+      "geo_wkt": "POINT (-83.933145 39.417646)",
+      "poi": {
+        "id": 245912,
+        "geometry": "POINT (-83.933145 39.417646)",
+        "poi_name": "Anliot-Davidson Woods",
+        "osm_id": 5324689272,
+        "leisure": "nature_reserve",
+        "addr_state": "OH",
+        "addr_city": "Clarksville",
+        "addr_postcode": "45113",
+        "addr_street": "Pyle Road",
+        "addr_housenumber": "885"
+      }
+    }
+  },
+  "id": 431,
+  "type": "range:non_spat_filter+loc"
+}

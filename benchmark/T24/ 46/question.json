@@ -1,0 +1,32 @@
+{
+  "question": "How many restaurants are there within Maple Rapids, Michigan?",
+  "sql": "SELECT COUNT(*) FROM pois\nWHERE amenity = 'restaurant'\nAND ST_Intersects(pois.geometry, ST_GeomFromText('POLYGON ((-84.699807 43.097613, -84.699467 43.11798, -84.679784 43.117923, -84.679958 43.097332, -84.699807 43.097613))',4326))\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "region_name": "Maple Rapids, Michigan",
+      "geo_wkt": "POLYGON ((-84.699807 43.097613, -84.699467 43.11798, -84.679784 43.117923, -84.679958 43.097332, -84.699807 43.097613))",
+      "region": {
+        "id": 22473,
+        "geometry": "POLYGON ((-84.699807 43.097613, -84.699467 43.11798, -84.679784 43.117923, -84.679958 43.097332, -84.699807 43.097613))",
+        "region_name": "Maple Rapids",
+        "border_type": "village",
+        "wikidata": "Q1975322",
+        "wikipedia": "en:Maple Rapids, Michigan",
+        "place": "village",
+        "admin_level": "8"
+      }
+    }
+  },
+  "id": 2345,
+  "type": "intersects+count"
+}

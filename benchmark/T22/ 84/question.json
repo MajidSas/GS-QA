@@ -1,0 +1,42 @@
+{
+  "question": "In which direction can I find the closest park from River Deck, Edgewater, MD?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247920,
+      "geometry": "POINT (-76.542141 38.940909)",
+      "poi_name": "Sound & Sensory Garden",
+      "osm_id": 6080459894,
+      "leisure": "park",
+      "angle": 226.42303917799254
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    }
+  },
+  "id": 1483,
+  "type": "knn+angle"
+}

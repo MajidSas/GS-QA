@@ -1,0 +1,41 @@
+{
+  "question": "Within a 130 kilometers radius from Scienceworks, Ashland, OR, how many fast food restaurants are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.688672 42.193359)',4326)::geography, 130000)\nAND amenity = 'fast_food';\n",
+  "answers": [
+    {
+      "count": 113
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Scienceworks, Ashland, OR",
+      "geo_wkt": "POINT (-122.688672 42.193359)",
+      "poi": {
+        "id": 1168,
+        "geometry": "POINT (-122.688672 42.193359)",
+        "poi_name": "Scienceworks",
+        "osm_id": 2879092854,
+        "tourism": "attraction",
+        "website": "https://www.scienceworksmuseum.org/",
+        "addr_state": "OR",
+        "addr_city": "Ashland",
+        "addr_postcode": "97520",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "1500"
+      }
+    }
+  },
+  "id": 2230,
+  "type": "range+count"
+}

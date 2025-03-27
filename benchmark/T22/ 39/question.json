@@ -1,0 +1,50 @@
+{
+  "question": "What's the heading to the closest university from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167699,
+      "geometry": "POINT (-119.695763 34.419304)",
+      "poi_name": "Antioch University - Santa Barbara",
+      "osm_id": 358792225,
+      "amenity": "university",
+      "wikidata": "Q4775042",
+      "addr_state": "CA",
+      "addr_city": "Santa Barbara",
+      "addr_postcode": "93101",
+      "addr_street": "Anacapa Street",
+      "addr_housenumber": "602",
+      "angle": 316.75529529483845
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 1438,
+  "type": "knn+angle"
+}

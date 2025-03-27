@@ -1,0 +1,55 @@
+{
+  "question": "Where is the closest beach resort in the northwest direction starting from La MaMa Galleria, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.992545 40.726599)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245281,
+      "geometry": "POINT (-73.992545 40.726599)",
+      "poi_name": "Traut's Resort LLC",
+      "osm_id": 2669382020,
+      "leisure": "beach_resort",
+      "phone": "1-715-795-2529",
+      "addr_state": "WI",
+      "addr_city": "Solon Springs",
+      "addr_postcode": "54873",
+      "addr_street": "Twin Bay Road",
+      "addr_housenumber": "3855"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "La MaMa Galleria, New York, NY",
+      "geo_wkt": "POINT (-73.992545 40.726599)",
+      "poi": {
+        "id": 10150,
+        "geometry": "POINT (-73.992545 40.726599)",
+        "poi_name": "La MaMa Galleria",
+        "osm_id": 6724492682,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "Th-Su 13:00-19:00",
+        "operator": "La MaMa Galleria",
+        "website": "https://lamama.org",
+        "phone": "+1-212-505-2476",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10012",
+        "addr_street": "Great Jones Street",
+        "addr_housenumber": "47"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1112,
+  "type": "knn:direction+loc"
+}

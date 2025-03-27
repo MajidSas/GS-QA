@@ -1,0 +1,61 @@
+{
+  "question": "Which direction leads to a garden from Daubenspeck Nature Reserve, Indianapolis, IN within a range of 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, 50000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 245312,
+      "geometry": "POINT (-86.142509 39.732107)",
+      "poi_name": "Garfield Park Sunken Gardens",
+      "osm_id": 2713449430,
+      "leisure": "garden",
+      "angle": 169.88489523642127
+    },
+    {
+      "id": 246743,
+      "geometry": "POINT (-86.168247 39.768861)",
+      "poi_name": "Watanabe Garden",
+      "osm_id": 2131142355,
+      "leisure": "garden",
+      "angle": 174.9412206174575
+    },
+    {
+      "id": 267167,
+      "geometry": "POINT (-86.145702 39.779263)",
+      "poi_name": "Garden Alley",
+      "osm_id": 4629707872,
+      "leisure": "garden",
+      "angle": 167.516581685077
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Daubenspeck Nature Reserve, Indianapolis, IN",
+      "geo_wkt": "POINT (-86.185252 39.917104)",
+      "poi": {
+        "id": 245905,
+        "geometry": "POINT (-86.185252 39.917104)",
+        "poi_name": "Daubenspeck Nature Reserve",
+        "osm_id": 10258441478,
+        "leisure": "nature_reserve",
+        "addr_state": "IN",
+        "addr_city": "Indianapolis",
+        "addr_postcode": "46260",
+        "addr_street": "Ditch Road",
+        "addr_housenumber": "8900"
+      }
+    }
+  },
+  "id": 1073,
+  "type": "range+angle"
+}

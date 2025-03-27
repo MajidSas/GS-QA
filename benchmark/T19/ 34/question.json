@@ -1,0 +1,54 @@
+{
+  "question": "Where's the closest aquarium to the southwest of Oceans Behavioral Hospital Of Lufkin, Lufkin, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.745768 31.307051)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3121,
+      "geometry": "POINT (-94.745768 31.307051)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 10184935041,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/san-antonio/",
+      "wikidata": "Q664334",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78205",
+      "addr_street": "East Commerce Street",
+      "addr_housenumber": "849"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Lufkin, Lufkin, TX",
+      "geo_wkt": "POINT (-94.745768 31.307051)",
+      "poi": {
+        "id": 183136,
+        "geometry": "POINT (-94.745768 31.307051)",
+        "poi_name": "Oceans Behavioral Hospital Of Lufkin",
+        "osm_id": 10916930770,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/lufkin/",
+        "phone": "+1 936 632 2276",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Lufkin",
+        "addr_postcode": "75904",
+        "addr_street": "Gobblers Knob Road",
+        "addr_housenumber": "302"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1133,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "Seeking the closest restaurant from Popcorn Park Animal Refuge, Forked River, NJ, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 216288,
+      "geometry": "POINT (-74.379406 39.953791)",
+      "poi_name": "Dickey's Barbecue Pit",
+      "osm_id": 9166210018,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "website": "https://www.facebook.com/dickeyswhiting",
+      "addr_state": "NJ",
+      "addr_city": "Whiting",
+      "addr_postcode": "08759",
+      "addr_street": "Lacey Road",
+      "addr_housenumber": "108"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
+      "geo_wkt": "POINT (-74.327266 39.910289)",
+      "poi": {
+        "id": 20004,
+        "geometry": "POINT (-74.327266 39.910289)",
+        "poi_name": "Popcorn Park Animal Refuge",
+        "osm_id": 7810633955,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-17:00",
+        "operator": "Associated Humane Societies",
+        "website": "https://ahscares.org/popcorn-park/",
+        "phone": "(609) 693-1900",
+        "addr_state": "NJ",
+        "addr_city": "Forked River",
+        "addr_postcode": "08731",
+        "addr_street": "Humane Way",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 1893,
+  "type": "knn+loc"
+}

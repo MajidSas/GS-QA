@@ -1,0 +1,56 @@
+{
+  "question": "What is the closest zoo in the southwest direction of ArtSpace3116, New Orleans, LA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.043803 29.96733)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15891,
+      "geometry": "POINT (-90.043803 29.96733)",
+      "poi_name": "Audubon Insectarium",
+      "osm_id": 9588493777,
+      "tourism": "zoo",
+      "wheelchair": "yes",
+      "building": "yes",
+      "opening_hours": "Tu-Su 10:00-17:00",
+      "website": "http://www.auduboninstitute.org/visit/insectarium",
+      "zoo": "insectarium",
+      "wikidata": "Q4820238",
+      "addr_state": "LA",
+      "addr_city": "New Orleans",
+      "addr_postcode": "70130",
+      "addr_street": "Canal Street",
+      "addr_housenumber": "403"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "ArtSpace3116, New Orleans, LA",
+      "geo_wkt": "POINT (-90.043803 29.96733)",
+      "poi": {
+        "id": 21729,
+        "geometry": "POINT (-90.043803 29.96733)",
+        "poi_name": "ArtSpace3116",
+        "osm_id": 10634747247,
+        "tourism": "gallery",
+        "website": "https://www.thestclaudeartrag.com/3116",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70117",
+        "addr_street": "Saint Claude Avenue",
+        "addr_housenumber": "3116"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2508,
+  "type": "knn:direction+name"
+}

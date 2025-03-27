@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest museum from University Gallery, Yipsilanti, MI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22508,
+      "geometry": "POINT (-83.734255 42.278857)",
+      "poi_name": "University of Michigan Museum of Natural\u00a0History",
+      "osm_id": 7121895104,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Th-Su 10:00-16:00",
+      "operator": "University of Michigan",
+      "website": "https://lsa.umich.edu/ummnh",
+      "museum": "nature",
+      "wikidata": "Q7895767",
+      "addr_state": "MI",
+      "addr_city": "Ann Arbor",
+      "addr_postcode": "48109",
+      "addr_street": "North University Avenue",
+      "addr_housenumber": "1105"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "University Gallery, Yipsilanti, MI",
+      "geo_wkt": "POINT (-83.627624 42.251566)",
+      "poi": {
+        "id": 24563,
+        "geometry": "POINT (-83.627624 42.251566)",
+        "poi_name": "University Gallery",
+        "osm_id": 11112992349,
+        "tourism": "gallery",
+        "operator": "Eastern Michigan University",
+        "addr_state": "MI",
+        "addr_city": "Yipsilanti",
+        "addr_postcode": "48176",
+        "addr_street": "Oakwood Street",
+        "addr_housenumber": "900"
+      }
+    }
+  },
+  "id": 271,
+  "type": "knn+name"
+}

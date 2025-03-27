@@ -1,0 +1,40 @@
+{
+  "question": "What's the nearest stadium from Stanton, Carrizozo, NM?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-105.87812 33.643357)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265994,
+      "geometry": "POINT (-105.76112 33.164893)",
+      "poi_name": "Samson Miller Memorial Rodeo Arena",
+      "osm_id": 1520394774,
+      "leisure": "stadium",
+      "sport": "equestrian"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Stanton, Carrizozo, NM",
+      "geo_wkt": "POINT (-105.87812 33.643357)",
+      "poi": {
+        "id": 10109,
+        "geometry": "POINT (-105.87812 33.643357)",
+        "poi_name": "Stanton",
+        "osm_id": 6711388542,
+        "tourism": "gallery",
+        "addr_state": "NM",
+        "addr_city": "Carrizozo",
+        "addr_street": "E Avenue",
+        "addr_housenumber": "1004"
+      }
+    }
+  },
+  "id": 223,
+  "type": "knn+name"
+}

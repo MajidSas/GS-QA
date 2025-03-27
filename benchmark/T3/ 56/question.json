@@ -1,0 +1,55 @@
+{
+  "question": "Within a radius of 170 kilometers, what beach resort can I find located in the direction of east from Children's Cultural Center of Native America, New York, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, 170000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 247506,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Quantuck Beach Club",
+      "osm_id": 6712661219,
+      "leisure": "beach_resort",
+      "website": "http://quantuckbeachclub.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Children's Cultural Center of Native America, New York, NY",
+      "geo_wkt": "POINT (-73.944872 40.832146)",
+      "poi": {
+        "id": 979,
+        "geometry": "POINT (-73.944872 40.832146)",
+        "poi_name": "Children's Cultural Center of Native America",
+        "osm_id": 2768275469,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 10:30-13:00",
+        "operator": "Nitchen Inc.",
+        "website": "https://www.cccona.org/",
+        "phone": "+1-917-902-6628",
+        "museum": "children",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10032",
+        "addr_street": "West 155th Street",
+        "addr_housenumber": "550"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2655,
+  "type": "range:direction+name"
+}

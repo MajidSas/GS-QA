@@ -1,0 +1,54 @@
+{
+  "question": "Where's the closest golf course positioned towards the east of Lytle Nature Preserve, Lockport, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265495,
+      "geometry": "POINT (-78.666286 43.193323)",
+      "poi_name": "Oak Hill Country Club",
+      "osm_id": 2398997274,
+      "leisure": "golf_course",
+      "website": "https://www.oakhillcc.com/",
+      "phone": "585-586-1660",
+      "wikidata": "Q7073570",
+      "addr_city": "Rochester",
+      "addr_postcode": "14618",
+      "addr_street": "Kilbourn Road",
+      "addr_housenumber": "145"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Lytle Nature Preserve, Lockport, NY",
+      "geo_wkt": "POINT (-78.666286 43.193323)",
+      "poi": {
+        "id": 247569,
+        "geometry": "POINT (-78.666286 43.193323)",
+        "poi_name": "Lytle Nature Preserve",
+        "osm_id": 6868645749,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Town of Lockport",
+        "website": "https://www.elockport.com/department-parks-trails.php",
+        "addr_state": "NY",
+        "addr_city": "Lockport",
+        "addr_postcode": "14094",
+        "addr_street": "North Canal Road",
+        "addr_housenumber": "6637"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1111,
+  "type": "knn:direction+loc"
+}

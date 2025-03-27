@@ -1,0 +1,46 @@
+{
+  "question": "Could you tell me the location of the closest zoo relative to Whitefish Community Garden, Whitefish, MT?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-114.343403 48.426323)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14047,
+      "geometry": "POINT (-110.834041 45.663969)",
+      "poi_name": "Montana Grizzly Encounter",
+      "osm_id": 4215553273,
+      "tourism": "zoo",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59175",
+      "addr_street": "Bozeman Hill Road",
+      "addr_housenumber": "18000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitefish Community Garden, Whitefish, MT",
+      "geo_wkt": "POINT (-114.343403 48.426323)",
+      "poi": {
+        "id": 247141,
+        "geometry": "POINT (-114.343403 48.426323)",
+        "poi_name": "Whitefish Community Garden",
+        "osm_id": 3628015925,
+        "leisure": "garden",
+        "website": "http://www.whitefishcommunitygarden.net/",
+        "addr_state": "MT",
+        "addr_city": "Whitefish",
+        "addr_postcode": "59937",
+        "addr_street": "Glenwood Road",
+        "addr_housenumber": "509"
+      }
+    }
+  },
+  "id": 1829,
+  "type": "knn+loc"
+}

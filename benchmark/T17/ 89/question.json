@@ -1,0 +1,43 @@
+{
+  "question": "Where's the nearest stadium from SeaQuest, Lynchburg, VA located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265386,
+      "geometry": "POINT (-79.350197 37.74151)",
+      "poi_name": "Knight Sports Arena",
+      "osm_id": 367997526,
+      "leisure": "stadium",
+      "addr_state": "VA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "poi": {
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
+      }
+    }
+  },
+  "id": 1888,
+  "type": "knn+loc"
+}

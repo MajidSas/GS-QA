@@ -1,0 +1,89 @@
+{
+  "question": "Within a radius of 70 kilometers, which park is in the southeast direction from Chestatee Overlook, Dahlonega, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography, 70000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 261268,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Laurel Park",
+      "osm_id": 358689973,
+      "leisure": "park"
+    },
+    {
+      "id": 261274,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Lula Park",
+      "osm_id": 358690870,
+      "leisure": "park"
+    },
+    {
+      "id": 261942,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Gillsville Historic District",
+      "osm_id": 358759065,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 261943,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Maysville Historic District",
+      "osm_id": 358759100,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 261954,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Hurricane Shoals County Park",
+      "osm_id": 358759422,
+      "leisure": "park"
+    },
+    {
+      "id": 262284,
+      "geometry": "POINT (-83.982699 34.665048)",
+      "poi_name": "Lula Residential Historic District",
+      "osm_id": 358779107,
+      "leisure": "park",
+      "historic": "district"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Chestatee Overlook, Dahlonega, GA",
+      "geo_wkt": "POINT (-83.982699 34.665048)",
+      "poi": {
+        "id": 12945,
+        "geometry": "POINT (-83.982699 34.665048)",
+        "poi_name": "Chestatee Overlook",
+        "osm_id": 3980488412,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "opening_hours": "sunrise-sunset",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
+        "addr_state": "GA",
+        "addr_city": "Dahlonega",
+        "addr_postcode": "30533",
+        "addr_street": "GA 60"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2650,
+  "type": "range:direction+name"
+}

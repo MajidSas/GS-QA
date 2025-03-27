@@ -1,0 +1,45 @@
+{
+  "question": "Looking for the closest attraction in relation to the zoo that was opened on 1868 in Manitowoc, WI, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266981,
+      "geometry": "POINT (-87.634876 44.114452)",
+      "poi_name": "West of the Lake Gardens",
+      "osm_id": 4313825797,
+      "leisure": "garden",
+      "tourism": "attraction",
+      "fee": "no",
+      "opening_hours": "10:00-17:00",
+      "website": "https://www.westfoundation.us/",
+      "phone": "(920) 684-6110"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
+      "poi": {
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
+      }
+    }
+  },
+  "id": 2702,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Could you help me locate a zoo that's within 140 kilometers from Veterans Memorial Coliseum, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.124357 40.604225)',4326)::geography, 140000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 24839,
+      "geometry": "POINT (-81.737201 40.522778)",
+      "poi_name": "The Farm at Walnut Creek",
+      "osm_id": 4341174209,
+      "tourism": "zoo",
+      "opening_hours": "08:30-18:00",
+      "website": "https://thefarmatwalnutcreek.com/",
+      "addr_state": "OH",
+      "addr_city": "Sugarcreek",
+      "addr_postcode": "44681",
+      "addr_street": "CR 114",
+      "addr_housenumber": "4147"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Veterans Memorial Coliseum, OH",
+      "geo_wkt": "POINT (-83.124357 40.604225)",
+      "poi": {
+        "id": 265390,
+        "geometry": "POINT (-83.124357 40.604225)",
+        "poi_name": "Veterans Memorial Coliseum",
+        "osm_id": 368155778,
+        "leisure": "stadium",
+        "wikidata": "Q7923645",
+        "addr_state": "OH"
+      }
+    }
+  },
+  "id": 2021,
+  "type": "range+loc"
+}

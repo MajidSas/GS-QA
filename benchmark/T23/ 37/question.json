@@ -1,0 +1,41 @@
+{
+  "question": "In the vicinity of Schoolhouse Gallery, Provincetown, MA, within 160 kilometers, how many hospitals are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.177183 42.057577)',4326)::geography, 160000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 29
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Schoolhouse Gallery, Provincetown, MA",
+      "geo_wkt": "POINT (-70.177183 42.057577)",
+      "poi": {
+        "id": 4045,
+        "geometry": "POINT (-70.177183 42.057577)",
+        "poi_name": "Schoolhouse Gallery",
+        "osm_id": 5650483060,
+        "tourism": "gallery",
+        "website": "http://www.galleryschoolhouse.com/",
+        "addr_state": "MA",
+        "addr_city": "Provincetown",
+        "addr_postcode": "02657",
+        "addr_street": "Commercial Street",
+        "addr_housenumber": "494"
+      }
+    }
+  },
+  "id": 2236,
+  "type": "range+count"
+}

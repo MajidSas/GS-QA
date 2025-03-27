@@ -1,0 +1,47 @@
+{
+  "question": "How distant is the closest golf course located from Wellington Reservation, Wellington, OH?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266131,
+      "geometry": "POINT (-82.017704 41.460787)",
+      "poi_name": "X-Golf",
+      "osm_id": 10704744298,
+      "leisure": "golf_course",
+      "addr_state": "OH",
+      "addr_city": "Avon",
+      "addr_postcode": "44011",
+      "addr_street": "Detroit Road",
+      "addr_housenumber": "35948",
+      "distance": 39176.38383785
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
+      "poi": {
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
+      }
+    }
+  },
+  "id": 2453,
+  "type": "knn+distance"
+}

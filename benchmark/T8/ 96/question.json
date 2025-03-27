@@ -1,0 +1,40 @@
+{
+  "question": "What's the closest park nearby the university established in the year 1911 in Memphis, TN?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 253095,
+      "geometry": "POINT (-90.018979 35.154812)",
+      "poi_name": "Lewis Center Park",
+      "osm_id": 356881391,
+      "leisure": "park",
+      "wikidata": "Q49516258"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    }
+  },
+  "id": 2795,
+  "type": "knn+name+multihop2"
+}

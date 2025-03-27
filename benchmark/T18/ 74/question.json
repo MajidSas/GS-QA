@@ -1,0 +1,54 @@
+{
+  "question": "Where is the closest emergency hospital within proximity to Gordon College, Wenham, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.820301 42.588853)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 188951,
+      "geometry": "POINT (-70.906447 42.511844)",
+      "poi_name": "MassGeneral for Children at North Shore Medical Center",
+      "osm_id": 257489655,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://nsmc.partners.org/locations/nsmc_north_shore_childrens",
+      "phone": "+1 978 745 2100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MA",
+      "addr_city": "Salem",
+      "addr_postcode": "01970",
+      "addr_street": "Highland Avenue",
+      "addr_housenumber": "57"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Gordon College, Wenham, MA",
+      "geo_wkt": "POINT (-70.820301 42.588853)",
+      "poi": {
+        "id": 167600,
+        "geometry": "POINT (-70.820301 42.588853)",
+        "poi_name": "Gordon College",
+        "osm_id": 358258911,
+        "amenity": "university",
+        "operator": "Gordon College",
+        "wikidata": "Q5585004",
+        "addr_state": "MA",
+        "addr_city": "Wenham",
+        "addr_postcode": "01984",
+        "addr_street": "Grapevine Road",
+        "addr_housenumber": "255"
+      }
+    }
+  },
+  "id": 373,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Could you tell me the location of the closest gallery relative to Amazing Air, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6976,
+      "geometry": "POINT (-98.126551 29.70219)",
+      "poi_name": "Comal County Rebels Art Gallery",
+      "osm_id": 8792816844,
+      "tourism": "gallery",
+      "addr_state": "TX",
+      "addr_city": "New Braunfels",
+      "addr_postcode": "78130",
+      "addr_street": "North Castell Avenue",
+      "addr_housenumber": "139"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Amazing Air, San Antonio, TX",
+      "geo_wkt": "POINT (-98.39639 29.503891)",
+      "poi": {
+        "id": 7732,
+        "geometry": "POINT (-98.39639 29.503891)",
+        "poi_name": "Amazing Air",
+        "osm_id": 6382562047,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
+        "website": "https://amazingairsa.com/",
+        "phone": "+1-210-946-9800",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78218",
+        "addr_street": "North Interstate Highway 35",
+        "addr_housenumber": "7702"
+      }
+    }
+  },
+  "id": 1889,
+  "type": "knn+loc"
+}

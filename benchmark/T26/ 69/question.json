@@ -1,0 +1,37 @@
+{
+  "question": "How distant is the closest golf course from the reference location Chickasaw County Coliseum, MS?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266616,
+      "geometry": "POINT (-89.855124 34.956206)",
+      "poi_name": "Cherokee Golf Course",
+      "osm_id": 5319619453,
+      "leisure": "golf_course",
+      "distance": 143933.76864407
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Chickasaw County Coliseum, MS",
+      "geo_wkt": "POINT (-88.982282 33.879002)",
+      "poi": {
+        "id": 265362,
+        "geometry": "POINT (-88.982282 33.879002)",
+        "poi_name": "Chickasaw County Coliseum",
+        "osm_id": 367134879,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    }
+  },
+  "id": 2468,
+  "type": "knn+distance"
+}

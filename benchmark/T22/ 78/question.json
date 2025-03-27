@@ -1,0 +1,39 @@
+{
+  "question": "Which way leads to the nearest stadium from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266147,
+      "geometry": "POINT (-109.065885 35.660074)",
+      "poi_name": "Navajo Fairgrounds Dancing Circle",
+      "osm_id": 979729355,
+      "leisure": "stadium",
+      "angle": 286.85865634456366
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 1477,
+  "type": "knn+angle"
+}

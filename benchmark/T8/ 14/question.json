@@ -1,0 +1,55 @@
+{
+  "question": "Looking for the closest hospital in relation to the university established in the year 1969 in Chicago, IL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 214643,
+      "geometry": "POINT (-87.732089 41.72357)",
+      "poi_name": "Advocate Children's Hospital",
+      "osm_id": 5276572197,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Advocate Aurora Health",
+      "website": "https://www.advocatechildrenshospital.com/",
+      "phone": "+1 708 684 8000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q30254234",
+      "addr_state": "IL",
+      "addr_city": "Oak Lawn",
+      "addr_postcode": "60453",
+      "addr_street": "West 95th Street",
+      "addr_housenumber": "4440"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "poi": {
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
+      }
+    }
+  },
+  "id": 2713,
+  "type": "knn+name+multihop2"
+}

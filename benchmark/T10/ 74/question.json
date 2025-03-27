@@ -1,0 +1,64 @@
+{
+  "question": "What is the nearest attraction as you head towards Lindenwood University, Belleville, IL from SSM Health Medical Group, O'Fallon, MO?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.701057 38.796272)',4326)::geography, ST_GeomFromText('POINT (-90.01096 38.523086)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.701057 38.796272)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.701057 38.796272)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1872,
+      "geometry": "POINT (-90.306219 38.655924)",
+      "poi_name": "Loop Trolley",
+      "osm_id": 3192424758,
+      "tourism": "attraction",
+      "value": 116.57245607002224
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "SSM Health Medical Group, O'Fallon, MO",
+      "geo_wkt": "POINT (-90.701057 38.796272)",
+      "poi": {
+        "id": 63731,
+        "geometry": "POINT (-90.701057 38.796272)",
+        "poi_name": "SSM Health Medical Group",
+        "osm_id": 5628755378,
+        "amenity": "hospital",
+        "operator": "SSM Health",
+        "website": "https://www.ssmhealth.com/locations/location-details/medical-group-ofallon-mo",
+        "phone": "636-379-6363",
+        "healthcare": "hospital",
+        "addr_state": "MO",
+        "addr_city": "O'Fallon",
+        "addr_postcode": "63366",
+        "addr_street": "Highway K",
+        "addr_housenumber": "1101"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Lindenwood University, Belleville, IL",
+      "geo_wkt": "POINT (-90.01096 38.523086)",
+      "poi": {
+        "id": 121774,
+        "geometry": "POINT (-90.01096 38.523086)",
+        "poi_name": "Lindenwood University",
+        "osm_id": 6779561972,
+        "amenity": "university",
+        "website": "https://www.lindenwood.edu/belleville/",
+        "addr_state": "IL",
+        "addr_city": "Belleville",
+        "addr_postcode": "62226",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "2600"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 173,
+  "type": "knn:towards+name"
+}

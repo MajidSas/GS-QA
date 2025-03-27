@@ -1,0 +1,47 @@
+{
+  "question": "Any recommendations for the closest golf course from Urban Air Adventure Park, Port Saint Lucie, FL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246300,
+      "geometry": "POINT (-80.08152 26.344849)",
+      "poi_name": "The Boca Raton Golf Club",
+      "osm_id": 11269839310,
+      "leisure": "golf_course",
+      "website": "https://www.thebocaraton.com/",
+      "addr_city": "Boca Raton",
+      "addr_street": "E Boca Raton Rd",
+      "addr_housenumber": "501"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
+      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "poi": {
+        "id": 27036,
+        "geometry": "POINT (-80.303867 27.301988)",
+        "poi_name": "Urban Air Adventure Park",
+        "osm_id": 7656494335,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+        "phone": "+1-772-408-9349",
+        "addr_state": "FL",
+        "addr_city": "Port Saint Lucie",
+        "addr_postcode": "34952",
+        "addr_street": "S US Highway 1",
+        "addr_housenumber": "9020"
+      }
+    }
+  },
+  "id": 275,
+  "type": "knn+name"
+}

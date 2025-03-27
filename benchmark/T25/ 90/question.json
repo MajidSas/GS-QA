@@ -1,0 +1,112 @@
+{
+  "question": "How far is a beach resort located from Elizabeth Harris Gallery, New York, NY within a radius of 110 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-74.006811 40.746594)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.006811 40.746594)',4326)::geography, 110000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 246527,
+      "geometry": "POINT (-73.97371 40.369202)",
+      "poi_name": "Surfrider Beach Club",
+      "osm_id": 9809545162,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "931",
+      "distance": 42001.32155154
+    },
+    {
+      "id": 246528,
+      "geometry": "POINT (-73.973603 40.370824)",
+      "poi_name": "Sands Beach Club",
+      "osm_id": 9809545163,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "825",
+      "distance": 41822.21315428
+    },
+    {
+      "id": 247124,
+      "geometry": "POINT (-73.902011 40.55766)",
+      "poi_name": "Silver Gull Beach Club",
+      "osm_id": 3575812477,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://nysilvergull.com/",
+      "distance": 22776.07387243
+    },
+    {
+      "id": 256279,
+      "geometry": "POINT (-73.746336 40.58821)",
+      "poi_name": "Silver Point Beach Club",
+      "osm_id": 357614780,
+      "leisure": "beach_resort",
+      "website": "https://www.silverpointclub.com/index.php",
+      "wikidata": "Q34861772",
+      "distance": 28185.75428556
+    },
+    {
+      "id": 265569,
+      "geometry": "POINT (-73.973706 40.371534)",
+      "poi_name": "Ship Ahoy Beach Club",
+      "osm_id": 2575212830,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "801",
+      "distance": 41742.99942128
+    },
+    {
+      "id": 265570,
+      "geometry": "POINT (-73.973041 40.365235)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999",
+      "distance": 42444.6412784
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elizabeth Harris Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.006811 40.746594)",
+      "poi": {
+        "id": 19774,
+        "geometry": "POINT (-74.006811 40.746594)",
+        "poi_name": "Elizabeth Harris Gallery",
+        "osm_id": 10873196750,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 12:00-18:00",
+        "website": "https://www.ehgallery.com",
+        "phone": "+1-212-463-9666",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 20th Street",
+        "addr_housenumber": "529"
+      }
+    }
+  },
+  "id": 789,
+  "type": "range+distance"
+}

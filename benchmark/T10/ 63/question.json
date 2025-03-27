@@ -1,0 +1,58 @@
+{
+  "question": "Which restaurant is nearest towards Memory Garden, Mequon, WI from Lincoln Park Zoo, Manitowoc, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 198878,
+      "geometry": "POINT (-87.657247 44.093315)",
+      "poi_name": "Animal's Pizza",
+      "osm_id": 923857415,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "phone": "920-652-9801",
+      "value": 194.82920265882743
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
+      "poi": {
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "poi": {
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 162,
+  "type": "knn:towards+name"
+}

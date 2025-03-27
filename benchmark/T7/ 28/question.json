@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest university from Dayton Museum, Dayton, NV established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.592629 39.237904)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 210158,
+      "geometry": "POINT (-121.450864 38.552073)",
+      "poi_name": "UC Davis School of Nursing",
+      "osm_id": 5080748921,
+      "amenity": "university",
+      "website": "http://www.ucdmc.ucdavis.edu/nursing/",
+      "wikidata": "Q4898845",
+      "multihop_answer": "2009",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "UC Davis School of Nursing Established: 2009"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Dayton Museum, Dayton, NV",
+      "geo_wkt": "POINT (-119.592629 39.237904)",
+      "poi": {
+        "id": 3893,
+        "geometry": "POINT (-119.592629 39.237904)",
+        "poi_name": "Dayton Museum",
+        "osm_id": 5625501245,
+        "tourism": "museum",
+        "addr_state": "NV",
+        "addr_city": "Dayton",
+        "addr_postcode": "89403-6604",
+        "addr_street": "Shady Lane",
+        "addr_housenumber": "35"
+      }
+    }
+  },
+  "id": 927,
+  "type": "knn+name+multihop1"
+}

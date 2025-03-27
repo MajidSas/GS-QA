@@ -1,0 +1,43 @@
+{
+  "question": "Can you point me to the nearest gallery from Pine Grove Zoo, Little Falls, MN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7736,
+      "geometry": "POINT (-93.566326 44.903185)",
+      "poi_name": "Water Street Gallery Ltd",
+      "osm_id": 6384347261,
+      "tourism": "gallery",
+      "addr_state": "MN",
+      "addr_city": "Excelsior",
+      "addr_postcode": "55331",
+      "addr_street": "Water Street",
+      "addr_housenumber": "211"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Pine Grove Zoo, Little Falls, MN",
+      "geo_wkt": "POINT (-94.383608 45.979142)",
+      "poi": {
+        "id": 22633,
+        "geometry": "POINT (-94.383608 45.979142)",
+        "poi_name": "Pine Grove Zoo",
+        "osm_id": 7185157936,
+        "tourism": "zoo",
+        "website": "https://www.pinegrovezoo.com/",
+        "addr_state": "MN",
+        "addr_city": "Little Falls"
+      }
+    }
+  },
+  "id": 1835,
+  "type": "knn+loc"
+}

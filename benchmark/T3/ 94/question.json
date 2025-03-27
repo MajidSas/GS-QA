@@ -1,0 +1,57 @@
+{
+  "question": "What gallery can I find positioned within 130 kilometers towards the south of Baptist Arlington Emergency Department, Arlington, TN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.666246 35.266531)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.666246 35.266531)',4326)::geography, 130000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 4177,
+      "geometry": "POINT (-89.666246 35.266531)",
+      "poi_name": "Southside Gallery",
+      "osm_id": 5705321985,
+      "tourism": "gallery",
+      "addr_state": "MS",
+      "addr_city": "Oxford",
+      "addr_postcode": "38655",
+      "addr_street": "Courthouse Square",
+      "addr_housenumber": "150"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Baptist Arlington Emergency Department, Arlington, TN",
+      "geo_wkt": "POINT (-89.666246 35.266531)",
+      "poi": {
+        "id": 71119,
+        "geometry": "POINT (-89.666246 35.266531)",
+        "poi_name": "Baptist Arlington Emergency Department",
+        "osm_id": 11382331289,
+        "amenity": "hospital",
+        "website": "https://www.baptistonline.org/services/emergency",
+        "phone": "+1-901-226-1850",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "TN",
+        "addr_city": "Arlington",
+        "addr_postcode": "38002",
+        "addr_street": "Airline Road",
+        "addr_housenumber": "5150"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2693,
+  "type": "range:direction+name"
+}

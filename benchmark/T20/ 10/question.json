@@ -1,0 +1,62 @@
+{
+  "question": "Where's the closest fast food restaurant in the direction of Bellevue University, Santa Fe, NM from Johnson Memorial Mortuary Historic Site, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.200355 35.596753)',4326)::geography, ST_GeomFromText('POINT (-105.974343 35.653894)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.200355 35.596753)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.200355 35.596753)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 120618,
+      "geometry": "POINT (-105.222366 35.604868)",
+      "poi_name": "Domino's",
+      "osm_id": 6715060874,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "addr_state": "NM",
+      "addr_city": "Las Vegas",
+      "addr_postcode": "87701",
+      "addr_street": "Mills Avenue",
+      "addr_housenumber": "611",
+      "value": 275.3921251506634
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Johnson Memorial Mortuary Historic Site, NM",
+      "geo_wkt": "POINT (-105.200355 35.596753)",
+      "poi": {
+        "id": 16548,
+        "geometry": "POINT (-105.200355 35.596753)",
+        "poi_name": "Johnson Memorial Mortuary Historic Site",
+        "osm_id": 366377841,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Bellevue University, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.974343 35.653894)",
+      "poi": {
+        "id": 127804,
+        "geometry": "POINT (-105.974343 35.653894)",
+        "poi_name": "Bellevue University",
+        "osm_id": 8095198425,
+        "amenity": "university",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87505",
+        "addr_street": "Siringo Road",
+        "addr_housenumber": "1950"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1309,
+  "type": "knn:towards+loc"
+}

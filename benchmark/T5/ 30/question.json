@@ -1,0 +1,43 @@
+{
+  "question": "Seeking suggestions for the nearest viewpoint in relation to Rehabilitation Hospital Of Wisconsin, Waukesha, WI.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.287209 43.026034)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4257,
+      "geometry": "POINT (-87.884023 43.17726)",
+      "poi_name": "Milner Deck",
+      "osm_id": 11191239025,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Rehabilitation Hospital Of Wisconsin, Waukesha, WI",
+      "geo_wkt": "POINT (-88.287209 43.026034)",
+      "poi": {
+        "id": 183257,
+        "geometry": "POINT (-88.287209 43.026034)",
+        "poi_name": "Rehabilitation Hospital Of Wisconsin",
+        "osm_id": 10920551682,
+        "amenity": "hospital",
+        "website": "https://www.rehabhospitalwi.com",
+        "phone": "+1 262 521 8800",
+        "healthcare": "rehabilitation",
+        "addr_state": "WI",
+        "addr_city": "Waukesha",
+        "addr_postcode": "53188",
+        "addr_street": "Coldwater Creek Drive",
+        "addr_housenumber": "1625"
+      }
+    }
+  },
+  "id": 229,
+  "type": "knn+name"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest golf course nearby the stadium with the former name University of Denver Auditorium in CO?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266621,
+      "geometry": "POINT (-104.896649 39.538596)",
+      "poi_name": "Jakes Academy",
+      "osm_id": 9162690294,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Sa 08:00-20:00",
+      "operator": "Riley Andrews",
+      "website": "https://jakesacademy.com/",
+      "addr_state": "CO",
+      "addr_city": "Lone Tree",
+      "addr_postcode": "80124",
+      "addr_street": "Sunningdale Blvd",
+      "addr_housenumber": "9808"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2707,
+  "type": "knn+name+multihop2"
+}

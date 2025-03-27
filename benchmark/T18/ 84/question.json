@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest himalayan restaurant situated from North Olmsted Recreation Center, North Olmsted, OH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%himalayan%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 191792,
+      "geometry": "POINT (-82.555265 35.594232)",
+      "poi_name": "Kathmandu Cafe",
+      "osm_id": 1395083738,
+      "amenity": "restaurant",
+      "cuisine": "himalayan;nepalese",
+      "opening_hours": "11:30-14:30, 17:30-22:00",
+      "website": "http://kathmanducafeasheville.com",
+      "phone": "+1-828-252-1080",
+      "addr_state": "NC",
+      "addr_city": "Asheville",
+      "addr_postcode": "28801",
+      "addr_street": "Patton Avenue",
+      "addr_housenumber": "88"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "himalayan restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%himalayan%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
+      "poi": {
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
+      }
+    }
+  },
+  "id": 383,
+  "type": "knn:non_spat_filter+loc"
+}

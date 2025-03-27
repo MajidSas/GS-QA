@@ -1,0 +1,47 @@
+{
+  "question": "What is the closest hotel south of Jack C. Montgomery VA Medical Center, Muskogee, OK?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.414609 35.76517)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1153,
+      "geometry": "POINT (-95.414609 35.76517)",
+      "poi_name": "Sportsman Inn and Suites",
+      "osm_id": 2869522848,
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Jack C. Montgomery VA Medical Center, Muskogee, OK",
+      "geo_wkt": "POINT (-95.414609 35.76517)",
+      "poi": {
+        "id": 204594,
+        "geometry": "POINT (-95.414609 35.76517)",
+        "poi_name": "Jack C. Montgomery VA Medical Center",
+        "osm_id": 7133183976,
+        "amenity": "hospital",
+        "operator": "Department of Veterans Affairs",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "OK",
+        "addr_city": "Muskogee",
+        "addr_postcode": "74401",
+        "addr_street": "Honor Heights Drive",
+        "addr_housenumber": "1011"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2521,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "What's the proximity of the nearest viewpoint relative to Bronx Museum of the Arts, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.919947 40.831091)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.919947 40.831091)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3309,
+      "geometry": "POINT (-73.939702 40.834839)",
+      "poi_name": "Sylvan Terrace",
+      "osm_id": 5347662822,
+      "tourism": "viewpoint",
+      "wikidata": "Q7660670",
+      "distance": 1717.49253351
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Bronx Museum of the Arts, NY",
+      "geo_wkt": "POINT (-73.919947 40.831091)",
+      "poi": {
+        "id": 17796,
+        "geometry": "POINT (-73.919947 40.831091)",
+        "poi_name": "Bronx Museum of the Arts",
+        "osm_id": 368061518,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "no",
+        "opening_hours": "We-Su 13:00-18:00",
+        "website": "https://bronxmuseum.org/",
+        "wikidata": "Q4974195",
+        "addr_state": "NY",
+        "addr_postcode": "10456",
+        "addr_street": "Grand Concourse",
+        "addr_housenumber": "1040"
+      }
+    }
+  },
+  "id": 2459,
+  "type": "knn+distance"
+}

@@ -1,0 +1,63 @@
+{
+  "question": "What's the heading towards a golf course from Jack T. Dean Academic Center, Wyoming, MI within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.690287 42.917651)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.690287 42.917651)',4326)::geography, 90000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 246181,
+      "geometry": "POINT (-84.615592 42.775764)",
+      "poi_name": "Royal Scot Golf Club",
+      "osm_id": 5655086284,
+      "leisure": "golf_course",
+      "website": "http://www.royalscotgolf.com/",
+      "phone": "+1-517-321-6220",
+      "angle": 99.80626512824031
+    },
+    {
+      "id": 266292,
+      "geometry": "POINT (-84.956435 42.747501)",
+      "poi_name": "Centennial Acres Golf Course",
+      "osm_id": 7142070868,
+      "leisure": "golf_course",
+      "website": "https://www.centennialacres.com/",
+      "phone": "+1 517-566-8055",
+      "addr_street": "Dow Road",
+      "addr_housenumber": "12485",
+      "angle": 107.23599896264425
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Jack T. Dean Academic Center, Wyoming, MI",
+      "geo_wkt": "POINT (-85.690287 42.917651)",
+      "poi": {
+        "id": 167298,
+        "geometry": "POINT (-85.690287 42.917651)",
+        "poi_name": "Jack T. Dean Academic Center",
+        "osm_id": 353961087,
+        "amenity": "university",
+        "wheelchair": "yes",
+        "operator": "Grace Christian University",
+        "website": "https://gracechristian.edu/",
+        "internet_access": "wlan",
+        "addr_state": "MI",
+        "addr_city": "Wyoming",
+        "addr_postcode": "49509",
+        "addr_street": "Rogers Lane Avenue Southwest",
+        "addr_housenumber": "2550"
+      }
+    }
+  },
+  "id": 1081,
+  "type": "range+angle"
+}

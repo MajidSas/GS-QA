@@ -1,0 +1,53 @@
+{
+  "question": "When was the nearest nature reserve from Washington Park Botanical Garden, Springfield, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267118,
+      "geometry": "POINT (-89.61996 39.802443)",
+      "poi_name": "Margery Adams Wildlife Sanctuary",
+      "osm_id": 4567499757,
+      "leisure": "nature_reserve",
+      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+      "phone": "+1-217-544-5781",
+      "wikidata": "Q4680461",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Clear Lake Avenue",
+      "addr_housenumber": "2315",
+      "multihop_answer": "1983",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Margery Adams Wildlife Sanctuary Established: 1983"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    }
+  },
+  "id": 908,
+  "type": "knn+name+multihop1"
+}

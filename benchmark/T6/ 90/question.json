@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest emergency hospital available from Big Creek Historical Museum, Polk City, Iowa?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.714492 41.771489)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 147577,
+      "geometry": "POINT (-95.977982 41.256489)",
+      "poi_name": "Nebraska Medicine emergency Services at Nebraska Medical Center",
+      "osm_id": 7546124076,
+      "amenity": "hospital",
+      "website": "https://nebraskamed.com/",
+      "phone": "+1-402-559-6637",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NE",
+      "addr_city": "Omaha",
+      "addr_postcode": "68105",
+      "addr_street": "Dewey Avenue",
+      "addr_housenumber": "4350"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Big Creek Historical Museum, Polk City, Iowa",
+      "geo_wkt": "POINT (-93.714492 41.771489)",
+      "poi": {
+        "id": 24693,
+        "geometry": "POINT (-93.714492 41.771489)",
+        "poi_name": "Big Creek Historical Museum",
+        "osm_id": 11173288748,
+        "tourism": "museum",
+        "museum": "history",
+        "addr_state": "Iowa",
+        "addr_city": "Polk City",
+        "addr_postcode": "50226",
+        "addr_street": "South 3rd Street",
+        "addr_housenumber": "116"
+      }
+    }
+  },
+  "id": 689,
+  "type": "knn:non_spat_filter+name"
+}

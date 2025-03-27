@@ -1,0 +1,68 @@
+{
+  "question": "Where is the closest restaurant from Irish Cultural Garden, Cleveland, OH towards Trumbull Art Gallery, Warren, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography, ST_GeomFromText('POINT (-80.817851 41.237025)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 185763,
+      "geometry": "POINT (-81.605348 41.50921)",
+      "poi_name": "Tacologist",
+      "osm_id": 7882243356,
+      "amenity": "restaurant",
+      "cuisine": "tacos",
+      "website": "https://tacologist.net",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44106",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "11409",
+      "value": 114.9634814557661
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Irish Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "poi": {
+        "id": 247028,
+        "geometry": "POINT (-81.621886 41.522378)",
+        "poi_name": "Irish Cultural Garden",
+        "osm_id": 8567373881,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1201"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Trumbull Art Gallery, Warren, OH",
+      "geo_wkt": "POINT (-80.817851 41.237025)",
+      "poi": {
+        "id": 9809,
+        "geometry": "POINT (-80.817851 41.237025)",
+        "poi_name": "Trumbull Art Gallery",
+        "osm_id": 9000022674,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 12:00-16:00 || \"by appointment\"",
+        "phone": "(=1-330) 395-4876",
+        "addr_state": "OH",
+        "addr_city": "Warren",
+        "addr_postcode": "44481",
+        "addr_street": "North Park Avenue",
+        "addr_housenumber": "158"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1352,
+  "type": "knn:towards+loc"
+}

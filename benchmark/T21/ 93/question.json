@@ -1,0 +1,59 @@
+{
+  "question": "Which direction leads to a zoo situated from University Gallery, Yipsilanti, MI within 190 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography, 190000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 2809,
+      "geometry": "POINT (-83.253052 42.213884)",
+      "poi_name": "Taylor Petting Farm",
+      "osm_id": 10038021903,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 97.58326252736582
+    },
+    {
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000",
+      "angle": 117.05352476345084
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "University Gallery, Yipsilanti, MI",
+      "geo_wkt": "POINT (-83.627624 42.251566)",
+      "poi": {
+        "id": 24563,
+        "geometry": "POINT (-83.627624 42.251566)",
+        "poi_name": "University Gallery",
+        "osm_id": 11112992349,
+        "tourism": "gallery",
+        "operator": "Eastern Michigan University",
+        "addr_state": "MI",
+        "addr_city": "Yipsilanti",
+        "addr_postcode": "48176",
+        "addr_street": "Oakwood Street",
+        "addr_housenumber": "900"
+      }
+    }
+  },
+  "id": 1092,
+  "type": "range+angle"
+}

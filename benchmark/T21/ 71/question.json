@@ -1,0 +1,109 @@
+{
+  "question": "Which direction leads to a gallery situated from CHI Health Lasting Hope Recovery Center, Omaha, NE within 180 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.948299 41.255861)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.948299 41.255861)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "id": 8504,
+      "geometry": "POINT (-96.368738 41.039241)",
+      "poi_name": "Blush's Boutique",
+      "osm_id": 8510604564,
+      "tourism": "gallery",
+      "opening_hours": "Tu-Sa 11:00-18:00",
+      "phone": "+1-402-310-3774",
+      "addr_state": "NE",
+      "addr_city": "Ashland",
+      "addr_postcode": "68003",
+      "addr_street": "Silver Street",
+      "addr_housenumber": "1412",
+      "angle": 235.8598201929539
+    },
+    {
+      "id": 12764,
+      "geometry": "POINT (-96.369125 41.038978)",
+      "poi_name": "Willow Point Gallery",
+      "osm_id": 7527789823,
+      "tourism": "gallery",
+      "website": "generoncka.com",
+      "phone": "+1-402-944-3613",
+      "addr_state": "NE",
+      "addr_city": "Ashland",
+      "addr_postcode": "68003",
+      "addr_street": "Silver Street",
+      "addr_housenumber": "1431",
+      "angle": 235.85225207435707
+    },
+    {
+      "id": 23300,
+      "geometry": "POINT (-95.930227 41.255653)",
+      "poi_name": "Old Market Artists Gallery",
+      "osm_id": 5104433425,
+      "tourism": "gallery",
+      "opening_hours": "Su-Mo 12:00-17:00; Tu 11:00-19:00; We 11:00-19:30; Th 11:00-19:00; Fr-Sa 11:00-21:00",
+      "website": "http://www.oldmarketartists.com/",
+      "phone": "+1-402-346-6569",
+      "artwork_type": "painting",
+      "addr_state": "NE",
+      "addr_city": "Omaha",
+      "addr_postcode": "68102",
+      "addr_street": "Howard Street",
+      "addr_housenumber": "1034",
+      "angle": 90.86908363289396
+    },
+    {
+      "id": 23576,
+      "geometry": "POINT (-96.13368 41.081707)",
+      "poi_name": "Springfield Artworks",
+      "osm_id": 5260499060,
+      "tourism": "gallery",
+      "website": "www.springfieldartworks.com",
+      "phone": "402-301-9162",
+      "addr_street": "Main Street",
+      "addr_housenumber": "183",
+      "angle": 218.8729153723135
+    },
+    {
+      "id": 25927,
+      "geometry": "POINT (-96.747776 40.267647)",
+      "poi_name": "The Carnegie Building",
+      "osm_id": 5742707641,
+      "description": "Open to the public: features rotating art displays throughout the year",
+      "tourism": "gallery",
+      "angle": 211.8590499660586
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "CHI Health Lasting Hope Recovery Center, Omaha, NE",
+      "geo_wkt": "POINT (-95.948299 41.255861)",
+      "poi": {
+        "id": 182534,
+        "geometry": "POINT (-95.948299 41.255861)",
+        "poi_name": "CHI Health Lasting Hope Recovery Center",
+        "osm_id": 10894848524,
+        "amenity": "hospital",
+        "operator": "Catholic Health Initiatives",
+        "website": "https://www.chihealth.com/lasting_hope_recovery_center",
+        "phone": "+1 402 717 5320",
+        "healthcare": "hospital",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68131",
+        "addr_street": "South 25th Avenue",
+        "addr_housenumber": "415"
+      }
+    }
+  },
+  "id": 1070,
+  "type": "range+angle"
+}

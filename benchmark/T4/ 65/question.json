@@ -1,0 +1,80 @@
+{
+  "question": "Which caf\u00e9 is on the path towards Hyatt Place, East Moline, IL within a 60 kilometers radius from Raptor Center, Solon, IA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, ST_GeomFromText('POINT (-90.45631 41.520815)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, 60000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 81742,
+      "geometry": "POINT (-91.128597 41.770881)",
+      "poi_name": "A Place to Land",
+      "osm_id": 1661232897,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 107.01357410136953
+    },
+    {
+      "id": 130433,
+      "geometry": "POINT (-91.346241 41.671263)",
+      "poi_name": "The serving Cafe",
+      "osm_id": 9871391102,
+      "amenity": "cafe",
+      "addr_state": "IA",
+      "addr_city": "West Branch",
+      "addr_postcode": "52538",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "106",
+      "value": 107.01357410136953
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hyatt Place, East Moline, IL",
+      "geo_wkt": "POINT (-90.45631 41.520815)",
+      "poi": {
+        "id": 21439,
+        "geometry": "POINT (-90.45631 41.520815)",
+        "poi_name": "Hyatt Place",
+        "osm_id": 10263039544,
+        "tourism": "hotel",
+        "website": "https://www.hyatt.com/en-US/hotel/illinois/hyatt-place-east-moline-quad-cities/mlize",
+        "internet_access": "wlan",
+        "phone": "+1-309-755-6000",
+        "addr_state": "IL",
+        "addr_city": "East Moline",
+        "addr_postcode": "61244",
+        "addr_street": "Bend Boulevard",
+        "addr_housenumber": "111"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1664,
+  "type": "range:towards+name"
+}

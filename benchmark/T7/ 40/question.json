@@ -1,0 +1,46 @@
+{
+  "question": "What is the name of the university that is affiliated with the closest hospital from Mount Washington Boat Terminal, Wolfeboro, NH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182426,
+      "geometry": "POINT (-70.344122 43.653476)",
+      "poi_name": "Spring Harbor Hospital",
+      "osm_id": 10892095081,
+      "amenity": "hospital",
+      "website": "https://www.mainehealth.org/spring-harbor-hospital",
+      "phone": "+1 207 761 2200",
+      "healthcare": "hospital",
+      "wikidata": "Q48976488",
+      "multihop_answer": "Maine Behavioral Health, MaineHealth",
+      "multihop_attribute": "Affiliated university",
+      "multihop_long_answer": "Spring Harbor Hospital Affiliated university: Maine Behavioral Health, MaineHealth"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
+      "geo_wkt": "POINT (-71.21302 43.583693)",
+      "poi": {
+        "id": 943,
+        "geometry": "POINT (-71.21302 43.583693)",
+        "poi_name": "Mount Washington Boat Terminal",
+        "osm_id": 2730505188,
+        "tourism": "attraction",
+        "addr_state": "NH",
+        "addr_city": "Wolfeboro",
+        "addr_postcode": "03894",
+        "addr_street": "North Main Street"
+      }
+    }
+  },
+  "id": 939,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,58 @@
+{
+  "question": "Could you locate a stadium within a 160 kilometers radius of Hopewell Park, Center Valley, PA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.429632 40.537218)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 246798,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Cal, Sr.'s Yard",
+      "osm_id": 6441911494,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+      "addr_state": "MD",
+      "addr_city": "Aberdeen",
+      "addr_postcode": "21001",
+      "addr_street": "Long Drive",
+      "addr_housenumber": "873"
+    },
+    {
+      "id": 265384,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hopewell Park, Center Valley, PA",
+      "geo_wkt": "POINT (-75.429632 40.537218)",
+      "poi": {
+        "id": 246443,
+        "geometry": "POINT (-75.429632 40.537218)",
+        "poi_name": "Hopewell Park",
+        "osm_id": 9672700702,
+        "leisure": "park",
+        "addr_state": "PA",
+        "addr_city": "Center Valley",
+        "addr_street": "West Hopewell Road",
+        "addr_housenumber": "4695"
+      }
+    }
+  },
+  "id": 2060,
+  "type": "range+loc"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "What's the closest garden towards the northwest of Gedney Creek County Park, OR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.653087 44.420444)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247783,
+      "geometry": "POINT (-122.653087 44.420444)",
+      "poi_name": "Perennial Garden",
+      "osm_id": 9917928124,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Gedney Creek County Park, OR",
+      "geo_wkt": "POINT (-122.653087 44.420444)",
+      "poi": {
+        "id": 254276,
+        "geometry": "POINT (-122.653087 44.420444)",
+        "poi_name": "Gedney Creek County Park",
+        "osm_id": 357347984,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2574,
+  "type": "knn:direction+name"
+}

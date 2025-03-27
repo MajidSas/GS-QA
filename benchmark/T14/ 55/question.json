@@ -1,0 +1,55 @@
+{
+  "question": "I need assistance in locating a Hawaiian restaurant within 140 kilometers from Ukrainian Cultural Garden, Cleveland, OH. Can you help me out?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography, 140000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%Hawaiian%';\n",
+  "answers": [
+    {
+      "id": 70153,
+      "geometry": "POINT (-81.296406 41.681419)",
+      "poi_name": "Issho Ni Poke Bar",
+      "osm_id": 11346900637,
+      "amenity": "restaurant",
+      "cuisine": "japanese;hawaiian;ramen;bubble_tea;poke",
+      "opening_hours": "Su 12:00-20:00; Mo off; Tu-Sa 11:00-21:00",
+      "website": "https://www.isshonipokebar.com/",
+      "phone": "+1 440 754 8204",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Mentor Avenue",
+      "addr_housenumber": "9570"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "Hawaiian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Hawaiian%'"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ukrainian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.627549 41.527165)",
+      "poi": {
+        "id": 247011,
+        "geometry": "POINT (-81.627549 41.527165)",
+        "poi_name": "Ukrainian Cultural Garden",
+        "osm_id": 8567373864,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1008"
+      }
+    }
+  },
+  "id": 454,
+  "type": "range:non_spat_filter+loc"
+}

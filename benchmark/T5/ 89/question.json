@@ -1,0 +1,40 @@
+{
+  "question": "Could you tell me the closest stadium relative to Anderson Lakes Regional Park, Eden Prairie, MN?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.402562 44.839308)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267381,
+      "geometry": "POINT (-93.371388 45.134783)",
+      "poi_name": "Auditorium",
+      "osm_id": 5937051959,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Anderson Lakes Regional Park, Eden Prairie, MN",
+      "geo_wkt": "POINT (-93.402562 44.839308)",
+      "poi": {
+        "id": 248819,
+        "geometry": "POINT (-93.402562 44.839308)",
+        "poi_name": "Anderson Lakes Regional Park",
+        "osm_id": 4826004062,
+        "leisure": "park",
+        "addr_state": "MN",
+        "addr_city": "Eden Prairie",
+        "addr_postcode": "55344",
+        "addr_street": "Anderson Lakes Parkway",
+        "addr_housenumber": "9800"
+      }
+    }
+  },
+  "id": 288,
+  "type": "knn+name"
+}

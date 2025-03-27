@@ -1,0 +1,43 @@
+{
+  "question": "When was the nearest zoo from the University of Tennessee Health Science Center, Memphis, TN opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18594,
+      "geometry": "POINT (-88.771354 34.289647)",
+      "poi_name": "Tupelo Buffalo Park",
+      "osm_id": 2348043777,
+      "tourism": "zoo",
+      "wikidata": "Q7853507",
+      "multihop_answer": "2001; 23\u00a0years ago[1]",
+      "multihop_attribute": "Date opened",
+      "multihop_long_answer": "Tupelo Buffalo Park Date opened: 2001; 23\u00a0years ago[1]"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    }
+  },
+  "id": 936,
+  "type": "knn+name+multihop1"
+}

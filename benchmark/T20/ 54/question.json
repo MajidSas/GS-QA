@@ -1,0 +1,71 @@
+{
+  "question": "Where's the nearest fast food restaurant heading towards McLeod Dillon, Dillon, SC from Days Inn, Florence, SC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography, ST_GeomFromText('POINT (-79.364922 34.421371)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 161735,
+      "geometry": "POINT (-79.702985 34.265812)",
+      "poi_name": "McDonald's",
+      "osm_id": 4898075890,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/sc/florence/2961-williston-rd/26825.html",
+      "takeaway": "yes",
+      "addr_state": "SC",
+      "addr_city": "Florence",
+      "addr_postcode": "29506",
+      "addr_street": "North Williston Road",
+      "addr_housenumber": "2961",
+      "value": 62.71364605200668
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Days Inn, Florence, SC",
+      "geo_wkt": "POINT (-79.8042 34.234378)",
+      "poi": {
+        "id": 23891,
+        "geometry": "POINT (-79.8042 34.234378)",
+        "poi_name": "Days Inn",
+        "osm_id": 9181593997,
+        "tourism": "hotel",
+        "addr_state": "SC",
+        "addr_city": "Florence",
+        "addr_postcode": "29501",
+        "addr_street": "West Lucas Street",
+        "addr_housenumber": "2111"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "McLeod Dillon, Dillon, SC",
+      "geo_wkt": "POINT (-79.364922 34.421371)",
+      "poi": {
+        "id": 167440,
+        "geometry": "POINT (-79.364922 34.421371)",
+        "poi_name": "McLeod Dillon",
+        "osm_id": 357117809,
+        "amenity": "hospital",
+        "website": "https://www.mcleodhealth.org/mcleod-dillon/mcleod-health-dillon-has-a-strong-history-in-the-dillon-community.html",
+        "phone": "+1 843 774 4111",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "SC",
+        "addr_city": "Dillon",
+        "addr_postcode": "29536",
+        "addr_street": "East Jackson Street",
+        "addr_housenumber": "301"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1353,
+  "type": "knn:towards+loc"
+}

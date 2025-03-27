@@ -1,0 +1,49 @@
+{
+  "question": "What's the nearest science museum situated from Raptor Center, Solon, IA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'science'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 846,
+      "geometry": "POINT (-89.405939 43.070526)",
+      "poi_name": "UW Geology Museum",
+      "osm_id": 2708020790,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 08:30-16:30; Sa 09:00-13:00",
+      "operator": "University of Wisconsin- Madison",
+      "website": "https://geoscience.wisc.edu/museum/",
+      "museum": "science",
+      "wikidata": "Q14714618",
+      "addr_street": "West Dayton Street",
+      "addr_housenumber": "1215"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    }
+  },
+  "id": 636,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "Where is the closest restaurant with outdoor seating situated from Houdini Museum, Scranton, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.663246 41.432388)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 137506,
+      "geometry": "POINT (-75.886172 41.243681)",
+      "poi_name": "The Down Pour",
+      "osm_id": 6103589428,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "website": "https://www.facebook.com/DownPourWB/about/?ref=page_internal",
+      "phone": "(570) 763-4739",
+      "outdoor_seating": "yes",
+      "addr_state": "PA",
+      "addr_city": "Wilkes-Barre",
+      "addr_postcode": "18701",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "119"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Houdini Museum, Scranton, PA",
+      "geo_wkt": "POINT (-75.663246 41.432388)",
+      "poi": {
+        "id": 20265,
+        "geometry": "POINT (-75.663246 41.432388)",
+        "poi_name": "Houdini Museum",
+        "osm_id": 7970681348,
+        "tourism": "museum",
+        "website": "https://houdini.org/",
+        "phone": "+1 570-383-1821",
+        "museum": "person",
+        "addr_state": "PA",
+        "addr_city": "Scranton",
+        "addr_postcode": "18508",
+        "addr_street": "North Main Avenue",
+        "addr_housenumber": "1344"
+      }
+    }
+  },
+  "id": 399,
+  "type": "knn:non_spat_filter+loc"
+}

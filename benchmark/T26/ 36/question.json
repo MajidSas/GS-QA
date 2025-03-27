@@ -1,0 +1,40 @@
+{
+  "question": "What's the separation to the closest stadium from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247978,
+      "geometry": "POINT (-82.816119 40.086092)",
+      "poi_name": "Eagles Stadium",
+      "osm_id": 6188676781,
+      "leisure": "stadium",
+      "distance": 25978.26573038
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 2435,
+  "type": "knn+distance"
+}

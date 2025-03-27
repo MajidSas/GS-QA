@@ -1,0 +1,54 @@
+{
+  "question": "Where is the closest emergency hospital from Cullen Building, Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.396414 29.710667)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 126604,
+      "geometry": "POINT (-95.101262 29.70239)",
+      "poi_name": "CH First Emergency Room",
+      "osm_id": 7986050032,
+      "amenity": "hospital",
+      "operator": "CH First Emergency Room",
+      "website": "https://www.ch1er.com",
+      "phone": "+1-281-343-3134",
+      "healthcare": "Emergency Room",
+      "emergency": "yes",
+      "addr_state": "TX",
+      "addr_city": "Deer Park",
+      "addr_postcode": "77536",
+      "addr_street": "East Boulevard",
+      "addr_housenumber": "1101"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Cullen Building, Houston, TX",
+      "geo_wkt": "POINT (-95.396414 29.710667)",
+      "poi": {
+        "id": 154845,
+        "geometry": "POINT (-95.396414 29.710667)",
+        "poi_name": "Cullen Building",
+        "osm_id": 4259049651,
+        "amenity": "university",
+        "operator": "Baylor College of Medicine",
+        "website": "https://www.bcm.edu/",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Baylor Plaza",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 338,
+  "type": "knn:non_spat_filter+loc"
+}

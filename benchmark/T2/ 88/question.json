@@ -1,0 +1,68 @@
+{
+  "question": "Can you find me an emergency hospital within 170 kilometers from Franklin Pierce University at Lebanon, West Lebanon, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.317718 43.628022)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 168173,
+      "geometry": "POINT (-72.56082 44.220541)",
+      "poi_name": "Central Vermont Hospital",
+      "osm_id": 366666875,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VT"
+    },
+    {
+      "id": 188951,
+      "geometry": "POINT (-70.906447 42.511844)",
+      "poi_name": "MassGeneral for Children at North Shore Medical Center",
+      "osm_id": 257489655,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://nsmc.partners.org/locations/nsmc_north_shore_childrens",
+      "phone": "+1 978 745 2100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MA",
+      "addr_city": "Salem",
+      "addr_postcode": "01970",
+      "addr_street": "Highland Avenue",
+      "addr_housenumber": "57"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University at Lebanon, West Lebanon, NH",
+      "geo_wkt": "POINT (-72.317718 43.628022)",
+      "poi": {
+        "id": 104485,
+        "geometry": "POINT (-72.317718 43.628022)",
+        "poi_name": "Franklin Pierce University at Lebanon",
+        "osm_id": 8570371294,
+        "amenity": "university",
+        "website": "https://www.franklinpierce.edu/academics/gradstudies/lebanon-new-hampshire.htm",
+        "phone": "+1-603-298-5549",
+        "addr_state": "NH",
+        "addr_city": "West Lebanon",
+        "addr_postcode": "03784",
+        "addr_street": "Airport Road",
+        "addr_housenumber": "24"
+      }
+    }
+  },
+  "id": 587,
+  "type": "range:non_spat_filter+name"
+}

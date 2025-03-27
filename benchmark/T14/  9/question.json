@@ -1,0 +1,55 @@
+{
+  "question": "Seeking a fast food restaurant, ideally within 100 kilometers of Haven Behavioral Hospital Of Eastern Pennsylvania, Reading, PA. Can you find me its location?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.925389 40.338004)',4326)::geography, 100000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%';\n",
+  "answers": [
+    {
+      "id": 62958,
+      "geometry": "POINT (-75.163811 39.950261)",
+      "poi_name": "HipCityVeg",
+      "osm_id": 5595443764,
+      "amenity": "restaurant",
+      "cuisine": "american;fast_food",
+      "description": "Vegan fast food.",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19107",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "121"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Haven Behavioral Hospital Of Eastern Pennsylvania, Reading, PA",
+      "geo_wkt": "POINT (-75.925389 40.338004)",
+      "poi": {
+        "id": 181386,
+        "geometry": "POINT (-75.925389 40.338004)",
+        "poi_name": "Haven Behavioral Hospital Of Eastern Pennsylvania",
+        "osm_id": 10844735246,
+        "amenity": "hospital",
+        "website": "https://www.havenreading.com",
+        "phone": "+1 610 406 4340",
+        "addr_state": "PA",
+        "addr_city": "Reading",
+        "addr_postcode": "19601",
+        "addr_street": "North 6th Street",
+        "addr_housenumber": "145"
+      }
+    }
+  },
+  "id": 408,
+  "type": "range:non_spat_filter+loc"
+}

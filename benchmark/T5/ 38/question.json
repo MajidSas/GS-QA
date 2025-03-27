@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest hospital in proximity to Oldest Light Bulb, Livermore, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-121.739397 37.680213)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 122738,
+      "geometry": "POINT (-121.858653 37.7033)",
+      "poi_name": "Dublin Medical Offices and Cancer Center",
+      "osm_id": 6816256205,
+      "amenity": "hospital",
+      "operator": "Kaiser Permanente",
+      "website": "https://thrive.kaiserpermanente.org/care-near-you/northern-california/diablo/locations/dublin-medical-offices/",
+      "phone": "+1-925-556-4200",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "CA",
+      "addr_city": "Dublin",
+      "addr_postcode": "94568",
+      "addr_street": "Dublin Boulevard",
+      "addr_housenumber": "3100"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Oldest Light Bulb, Livermore, CA",
+      "geo_wkt": "POINT (-121.739397 37.680213)",
+      "poi": {
+        "id": 5360,
+        "geometry": "POINT (-121.739397 37.680213)",
+        "poi_name": "Oldest Light Bulb",
+        "osm_id": 746901440,
+        "tourism": "attraction",
+        "website": "http://www.centennialbulb.org/",
+        "wikidata": "Q736374",
+        "addr_state": "CA",
+        "addr_city": "Livermore",
+        "addr_postcode": "94550",
+        "addr_street": "East Avenue",
+        "addr_housenumber": "4550"
+      }
+    }
+  },
+  "id": 237,
+  "type": "knn+name"
+}

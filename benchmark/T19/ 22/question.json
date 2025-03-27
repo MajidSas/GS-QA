@@ -1,0 +1,56 @@
+{
+  "question": "Where's the nearest gallery located in the northwest of Historic Carson House, Marion, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.057079 35.690893)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4755,
+      "geometry": "POINT (-82.057079 35.690893)",
+      "poi_name": "Suzanne Barrett Justis Fine Art",
+      "osm_id": 11445377805,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Fr 09:00-17:00, Sa 10:00-13:00",
+      "operator": "Suzanne Barrett",
+      "website": "https://sbjfineart.com",
+      "phone": "(423) 967-4040",
+      "addr_state": "TN",
+      "addr_city": "Kingsport",
+      "addr_postcode": "37660",
+      "addr_street": "East Market Street",
+      "addr_housenumber": "110"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Historic Carson House, Marion, NC",
+      "geo_wkt": "POINT (-82.057079 35.690893)",
+      "poi": {
+        "id": 22710,
+        "geometry": "POINT (-82.057079 35.690893)",
+        "poi_name": "Historic Carson House",
+        "osm_id": 7222985110,
+        "tourism": "museum",
+        "opening_hours": "We-Sa 10:00-16:00; Su 14:00-17:00",
+        "phone": "(828) 724-4948",
+        "wikidata": "Q5046941",
+        "addr_state": "NC",
+        "addr_city": "Marion",
+        "addr_postcode": "28752",
+        "addr_street": "US-70",
+        "addr_housenumber": "1805"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1121,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Do you know where the nearest caf\u00e9 is from Science Hall West, Wayne, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.197766 40.946744)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 36704,
+      "geometry": "POINT (-74.205047 40.944691)",
+      "poi_name": "Starbucks",
+      "osm_id": 2780529702,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Paterson-Hamburg Turnpike",
+      "addr_housenumber": "183"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Science Hall West, Wayne, NJ",
+      "geo_wkt": "POINT (-74.197766 40.946744)",
+      "poi": {
+        "id": 63023,
+        "geometry": "POINT (-74.197766 40.946744)",
+        "poi_name": "Science Hall West",
+        "osm_id": 5597728217,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    }
+  },
+  "id": 1816,
+  "type": "knn+loc"
+}

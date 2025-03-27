@@ -1,0 +1,52 @@
+{
+  "question": "Where is the nearest science museum available from Central Florida Zoo & Botanical Gardens, Sanford, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'science'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.314867 28.825462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 238,
+      "geometry": "POINT (-84.329665 33.799189)",
+      "poi_name": "David J. Sencer CDC Museum",
+      "osm_id": 8249497288,
+      "tourism": "museum",
+      "opening_hours": "Mo-We,Fr 09:00-17:00; Th 09:00-19:00; PH off",
+      "website": "https://www.cdc.gov/museum/",
+      "phone": "(404) 639-0830",
+      "museum": "science",
+      "addr_state": "GA",
+      "addr_city": "Atlanta",
+      "addr_postcode": "30329",
+      "addr_street": "Clifton Road Northeast",
+      "addr_housenumber": "1600"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Central Florida Zoo & Botanical Gardens, Sanford, FL",
+      "geo_wkt": "POINT (-81.314867 28.825462)",
+      "poi": {
+        "id": 9137,
+        "geometry": "POINT (-81.314867 28.825462)",
+        "poi_name": "Central Florida Zoo & Botanical Gardens",
+        "osm_id": 3683164539,
+        "tourism": "zoo",
+        "fee": "yes",
+        "addr_state": "FL",
+        "addr_city": "Sanford",
+        "addr_postcode": "32771",
+        "addr_street": "W Seminole Blvd",
+        "addr_housenumber": "3755"
+      }
+    }
+  },
+  "id": 304,
+  "type": "knn:non_spat_filter+loc"
+}

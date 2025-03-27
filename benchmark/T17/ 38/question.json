@@ -1,0 +1,50 @@
+{
+  "question": "Looking for the closest hotel in relation to A/NT Gallery, Seattle, WA, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.352986 47.622764)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18529,
+      "geometry": "POINT (-122.345133 47.614668)",
+      "poi_name": "Belltown Inn",
+      "osm_id": 2327659201,
+      "tourism": "hotel",
+      "website": "https://www.belltown-inn.com/",
+      "internet_access": "wlan",
+      "phone": "+1-206-529-3700",
+      "addr_city": "Seattle",
+      "addr_postcode": "98121",
+      "addr_street": "3rd Avenue",
+      "addr_housenumber": "2301"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "A/NT Gallery, Seattle, WA",
+      "geo_wkt": "POINT (-122.352986 47.622764)",
+      "poi": {
+        "id": 21945,
+        "geometry": "POINT (-122.352986 47.622764)",
+        "poi_name": "A/NT Gallery",
+        "osm_id": 937416412,
+        "tourism": "gallery",
+        "opening_hours": "12:00-20:00",
+        "website": "https://www.antgallery.org/",
+        "phone": "+1-206-233-0680",
+        "addr_state": "WA",
+        "addr_city": "Seattle",
+        "addr_postcode": "98109",
+        "addr_street": "Harrison Street",
+        "addr_housenumber": "305"
+      }
+    }
+  },
+  "id": 1837,
+  "type": "knn+loc"
+}

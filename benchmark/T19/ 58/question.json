@@ -1,0 +1,53 @@
+{
+  "question": "Where's the closest golf course to the west of Rehabilitation Hospital of Indiana, Indianapolis, IN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.277386 39.829975)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266212,
+      "geometry": "POINT (-86.277386 39.829975)",
+      "poi_name": "Lick Creek Golf Course",
+      "osm_id": 7052823509,
+      "leisure": "golf_course",
+      "addr_state": "IL",
+      "addr_city": "Pekin",
+      "addr_postcode": "61554",
+      "addr_street": "N Parkway Dr",
+      "addr_housenumber": "2210"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Rehabilitation Hospital of Indiana, Indianapolis, IN",
+      "geo_wkt": "POINT (-86.277386 39.829975)",
+      "poi": {
+        "id": 100793,
+        "geometry": "POINT (-86.277386 39.829975)",
+        "poi_name": "Rehabilitation Hospital of Indiana",
+        "osm_id": 6597811085,
+        "amenity": "hospital",
+        "website": "http://rhin.com",
+        "internet_access": "wlan",
+        "phone": "+1-317-329-2000",
+        "healthcare": "hospital",
+        "addr_state": "IN",
+        "addr_city": "Indianapolis",
+        "addr_postcode": "46254",
+        "addr_street": "Shore Drive",
+        "addr_housenumber": "4141"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 1157,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "When was the the nearest hotel from Phoenix Urban Research Laboratory, Phoenix, AZ built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.074127 33.451201)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18979,
+      "geometry": "POINT (-112.074206 33.450529)",
+      "poi_name": "Hotel San Carlos",
+      "osm_id": 2470073524,
+      "tourism": "hotel",
+      "wikidata": "Q5911942",
+      "multihop_answer": "1928",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Hotel San Carlos Built: 1928"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Phoenix Urban Research Laboratory, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.074127 33.451201)",
+      "poi": {
+        "id": 85478,
+        "geometry": "POINT (-112.074127 33.451201)",
+        "poi_name": "Phoenix Urban Research Laboratory",
+        "osm_id": 1870876317,
+        "amenity": "university",
+        "phone": "+1-480-727-9890",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85004",
+        "addr_street": "North Central Avenue",
+        "addr_housenumber": "234"
+      }
+    }
+  },
+  "id": 905,
+  "type": "knn+name+multihop1"
+}

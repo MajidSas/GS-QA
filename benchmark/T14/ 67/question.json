@@ -1,0 +1,58 @@
+{
+  "question": "Seeking a drive-through restaurant, ideally within 60 kilometers of Hagerty Family Events Center, Erie, PA. Can you find me its location?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.093136 42.1186)',4326)::geography, 60000)\nAND amenity = 'restaurant'\nAND drive_through ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 91353,
+      "geometry": "POINT (-80.085364 42.053763)",
+      "poi_name": "Eat'n Park",
+      "osm_id": 2061743443,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "website": "http://www.eatnpark.com/",
+      "phone": "+1-814-866-3970",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16509",
+      "addr_street": "Peach Street",
+      "addr_housenumber": "7355"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "drive through restaurant",
+      "poi_filter_sql": "drive_through ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Hagerty Family Events Center, Erie, PA",
+      "geo_wkt": "POINT (-80.093136 42.1186)",
+      "poi": {
+        "id": 267580,
+        "geometry": "POINT (-80.093136 42.1186)",
+        "poi_name": "Hagerty Family Events Center",
+        "osm_id": 7717719385,
+        "leisure": "stadium",
+        "operator": "Cathedral Prep School",
+        "sport": "american_football",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16501",
+        "addr_street": "West 12th Street",
+        "addr_housenumber": "501"
+      }
+    }
+  },
+  "id": 466,
+  "type": "range:non_spat_filter+loc"
+}

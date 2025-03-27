@@ -1,0 +1,53 @@
+{
+  "question": "What's the nearest emergency hospital available from Appalachian Wireless Arena, Pikeville, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167625,
+      "geometry": "POINT (-82.747126 37.456676)",
+      "poi_name": "McDowell ARH Hospital",
+      "osm_id": 358610357,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Appalachian Regional Healthcare",
+      "website": "https://www.arh.org/locations/mcdowell.aspx",
+      "phone": "+1 606 377 3400",
+      "emergency": "yes",
+      "addr_city": "McDowell",
+      "addr_postcode": "41647",
+      "addr_street": "Route 122"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
+      "geo_wkt": "POINT (-82.517286 37.477755)",
+      "poi": {
+        "id": 246594,
+        "geometry": "POINT (-82.517286 37.477755)",
+        "poi_name": "Appalachian Wireless Arena",
+        "osm_id": 1736849627,
+        "leisure": "stadium",
+        "building": "yes",
+        "sport": "basketball",
+        "phone": "+1 606 444 5500",
+        "addr_state": "KY",
+        "addr_city": "Pikeville",
+        "addr_postcode": "41501",
+        "addr_street": "Main Street",
+        "addr_housenumber": "126"
+      }
+    }
+  },
+  "id": 600,
+  "type": "knn:non_spat_filter+name"
+}

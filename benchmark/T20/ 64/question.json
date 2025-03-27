@@ -1,0 +1,66 @@
+{
+  "question": "Where's the nearest restaurant heading towards Fisher Woods, IL from Chicago Sports Museum, Chicago, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.622078 41.898026)',4326)::geography, ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.622078 41.898026)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.622078 41.898026)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 142784,
+      "geometry": "POINT (-87.623341 41.89801)",
+      "poi_name": "Mity Nice",
+      "osm_id": 6322754552,
+      "amenity": "restaurant",
+      "website": "http://www.mitynicechicago.com/",
+      "phone": "+1-312-335-4745",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60611",
+      "addr_street": "North Michigan Avenue",
+      "addr_housenumber": "835",
+      "value": 279.81200880314066
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Chicago Sports Museum, Chicago, IL",
+      "geo_wkt": "POINT (-87.622078 41.898026)",
+      "poi": {
+        "id": 19757,
+        "geometry": "POINT (-87.622078 41.898026)",
+        "poi_name": "Chicago Sports Museum",
+        "osm_id": 10873137225,
+        "tourism": "museum",
+        "website": "https://www.chicagosportsmuseum.com/",
+        "museum": "local",
+        "wikidata": "Q24037234",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60611",
+        "addr_street": "North Michigan Avenue",
+        "addr_housenumber": "835"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Fisher Woods, IL",
+      "geo_wkt": "POINT (-87.964233 41.941696)",
+      "poi": {
+        "id": 265405,
+        "geometry": "POINT (-87.964233 41.941696)",
+        "poi_name": "Fisher Woods",
+        "osm_id": 369051083,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of DuPage County",
+        "addr_state": "IL"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1363,
+  "type": "knn:towards+loc"
+}

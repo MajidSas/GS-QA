@@ -1,0 +1,36 @@
+{
+  "question": "How many nature reserves can be found within a 120 kilometers radius from Stones Road Boat Launch, OR?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.630673 45.448441)',4326)::geography, 120000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "count": 8
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Stones Road Boat Launch, OR",
+      "geo_wkt": "POINT (-123.630673 45.448441)",
+      "poi": {
+        "id": 254400,
+        "geometry": "POINT (-123.630673 45.448441)",
+        "poi_name": "Stones Road Boat Launch",
+        "osm_id": 357354890,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 2262,
+  "type": "range+count"
+}

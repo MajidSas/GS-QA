@@ -1,0 +1,52 @@
+{
+  "question": "Looking for an emergency hospital, preferably within a 60 kilometers radius from old MKT Depot, Council Grove, KS. Can you assist me with this?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.480186 38.661913)',4326)::geography, 60000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 167632,
+      "geometry": "POINT (-96.768286 39.083116)",
+      "poi_name": "Irwin Army Community Hospital",
+      "osm_id": 358630329,
+      "amenity": "hospital",
+      "website": "https://iach.amedd.army.mil/",
+      "phone": "+1-785-239-7000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q19880893",
+      "addr_city": "Fort Riley",
+      "addr_postcode": "66442",
+      "addr_street": "Caisson Hill Road",
+      "addr_housenumber": "600"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "old MKT Depot, Council Grove, KS",
+      "geo_wkt": "POINT (-96.480186 38.661913)",
+      "poi": {
+        "id": 673,
+        "geometry": "POINT (-96.480186 38.661913)",
+        "poi_name": "old MKT Depot",
+        "osm_id": 2634590970,
+        "tourism": "attraction",
+        "addr_state": "KS",
+        "addr_city": "Council Grove"
+      }
+    }
+  },
+  "id": 582,
+  "type": "range:non_spat_filter+name"
+}

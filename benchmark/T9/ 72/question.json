@@ -1,0 +1,47 @@
+{
+  "question": "Which museum is the nearest to the south of 777 Zip/the Outlook, Davis, OK?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.145614 34.427071)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17948,
+      "geometry": "POINT (-97.145614 34.427071)",
+      "poi_name": "Morton Museum of Cooke County",
+      "osm_id": 368164918,
+      "tourism": "museum",
+      "website": "https://www.mortonmuseum.org/",
+      "addr_state": "TX"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "777 Zip/The Outlook, Davis, OK",
+      "geo_wkt": "POINT (-97.145614 34.427071)",
+      "poi": {
+        "id": 5911,
+        "geometry": "POINT (-97.145614 34.427071)",
+        "poi_name": "777 Zip/The Outlook",
+        "osm_id": 1669329575,
+        "description": "Zipline:777 ft. long off hwy 77 view the 77 ft. Turner Falls.",
+        "tourism": "attraction",
+        "addr_state": "OK",
+        "addr_city": "Davis",
+        "addr_postcode": "73030",
+        "addr_street": "US 77 South",
+        "addr_housenumber": "6250"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2571,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "How far is the nearest fast food restaurant from the reference point Brigham Young Junior House Historic Site, NM?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-108.396012 36.739445)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.396012 36.739445)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 221357,
+      "geometry": "POINT (-108.356281 36.743525)",
+      "poi_name": "Domino's",
+      "osm_id": 10972598145,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "addr_state": "NM",
+      "addr_city": "Kirtland",
+      "addr_postcode": "87417",
+      "addr_street": "US-64",
+      "addr_housenumber": "4208",
+      "distance": 3577.24888037
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Brigham Young Junior House Historic Site, NM",
+      "geo_wkt": "POINT (-108.396012 36.739445)",
+      "poi": {
+        "id": 16611,
+        "geometry": "POINT (-108.396012 36.739445)",
+        "poi_name": "Brigham Young Junior House Historic Site",
+        "osm_id": 366378350,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 2480,
+  "type": "knn+distance"
+}

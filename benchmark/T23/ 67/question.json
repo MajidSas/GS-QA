@@ -1,0 +1,40 @@
+{
+  "question": "What is the total number of golf courses within 40 kilometers from Holiday Inn Express Chicago O`Hare-Rosemont, Rosemont, IL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.885935 41.999704)',4326)::geography, 40000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 5
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn Express Chicago O`Hare-Rosemont, Rosemont, IL",
+      "geo_wkt": "POINT (-87.885935 41.999704)",
+      "poi": {
+        "id": 21583,
+        "geometry": "POINT (-87.885935 41.999704)",
+        "poi_name": "Holiday Inn Express Chicago O`Hare-Rosemont",
+        "osm_id": 10558370978,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Rosemont",
+        "addr_postcode": "60018",
+        "addr_street": "Mannheim Road",
+        "addr_housenumber": "6600"
+      }
+    }
+  },
+  "id": 2266,
+  "type": "range+count"
+}

@@ -1,0 +1,282 @@
+{
+  "question": "Where can I find park in the direction of Terra Viva, Corvallis, OR within 110 kilometers from Cascade Head Scenic Research Area, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, ST_GeomFromText('POINT (-123.26215 44.563375)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, 110000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 253804,
+      "geometry": "POINT (-123.318433 44.456233)",
+      "poi_name": "Saxton County Park",
+      "osm_id": 357276451,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253838,
+      "geometry": "POINT (-123.062871 44.5904)",
+      "poi_name": "Freeway Lakes County Park",
+      "osm_id": 357280868,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253840,
+      "geometry": "POINT (-123.468995 44.872061)",
+      "poi_name": "Gerlinger County Park",
+      "osm_id": 357280987,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253842,
+      "geometry": "POINT (-123.339547 44.871229)",
+      "poi_name": "Guthrie Community Park",
+      "osm_id": 357281503,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253908,
+      "geometry": "POINT (-122.870644 44.484568)",
+      "poi_name": "Sodaville Springs Park",
+      "osm_id": 357294369,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253805,
+      "geometry": "POINT (-123.423432 44.155122)",
+      "poi_name": "Alderwood State Park",
+      "osm_id": 357276468,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253811,
+      "geometry": "POINT (-123.375116 44.365136)",
+      "poi_name": "Bellfountain County Park",
+      "osm_id": 357277196,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253916,
+      "geometry": "POINT (-123.631774 44.614564)",
+      "poi_name": "Ellmaker State Park",
+      "osm_id": 357294710,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 253893,
+      "geometry": "POINT (-123.065372 44.666511)",
+      "poi_name": "Willamette Memorial Park",
+      "osm_id": 357291431,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254325,
+      "geometry": "POINT (-123.160374 44.638732)",
+      "poi_name": "Hyak Park",
+      "osm_id": 357349809,
+      "leisure": "park",
+      "operator": "Benton County",
+      "website": "https://www.co.benton.or.us/parks/page/hyak-park",
+      "wikidata": "Q49504368",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254211,
+      "geometry": "POINT (-123.211536 44.700308)",
+      "poi_name": "E E Wilson Game Management Area",
+      "osm_id": 357330901,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254341,
+      "geometry": "POINT (-123.443158 44.500954)",
+      "poi_name": "Rock Creek City Park",
+      "osm_id": 357350173,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254145,
+      "geometry": "POINT (-123.209762 44.454166)",
+      "poi_name": "Peoria County Park",
+      "osm_id": 357329307,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254146,
+      "geometry": "POINT (-123.215554 44.31722)",
+      "poi_name": "McCartney County Park",
+      "osm_id": 357329310,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254147,
+      "geometry": "POINT (-123.109538 44.459567)",
+      "poi_name": "Memorial Park",
+      "osm_id": 357329389,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254174,
+      "geometry": "POINT (-122.742865 44.640123)",
+      "poi_name": "Larwaood Wayside County Park",
+      "osm_id": 357329844,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254328,
+      "geometry": "POINT (-123.210098 44.58401)",
+      "poi_name": "Woodland Meadows City Park",
+      "osm_id": 357349944,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254334,
+      "geometry": "POINT (-122.730365 44.626234)",
+      "poi_name": "Roaring River County Park",
+      "osm_id": 357349993,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254500,
+      "geometry": "POINT (-122.889256 44.537623)",
+      "poi_name": "Gills Landing",
+      "osm_id": 357356554,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254418,
+      "geometry": "POINT (-123.147875 44.770676)",
+      "poi_name": "Buena Vista County Park",
+      "osm_id": 357355057,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254440,
+      "geometry": "POINT (-123.241489 44.845675)",
+      "poi_name": "Cherry Lane Park",
+      "osm_id": 357355292,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254461,
+      "geometry": "POINT (-123.081556 44.461257)",
+      "poi_name": "Thompson's Mills State Park",
+      "osm_id": 357355609,
+      "amenity": "toilets",
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254464,
+      "geometry": "POINT (-123.433655 44.867232)",
+      "poi_name": "Bridge Park",
+      "osm_id": 357355790,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254465,
+      "geometry": "POINT (-123.439722 44.870278)",
+      "poi_name": "George Kitchen Upper Park",
+      "osm_id": 357355795,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    },
+    {
+      "id": 254466,
+      "geometry": "POINT (-123.438889 44.8675)",
+      "poi_name": "Michael Harding Park",
+      "osm_id": 357355800,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 133.39592494046792
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Cascade Head Scenic Research Area, OR",
+      "geo_wkt": "POINT (-123.980114 45.05094)",
+      "poi": {
+        "id": 254075,
+        "geometry": "POINT (-123.980114 45.05094)",
+        "poi_name": "Cascade Head Scenic Research Area",
+        "osm_id": 357321729,
+        "leisure": "nature_reserve",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/siuslaw/recarea/?recid=42717",
+        "addr_state": "OR"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Terra Viva, Corvallis, OR",
+      "geo_wkt": "POINT (-123.26215 44.563375)",
+      "poi": {
+        "id": 13996,
+        "geometry": "POINT (-123.26215 44.563375)",
+        "poi_name": "Terra Viva",
+        "osm_id": 4210175753,
+        "tourism": "gallery",
+        "addr_state": "OR",
+        "addr_city": "Corvallis",
+        "addr_postcode": "97333",
+        "addr_street": "Southwest Madison Avenue",
+        "addr_housenumber": "354"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    }
+  },
+  "id": 1216,
+  "type": "range:towards+loc"
+}

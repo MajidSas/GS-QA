@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest history museum located from Veterans Memorial Coliseum, OH?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.124357 40.604225)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 552,
+      "geometry": "POINT (-82.517005 40.758801)",
+      "poi_name": "Mansfield Memorial Museum",
+      "osm_id": 8440954904,
+      "tourism": "museum",
+      "website": "https://www.themansfieldmuseum.com/",
+      "phone": "+1-419-525-2491",
+      "museum": "history",
+      "addr_state": "OH",
+      "addr_city": "Mansfield",
+      "addr_postcode": "44902",
+      "addr_street": "Park Avenue West",
+      "addr_housenumber": "34"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Veterans Memorial Coliseum, OH",
+      "geo_wkt": "POINT (-83.124357 40.604225)",
+      "poi": {
+        "id": 265390,
+        "geometry": "POINT (-83.124357 40.604225)",
+        "poi_name": "Veterans Memorial Coliseum",
+        "osm_id": 368155778,
+        "leisure": "stadium",
+        "wikidata": "Q7923645",
+        "addr_state": "OH"
+      }
+    }
+  },
+  "id": 682,
+  "type": "knn:non_spat_filter+name"
+}

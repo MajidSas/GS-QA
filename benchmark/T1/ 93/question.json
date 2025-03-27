@@ -1,0 +1,54 @@
+{
+  "question": "I'm searching for a zoo within 90 kilometers radius from Lane Meyer Projects, Denver, CO, any suggestions?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.986665 39.758692)',4326)::geography, 90000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 5788,
+      "geometry": "POINT (-105.129607 39.976701)",
+      "poi_name": "My Nature Lab",
+      "osm_id": 1588879863,
+      "tourism": "zoo",
+      "opening_hours": "We-Fr 09:00-17:00; Sa,Su 10:00-16:00",
+      "website": "https://www.mynaturelab.org/",
+      "zoo": "reptile"
+    },
+    {
+      "id": 12897,
+      "geometry": "POINT (-104.254326 39.406558)",
+      "poi_name": "Prairy Wind Animal Refuge",
+      "osm_id": 3945064487,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Lane Meyer Projects, Denver, CO",
+      "geo_wkt": "POINT (-104.986665 39.758692)",
+      "poi": {
+        "id": 14941,
+        "geometry": "POINT (-104.986665 39.758692)",
+        "poi_name": "Lane Meyer Projects",
+        "osm_id": 4769057327,
+        "tourism": "gallery",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80205",
+        "addr_street": "Walnut Street",
+        "addr_housenumber": "2528"
+      }
+    }
+  },
+  "id": 892,
+  "type": "range+name"
+}

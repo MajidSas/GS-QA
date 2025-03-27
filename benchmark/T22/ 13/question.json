@@ -1,0 +1,44 @@
+{
+  "question": "Which direction should I take to get to the nearest garden from Aquatic Zoo Tropical Fish, Thousand Oaks, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248284,
+      "geometry": "POINT (-118.576119 34.184777)",
+      "poi_name": "Mediterranean",
+      "osm_id": 3917859011,
+      "leisure": "garden",
+      "angle": 86.7465810175438
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
+      "geo_wkt": "POINT (-118.840161 34.172588)",
+      "poi": {
+        "id": 5259,
+        "geometry": "POINT (-118.840161 34.172588)",
+        "poi_name": "Aquatic Zoo Tropical Fish",
+        "osm_id": 9819470337,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "operator": "Ken Kay Khzam",
+        "shop": "pet",
+        "addr_state": "CA",
+        "addr_city": "Thousand Oaks",
+        "addr_postcode": "91362",
+        "addr_street": "East Thousand Oaks Boulevard",
+        "addr_housenumber": "2655"
+      }
+    }
+  },
+  "id": 1412,
+  "type": "knn+angle"
+}

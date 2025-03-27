@@ -1,0 +1,56 @@
+{
+  "question": "Which kebab restaurant nearby Yale New Haven Children's Hospital, New Haven, CT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%kebab%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.936331 41.304241)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 111205,
+      "geometry": "POINT (-73.212261 41.214276)",
+      "poi_name": "Kabob Express",
+      "osm_id": 3735423490,
+      "amenity": "restaurant",
+      "cuisine": "kebab",
+      "opening_hours": "Mo-Sa 11:00-22:30; Su 12:00-22:30",
+      "addr_state": "CT",
+      "addr_city": "Bridgeport",
+      "addr_postcode": "06606",
+      "addr_street": "Main Street",
+      "addr_housenumber": "3927"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "kebab restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%kebab%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Yale New Haven Children's Hospital, New Haven, CT",
+      "geo_wkt": "POINT (-72.936331 41.304241)",
+      "poi": {
+        "id": 167781,
+        "geometry": "POINT (-72.936331 41.304241)",
+        "poi_name": "Yale New Haven Children's Hospital",
+        "osm_id": 359283462,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "Yale New Haven Health",
+        "website": "https://www.ynhh.org/childrens-hospital.aspx",
+        "phone": "+1 203 688 4242",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q91153398",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06510",
+        "addr_street": "Park Street",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 651,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Do you know where the nearest stadium is from College of Saint Joseph, Rutland, VT?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.000884 43.600546)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245706,
+      "geometry": "POINT (-73.769911 43.073101)",
+      "poi_name": "Saratoga Race Course",
+      "osm_id": 3431889151,
+      "leisure": "stadium",
+      "sport": "horse_racing",
+      "website": "https://www.nyra.com/saratoga/",
+      "addr_city": "Saratoga Springs",
+      "addr_postcode": "12866",
+      "addr_street": "Union Ave",
+      "addr_housenumber": "267"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "College of Saint Joseph, Rutland, VT",
+      "geo_wkt": "POINT (-73.000884 43.600546)",
+      "poi": {
+        "id": 167370,
+        "geometry": "POINT (-73.000884 43.600546)",
+        "poi_name": "College of Saint Joseph",
+        "osm_id": 356557883,
+        "amenity": "university",
+        "website": "https://www.csj.edu/",
+        "phone": "+1 802-773-5900",
+        "wikidata": "Q5146842",
+        "addr_state": "VT",
+        "addr_city": "Rutland",
+        "addr_postcode": "05701",
+        "addr_street": "Clement Road",
+        "addr_housenumber": "71"
+      }
+    }
+  },
+  "id": 1821,
+  "type": "knn+loc"
+}

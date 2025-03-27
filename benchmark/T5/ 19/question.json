@@ -1,0 +1,41 @@
+{
+  "question": "Could you tell me the closest viewpoint relative to Ho\u2019oulu Community Farmers Market, HI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-155.962664 19.55906)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21290,
+      "geometry": "POINT (-155.959315 19.576034)",
+      "poi_name": "Scenic Point",
+      "osm_id": 1477043893,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Ho\u2019oulu Community Farmers Market, HI",
+      "geo_wkt": "POINT (-155.962664 19.55906)",
+      "poi": {
+        "id": 3695,
+        "geometry": "POINT (-155.962664 19.55906)",
+        "poi_name": "Ho\u2019oulu Community Farmers Market",
+        "osm_id": 5557767128,
+        "amenity": "marketplace",
+        "tourism": "attraction",
+        "opening_hours": "We 09:00-14:00",
+        "addr_state": "HI",
+        "addr_postcode": "96740",
+        "addr_street": "Ehukai Street",
+        "addr_housenumber": "78-128"
+      }
+    }
+  },
+  "id": 218,
+  "type": "knn+name"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Which stadium is available in the northwest direction of Hamtramck Disneyland, Hamtramck, MI within 110 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography, 110000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 267317,
+      "geometry": "POINT (-83.058623 42.407216)",
+      "poi_name": "O'Rena",
+      "osm_id": 5842381796,
+      "leisure": "stadium",
+      "addr_state": "MI",
+      "addr_city": "Rochester",
+      "addr_postcode": "48309-4482",
+      "addr_street": "Pioneer Drive",
+      "addr_housenumber": "569"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hamtramck Disneyland, Hamtramck, MI",
+      "geo_wkt": "POINT (-83.058623 42.407216)",
+      "poi": {
+        "id": 2296,
+        "geometry": "POINT (-83.058623 42.407216)",
+        "poi_name": "Hamtramck Disneyland",
+        "osm_id": 3371170310,
+        "tourism": "attraction",
+        "website": "https://en.wikipedia.org/wiki/Hamtramck_Disneyland",
+        "wikidata": "Q5646445",
+        "addr_state": "MI",
+        "addr_city": "Hamtramck",
+        "addr_postcode": "48212",
+        "addr_street": "Klinger Street",
+        "addr_housenumber": "12087"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2623,
+  "type": "range:direction+name"
+}

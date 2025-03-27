@@ -1,0 +1,65 @@
+{
+  "question": "What's the orientation towards a golf course from Silverlens Galleries, New York, NY within 30 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.004012 40.748643)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.004012 40.748643)',4326)::geography, 30000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 245808,
+      "geometry": "POINT (-74.105825 40.806925)",
+      "poi_name": "InHome Golf",
+      "osm_id": 10100433578,
+      "leisure": "golf_course",
+      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
+      "opening_hours": "Mo-Fr 08:00-18:00",
+      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
+      "phone": "+1 800-557-5859",
+      "addr_state": "NJ",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "07071",
+      "addr_street": "Wall Street West",
+      "addr_housenumber": "1000",
+      "angle": 307.0142274322093
+    },
+    {
+      "id": 266488,
+      "geometry": "POINT (-74.069558 40.944438)",
+      "poi_name": "Players Club Virtual Golf",
+      "osm_id": 5181045735,
+      "leisure": "golf_course",
+      "angle": 345.7580208965374
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Silverlens Galleries, New York, NY",
+      "geo_wkt": "POINT (-74.004012 40.748643)",
+      "poi": {
+        "id": 19664,
+        "geometry": "POINT (-74.004012 40.748643)",
+        "poi_name": "Silverlens Galleries",
+        "osm_id": 10859974154,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://www.silverlensgalleries.com",
+        "phone": "+1-646-449-9400",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 24th Street",
+        "addr_housenumber": "505"
+      }
+    }
+  },
+  "id": 1039,
+  "type": "range+angle"
+}

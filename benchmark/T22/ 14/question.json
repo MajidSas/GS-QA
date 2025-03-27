@@ -1,0 +1,49 @@
+{
+  "question": "In what direction is the nearest caf\u00e9 located from Saint Louis Forensic Treatment Center - South, Saint Louis, MO?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.27731 38.60499)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.27731 38.60499)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 53984,
+      "geometry": "POINT (-90.272486 38.593025)",
+      "poi_name": "Piper\u2019s Tea & Coffee",
+      "osm_id": 10110210162,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "MO",
+      "addr_city": "Saint Louis",
+      "addr_street": "South Kingshighway Boulevard",
+      "addr_housenumber": "3701",
+      "angle": 162.44012538786941
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Saint Louis Forensic Treatment Center - South, Saint Louis, MO",
+      "geo_wkt": "POINT (-90.27731 38.60499)",
+      "poi": {
+        "id": 182511,
+        "geometry": "POINT (-90.27731 38.60499)",
+        "poi_name": "Saint Louis Forensic Treatment Center - South",
+        "osm_id": 10894577229,
+        "amenity": "hospital",
+        "website": "https://dmh.mo.gov/ftc",
+        "phone": "+1 314 877 6500",
+        "healthcare": "hospital",
+        "addr_state": "MO",
+        "addr_city": "Saint Louis",
+        "addr_postcode": "63139",
+        "addr_street": "Arsenal Street",
+        "addr_housenumber": "5300"
+      }
+    }
+  },
+  "id": 1413,
+  "type": "knn+angle"
+}

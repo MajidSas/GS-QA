@@ -1,0 +1,48 @@
+{
+  "question": "What's the closest attraction to the west of Zero Whiskey Tactical Arms, Austin, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21095,
+      "geometry": "POINT (-97.715155 30.344507)",
+      "poi_name": "Artificial Chimney",
+      "osm_id": 1398646495,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Zero Whiskey Tactical Arms, Austin, TX",
+      "geo_wkt": "POINT (-97.715155 30.344507)",
+      "poi": {
+        "id": 24505,
+        "geometry": "POINT (-97.715155 30.344507)",
+        "poi_name": "Zero Whiskey Tactical Arms",
+        "osm_id": 11086117116,
+        "tourism": "viewpoint",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://zerowhiskeytacticalarms.com/",
+        "shop": "weapons",
+        "phone": "+1-346-320-9030",
+        "addr_state": "TX",
+        "addr_city": "Austin",
+        "addr_postcode": "78757",
+        "addr_street": "North Lamar Boulevard",
+        "addr_housenumber": "7600"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2592,
+  "type": "knn:direction+name"
+}

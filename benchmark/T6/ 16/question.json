@@ -1,0 +1,50 @@
+{
+  "question": "What's the closest fast food restaurant located from Super Cichlids Inc, Dover, DE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62958,
+      "geometry": "POINT (-75.163811 39.950261)",
+      "poi_name": "HipCityVeg",
+      "osm_id": 5595443764,
+      "amenity": "restaurant",
+      "cuisine": "american;fast_food",
+      "description": "Vegan fast food.",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19107",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "121"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    }
+  },
+  "id": 615,
+  "type": "knn:non_spat_filter+name"
+}

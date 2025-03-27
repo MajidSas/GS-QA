@@ -1,0 +1,49 @@
+{
+  "question": "What direction does one need to follow to reach the closest hotel from American Institute of Dental Assisting, Gilbert, AZ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.688039 33.367907)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.688039 33.367907)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1545,
+      "geometry": "POINT (-111.893344 33.290073)",
+      "poi_name": "Courtyard Phoenix Chandler/Fashion Center",
+      "osm_id": 3050598110,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "operator": "Marriott",
+      "official_name": "Courtyard by Marriott",
+      "addr_state": "AZ",
+      "addr_city": "Chandler",
+      "addr_postcode": "85286",
+      "addr_street": "South Price Road",
+      "addr_housenumber": "1100",
+      "angle": 245.75180631104058
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "American Institute of Dental Assisting, Gilbert, AZ",
+      "geo_wkt": "POINT (-111.688039 33.367907)",
+      "poi": {
+        "id": 103945,
+        "geometry": "POINT (-111.688039 33.367907)",
+        "poi_name": "American Institute of Dental Assisting",
+        "osm_id": 8534336133,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Gilbert",
+        "addr_postcode": "85209",
+        "addr_street": "South Power Road",
+        "addr_housenumber": "2500"
+      }
+    }
+  },
+  "id": 1436,
+  "type": "knn+angle"
+}

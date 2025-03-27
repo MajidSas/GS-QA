@@ -1,0 +1,70 @@
+{
+  "question": "Where can I find a gallery towards the northeast of Funkmeyer New Reality Garden, Los Angeles, CA within 20 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, 20000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 8280,
+      "geometry": "POINT (-118.366951 34.039786)",
+      "poi_name": "Roslin Art Gallery",
+      "osm_id": 6604550929,
+      "tourism": "gallery",
+      "wikidata": "Q7369028",
+      "addr_state": "CA",
+      "addr_city": "Glendale",
+      "addr_street": "West California Avenue",
+      "addr_housenumber": "111"
+    },
+    {
+      "id": 4615,
+      "geometry": "POINT (-118.366951 34.039786)",
+      "poi_name": "Baltic Crossroads Art Gallery",
+      "osm_id": 11357421363,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Su 11:00-19:00",
+      "operator": "Inguna Galvina",
+      "website": "https://baltic-crossroads.com",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90039",
+      "addr_street": "Riverside Drive",
+      "addr_housenumber": "1955"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "poi": {
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 6,
+  "type": "range:direction+loc"
+}

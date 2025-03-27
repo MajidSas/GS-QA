@@ -1,0 +1,94 @@
+{
+  "question": "Which hotel is available southwest of School of Cosmetology, Somerset, KY, within a radius of 190 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography, 190000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 24059,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Best Western Tree City Inn",
+      "osm_id": 9288096119,
+      "tourism": "hotel"
+    },
+    {
+      "id": 24247,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Armour\u2019s Hotel and Spa",
+      "osm_id": 10979509305,
+      "tourism": "hotel",
+      "website": "https://armourshotel.com/",
+      "phone": "6156992180",
+      "addr_postcode": "37150",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "321"
+    },
+    {
+      "id": 25640,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Scottish Inns",
+      "osm_id": 4568128765,
+      "tourism": "hotel",
+      "website": "http://bookroomsnow.com",
+      "phone": "931-473-2181",
+      "addr_state": "TN",
+      "addr_city": "McMinnville",
+      "addr_postcode": "37110",
+      "addr_street": "Sparta Street",
+      "addr_housenumber": "1105"
+    },
+    {
+      "id": 7198,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Mary Ray Oaken Lodge",
+      "osm_id": 2004583247,
+      "tourism": "hotel"
+    },
+    {
+      "id": 12117,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "The Walton Hotel",
+      "osm_id": 6194131283,
+      "tourism": "hotel",
+      "website": "https://www.hotelwalton.com/",
+      "addr_city": "Carthage",
+      "addr_postcode": "37030",
+      "addr_street": "Main Street",
+      "addr_housenumber": "308"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
+      "poi": {
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2677,
+  "type": "range:direction+name"
+}

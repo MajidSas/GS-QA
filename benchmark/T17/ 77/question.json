@@ -1,0 +1,46 @@
+{
+  "question": "Do you know where the nearest hotel is from Cadencia Park, Carlsbad, Ca?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.232279 33.091784)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22196,
+      "geometry": "POINT (-117.207909 33.124836)",
+      "poi_name": "Lakehouse Hotel and Golf Resort",
+      "osm_id": 596880844,
+      "tourism": "hotel",
+      "addr_city": "San Marcos",
+      "addr_postcode": "92078",
+      "addr_street": "La Bonita Drive",
+      "addr_housenumber": "1025"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Cadencia Park, Carlsbad, Ca",
+      "geo_wkt": "POINT (-117.232279 33.091784)",
+      "poi": {
+        "id": 263490,
+        "geometry": "POINT (-117.232279 33.091784)",
+        "poi_name": "Cadencia Park",
+        "osm_id": 358844838,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "operator": "City of Carlsbad",
+        "addr_state": "Ca",
+        "addr_city": "Carlsbad",
+        "addr_postcode": "92009",
+        "addr_street": "Cadencia Street",
+        "addr_housenumber": "3310 Cadencia St, Carlsbad, CA 92009"
+      }
+    }
+  },
+  "id": 1876,
+  "type": "knn+loc"
+}

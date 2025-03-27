@@ -1,0 +1,40 @@
+{
+  "question": "What's the nearest golf course from Allen Park Civic Arena, Allen Park, MI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.211376 42.258691)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245622,
+      "geometry": "POINT (-83.526695 42.803184)",
+      "poi_name": "Hollywoods Disc Golf Course",
+      "osm_id": 3235259429,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Allen Park Civic Arena, Allen Park, MI",
+      "geo_wkt": "POINT (-83.211376 42.258691)",
+      "poi": {
+        "id": 265370,
+        "geometry": "POINT (-83.211376 42.258691)",
+        "poi_name": "Allen Park Civic Arena",
+        "osm_id": 367815831,
+        "leisure": "stadium",
+        "addr_state": "MI",
+        "addr_city": "Allen Park",
+        "addr_postcode": "48101",
+        "addr_street": "White Avenue",
+        "addr_housenumber": "15800"
+      }
+    }
+  },
+  "id": 247,
+  "type": "knn+name"
+}

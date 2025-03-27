@@ -1,0 +1,42 @@
+{
+  "question": "Which way leads to the nearest nature reserve from Rainmaker Splash Pad, Ketchum, ID?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-114.370718 43.681753)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-114.370718 43.681753)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247796,
+      "geometry": "POINT (-111.594229 41.45208)",
+      "poi_name": "Cinnamon Creek WMA",
+      "osm_id": 9938302241,
+      "leisure": "nature_reserve",
+      "operator": "Utah DWR",
+      "angle": 136.42496191802113
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rainmaker Splash Pad, Ketchum, ID",
+      "geo_wkt": "POINT (-114.370718 43.681753)",
+      "poi": {
+        "id": 246963,
+        "geometry": "POINT (-114.370718 43.681753)",
+        "poi_name": "Rainmaker Splash Pad",
+        "osm_id": 6670614199,
+        "leisure": "park",
+        "addr_state": "ID",
+        "addr_city": "Ketchum",
+        "addr_postcode": "83340",
+        "addr_street": "3rd Avenue",
+        "addr_housenumber": "900"
+      }
+    }
+  },
+  "id": 1479,
+  "type": "knn+angle"
+}

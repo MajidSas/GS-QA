@@ -1,0 +1,54 @@
+{
+  "question": "Where can I find a university located within 150 kilometers in the direction of southwest from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, 150000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 175708,
+      "geometry": "POINT (-89.684904 39.78926)",
+      "poi_name": "Washington University - North Campus",
+      "osm_id": 2534098910,
+      "amenity": "university",
+      "addr_city": "City of St. Louis",
+      "addr_postcode": "63112",
+      "addr_street": "Rosedale Avenue",
+      "addr_housenumber": "700"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 39,
+  "type": "range:direction+loc"
+}

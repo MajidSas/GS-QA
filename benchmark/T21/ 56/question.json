@@ -1,0 +1,45 @@
+{
+  "question": "Which way should I go to access a viewpoint from Randall Football Stadium, Amarillo, TX within 120 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-101.896695 35.115385)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-101.896695 35.115385)',4326)::geography, 120000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 19067,
+      "geometry": "POINT (-101.691438 34.979123)",
+      "poi_name": "CCC Overlook",
+      "osm_id": 2501117962,
+      "tourism": "viewpoint",
+      "angle": 128.853145737286
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Randall Football Stadium, Amarillo, TX",
+      "geo_wkt": "POINT (-101.896695 35.115385)",
+      "poi": {
+        "id": 252347,
+        "geometry": "POINT (-101.896695 35.115385)",
+        "poi_name": "Randall Football Stadium",
+        "osm_id": 356845841,
+        "leisure": "stadium",
+        "addr_state": "TX",
+        "addr_city": "Amarillo",
+        "addr_postcode": "79118",
+        "addr_street": "Valleyview Drive",
+        "addr_housenumber": "9000"
+      }
+    }
+  },
+  "id": 1055,
+  "type": "range+angle"
+}

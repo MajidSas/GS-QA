@@ -1,0 +1,54 @@
+{
+  "question": "Looking for an emergency hospital, preferably within a 170 kilometers radius from Indian Run Falls Park - Observation Deck B, Dublin, OH. Can you assist me with this?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 100630,
+      "geometry": "POINT (-84.646719 39.766768)",
+      "poi_name": "Preble County Medical Center",
+      "osm_id": 6594393096,
+      "amenity": "hospital",
+      "operator": "Grandview Medical Center",
+      "website": "https://www.ketteringhealth.org/preble/",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "OH",
+      "addr_city": "Eaton",
+      "addr_postcode": "45320",
+      "addr_street": "Washington Jackson Road",
+      "addr_housenumber": "450"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 579,
+  "type": "range:non_spat_filter+name"
+}

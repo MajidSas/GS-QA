@@ -1,0 +1,53 @@
+{
+  "question": "Where is the closest coffee shop from Graffiti Wall, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%coffee_shop%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.081842 42.120204)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 68361,
+      "geometry": "POINT (-79.739902 41.175224)",
+      "poi_name": "Plaza Restaurant",
+      "osm_id": 11267161338,
+      "amenity": "restaurant",
+      "cuisine": "american;coffee_shop;burger;sandwich;chicken",
+      "description": "Excellent little diner/truck stop style restaurant with good food.",
+      "opening_hours": "Mo-Su 07:00-21:00",
+      "website": "https://www.emlentontruckplaza.com/plaza-restaurant",
+      "phone": "724-867-9171",
+      "addr_state": "PA",
+      "addr_city": "Emlenton",
+      "addr_postcode": "16373",
+      "addr_street": "Emlenton Clintonville Road",
+      "addr_housenumber": "6406"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "coffee shop",
+      "poi_filter_sql": "cuisine ILIKE '%coffee_shop%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Graffiti Wall, Erie, PA",
+      "geo_wkt": "POINT (-80.081842 42.120204)",
+      "poi": {
+        "id": 26835,
+        "geometry": "POINT (-80.081842 42.120204)",
+        "poi_name": "Graffiti Wall",
+        "osm_id": 7571687786,
+        "tourism": "attraction",
+        "operator": "City of Erie",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16501",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "1401"
+      }
+    }
+  },
+  "id": 348,
+  "type": "knn:non_spat_filter+loc"
+}

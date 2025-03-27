@@ -1,0 +1,48 @@
+{
+  "question": "How far is the closest attraction from the Presidents Hall of Fame, Clermont, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.743769 28.563089)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.743769 28.563089)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1004,
+      "geometry": "POINT (-81.742994 28.563884)",
+      "poi_name": "Citrus Tower",
+      "osm_id": 2792602524,
+      "tourism": "attraction",
+      "website": "https://citrustower.com",
+      "phone": "+1 (352) 394-4061",
+      "addr_city": "Clermont",
+      "addr_street": "N Hwy 27",
+      "addr_housenumber": "141",
+      "distance": 116.25778539
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "The Presidents Hall of Fame, Clermont, FL",
+      "geo_wkt": "POINT (-81.743769 28.563089)",
+      "poi": {
+        "id": 13065,
+        "geometry": "POINT (-81.743769 28.563089)",
+        "poi_name": "The Presidents Hall of Fame",
+        "osm_id": 4037098753,
+        "tourism": "museum",
+        "website": "http://www.thepresidentshalloffame.com",
+        "phone": "+1 (352) 394-2836",
+        "addr_state": "FL",
+        "addr_city": "Clermont",
+        "addr_postcode": "34711",
+        "addr_street": "S Hwy 27",
+        "addr_housenumber": "123"
+      }
+    }
+  },
+  "id": 2454,
+  "type": "knn+distance"
+}

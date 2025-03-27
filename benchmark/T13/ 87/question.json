@@ -1,0 +1,49 @@
+{
+  "question": "I'm searching for a viewpoint within 140 kilometers radius from Art Gallery 505, Toledo, WA, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.846906 46.439278)',4326)::geography, 140000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 21991,
+      "geometry": "POINT (-123.962654 45.855581)",
+      "poi_name": "Silver Point Interpretive Overlook",
+      "osm_id": 954793454,
+      "tourism": "viewpoint",
+      "addr_state": "OR",
+      "addr_street": "Oregon Coast Highway"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Art Gallery 505, Toledo, WA",
+      "geo_wkt": "POINT (-122.846906 46.439278)",
+      "poi": {
+        "id": 4271,
+        "geometry": "POINT (-122.846906 46.439278)",
+        "poi_name": "Art Gallery 505",
+        "osm_id": 11196719096,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 13:00-17:00",
+        "website": "https://artgallery505.com",
+        "phone": "+1-360-864-2789",
+        "addr_state": "WA",
+        "addr_city": "Toledo",
+        "addr_postcode": "98591",
+        "addr_street": "Cowlitz Street",
+        "addr_housenumber": "205"
+      }
+    }
+  },
+  "id": 2086,
+  "type": "range+loc"
+}

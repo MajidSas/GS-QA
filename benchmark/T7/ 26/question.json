@@ -1,0 +1,56 @@
+{
+  "question": "When was the nearest theme park from Harbor Oaks Hospital, New Baltimore, MI first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.756088 42.676753)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10709,
+      "geometry": "POINT (-82.678842 41.478118)",
+      "poi_name": "Cedar Point",
+      "osm_id": 153917102,
+      "tourism": "theme_park",
+      "wheelchair": "yes",
+      "operator": "Cedar Fair Entertainment Company",
+      "website": "https://www.cedarpoint.com/",
+      "phone": "+1-419-627-2350",
+      "wikidata": "Q859230",
+      "addr_city": "Sandusky",
+      "addr_postcode": "44870",
+      "addr_street": "Cedar Point Drive",
+      "addr_housenumber": "1",
+      "multihop_answer": "1870; 154\u00a0years ago",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Cedar Point Opened: 1870; 154\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Harbor Oaks Hospital, New Baltimore, MI",
+      "geo_wkt": "POINT (-82.756088 42.676753)",
+      "poi": {
+        "id": 31875,
+        "geometry": "POINT (-82.756088 42.676753)",
+        "poi_name": "Harbor Oaks Hospital",
+        "osm_id": 8453619003,
+        "amenity": "hospital",
+        "website": "https://www.harboroaks.com/",
+        "phone": "+1-586-684-4870",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "MI",
+        "addr_city": "New Baltimore",
+        "addr_postcode": "48047",
+        "addr_street": "23 Mile Road",
+        "addr_housenumber": "35031"
+      }
+    }
+  },
+  "id": 925,
+  "type": "knn+name+multihop1"
+}

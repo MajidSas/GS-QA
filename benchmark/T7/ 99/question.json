@@ -1,0 +1,52 @@
+{
+  "question": "On what date was the closest hotel from Tunca RiverPark, Robinsonville, MS opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.363192 34.837979)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15960,
+      "geometry": "POINT (-90.332572 34.846304)",
+      "poi_name": "Gold Strike Casino Resort",
+      "osm_id": 280814871,
+      "tourism": "hotel",
+      "opening_hours": "24/7",
+      "operator": "MGM Resorts International",
+      "website": "https://www.goldstrike.com/",
+      "wikidata": "Q5578879",
+      "addr_state": "MS",
+      "addr_city": "Tunica Resorts",
+      "addr_postcode": "38664",
+      "addr_street": "Casino Center Drive",
+      "addr_housenumber": "1010",
+      "multihop_answer": "August 29, 1994; 30 years ago",
+      "multihop_attribute": "Opening date",
+      "multihop_long_answer": "Gold Strike Casino Resort Opening date: August 29, 1994; 30 years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Tunca RiverPark, Robinsonville, MS",
+      "geo_wkt": "POINT (-90.363192 34.837979)",
+      "poi": {
+        "id": 15961,
+        "geometry": "POINT (-90.363192 34.837979)",
+        "poi_name": "Tunca RiverPark",
+        "osm_id": 280815276,
+        "leisure": "park",
+        "tourism": "attraction",
+        "addr_state": "MS",
+        "addr_city": "Robinsonville",
+        "addr_postcode": "38664",
+        "addr_street": "River Park Drive"
+      }
+    }
+  },
+  "id": 998,
+  "type": "knn+name+multihop1"
+}

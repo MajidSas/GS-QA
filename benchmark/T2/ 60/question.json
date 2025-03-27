@@ -1,0 +1,119 @@
+{
+  "question": "Looking for a restaurant with outdoor seating, preferably within a 30 kilometers radius from Oakwell TrailHead Park, San Antonio, TX. Can you assist me with this?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.420676 29.504736)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 105826,
+      "geometry": "POINT (-98.488163 29.421607)",
+      "poi_name": "Guadalajara Grill",
+      "osm_id": 8645287533,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "website": "http://www.guadalajaragrill.us",
+      "phone": "+1-210-710-8241",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 135735,
+      "geometry": "POINT (-98.637715 29.446166)",
+      "poi_name": "The Shack",
+      "osm_id": 11532680303,
+      "amenity": "restaurant",
+      "cuisine": "burger;american;dessert",
+      "opening_hours": "Tu-Sa 11:00-21:00",
+      "website": "https://theshacksatx.com/",
+      "phone": "+1-210-375-4097",
+      "outdoor_seating": "yes",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78245",
+      "addr_street": "Northwest Loop 410",
+      "addr_housenumber": "7431"
+    },
+    {
+      "id": 174491,
+      "geometry": "POINT (-98.561232 29.601742)",
+      "poi_name": "Freetail Brewing Company",
+      "osm_id": 2484545345,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Sa 11:00-24:00, Su 12:00-24:00",
+      "website": "https://www.freetailbrewing.com/",
+      "phone": "+1-210-625-6000",
+      "outdoor_seating": "yes",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78257",
+      "addr_street": "North Loop 1604 West",
+      "addr_housenumber": "4035"
+    },
+    {
+      "id": 220500,
+      "geometry": "POINT (-98.491953 29.426348)",
+      "poi_name": "\u00c1cenar Hot Mex Cool Bar",
+      "osm_id": 9374833602,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "website": "https://acenar.com",
+      "phone": "+1-210-222-2362",
+      "outdoor_seating": "yes",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78205",
+      "addr_street": "East Houston Street",
+      "addr_housenumber": "146"
+    },
+    {
+      "id": 236504,
+      "geometry": "POINT (-98.584894 29.540005)",
+      "poi_name": "Magnolia Pancake Haus",
+      "osm_id": 5794797432,
+      "amenity": "restaurant",
+      "cuisine": "brunch",
+      "wheelchair": "yes",
+      "opening_hours": "07:00-14:00",
+      "website": "http://www.magnoliapancakehaus.com/",
+      "outdoor_seating": "yes",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78240",
+      "addr_street": "Huebner Road",
+      "addr_housenumber": "10333"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Oakwell TrailHead Park, San Antonio, TX",
+      "geo_wkt": "POINT (-98.420676 29.504736)",
+      "poi": {
+        "id": 245809,
+        "geometry": "POINT (-98.420676 29.504736)",
+        "poi_name": "Oakwell TrailHead Park",
+        "osm_id": 10107143636,
+        "leisure": "park",
+        "opening_hours": "24/7",
+        "phone": "+1-210-207-7275",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78218",
+        "addr_street": "Ira Lee Road",
+        "addr_housenumber": "150"
+      }
+    }
+  },
+  "id": 559,
+  "type": "range:non_spat_filter+name"
+}

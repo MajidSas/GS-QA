@@ -1,0 +1,49 @@
+{
+  "question": "Can you tell me about a former name of the nearest university from Feather Factory Hotel, Long Island City, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.94065 40.74418)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167484,
+      "geometry": "POINT (-73.954912 40.764752)",
+      "poi_name": "Weill Cornell Medical College",
+      "osm_id": 357573246,
+      "amenity": "university",
+      "wikidata": "Q3567094",
+      "multihop_answer": "Cornell University Medical College, Weill Cornell Medical College",
+      "multihop_attribute": "Former names",
+      "multihop_long_answer": "Weill Cornell Medical College Former names: Cornell University Medical College, Weill Cornell Medical College"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Feather Factory Hotel, Long Island City, NY",
+      "geo_wkt": "POINT (-73.94065 40.74418)",
+      "poi": {
+        "id": 1131,
+        "geometry": "POINT (-73.94065 40.74418)",
+        "poi_name": "Feather Factory Hotel",
+        "osm_id": 2847093111,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "http://www.hotelfeatherfactory.com/",
+        "internet_access": "wlan",
+        "phone": "+1 718-786-7869",
+        "parking": "yes",
+        "addr_state": "NY",
+        "addr_city": "Long Island City",
+        "addr_postcode": "11101",
+        "addr_street": "Skillman Avenue",
+        "addr_housenumber": "26-32"
+      }
+    }
+  },
+  "id": 979,
+  "type": "knn+name+multihop1"
+}

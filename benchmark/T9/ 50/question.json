@@ -1,0 +1,49 @@
+{
+  "question": "What's the closest hotel located in the north direction starting from Assurance Health Toledo, Sylvania, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.722064 41.689749)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21255,
+      "geometry": "POINT (-83.722064 41.689749)",
+      "poi_name": "University Inn",
+      "osm_id": 1451357412,
+      "tourism": "hotel",
+      "addr_street": "East Stadium Boulevard",
+      "addr_housenumber": "2424"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Assurance Health Toledo, Sylvania, OH",
+      "geo_wkt": "POINT (-83.722064 41.689749)",
+      "poi": {
+        "id": 182744,
+        "geometry": "POINT (-83.722064 41.689749)",
+        "poi_name": "Assurance Health Toledo",
+        "osm_id": 10903812923,
+        "amenity": "hospital",
+        "website": "http://assurancehealthsystem.com/locations/toledo-oh",
+        "phone": "+1 219 510 3776",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Sylvania",
+        "addr_postcode": "43560",
+        "addr_street": "King Road",
+        "addr_housenumber": "4040"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2549,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,110 @@
+{
+  "question": "Where can I find a hospital located in the southeast of DoubleTree by Hilton Hotel, Bedford, MA, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 188948,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Massachusetts Eye and Ear",
+      "osm_id": 257489564,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.masseyeandear.org/",
+      "phone": "+1 617 523 7900",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q6784269",
+      "addr_city": "Boston",
+      "addr_postcode": "02114",
+      "addr_street": "Charles Street",
+      "addr_housenumber": "243"
+    },
+    {
+      "id": 188949,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Pocasset Mental Health Center",
+      "osm_id": 257489589,
+      "amenity": "hospital",
+      "phone": "+1 508 564 9600",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Bourne",
+      "addr_postcode": "02559",
+      "addr_street": "County Road",
+      "addr_housenumber": "830"
+    },
+    {
+      "id": 188950,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Floating Hospital for Children",
+      "osm_id": 257489648,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Tufts Medical Center",
+      "website": "https://www.floatinghospital.org/",
+      "phone": "+1 617 636 8100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q22073805",
+      "addr_city": "Boston",
+      "addr_postcode": "02111",
+      "addr_street": "Washington Street",
+      "addr_housenumber": "755"
+    },
+    {
+      "id": 188955,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Dr. Solomon Carter Fuller Mental Health Center",
+      "osm_id": 257578331,
+      "amenity": "hospital",
+      "website": "https://www.mass.gov/locations/metro-boston-mental-health-unit-at-dr-solomon-carter-fuller-mental-health-center",
+      "phone": "+1 617-626-8857",
+      "healthcare": "hospital",
+      "addr_state": "MA",
+      "addr_city": "Boston",
+      "addr_postcode": "02118",
+      "addr_street": "East Newton Street",
+      "addr_housenumber": "85"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
+      "poi": {
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 51,
+  "type": "range:direction+loc"
+}

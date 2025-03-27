@@ -1,0 +1,51 @@
+{
+  "question": "Could you help me locate an aquarium that's within 160 kilometers from the View Lounge, San Francisco, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, 160000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 18181,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Steinhart Aquarium",
+      "osm_id": 368173914,
+      "tourism": "aquarium",
+      "addr_state": "CA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    }
+  },
+  "id": 2049,
+  "type": "range+loc"
+}

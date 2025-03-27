@@ -1,0 +1,36 @@
+{
+  "question": "What's the closest gallery in proximity to Lake Weir High School Stadium, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.977308 29.079147)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12052,
+      "geometry": "POINT (-81.630895 29.646753)",
+      "poi_name": "Gem City Cottage LLC.",
+      "osm_id": 6162062333,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Lake Weir High School Stadium, FL",
+      "geo_wkt": "POINT (-81.977308 29.079147)",
+      "poi": {
+        "id": 265380,
+        "geometry": "POINT (-81.977308 29.079147)",
+        "poi_name": "Lake Weir High School Stadium",
+        "osm_id": 367826914,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 232,
+  "type": "knn+name"
+}

@@ -1,0 +1,65 @@
+{
+  "question": "Where's the closest caf\u00e9 on the path leading to University of South Carolina Beaufort - Bluffton campus, Bluffton, SC from VIVID Gallery, Hilton Head Island, SC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.800999 32.131171)',4326)::geography, ST_GeomFromText('POINT (-80.973603 32.303243)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.800999 32.131171)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.800999 32.131171)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 72164,
+      "geometry": "POINT (-80.801669 32.131571)",
+      "poi_name": "C'est Bon",
+      "osm_id": 11415344572,
+      "amenity": "cafe",
+      "outdoor_seating": "yes",
+      "addr_state": "SC",
+      "addr_city": "Hilton Head Island",
+      "addr_postcode": "29928",
+      "addr_street": "Lighthouse Road",
+      "addr_housenumber": "71",
+      "value": 319.5903366846878
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "VIVID Gallery, Hilton Head Island, SC",
+      "geo_wkt": "POINT (-80.800999 32.131171)",
+      "poi": {
+        "id": 4726,
+        "geometry": "POINT (-80.800999 32.131171)",
+        "poi_name": "VIVID Gallery",
+        "osm_id": 11415344581,
+        "tourism": "gallery",
+        "addr_state": "SC",
+        "addr_city": "Hilton Head Island",
+        "addr_postcode": "29928",
+        "addr_street": "Lighthouse Road",
+        "addr_housenumber": "71"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of South Carolina Beaufort - Bluffton campus, Bluffton, SC",
+      "geo_wkt": "POINT (-80.973603 32.303243)",
+      "poi": {
+        "id": 217111,
+        "geometry": "POINT (-80.973603 32.303243)",
+        "poi_name": "University of South Carolina Beaufort - Bluffton campus",
+        "osm_id": 9205449468,
+        "amenity": "university",
+        "addr_state": "SC",
+        "addr_city": "Bluffton",
+        "addr_postcode": "29909",
+        "addr_street": "University Boulevard",
+        "addr_housenumber": "1"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1335,
+  "type": "knn:towards+loc"
+}

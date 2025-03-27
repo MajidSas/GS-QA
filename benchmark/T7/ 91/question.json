@@ -1,0 +1,48 @@
+{
+  "question": "When was the the nearest museum from Montefiore Medical Center - Wakefield Campus, Bronx, NY built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17824,
+      "geometry": "POINT (-73.80564 40.871781)",
+      "poi_name": "Bartow-Pell Mansion Museum",
+      "osm_id": 368061866,
+      "tourism": "museum",
+      "opening_hours": "We-Su 12:00-16:00; Th off; Fr off",
+      "website": "https://www.bartowpellmansionmuseum.org/",
+      "wikidata": "Q4865770",
+      "addr_state": "NY",
+      "multihop_answer": "1836",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Bartow-Pell Mansion Museum Built: 1836"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Montefiore Medical Center - Wakefield Campus, Bronx, NY",
+      "geo_wkt": "POINT (-73.861082 40.893776)",
+      "poi": {
+        "id": 37608,
+        "geometry": "POINT (-73.861082 40.893776)",
+        "poi_name": "Montefiore Medical Center - Wakefield Campus",
+        "osm_id": 2822777418,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10466",
+        "addr_street": "Carpenter Avenue",
+        "addr_housenumber": "4141"
+      }
+    }
+  },
+  "id": 990,
+  "type": "knn+name+multihop1"
+}

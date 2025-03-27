@@ -1,0 +1,51 @@
+{
+  "question": "Where is the closest emergency hospital from River Art Gallery & Gifts, North Tonawanda, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.877103 43.0241)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 102778,
+      "geometry": "POINT (-78.772645 42.780256)",
+      "poi_name": "Mercy Hospital - Mercy Hospital Orchard Park Division",
+      "osm_id": 8457918967,
+      "amenity": "hospital",
+      "website": "https://www.chsbuffalo.org/facilities/diagnostic/mercyambulatorycarecenter",
+      "phone": "+1 716 662 0500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NY",
+      "addr_city": "Orchard Park",
+      "addr_postcode": "14127",
+      "addr_street": "Southwestern Boulevard",
+      "addr_housenumber": "3669"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "River Art Gallery & Gifts, North Tonawanda, NY",
+      "geo_wkt": "POINT (-78.877103 43.0241)",
+      "poi": {
+        "id": 11360,
+        "geometry": "POINT (-78.877103 43.0241)",
+        "poi_name": "River Art Gallery & Gifts",
+        "osm_id": 9947842239,
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "North Tonawanda",
+        "addr_postcode": "14120",
+        "addr_street": "Webster Street",
+        "addr_housenumber": "83"
+      }
+    }
+  },
+  "id": 353,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Which stadium is closest when moving towards the southeast of Saint Thomas Hall, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.51442 37.980756)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246975,
+      "geometry": "POINT (-122.51442 37.980756)",
+      "poi_name": "Bowditch Middle School Auditorium",
+      "osm_id": 8468035653,
+      "leisure": "stadium",
+      "sport": "basketball;volleyball",
+      "addr_state": "CA",
+      "addr_city": "Foster City",
+      "addr_postcode": "94404",
+      "addr_street": "Tarpon Street",
+      "addr_housenumber": "1450"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Saint Thomas Hall, CA",
+      "geo_wkt": "POINT (-122.51442 37.980756)",
+      "poi": {
+        "id": 168221,
+        "geometry": "POINT (-122.51442 37.980756)",
+        "poi_name": "Saint Thomas Hall",
+        "osm_id": 368173066,
+        "amenity": "university",
+        "addr_state": "CA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2567,
+  "type": "knn:direction+name"
+}

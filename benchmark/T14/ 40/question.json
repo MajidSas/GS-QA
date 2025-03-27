@@ -1,0 +1,75 @@
+{
+  "question": "Could you assist me in locating an emergency hospital within a 190 kilometers radius originating from the Farm at Walnut Creek, Sugarcreek, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.737201 40.522778)',4326)::geography, 190000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 64505,
+      "geometry": "POINT (-81.605748 41.504861)",
+      "poi_name": "UH Rainbow Babies & Children\u2019s Hospital",
+      "osm_id": 5656050761,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "University Hospitals",
+      "website": "https://www.uhhospitals.org/rainbow",
+      "phone": "+1 216 844 5437",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7284577",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44106",
+      "addr_street": "Adelbert Road",
+      "addr_housenumber": "2101"
+    },
+    {
+      "id": 167360,
+      "geometry": "POINT (-81.004 39.558666)",
+      "poi_name": "Sistersville General Hospital",
+      "osm_id": 356530866,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.sistersvillehospital.com/",
+      "phone": "+1 304 652 2611",
+      "emergency": "yes",
+      "addr_city": "Sistersville",
+      "addr_postcode": "26175",
+      "addr_street": "South Wells Street",
+      "addr_housenumber": "314"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "The Farm at Walnut Creek, Sugarcreek, OH",
+      "geo_wkt": "POINT (-81.737201 40.522778)",
+      "poi": {
+        "id": 24839,
+        "geometry": "POINT (-81.737201 40.522778)",
+        "poi_name": "The Farm at Walnut Creek",
+        "osm_id": 4341174209,
+        "tourism": "zoo",
+        "opening_hours": "08:30-18:00",
+        "website": "https://thefarmatwalnutcreek.com/",
+        "addr_state": "OH",
+        "addr_city": "Sugarcreek",
+        "addr_postcode": "44681",
+        "addr_street": "CR 114",
+        "addr_housenumber": "4147"
+      }
+    }
+  },
+  "id": 439,
+  "type": "range:non_spat_filter+loc"
+}

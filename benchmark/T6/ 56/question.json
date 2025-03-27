@@ -1,0 +1,45 @@
+{
+  "question": "What is the nearest art museum from Tank Masters, Pennsburg, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'art'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8326,
+      "geometry": "POINT (-75.148381 39.948784)",
+      "poi_name": "Portrait Gallery in the Second Bank",
+      "osm_id": 6625307586,
+      "tourism": "museum",
+      "operator": "National Park Service",
+      "website": "https://www.nps.gov/inde/planyourvisit/secondbankportraitgallery.htm",
+      "museum": "art"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    }
+  },
+  "id": 655,
+  "type": "knn:non_spat_filter+name"
+}

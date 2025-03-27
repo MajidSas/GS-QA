@@ -1,0 +1,63 @@
+{
+  "question": "Which nature reserve is available within 100 kilometers in the northeast direction of the Dinosaur Place at Nature's Art Village, Montville, CT?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography, 100000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 246002,
+      "geometry": "POINT (-72.222926 41.432518)",
+      "poi_name": "Wolf Hill Forest Preserve",
+      "osm_id": 5422164134,
+      "leisure": "nature_reserve",
+      "website": "https://exploreri.org/",
+      "addr_state": "RI",
+      "addr_city": "Smithfield",
+      "addr_postcode": "02917",
+      "addr_street": "Waterview Drive"
+    },
+    {
+      "id": 259693,
+      "geometry": "POINT (-72.222926 41.432518)",
+      "poi_name": "Hubbardston State Forest",
+      "osm_id": 358263799,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "poi": {
+        "id": 9051,
+        "geometry": "POINT (-72.222926 41.432518)",
+        "poi_name": "The Dinosaur Place at Nature's Art Village",
+        "osm_id": 3646707526,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-dusk",
+        "website": "www.naturesartvillage.com",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2664,
+  "type": "range:direction+name"
+}

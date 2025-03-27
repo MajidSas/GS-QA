@@ -1,0 +1,50 @@
+{
+  "question": "What is the motto of the nearest university from the Lake House, East Springfield, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.433908 41.993983)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 133663,
+      "geometry": "POINT (-80.086729 42.128105)",
+      "poi_name": "Gannon University",
+      "osm_id": 10003127082,
+      "amenity": "university",
+      "operator": "Gannon University",
+      "wikidata": "Q5521430",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16541",
+      "addr_street": "University Square",
+      "addr_housenumber": "109",
+      "multihop_answer": "Sanitas, Scientia, Sanctitas",
+      "multihop_attribute": "Motto",
+      "multihop_long_answer": "Gannon University Motto: Sanitas, Scientia, Sanctitas"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Lake House, East Springfield, PA",
+      "geo_wkt": "POINT (-80.433908 41.993983)",
+      "poi": {
+        "id": 368,
+        "geometry": "POINT (-80.433908 41.993983)",
+        "poi_name": "The Lake House",
+        "osm_id": 8338947755,
+        "tourism": "hotel",
+        "addr_state": "PA",
+        "addr_city": "East Springfield",
+        "addr_postcode": "16411",
+        "addr_street": "Old Lake Road",
+        "addr_housenumber": "12689"
+      }
+    }
+  },
+  "id": 975,
+  "type": "knn+name+multihop1"
+}

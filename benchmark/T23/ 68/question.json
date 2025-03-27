@@ -1,0 +1,36 @@
+{
+  "question": "In the vicinity of Bellfountain County Park, OR, within 180 kilometers, how many zoos are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.375116 44.365136)',4326)::geography, 180000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Bellfountain County Park, OR",
+      "geo_wkt": "POINT (-123.375116 44.365136)",
+      "poi": {
+        "id": 253811,
+        "geometry": "POINT (-123.375116 44.365136)",
+        "poi_name": "Bellfountain County Park",
+        "osm_id": 357277196,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 2267,
+  "type": "range+count"
+}

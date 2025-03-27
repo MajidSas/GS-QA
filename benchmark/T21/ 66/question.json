@@ -1,0 +1,89 @@
+{
+  "question": "In which direction should I proceed to reach a stadium from Lake Health Beachwood Medical Center, Beachwood, OH within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.499007 41.464971)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.499007 41.464971)',4326)::geography, 90000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 245680,
+      "geometry": "POINT (-82.184369 41.446695)",
+      "poi_name": "George Daniel Field",
+      "osm_id": 3386225944,
+      "leisure": "stadium",
+      "angle": 268.19681241130286
+    },
+    {
+      "id": 246704,
+      "geometry": "POINT (-81.332139 41.698458)",
+      "poi_name": "Mentor Civic Arena",
+      "osm_id": 8842654476,
+      "leisure": "stadium",
+      "operator": "City of Mentor",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Munson Road",
+      "addr_housenumber": "8600",
+      "angle": 28.162733350254317
+    },
+    {
+      "id": 247332,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "North Olmsted Recreation Center",
+      "osm_id": 8944513246,
+      "leisure": "stadium",
+      "operator": "City of North Olmsted",
+      "addr_state": "OH",
+      "addr_city": "North Olmsted",
+      "addr_postcode": "44070",
+      "addr_street": "Lorain Road",
+      "addr_housenumber": "26000",
+      "angle": 262.4948349103107
+    },
+    {
+      "id": 247265,
+      "geometry": "POINT (-81.758046 41.416012)",
+      "poi_name": "Barons Bus Arena",
+      "osm_id": 8888267688,
+      "leisure": "stadium",
+      "addr_state": "OH",
+      "addr_city": "Parma",
+      "addr_postcode": "44129",
+      "addr_street": "Hauserman Road",
+      "addr_housenumber": "5310",
+      "angle": 255.98647304210675
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Lake Health Beachwood Medical Center, Beachwood, OH",
+      "geo_wkt": "POINT (-81.499007 41.464971)",
+      "poi": {
+        "id": 182757,
+        "geometry": "POINT (-81.499007 41.464971)",
+        "poi_name": "Lake Health Beachwood Medical Center",
+        "osm_id": 10904088785,
+        "amenity": "hospital",
+        "website": "https://lakehealth.org/location/beachwood-medical-center",
+        "phone": "+1 440 375 8700",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Beachwood",
+        "addr_postcode": "44122",
+        "addr_street": "Chagrin Boulevard",
+        "addr_housenumber": "25501"
+      }
+    }
+  },
+  "id": 1065,
+  "type": "range+angle"
+}

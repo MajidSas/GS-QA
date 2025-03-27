@@ -1,0 +1,53 @@
+{
+  "question": "Where's the nearest restaurant located in the north of Sautee Mountain Retreat, Clarkesville, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.632508 34.709056)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123074,
+      "geometry": "POINT (-83.632508 34.709056)",
+      "poi_name": "The Happy Hawg BBQ",
+      "osm_id": 6833676143,
+      "amenity": "restaurant",
+      "phone": "(828) 321-2900",
+      "addr_state": "NC",
+      "addr_city": "Andrews",
+      "addr_postcode": "28901",
+      "addr_street": "Main Street",
+      "addr_housenumber": "1130"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Sautee Mountain Retreat, Clarkesville, GA",
+      "geo_wkt": "POINT (-83.632508 34.709056)",
+      "poi": {
+        "id": 11056,
+        "geometry": "POINT (-83.632508 34.709056)",
+        "poi_name": "Sautee Mountain Retreat",
+        "osm_id": 9838813375,
+        "tourism": "hotel",
+        "website": "https://www.sauteemountainretreat.com/",
+        "internet_access": "wlan",
+        "phone": "+1-404-985-7859",
+        "addr_state": "GA",
+        "addr_city": "Clarkesville",
+        "addr_postcode": "30523",
+        "addr_street": "Georgia 255",
+        "addr_housenumber": "595"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1174,
+  "type": "knn:direction+loc"
+}

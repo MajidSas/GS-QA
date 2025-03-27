@@ -1,0 +1,52 @@
+{
+  "question": "Could you tell me the closest aquarium relative to the stadium that was constructed in 1936 in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25908,
+      "geometry": "POINT (-93.240076 44.854752)",
+      "poi_name": "SEA LIFE Minnesota Aquarium",
+      "osm_id": 5739830095,
+      "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+      "operator": "Merlin Entertainments'",
+      "website": "https://www.visitsealife.com/minnesota/",
+      "phone": "+1-952-883-0202",
+      "addr_state": "MN",
+      "addr_city": "Bloomington",
+      "addr_postcode": "55425",
+      "addr_street": "East Broadway",
+      "addr_housenumber": "120"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2786,
+  "type": "knn+name+multihop2"
+}

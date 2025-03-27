@@ -1,0 +1,164 @@
+{
+  "question": "Within a radius of 190 kilometers, where can I find  a hotel along the way to Watercrest Senior Living, Myrtle Beach, SC from Myrtle Beach Safari Wild Encounters Tour, SC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography, ST_GeomFromText('POINT (-78.843021 33.745556)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography, 190000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 6888,
+      "geometry": "POINT (-78.77801 33.767694)",
+      "poi_name": "Embassy Suites by Hilton Myrtle Beach Oceanfront Resort",
+      "osm_id": 8746300535,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.hilton.com/en/hotels/myreses-embassy-suites-myrtle-beach-oceanfront-resort/",
+      "internet_access": "yes",
+      "phone": "+1-843-449-0006",
+      "official_name": "Embassy Suites by Hilton",
+      "addr_state": "SC",
+      "addr_city": "Myrtle Beach",
+      "addr_postcode": "29572",
+      "addr_street": "Queensway Boulevard",
+      "addr_housenumber": "9800",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 9898,
+      "geometry": "POINT (-77.948002 34.23634)",
+      "poi_name": "Hell's Kitchen",
+      "osm_id": 9048816919,
+      "tourism": "hotel",
+      "addr_state": "NC",
+      "addr_city": "Wilmington",
+      "addr_postcode": "28401",
+      "addr_street": "Princess Street",
+      "addr_housenumber": "118",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 11754,
+      "geometry": "POINT (-78.437512 33.889087)",
+      "poi_name": "Causeway Inn",
+      "osm_id": 11525306146,
+      "tourism": "hotel",
+      "website": "https://www.sloanevacations.com/resort/causeway-inn",
+      "addr_city": "Ocean Isle Beach",
+      "addr_postcode": "28469",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 12230,
+      "geometry": "POINT (-78.863837 33.705562)",
+      "poi_name": "Sea Dip Motel & Condominium Family Resort",
+      "osm_id": 6246015255,
+      "tourism": "hotel",
+      "opening_hours": "24/7",
+      "website": "https://www.seadip.com/",
+      "phone": "+1 843-448-7971",
+      "addr_state": "SC",
+      "addr_city": "Myrtle Beach",
+      "addr_postcode": "29577",
+      "addr_street": "North Ocean Boulevard",
+      "addr_housenumber": "2608",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 13351,
+      "geometry": "POINT (-78.928013 33.701763)",
+      "poi_name": "Hilton Garden Inn Myrtle Beach/Coastal Grand Mall",
+      "osm_id": 4087904987,
+      "tourism": "hotel",
+      "addr_state": "SC",
+      "addr_city": "Myrtle Beach",
+      "addr_postcode": "29577",
+      "addr_street": "Coastal Grand Circle",
+      "addr_housenumber": "2383",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 13606,
+      "geometry": "POINT (-77.931701 34.189069)",
+      "poi_name": "Value Place Wilmington",
+      "osm_id": 4120911325,
+      "tourism": "hotel",
+      "addr_state": "NC",
+      "addr_city": "Wilmington",
+      "addr_postcode": "28412",
+      "addr_street": "Carolina Beach Road",
+      "addr_housenumber": "2657",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 25905,
+      "geometry": "POINT (-78.78648 33.761876)",
+      "poi_name": "Maisons-Sur-Mer",
+      "osm_id": 5739828744,
+      "tourism": "hotel",
+      "addr_city": "Myrtle Beach",
+      "value": 65.37569264110607
+    },
+    {
+      "id": 25826,
+      "geometry": "POINT (-77.89455 34.034896)",
+      "poi_name": "Carolina Beach Inn",
+      "osm_id": 4616135786,
+      "tourism": "hotel",
+      "website": "https://carolinabeachinn.com/",
+      "phone": "+1-910-622-8393",
+      "addr_state": "NC",
+      "addr_city": "Carolina Beach",
+      "addr_postcode": "28428",
+      "addr_street": "Harper Avenue",
+      "addr_housenumber": "205",
+      "value": 65.37569264110607
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Myrtle Beach Safari Wild Encounters Tour, SC",
+      "geo_wkt": "POINT (-78.971427 33.696456)",
+      "poi": {
+        "id": 10262,
+        "geometry": "POINT (-78.971427 33.696456)",
+        "poi_name": "Myrtle Beach Safari Wild Encounters Tour",
+        "osm_id": 6762935375,
+        "tourism": "zoo",
+        "website": "https://myrtlebeachsafari.com",
+        "phone": "+1 843-361-4552",
+        "addr_state": "SC",
+        "addr_postcode": "29588",
+        "addr_street": "Folly Ranch Lane"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Watercrest Senior Living, Myrtle Beach, SC",
+      "geo_wkt": "POINT (-78.843021 33.745556)",
+      "poi": {
+        "id": 77136,
+        "geometry": "POINT (-78.843021 33.745556)",
+        "poi_name": "Watercrest Senior Living",
+        "osm_id": 9808902356,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "SC",
+        "addr_city": "Myrtle Beach",
+        "addr_postcode": "29572",
+        "addr_street": "Colline Verde Way",
+        "addr_housenumber": "6151"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1200,
+  "type": "range:towards+loc"
+}

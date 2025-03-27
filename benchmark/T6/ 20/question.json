@@ -1,0 +1,55 @@
+{
+  "question": "What is the nearest emergency hospital from Chopper's Lawn Equipment, Kissimmee, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 135749,
+      "geometry": "POINT (-81.478832 28.429229)",
+      "poi_name": "Orlando Health Dr. P. Phillips Hospital",
+      "osm_id": 11534665333,
+      "amenity": "hospital",
+      "operator": "Orlando Health",
+      "website": "https://orlandohealth.com",
+      "phone": "+1-407-351-8500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32819",
+      "addr_street": "Turkey Lake Road",
+      "addr_housenumber": "9400"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Chopper's Lawn Equipment, Kissimmee, FL",
+      "geo_wkt": "POINT (-81.327543 28.262181)",
+      "poi": {
+        "id": 246454,
+        "geometry": "POINT (-81.327543 28.262181)",
+        "poi_name": "Chopper's Lawn Equipment",
+        "osm_id": 9684453306,
+        "leisure": "garden",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "website": "https://chopperslawnequipment.com",
+        "phone": "+1-407-891-8990",
+        "addr_state": "FL",
+        "addr_city": "Kissimmee",
+        "addr_postcode": "34744",
+        "addr_street": "Big Sky Boulevard",
+        "addr_housenumber": "2899"
+      }
+    }
+  },
+  "id": 619,
+  "type": "knn:non_spat_filter+name"
+}

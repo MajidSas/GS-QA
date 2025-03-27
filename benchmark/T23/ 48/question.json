@@ -1,0 +1,46 @@
+{
+  "question": "Within a 130 kilometers distance from AdventHealth Orlando Emergency Room, Orlando, FL, how many zoos are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.36921 28.573543)',4326)::geography, 130000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 8
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "AdventHealth Orlando Emergency Room, Orlando, FL",
+      "geo_wkt": "POINT (-81.36921 28.573543)",
+      "poi": {
+        "id": 137081,
+        "geometry": "POINT (-81.36921 28.573543)",
+        "poi_name": "AdventHealth Orlando Emergency Room",
+        "osm_id": 6085146755,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "AdventHealth",
+        "website": "https://adventhealth.com",
+        "phone": "+1-407-303-1940",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "FL",
+        "addr_city": "Orlando",
+        "addr_postcode": "32803",
+        "addr_street": "East Rollins Street",
+        "addr_housenumber": "601"
+      }
+    }
+  },
+  "id": 2247,
+  "type": "range+count"
+}

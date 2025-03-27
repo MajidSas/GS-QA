@@ -1,0 +1,56 @@
+{
+  "question": "Is it possible to locate a fish restaurant, preferably within 120 kilometers from University of Tennessee Martin - Somerville Center, Somerville, TN?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.363845 35.246976)',4326)::geography, 120000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fish%';\n",
+  "answers": [
+    {
+      "id": 134340,
+      "geometry": "POINT (-88.86748 35.694144)",
+      "poi_name": "Brooksies Barn",
+      "osm_id": 11464637510,
+      "amenity": "restaurant",
+      "cuisine": "buffet;southern;country;regional;salad;fish",
+      "opening_hours": "Mo-Th 11:00-14:00,17:00-20:00; Fr 11:00-14:00,17:00-20:30; Sa 11:00-20:30; Su 11:00-14:00",
+      "website": "https://www.facebook.com/brooksiesbarn",
+      "phone": "+1 731-664-2276",
+      "addr_state": "TN",
+      "addr_city": "Jackson",
+      "addr_postcode": "38305",
+      "addr_street": "Oil Well Rd",
+      "addr_housenumber": "561 Oil Well Rd"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fish restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fish%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Tennessee Martin - Somerville Center, Somerville, TN",
+      "geo_wkt": "POINT (-89.363845 35.246976)",
+      "poi": {
+        "id": 183011,
+        "geometry": "POINT (-89.363845 35.246976)",
+        "poi_name": "University of Tennessee Martin - Somerville Center",
+        "osm_id": 10914143539,
+        "amenity": "university",
+        "website": "https://www.utm.edu/academics/somerville-center/",
+        "addr_state": "TN",
+        "addr_city": "Somerville",
+        "addr_postcode": "38068",
+        "addr_street": "Lakeview Drive",
+        "addr_housenumber": "214"
+      }
+    }
+  },
+  "id": 463,
+  "type": "range:non_spat_filter+loc"
+}

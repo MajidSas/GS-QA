@@ -1,0 +1,53 @@
+{
+  "question": "Which university is closest in the northwest direction of Bresnan Arena, Mankato, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 113854,
+      "geometry": "POINT (-93.995655 44.145616)",
+      "poi_name": "Shannon Point Marine Center",
+      "osm_id": 3850931477,
+      "amenity": "university",
+      "operator": "Western Washington University",
+      "website": "https://www.wwu.edu/spmc",
+      "phone": "1-360-650-7400",
+      "wikidata": "Q284777",
+      "addr_city": "Anacortes",
+      "addr_postcode": "98221",
+      "addr_street": "Shannon Point Road",
+      "addr_housenumber": "1900"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
+      "poi": {
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2566,
+  "type": "knn:direction+name"
+}

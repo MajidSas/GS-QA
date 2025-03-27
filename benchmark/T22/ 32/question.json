@@ -1,0 +1,37 @@
+{
+  "question": "In which direction can I find the closest garden from Strome County Park, OR?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.972218 44.814077)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-123.972218 44.814077)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246941,
+      "geometry": "POINT (-123.369041 44.542167)",
+      "poi_name": "Pioneer Park Rock Garden",
+      "osm_id": 6620932831,
+      "leisure": "garden",
+      "angle": 122.07311077063977
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Strome County Park, OR",
+      "geo_wkt": "POINT (-123.972218 44.814077)",
+      "poi": {
+        "id": 254037,
+        "geometry": "POINT (-123.972218 44.814077)",
+        "poi_name": "Strome County Park",
+        "osm_id": 357319093,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1431,
+  "type": "knn+angle"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "How many hospitals are available within 80 kilometers from Rhododendron Species Botanical Garden, Federal Way, WA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.302257 47.292739)',4326)::geography, 80000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Rhododendron Species Botanical Garden, Federal Way, WA",
+      "geo_wkt": "POINT (-122.302257 47.292739)",
+      "poi": {
+        "id": 248648,
+        "geometry": "POINT (-122.302257 47.292739)",
+        "poi_name": "Rhododendron Species Botanical Garden",
+        "osm_id": 4721258058,
+        "leisure": "garden",
+        "website": "https://rhodygarden.org/",
+        "addr_state": "WA",
+        "addr_city": "Federal Way",
+        "addr_postcode": "98003",
+        "addr_street": "South 336th Street",
+        "addr_housenumber": "2525"
+      }
+    }
+  },
+  "id": 2289,
+  "type": "range+count"
+}

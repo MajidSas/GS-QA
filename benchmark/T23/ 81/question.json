@@ -1,0 +1,41 @@
+{
+  "question": "Within a 70 kilometers distance from William V. Banks Broadcast Museum & Media Center, Detroit, MI, how many hotels are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.016864 42.340379)',4326)::geography, 70000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "count": 22
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "William V. Banks Broadcast Museum & Media Center, Detroit, MI",
+      "geo_wkt": "POINT (-83.016864 42.340379)",
+      "poi": {
+        "id": 9671,
+        "geometry": "POINT (-83.016864 42.340379)",
+        "poi_name": "William V. Banks Broadcast Museum & Media Center",
+        "osm_id": 8920434600,
+        "tourism": "museum",
+        "website": "https://wgprmuseum.org/",
+        "addr_state": "MI",
+        "addr_city": "Detroit",
+        "addr_postcode": "48207",
+        "addr_street": "Jefferson Avenue East",
+        "addr_housenumber": "3146"
+      }
+    }
+  },
+  "id": 2280,
+  "type": "range+count"
+}

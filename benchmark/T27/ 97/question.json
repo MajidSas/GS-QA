@@ -1,0 +1,32 @@
+{
+  "question": "What is the total area of all lakes in Franklin Township, Clare County, Michigan?",
+  "sql": "SELECT SUM(ST_Area(lakes.geometry::geography)) AS area FROM lakes\nWHERE water = 'lake'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-84.728346 44.075473, -84.728777 44.16078, -84.609995 44.160487, -84.607994 44.160516, -84.606872 44.075899, -84.728346 44.075473))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 250523.42941332236
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "water",
+      "sub_category": "lake",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Franklin Township, Clare County, Michigan",
+      "geo_wkt": "POLYGON ((-84.728346 44.075473, -84.728777 44.16078, -84.609995 44.160487, -84.607994 44.160516, -84.606872 44.075899, -84.728346 44.075473))",
+      "region": {
+        "id": 18626,
+        "geometry": "POLYGON ((-84.728346 44.075473, -84.728777 44.16078, -84.609995 44.160487, -84.607994 44.160516, -84.606872 44.075899, -84.728346 44.075473))",
+        "region_name": "Franklin Township",
+        "border_type": "township",
+        "wikidata": "Q5491916",
+        "wikipedia": "en:Franklin Township, Clare County, Michigan",
+        "admin_level": "7"
+      }
+    }
+  },
+  "id": 2196,
+  "type": "intersects:area_total+area"
+}

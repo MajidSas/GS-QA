@@ -1,0 +1,67 @@
+{
+  "question": "What is the nearest museum as you head towards Oscar G. Johnson Veterans Affairs Medical Center, Iron Mountain, MI from Little Lake Nature Preserve, Washington Island, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography, ST_GeomFromText('POINT (-88.061478 45.810283)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17590,
+      "geometry": "POINT (-87.607222 45.709167)",
+      "poi_name": "IXL Historical Museum",
+      "osm_id": 367816239,
+      "tourism": "museum",
+      "wikidata": "Q5975712",
+      "addr_state": "MI",
+      "value": 297.0132292380829
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Little Lake Nature Preserve, Washington Island, WI",
+      "geo_wkt": "POINT (-86.936008 45.41454)",
+      "poi": {
+        "id": 248110,
+        "geometry": "POINT (-86.936008 45.41454)",
+        "poi_name": "Little Lake Nature Preserve",
+        "osm_id": 6346545339,
+        "leisure": "nature_reserve",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/little-lake-nature-preserve-3/",
+        "addr_state": "WI",
+        "addr_city": "Washington Island",
+        "addr_postcode": "54246",
+        "addr_street": "Main Road",
+        "addr_housenumber": "2285"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oscar G. Johnson Veterans Affairs Medical Center, Iron Mountain, MI",
+      "geo_wkt": "POINT (-88.061478 45.810283)",
+      "poi": {
+        "id": 167301,
+        "geometry": "POINT (-88.061478 45.810283)",
+        "poi_name": "Oscar G. Johnson Veterans Affairs Medical Center",
+        "osm_id": 354015776,
+        "amenity": "hospital",
+        "website": "https://www.ironmountain.va.gov/",
+        "phone": "+1-906-774-3300",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "MI",
+        "addr_city": "Iron Mountain",
+        "addr_postcode": "49801",
+        "addr_street": "East H Street",
+        "addr_housenumber": "325"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 121,
+  "type": "knn:towards+name"
+}

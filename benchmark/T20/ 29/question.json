@@ -1,0 +1,75 @@
+{
+  "question": "Where's the closest fast food restaurant on the route to Hyatt Place, Amherst, NY from Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, ST_GeomFromText('POINT (-78.769607 42.960826)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 83919,
+      "geometry": "POINT (-78.964658 43.024314)",
+      "poi_name": "Subway",
+      "osm_id": 1770769552,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "operator": "Doctor's Associates",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "NY",
+      "addr_city": "Grand Island",
+      "addr_postcode": "14072",
+      "addr_street": "Grand Island Boulevard",
+      "addr_housenumber": "2287",
+      "value": 112.76315084782675
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hyatt Place, Amherst, NY",
+      "geo_wkt": "POINT (-78.769607 42.960826)",
+      "poi": {
+        "id": 22642,
+        "geometry": "POINT (-78.769607 42.960826)",
+        "poi_name": "Hyatt Place",
+        "osm_id": 7191333605,
+        "tourism": "hotel",
+        "website": "https://www.hyatt.com/en-US/hotel/new-york/hyatt-place-buffalo-amherst/bufza?src=corp_lclb_gmb_seo_nam_bufza",
+        "internet_access": "wlan",
+        "phone": "+1-716-839-4040",
+        "addr_state": "NY",
+        "addr_city": "Amherst",
+        "addr_postcode": "14226",
+        "addr_street": "Main Street",
+        "addr_housenumber": "5020"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1328,
+  "type": "knn:towards+loc"
+}

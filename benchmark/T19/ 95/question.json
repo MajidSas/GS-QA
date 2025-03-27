@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest attraction positioned towards the southwest of Walter R Wilson Agricultural Arena, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.860422 31.545917)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24965,
+      "geometry": "POINT (-82.860422 31.545917)",
+      "poi_name": "Frogtown Cellars Hahira Tasting Room",
+      "osm_id": 4362122222,
+      "amenity": "cafe",
+      "cuisine": "sandwich",
+      "tourism": "attraction",
+      "opening_hours": "Mo-Th 12:00-18:00; Fr 12:00-22:00; Sa 12:00-18:00; Su 12:30-18:00",
+      "operator": "Frogtown Cellars",
+      "website": "http://frogtown.us/",
+      "internet_access": "no",
+      "phone": "+1 (229) 794-1600",
+      "addr_state": "GA",
+      "addr_city": "Hahira",
+      "addr_postcode": "31632",
+      "addr_street": "Union Road",
+      "addr_housenumber": "7495"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Walter R Wilson Agricultural Arena, GA",
+      "geo_wkt": "POINT (-82.860422 31.545917)",
+      "poi": {
+        "id": 265383,
+        "geometry": "POINT (-82.860422 31.545917)",
+        "poi_name": "Walter R Wilson Agricultural Arena",
+        "osm_id": 367915663,
+        "leisure": "stadium",
+        "addr_state": "GA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1194,
+  "type": "knn:direction+loc"
+}

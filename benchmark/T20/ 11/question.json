@@ -1,0 +1,70 @@
+{
+  "question": "Where is the closest restaurant from Select Specialty Hospital - Boardman, Boardman, OH towards Summit Metro Parks Treaty Line Area, Akron, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography, ST_GeomFromText('POINT (-81.547162 41.127353)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 69266,
+      "geometry": "POINT (-80.66194 41.004842)",
+      "poi_name": "Garden Kettle",
+      "osm_id": 11298739751,
+      "amenity": "restaurant",
+      "addr_state": "OH",
+      "addr_city": "Boardman",
+      "addr_postcode": "44512",
+      "addr_street": "Market Street",
+      "addr_housenumber": "8049",
+      "value": 280.3148781756787
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Select Specialty Hospital - Boardman, Boardman, OH",
+      "geo_wkt": "POINT (-80.632972 41.005169)",
+      "poi": {
+        "id": 182772,
+        "geometry": "POINT (-80.632972 41.005169)",
+        "poi_name": "Select Specialty Hospital - Boardman",
+        "osm_id": 10904111646,
+        "amenity": "hospital",
+        "website": "https://www.selectspecialtyhospitals.com/locations-and-tours/oh/youngstown/boardman/",
+        "phone": "+1 330 726 5000",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Boardman",
+        "addr_postcode": "44512",
+        "addr_street": "South Avenue",
+        "addr_housenumber": "8049"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Summit Metro Parks Treaty Line Area, Akron, OH",
+      "geo_wkt": "POINT (-81.547162 41.127353)",
+      "poi": {
+        "id": 267403,
+        "geometry": "POINT (-81.547162 41.127353)",
+        "poi_name": "Summit Metro Parks Treaty Line Area",
+        "osm_id": 5972884372,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 06:00-21:00",
+        "operator": "Summit Metro Parks",
+        "website": "https://www.summitmetroparks.org/sand-run-metro-park.aspx",
+        "addr_state": "OH",
+        "addr_city": "Akron",
+        "addr_postcode": "44313",
+        "addr_street": "Treaty Line Road",
+        "addr_housenumber": "995"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1310,
+  "type": "knn:towards+loc"
+}

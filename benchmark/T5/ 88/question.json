@@ -1,0 +1,44 @@
+{
+  "question": "Any recommendations for the closest attraction from Valley Recovery Center of California, Sacramento, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-121.414332 38.575175)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10232,
+      "geometry": "POINT (-121.50042 38.540154)",
+      "poi_name": "Three Little Pigs",
+      "osm_id": 6754565024,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Valley Recovery Center of California, Sacramento, CA",
+      "geo_wkt": "POINT (-121.414332 38.575175)",
+      "poi": {
+        "id": 149250,
+        "geometry": "POINT (-121.414332 38.575175)",
+        "poi_name": "Valley Recovery Center of California",
+        "osm_id": 4001273234,
+        "amenity": "hospital",
+        "operator": "Summit Behavioral Healthcare",
+        "website": "https://valleyrecovery.com/",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CA",
+        "addr_city": "Sacramento",
+        "addr_postcode": "95825",
+        "addr_street": "Fair Oaks Boulevard",
+        "addr_housenumber": "2221"
+      }
+    }
+  },
+  "id": 287,
+  "type": "knn+name"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "When was the nearest university from Veterans Memorial Museum, Branson, MO established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.241187 36.639687)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167574,
+      "geometry": "POINT (-93.27851 37.19858)",
+      "poi_name": "Missouri State University",
+      "osm_id": 358042354,
+      "amenity": "university",
+      "wheelchair": "yes",
+      "website": "https://www.missouristate.edu/",
+      "phone": "+1 417 836 5000",
+      "wikidata": "Q1249251",
+      "addr_state": "MO",
+      "addr_city": "Springfield",
+      "addr_postcode": "65807",
+      "addr_street": "South National Avenue",
+      "addr_housenumber": "901",
+      "multihop_answer": "1905",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Missouri State University Established: 1905"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Veterans Memorial Museum, Branson, MO",
+      "geo_wkt": "POINT (-93.241187 36.639687)",
+      "poi": {
+        "id": 764,
+        "geometry": "POINT (-93.241187 36.639687)",
+        "poi_name": "Veterans Memorial Museum",
+        "osm_id": 2672374644,
+        "tourism": "museum",
+        "website": "http://www.veteransmemorialbranson.com/",
+        "phone": "417-336-2300",
+        "addr_state": "MO",
+        "addr_city": "Branson",
+        "addr_postcode": "65616",
+        "addr_street": "West 76 Country Boulevard",
+        "addr_housenumber": "1250"
+      }
+    }
+  },
+  "id": 921,
+  "type": "knn+name+multihop1"
+}

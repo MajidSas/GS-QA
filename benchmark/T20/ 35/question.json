@@ -1,0 +1,74 @@
+{
+  "question": "Where is the nearest fast food restaurant as you head towards Lions Club Park, Oconee, IL from Malibu Jack's, Springfield, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, ST_GeomFromText('POINT (-89.109338 39.288623)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 150299,
+      "geometry": "POINT (-89.70215 39.764596)",
+      "poi_name": "Chick-fil-A",
+      "osm_id": 4049260597,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "opening_hours": "Mo-Sa 06:30-22:00",
+      "website": "https://www.chick-fil-a.com/locations/il/white-oaks",
+      "phone": "+1-217-546-2000",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2431",
+      "value": 135.87743245763852
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lions Club Park, Oconee, IL",
+      "geo_wkt": "POINT (-89.109338 39.288623)",
+      "poi": {
+        "id": 246028,
+        "geometry": "POINT (-89.109338 39.288623)",
+        "poi_name": "Lions Club Park",
+        "osm_id": 5474510779,
+        "leisure": "park",
+        "addr_state": "IL",
+        "addr_city": "Oconee",
+        "addr_postcode": "62553",
+        "addr_street": "North 2nd Street"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1334,
+  "type": "knn:towards+loc"
+}

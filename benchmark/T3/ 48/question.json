@@ -1,0 +1,65 @@
+{
+  "question": "What hospital is in the direction of northwest from Big Springs Park - Historic Cherokee Trail of Tears, Princeton, KY, within a radius of 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.881135 37.107487)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.881135 37.107487)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 100090,
+      "geometry": "POINT (-87.881135 37.107487)",
+      "poi_name": "health department",
+      "osm_id": 6573657514,
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    },
+    {
+      "id": 199507,
+      "geometry": "POINT (-87.881135 37.107487)",
+      "poi_name": "Mulberry Center",
+      "osm_id": 967238288,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.harrisburgmc.com/services/behavioral-health-services/",
+      "phone": "+1-618-252-0999",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "IL",
+      "addr_city": "Harrisburg",
+      "addr_postcode": "62946",
+      "addr_street": "Dr. Warren Tuttle Drive",
+      "addr_housenumber": "100"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Big Springs Park - Historic Cherokee Trail of Tears, Princeton, KY",
+      "geo_wkt": "POINT (-87.881135 37.107487)",
+      "poi": {
+        "id": 245849,
+        "geometry": "POINT (-87.881135 37.107487)",
+        "poi_name": "Big Springs Park - Historic Cherokee Trail of Tears",
+        "osm_id": 10189140322,
+        "leisure": "park",
+        "addr_state": "KY",
+        "addr_city": "Princeton",
+        "addr_postcode": "42445",
+        "addr_street": "East Washington Street"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2647,
+  "type": "range:direction+name"
+}

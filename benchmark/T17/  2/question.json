@@ -1,0 +1,49 @@
+{
+  "question": "Do you know where the closest aquarium from Lundy Fetterman Museum, Buies Creek, NC is located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.742417 35.412466)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24624,
+      "geometry": "POINT (-78.589533 35.200429)",
+      "poi_name": "Taylor's Aquarium",
+      "osm_id": 11141985607,
+      "tourism": "aquarium",
+      "phone": "+19105675377",
+      "addr_state": "NC",
+      "addr_city": "Dunn",
+      "addr_postcode": "28334",
+      "addr_street": "North Spring Branch Road",
+      "addr_housenumber": "590"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lundy Fetterman Museum, Buies Creek, NC",
+      "geo_wkt": "POINT (-78.742417 35.412466)",
+      "poi": {
+        "id": 8508,
+        "geometry": "POINT (-78.742417 35.412466)",
+        "poi_name": "Lundy Fetterman Museum",
+        "osm_id": 8514909706,
+        "description": "Inside the Lundy Fetterman School of Business.  Open to the public Mondays and Wednesdays.",
+        "tourism": "museum",
+        "website": "https://library.campbell.edu/lundy-fetterman-museum",
+        "wikidata": "Q113484095",
+        "addr_state": "NC",
+        "addr_city": "Buies Creek",
+        "addr_postcode": "27506",
+        "addr_street": "Dr McKoy Road",
+        "addr_housenumber": "165"
+      }
+    }
+  },
+  "id": 1801,
+  "type": "knn+loc"
+}

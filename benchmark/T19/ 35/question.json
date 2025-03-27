@@ -1,0 +1,58 @@
+{
+  "question": "Where is the nearest restaurant towards the northeast of Maxwell Inn, Estes Park, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.532562 40.378335)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 164844,
+      "geometry": "POINT (-105.532562 40.378335)",
+      "poi_name": "Yung's Chinese Take Out",
+      "osm_id": 9502660933,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "opening_hours": "Mo-Sa 11:00-21:30; Su 16:00-21:00",
+      "website": "https://www.yungschinese.com/",
+      "phone": "+1-970-491-9778",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "CO",
+      "addr_city": "Fort Collins",
+      "addr_postcode": "80526",
+      "addr_street": "West Drake Road",
+      "addr_housenumber": "2170"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Maxwell Inn, Estes Park, CO",
+      "geo_wkt": "POINT (-105.532562 40.378335)",
+      "poi": {
+        "id": 23810,
+        "geometry": "POINT (-105.532562 40.378335)",
+        "poi_name": "Maxwell Inn",
+        "osm_id": 9148129617,
+        "tourism": "hotel",
+        "website": "https://themaxwellinn.com/",
+        "internet_access": "wlan",
+        "phone": "+1-970-586-2833",
+        "addr_state": "CO",
+        "addr_city": "Estes Park",
+        "addr_postcode": "80517",
+        "addr_street": "West Elkhorn Avenue",
+        "addr_housenumber": "553"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1134,
+  "type": "knn:direction+loc"
+}

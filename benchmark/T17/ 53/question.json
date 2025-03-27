@@ -1,0 +1,46 @@
+{
+  "question": "Seeking the closest hotel from James C. Curry Nature Center, Canyon Lake, TX, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15252,
+      "geometry": "POINT (-98.110332 29.736087)",
+      "poi_name": "WorldMark New Braunfels",
+      "osm_id": 4837566510,
+      "tourism": "hotel",
+      "addr_state": "TX",
+      "addr_city": "New Braunfels",
+      "addr_postcode": "78130",
+      "addr_street": "Gruene Road",
+      "addr_housenumber": "1546"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
+      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "poi": {
+        "id": 246012,
+        "geometry": "POINT (-98.194766 29.848573)",
+        "poi_name": "James C. Curry Nature Center",
+        "osm_id": 5449527323,
+        "leisure": "nature_reserve",
+        "operator": "Comal County",
+        "addr_state": "TX",
+        "addr_city": "Canyon Lake",
+        "addr_postcode": "78133",
+        "addr_street": "Skyline Drive",
+        "addr_housenumber": "1889"
+      }
+    }
+  },
+  "id": 1852,
+  "type": "knn+loc"
+}

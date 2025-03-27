@@ -1,0 +1,49 @@
+{
+  "question": "Where is the nearest hospital towards the north of Knight Sports Arena, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.350197 37.74151)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167361,
+      "geometry": "POINT (-79.350197 37.74151)",
+      "poi_name": "John Manchin Senior Health Care Center",
+      "osm_id": 356534697,
+      "amenity": "hospital",
+      "operator": "West Virginia Department of Health & Human Resources",
+      "website": "http://www.dhhr.wv.gov/bhhf/facilities/John ManchinSr.HealthCareCenter/",
+      "phone": "+1 304 363 2500",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Fairmont",
+      "addr_postcode": "26554",
+      "addr_street": "Guffy Street",
+      "addr_housenumber": "401"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Knight Sports Arena, VA",
+      "geo_wkt": "POINT (-79.350197 37.74151)",
+      "poi": {
+        "id": 265386,
+        "geometry": "POINT (-79.350197 37.74151)",
+        "poi_name": "Knight Sports Arena",
+        "osm_id": 367997526,
+        "leisure": "stadium",
+        "addr_state": "VA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1120,
+  "type": "knn:direction+loc"
+}

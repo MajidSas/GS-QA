@@ -1,0 +1,50 @@
+{
+  "question": "What is the motto of the nearest university from Bastion Studios, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 133663,
+      "geometry": "POINT (-80.086729 42.128105)",
+      "poi_name": "Gannon University",
+      "osm_id": 10003127082,
+      "amenity": "university",
+      "operator": "Gannon University",
+      "wikidata": "Q5521430",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16541",
+      "addr_street": "University Square",
+      "addr_housenumber": "109",
+      "multihop_answer": "Sanitas, Scientia, Sanctitas",
+      "multihop_attribute": "Motto",
+      "multihop_long_answer": "Gannon University Motto: Sanitas, Scientia, Sanctitas"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
+      "poi": {
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
+      }
+    }
+  },
+  "id": 928,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,113 @@
+{
+  "question": "Which way should I take to get to a beach resort from L.A. FUE Hair New York, Garden City, NY within 80 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.617233 40.73664)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.617233 40.73664)',4326)::geography, 80000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 246527,
+      "geometry": "POINT (-73.97371 40.369202)",
+      "poi_name": "Surfrider Beach Club",
+      "osm_id": 9809545162,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "931",
+      "angle": 216.61777460490157
+    },
+    {
+      "id": 246528,
+      "geometry": "POINT (-73.973603 40.370824)",
+      "poi_name": "Sands Beach Club",
+      "osm_id": 9809545163,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "825",
+      "angle": 216.73042467500798
+    },
+    {
+      "id": 247124,
+      "geometry": "POINT (-73.902011 40.55766)",
+      "poi_name": "Silver Gull Beach Club",
+      "osm_id": 3575812477,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://nysilvergull.com/",
+      "angle": 230.56547864369733
+    },
+    {
+      "id": 256279,
+      "geometry": "POINT (-73.746336 40.58821)",
+      "poi_name": "Silver Point Beach Club",
+      "osm_id": 357614780,
+      "leisure": "beach_resort",
+      "website": "https://www.silverpointclub.com/index.php",
+      "wikidata": "Q34861772",
+      "angle": 213.56057461178327
+    },
+    {
+      "id": 265569,
+      "geometry": "POINT (-73.973706 40.371534)",
+      "poi_name": "Ship Ahoy Beach Club",
+      "osm_id": 2575212830,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "801",
+      "angle": 216.79150135477218
+    },
+    {
+      "id": 265570,
+      "geometry": "POINT (-73.973041 40.365235)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999",
+      "angle": 216.27330373857612
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "L.A. FUE Hair New York, Garden City, NY",
+      "geo_wkt": "POINT (-73.617233 40.73664)",
+      "poi": {
+        "id": 130670,
+        "geometry": "POINT (-73.617233 40.73664)",
+        "poi_name": "L.A. FUE Hair New York",
+        "osm_id": 9883124385,
+        "amenity": "hospital",
+        "opening_hours": "Mo-Fr 09:00-17:00",
+        "operator": "Dr. Anton Georgiev",
+        "website": "https://lafuehairnyc.com",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Garden City",
+        "addr_postcode": "11530",
+        "addr_street": "Garden City Plaza",
+        "addr_housenumber": "400"
+      }
+    }
+  },
+  "id": 1058,
+  "type": "range+angle"
+}

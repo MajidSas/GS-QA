@@ -1,0 +1,52 @@
+{
+  "question": "Where's the closest stadium located in the direction of northeast from Cambria Beach Lodge, Cambria, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.112037 35.572302)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266188,
+      "geometry": "POINT (-121.112037 35.572302)",
+      "poi_name": "Pioneer Stadium",
+      "osm_id": 598066080,
+      "leisure": "stadium",
+      "sport": "equestrian",
+      "wikidata": "Q7079951",
+      "addr_state": "UT",
+      "addr_city": "Ogden",
+      "addr_street": "17th Street",
+      "addr_housenumber": "668"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Cambria Beach Lodge, Cambria, CA",
+      "geo_wkt": "POINT (-121.112037 35.572302)",
+      "poi": {
+        "id": 21303,
+        "geometry": "POINT (-121.112037 35.572302)",
+        "poi_name": "Cambria Beach Lodge",
+        "osm_id": 1484764401,
+        "tourism": "hotel",
+        "website": "http://www.marinersinncambria.com/",
+        "phone": "+1 805 927 4624",
+        "addr_state": "CA",
+        "addr_city": "Cambria",
+        "addr_postcode": "93428",
+        "addr_street": "Moonstone Beach Drive",
+        "addr_housenumber": "6180"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1113,
+  "type": "knn:direction+loc"
+}

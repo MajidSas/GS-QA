@@ -1,0 +1,74 @@
+{
+  "question": "I need assistance in locating an emergency hospital within 170 kilometers from Persephone Park, Ceres, CA. Can you help me out?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-120.934932 37.597987)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 62192,
+      "geometry": "POINT (-122.389664 37.764772)",
+      "poi_name": "UCSF Benioff Children's Hospital San Francisco",
+      "osm_id": 5555408498,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.ucsfbenioffchildrens.org/",
+      "phone": "+1 415 353 1664",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q17031376",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94158",
+      "addr_street": "4th Street",
+      "addr_housenumber": "1975"
+    },
+    {
+      "id": 236727,
+      "geometry": "POINT (-122.255023 37.479511)",
+      "poi_name": "Sequoia Hospital",
+      "osm_id": 5805243057,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Dignity Health",
+      "website": "https://www.dignityhealth.org/bayarea/locations/sequoia",
+      "phone": "+1 650 369 5811",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7452546",
+      "addr_state": "CA",
+      "addr_city": "Redwood City",
+      "addr_postcode": "94062",
+      "addr_street": "Alameda de las Pulgas",
+      "addr_housenumber": "170"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Persephone Park, Ceres, CA",
+      "geo_wkt": "POINT (-120.934932 37.597987)",
+      "poi": {
+        "id": 263218,
+        "geometry": "POINT (-120.934932 37.597987)",
+        "poi_name": "Persephone Park",
+        "osm_id": 358835394,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Ceres",
+        "addr_postcode": "95307",
+        "addr_street": "Lunar Drive"
+      }
+    }
+  },
+  "id": 417,
+  "type": "range:non_spat_filter+loc"
+}

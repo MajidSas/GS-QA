@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a university located within 140 kilometers in the direction of south from Hasley Canyon Equestrian Center, Valencia, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography, 140000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 106494,
+      "geometry": "POINT (-118.636206 34.452191)",
+      "poi_name": "UCLA Extension",
+      "osm_id": 8682927461,
+      "amenity": "university",
+      "operator": "UCLA",
+      "website": "https://www.uclaextension.edu/locations/woodland-hills",
+      "addr_state": "CA",
+      "addr_city": "Woodland Hills",
+      "addr_postcode": "91367",
+      "addr_street": "Oxnard Street",
+      "addr_housenumber": "21650"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "poi": {
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 43,
+  "type": "range:direction+loc"
+}

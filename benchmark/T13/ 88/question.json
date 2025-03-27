@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find a zoo within 160 kilometers drive from Irish Cultural Garden, Cleveland, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography, 160000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 24839,
+      "geometry": "POINT (-81.737201 40.522778)",
+      "poi_name": "The Farm at Walnut Creek",
+      "osm_id": 4341174209,
+      "tourism": "zoo",
+      "opening_hours": "08:30-18:00",
+      "website": "https://thefarmatwalnutcreek.com/",
+      "addr_state": "OH",
+      "addr_city": "Sugarcreek",
+      "addr_postcode": "44681",
+      "addr_street": "CR 114",
+      "addr_housenumber": "4147"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Irish Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "poi": {
+        "id": 247028,
+        "geometry": "POINT (-81.621886 41.522378)",
+        "poi_name": "Irish Cultural Garden",
+        "osm_id": 8567373881,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1201"
+      }
+    }
+  },
+  "id": 2087,
+  "type": "range+loc"
+}

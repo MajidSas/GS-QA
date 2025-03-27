@@ -1,0 +1,64 @@
+{
+  "question": "I'm searching for a nature reserve within 170 kilometers radius from Arrowhead Pine Rose Cabins, Twin Peaks, CA, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.236944 34.238235)',4326)::geography, 170000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 247638,
+      "geometry": "POINT (-116.62249 33.374661)",
+      "poi_name": "Sky Oaks Reserve",
+      "osm_id": 7990437450,
+      "leisure": "nature_reserve",
+      "opening_hours": "24/7",
+      "operator": "San Diego State University",
+      "website": "https://fsp.sdsu.edu/",
+      "addr_state": "CA",
+      "addr_city": "Warner Springs",
+      "addr_postcode": "92086",
+      "addr_street": "Lost Valley Road"
+    },
+    {
+      "id": 262527,
+      "geometry": "POINT (-117.988399 34.176394)",
+      "poi_name": "Monrovia Canyon Park",
+      "osm_id": 358789318,
+      "leisure": "nature_reserve",
+      "addr_state": "CA",
+      "addr_city": "Monrovia",
+      "addr_postcode": "91016",
+      "addr_street": "N. Canyon Boulevard",
+      "addr_housenumber": "1200"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Arrowhead Pine Rose Cabins, Twin Peaks, CA",
+      "geo_wkt": "POINT (-117.236944 34.238235)",
+      "poi": {
+        "id": 24831,
+        "geometry": "POINT (-117.236944 34.238235)",
+        "poi_name": "Arrowhead Pine Rose Cabins",
+        "osm_id": 4337136151,
+        "tourism": "hotel",
+        "internet_access": "wlan",
+        "addr_state": "CA",
+        "addr_city": "Twin Peaks",
+        "addr_postcode": "92392",
+        "addr_street": "State HWY 189",
+        "addr_housenumber": "25994"
+      }
+    }
+  },
+  "id": 2066,
+  "type": "range+loc"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "How far is the closest nature reserve from Southern Railway Historical Assoc, Chattanooga, tennessee?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-85.205748 35.065188)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.205748 35.065188)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 252062,
+      "geometry": "POINT (-85.3038 35.057091)",
+      "poi_name": "Audubon Society Wildlife Refuge",
+      "osm_id": 356785878,
+      "leisure": "nature_reserve",
+      "operator": "Audubon",
+      "wikidata": "Q34892240",
+      "distance": 8989.34920598
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Southern Railway Historical Assoc, Chattanooga, tennessee",
+      "geo_wkt": "POINT (-85.205748 35.065188)",
+      "poi": {
+        "id": 24226,
+        "geometry": "POINT (-85.205748 35.065188)",
+        "poi_name": "Southern Railway Historical Assoc",
+        "osm_id": 10966558261,
+        "description": "Office and archives of the Southern Railway Historical Assoc. Not open to the public.",
+        "tourism": "museum",
+        "opening_hours": "Open by appointment only",
+        "operator": "SRHA",
+        "museum": "history",
+        "addr_state": "tennessee",
+        "addr_city": "Chattanooga",
+        "addr_postcode": "37421",
+        "addr_street": "Turntable Road",
+        "addr_housenumber": "4543"
+      }
+    }
+  },
+  "id": 2436,
+  "type": "knn+distance"
+}

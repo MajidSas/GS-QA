@@ -1,0 +1,46 @@
+{
+  "question": "Which direction should I take to get to the nearest hospital from University of Kansas - Lawrence Campus Parker Hall, KS?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.262028 38.94894)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.262028 38.94894)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167633,
+      "geometry": "POINT (-94.7762 38.9946)",
+      "poi_name": "KU MedWest",
+      "osm_id": 358644223,
+      "amenity": "hospital",
+      "website": "https://www.kumed.com/find-us/ku-medwest",
+      "emergency": "no",
+      "addr_city": "Shawnee",
+      "addr_postcode": "66217",
+      "addr_street": "Renner Road",
+      "addr_housenumber": "7405",
+      "angle": 82.98212377410148
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Kansas - Lawrence Campus Parker Hall, KS",
+      "geo_wkt": "POINT (-95.262028 38.94894)",
+      "poi": {
+        "id": 167639,
+        "geometry": "POINT (-95.262028 38.94894)",
+        "poi_name": "University of Kansas - Lawrence Campus Parker Hall",
+        "osm_id": 358648340,
+        "amenity": "university",
+        "addr_state": "KS",
+        "addr_postcode": "66047",
+        "addr_street": "Constant Avenue",
+        "addr_housenumber": "1930"
+      }
+    }
+  },
+  "id": 1498,
+  "type": "knn+angle"
+}

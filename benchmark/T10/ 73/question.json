@@ -1,0 +1,72 @@
+{
+  "question": "Which restaurant is nearest as you move towards Boston Harbor Hotel, Boston, MA from Drive By Projects, Watertown, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography, ST_GeomFromText('POINT (-71.050316 42.35666)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 34347,
+      "geometry": "POINT (-71.160364 42.370164)",
+      "poi_name": "Fordee's",
+      "osm_id": 2699063566,
+      "amenity": "restaurant",
+      "cuisine": "international",
+      "website": "http://www.myfordees.com",
+      "addr_city": "Watertown",
+      "addr_street": "Mount Auburn Street",
+      "addr_housenumber": "555",
+      "value": 96.4975672109162
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Drive By Projects, Watertown, MA",
+      "geo_wkt": "POINT (-71.181915 42.367852)",
+      "poi": {
+        "id": 24015,
+        "geometry": "POINT (-71.181915 42.367852)",
+        "poi_name": "Drive By Projects",
+        "osm_id": 9249399944,
+        "tourism": "gallery",
+        "website": "https://drive-byprojects.com/",
+        "phone": "+1 617 835 8255",
+        "addr_state": "MA",
+        "addr_city": "Watertown",
+        "addr_postcode": "02472",
+        "addr_street": "Spring Street",
+        "addr_housenumber": "81"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Boston Harbor Hotel, Boston, MA",
+      "geo_wkt": "POINT (-71.050316 42.35666)",
+      "poi": {
+        "id": 20966,
+        "geometry": "POINT (-71.050316 42.35666)",
+        "poi_name": "Boston Harbor Hotel",
+        "osm_id": 1325873780,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "opening_hours": "24/7",
+        "website": "https://www.bostonharborhotel.com/",
+        "internet_access": "wlan",
+        "phone": "+1 617 439 7000",
+        "wikidata": "Q4947928",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02110",
+        "addr_street": "Rowes Wharf",
+        "addr_housenumber": "70"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 172,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,74 @@
+{
+  "question": "What is the closest restaurant along the way to River Deck, Edgewater, MD from 3 Palms Zoo & Education Center, Townsend, DE?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 157996,
+      "geometry": "POINT (-76.065014 39.044455)",
+      "poi_name": "Colosseum Pizza",
+      "osm_id": 4731385650,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "phone": "+1 410 758 1800",
+      "addr_state": "MD",
+      "addr_city": "Centreville",
+      "addr_postcode": "21617",
+      "addr_street": "North Commerce Street",
+      "addr_housenumber": "112",
+      "value": 239.78202793628674
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
+      "geo_wkt": "POINT (-75.695391 39.329473)",
+      "poi": {
+        "id": 9742,
+        "geometry": "POINT (-75.695391 39.329473)",
+        "poi_name": "3 Palms Zoo & Education Center",
+        "osm_id": 8969296347,
+        "tourism": "zoo",
+        "wheelchair": "limited",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-15:00",
+        "operator": "3 Palms Zoo LLC",
+        "website": "https://3palmszoo.org",
+        "phone": "+1 302-504-6500",
+        "zoo": "petting_zoo",
+        "addr_state": "DE",
+        "addr_city": "Townsend",
+        "addr_postcode": "19734",
+        "addr_street": "Vandyke Greenspring Road",
+        "addr_housenumber": "1060"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 112,
+  "type": "knn:towards+name"
+}

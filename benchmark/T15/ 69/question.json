@@ -1,0 +1,69 @@
+{
+  "question": "Where can I find a park positioned within 150 kilometers towards the northeast of Edisto Island Serpentarium, Edisto Island, SC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.279256 32.557517)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.279256 32.557517)',4326)::geography, 150000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 247675,
+      "geometry": "POINT (-80.279256 32.557517)",
+      "poi_name": "NW Regional Park @ Choppee",
+      "osm_id": 8086165763,
+      "leisure": "park",
+      "operator": "Georgetown County Parks & Recreation",
+      "addr_state": "SC",
+      "addr_city": "Georgetown",
+      "addr_postcode": "29440",
+      "addr_street": "Choppee Road",
+      "addr_housenumber": "8189"
+    },
+    {
+      "id": 253593,
+      "geometry": "POINT (-80.279256 32.557517)",
+      "poi_name": "Rocky Point Community Forest",
+      "osm_id": 357097436,
+      "leisure": "park",
+      "operator": "Georgetown County Parks & Recreation",
+      "addr_state": "SC",
+      "addr_city": "Georgetown",
+      "addr_postcode": "29440",
+      "addr_street": "Rocky Point Road"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Edisto Island Serpentarium, Edisto Island, SC",
+      "geo_wkt": "POINT (-80.279256 32.557517)",
+      "poi": {
+        "id": 25121,
+        "geometry": "POINT (-80.279256 32.557517)",
+        "poi_name": "Edisto Island Serpentarium",
+        "osm_id": 4406997323,
+        "tourism": "zoo",
+        "opening_hours": "Th-Sa 10:00-16:00",
+        "website": "https://edistoserpentarium.com",
+        "phone": "1- (843) 869-1171",
+        "addr_state": "SC",
+        "addr_city": "Edisto Island",
+        "addr_postcode": "29438",
+        "addr_street": "Highway 174",
+        "addr_housenumber": "1374"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 68,
+  "type": "range:direction+loc"
+}

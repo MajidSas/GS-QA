@@ -1,0 +1,44 @@
+{
+  "question": "When was the nearest university from Barons Bus Arena, Parma, OH established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 189725,
+      "geometry": "POINT (-81.604878 41.504382)",
+      "poi_name": "Research Campus, CWRU School of Medicine",
+      "osm_id": 1246986337,
+      "amenity": "university",
+      "wikidata": "Q5048331",
+      "multihop_answer": "1843; 181\u00a0years ago",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Research Campus, CWRU School of Medicine Established: 1843; 181\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Barons Bus Arena, Parma, OH",
+      "geo_wkt": "POINT (-81.758046 41.416012)",
+      "poi": {
+        "id": 247265,
+        "geometry": "POINT (-81.758046 41.416012)",
+        "poi_name": "Barons Bus Arena",
+        "osm_id": 8888267688,
+        "leisure": "stadium",
+        "addr_state": "OH",
+        "addr_city": "Parma",
+        "addr_postcode": "44129",
+        "addr_street": "Hauserman Road",
+        "addr_housenumber": "5310"
+      }
+    }
+  },
+  "id": 985,
+  "type": "knn+name+multihop1"
+}

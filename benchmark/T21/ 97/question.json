@@ -1,0 +1,83 @@
+{
+  "question": "Which way should I take to get to a hospital from Route 66 Hotel And Conference Center, Southern View, IL within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.647515 39.756198)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.647515 39.756198)',4326)::geography, 90000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 63365,
+      "geometry": "POINT (-89.416974 40.418512)",
+      "poi_name": "Hopedale Medical Complex",
+      "osm_id": 5612743006,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.hopedalemc.com/",
+      "phone": "+1 309 449 3321",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hopedale",
+      "addr_postcode": "61747",
+      "addr_street": "Tremont Street",
+      "addr_housenumber": "107",
+      "angle": 14.894239896112445
+    },
+    {
+      "id": 167311,
+      "geometry": "POINT (-90.235455 39.719847)",
+      "poi_name": "Mental Health and Development Center",
+      "osm_id": 354193784,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "angle": 265.60931550616067
+    },
+    {
+      "id": 233215,
+      "geometry": "POINT (-89.697466 39.763463)",
+      "poi_name": "Springfield Clinic Wabash",
+      "osm_id": 4563757800,
+      "amenity": "hospital",
+      "website": "https://www.springfieldclinic.com/",
+      "phone": "+1-217-528-7541",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62705",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2200",
+      "angle": 280.68830617192435
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Route 66 Hotel And Conference Center, Southern View, IL",
+      "geo_wkt": "POINT (-89.647515 39.756198)",
+      "poi": {
+        "id": 22594,
+        "geometry": "POINT (-89.647515 39.756198)",
+        "poi_name": "Route 66 Hotel And Conference Center",
+        "osm_id": 7173833487,
+        "tourism": "hotel",
+        "website": "https://www.rt66hotel.com/",
+        "phone": "+1-217-529-6626",
+        "addr_state": "IL",
+        "addr_city": "Southern View",
+        "addr_postcode": "62703",
+        "addr_street": "East Saint Joseph Street",
+        "addr_housenumber": "625"
+      }
+    }
+  },
+  "id": 1096,
+  "type": "range+angle"
+}

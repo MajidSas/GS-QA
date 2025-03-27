@@ -1,0 +1,40 @@
+{
+  "question": "What is the count of stadia within 140 kilometers from Wolf Hill Forest Preserve, Smithfield, RI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.539863 41.898564)',4326)::geography, 140000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 8
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wolf Hill Forest Preserve, Smithfield, RI",
+      "geo_wkt": "POINT (-71.539863 41.898564)",
+      "poi": {
+        "id": 246002,
+        "geometry": "POINT (-71.539863 41.898564)",
+        "poi_name": "Wolf Hill Forest Preserve",
+        "osm_id": 5422164134,
+        "leisure": "nature_reserve",
+        "website": "https://exploreri.org/",
+        "addr_state": "RI",
+        "addr_city": "Smithfield",
+        "addr_postcode": "02917",
+        "addr_street": "Waterview Drive"
+      }
+    }
+  },
+  "id": 2297,
+  "type": "range+count"
+}

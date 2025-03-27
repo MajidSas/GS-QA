@@ -1,0 +1,39 @@
+{
+  "question": "Can you recommend the nearest golf course from the stadium that can hold 14500 spectators in Wichita Falls, TX?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247961,
+      "geometry": "POINT (-98.443868 35.172342)",
+      "poi_name": "Ft Cobb Golf Course",
+      "osm_id": 6146337570,
+      "leisure": "golf_course",
+      "operator": "Ft Cobb State PArk"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "poi": {
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
+      }
+    }
+  },
+  "id": 2757,
+  "type": "knn+name+multihop2"
+}

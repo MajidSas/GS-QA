@@ -1,0 +1,43 @@
+{
+  "question": "What's the closest park positioned towards the southeast of Joppa Hill Farm, Bedford, NH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248086,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Moore's Falls Conservation Area",
+      "osm_id": 6330941216,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "poi": {
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2511,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest zoo near Longfellow Arboretum, Portland, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10743,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Joppa Hill Farm",
+      "osm_id": 8014170407,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "NH",
+      "addr_city": "Bedford",
+      "addr_postcode": "03110"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Longfellow Arboretum, Portland, ME",
+      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "poi": {
+        "id": 265852,
+        "geometry": "POINT (-70.269893 43.680714)",
+        "poi_name": "Longfellow Arboretum",
+        "osm_id": 7922996124,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_street": "Baxter Boulevard",
+        "addr_housenumber": "755"
+      }
+    }
+  },
+  "id": 295,
+  "type": "knn+name"
+}

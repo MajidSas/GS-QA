@@ -1,0 +1,67 @@
+{
+  "question": "Within a radius of 100 kilometers, where can I find  a museum in the direction of Reitz Union Hotel, Gainesville, FL from North Marion High School Football Stadium, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.13926 29.340807)',4326)::geography, ST_GeomFromText('POINT (-82.34779 29.646453)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.13926 29.340807)',4326)::geography, 100000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.13926 29.340807)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 17654,
+      "geometry": "POINT (-82.278973 29.50778)",
+      "poi_name": "Micanopy Historical Society Museum",
+      "osm_id": 367827588,
+      "tourism": "museum",
+      "fee": "donation",
+      "opening_hours": "We-Su 13:00-16:00",
+      "website": "http://micanopyhistoricalsociety.com/home.htm",
+      "addr_state": "FL",
+      "value": 329.21921720976223
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Marion High School Football Stadium, FL",
+      "geo_wkt": "POINT (-82.13926 29.340807)",
+      "poi": {
+        "id": 265373,
+        "geometry": "POINT (-82.13926 29.340807)",
+        "poi_name": "North Marion High School Football Stadium",
+        "osm_id": 367826898,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Reitz Union Hotel, Gainesville, FL",
+      "geo_wkt": "POINT (-82.34779 29.646453)",
+      "poi": {
+        "id": 10804,
+        "geometry": "POINT (-82.34779 29.646453)",
+        "poi_name": "Reitz Union Hotel",
+        "osm_id": 8043492871,
+        "tourism": "hotel",
+        "operator": "University of Florida",
+        "website": "https://union.ufl.edu/hotel/",
+        "internet_access": "wlan",
+        "phone": "+1-352-392-2151",
+        "addr_state": "FL",
+        "addr_city": "Gainesville",
+        "addr_postcode": "32611",
+        "addr_street": "Museum Road",
+        "addr_housenumber": "686"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1266,
+  "type": "range:towards+loc"
+}

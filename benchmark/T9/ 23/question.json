@@ -1,0 +1,54 @@
+{
+  "question": "Which hospital is closest in the southeast direction of Riverfront Stadium, Wichita, KS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182307,
+      "geometry": "POINT (-97.345485 37.681386)",
+      "poi_name": "Rock Regional Hospital",
+      "osm_id": 10888128905,
+      "amenity": "hospital",
+      "website": "https://rockregionalhospitalderby.com",
+      "phone": "+1-833-345-7625",
+      "healthcare": "hospital",
+      "addr_state": "KS",
+      "addr_city": "Derby",
+      "addr_postcode": "67037",
+      "addr_street": "North Rock Road",
+      "addr_housenumber": "3251"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Riverfront Stadium, Wichita, KS",
+      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "poi": {
+        "id": 260589,
+        "geometry": "POINT (-97.345485 37.681386)",
+        "poi_name": "Riverfront Stadium",
+        "osm_id": 358627835,
+        "leisure": "stadium",
+        "website": "https://www.milb.com/wichita/ballpark",
+        "phone": "+1-316-221-8000",
+        "addr_state": "KS",
+        "addr_city": "Wichita",
+        "addr_postcode": "67213",
+        "addr_street": "South McLean Boulevard",
+        "addr_housenumber": "275"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2522,
+  "type": "knn:direction+name"
+}

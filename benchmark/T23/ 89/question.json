@@ -1,0 +1,41 @@
+{
+  "question": "Could you provide me with the number of stadia within a 110 kilometers radius from Community Howard Regional Health, Kokomo, IN?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.132156 40.44825)',4326)::geography, 110000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Community Howard Regional Health, Kokomo, IN",
+      "geo_wkt": "POINT (-86.132156 40.44825)",
+      "poi": {
+        "id": 122521,
+        "geometry": "POINT (-86.132156 40.44825)",
+        "poi_name": "Community Howard Regional Health",
+        "osm_id": 6809278703,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "IN",
+        "addr_city": "Kokomo",
+        "addr_postcode": "46902",
+        "addr_street": "Frances Lane",
+        "addr_housenumber": "3322"
+      }
+    }
+  },
+  "id": 2288,
+  "type": "range+count"
+}

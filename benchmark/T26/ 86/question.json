@@ -1,0 +1,46 @@
+{
+  "question": "What's the distance between Zoological Wildlife Foundation, Miami, FL and the nearest caf\u00e9?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.470734 25.614343)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.470734 25.614343)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 39795,
+      "geometry": "POINT (-80.415256 25.654002)",
+      "poi_name": "Starbucks",
+      "osm_id": 2940399094,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "distance": 7095.29983271
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Zoological Wildlife Foundation, Miami, FL",
+      "geo_wkt": "POINT (-80.470734 25.614343)",
+      "poi": {
+        "id": 14087,
+        "geometry": "POINT (-80.470734 25.614343)",
+        "poi_name": "Zoological Wildlife Foundation",
+        "osm_id": 4221532470,
+        "tourism": "zoo",
+        "website": "https://zoologicalwildlifefoundation.com/",
+        "phone": "+1-305-969-3696",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33187",
+        "addr_street": "SW 172nd Ave",
+        "addr_housenumber": "16225"
+      }
+    }
+  },
+  "id": 2485,
+  "type": "knn+distance"
+}

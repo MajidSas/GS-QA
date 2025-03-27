@@ -1,0 +1,49 @@
+{
+  "question": "Where's the closest golf course towards the south of Proghorn Nature Area, Aurora, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.674157 39.63892)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265825,
+      "geometry": "POINT (-104.674157 39.63892)",
+      "poi_name": "Sumo Golf Village",
+      "osm_id": 7858016926,
+      "leisure": "golf_course",
+      "addr_state": "CO",
+      "addr_city": "Florence",
+      "addr_postcode": "81226",
+      "addr_street": "Gary Player Dr",
+      "addr_housenumber": "5201"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Proghorn Nature Area, Aurora, CO",
+      "geo_wkt": "POINT (-104.674157 39.63892)",
+      "poi": {
+        "id": 266925,
+        "geometry": "POINT (-104.674157 39.63892)",
+        "poi_name": "Proghorn Nature Area",
+        "osm_id": 11135148290,
+        "leisure": "nature_reserve",
+        "addr_state": "CO",
+        "addr_city": "Aurora",
+        "addr_postcode": "80016",
+        "addr_street": "East Quincy Avenue",
+        "addr_housenumber": "27800"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1198,
+  "type": "knn:direction+loc"
+}

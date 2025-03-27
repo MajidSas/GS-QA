@@ -1,0 +1,47 @@
+{
+  "question": "What's the nearest restaurant from Facility For Advanced Spatial Technology, Denver, CO?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-105.002296 39.745727)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 213356,
+      "geometry": "POINT (-105.005571 39.745396)",
+      "poi_name": "iPie Pizza",
+      "osm_id": 5246704170,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80204",
+      "addr_street": "Auraria Parkway",
+      "addr_housenumber": "900"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Facility For Advanced Spatial Technology, Denver, CO",
+      "geo_wkt": "POINT (-105.002296 39.745727)",
+      "poi": {
+        "id": 152208,
+        "geometry": "POINT (-105.002296 39.745727)",
+        "poi_name": "Facility For Advanced Spatial Technology",
+        "osm_id": 4131746182,
+        "amenity": "university",
+        "wheelchair": "limited",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80217",
+        "addr_street": "Larimer Street",
+        "addr_housenumber": "1200"
+      }
+    }
+  },
+  "id": 236,
+  "type": "knn+name"
+}

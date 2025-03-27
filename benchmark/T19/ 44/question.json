@@ -1,0 +1,48 @@
+{
+  "question": "Where is the nearest golf course in the northeast direction of Augusta Nature Education Center, Augusta, ME?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-69.752722 44.311919)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248166,
+      "geometry": "POINT (-69.752722 44.311919)",
+      "poi_name": "Natanis Golf Course",
+      "osm_id": 7359829848,
+      "leisure": "golf_course",
+      "addr_state": "ME",
+      "addr_city": "Vassalboro",
+      "addr_postcode": "04989",
+      "addr_street": "Webber Pond Road",
+      "addr_housenumber": "762"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Augusta Nature Education Center, Augusta, ME",
+      "geo_wkt": "POINT (-69.752722 44.311919)",
+      "poi": {
+        "id": 245779,
+        "geometry": "POINT (-69.752722 44.311919)",
+        "poi_name": "Augusta Nature Education Center",
+        "osm_id": 10046271240,
+        "leisure": "nature_reserve",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Cony Street"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1143,
+  "type": "knn:direction+loc"
+}

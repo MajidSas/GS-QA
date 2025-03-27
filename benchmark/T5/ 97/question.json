@@ -1,0 +1,46 @@
+{
+  "question": "Looking for the closest caf\u00e9 in relation to Town Center Promenade, Wellington, FL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.238584 26.653503)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 67010,
+      "geometry": "POINT (-80.246257 26.672859)",
+      "poi_name": "Solarlab Cafe",
+      "osm_id": 11218862242,
+      "amenity": "cafe",
+      "phone": "561-888-6959",
+      "addr_state": "FL",
+      "addr_city": "Wellington",
+      "addr_postcode": "33414",
+      "addr_street": "Forest Hill Boulevard",
+      "addr_housenumber": "12794"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Town Center Promenade, Wellington, FL",
+      "geo_wkt": "POINT (-80.238584 26.653503)",
+      "poi": {
+        "id": 246263,
+        "geometry": "POINT (-80.238584 26.653503)",
+        "poi_name": "Town Center Promenade",
+        "osm_id": 11223358846,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Wellington",
+        "addr_postcode": "33414",
+        "addr_street": "Forest Hill Boulevard",
+        "addr_housenumber": "12150"
+      }
+    }
+  },
+  "id": 296,
+  "type": "knn+name"
+}

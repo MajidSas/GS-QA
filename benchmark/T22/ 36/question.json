@@ -1,0 +1,42 @@
+{
+  "question": "What direction does one need to follow to reach the closest museum from Tensas River National Wildlife Refuge, Tallulah, LA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12347,
+      "geometry": "POINT (-91.403235 32.63619)",
+      "poi_name": "Poverty Point World Heritage Site",
+      "osm_id": 6308448835,
+      "tourism": "museum",
+      "website": "https://www.povertypoint.us/",
+      "angle": 356.0252901425223
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Tensas River National Wildlife Refuge, Tallulah, LA",
+      "geo_wkt": "POINT (-91.377071 32.317567)",
+      "poi": {
+        "id": 247209,
+        "geometry": "POINT (-91.377071 32.317567)",
+        "poi_name": "Tensas River National Wildlife Refuge",
+        "osm_id": 3777211992,
+        "leisure": "nature_reserve",
+        "addr_state": "LA",
+        "addr_city": "Tallulah",
+        "addr_postcode": "71282",
+        "addr_street": "Quebec Road",
+        "addr_housenumber": "2312"
+      }
+    }
+  },
+  "id": 1435,
+  "type": "knn+angle"
+}

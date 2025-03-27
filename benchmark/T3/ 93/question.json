@@ -1,0 +1,193 @@
+{
+  "question": "Which attraction is available when moving in the direction of southeast from Childrens's Nature Center, Grand Junction, CO within 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography, 170000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 6805,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Black Bear Pass Trailhead (Southeastern)",
+      "osm_id": 178052729,
+      "tourism": "attraction"
+    },
+    {
+      "id": 6894,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "The Wall",
+      "osm_id": 8753784669,
+      "tourism": "attraction"
+    },
+    {
+      "id": 6895,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Animas Forks",
+      "osm_id": 8753905017,
+      "tourism": "attraction"
+    },
+    {
+      "id": 7310,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Burrows Park",
+      "osm_id": 2083593913,
+      "tourism": "attraction"
+    },
+    {
+      "id": 8192,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Black Bear Pass Trailhead (Northwestern)",
+      "osm_id": 6584595030,
+      "tourism": "attraction"
+    },
+    {
+      "id": 9721,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Corkscrew Gulch Turntable",
+      "osm_id": 8952629959,
+      "historic": "ruins",
+      "description": "Ruins of the historic Corkscrew Gulch railroad turntable.",
+      "tourism": "attraction"
+    },
+    {
+      "id": 9302,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Dillon Pinnacles",
+      "osm_id": 3733694599,
+      "tourism": "attraction"
+    },
+    {
+      "id": 9479,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Limekiln",
+      "osm_id": 3827737757,
+      "tourism": "attraction"
+    },
+    {
+      "id": 21094,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "The Steps",
+      "osm_id": 1397542139,
+      "tourism": "attraction"
+    },
+    {
+      "id": 9794,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Lewis Mill",
+      "osm_id": 8994515927,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22765,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947385125,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22124,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Old Hundred Mine",
+      "osm_id": 1004987934,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22792,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947387643,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22782,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947385262,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22795,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947387646,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22798,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947387827,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22811,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 3",
+      "osm_id": 4947389422,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22783,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947385263,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22784,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte 2",
+      "osm_id": 4947385264,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22786,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Moab trail rte2",
+      "osm_id": 4947387624,
+      "tourism": "attraction"
+    },
+    {
+      "id": 23408,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Legends Of The West",
+      "osm_id": 5176833221,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Childrens's Nature Center, Grand Junction, CO",
+      "geo_wkt": "POINT (-108.603856 39.09253)",
+      "poi": {
+        "id": 8067,
+        "geometry": "POINT (-108.603856 39.09253)",
+        "poi_name": "Childrens's Nature Center",
+        "osm_id": 6546260867,
+        "description": "Zoo and aquarium great for children and exciting for all ages. Over 100 unique creatures and educational exhibits.",
+        "tourism": "zoo",
+        "opening_hours": "Su 12:00-16:00; Mo-Sa 10:00-16:00",
+        "phone": "+1-970-241-1000",
+        "addr_state": "CO",
+        "addr_city": "Grand Junction",
+        "addr_postcode": "81501",
+        "addr_street": "US 6 and 50",
+        "addr_housenumber": "2424"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2692,
+  "type": "range:direction+name"
+}

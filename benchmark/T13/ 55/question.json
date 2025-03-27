@@ -1,0 +1,49 @@
+{
+  "question": "I'm searching for a stadium within 90 kilometers radius from Illinois State Museum-Lockport Gallery, Lockport, IL, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.059116 41.588431)',4326)::geography, 90000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265389,
+      "geometry": "POINT (-88.082005 41.605308)",
+      "poi_name": "Neil Carey Arena",
+      "osm_id": 368073990,
+      "leisure": "stadium",
+      "operator": "Lewis University",
+      "sport": "basketball;volleyball",
+      "addr_state": "IL"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Illinois State Museum-Lockport Gallery, Lockport, IL",
+      "geo_wkt": "POINT (-88.059116 41.588431)",
+      "poi": {
+        "id": 21489,
+        "geometry": "POINT (-88.059116 41.588431)",
+        "poi_name": "Illinois State Museum-Lockport Gallery",
+        "osm_id": 10284056341,
+        "tourism": "gallery",
+        "operator": "Illinois State Museum",
+        "website": "https://illinoisstatemuseum.org/content/welcome-ism-lockport-gallery",
+        "addr_state": "IL",
+        "addr_city": "Lockport",
+        "addr_postcode": "60441",
+        "addr_street": "West 10th Street",
+        "addr_housenumber": "201"
+      }
+    }
+  },
+  "id": 2054,
+  "type": "range+loc"
+}

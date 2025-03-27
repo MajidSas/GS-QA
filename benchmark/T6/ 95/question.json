@@ -1,0 +1,44 @@
+{
+  "question": "What's the nearest kebab restaurant available from R & Z Urban Art Gallery, Milwaukee, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%kebab%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.921854 43.023106)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 130191,
+      "geometry": "POINT (-87.843553 42.623237)",
+      "poi_name": "The Soup Depot",
+      "osm_id": 9858872317,
+      "amenity": "restaurant",
+      "cuisine": "american;kebab;mediterranean;sandwich",
+      "addr_street": "18th Street"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "kebab restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%kebab%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "R & Z Urban Art Gallery, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.921854 43.023106)",
+      "poi": {
+        "id": 4519,
+        "geometry": "POINT (-87.921854 43.023106)",
+        "poi_name": "R & Z Urban Art Gallery",
+        "osm_id": 11288423228,
+        "tourism": "gallery",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53204",
+        "addr_street": "West National Avenue",
+        "addr_housenumber": "823"
+      }
+    }
+  },
+  "id": 694,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,50 @@
+{
+  "question": "What's the closest hotel nearby the museum that was built in 1887 in Saint Augustine, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.313697 29.89064)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11315,
+      "geometry": "POINT (-81.984406 30.282851)",
+      "poi_name": "Red Roof Inn",
+      "osm_id": 9926796866,
+      "tourism": "hotel",
+      "opening_hours": "24/7",
+      "addr_state": "FL",
+      "addr_city": "Baldwin",
+      "addr_postcode": "32234",
+      "addr_street": "US Highway 301 South",
+      "addr_housenumber": "1088"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lightner Museum, Saint Augustine, FL",
+      "geo_wkt": "POINT (-81.313697 29.89064)",
+      "poi": {
+        "id": 2363,
+        "geometry": "POINT (-81.313697 29.89064)",
+        "poi_name": "Lightner Museum",
+        "osm_id": 3414396690,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "yes",
+        "opening_hours": "09:00-17:00; PH off",
+        "wikidata": "Q6546396",
+        "addr_state": "FL",
+        "addr_city": "Saint Augustine",
+        "addr_postcode": "32084",
+        "addr_street": "King Street",
+        "addr_housenumber": "75"
+      }
+    }
+  },
+  "id": 2736,
+  "type": "knn+name+multihop2"
+}

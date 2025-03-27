@@ -1,0 +1,51 @@
+{
+  "question": "Who is the director of the nearest museum from City Suites Hotel, Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9060,
+      "geometry": "POINT (-87.66105 41.899674)",
+      "poi_name": "Polish Museum of America",
+      "osm_id": 3652936567,
+      "tourism": "museum",
+      "website": "https://www.polishmuseumofamerica.org/",
+      "museum": "history",
+      "wikidata": "Q3394265",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60642",
+      "addr_street": "North Milwaukee Avenue",
+      "addr_housenumber": "984",
+      "multihop_answer": "Malgorzata Kot",
+      "multihop_attribute": "Director",
+      "multihop_long_answer": "Polish Museum of America Director: Malgorzata Kot"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "City Suites Hotel, Chicago, IL",
+      "geo_wkt": "POINT (-87.65288 41.939769)",
+      "poi": {
+        "id": 74,
+        "geometry": "POINT (-87.65288 41.939769)",
+        "poi_name": "City Suites Hotel",
+        "osm_id": 424212348,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60657",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "933"
+      }
+    }
+  },
+  "id": 957,
+  "type": "knn+name+multihop1"
+}

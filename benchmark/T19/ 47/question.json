@@ -1,0 +1,55 @@
+{
+  "question": "Where's the closest caf\u00e9 positioned towards the northeast of Missouri State University, Fairfax, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.265815 38.872507)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 128199,
+      "geometry": "POINT (-77.265815 38.872507)",
+      "poi_name": "Simply Social Coffee",
+      "osm_id": 8133037148,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 08:00-17:00",
+      "website": "https://simplysocialcoffee.com/",
+      "phone": "+1 703-705-9698",
+      "takeaway": "yes",
+      "addr_state": "VA",
+      "addr_city": "Vienna",
+      "addr_postcode": "22180",
+      "addr_street": "Cedar Lane",
+      "addr_housenumber": "260"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Missouri State University, Fairfax, VA",
+      "geo_wkt": "POINT (-77.265815 38.872507)",
+      "poi": {
+        "id": 221044,
+        "geometry": "POINT (-77.265815 38.872507)",
+        "poi_name": "Missouri State University",
+        "osm_id": 10965936913,
+        "amenity": "university",
+        "website": "https://dss.missouristate.edu/",
+        "addr_state": "VA",
+        "addr_city": "Fairfax",
+        "addr_postcode": "22031",
+        "addr_street": "Route 29",
+        "addr_housenumber": "9302"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1146,
+  "type": "knn:direction+loc"
+}

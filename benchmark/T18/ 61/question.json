@@ -1,0 +1,55 @@
+{
+  "question": "Where is the closest history museum within proximity to Aviator Hotel Anchorage, Anchorage, AK?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-149.886465 61.218782)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8527,
+      "geometry": "POINT (-122.376757 47.811056)",
+      "poi_name": "Edmonds Historical Museum",
+      "osm_id": 8524916320,
+      "tourism": "museum",
+      "fee": "yes",
+      "operator": "Edmonds South-Snohomish County Historical Society and Museum",
+      "website": "https://www.historicedmonds.org/",
+      "museum": "history",
+      "wikidata": "Q5338951",
+      "addr_state": "WA",
+      "addr_city": "Edmonds",
+      "addr_postcode": "98020",
+      "addr_street": "5th Avenue North",
+      "addr_housenumber": "118"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Aviator Hotel Anchorage, Anchorage, AK",
+      "geo_wkt": "POINT (-149.886465 61.218782)",
+      "poi": {
+        "id": 3497,
+        "geometry": "POINT (-149.886465 61.218782)",
+        "poi_name": "Aviator Hotel Anchorage",
+        "osm_id": 5438363521,
+        "tourism": "hotel",
+        "website": "https://www.theaviatorhotelanchorage.com/",
+        "internet_access": "wlan",
+        "phone": "+1 907 793 5555",
+        "addr_state": "AK",
+        "addr_city": "Anchorage",
+        "addr_postcode": "99501",
+        "addr_street": "West 4th Avenue",
+        "addr_housenumber": "239"
+      }
+    }
+  },
+  "id": 360,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "What's the separation to a beach resort from Animal Haven Farm Zoo, Weyauwega, WI within 60 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography, 60000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 248226,
+      "geometry": "POINT (-89.156386 44.170489)",
+      "poi_name": "Chippy's Sports Beach",
+      "osm_id": 7471958784,
+      "leisure": "beach_resort",
+      "distance": 21331.35363779
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Animal Haven Farm Zoo, Weyauwega, WI",
+      "geo_wkt": "POINT (-88.961358 44.301611)",
+      "poi": {
+        "id": 23088,
+        "geometry": "POINT (-88.961358 44.301611)",
+        "poi_name": "Animal Haven Farm Zoo",
+        "osm_id": 5030324218,
+        "tourism": "zoo",
+        "phone": "+1-920-867-3707",
+        "addr_state": "WI",
+        "addr_city": "Weyauwega",
+        "addr_postcode": "54983",
+        "addr_street": "Bucholtz Road",
+        "addr_housenumber": "N1720"
+      }
+    }
+  },
+  "id": 777,
+  "type": "range+distance"
+}

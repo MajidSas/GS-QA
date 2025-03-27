@@ -1,0 +1,51 @@
+{
+  "question": "How far away is the nearest golf course from Expo 72, Chicago, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245846,
+      "geometry": "POINT (-87.670605 41.920519)",
+      "poi_name": "The Green",
+      "osm_id": 10186016485,
+      "leisure": "golf_course",
+      "description": "This is an indoor golf driving range simulator and entertainment center.",
+      "website": "https://www.golfthegreen.com",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60614",
+      "addr_street": "North Elston Avenue",
+      "addr_housenumber": "2133",
+      "distance": 5476.04567237
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Expo 72, Chicago, IL",
+      "geo_wkt": "POINT (-87.625356 41.88463)",
+      "poi": {
+        "id": 12085,
+        "geometry": "POINT (-87.625356 41.88463)",
+        "poi_name": "Expo 72",
+        "osm_id": 6179056467,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "24/7",
+        "operator": "Chicago Department of Cultural Affairs and Special Events (DCASE)",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60601",
+        "addr_street": "East Randolph Street",
+        "addr_housenumber": "72"
+      }
+    }
+  },
+  "id": 2488,
+  "type": "knn+distance"
+}

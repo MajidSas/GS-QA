@@ -1,0 +1,49 @@
+{
+  "question": "Could you tell me the location of the closest museum relative to Top of the Rock, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2728,
+      "geometry": "POINT (-73.983725 40.755739)",
+      "poi_name": "International Center of Photography",
+      "osm_id": 566445454,
+      "tourism": "museum",
+      "website": "https://www.icp.org/",
+      "wikidata": "Q636942",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10036",
+      "addr_street": "6th Avenue",
+      "addr_housenumber": "1133"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "poi": {
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
+      }
+    }
+  },
+  "id": 1850,
+  "type": "knn+loc"
+}

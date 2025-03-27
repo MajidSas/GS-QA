@@ -1,0 +1,42 @@
+{
+  "question": "How far is the nearest park from the location Brick City Park Stadium, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266554,
+      "geometry": "POINT (-82.120171 29.171375)",
+      "poi_name": "Ritterhoff Park",
+      "osm_id": 5267890423,
+      "leisure": "park",
+      "addr_state": "FL",
+      "addr_city": "Ocala",
+      "addr_postcode": "34471",
+      "addr_street": "Southeast 17th Street",
+      "addr_housenumber": "1400",
+      "distance": 546.67409921
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Brick City Park Stadium, FL",
+      "geo_wkt": "POINT (-82.121758 29.166644)",
+      "poi": {
+        "id": 265376,
+        "geometry": "POINT (-82.121758 29.166644)",
+        "poi_name": "Brick City Park Stadium",
+        "osm_id": 367826901,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 2409,
+  "type": "knn+distance"
+}

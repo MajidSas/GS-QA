@@ -1,0 +1,42 @@
+{
+  "question": "Within 80 kilometers from Prairie Hills Art Gallery, Lawrence, KS, how many golf courses are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.236169 38.967795)',4326)::geography, 80000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Prairie Hills Art Gallery, Lawrence, KS",
+      "geo_wkt": "POINT (-95.236169 38.967795)",
+      "poi": {
+        "id": 1143,
+        "geometry": "POINT (-95.236169 38.967795)",
+        "poi_name": "Prairie Hills Art Gallery",
+        "osm_id": 2864461473,
+        "tourism": "gallery",
+        "website": "http://prairiehillsgallery.com/",
+        "phone": "+1-785-550-9179",
+        "addr_state": "KS",
+        "addr_city": "Lawrence",
+        "addr_postcode": "66044",
+        "addr_street": "Massachusetts Street",
+        "addr_housenumber": "843"
+      }
+    }
+  },
+  "id": 2240,
+  "type": "range+count"
+}

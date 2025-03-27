@@ -1,0 +1,72 @@
+{
+  "question": "Where is the nearest fast food restaurant as you progress towards the loft, Marietta, GA from David J. Sencer CDC Museum, Atlanta, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.329665 33.799189)',4326)::geography, ST_GeomFromText('POINT (-84.54943 33.95204)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.329665 33.799189)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.329665 33.799189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 189885,
+      "geometry": "POINT (-84.364009 33.825602)",
+      "poi_name": "Arby's",
+      "osm_id": 1253986761,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://arbys.com/",
+      "takeaway": "yes",
+      "addr_state": "GA",
+      "addr_street": "PIEDMONT RD",
+      "addr_housenumber": "2555",
+      "value": 309.8842585747583
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "David J. Sencer CDC Museum, Atlanta, GA",
+      "geo_wkt": "POINT (-84.329665 33.799189)",
+      "poi": {
+        "id": 238,
+        "geometry": "POINT (-84.329665 33.799189)",
+        "poi_name": "David J. Sencer CDC Museum",
+        "osm_id": 8249497288,
+        "tourism": "museum",
+        "opening_hours": "Mo-We,Fr 09:00-17:00; Th 09:00-19:00; PH off",
+        "website": "https://www.cdc.gov/museum/",
+        "phone": "(404) 639-0830",
+        "museum": "science",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30329",
+        "addr_street": "Clifton Road Northeast",
+        "addr_housenumber": "1600"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "the loft, Marietta, GA",
+      "geo_wkt": "POINT (-84.54943 33.95204)",
+      "poi": {
+        "id": 12355,
+        "geometry": "POINT (-84.54943 33.95204)",
+        "poi_name": "the loft",
+        "osm_id": 6313641168,
+        "tourism": "gallery",
+        "opening_hours": "We-Sa 12:00-17:00",
+        "website": "http://loftmarietta.com",
+        "phone": "+1 (770) 628-2250",
+        "addr_state": "GA",
+        "addr_city": "Marietta",
+        "addr_postcode": "30060",
+        "addr_street": "South Park Square",
+        "addr_housenumber": "120"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1356,
+  "type": "knn:towards+loc"
+}

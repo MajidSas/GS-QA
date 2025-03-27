@@ -1,0 +1,58 @@
+{
+  "question": "Which fast food is closest on the route towards Minnesota Pioneer Park, Annandale, MN from Pine Grove Zoo, Little Falls, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, ST_GeomFromText('POINT (-94.110229 45.255422)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 77795,
+      "geometry": "POINT (-94.213114 45.756686)",
+      "poi_name": "McDonald's",
+      "osm_id": 715679159,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/mn/rice/2378-pine-rd-nw/31278.html",
+      "takeaway": "yes",
+      "value": 165.05559847354453
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Pine Grove Zoo, Little Falls, MN",
+      "geo_wkt": "POINT (-94.383608 45.979142)",
+      "poi": {
+        "id": 22633,
+        "geometry": "POINT (-94.383608 45.979142)",
+        "poi_name": "Pine Grove Zoo",
+        "osm_id": 7185157936,
+        "tourism": "zoo",
+        "website": "https://www.pinegrovezoo.com/",
+        "addr_state": "MN",
+        "addr_city": "Little Falls"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Minnesota Pioneer Park, Annandale, MN",
+      "geo_wkt": "POINT (-94.110229 45.255422)",
+      "poi": {
+        "id": 12810,
+        "geometry": "POINT (-94.110229 45.255422)",
+        "poi_name": "Minnesota Pioneer Park",
+        "osm_id": 7566829780,
+        "tourism": "attraction",
+        "phone": "+1-320-274-8489",
+        "addr_state": "MN",
+        "addr_city": "Annandale"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 105,
+  "type": "knn:towards+name"
+}

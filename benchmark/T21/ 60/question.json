@@ -1,0 +1,65 @@
+{
+  "question": "What's the course towards a university from Raptor Center, Solon, IA within 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, 160000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 117117,
+      "geometry": "POINT (-91.53294 41.659113)",
+      "poi_name": "MERGE",
+      "osm_id": 8977439505,
+      "amenity": "university",
+      "operator": "University of Iowa",
+      "addr_state": "IA",
+      "addr_city": "Iowa City",
+      "addr_street": "South Dubuque Street",
+      "addr_housenumber": "136",
+      "angle": 166.95515626344093
+    },
+    {
+      "id": 167317,
+      "geometry": "POINT (-90.681516 42.504169)",
+      "poi_name": "Loras College",
+      "osm_id": 354309215,
+      "amenity": "university",
+      "website": "https://www.loras.edu/",
+      "phone": "+1-563-588-7100",
+      "wikidata": "Q6678799",
+      "addr_city": "Dubuque",
+      "addr_postcode": "52001",
+      "addr_street": "Alta Vista Street",
+      "addr_housenumber": "1450",
+      "angle": 42.237621992907535
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    }
+  },
+  "id": 1059,
+  "type": "range+angle"
+}

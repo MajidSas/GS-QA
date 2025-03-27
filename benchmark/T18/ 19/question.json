@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest archive museum from Oak Tree Inn, Clinton, IA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'archive'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.240126 41.819403)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8610,
+      "geometry": "POINT (-122.345908 37.929269)",
+      "poi_name": "Internet Archive - Physical Archive",
+      "osm_id": 8593718592,
+      "description": "The off-site Physical Archives of the Internet Archive",
+      "tourism": "museum",
+      "operator": "Internet Archive",
+      "website": "https://archive.org/",
+      "museum": "archive",
+      "addr_state": "CA",
+      "addr_city": "Richmond",
+      "addr_postcode": "94804",
+      "addr_street": "Florida Avenue",
+      "addr_housenumber": "2512"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "archive museum",
+      "poi_filter_sql": "museum = 'archive'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Oak Tree Inn, Clinton, IA",
+      "geo_wkt": "POINT (-90.240126 41.819403)",
+      "poi": {
+        "id": 22242,
+        "geometry": "POINT (-90.240126 41.819403)",
+        "poi_name": "Oak Tree Inn",
+        "osm_id": 621306733,
+        "tourism": "hotel",
+        "phone": "+1-563-243-1000",
+        "addr_state": "IA",
+        "addr_city": "Clinton",
+        "addr_postcode": "52732",
+        "addr_street": "Valley West Court",
+        "addr_housenumber": "2300"
+      }
+    }
+  },
+  "id": 318,
+  "type": "knn:non_spat_filter+loc"
+}

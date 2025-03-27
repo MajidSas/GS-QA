@@ -1,0 +1,93 @@
+{
+  "question": "Where can I find a gallery to the west of Wildlife West Nature Park, Edgewood, NM within 40 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography, 40000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 23367,
+      "geometry": "POINT (-106.202309 35.071827)",
+      "poi_name": "Matrix Fine Art",
+      "osm_id": 5146071817,
+      "description": "Art gallery with a variety of types of art along with monthly featured artists. Price Range $50-$1,200",
+      "tourism": "gallery",
+      "opening_hours": "Th-Sa 11:00-17:00",
+      "website": "https://www.matrixfineartabq.com/",
+      "phone": "1-505-280-8659",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87108",
+      "addr_street": "Central Avenue Southeast",
+      "addr_housenumber": "3812"
+    },
+    {
+      "id": 23368,
+      "geometry": "POINT (-106.202309 35.071827)",
+      "poi_name": "Remarque/New Grounds Print Workshop",
+      "osm_id": 5146116522,
+      "description": "Remarque/New Grounds is a printmaking workshop and gallery offering press rentals, classes, and contemporary prints from around the world.",
+      "tourism": "gallery",
+      "opening_hours": "Th-Sa 10:00-18:00; Su-We off",
+      "website": "http://newgroundsprintshop.com",
+      "phone": "+1-505-268-8952",
+      "artwork_type": "printmaking",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87108",
+      "addr_street": "Central Avenue Southeast",
+      "addr_housenumber": "3812"
+    },
+    {
+      "id": 23369,
+      "geometry": "POINT (-106.202309 35.071827)",
+      "poi_name": "Mariposa Gallery",
+      "osm_id": 5146117932,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Sa 11:00-18:00; Su 12:00-17:00",
+      "website": "http://mariposa-gallery.com",
+      "phone": "+1-505-268-2828",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87106",
+      "addr_street": "Central Avenue Southeast",
+      "addr_housenumber": "3500"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wildlife West Nature Park, Edgewood, NM",
+      "geo_wkt": "POINT (-106.202309 35.071827)",
+      "poi": {
+        "id": 246820,
+        "geometry": "POINT (-106.202309 35.071827)",
+        "poi_name": "Wildlife West Nature Park",
+        "osm_id": 6471544426,
+        "leisure": "nature_reserve",
+        "opening_hours": "10:00-18:00",
+        "operator": "New Mexico Wildlife Association",
+        "website": "https://wildlifewest.org/",
+        "phone": "+1 505 281-7655",
+        "addr_state": "NM",
+        "addr_city": "Edgewood",
+        "addr_postcode": "87015",
+        "addr_street": "North Frontage Road",
+        "addr_housenumber": "87"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 77,
+  "type": "range:direction+loc"
+}

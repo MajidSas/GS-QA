@@ -1,0 +1,43 @@
+{
+  "question": "In what direction can I find the closest viewpoint situated from Hearing Rehab Center, Fort Collins, CO?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.095368 40.555861)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.095368 40.555861)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21273,
+      "geometry": "POINT (-105.187647 40.568139)",
+      "poi_name": "Arthur's Rock",
+      "osm_id": 1462036217,
+      "tourism": "viewpoint",
+      "angle": 279.92603683063845
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Hearing Rehab Center, Fort Collins, CO",
+      "geo_wkt": "POINT (-105.095368 40.555861)",
+      "poi": {
+        "id": 149538,
+        "geometry": "POINT (-105.095368 40.555861)",
+        "poi_name": "Hearing Rehab Center",
+        "osm_id": 4015035835,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Fort Collins",
+        "addr_postcode": "80526",
+        "addr_street": "Centre Avenue",
+        "addr_housenumber": "1030"
+      }
+    }
+  },
+  "id": 1475,
+  "type": "knn+angle"
+}

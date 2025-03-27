@@ -1,0 +1,58 @@
+{
+  "question": "Which caf\u00e9 is closest when moving towards Bowditch Middle School Auditorium, Foster City, CA from Golden Gate Bridge Lookout, Sausalito, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 193847,
+      "geometry": "POINT (-122.468663 37.793808)",
+      "poi_name": "General Store (Cafe)",
+      "osm_id": 1564470253,
+      "amenity": "cafe",
+      "value": 144.95390943994025
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
+      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "poi": {
+        "id": 20450,
+        "geometry": "POINT (-122.486003 37.82872)",
+        "poi_name": "Golden Gate Bridge Lookout",
+        "osm_id": 1183476394,
+        "tourism": "viewpoint",
+        "addr_state": "CA",
+        "addr_city": "Sausalito",
+        "addr_street": "Conzelman Road"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
+      "geo_wkt": "POINT (-122.248613 37.559053)",
+      "poi": {
+        "id": 246975,
+        "geometry": "POINT (-122.248613 37.559053)",
+        "poi_name": "Bowditch Middle School Auditorium",
+        "osm_id": 8468035653,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball",
+        "addr_state": "CA",
+        "addr_city": "Foster City",
+        "addr_postcode": "94404",
+        "addr_street": "Tarpon Street",
+        "addr_housenumber": "1450"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 136,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Where is the nearest stadium in the south direction of Hall Christmas Tree Farm, Glen Gardner, NJ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.923734 40.717256)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265384,
+      "geometry": "POINT (-74.923734 40.717256)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hall Christmas Tree Farm, Glen Gardner, NJ",
+      "geo_wkt": "POINT (-74.923734 40.717256)",
+      "poi": {
+        "id": 3218,
+        "geometry": "POINT (-74.923734 40.717256)",
+        "poi_name": "Hall Christmas Tree Farm",
+        "osm_id": 10240300715,
+        "tourism": "attraction",
+        "phone": "+1 908 537 2056",
+        "addr_state": "NJ",
+        "addr_city": "Glen Gardner",
+        "addr_postcode": "08826",
+        "addr_street": "Red Mill Road",
+        "addr_housenumber": "53"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1150,
+  "type": "knn:direction+loc"
+}

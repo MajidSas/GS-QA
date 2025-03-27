@@ -1,0 +1,43 @@
+{
+  "question": "Looking for the closest garden in relation to Smoky Mountain Alpine Coaster, Pigeon Forge, TN, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246396,
+      "geometry": "POINT (-83.380987 35.181761)",
+      "poi_name": "Franklin Garden",
+      "osm_id": 11435442749,
+      "leisure": "garden",
+      "operator": "Franklin Garden Club"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "poi": {
+        "id": 13057,
+        "geometry": "POINT (-83.596543 35.793397)",
+        "poi_name": "Smoky Mountain Alpine Coaster",
+        "osm_id": 4035710749,
+        "tourism": "theme_park",
+        "website": "http://www.smokymountainalpinecoaster.com/",
+        "wikidata": "Q29831450",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Wears Valley Road",
+        "addr_housenumber": "867"
+      }
+    }
+  },
+  "id": 279,
+  "type": "knn+name"
+}

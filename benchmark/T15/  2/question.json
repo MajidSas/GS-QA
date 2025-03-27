@@ -1,0 +1,167 @@
+{
+  "question": "Where can I find a hotel located within 160 kilometers in the direction of south from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, 160000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 9441,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Tradewinds Airport Hotel",
+      "osm_id": 3811403708,
+      "tourism": "hotel",
+      "addr_state": "CA",
+      "addr_city": "Inglewood",
+      "addr_postcode": "90304",
+      "addr_street": "West Century Boulevard",
+      "addr_housenumber": "4210"
+    },
+    {
+      "id": 4677,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "The Aster",
+      "osm_id": 11383440226,
+      "tourism": "hotel",
+      "website": "https://www.theasterla.com/",
+      "internet_access": "wlan",
+      "phone": "+1 323 962 1717",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90028",
+      "addr_street": "Vine Street",
+      "addr_housenumber": "1717"
+    },
+    {
+      "id": 5138,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Homewood Suites by Hilton Los Angeles International Airport",
+      "osm_id": 9774638781,
+      "tourism": "hotel",
+      "website": "https://www.hilton.com/en/hotels/laxswhw",
+      "phone": "+1-310-215-3300",
+      "official_name": "Homewood Suites by Hilton",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90045",
+      "addr_street": "West Century Boulevard",
+      "addr_housenumber": "6151"
+    },
+    {
+      "id": 5139,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "H Hotel Los Angeles, Curio Collection by Hilton",
+      "osm_id": 9774638782,
+      "tourism": "hotel",
+      "website": "https://www.hilton.com/en/hotels/laxcaqq",
+      "phone": "+1-310-215-3000",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90045",
+      "addr_street": "West Century Boulevard",
+      "addr_housenumber": "6151"
+    },
+    {
+      "id": 11751,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Casa Mariquita",
+      "osm_id": 11524094217,
+      "tourism": "hotel",
+      "addr_state": "CA",
+      "addr_city": "Avalon",
+      "addr_postcode": "90704",
+      "addr_street": "Metropole Avenue",
+      "addr_housenumber": "229"
+    },
+    {
+      "id": 15506,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Hotel Metropole",
+      "osm_id": 4911757878,
+      "tourism": "hotel",
+      "addr_state": "CA",
+      "addr_city": "Avalon",
+      "addr_postcode": "90704",
+      "addr_street": "Crescent Avenue",
+      "addr_housenumber": "205"
+    },
+    {
+      "id": 24157,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "THE COVE HOTEL",
+      "osm_id": 9355948823,
+      "tourism": "hotel",
+      "website": "www.covelongbeach.com",
+      "internet_access": "wlan",
+      "phone": "562-426-7611",
+      "addr_state": "CA",
+      "addr_city": "Long Beach",
+      "addr_postcode": "90806",
+      "addr_street": "East Willow Street",
+      "addr_housenumber": "200"
+    },
+    {
+      "id": 25230,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Hotel Villa Porofino",
+      "osm_id": 4427070302,
+      "tourism": "hotel",
+      "phone": "310-510-0556",
+      "addr_state": "CA",
+      "addr_city": "Avalon",
+      "addr_postcode": "90704",
+      "addr_street": "Crescent Avenue",
+      "addr_housenumber": "111"
+    },
+    {
+      "id": 25236,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Pavillon Hotel",
+      "osm_id": 4428273973,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://visitcatalina.com/",
+      "internet_access": "wlan",
+      "phone": "877-788-8322",
+      "addr_state": "CA",
+      "addr_city": "Avalon",
+      "addr_postcode": "90704",
+      "addr_street": "Crescent Avenue",
+      "addr_housenumber": "513"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1,
+  "type": "range:direction+loc"
+}

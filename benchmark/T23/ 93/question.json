@@ -1,0 +1,43 @@
+{
+  "question": "What's the quantity of universities that can be found within a 190 kilometers distance from the Lodge By Sunapee Stays, Sunapee, NH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.070685 43.378958)',4326)::geography, 190000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "count": 31
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Lodge By Sunapee Stays, Sunapee, NH",
+      "geo_wkt": "POINT (-72.070685 43.378958)",
+      "poi": {
+        "id": 15770,
+        "geometry": "POINT (-72.070685 43.378958)",
+        "poi_name": "The Lodge By Sunapee Stays",
+        "osm_id": 9511144227,
+        "tourism": "hotel",
+        "website": "https://sunapeestays.com/rentals/the-lodge/",
+        "internet_access": "wlan",
+        "phone": "+1 603 748 9467",
+        "addr_state": "NH",
+        "addr_city": "Sunapee",
+        "addr_postcode": "03782",
+        "addr_street": "Burkehaven Hill Road",
+        "addr_housenumber": "179"
+      }
+    }
+  },
+  "id": 2292,
+  "type": "range+count"
+}

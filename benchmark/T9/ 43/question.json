@@ -1,0 +1,50 @@
+{
+  "question": "Which gallery is the nearest to the north of House of Air, San Francisco, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 223,
+      "geometry": "POINT (-122.468617 37.804932)",
+      "poi_name": "Lori Austen Gallery",
+      "osm_id": 8244038063,
+      "tourism": "gallery",
+      "addr_street": "Farmers Lane",
+      "addr_housenumber": "725"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "House of Air, San Francisco, CA",
+      "geo_wkt": "POINT (-122.468617 37.804932)",
+      "poi": {
+        "id": 14569,
+        "geometry": "POINT (-122.468617 37.804932)",
+        "poi_name": "House of Air",
+        "osm_id": 4659836677,
+        "tourism": "theme_park",
+        "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+        "website": "https://www.houseofair.com/",
+        "phone": "+1 (415) 345-9675",
+        "wikidata": "Q5914641",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94129",
+        "addr_street": "Mason Street",
+        "addr_housenumber": "926"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2542,
+  "type": "knn:direction+name"
+}

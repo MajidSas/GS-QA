@@ -1,0 +1,44 @@
+{
+  "question": "Which caf\u00e9 is nearest in the northwest direction from Sauk Trail Woods, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 243416,
+      "geometry": "POINT (-87.649076 41.489705)",
+      "poi_name": "Starbucks",
+      "osm_id": 7645974261,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Sauk Trail Woods, IL",
+      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "poi": {
+        "id": 265408,
+        "geometry": "POINT (-87.649076 41.489705)",
+        "poi_name": "Sauk Trail Woods",
+        "osm_id": 369059365,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2520,
+  "type": "knn:direction+name"
+}

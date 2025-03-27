@@ -1,0 +1,40 @@
+{
+  "question": "Where is the nearest railway museum available from Tablerocks Goodnight Amphitheater, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17918,
+      "geometry": "POINT (-96.285251 31.626281)",
+      "poi_name": "Burlington-Rock Island Railroad Museum",
+      "osm_id": 368164853,
+      "tourism": "museum",
+      "museum": "railway",
+      "addr_state": "TX"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Tablerocks Goodnight Amphitheater, TX",
+      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "poi": {
+        "id": 265396,
+        "geometry": "POINT (-97.532231 30.940462)",
+        "poi_name": "Tablerocks Goodnight Amphitheater",
+        "osm_id": 368165373,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 391,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find a stadium that's 170 kilometers from Truss Hotel, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.994498 40.756583)',4326)::geography, 170000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265384,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Truss Hotel, New York, NY",
+      "geo_wkt": "POINT (-73.994498 40.756583)",
+      "poi": {
+        "id": 11300,
+        "geometry": "POINT (-73.994498 40.756583)",
+        "poi_name": "Truss Hotel",
+        "osm_id": 9923066116,
+        "tourism": "hotel",
+        "website": "https://www.trusshotel.com/",
+        "internet_access": "wlan",
+        "phone": "+1 212-920-2020",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10018",
+        "addr_street": "9th Avenue",
+        "addr_housenumber": "515"
+      }
+    }
+  },
+  "id": 2009,
+  "type": "range+loc"
+}

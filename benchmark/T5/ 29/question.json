@@ -1,0 +1,50 @@
+{
+  "question": "Any recommendations for the closest restaurant from Bagley Nature Area viewing platform, Duluth, MN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 125773,
+      "geometry": "POINT (-92.101021 46.821825)",
+      "poi_name": "Crooked Pint",
+      "osm_id": 6975301941,
+      "amenity": "restaurant",
+      "cuisine": "pub",
+      "opening_hours": "Mo-Th 11:00-24:00; Fr 11:00-01:00; Sa 10:00-01:00; Su 10:00-24:00",
+      "phone": "+1-218-464-4129",
+      "takeaway": "yes",
+      "addr_state": "MN",
+      "addr_city": "Duluth",
+      "addr_postcode": "55811",
+      "addr_street": "West Arrowhead Road",
+      "addr_housenumber": "1402"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bagley Nature Area viewing platform, Duluth, MN",
+      "geo_wkt": "POINT (-92.08933 46.822185)",
+      "poi": {
+        "id": 16041,
+        "geometry": "POINT (-92.08933 46.822185)",
+        "poi_name": "Bagley Nature Area viewing platform",
+        "osm_id": 316372272,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "addr_state": "MN",
+        "addr_city": "Duluth",
+        "addr_postcode": "55812",
+        "addr_street": "Junction Avenue",
+        "addr_housenumber": "1325"
+      }
+    }
+  },
+  "id": 228,
+  "type": "knn+name"
+}

@@ -1,0 +1,50 @@
+{
+  "question": "What's the proximity of the nearest attraction relative to Doves Landing Park, Manassas, VA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.478209 38.687121)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.478209 38.687121)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13972,
+      "geometry": "POINT (-77.503526 38.772114)",
+      "poi_name": "Autobahn Indoor Speedway",
+      "osm_id": 4205211289,
+      "leisure": "track",
+      "tourism": "attraction",
+      "opening_hours": "Mo-Th 11:00-22:00, Fr 11:00- 24:00, Sa 10:00-24:00, Su 10:00-20:00 || \"by arrangement\"",
+      "sport": "karting",
+      "website": "https://autobahnspeed.com/manassas/",
+      "phone": "+1 571 7622100",
+      "addr_state": "VA",
+      "addr_city": "Manassas",
+      "addr_street": "Sudley Road",
+      "addr_housenumber": "8300",
+      "distance": 9688.57397183
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Doves Landing Park, Manassas, VA",
+      "geo_wkt": "POINT (-77.478209 38.687121)",
+      "poi": {
+        "id": 248871,
+        "geometry": "POINT (-77.478209 38.687121)",
+        "poi_name": "Doves Landing Park",
+        "osm_id": 4880577726,
+        "leisure": "park",
+        "addr_state": "VA",
+        "addr_city": "Manassas",
+        "addr_postcode": "20112",
+        "addr_street": "Doves Lane",
+        "addr_housenumber": "9305"
+      }
+    }
+  },
+  "id": 2429,
+  "type": "knn+distance"
+}

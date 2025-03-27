@@ -1,0 +1,63 @@
+{
+  "question": "Where can I find a caf\u00e9 positioned within 140 kilometers towards the north of Shop One, Rochester, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography, 140000)\nAND amenity = 'cafe'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 99293,
+      "geometry": "POINT (-77.680465 43.08274)",
+      "poi_name": "Starbucks",
+      "osm_id": 6546582887,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "NY",
+      "addr_city": "Rochester",
+      "addr_postcode": "14626",
+      "addr_street": "West Ridge Road",
+      "addr_housenumber": "2585"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Shop One, Rochester, NY",
+      "geo_wkt": "POINT (-77.680465 43.08274)",
+      "poi": {
+        "id": 1083,
+        "geometry": "POINT (-77.680465 43.08274)",
+        "poi_name": "Shop One",
+        "osm_id": 2825443717,
+        "tourism": "attraction",
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "website": "http://www.shopone.rit.edu",
+        "shop": "gift",
+        "phone": "585-475-2335",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14623",
+        "addr_street": "Reynolds Drive",
+        "addr_housenumber": "6000"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 60,
+  "type": "range:direction+loc"
+}

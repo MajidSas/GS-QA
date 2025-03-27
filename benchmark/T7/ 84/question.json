@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest theme park from Mission Hills Church Park, San Marcos, CA first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16342,
+      "geometry": "POINT (-116.883359 32.841995)",
+      "poi_name": "Marshal Scottys Playland",
+      "osm_id": 358845750,
+      "tourism": "theme_park",
+      "wikidata": "Q17020373",
+      "multihop_answer": "1967",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Marshal Scottys Playland Opened: 1967"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mission Hills Church Park, San Marcos, CA",
+      "geo_wkt": "POINT (-117.148078 33.148133)",
+      "poi": {
+        "id": 246426,
+        "geometry": "POINT (-117.148078 33.148133)",
+        "poi_name": "Mission Hills Church Park",
+        "osm_id": 9632460029,
+        "leisure": "park",
+        "operator": "Mission Hills Church",
+        "addr_state": "CA",
+        "addr_city": "San Marcos",
+        "addr_postcode": "92069",
+        "addr_street": "E. Mission Hills Court",
+        "addr_housenumber": "400"
+      }
+    }
+  },
+  "id": 983,
+  "type": "knn+name+multihop1"
+}

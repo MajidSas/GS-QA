@@ -1,0 +1,41 @@
+{
+  "question": "How many parks are available within 110 kilometers from GrandStay Hotel & Suites Tea / Sioux Falls, Tea, SD?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.824107 43.460519)',4326)::geography, 110000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 65
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "GrandStay Hotel & Suites Tea / Sioux Falls, Tea, SD",
+      "geo_wkt": "POINT (-96.824107 43.460519)",
+      "poi": {
+        "id": 14594,
+        "geometry": "POINT (-96.824107 43.460519)",
+        "poi_name": "GrandStay Hotel & Suites Tea / Sioux Falls",
+        "osm_id": 4664973459,
+        "tourism": "hotel",
+        "internet_access": "yes",
+        "addr_state": "SD",
+        "addr_city": "Tea",
+        "addr_postcode": "57064",
+        "addr_street": "Gateway Lane",
+        "addr_housenumber": "830"
+      }
+    }
+  },
+  "id": 2254,
+  "type": "range+count"
+}

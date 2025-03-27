@@ -1,0 +1,64 @@
+{
+  "question": "What gallery is positioned towards the east of Dyken Pond Environmental Education Center, Cropseyville, NY within 90 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography, 90000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 3587,
+      "geometry": "POINT (-73.434447 42.723028)",
+      "poi_name": "Salmon Falls",
+      "osm_id": 5476774667,
+      "tourism": "gallery",
+      "operator": "Josh Simpson",
+      "website": "https://salmonfallsgallery.com/",
+      "addr_state": "MA",
+      "addr_city": "Shelburne Falls",
+      "addr_postcode": "01370",
+      "addr_street": "Ashfield Street",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 9120,
+      "geometry": "POINT (-73.434447 42.723028)",
+      "poi_name": "Gallery 51",
+      "osm_id": 3677954567,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dyken Pond Environmental Education Center, Cropseyville, NY",
+      "geo_wkt": "POINT (-73.434447 42.723028)",
+      "poi": {
+        "id": 248520,
+        "geometry": "POINT (-73.434447 42.723028)",
+        "poi_name": "Dyken Pond Environmental Education Center",
+        "osm_id": 4298976883,
+        "leisure": "nature_reserve",
+        "website": "https://www.dykenpond.org/",
+        "phone": "+1-518-658-2055",
+        "addr_state": "NY",
+        "addr_city": "Cropseyville",
+        "addr_postcode": "12052",
+        "addr_street": "Dyken Pond Road",
+        "addr_housenumber": "475"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2697,
+  "type": "range:direction+name"
+}

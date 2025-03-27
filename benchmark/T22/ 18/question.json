@@ -1,0 +1,41 @@
+{
+  "question": "In what direction is the nearest university located from W Nashville, Nashville, TN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.785148 36.153431)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.785148 36.153431)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167432,
+      "geometry": "POINT (-86.806711 36.168004)",
+      "poi_name": "Meharry School of Dentistry",
+      "osm_id": 356901447,
+      "amenity": "university",
+      "angle": 309.81455183868707
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "W Nashville, Nashville, TN",
+      "geo_wkt": "POINT (-86.785148 36.153431)",
+      "poi": {
+        "id": 23964,
+        "geometry": "POINT (-86.785148 36.153431)",
+        "poi_name": "W Nashville",
+        "osm_id": 9227626687,
+        "tourism": "hotel",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37203",
+        "addr_street": "12th Avenue South",
+        "addr_housenumber": "300"
+      }
+    }
+  },
+  "id": 1417,
+  "type": "knn+angle"
+}

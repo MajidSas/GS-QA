@@ -1,0 +1,48 @@
+{
+  "question": "What's the closest fast food restaurant nearby Chicago Portage National Historic Site, Lyons, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.802535 41.805303)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 147301,
+      "geometry": "POINT (-87.801126 41.793833)",
+      "poi_name": "Domino's",
+      "osm_id": 7521634921,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60638",
+      "addr_street": "South Harlem Avenue",
+      "addr_housenumber": "5401"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Chicago Portage National Historic Site, Lyons, IL",
+      "geo_wkt": "POINT (-87.802535 41.805303)",
+      "poi": {
+        "id": 249541,
+        "geometry": "POINT (-87.802535 41.805303)",
+        "poi_name": "Chicago Portage National Historic Site",
+        "osm_id": 354160458,
+        "leisure": "park",
+        "wikidata": "Q5095746",
+        "addr_state": "IL",
+        "addr_city": "Lyons",
+        "addr_street": "South Harlem Avenue",
+        "addr_housenumber": "4800"
+      }
+    }
+  },
+  "id": 267,
+  "type": "knn+name"
+}

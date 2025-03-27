@@ -1,0 +1,41 @@
+{
+  "question": "Seeking suggestions for the nearest aquarium in relation to the stadium that can hold 6600 spectators in Louisville, KY.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24095,
+      "geometry": "POINT (-86.121741 39.855579)",
+      "poi_name": "The Reef Aquarium Shop",
+      "osm_id": 9310064911,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "poi": {
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
+      }
+    }
+  },
+  "id": 2756,
+  "type": "knn+name+multihop2"
+}

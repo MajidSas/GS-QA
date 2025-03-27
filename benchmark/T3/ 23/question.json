@@ -1,0 +1,52 @@
+{
+  "question": "What hospital is positioned towards the southeast of Parker Manatee Aquarium, Bradenton, FL within 80 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.571569 27.497999)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.571569 27.497999)',4326)::geography, 80000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 181419,
+      "geometry": "POINT (-82.571569 27.497999)",
+      "poi_name": "Centerstone Bradenton \u2013 Hospital and Addiction Center",
+      "osm_id": 10844845873,
+      "amenity": "hospital",
+      "website": "https://centerstone.org/locations/florida/facilities/centerstone-bradenton-hospital-and-addiction-center",
+      "phone": "+1 941 782 4299",
+      "healthcare": "hospital"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Parker Manatee Aquarium, Bradenton, FL",
+      "geo_wkt": "POINT (-82.571569 27.497999)",
+      "poi": {
+        "id": 2533,
+        "geometry": "POINT (-82.571569 27.497999)",
+        "poi_name": "Parker Manatee Aquarium",
+        "osm_id": 493892785,
+        "tourism": "aquarium",
+        "fee": "yes",
+        "addr_state": "FL",
+        "addr_city": "Bradenton",
+        "addr_postcode": "34205",
+        "addr_street": "10th Street West",
+        "addr_housenumber": "201"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2622,
+  "type": "range:direction+name"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "What is the nearest science museum from Oxbow Park and Zollman Zoo, Byron, MN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'science'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1651,
+      "geometry": "POINT (-89.405416 43.073647)",
+      "poi_name": "L.R. Ingersoll Physics Museum",
+      "osm_id": 3100613313,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 08:00-16:00; PH off; SH off",
+      "operator": "University of Wisconsin- Madison",
+      "website": "https://www.physics.wisc.edu/ingersollmuseum/",
+      "phone": "+1-608-262-3898",
+      "museum": "science",
+      "wikidata": "Q18749057",
+      "addr_city": "Madison",
+      "addr_street": "University Avenue",
+      "addr_housenumber": "1150"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
+      "geo_wkt": "POINT (-92.648741 44.083478)",
+      "poi": {
+        "id": 8983,
+        "geometry": "POINT (-92.648741 44.083478)",
+        "poi_name": "Oxbow Park and Zollman Zoo",
+        "osm_id": 3606133825,
+        "tourism": "zoo",
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "operator": "Olmsted County",
+        "addr_state": "MN",
+        "addr_city": "Byron",
+        "addr_postcode": "55920",
+        "addr_street": "County Road 105 Northwest",
+        "addr_housenumber": "5731"
+      }
+    }
+  },
+  "id": 658,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,51 @@
+{
+  "question": "Where's the nearest fast food restaurant from Cockrell Butterfly Center, Houston, TX located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.39032 29.722176)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 53933,
+      "geometry": "POINT (-95.390115 29.722254)",
+      "poi_name": "Periodic Table",
+      "osm_id": 10107277344,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 09:00-17:00",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "delivery": "no",
+      "addr_state": "TX",
+      "addr_city": "Houston",
+      "addr_postcode": "77030",
+      "addr_street": "Hermann Park Drive",
+      "addr_housenumber": "5555"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Cockrell Butterfly Center, Houston, TX",
+      "geo_wkt": "POINT (-95.39032 29.722176)",
+      "poi": {
+        "id": 14408,
+        "geometry": "POINT (-95.39032 29.722176)",
+        "poi_name": "Cockrell Butterfly Center",
+        "osm_id": 4299317974,
+        "tourism": "zoo",
+        "operator": "Houston Museum of Natural Science",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Hermann Park Drive",
+        "addr_housenumber": "5555"
+      }
+    }
+  },
+  "id": 1843,
+  "type": "knn+loc"
+}

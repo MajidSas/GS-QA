@@ -1,0 +1,47 @@
+{
+  "question": "Which viewpoint is the closest to the north of Kaiser Ambulatory Surgery Center, Sacramento, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.423679 38.469436)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 78,
+      "geometry": "POINT (-121.423679 38.469436)",
+      "poi_name": "Beale Falls",
+      "osm_id": 429180605,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Kaiser Ambulatory Surgery Center, Sacramento, CA",
+      "geo_wkt": "POINT (-121.423679 38.469436)",
+      "poi": {
+        "id": 159284,
+        "geometry": "POINT (-121.423679 38.469436)",
+        "poi_name": "Kaiser Ambulatory Surgery Center",
+        "osm_id": 4785477140,
+        "amenity": "hospital",
+        "operator": "Kaiser Permanente",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CA",
+        "addr_city": "Sacramento",
+        "addr_postcode": "95823",
+        "addr_street": "Bruceville Road",
+        "addr_housenumber": "6600"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2512,
+  "type": "knn:direction+name"
+}

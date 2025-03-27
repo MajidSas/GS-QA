@@ -1,0 +1,36 @@
+{
+  "question": "In the vicinity of Five Wells Roping Rodeo Arena, TX, within 130 kilometers, how many parks are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, 130000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 188
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Five Wells Roping Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "poi": {
+        "id": 265394,
+        "geometry": "POINT (-97.402227 30.995182)",
+        "poi_name": "Five Wells Roping Rodeo Arena",
+        "osm_id": 368165371,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 2233,
+  "type": "range+count"
+}

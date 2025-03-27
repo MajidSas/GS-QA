@@ -1,0 +1,219 @@
+{
+  "question": "Within a radius of 60 kilometers, which fast food restaurant can I find on the route towards Monkey Island, FL from Lake Weir High School Stadium, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.977308 29.079147)',4326)::geography, ST_GeomFromText('POINT (-82.616906 28.785839)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.977308 29.079147)',4326)::geography, 60000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.977308 29.079147)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 28679,
+      "geometry": "POINT (-82.482517 28.891934)",
+      "poi_name": "Wendy's",
+      "osm_id": 8250477043,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 28680,
+      "geometry": "POINT (-82.485392 28.89184)",
+      "poi_name": "McDonald's",
+      "osm_id": 8250477044,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/fl/lecanto/1988-n-lecanto-hwy/36567.html",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 59557,
+      "geometry": "POINT (-82.159049 29.026019)",
+      "poi_name": "Subway",
+      "osm_id": 5431208071,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "FL",
+      "addr_city": "Ocala",
+      "addr_postcode": "34473",
+      "addr_street": "Southwest 135th Street",
+      "addr_housenumber": "2019",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 43512,
+      "geometry": "POINT (-82.344133 28.836354)",
+      "poi_name": "Panera Bread",
+      "osm_id": 3117425329,
+      "amenity": "fast_food",
+      "cuisine": "sandwich;bakery",
+      "wheelchair": "yes",
+      "website": "http://www.panerabread.com",
+      "internet_access": "wlan",
+      "phone": "352 341 3092",
+      "takeaway": "yes",
+      "addr_state": "FL",
+      "addr_city": "Inverness",
+      "addr_postcode": "34450",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "1082",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 59558,
+      "geometry": "POINT (-82.159001 29.024827)",
+      "poi_name": "Wendy's",
+      "osm_id": 5431208074,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196476,
+      "geometry": "POINT (-82.053637 29.059471)",
+      "poi_name": "Hardee's",
+      "osm_id": 10580507036,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://locations.hardees.com/fl/belleview/5741-se-abshier-blvd",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 92885,
+      "geometry": "POINT (-82.154534 29.024988)",
+      "poi_name": "KFC;Taco Bell",
+      "osm_id": 2139272294,
+      "amenity": "fast_food",
+      "cuisine": "chicken;tex-mex",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "outdoor_seating": "no",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 122001,
+      "geometry": "POINT (-82.48727 28.851266)",
+      "poi_name": "Dunkin'",
+      "osm_id": 6783571151,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196477,
+      "geometry": "POINT (-82.056889 29.060044)",
+      "poi_name": "McDonald's",
+      "osm_id": 10580507037,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/fl/belleview/5515-se-abshier-blvd/4521.html",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196478,
+      "geometry": "POINT (-82.056209 29.059734)",
+      "poi_name": "Burger King",
+      "osm_id": 10580507038,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196479,
+      "geometry": "POINT (-82.049923 29.058691)",
+      "poi_name": "Dunkin'",
+      "osm_id": 10580519776,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196480,
+      "geometry": "POINT (-82.057158 29.059427)",
+      "poi_name": "Subway",
+      "osm_id": 10580533144,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196481,
+      "geometry": "POINT (-82.058042 29.060114)",
+      "poi_name": "Checkers",
+      "osm_id": 10580533145,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 196482,
+      "geometry": "POINT (-82.063622 29.060444)",
+      "poi_name": "KFC",
+      "osm_id": 10580533153,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "website": "https://locations.kfc.com/fl/belleview/5120-se-abshier-blvd",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    },
+    {
+      "id": 232994,
+      "geometry": "POINT (-82.159122 29.024834)",
+      "poi_name": "Dairy Queen",
+      "osm_id": 4552103789,
+      "amenity": "fast_food",
+      "cuisine": "ice_cream;burger",
+      "takeaway": "yes",
+      "value": 242.6224687697381
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Lake Weir High School Stadium, FL",
+      "geo_wkt": "POINT (-81.977308 29.079147)",
+      "poi": {
+        "id": 265380,
+        "geometry": "POINT (-81.977308 29.079147)",
+        "poi_name": "Lake Weir High School Stadium",
+        "osm_id": 367826914,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Monkey Island, FL",
+      "geo_wkt": "POINT (-82.616906 28.785839)",
+      "poi": {
+        "id": 6597,
+        "geometry": "POINT (-82.616906 28.785839)",
+        "poi_name": "Monkey Island",
+        "osm_id": 1884113746,
+        "tourism": "zoo",
+        "addr_state": "FL",
+        "addr_postcode": "34448"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1669,
+  "type": "range:towards+name"
+}

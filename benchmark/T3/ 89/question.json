@@ -1,0 +1,99 @@
+{
+  "question": "What museum is located within 160 kilometers in the northeast direction of AC Hotel, Atlanta, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.385904 33.786436)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.385904 33.786436)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 2256,
+      "geometry": "POINT (-84.385904 33.786436)",
+      "poi_name": "Yahoola Cherokee Museum",
+      "osm_id": 3355026814,
+      "tourism": "museum"
+    },
+    {
+      "id": 2487,
+      "geometry": "POINT (-84.385904 33.786436)",
+      "poi_name": "Currahee Military Museum",
+      "osm_id": 3474190426,
+      "tourism": "museum",
+      "opening_hours": "Mo-Sa 10:00-16:00; Su 13:00-16:00; Jan 01 closed; easter closed; Nov Th[4] closed; Dec 24 closed; Dec 25 closed; Dec 31 closed",
+      "website": "https://www.toccoahistory.com/",
+      "shop": "gift",
+      "addr_state": "GA",
+      "addr_city": "Toccoa",
+      "addr_postcode": "30577",
+      "addr_street": "North Alexander Street",
+      "addr_housenumber": "160"
+    },
+    {
+      "id": 17704,
+      "geometry": "POINT (-84.385904 33.786436)",
+      "poi_name": "Lanier Museum of Natural History",
+      "osm_id": 367915562,
+      "tourism": "museum",
+      "addr_state": "GA"
+    },
+    {
+      "id": 17705,
+      "geometry": "POINT (-84.385904 33.786436)",
+      "poi_name": "Gwinnett History Museum",
+      "osm_id": 367915564,
+      "tourism": "museum",
+      "website": "https://www.gwinnettcounty.com/web/gwinnett/AboutGwinnett/ArtsandEntertainment/HistoryMuseum",
+      "phone": "(770) 822-5178",
+      "museum": "history",
+      "addr_state": "GA",
+      "addr_city": "Lawrenceville",
+      "addr_postcode": "30046",
+      "addr_street": "South Perry Street",
+      "addr_housenumber": "455"
+    },
+    {
+      "id": 26686,
+      "geometry": "POINT (-84.385904 33.786436)",
+      "poi_name": "Oglethorpe Museum of Art",
+      "osm_id": 5987312801,
+      "tourism": "museum",
+      "operator": "Oglethorpe University",
+      "website": "https://museum.oglethorpe.edu/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "AC Hotel, Atlanta, GA",
+      "geo_wkt": "POINT (-84.385904 33.786436)",
+      "poi": {
+        "id": 961,
+        "geometry": "POINT (-84.385904 33.786436)",
+        "poi_name": "AC Hotel",
+        "osm_id": 2749706258,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.marriott.com/en-us/hotels/atlcn-ac-hotel-atlanta-midtown/overview/",
+        "internet_access": "wlan",
+        "phone": "+1-404-249-9445",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30309",
+        "addr_street": "14th Street Northeast",
+        "addr_housenumber": "53"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2688,
+  "type": "range:direction+name"
+}

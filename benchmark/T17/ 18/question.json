@@ -1,0 +1,44 @@
+{
+  "question": "Where's the nearest university from S. 15th St. Community Garden, Philadelphia, PA located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 57741,
+      "geometry": "POINT (-75.192951 39.952747)",
+      "poi_name": "Jaffe",
+      "osm_id": 5349684421,
+      "amenity": "university",
+      "wheelchair": "yes",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19104",
+      "addr_street": "Woodland Walk",
+      "addr_housenumber": "3405"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "poi": {
+        "id": 247115,
+        "geometry": "POINT (-75.169239 39.933457)",
+        "poi_name": "S. 15th St. Community Garden",
+        "osm_id": 3559344406,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_street": "S. 15th St.",
+        "addr_housenumber": "1329"
+      }
+    }
+  },
+  "id": 1817,
+  "type": "knn+loc"
+}

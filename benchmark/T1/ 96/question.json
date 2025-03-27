@@ -1,0 +1,40 @@
+{
+  "question": "I'm looking for a viewpoint within 80 kilometers radii of Southern Sportsman Lodge, AL.",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.086132 32.541526)',4326)::geography, 80000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 22952,
+      "geometry": "POINT (-87.634421 33.006454)",
+      "poi_name": "Burial Mound",
+      "osm_id": 4979057067,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Southern Sportsman Lodge, AL",
+      "geo_wkt": "POINT (-88.086132 32.541526)",
+      "poi": {
+        "id": 17712,
+        "geometry": "POINT (-88.086132 32.541526)",
+        "poi_name": "Southern Sportsman Lodge",
+        "osm_id": 367932289,
+        "tourism": "hotel",
+        "addr_state": "AL"
+      }
+    }
+  },
+  "id": 895,
+  "type": "range+name"
+}

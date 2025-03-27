@@ -1,0 +1,64 @@
+{
+  "question": "What is the closest restaurant from Speert Green, Wayne, NJ towards Dwarfskill Preserve, Milford, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 63158,
+      "geometry": "POINT (-74.203332 40.947054)",
+      "poi_name": "Frank Cardose",
+      "osm_id": 5602407494,
+      "amenity": "restaurant",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Paterson-Hamburg Turnpike",
+      "addr_housenumber": "224",
+      "value": 304.3086099688368
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dwarfskill Preserve, Milford, PA",
+      "geo_wkt": "POINT (-74.895166 41.300832)",
+      "poi": {
+        "id": 267602,
+        "geometry": "POINT (-74.895166 41.300832)",
+        "poi_name": "Dwarfskill Preserve",
+        "osm_id": 7740705080,
+        "leisure": "nature_reserve",
+        "addr_state": "PA",
+        "addr_city": "Milford",
+        "addr_postcode": "18337",
+        "addr_street": "Dwarfskill Falls Lane",
+        "addr_housenumber": "132"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 183,
+  "type": "knn:towards+name"
+}

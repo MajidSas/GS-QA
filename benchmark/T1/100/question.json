@@ -1,0 +1,53 @@
+{
+  "question": "Can you find me a university that's 60 kilometers from Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography, 60000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 167669,
+      "geometry": "POINT (-80.163611 26.186389)",
+      "poi_name": "Keiser College",
+      "osm_id": 358742334,
+      "amenity": "university",
+      "operator": "Keiser University",
+      "addr_state": "FL",
+      "addr_city": "Fort Lauderdale",
+      "addr_postcode": "33309",
+      "addr_street": "Northwest 49th Street",
+      "addr_housenumber": "1500"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
+      "poi": {
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
+      }
+    }
+  },
+  "id": 899,
+  "type": "range+name"
+}

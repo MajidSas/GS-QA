@@ -1,0 +1,85 @@
+{
+  "question": "Is it possible for you to discover a local museum that is situated within 80 kilometers of WSU Cooperative Extension Energy Program, Olympia, WA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.892715 47.040954)',4326)::geography, 80000)\nAND tourism = 'museum'\nAND museum = 'local';\n",
+  "answers": [
+    {
+      "id": 8740,
+      "geometry": "POINT (-122.59991 47.172323)",
+      "poi_name": "Steilacoom Tribal Cultural Center and Museum",
+      "osm_id": 8663480922,
+      "tourism": "museum",
+      "opening_hours": "Sa 10:00-16:00",
+      "website": "https://steilacoomtribe.business.site",
+      "phone": "+1(253)584-6308",
+      "museum": "local",
+      "addr_state": "WA",
+      "addr_city": "Steilacoom",
+      "addr_postcode": "98388",
+      "addr_street": "Lafayette Street",
+      "addr_housenumber": "1515"
+    },
+    {
+      "id": 9637,
+      "geometry": "POINT (-122.596699 47.172797)",
+      "poi_name": "Steilacoom Historical Museum",
+      "osm_id": 8899615165,
+      "tourism": "museum",
+      "website": "http://steilacoomhistorical.org",
+      "phone": "+1(253)584-4133",
+      "museum": "local",
+      "addr_state": "WA",
+      "addr_city": "Steilacoom",
+      "addr_postcode": "98388",
+      "addr_street": "Rainier Street",
+      "addr_housenumber": "1801"
+    },
+    {
+      "id": 22851,
+      "geometry": "POINT (-123.264488 47.05216)",
+      "poi_name": "McCleary Museum",
+      "osm_id": 4951814309,
+      "tourism": "museum",
+      "opening_hours": "Sa-Su 12:00 - 16:00; Mo-Fr off",
+      "operator": "McCleary Historical Society",
+      "website": "https://mcclearymuseum.org/",
+      "phone": "+1-360-495-4569",
+      "museum": "local",
+      "addr_street": "South 3rd Street",
+      "addr_housenumber": "426"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "WSU Cooperative Extension Energy Program, Olympia, WA",
+      "geo_wkt": "POINT (-122.892715 47.040954)",
+      "poi": {
+        "id": 236382,
+        "geometry": "POINT (-122.892715 47.040954)",
+        "poi_name": "WSU Cooperative Extension Energy Program",
+        "osm_id": 5791448552,
+        "amenity": "university",
+        "website": "https://energy.wsu.edu/",
+        "addr_state": "WA",
+        "addr_city": "Olympia",
+        "addr_postcode": "98501",
+        "addr_street": "Plum Street SE",
+        "addr_housenumber": "905"
+      }
+    }
+  },
+  "id": 544,
+  "type": "range:non_spat_filter+name"
+}

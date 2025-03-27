@@ -1,0 +1,54 @@
+{
+  "question": "Within a radius of 190 kilometers, what golf course can I find located in the direction of south from Ritter Park Rose Garden, Huntington, WV?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography, 190000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 266940,
+      "geometry": "POINT (-82.440699 38.406448)",
+      "poi_name": "StoneCrest Golf Course",
+      "osm_id": 11154753277,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Fr 08:00-19:00, Sa-Su 08:00-20:00",
+      "operator": "StoneCrest Jenny Wiley, LLC",
+      "addr_state": "KY",
+      "addr_city": "Prestonsburg",
+      "addr_street": "Club House Drive",
+      "addr_housenumber": "918"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ritter Park Rose Garden, Huntington, WV",
+      "geo_wkt": "POINT (-82.440699 38.406448)",
+      "poi": {
+        "id": 248616,
+        "geometry": "POINT (-82.440699 38.406448)",
+        "poi_name": "Ritter Park Rose Garden",
+        "osm_id": 4683706042,
+        "leisure": "garden",
+        "addr_state": "WV",
+        "addr_city": "Huntington",
+        "addr_postcode": "25701",
+        "addr_street": "McCoy Road",
+        "addr_housenumber": "1501"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2652,
+  "type": "range:direction+name"
+}

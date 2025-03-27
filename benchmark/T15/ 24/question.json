@@ -1,0 +1,166 @@
+{
+  "question": "Where can I find a hospital located in the northwest of Hall des Lumi\u00e8res, New York, NY, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.005072 40.713744)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.005072 40.713744)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 87946,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Fresenius Medical Care at Preakness Healthcare Center",
+      "osm_id": 8754960311,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Oldham Road",
+      "addr_housenumber": "305"
+    },
+    {
+      "id": 88098,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Preakness healthcare",
+      "osm_id": 8763501318,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Oldham Road",
+      "addr_housenumber": "350"
+    },
+    {
+      "id": 87947,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Ancelmo Hospital",
+      "osm_id": 8754960317,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470"
+    },
+    {
+      "id": 105910,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Comprehensive Health Care",
+      "osm_id": 8653216794,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Alps Road",
+      "addr_housenumber": "1500"
+    },
+    {
+      "id": 126546,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "North Hudson Community Action Corporation",
+      "osm_id": 7011939647,
+      "amenity": "hospital",
+      "operator": "North Hudson",
+      "phone": "(201) 210-0200",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "NJ",
+      "addr_city": "Passaic",
+      "addr_postcode": "07055",
+      "addr_street": "Passaic Street",
+      "addr_housenumber": "220"
+    },
+    {
+      "id": 106693,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "University Spine Center",
+      "osm_id": 8696653777,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Valley Road",
+      "addr_housenumber": "504"
+    },
+    {
+      "id": 118660,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Willowbrook Pediatrics",
+      "osm_id": 9058036347,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Willowbrook Boulevard",
+      "addr_housenumber": "57"
+    },
+    {
+      "id": 181374,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Allied Services Institute Of Rehabilitation Medicine",
+      "osm_id": 10844693438,
+      "amenity": "hospital",
+      "website": "https://www.allied-services.org/locations/allied-services-rehabilitation-medicine-center",
+      "phone": "+1 570 348 1300",
+      "healthcare": "rehabilitation",
+      "addr_state": "PA",
+      "addr_city": "Scranton",
+      "addr_postcode": "18508",
+      "addr_street": "Morgan Highway",
+      "addr_housenumber": "475"
+    },
+    {
+      "id": 182633,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Cristian Health - Ramapo Ridge Psychiatric Hospital",
+      "osm_id": 10897760902,
+      "amenity": "hospital",
+      "phone": "+1 201 848 5805",
+      "healthcare": "hospital",
+      "addr_state": "NJ",
+      "addr_city": "Wyckoff",
+      "addr_postcode": "07481",
+      "addr_street": "Sicomac Avenue",
+      "addr_housenumber": "301"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Hall des Lumi\u00e8res, New York, NY",
+      "geo_wkt": "POINT (-74.005072 40.713744)",
+      "poi": {
+        "id": 1082,
+        "geometry": "POINT (-74.005072 40.713744)",
+        "poi_name": "Hall des Lumi\u00e8res",
+        "osm_id": 2825233330,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "10:00-18:00; Tu off; Th-Sa 10:00-22:00",
+        "website": "https://www.halldeslumieres.com/",
+        "museum": "art",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10007",
+        "addr_street": "Chambers Street",
+        "addr_housenumber": "49"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 23,
+  "type": "range:direction+loc"
+}

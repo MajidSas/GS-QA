@@ -1,0 +1,103 @@
+{
+  "question": "Within a radius of 70 kilometers, where can I find  a caf\u00e9 along the way to Art at the Cave, Vancouver, WA from World's Largest Egg, Winlock, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.937891 46.493327)',4326)::geography, ST_GeomFromText('POINT (-122.671041 45.628898)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.937891 46.493327)',4326)::geography, 70000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.937891 46.493327)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 57839,
+      "geometry": "POINT (-122.934757 46.135644)",
+      "poi_name": "Cafe Guse",
+      "osm_id": 5353497597,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 07:30-16:00; Sa 07:30-16:00; Su 09:00-14:00",
+      "website": "https://www.cafeguse.com/",
+      "phone": "1-360-425-8940",
+      "addr_state": "WA",
+      "addr_city": "Longview",
+      "addr_postcode": "98632",
+      "addr_street": "Commerce Avenue",
+      "addr_housenumber": "1208",
+      "value": 167.7754004589694
+    },
+    {
+      "id": 110100,
+      "geometry": "POINT (-122.739327 45.90809)",
+      "poi_name": "Luckman Coffee Company",
+      "osm_id": 3687583450,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 05:30-18:30, Sa 06:00-17:00, Su 07:00-15:00",
+      "addr_city": "Woodland",
+      "addr_street": "Lewis River Road",
+      "addr_housenumber": "1230",
+      "value": 167.7754004589694
+    },
+    {
+      "id": 227843,
+      "geometry": "POINT (-122.917496 46.14599)",
+      "poi_name": "Red Leaf Organic Coffee",
+      "osm_id": 4318961446,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 05:30-20:00, Sa 06:09-20:00, Su 06:30-17:00",
+      "internet_access": "wlan",
+      "addr_city": "Kelso",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "209",
+      "value": 167.7754004589694
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "World's Largest Egg, Winlock, WA",
+      "geo_wkt": "POINT (-122.937891 46.493327)",
+      "poi": {
+        "id": 2147,
+        "geometry": "POINT (-122.937891 46.493327)",
+        "poi_name": "World's Largest Egg",
+        "osm_id": 3280903215,
+        "tourism": "attraction",
+        "operator": "City of Winlock",
+        "addr_state": "WA",
+        "addr_city": "Winlock",
+        "addr_postcode": "98596",
+        "addr_street": "Northwest Kerron Street",
+        "addr_housenumber": "520"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Art at the Cave, Vancouver, WA",
+      "geo_wkt": "POINT (-122.671041 45.628898)",
+      "poi": {
+        "id": 23981,
+        "geometry": "POINT (-122.671041 45.628898)",
+        "poi_name": "Art at the Cave",
+        "osm_id": 9236125660,
+        "tourism": "gallery",
+        "website": "https://artatthecave.com",
+        "phone": "+1-360-314-6506",
+        "addr_state": "WA",
+        "addr_city": "Vancouver",
+        "addr_postcode": "98660",
+        "addr_street": "East Evergreen Boulevard",
+        "addr_housenumber": "108"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1290,
+  "type": "range:towards+loc"
+}

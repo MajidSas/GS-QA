@@ -1,0 +1,86 @@
+{
+  "question": "Within 60 kilometers, which museum can I find from Bagley Nature Area viewing platform, Duluth, MN on the way to Mercy Hospital, Moose Lake, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, ST_GeomFromText('POINT (-92.77338 46.441195)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, 60000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 16922,
+      "geometry": "POINT (-92.459036 46.721417)",
+      "poi_name": "Carlton County Historical Society",
+      "osm_id": 367058111,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 09:00-16:00",
+      "website": "https://www.carltoncountyhistory.org/",
+      "phone": "+1-218-879-1938",
+      "addr_state": "MN",
+      "addr_city": "Cloquet",
+      "addr_postcode": "55720",
+      "addr_street": "Cloquet Avenue",
+      "addr_housenumber": "406",
+      "value": 231.29284878497762
+    },
+    {
+      "id": 16932,
+      "geometry": "POINT (-92.224855 46.742717)",
+      "poi_name": "Proctor Area Historical Museum",
+      "osm_id": 367068128,
+      "tourism": "museum",
+      "website": "https://proctorareahistoricalsociety.org/museum/",
+      "addr_state": "MN",
+      "value": 231.29284878497762
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bagley Nature Area viewing platform, Duluth, MN",
+      "geo_wkt": "POINT (-92.08933 46.822185)",
+      "poi": {
+        "id": 16041,
+        "geometry": "POINT (-92.08933 46.822185)",
+        "poi_name": "Bagley Nature Area viewing platform",
+        "osm_id": 316372272,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "addr_state": "MN",
+        "addr_city": "Duluth",
+        "addr_postcode": "55812",
+        "addr_street": "Junction Avenue",
+        "addr_housenumber": "1325"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mercy Hospital, Moose Lake, MN",
+      "geo_wkt": "POINT (-92.77338 46.441195)",
+      "poi": {
+        "id": 95326,
+        "geometry": "POINT (-92.77338 46.441195)",
+        "poi_name": "Mercy Hospital",
+        "osm_id": 6392025805,
+        "amenity": "hospital",
+        "website": "https://www.mercymooselake.org",
+        "phone": "+1-218-485-4481",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "MN",
+        "addr_city": "Moose Lake",
+        "addr_postcode": "55767",
+        "addr_street": "County Highway 61",
+        "addr_housenumber": "4572"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1623,
+  "type": "range:towards+name"
+}

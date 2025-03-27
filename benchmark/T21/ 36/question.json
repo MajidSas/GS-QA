@@ -1,0 +1,47 @@
+{
+  "question": "Which path points towards a viewpoint from Eastend Sutdio & Gallery, Marshall, me within a distance of 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.960756 42.271697)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.960756 42.271697)',4326)::geography, 50000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 6975,
+      "geometry": "POINT (-84.42234 42.168349)",
+      "poi_name": "Fen Overlook",
+      "osm_id": 8792704360,
+      "tourism": "viewpoint",
+      "angle": 104.2984974241226
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Eastend Sutdio & Gallery, Marshall, mi",
+      "geo_wkt": "POINT (-84.960756 42.271697)",
+      "poi": {
+        "id": 5056,
+        "geometry": "POINT (-84.960756 42.271697)",
+        "poi_name": "Eastend Sutdio & Gallery",
+        "osm_id": 9741587327,
+        "tourism": "gallery",
+        "opening_hours": "Tu 11:00-17:00; We,Th 10:00-17:30; Fr,Sa 11:00-17:00",
+        "shop": "art",
+        "addr_state": "mi",
+        "addr_city": "Marshall",
+        "addr_postcode": "49068",
+        "addr_street": "West Michigan Avenue",
+        "addr_housenumber": "143"
+      }
+    }
+  },
+  "id": 1035,
+  "type": "range+angle"
+}

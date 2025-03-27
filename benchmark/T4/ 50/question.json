@@ -1,0 +1,303 @@
+{
+  "question": "What hotel can I find in the direction of Bottle & Bottega, North Olmsted, OH from Highland Springs Hospital, Highland Hills, OH, within a radius of 150 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.522281 41.450391)',4326)::geography, ST_GeomFromText('POINT (-81.898988 41.419561)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.522281 41.450391)',4326)::geography, 150000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.522281 41.450391)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 529,
+      "geometry": "POINT (-82.17764 41.468382)",
+      "poi_name": "Ariel Broadway Hotel",
+      "osm_id": 8423655960,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "internet_access": "wlan",
+      "addr_street": "Broadway",
+      "addr_housenumber": "301",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9621,
+      "geometry": "POINT (-81.76209 41.422217)",
+      "poi_name": "Fairfield Inn & Suites by Marriott Cleveland Tiedeman Road",
+      "osm_id": 8892932834,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Brooklyn",
+      "addr_postcode": "44144",
+      "addr_street": "Tiedeman Road",
+      "addr_housenumber": "5110",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9635,
+      "geometry": "POINT (-81.757649 41.424822)",
+      "poi_name": "Extended Stay America - Cleveland - Brooklyn",
+      "osm_id": 8898581768,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Brooklyn",
+      "addr_postcode": "44144",
+      "addr_street": "Cascade Crossing",
+      "addr_housenumber": "10300",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9713,
+      "geometry": "POINT (-82.622895 41.329777)",
+      "poi_name": "Holiday Inn Express",
+      "osm_id": 8950519675,
+      "tourism": "hotel",
+      "website": "https://www.ihg.com/holidayinnexpress/hotels/us/en/milan/skymo/hoteldetail",
+      "phone": "+1 567 401 3501",
+      "addr_street": "Milan Road",
+      "addr_housenumber": "11313",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9714,
+      "geometry": "POINT (-82.623454 41.330457)",
+      "poi_name": "Red Roof Inn",
+      "osm_id": 8950533857,
+      "tourism": "hotel",
+      "website": "https://www.redroof.com/property/OH/Milan/RRI643",
+      "phone": "+1 937 328 1667",
+      "addr_street": "US Route 250 North",
+      "addr_housenumber": "11303",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9718,
+      "geometry": "POINT (-81.897251 41.415305)",
+      "poi_name": "Extended Stay America - Cleveland - Airport - North Olmsted",
+      "osm_id": 8952217660,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "North Olmsted",
+      "addr_postcode": "44070",
+      "addr_street": "Country Club Boulevard",
+      "addr_housenumber": "24851",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9719,
+      "geometry": "POINT (-81.895872 41.415509)",
+      "poi_name": "Sonesta Simply Suites Cleveland North Olmsted",
+      "osm_id": 8952217697,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "North Olmsted",
+      "addr_postcode": "44070",
+      "addr_street": "Country Club Boulevard",
+      "addr_housenumber": "24741",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 10770,
+      "geometry": "POINT (-82.118609 41.401075)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 8032293366,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-elyria-oh",
+      "phone": "+1-440-324-0099",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Griswold Road",
+      "addr_housenumber": "645",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 9791,
+      "geometry": "POINT (-82.210782 41.417029)",
+      "poi_name": "Days Inn by Wyndham Amherst",
+      "osm_id": 8994077269,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Amherst",
+      "addr_postcode": "44001",
+      "addr_street": "North Leavitt Road",
+      "addr_housenumber": "934",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 10159,
+      "geometry": "POINT (-82.115176 41.392842)",
+      "poi_name": "Hampton Inn & Suites Elyria",
+      "osm_id": 6727624033,
+      "tourism": "hotel",
+      "official_name": "Hampton Inn & Suites by Hilton",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Travelers Lane",
+      "addr_housenumber": "1795",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 10160,
+      "geometry": "POINT (-82.117716 41.398994)",
+      "poi_name": "Red Roof",
+      "osm_id": 6727624047,
+      "tourism": "hotel",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Midway Boulevard",
+      "addr_housenumber": "621",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 11132,
+      "geometry": "POINT (-82.227112 41.3988)",
+      "poi_name": "Sandstone Suites",
+      "osm_id": 9864358958,
+      "tourism": "hotel",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 10787,
+      "geometry": "POINT (-82.860156 41.507696)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 8039104530,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-port-clinton-oh",
+      "phone": "+1-419-732-2434",
+      "addr_state": "OH",
+      "addr_city": "Port Clinton",
+      "addr_postcode": "43452",
+      "addr_street": "East State Road",
+      "addr_housenumber": "3760",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 10789,
+      "geometry": "POINT (-82.618854 41.327259)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 8039388702,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-milan-oh",
+      "phone": "+1-419-499-4911",
+      "addr_state": "OH",
+      "addr_city": "Milan",
+      "addr_postcode": "44846",
+      "addr_street": "US 250",
+      "addr_housenumber": "11600",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 12890,
+      "geometry": "POINT (-82.941459 41.513117)",
+      "poi_name": "Island House Hotel",
+      "osm_id": 3938217456,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Port Clinton",
+      "addr_postcode": "43452",
+      "addr_street": "Madison Street",
+      "addr_housenumber": "102",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 19144,
+      "geometry": "POINT (-82.750988 41.54546)",
+      "poi_name": "Hotel Lakeside",
+      "osm_id": 2520261152,
+      "tourism": "hotel",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 15108,
+      "geometry": "POINT (-82.713668 41.457034)",
+      "poi_name": "Hotel Kilbourne",
+      "osm_id": 4803829596,
+      "tourism": "hotel",
+      "website": "https://hotelkilbourne.com/",
+      "addr_state": "OH",
+      "addr_city": "Sandusky",
+      "addr_postcode": "44870",
+      "addr_street": "West Shoreline Drive",
+      "addr_housenumber": "223",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 21233,
+      "geometry": "POINT (-81.909879 41.41344)",
+      "poi_name": "Extended Stay America - Cleveland - Great Northern Mall",
+      "osm_id": 1447446970,
+      "tourism": "hotel",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 26806,
+      "geometry": "POINT (-82.113258 41.39125)",
+      "poi_name": "Courtyard by Marriott Cleveland Elyria",
+      "osm_id": 6066626623,
+      "tourism": "hotel",
+      "official_name": "Courtyard by Marriott",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Travelers Lane",
+      "addr_housenumber": "1755",
+      "value": 263.9180464342068
+    },
+    {
+      "id": 26896,
+      "geometry": "POINT (-82.818565 41.652608)",
+      "poi_name": "Edgewater Hotel",
+      "osm_id": 7616768357,
+      "tourism": "hotel",
+      "value": 263.9180464342068
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Highland Springs Hospital, Highland Hills, OH",
+      "geo_wkt": "POINT (-81.522281 41.450391)",
+      "poi": {
+        "id": 182765,
+        "geometry": "POINT (-81.522281 41.450391)",
+        "poi_name": "Highland Springs Hospital",
+        "osm_id": 10904097060,
+        "amenity": "hospital",
+        "website": "https://www.highlandspringshealth.com",
+        "phone": "+1 216 302 3070",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Highland Hills",
+        "addr_postcode": "44122",
+        "addr_street": "Mill Pond Drive",
+        "addr_housenumber": "4199"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bottle & Bottega, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.898988 41.419561)",
+      "poi": {
+        "id": 9701,
+        "geometry": "POINT (-81.898988 41.419561)",
+        "poi_name": "Bottle & Bottega",
+        "osm_id": 8944836844,
+        "tourism": "gallery",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Brookpark Road",
+        "addr_housenumber": "25102"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1649,
+  "type": "range:towards+name"
+}

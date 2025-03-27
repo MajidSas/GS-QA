@@ -1,0 +1,62 @@
+{
+  "question": "What's the nearest caf\u00e9 heading towards Rhododendron Species Botanical Garden, Federal Way, WA from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, ST_GeomFromText('POINT (-122.302257 47.292739)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 29135,
+      "geometry": "POINT (-122.35769 47.192046)",
+      "poi_name": "Hot Rod Espresso",
+      "osm_id": 8282805836,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 28.808644648029958
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "poi": {
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Rhododendron Species Botanical Garden, Federal Way, WA",
+      "geo_wkt": "POINT (-122.302257 47.292739)",
+      "poi": {
+        "id": 248648,
+        "geometry": "POINT (-122.302257 47.292739)",
+        "poi_name": "Rhododendron Species Botanical Garden",
+        "osm_id": 4721258058,
+        "leisure": "garden",
+        "website": "https://rhodygarden.org/",
+        "addr_state": "WA",
+        "addr_city": "Federal Way",
+        "addr_postcode": "98003",
+        "addr_street": "South 336th Street",
+        "addr_housenumber": "2525"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 102,
+  "type": "knn:towards+name"
+}

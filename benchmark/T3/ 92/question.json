@@ -1,0 +1,54 @@
+{
+  "question": "Within a radius of 90 kilometers, what golf course can I find located in the direction of southeast from Wolf Creek Environmental Center, Sharon Center, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.737721 41.113505)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.737721 41.113505)',4326)::geography, 90000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 245826,
+      "geometry": "POINT (-81.737721 41.113505)",
+      "poi_name": "Cleveland Clinic-Akron General Challenge Golf Course",
+      "osm_id": 10135402772,
+      "leisure": "golf_course",
+      "addr_state": "OH",
+      "addr_city": "Akron",
+      "addr_postcode": "44312",
+      "addr_street": "Flickinger Road",
+      "addr_housenumber": "1596"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wolf Creek Environmental Center, Sharon Center, OH",
+      "geo_wkt": "POINT (-81.737721 41.113505)",
+      "poi": {
+        "id": 255482,
+        "geometry": "POINT (-81.737721 41.113505)",
+        "poi_name": "Wolf Creek Environmental Center",
+        "osm_id": 357523915,
+        "leisure": "park",
+        "website": "http://www.medinacountyparks.com/index.php/en/county-parks/alderfer-oenslager-wildlife-sactuary-wolf-creek-environmental-center",
+        "addr_state": "OH",
+        "addr_city": "Sharon Center",
+        "addr_postcode": "44274",
+        "addr_street": "Ridge Road",
+        "addr_housenumber": "6100"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2691,
+  "type": "range:direction+name"
+}

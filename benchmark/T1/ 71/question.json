@@ -1,0 +1,44 @@
+{
+  "question": "Is there a garden within 80 kilometers from Bittersweet Falls, Weybridge, VT?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography, 80000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 248006,
+      "geometry": "POINT (-73.207767 44.498108)",
+      "poi_name": "Tommy Thompson Community Garden",
+      "osm_id": 6248143690,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    }
+  },
+  "id": 870,
+  "type": "range+name"
+}

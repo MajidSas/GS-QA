@@ -1,0 +1,42 @@
+{
+  "question": "Which way should I head to access the closest zoo from Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.348409 41.636215)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.348409 41.636215)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 20104,
+      "geometry": "POINT (-80.004351 40.308475)",
+      "poi_name": "South Park Game Preserve",
+      "osm_id": 7872549552,
+      "tourism": "zoo",
+      "opening_hours": "07:00-dusk",
+      "angle": 200.743489680273
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA",
+      "geo_wkt": "POINT (-79.348409 41.636215)",
+      "poi": {
+        "id": 19939,
+        "geometry": "POINT (-79.348409 41.636215)",
+        "poi_name": "Jakes Rock Overlook and Mountain Bike Trail",
+        "osm_id": 7771460457,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_city": "Tidioute",
+        "addr_postcode": "16351",
+        "addr_street": "Old Forest Road",
+        "addr_housenumber": "492"
+      }
+    }
+  },
+  "id": 1451,
+  "type": "knn+angle"
+}

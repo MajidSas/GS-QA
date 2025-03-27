@@ -1,0 +1,50 @@
+{
+  "question": "Within a radius of 130 kilometers, where can I find a garden situated towards the east of Lang Family House of Terror (Seasonal), Oregon, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.379848 42.923673)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.379848 42.923673)',4326)::geography, 130000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 245940,
+      "geometry": "POINT (-89.379848 42.923673)",
+      "poi_name": "Memory Garden",
+      "osm_id": 5345442455,
+      "leisure": "garden",
+      "addr_state": "WI",
+      "addr_city": "Mequon"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Lang Family House of Terror (Seasonal), Oregon, WI",
+      "geo_wkt": "POINT (-89.379848 42.923673)",
+      "poi": {
+        "id": 1771,
+        "geometry": "POINT (-89.379848 42.923673)",
+        "poi_name": "Lang Family House of Terror (Seasonal)",
+        "osm_id": 3148604347,
+        "tourism": "attraction",
+        "addr_state": "WI",
+        "addr_city": "Oregon",
+        "addr_postcode": "53575",
+        "addr_street": "Waterman Street",
+        "addr_housenumber": "290"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 5,
+  "type": "range:direction+loc"
+}

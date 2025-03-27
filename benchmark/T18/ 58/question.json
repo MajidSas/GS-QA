@@ -1,0 +1,52 @@
+{
+  "question": "Where can I find the nearest emergency hospital from Quality Inn, Camp Springs, MD?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.887333 38.821189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 204829,
+      "geometry": "POINT (-77.222205 38.878159)",
+      "poi_name": "Dominion Plastic Surgery",
+      "osm_id": 7143550380,
+      "amenity": "hospital",
+      "opening_hours": "Mo-Fr 09:00-17:00",
+      "website": "https://www.dominionplasticsurgery.com/",
+      "phone": "+1 703-544-8971",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Falls Church",
+      "addr_postcode": "22043",
+      "addr_street": "Hartland Road",
+      "addr_housenumber": "2755"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Quality Inn, Camp Springs, MD",
+      "geo_wkt": "POINT (-76.887333 38.821189)",
+      "poi": {
+        "id": 13573,
+        "geometry": "POINT (-76.887333 38.821189)",
+        "poi_name": "Quality Inn",
+        "osm_id": 4119439805,
+        "tourism": "hotel",
+        "addr_state": "MD",
+        "addr_city": "Camp Springs",
+        "addr_postcode": "20746",
+        "addr_street": "Allentown Road",
+        "addr_housenumber": "4783"
+      }
+    }
+  },
+  "id": 357,
+  "type": "knn:non_spat_filter+loc"
+}

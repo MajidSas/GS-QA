@@ -1,0 +1,54 @@
+{
+  "question": "Where's the nearest restaurant from Pulmonary Medicine Institute P.C., Omaha, NE located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.977932 41.25814)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 210067,
+      "geometry": "POINT (-95.973564 41.257639)",
+      "poi_name": "Noli's Pizzeria",
+      "osm_id": 5076231527,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Th 11:00-22:00; Fr,Sa 11:00-23:00; Su 11:00-21:00",
+      "website": "https://nolispizzeria.com",
+      "phone": "+1-402-359-1802",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "NE",
+      "addr_city": "Omaha",
+      "addr_postcode": "68131",
+      "addr_street": "Farnam Street",
+      "addr_housenumber": "4001"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Pulmonary Medicine Institute P.C., Omaha, NE",
+      "geo_wkt": "POINT (-95.977932 41.25814)",
+      "poi": {
+        "id": 147609,
+        "geometry": "POINT (-95.977932 41.25814)",
+        "poi_name": "Pulmonary Medicine Institute P.C.",
+        "osm_id": 7550167726,
+        "amenity": "university",
+        "website": "https://pmiomaha.com",
+        "phone": "+1-402-552-9875",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68131",
+        "addr_street": "Farnam Street",
+        "addr_housenumber": "4242"
+      }
+    }
+  },
+  "id": 1815,
+  "type": "knn+loc"
+}

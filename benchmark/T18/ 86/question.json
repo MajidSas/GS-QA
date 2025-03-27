@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the closest chinese restaurant from O'Rena, Rochester, MI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chinese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 107863,
+      "geometry": "POINT (-83.171479 42.635439)",
+      "poi_name": "Pearl's Express",
+      "osm_id": 3582144905,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "capacity": "20",
+      "phone": "+1-248-852-3566",
+      "takeaway": "yes",
+      "addr_state": "MI",
+      "addr_city": "Rochester Hills",
+      "addr_postcode": "48309",
+      "addr_street": "West Auburn Road",
+      "addr_housenumber": "2028"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "chinese restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%chinese%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "O'Rena, Rochester, MI",
+      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "poi": {
+        "id": 267317,
+        "geometry": "POINT (-83.213305 42.674149)",
+        "poi_name": "O'Rena",
+        "osm_id": 5842381796,
+        "leisure": "stadium",
+        "addr_state": "MI",
+        "addr_city": "Rochester",
+        "addr_postcode": "48309-4482",
+        "addr_street": "Pioneer Drive",
+        "addr_housenumber": "569"
+      }
+    }
+  },
+  "id": 385,
+  "type": "knn:non_spat_filter+loc"
+}

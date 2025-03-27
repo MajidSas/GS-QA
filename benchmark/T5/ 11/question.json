@@ -1,0 +1,37 @@
+{
+  "question": "What's the nearest viewpoint near Discovery Science and Outdoor Center, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.123141 29.164951)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2136,
+      "geometry": "POINT (-81.724909 29.356012)",
+      "poi_name": "Giant Cypress",
+      "osm_id": 3273850797,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Discovery Science and Outdoor Center, FL",
+      "geo_wkt": "POINT (-82.123141 29.164951)",
+      "poi": {
+        "id": 17623,
+        "geometry": "POINT (-82.123141 29.164951)",
+        "poi_name": "Discovery Science and Outdoor Center",
+        "osm_id": 367819079,
+        "tourism": "museum",
+        "website": "https://www.ocalafl.gov/government/city-departments-i-z/recreation-parks/discovery-center",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 210,
+  "type": "knn+name"
+}

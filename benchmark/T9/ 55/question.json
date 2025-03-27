@@ -1,0 +1,40 @@
+{
+  "question": "What is the closest gallery in the southwest direction of Stanton County Museum, NE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.058098 42.018338)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10266,
+      "geometry": "POINT (-97.058098 42.018338)",
+      "poi_name": "The Kiln Art Studio",
+      "osm_id": 6765376950,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Stanton County Museum, NE",
+      "geo_wkt": "POINT (-97.058098 42.018338)",
+      "poi": {
+        "id": 16783,
+        "geometry": "POINT (-97.058098 42.018338)",
+        "poi_name": "Stanton County Museum",
+        "osm_id": 366492367,
+        "tourism": "museum",
+        "addr_state": "NE"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2554,
+  "type": "knn:direction+name"
+}

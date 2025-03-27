@@ -1,0 +1,49 @@
+{
+  "question": "Where's the closest golf course to the southeast of Wilkes Family YMCA, Wilkesboro, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.199782 36.136192)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248362,
+      "geometry": "POINT (-81.199782 36.136192)",
+      "poi_name": "Mallard Head Country Club",
+      "osm_id": 4059209842,
+      "leisure": "golf_course",
+      "addr_state": "NC",
+      "addr_city": "Mooresville",
+      "addr_postcode": "28117",
+      "addr_street": "Mallard Way",
+      "addr_housenumber": "185"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wilkes Family YMCA, Wilkesboro, NC",
+      "geo_wkt": "POINT (-81.199782 36.136192)",
+      "poi": {
+        "id": 265525,
+        "geometry": "POINT (-81.199782 36.136192)",
+        "poi_name": "Wilkes Family YMCA",
+        "osm_id": 2458881570,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Wilkesboro",
+        "addr_postcode": "28697",
+        "addr_street": "YMCA Blvd",
+        "addr_housenumber": "1801"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1179,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Where's the closest fast food restaurant located in the direction of northwest from Union Park, Little Rock, AR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-92.365431 34.719537)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 76343,
+      "geometry": "POINT (-92.365431 34.719537)",
+      "poi_name": "Slim Chickens",
+      "osm_id": 9771747977,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "opening_hours": "10:30-23:00",
+      "website": "https://slimchickens.com/location/little-rock-ar-301-n-shackleford-road-72211/",
+      "phone": "+1-501-954-9999",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "AR",
+      "addr_city": "Lttle Rock",
+      "addr_postcode": "72211",
+      "addr_street": "North Shackleford Road",
+      "addr_housenumber": "301"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Union Park, Little Rock, AR",
+      "geo_wkt": "POINT (-92.365431 34.719537)",
+      "poi": {
+        "id": 264749,
+        "geometry": "POINT (-92.365431 34.719537)",
+        "poi_name": "Union Park",
+        "osm_id": 359004919,
+        "leisure": "park",
+        "addr_state": "AR",
+        "addr_city": "Little Rock",
+        "addr_postcode": "72204",
+        "addr_street": "West 38th Street",
+        "addr_housenumber": "810"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1109,
+  "type": "knn:direction+loc"
+}

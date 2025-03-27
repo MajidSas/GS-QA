@@ -1,0 +1,40 @@
+{
+  "question": "Which viewpoint is closest when moving in the west direction from Coral Ridge Ice Arena, IA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7266,
+      "geometry": "POINT (-91.600665 41.690452)",
+      "poi_name": "Barb Wire Point",
+      "osm_id": 2033350754,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Coral Ridge Ice Arena, IA",
+      "geo_wkt": "POINT (-91.600665 41.690452)",
+      "poi": {
+        "id": 265360,
+        "geometry": "POINT (-91.600665 41.690452)",
+        "poi_name": "Coral Ridge Ice Arena",
+        "osm_id": 367088905,
+        "leisure": "stadium",
+        "addr_state": "IA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2507,
+  "type": "knn:direction+name"
+}

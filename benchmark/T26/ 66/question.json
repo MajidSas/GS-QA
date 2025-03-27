@@ -1,0 +1,42 @@
+{
+  "question": "What's the proximity of the closest stadium from Super Cichlids Inc, Dover, DE?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246813,
+      "geometry": "POINT (-75.541179 39.177918)",
+      "poi_name": "Dover High School Stadium",
+      "osm_id": 6470644086,
+      "leisure": "stadium",
+      "distance": 4608.94486558
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    }
+  },
+  "id": 2465,
+  "type": "knn+distance"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Which golf course is nearest in the southwest direction from Five Wells Roping Rodeo Arena, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245444,
+      "geometry": "POINT (-97.402227 30.995182)",
+      "poi_name": "White Wing Golf Club",
+      "osm_id": 2918112986,
+      "leisure": "golf_course",
+      "operator": "Sun City Texas Community Association",
+      "website": "http://golf.sctxca.org/",
+      "phone": "+1-512-948-7570",
+      "addr_state": "TX",
+      "addr_city": "Georgetown",
+      "addr_postcode": "78633",
+      "addr_street": "Dove Hollow Trail",
+      "addr_housenumber": "150"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Five Wells Roping Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "poi": {
+        "id": 265394,
+        "geometry": "POINT (-97.402227 30.995182)",
+        "poi_name": "Five Wells Roping Rodeo Arena",
+        "osm_id": 368165371,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2584,
+  "type": "knn:direction+name"
+}

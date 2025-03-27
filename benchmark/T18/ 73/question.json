@@ -1,0 +1,53 @@
+{
+  "question": "Where is the closest falafel restaurant situated from Ohio University \u2013 Zanesville, Zanesville, OH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%falafel%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 139273,
+      "geometry": "POINT (-80.042038 40.389057)",
+      "poi_name": "Hummus Pittsburgh",
+      "osm_id": 6189870795,
+      "amenity": "restaurant",
+      "cuisine": "falafel",
+      "phone": "+1-412-207-9146",
+      "addr_state": "PA",
+      "addr_city": "Pittsburgh",
+      "addr_postcode": "15216",
+      "addr_street": "West Liberty Avenue",
+      "addr_housenumber": "3285"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "falafel restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%falafel%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Ohio University \u2013 Zanesville, Zanesville, OH",
+      "geo_wkt": "POINT (-82.030557 39.96074)",
+      "poi": {
+        "id": 133639,
+        "geometry": "POINT (-82.030557 39.96074)",
+        "poi_name": "Ohio University \u2013 Zanesville",
+        "osm_id": 10001421871,
+        "amenity": "university",
+        "operator": "Ohio University",
+        "website": "https://www.ohio.edu/zanesville",
+        "phone": "+1-740-453-0762",
+        "wikidata": "Q7081007",
+        "addr_state": "OH",
+        "addr_city": "Zanesville",
+        "addr_postcode": "43701",
+        "addr_street": "Newark Road",
+        "addr_housenumber": "1425"
+      }
+    }
+  },
+  "id": 372,
+  "type": "knn:non_spat_filter+loc"
+}

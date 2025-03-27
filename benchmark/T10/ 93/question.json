@@ -1,0 +1,66 @@
+{
+  "question": "Which restaurant is closest along the route to Carolina Beach Inn, Carolina Beach, NC from Wise House, Wilmington, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography, ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 136422,
+      "geometry": "POINT (-77.892472 34.17456)",
+      "poi_name": "Slice of Life Pizzeria & Pub",
+      "osm_id": 11583590050,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "website": "https://grabslice.com",
+      "addr_street": "Patriot Way",
+      "addr_housenumber": "3715",
+      "value": 172.54133888900014
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Wise House, Wilmington, NC",
+      "geo_wkt": "POINT (-77.926432 34.23764)",
+      "poi": {
+        "id": 64871,
+        "geometry": "POINT (-77.926432 34.23764)",
+        "poi_name": "Wise House",
+        "osm_id": 5675848020,
+        "amenity": "university",
+        "operator": "University of North Carolina Wilmington",
+        "addr_state": "NC",
+        "addr_city": "Wilmington",
+        "addr_postcode": "28403",
+        "addr_street": "Market Street",
+        "addr_housenumber": "1713"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Carolina Beach Inn, Carolina Beach, NC",
+      "geo_wkt": "POINT (-77.89455 34.034896)",
+      "poi": {
+        "id": 25826,
+        "geometry": "POINT (-77.89455 34.034896)",
+        "poi_name": "Carolina Beach Inn",
+        "osm_id": 4616135786,
+        "tourism": "hotel",
+        "website": "https://carolinabeachinn.com/",
+        "phone": "+1-910-622-8393",
+        "addr_state": "NC",
+        "addr_city": "Carolina Beach",
+        "addr_postcode": "28428",
+        "addr_street": "Harper Avenue",
+        "addr_housenumber": "205"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 192,
+  "type": "knn:towards+name"
+}

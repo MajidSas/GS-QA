@@ -1,0 +1,40 @@
+{
+  "question": "Which direction points towards the nearest golf course from Fisher Woods, IL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245220,
+      "geometry": "POINT (-87.863055 42.025956)",
+      "poi_name": "Oakton Driving Range",
+      "osm_id": 8441804122,
+      "leisure": "golf_course",
+      "operator": "Park Ridge Park District",
+      "website": "https://www.prparks.org/facilities/oakton-driving-range",
+      "angle": 41.823595718114014
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Fisher Woods, IL",
+      "geo_wkt": "POINT (-87.964233 41.941696)",
+      "poi": {
+        "id": 265405,
+        "geometry": "POINT (-87.964233 41.941696)",
+        "poi_name": "Fisher Woods",
+        "osm_id": 369051083,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of DuPage County",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 1425,
+  "type": "knn+angle"
+}

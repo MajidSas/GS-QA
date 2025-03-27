@@ -1,0 +1,55 @@
+{
+  "question": "What direction should I take to reach a park from Kartway, Eagle River, WI within 20 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography, 20000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "id": 250704,
+      "geometry": "POINT (-89.231667 45.818611)",
+      "poi_name": "Rice Lake State Natural Area",
+      "osm_id": 354533143,
+      "leisure": "park",
+      "angle": 173.48748191510927
+    },
+    {
+      "id": 250708,
+      "geometry": "POINT (-89.0775 45.978611)",
+      "poi_name": "Pine-Oak Grove State Natural Area",
+      "osm_id": 354533152,
+      "leisure": "park",
+      "angle": 72.6319838274726
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kartway, Eagle River, WI",
+      "geo_wkt": "POINT (-89.251612 45.940777)",
+      "poi": {
+        "id": 9758,
+        "geometry": "POINT (-89.251612 45.940777)",
+        "poi_name": "Kartway",
+        "osm_id": 8976002654,
+        "tourism": "theme_park",
+        "website": "http://rockingwkartway.com/kartway.html",
+        "phone": "+1-715-479-4450",
+        "addr_state": "WI",
+        "addr_city": "Eagle River",
+        "addr_postcode": "54521",
+        "addr_street": "Pleasure Island Road",
+        "addr_housenumber": "1890"
+      }
+    }
+  },
+  "id": 1089,
+  "type": "range+angle"
+}

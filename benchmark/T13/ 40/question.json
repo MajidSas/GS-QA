@@ -1,0 +1,48 @@
+{
+  "question": "Could you locate a university within a 170 kilometers radius of Glen Oak City Park, OR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.090642 44.016791)',4326)::geography, 170000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 223704,
+      "geometry": "POINT (-122.747463 45.427886)",
+      "poi_name": "Portland Seminary",
+      "osm_id": 11061306203,
+      "amenity": "university",
+      "operator": "George Fox University",
+      "website": "https://www.georgefox.edu/seminary/",
+      "phone": "+1-503-554-6150",
+      "addr_state": "OR",
+      "addr_city": "Tigard",
+      "addr_postcode": "97223",
+      "addr_street": "Southwest 68th Avenue",
+      "addr_housenumber": "12753"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Glen Oak City Park, OR",
+      "geo_wkt": "POINT (-123.090642 44.016791)",
+      "poi": {
+        "id": 254252,
+        "geometry": "POINT (-123.090642 44.016791)",
+        "poi_name": "Glen Oak City Park",
+        "osm_id": 357346002,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 2039,
+  "type": "range+loc"
+}

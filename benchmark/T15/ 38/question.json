@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a golf course in the north direction of Cal, Sr.'s Yard, Aberdeen, MD, within a radius of 130 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 130000)\nAND leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 267320,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Hidden Valley Golf Course",
+      "osm_id": 5846859136,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Pine Grove",
+      "addr_postcode": "17963",
+      "addr_street": "Panther Valley Road",
+      "addr_housenumber": "1753"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "poi": {
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 37,
+  "type": "range:direction+loc"
+}

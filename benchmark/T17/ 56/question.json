@@ -1,0 +1,52 @@
+{
+  "question": "Looking for the closest hospital in relation to Niagara Amusement Park & Splash World, Grand Island, NY, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 102725,
+      "geometry": "POINT (-78.867792 42.918362)",
+      "poi_name": "Brylin Hospital",
+      "osm_id": 8454635711,
+      "amenity": "hospital",
+      "website": "https://www.brylin.com",
+      "phone": "+1 716 886 8200",
+      "healthcare": "hospital",
+      "addr_state": "NY",
+      "addr_city": "Buffalo",
+      "addr_postcode": "14209",
+      "addr_street": "Delaware Avenue",
+      "addr_housenumber": "1263"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    }
+  },
+  "id": 1855,
+  "type": "knn+loc"
+}

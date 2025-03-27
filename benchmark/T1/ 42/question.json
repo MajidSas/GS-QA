@@ -1,0 +1,67 @@
+{
+  "question": "Can you suggest an attraction within 20 kilometers of Dolphins Plus Bayside, Key Largo, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, 20000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "id": 8109,
+      "geometry": "POINT (-80.29709 25.123401)",
+      "poi_name": "Christ of the Abyss",
+      "osm_id": 6565241385,
+      "tourism": "attraction",
+      "website": "http://pennekamppark.com"
+    },
+    {
+      "id": 11260,
+      "geometry": "POINT (-80.442022 25.084668)",
+      "poi_name": "Dolphins Plus",
+      "osm_id": 9911709017,
+      "tourism": "attraction"
+    },
+    {
+      "id": 18844,
+      "geometry": "POINT (-80.503789 25.032194)",
+      "poi_name": "The Laura Quinn Wild Bird Sanctuary",
+      "osm_id": 2421505422,
+      "tourism": "attraction"
+    },
+    {
+      "id": 19313,
+      "geometry": "POINT (-80.438036 25.096041)",
+      "poi_name": "African Queen",
+      "osm_id": 10718898101,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
+      "poi": {
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
+        "tourism": "aquarium",
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
+      }
+    }
+  },
+  "id": 841,
+  "type": "range+name"
+}

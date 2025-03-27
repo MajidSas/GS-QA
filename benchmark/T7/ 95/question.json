@@ -1,0 +1,47 @@
+{
+  "question": "When was the nearest stadium from the Kroschel Wildlife Center, Haines, AK first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-136.031682 59.44478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 251032,
+      "geometry": "POINT (-122.449013 47.267043)",
+      "poi_name": "Stadium Bowl",
+      "osm_id": 356543183,
+      "leisure": "stadium",
+      "sport": "athletics",
+      "wikidata": "Q7596473",
+      "multihop_answer": "June 10, 1910",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Stadium Bowl Opened: June 10, 1910"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "The Kroschel Wildlife Center, Haines, AK",
+      "geo_wkt": "POINT (-136.031682 59.44478)",
+      "poi": {
+        "id": 13940,
+        "geometry": "POINT (-136.031682 59.44478)",
+        "poi_name": "The Kroschel Wildlife Center",
+        "osm_id": 4194954120,
+        "tourism": "zoo",
+        "website": "https://www.kroschelfilms.com/",
+        "phone": "+1-907-767-5464",
+        "addr_state": "AK",
+        "addr_city": "Haines",
+        "addr_postcode": "99827",
+        "addr_street": "Mosquito Lake Road",
+        "addr_housenumber": "1.8 mile"
+      }
+    }
+  },
+  "id": 994,
+  "type": "knn+name+multihop1"
+}

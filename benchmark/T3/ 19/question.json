@@ -1,0 +1,65 @@
+{
+  "question": "What park is located within 70 kilometers in the northeast direction of Ulrich Wildlife Preserve, Morton, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, 70000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 249616,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "American Legion Park",
+      "osm_id": 354178848,
+      "leisure": "park"
+    },
+    {
+      "id": 250036,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Mount Palatine Cemetery Prairie Nature Preserve",
+      "osm_id": 354251747,
+      "leisure": "park",
+      "wikidata": "Q49529037"
+    },
+    {
+      "id": 249710,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Artesian Park",
+      "osm_id": 354205635,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
+      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "poi": {
+        "id": 246437,
+        "geometry": "POINT (-89.490228 40.649994)",
+        "poi_name": "Ulrich Wildlife Preserve",
+        "osm_id": 9654359178,
+        "leisure": "nature_reserve",
+        "opening_hours": "dawn-dusk",
+        "operator": "Morton Park District",
+        "addr_state": "IL",
+        "addr_city": "Morton",
+        "addr_postcode": "61550",
+        "addr_street": "Turtle Creek Trail",
+        "addr_housenumber": "100"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2618,
+  "type": "range:direction+name"
+}

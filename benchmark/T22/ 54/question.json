@@ -1,0 +1,44 @@
+{
+  "question": "What direction should I head in to reach the closest museum from Black Market, Charlotte, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.832772 35.247652)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.832772 35.247652)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9992,
+      "geometry": "POINT (-80.84204 35.226901)",
+      "poi_name": "Bank of America Heritage Center",
+      "osm_id": 9099545840,
+      "tourism": "museum",
+      "museum": "history",
+      "angle": 200.12662894421382
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Black Market, Charlotte, NC",
+      "geo_wkt": "POINT (-80.832772 35.247652)",
+      "poi": {
+        "id": 22962,
+        "geometry": "POINT (-80.832772 35.247652)",
+        "poi_name": "Black Market",
+        "osm_id": 4981396252,
+        "tourism": "gallery",
+        "operator": "Black Market",
+        "artwork_type": "installation",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28206",
+        "addr_street": "Statesville Avenue",
+        "addr_housenumber": "1824"
+      }
+    }
+  },
+  "id": 1453,
+  "type": "knn+angle"
+}

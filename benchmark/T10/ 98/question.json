@@ -1,0 +1,65 @@
+{
+  "question": "Which restaurant is nearest as you move towards Strayer University, Charlotte, NC from Mountain Creek gold mine, New London, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 53547,
+      "geometry": "POINT (-80.42677 35.260127)",
+      "poi_name": "Sunrise Grill",
+      "osm_id": 10084865062,
+      "amenity": "restaurant",
+      "phone": "+17048888772",
+      "addr_state": "NC",
+      "addr_city": "Locust",
+      "addr_postcode": "28097",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "118",
+      "value": 244.19772968088483
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mountain Creek gold mine, New London, NC",
+      "geo_wkt": "POINT (-80.185301 35.43723)",
+      "poi": {
+        "id": 3105,
+        "geometry": "POINT (-80.185301 35.43723)",
+        "poi_name": "Mountain Creek gold mine",
+        "osm_id": 10175978887,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "New London",
+        "addr_postcode": "28127",
+        "addr_street": "Gurley Road",
+        "addr_housenumber": "41801"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Strayer University, Charlotte, NC",
+      "geo_wkt": "POINT (-80.930371 35.139039)",
+      "poi": {
+        "id": 71121,
+        "geometry": "POINT (-80.930371 35.139039)",
+        "poi_name": "Strayer University",
+        "osm_id": 11382339319,
+        "amenity": "university",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28273",
+        "addr_street": "North Kings Parade Boulevard",
+        "addr_housenumber": "9101"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 197,
+  "type": "knn:towards+name"
+}

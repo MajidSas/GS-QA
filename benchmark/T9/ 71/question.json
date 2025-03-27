@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest museum positioned towards the east of Universty Medical Center, Lubbock, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.891285 33.587996)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15165,
+      "geometry": "POINT (-101.891285 33.587996)",
+      "poi_name": "The Buddy Holly Center",
+      "osm_id": 4815554192,
+      "tourism": "museum",
+      "website": "https://ci.lubbock.tx.us/departments/buddy-holly-center",
+      "addr_state": "TX",
+      "addr_city": "Lubbock",
+      "addr_street": "Crickets Avenue",
+      "addr_housenumber": "1801"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Universty Medical Center, Lubbock, TX",
+      "geo_wkt": "POINT (-101.891285 33.587996)",
+      "poi": {
+        "id": 143774,
+        "geometry": "POINT (-101.891285 33.587996)",
+        "poi_name": "Universty Medical Center",
+        "osm_id": 6350686701,
+        "amenity": "hospital",
+        "operator": "UMC Health Systems",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "TX",
+        "addr_city": "Lubbock",
+        "addr_postcode": "79415",
+        "addr_street": "Indiana Avenue",
+        "addr_housenumber": "602"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2570,
+  "type": "knn:direction+name"
+}

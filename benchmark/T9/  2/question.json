@@ -1,0 +1,48 @@
+{
+  "question": "What is the nearest caf\u00e9 in the west direction of Marblehead Police Museum, Marblehead, MA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.849674 42.505266)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 216563,
+      "geometry": "POINT (-70.849674 42.505266)",
+      "poi_name": "Starbucks",
+      "osm_id": 9175642613,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Marblehead Police Museum, Marblehead, MA",
+      "geo_wkt": "POINT (-70.849674 42.505266)",
+      "poi": {
+        "id": 2302,
+        "geometry": "POINT (-70.849674 42.505266)",
+        "poi_name": "Marblehead Police Museum",
+        "osm_id": 3378157541,
+        "tourism": "museum",
+        "operator": "Marblehead Police Department",
+        "addr_state": "MA",
+        "addr_city": "Marblehead",
+        "addr_postcode": "01945",
+        "addr_street": "Washington Street",
+        "addr_housenumber": "170"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2501,
+  "type": "knn:direction+name"
+}

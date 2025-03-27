@@ -1,0 +1,50 @@
+{
+  "question": "Do you know where the closest caf\u00e9 from Memory Garden, Baltimore, MD is located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 232264,
+      "geometry": "POINT (-76.625599 39.308879)",
+      "poi_name": "Park Cafe & Coffee Bar",
+      "osm_id": 4515983706,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+      "website": "https://parkcafecoffeebar.com/",
+      "internet_access": "yes",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21217",
+      "addr_street": "McMechen Street",
+      "addr_housenumber": "132"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "poi": {
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
+      }
+    }
+  },
+  "id": 1813,
+  "type": "knn+loc"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "What is the nearest burger place from Xtreme Action Park, Fort Lauderdale, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%burger%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 226763,
+      "geometry": "POINT (-80.202861 26.180734)",
+      "poi_name": "SCOTCHIES WINGS",
+      "osm_id": 11167510344,
+      "amenity": "restaurant",
+      "cuisine": "chicken;burger;sandwich;american;seafood;fish",
+      "opening_hours": "Mo-Sat 11-2000",
+      "phone": "7542162932",
+      "addr_state": "FL",
+      "addr_city": "Lauderdale Lakes",
+      "addr_postcode": "33319",
+      "addr_street": "State Road 7 N",
+      "addr_housenumber": "4244"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "poi": {
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
+      }
+    }
+  },
+  "id": 603,
+  "type": "knn:non_spat_filter+name"
+}

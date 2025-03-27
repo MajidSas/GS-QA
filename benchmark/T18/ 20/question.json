@@ -1,0 +1,54 @@
+{
+  "question": "Where is the closest new american restaurant situated from Encompass Health Rehabilitation Hospital Of Desert Canyon, Las Vegas, NV?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american_new%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-115.292448 36.08035)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123123,
+      "geometry": "POINT (-118.226153 34.069096)",
+      "poi_name": "Majordomo",
+      "osm_id": 6835891609,
+      "amenity": "restaurant",
+      "cuisine": "american;new_american",
+      "website": "https://www.majordomo.la",
+      "phone": "+1-323-545-4880",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90012",
+      "addr_street": "Naud Street",
+      "addr_housenumber": "1725"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "new american restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%american_new%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Encompass Health Rehabilitation Hospital Of Desert Canyon, Las Vegas, NV",
+      "geo_wkt": "POINT (-115.292448 36.08035)",
+      "poi": {
+        "id": 182567,
+        "geometry": "POINT (-115.292448 36.08035)",
+        "poi_name": "Encompass Health Rehabilitation Hospital Of Desert Canyon",
+        "osm_id": 10895078013,
+        "amenity": "hospital",
+        "operator": "Encompass Health",
+        "website": "https://encompasshealth.com/locations/desertcanyonrehab",
+        "phone": "+1 702 252 7342",
+        "healthcare": "hospital",
+        "addr_state": "NV",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "89148",
+        "addr_street": "West Oquendo Road",
+        "addr_housenumber": "9175"
+      }
+    }
+  },
+  "id": 319,
+  "type": "knn:non_spat_filter+loc"
+}

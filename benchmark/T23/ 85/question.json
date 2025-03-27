@@ -1,0 +1,39 @@
+{
+  "question": "Could you tell me the number of fast food restaurants located within a 40 kilometers radius from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 40000)\nAND amenity = 'fast_food';\n",
+  "answers": [
+    {
+      "count": 371
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 2284,
+  "type": "range+count"
+}

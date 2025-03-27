@@ -1,0 +1,47 @@
+{
+  "question": "Where can I find the nearest aquarium relative to Hurricane Valley Farm, Falmouth, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.304594 43.787343)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4389,
+      "geometry": "POINT (-70.810543 42.909869)",
+      "poi_name": "Blue Ocean Discovery Center",
+      "osm_id": 11244479725,
+      "tourism": "aquarium",
+      "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+      "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+      "addr_state": "NH",
+      "addr_city": "Hampton",
+      "addr_postcode": "03842",
+      "addr_street": "Ocean Boulevard",
+      "addr_housenumber": "180"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hurricane Valley Farm, Falmouth, ME",
+      "geo_wkt": "POINT (-70.304594 43.787343)",
+      "poi": {
+        "id": 266340,
+        "geometry": "POINT (-70.304594 43.787343)",
+        "poi_name": "Hurricane Valley Farm",
+        "osm_id": 7188370375,
+        "leisure": "garden",
+        "addr_state": "ME",
+        "addr_city": "Falmouth",
+        "addr_postcode": "04105",
+        "addr_street": "Gray Road",
+        "addr_housenumber": "459"
+      }
+    }
+  },
+  "id": 1882,
+  "type": "knn+loc"
+}

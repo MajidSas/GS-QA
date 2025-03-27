@@ -1,0 +1,44 @@
+{
+  "question": "How far is the closest park from Oceans Behavioral Hospital Of Alexandria, Alexandria, LA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-92.479821 31.323674)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.479821 31.323674)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 260104,
+      "geometry": "POINT (-92.470416 31.303794)",
+      "poi_name": "Harmon Field",
+      "osm_id": 358367466,
+      "leisure": "park",
+      "distance": 2379.11240284
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Alexandria, Alexandria, LA",
+      "geo_wkt": "POINT (-92.479821 31.323674)",
+      "poi": {
+        "id": 182433,
+        "geometry": "POINT (-92.479821 31.323674)",
+        "poi_name": "Oceans Behavioral Hospital Of Alexandria",
+        "osm_id": 10892140519,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/alexandria",
+        "phone": "+1 318 448 8473",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Alexandria",
+        "addr_postcode": "71303",
+        "addr_street": "North Bolton Avenue",
+        "addr_housenumber": "2621"
+      }
+    }
+  },
+  "id": 2443,
+  "type": "knn+distance"
+}

@@ -1,0 +1,61 @@
+{
+  "question": "How far away is a nature reserve located from Centro Cultural Aztlan Galeria Expresion, San Antonio, TX within 130 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-98.522548 29.461438)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.522548 29.461438)',4326)::geography, 130000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 246012,
+      "geometry": "POINT (-98.194766 29.848573)",
+      "poi_name": "James C. Curry Nature Center",
+      "osm_id": 5449527323,
+      "leisure": "nature_reserve",
+      "operator": "Comal County",
+      "addr_state": "TX",
+      "addr_city": "Canyon Lake",
+      "addr_postcode": "78133",
+      "addr_street": "Skyline Drive",
+      "addr_housenumber": "1889",
+      "distance": 53372.39140806
+    },
+    {
+      "id": 248904,
+      "geometry": "POINT (-99.790463 29.184628)",
+      "poi_name": "Cooks Slough Nature Park",
+      "osm_id": 4911617371,
+      "leisure": "nature_reserve",
+      "distance": 126921.71447699
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Centro Cultural Aztlan Galeria Expresion, San Antonio, TX",
+      "geo_wkt": "POINT (-98.522548 29.461438)",
+      "poi": {
+        "id": 21934,
+        "geometry": "POINT (-98.522548 29.461438)",
+        "poi_name": "Centro Cultural Aztlan Galeria Expresion",
+        "osm_id": 928725830,
+        "amenity": "community_centre",
+        "tourism": "museum",
+        "website": "https://centroaztlan.org/",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78201",
+        "addr_street": "Fredericksburg Road",
+        "addr_housenumber": "1800"
+      }
+    }
+  },
+  "id": 762,
+  "type": "range+distance"
+}

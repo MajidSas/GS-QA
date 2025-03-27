@@ -1,0 +1,45 @@
+{
+  "question": "Could you tell me the number of museums located within a 190 kilometers radius from Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography, 190000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 149
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA",
+      "geo_wkt": "POINT (-78.658874 38.840265)",
+      "poi": {
+        "id": 9965,
+        "geometry": "POINT (-78.658874 38.840265)",
+        "poi_name": "Heavenly Heart Farm & Mini Petting Zoo",
+        "osm_id": 9081274336,
+        "description": "Traveling petting zoo, open on location for special events or by appointment. Contact via email or phone for details.",
+        "tourism": "zoo",
+        "fee": "yes",
+        "website": "https://www.heavenlyheartfarmandminipettingzoo.com/",
+        "phone": "+1 540 984 3925",
+        "zoo": "petting_zoo",
+        "addr_state": "VA",
+        "addr_city": "Edinburg",
+        "addr_postcode": "22824",
+        "addr_street": "Swover Creek Road",
+        "addr_housenumber": "3795"
+      }
+    }
+  },
+  "id": 2210,
+  "type": "range+count"
+}

@@ -1,0 +1,56 @@
+{
+  "question": "Within a radius of 170 kilometers, where can I find a zoo towards the north of Wernick Farm Reserve, Dartmouth, MA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.04755 41.690084)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.04755 41.690084)',4326)::geography, 170000)\nAND tourism = 'zoo'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 10743,
+      "geometry": "POINT (-71.04755 41.690084)",
+      "poi_name": "Joppa Hill Farm",
+      "osm_id": 8014170407,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "NH",
+      "addr_city": "Bedford",
+      "addr_postcode": "03110"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wernick Farm Reserve, Dartmouth, MA",
+      "geo_wkt": "POINT (-71.04755 41.690084)",
+      "poi": {
+        "id": 246662,
+        "geometry": "POINT (-71.04755 41.690084)",
+        "poi_name": "Wernick Farm Reserve",
+        "osm_id": 8790035380,
+        "leisure": "nature_reserve",
+        "description": "Wernick Farm is a 62\u00ad-acre jewel with a variety of habitats that connect the present to the agricultural past of this unique property. DNRT purchased the farm in 2014 from Reva Newfield and her four children, who wanted to preserve it for all to enjoy. Th",
+        "opening_hours": "Mo-Su 06:00-18:00",
+        "operator": "Dartmouth Natural Resources Trust",
+        "website": "https://dnrt.org/wernickfarm/",
+        "addr_state": "MA",
+        "addr_city": "Dartmouth",
+        "addr_postcode": "02747",
+        "addr_street": "North Albro Avenue",
+        "addr_housenumber": "1"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 94,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "Where's the closest caf\u00e9 positioned towards the southeast of Croatian Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 31477,
+      "geometry": "POINT (-81.62453 41.524911)",
+      "poi_name": "Cleveland Cold Brew Coffee & Cafe",
+      "osm_id": 8426441769,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Sa 09:00-14:00",
+      "website": "https://clevelandcoldbrew.com",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44106",
+      "addr_street": "East 105th Street",
+      "addr_housenumber": "1400"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Croatian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.62453 41.524911)",
+      "poi": {
+        "id": 247019,
+        "geometry": "POINT (-81.62453 41.524911)",
+        "poi_name": "Croatian Cultural Garden",
+        "osm_id": 8567373872,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1141"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1118,
+  "type": "knn:direction+loc"
+}

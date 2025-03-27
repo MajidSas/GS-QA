@@ -1,0 +1,139 @@
+{
+  "question": "Which caf\u00e9 is available as you move towards Drive By Projects, Watertown, MA from Portsmouth Harbor Cruises, Portsmouth, NH, within a radius of 10 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.758057 43.079424)',4326)::geography, ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.758057 43.079424)',4326)::geography, 10000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.758057 43.079424)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 236000,
+      "geometry": "POINT (-70.763829 43.074466)",
+      "poi_name": "Caffe Kilim",
+      "osm_id": 5775485747,
+      "amenity": "cafe",
+      "addr_state": "NH",
+      "addr_city": "Portsmouth",
+      "addr_street": "Islington Street",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 104305,
+      "geometry": "POINT (-70.791209 43.026724)",
+      "poi_name": "Aroma Joe's",
+      "osm_id": 8562105194,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 180646,
+      "geometry": "POINT (-70.759462 43.076087)",
+      "poi_name": "Noa",
+      "osm_id": 10812716565,
+      "amenity": "cafe",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 236002,
+      "geometry": "POINT (-70.75891 43.076159)",
+      "poi_name": "Salud",
+      "osm_id": 5775533284,
+      "amenity": "cafe",
+      "cuisine": "salad",
+      "addr_state": "NH",
+      "addr_street": "Fleet Street",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 236005,
+      "geometry": "POINT (-70.764071 43.074365)",
+      "poi_name": "The Kitchen",
+      "osm_id": 5775597979,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "website": "http://www.thekitchenNH.com",
+      "shop": "deli",
+      "phone": "+1-603-319-8630",
+      "addr_street": "Islington Street",
+      "addr_housenumber": "171",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 237100,
+      "geometry": "POINT (-70.759774 43.076682)",
+      "poi_name": "The Goods",
+      "osm_id": 5819310390,
+      "amenity": "cafe",
+      "phone": "+1-603-373-8415",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "toilets": "yes",
+      "addr_street": "Vaughan Mall",
+      "addr_housenumber": "29",
+      "value": 203.85448727865608
+    },
+    {
+      "id": 236323,
+      "geometry": "POINT (-70.758501 43.076842)",
+      "poi_name": "The Works Cafe",
+      "osm_id": 5790076304,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Su,PH 06:00-17:00",
+      "website": "http://worksbakerycafe.com",
+      "takeaway": "yes",
+      "addr_street": "Congress Street",
+      "addr_housenumber": "9",
+      "value": 203.85448727865608
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Portsmouth Harbor Cruises, Portsmouth, NH",
+      "geo_wkt": "POINT (-70.758057 43.079424)",
+      "poi": {
+        "id": 8337,
+        "geometry": "POINT (-70.758057 43.079424)",
+        "poi_name": "Portsmouth Harbor Cruises",
+        "osm_id": 6634191882,
+        "tourism": "attraction",
+        "website": "https://www.portsmouthharbor.com/",
+        "addr_state": "NH",
+        "addr_city": "Portsmouth",
+        "addr_postcode": "03801",
+        "addr_street": "Ceres Street",
+        "addr_housenumber": "64"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Drive By Projects, Watertown, MA",
+      "geo_wkt": "POINT (-71.181915 42.367852)",
+      "poi": {
+        "id": 24015,
+        "geometry": "POINT (-71.181915 42.367852)",
+        "poi_name": "Drive By Projects",
+        "osm_id": 9249399944,
+        "tourism": "gallery",
+        "website": "https://drive-byprojects.com/",
+        "phone": "+1 617 835 8255",
+        "addr_state": "MA",
+        "addr_city": "Watertown",
+        "addr_postcode": "02472",
+        "addr_street": "Spring Street",
+        "addr_housenumber": "81"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1627,
+  "type": "range:towards+name"
+}

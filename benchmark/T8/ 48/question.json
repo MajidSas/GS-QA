@@ -1,0 +1,48 @@
+{
+  "question": "Can you recommend the nearest hospital from the stadium that was constructed in 1930 in Ogden, UT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 183249,
+      "geometry": "POINT (-112.079206 41.075408)",
+      "poi_name": "Viewpoint Center",
+      "osm_id": 10920409045,
+      "amenity": "hospital",
+      "website": "https://www.viewpointcenter.com",
+      "healthcare": "hospital",
+      "addr_state": "UT",
+      "addr_city": "Syracuse",
+      "addr_postcode": "84075",
+      "addr_street": "West 2700 South",
+      "addr_housenumber": "2732"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    }
+  },
+  "id": 2747,
+  "type": "knn+name+multihop2"
+}

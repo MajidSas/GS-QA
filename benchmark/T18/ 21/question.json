@@ -1,0 +1,51 @@
+{
+  "question": "Where is the nearest seafood restaurant available from Bittersweet Falls, Weybridge, VT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%Seafood%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 168818,
+      "geometry": "POINT (-72.366945 44.503984)",
+      "poi_name": "The Scale House",
+      "osm_id": 2280113445,
+      "amenity": "restaurant",
+      "cuisine": "american;seafood",
+      "opening_hours": "Su-Th 16:00-21:00; Fr-Sa 16:00-22:00",
+      "website": "https://the-scale-house.business.site/",
+      "phone": "+1-802-472-7159",
+      "addr_state": "VT",
+      "addr_city": "Hardwick",
+      "addr_postcode": "05843",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "41"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "seafood restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Seafood%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    }
+  },
+  "id": 320,
+  "type": "knn:non_spat_filter+loc"
+}

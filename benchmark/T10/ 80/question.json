@@ -1,0 +1,63 @@
+{
+  "question": "What's the nearest caf\u00e9 on the way to the Laffer Gallery, Schuylerville, NY from St. Charles Hotel, Hudson, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography, ST_GeomFromText('POINT (-73.581479 43.099102)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 77717,
+      "geometry": "POINT (-73.682821 42.522674)",
+      "poi_name": "Coffee Bean Cafe",
+      "osm_id": 709064592,
+      "amenity": "cafe",
+      "value": 9.807857534595968
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "St. Charles Hotel, Hudson, NY",
+      "geo_wkt": "POINT (-73.782453 42.247259)",
+      "poi": {
+        "id": 2093,
+        "geometry": "POINT (-73.782453 42.247259)",
+        "poi_name": "St. Charles Hotel",
+        "osm_id": 3258145463,
+        "tourism": "hotel",
+        "website": "https://www.stcharleshotel.com/",
+        "internet_access": "yes",
+        "phone": "(518) 822-9900",
+        "addr_state": "NY",
+        "addr_city": "Hudson",
+        "addr_postcode": "12534",
+        "addr_street": "Park Place",
+        "addr_housenumber": "16-18"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Laffer Gallery, Schuylerville, NY",
+      "geo_wkt": "POINT (-73.581479 43.099102)",
+      "poi": {
+        "id": 22469,
+        "geometry": "POINT (-73.581479 43.099102)",
+        "poi_name": "The Laffer Gallery",
+        "osm_id": 7093026359,
+        "tourism": "gallery",
+        "website": "https://thelaffergallery.com",
+        "addr_state": "NY",
+        "addr_city": "Schuylerville",
+        "addr_postcode": "12871",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "96"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 179,
+  "type": "knn:towards+name"
+}

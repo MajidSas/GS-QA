@@ -1,0 +1,47 @@
+{
+  "question": "Where is the closest emergency hospital situated from Memory Garden, Mequon, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 57799,
+      "geometry": "POINT (-88.454227 44.187892)",
+      "poi_name": "Children's Wisconsin-Fox Valley Hospital",
+      "osm_id": 5352023735,
+      "amenity": "hospital",
+      "operator": "Children's Hospital of Wisconsin",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WI",
+      "addr_city": "Neenah",
+      "addr_postcode": "54956",
+      "addr_street": "2nd Street",
+      "addr_housenumber": "130"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "poi": {
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
+      }
+    }
+  },
+  "id": 341,
+  "type": "knn:non_spat_filter+loc"
+}

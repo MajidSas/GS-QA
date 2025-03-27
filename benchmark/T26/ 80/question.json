@@ -1,0 +1,48 @@
+{
+  "question": "How far is the closest restaurant from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 215289,
+      "geometry": "POINT (-98.505264 34.727068)",
+      "poi_name": "Healthy Hippy",
+      "osm_id": 5294464742,
+      "amenity": "restaurant",
+      "addr_state": "OK",
+      "addr_city": "Medicine Park",
+      "addr_postcode": "73557",
+      "addr_street": "State Hihway 49",
+      "addr_housenumber": "18314",
+      "distance": 283.90779654
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 2479,
+  "type": "knn+distance"
+}

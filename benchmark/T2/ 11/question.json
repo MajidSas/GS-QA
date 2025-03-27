@@ -1,0 +1,50 @@
+{
+  "question": "Would you be able to track down an emergency hospital, preferably within a 130 kilometers radius from Attala County Coliseum, MS?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.577528 33.067521)',4326)::geography, 130000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 167563,
+      "geometry": "POINT (-89.88619 31.969046)",
+      "poi_name": "Simpson General Hospital",
+      "osm_id": 357992858,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "phone": "+1 601 847 2221",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Mendenhall",
+      "addr_postcode": "39114",
+      "addr_street": "Simpson Highway 149",
+      "addr_housenumber": "1842"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Attala County Coliseum, MS",
+      "geo_wkt": "POINT (-89.577528 33.067521)",
+      "poi": {
+        "id": 265363,
+        "geometry": "POINT (-89.577528 33.067521)",
+        "poi_name": "Attala County Coliseum",
+        "osm_id": 367134880,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    }
+  },
+  "id": 510,
+  "type": "range:non_spat_filter+name"
+}

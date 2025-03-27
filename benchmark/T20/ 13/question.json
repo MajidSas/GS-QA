@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant on the route to Old Woman Creek Nature Center, Huron, OH from North Olmsted Recreation Center, North Olmsted, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, ST_GeomFromText('POINT (-82.50891 41.377571)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 76180,
+      "geometry": "POINT (-82.004561 41.394928)",
+      "poi_name": "City Diner",
+      "osm_id": 9764326678,
+      "amenity": "restaurant",
+      "addr_state": "OH",
+      "addr_city": "North Ridgeville",
+      "addr_postcode": "44039",
+      "addr_street": "Center Ridge Road",
+      "addr_housenumber": "34900",
+      "value": 264.3854054848159
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
+      "poi": {
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Old Woman Creek Nature Center, Huron, OH",
+      "geo_wkt": "POINT (-82.50891 41.377571)",
+      "poi": {
+        "id": 246823,
+        "geometry": "POINT (-82.50891 41.377571)",
+        "poi_name": "Old Woman Creek Nature Center",
+        "osm_id": 6476932244,
+        "leisure": "nature_reserve",
+        "information": "nature_center",
+        "operator": "Ohio Department of Natural Resources",
+        "addr_state": "OH",
+        "addr_city": "Huron",
+        "addr_postcode": "44839",
+        "addr_street": "Cleveland Road East",
+        "addr_housenumber": "2514"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1312,
+  "type": "knn:towards+loc"
+}

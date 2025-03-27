@@ -1,0 +1,53 @@
+{
+  "question": "When was the nearest theme park from Franklin Pierce University at Lebanon, West Lebanon, NH first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.317718 43.628022)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18384,
+      "geometry": "POINT (-71.685641 44.047903)",
+      "poi_name": "Clark's Trading Post",
+      "osm_id": 2276410850,
+      "tourism": "theme_park",
+      "wheelchair": "yes",
+      "website": "http://www.clarkstradingpost.com/",
+      "phone": "+1-603-745-8913",
+      "wikidata": "Q15210824",
+      "addr_city": "Lincoln",
+      "addr_postcode": "03251",
+      "addr_street": "Daniel Webster Highway",
+      "addr_housenumber": "110",
+      "multihop_answer": "1928",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Clark's Trading Post Opened: 1928"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University at Lebanon, West Lebanon, NH",
+      "geo_wkt": "POINT (-72.317718 43.628022)",
+      "poi": {
+        "id": 104485,
+        "geometry": "POINT (-72.317718 43.628022)",
+        "poi_name": "Franklin Pierce University at Lebanon",
+        "osm_id": 8570371294,
+        "amenity": "university",
+        "website": "https://www.franklinpierce.edu/academics/gradstudies/lebanon-new-hampshire.htm",
+        "phone": "+1-603-298-5549",
+        "addr_state": "NH",
+        "addr_city": "West Lebanon",
+        "addr_postcode": "03784",
+        "addr_street": "Airport Road",
+        "addr_housenumber": "24"
+      }
+    }
+  },
+  "id": 995,
+  "type": "knn+name+multihop1"
+}

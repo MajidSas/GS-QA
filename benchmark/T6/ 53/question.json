@@ -1,0 +1,49 @@
+{
+  "question": "What is the nearest restaurant with outdoor seating from Memory Garden, Baltimore, MD?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 158341,
+      "geometry": "POINT (-76.618865 39.295778)",
+      "poi_name": "Brown Rice",
+      "osm_id": 4743515012,
+      "amenity": "restaurant",
+      "cuisine": "korean",
+      "wheelchair": "yes",
+      "opening_hours": "Tu-Su 11:30-20:00",
+      "outdoor_seating": "yes",
+      "addr_street": "Park Avenue",
+      "addr_housenumber": "520"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "poi": {
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
+      }
+    }
+  },
+  "id": 652,
+  "type": "knn:non_spat_filter+name"
+}

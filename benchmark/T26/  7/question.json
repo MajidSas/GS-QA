@@ -1,0 +1,45 @@
+{
+  "question": "What's the distance between Turner Lodge, OK and the nearest gallery?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.308628 33.927323)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.308628 33.927323)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9839,
+      "geometry": "POINT (-96.808157 33.150696)",
+      "poi_name": "thegallery8680",
+      "osm_id": 9018466206,
+      "tourism": "gallery",
+      "opening_hours": "\"By appointment\"",
+      "operator": "Robyn Feehan",
+      "website": "https://www.thegallery8680.com",
+      "addr_state": "TX",
+      "addr_city": "Frisco",
+      "addr_postcode": "75034",
+      "addr_street": "Main Street",
+      "addr_housenumber": "8680",
+      "distance": 97880.55269186
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Turner Lodge, OK",
+      "geo_wkt": "POINT (-97.308628 33.927323)",
+      "poi": {
+        "id": 16917,
+        "geometry": "POINT (-97.308628 33.927323)",
+        "poi_name": "Turner Lodge",
+        "osm_id": 367013408,
+        "tourism": "hotel",
+        "addr_state": "OK"
+      }
+    }
+  },
+  "id": 2406,
+  "type": "knn+distance"
+}

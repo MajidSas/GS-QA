@@ -1,0 +1,45 @@
+{
+  "question": "I'm searching for a garden within 130 kilometers radii from ABQ BioPark (Aquarium), Albuquerque, NM, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, 130000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 246600,
+      "geometry": "POINT (-106.680854 35.09327)",
+      "poi_name": "ABQ BioPark (Botanic Garden)",
+      "osm_id": 1788029997,
+      "leisure": "garden",
+      "wikidata": "Q2843476",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 2063,
+  "type": "range+loc"
+}

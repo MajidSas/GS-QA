@@ -1,0 +1,49 @@
+{
+  "question": "Which attraction is available in the northwest direction of Sherwood Forest Faire, McDade, TX within 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, 100000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 3537,
+      "geometry": "POINT (-97.166138 30.231527)",
+      "poi_name": "Old Town Salado",
+      "osm_id": 5453761823,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
+      "poi": {
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2678,
+  "type": "range:direction+name"
+}

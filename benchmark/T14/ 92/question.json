@@ -1,0 +1,73 @@
+{
+  "question": "Is it possible to locate an emergency hospital, preferably within 120 kilometers from Amazing Fall Fun, Waterloo, IN?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.987727 41.417297)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 231220,
+      "geometry": "POINT (-83.721983 41.674958)",
+      "poi_name": "Mercy Health Sylvania Medical Center",
+      "osm_id": 4459970689,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Mercy Health",
+      "website": "https://www.mercy.com/toledo/locations/medical-centers/mercy-health-sylvania-medical-center",
+      "phone": "+1 567 455 5800",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Sylvania",
+      "addr_postcode": "43560",
+      "addr_street": "King Road",
+      "addr_housenumber": "3100"
+    },
+    {
+      "id": 167303,
+      "geometry": "POINT (-85.647932 41.935358)",
+      "poi_name": "Three Rivers Health",
+      "osm_id": 354031294,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.threerivershealth.org/",
+      "phone": "+1-269-278-1145",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MI",
+      "addr_city": "Three Rivers",
+      "addr_postcode": "49093",
+      "addr_street": "South Health Parkway",
+      "addr_housenumber": "701"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Amazing Fall Fun, Waterloo, IN",
+      "geo_wkt": "POINT (-84.987727 41.417297)",
+      "poi": {
+        "id": 3003,
+        "geometry": "POINT (-84.987727 41.417297)",
+        "poi_name": "Amazing Fall Fun",
+        "osm_id": 10126313182,
+        "tourism": "attraction",
+        "addr_state": "IN",
+        "addr_city": "Waterloo",
+        "addr_postcode": "46793",
+        "addr_street": "County Road 43",
+        "addr_housenumber": "3150"
+      }
+    }
+  },
+  "id": 491,
+  "type": "range:non_spat_filter+loc"
+}

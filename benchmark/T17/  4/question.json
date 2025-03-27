@@ -1,0 +1,42 @@
+{
+  "question": "Could you tell me the location of the closest restaurant relative to Bonner Arnold Coliseum, MS?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 118472,
+      "geometry": "POINT (-88.812509 34.71063)",
+      "poi_name": "Hurt's Grill",
+      "osm_id": 9046981926,
+      "amenity": "restaurant",
+      "phone": "+1-662-837-7467",
+      "addr_state": "MS",
+      "addr_city": "Ripley",
+      "addr_postcode": "38663",
+      "addr_street": "Highway 4 East",
+      "addr_housenumber": "18070"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bonner Arnold Coliseum, MS",
+      "geo_wkt": "POINT (-88.56394 34.66815)",
+      "poi": {
+        "id": 265364,
+        "geometry": "POINT (-88.56394 34.66815)",
+        "poi_name": "Bonner Arnold Coliseum",
+        "osm_id": 367134883,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    }
+  },
+  "id": 1803,
+  "type": "knn+loc"
+}

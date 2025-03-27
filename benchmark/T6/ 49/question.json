@@ -1,0 +1,45 @@
+{
+  "question": "Which art museum nearby Sara Miller Contemporary Art Gallery, Santa Fe, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'art'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.997414 35.613552)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14688,
+      "geometry": "POINT (-105.979418 35.658079)",
+      "poi_name": "Thaw Art History Center",
+      "osm_id": 4686004536,
+      "tourism": "museum",
+      "website": "https://sfai.org/",
+      "museum": "art"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Sara Miller Contemporary Art Gallery, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.997414 35.613552)",
+      "poi": {
+        "id": 19923,
+        "geometry": "POINT (-105.997414 35.613552)",
+        "poi_name": "Sara Miller Contemporary Art Gallery",
+        "osm_id": 10950870123,
+        "tourism": "gallery",
+        "website": "https://www.saramiller-artist.com",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87508",
+        "addr_street": "Oshara Boulevard",
+        "addr_housenumber": "46"
+      }
+    }
+  },
+  "id": 648,
+  "type": "knn:non_spat_filter+name"
+}

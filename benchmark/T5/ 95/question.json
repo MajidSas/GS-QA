@@ -1,0 +1,42 @@
+{
+  "question": "Can you recommend the nearest stadium from Dixon Springs State Park, Golconda, IL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.667551 37.382932)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246323,
+      "geometry": "POINT (-88.901788 36.495679)",
+      "poi_name": "Red Devil Stadium",
+      "osm_id": 11292454478,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dixon Springs State Park, Golconda, IL",
+      "geo_wkt": "POINT (-88.667551 37.382932)",
+      "poi": {
+        "id": 249423,
+        "geometry": "POINT (-88.667551 37.382932)",
+        "poi_name": "Dixon Springs State Park",
+        "osm_id": 354102194,
+        "leisure": "nature_reserve",
+        "website": "https://www.dnr.illinois.gov/Parks/Pages/DixonSprings.aspx",
+        "phone": "+1-618-949-3394",
+        "addr_state": "IL",
+        "addr_city": "Golconda",
+        "addr_postcode": "62938",
+        "addr_street": "IL 146",
+        "addr_housenumber": "982"
+      }
+    }
+  },
+  "id": 294,
+  "type": "knn+name"
+}

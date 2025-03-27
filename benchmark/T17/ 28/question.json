@@ -1,0 +1,42 @@
+{
+  "question": "Seeking the closest golf course from Taos Inn Historic Site, NM, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-105.57188 36.408159)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265825,
+      "geometry": "POINT (-105.096524 38.37079)",
+      "poi_name": "Sumo Golf Village",
+      "osm_id": 7858016926,
+      "leisure": "golf_course",
+      "addr_state": "CO",
+      "addr_city": "Florence",
+      "addr_postcode": "81226",
+      "addr_street": "Gary Player Dr",
+      "addr_housenumber": "5201"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Taos Inn Historic Site, NM",
+      "geo_wkt": "POINT (-105.57188 36.408159)",
+      "poi": {
+        "id": 16628,
+        "geometry": "POINT (-105.57188 36.408159)",
+        "poi_name": "Taos Inn Historic Site",
+        "osm_id": 366378456,
+        "tourism": "attraction",
+        "wikidata": "Q7684304",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 1827,
+  "type": "knn+loc"
+}

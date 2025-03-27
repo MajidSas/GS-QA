@@ -1,0 +1,41 @@
+{
+  "question": "Within 180 kilometers from Middle Tennessee State University Physics and Astronomy Department, Murfreesboro, TN, how many galleries are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.367448 35.847129)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "count": 20
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Middle Tennessee State University Physics and Astronomy Department, Murfreesboro, TN",
+      "geo_wkt": "POINT (-86.367448 35.847129)",
+      "poi": {
+        "id": 180085,
+        "geometry": "POINT (-86.367448 35.847129)",
+        "poi_name": "Middle Tennessee State University Physics and Astronomy Department",
+        "osm_id": 10790434779,
+        "amenity": "university",
+        "internet_access": "yes",
+        "addr_state": "TN",
+        "addr_city": "Murfreesboro",
+        "addr_postcode": "37132-0001",
+        "addr_street": "Old Main Circle",
+        "addr_housenumber": "422"
+      }
+    }
+  },
+  "id": 2253,
+  "type": "range+count"
+}

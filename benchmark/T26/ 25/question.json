@@ -1,0 +1,40 @@
+{
+  "question": "How distant is the closest university located from Lee Richardson Zoo, KS?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-100.872277 37.960476)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-100.872277 37.960476)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62608,
+      "geometry": "POINT (-97.782283 37.634412)",
+      "poi_name": "Cheney High School",
+      "osm_id": 5578562286,
+      "amenity": "university",
+      "distance": 274529.09380741
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lee Richardson Zoo, KS",
+      "geo_wkt": "POINT (-100.872277 37.960476)",
+      "poi": {
+        "id": 21298,
+        "geometry": "POINT (-100.872277 37.960476)",
+        "poi_name": "Lee Richardson Zoo",
+        "osm_id": 1482564086,
+        "tourism": "zoo",
+        "wikidata": "Q6514798",
+        "addr_state": "KS",
+        "addr_street": "East Finnup Drive",
+        "addr_housenumber": "312"
+      }
+    }
+  },
+  "id": 2424,
+  "type": "knn+distance"
+}

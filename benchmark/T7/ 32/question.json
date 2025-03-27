@@ -1,0 +1,53 @@
+{
+  "question": "When was the nearest museum from Hickory Grove Riverfront, Cary, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2130,
+      "geometry": "POINT (-88.107526 42.260034)",
+      "poi_name": "Lake County Discovery Museum",
+      "osm_id": 3269928614,
+      "tourism": "museum",
+      "website": "https://www.lcfpd.org/museum/",
+      "phone": "+1-847-367-6640",
+      "wikidata": "Q6475496",
+      "addr_state": "IL",
+      "addr_city": "Libertyville",
+      "addr_postcode": "60048",
+      "addr_street": "Winchester Road",
+      "addr_housenumber": "1899",
+      "multihop_answer": "1976",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Lake County Discovery Museum Established: 1976"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
+      "poi": {
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
+      }
+    }
+  },
+  "id": 931,
+  "type": "knn+name+multihop1"
+}

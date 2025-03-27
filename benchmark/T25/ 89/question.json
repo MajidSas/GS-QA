@@ -1,0 +1,45 @@
+{
+  "question": "How distant can I find a beach resort from Oak Grove Baseball Stadium, Bessemer, AL within a span of 160 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, 160000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 245523,
+      "geometry": "POINT (-87.421202 33.272894)",
+      "poi_name": "Rocky Branch",
+      "osm_id": 3048380506,
+      "leisure": "beach_resort",
+      "distance": 32734.54975561
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Baseball Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156908 33.467656)",
+      "poi": {
+        "id": 247942,
+        "geometry": "POINT (-87.156908 33.467656)",
+        "poi_name": "Oak Grove Baseball Stadium",
+        "osm_id": 6120962256,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    }
+  },
+  "id": 788,
+  "type": "range+distance"
+}

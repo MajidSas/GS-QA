@@ -1,0 +1,45 @@
+{
+  "question": "Which nature reserve is the nearest in the southeast direction of Sacramento Archives and Museum Collection Center Library, Sacramento, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.496038 38.599073)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266138,
+      "geometry": "POINT (-121.496038 38.599073)",
+      "poi_name": "National Recreation Area",
+      "osm_id": 929895684,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Sacramento Archives and Museum Collection Center Library, Sacramento, CA",
+      "geo_wkt": "POINT (-121.496038 38.599073)",
+      "poi": {
+        "id": 18306,
+        "geometry": "POINT (-121.496038 38.599073)",
+        "poi_name": "Sacramento Archives and Museum Collection Center Library",
+        "osm_id": 368174602,
+        "tourism": "museum",
+        "website": "http://www.centerforsacramentohistory.org/",
+        "addr_state": "CA",
+        "addr_city": "Sacramento",
+        "addr_postcode": "95811",
+        "addr_street": "Sequoia Pacific Boulevard",
+        "addr_housenumber": "551"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2540,
+  "type": "knn:direction+name"
+}

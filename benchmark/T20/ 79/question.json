@@ -1,0 +1,66 @@
+{
+  "question": "Where is the nearest restaurant as you progress towards Youth Science Institute Sanborn, Saratoga, CA from Cogswell University of Silicon Valley, San Jose, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography, ST_GeomFromText('POINT (-122.064121 37.233991)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 51843,
+      "geometry": "POINT (-121.945585 37.410668)",
+      "poi_name": "Gyro Express",
+      "osm_id": 563361294,
+      "amenity": "restaurant",
+      "cuisine": "gyros",
+      "addr_city": "San Jose",
+      "addr_postcode": "95134",
+      "addr_street": "North 1st Street",
+      "addr_housenumber": "3730",
+      "value": 208.67325939013216
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Cogswell University of Silicon Valley, San Jose, CA",
+      "geo_wkt": "POINT (-121.941 37.414064)",
+      "poi": {
+        "id": 104359,
+        "geometry": "POINT (-121.941 37.414064)",
+        "poi_name": "Cogswell University of Silicon Valley",
+        "osm_id": 8566442104,
+        "amenity": "university",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_postcode": "95134",
+        "addr_street": "Baypointe Parkway",
+        "addr_housenumber": "191"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Youth Science Institute Sanborn, Saratoga, CA",
+      "geo_wkt": "POINT (-122.064121 37.233991)",
+      "poi": {
+        "id": 8576,
+        "geometry": "POINT (-122.064121 37.233991)",
+        "poi_name": "Youth Science Institute Sanborn",
+        "osm_id": 8568837666,
+        "tourism": "museum",
+        "operator": "Youth Science Institute",
+        "museum": "nature",
+        "addr_state": "CA",
+        "addr_city": "Saratoga",
+        "addr_postcode": "95070",
+        "addr_street": "Sanborn Road",
+        "addr_housenumber": "16055"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1378,
+  "type": "knn:towards+loc"
+}

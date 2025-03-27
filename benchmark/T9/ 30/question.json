@@ -1,0 +1,48 @@
+{
+  "question": "Which hotel is the closest to the northwest of Marvin's Marvelous Mechanical Museum, Farmington Hills, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.362246 42.525345)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11232,
+      "geometry": "POINT (-83.362246 42.525345)",
+      "poi_name": "Comstock Inn and Convention Center",
+      "osm_id": 9904542805,
+      "amenity": "events_venue",
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Marvin's Marvelous Mechanical Museum, Farmington Hills, MI",
+      "geo_wkt": "POINT (-83.362246 42.525345)",
+      "poi": {
+        "id": 2440,
+        "geometry": "POINT (-83.362246 42.525345)",
+        "poi_name": "Marvin's Marvelous Mechanical Museum",
+        "osm_id": 3449283902,
+        "tourism": "attraction",
+        "website": "http://www.marvin3m.com/",
+        "phone": "+1-248-626-5020",
+        "wikidata": "Q6778265",
+        "addr_state": "MI",
+        "addr_city": "Farmington Hills",
+        "addr_postcode": "48334",
+        "addr_street": "Orchard Lake Road",
+        "addr_housenumber": "31005"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2529,
+  "type": "knn:direction+name"
+}

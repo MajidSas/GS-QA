@@ -1,0 +1,44 @@
+{
+  "question": "I'm looking for a beach resort within 50 kilometers radii of Oak Grove Football Stadium, Bessemer, AL.",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography, 50000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 245523,
+      "geometry": "POINT (-87.421202 33.272894)",
+      "poi_name": "Rocky Branch",
+      "osm_id": 3048380506,
+      "leisure": "beach_resort"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
+      "poi": {
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    }
+  },
+  "id": 843,
+  "type": "range+name"
+}

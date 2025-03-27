@@ -1,0 +1,53 @@
+{
+  "question": "Which route leads to a stadium from Falls Ridge Preserve, Elliston, VA within 140 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, 140000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 267111,
+      "geometry": "POINT (-79.38356 36.585275)",
+      "poi_name": "Carrington Pavilion",
+      "osm_id": 4541984454,
+      "leisure": "stadium",
+      "angle": 128.616701750341
+    },
+    {
+      "id": 265386,
+      "geometry": "POINT (-79.350197 37.74151)",
+      "poi_name": "Knight Sports Arena",
+      "osm_id": 367997526,
+      "leisure": "stadium",
+      "addr_state": "VA",
+      "angle": 54.40103868520591
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Falls Ridge Preserve, Elliston, VA",
+      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "poi": {
+        "id": 266492,
+        "geometry": "POINT (-80.321578 37.193218)",
+        "poi_name": "Falls Ridge Preserve",
+        "osm_id": 5189591887,
+        "leisure": "nature_reserve",
+        "addr_state": "VA",
+        "addr_city": "Elliston",
+        "addr_postcode": "24087",
+        "addr_street": "Falls Ridge Rd"
+      }
+    }
+  },
+  "id": 1069,
+  "type": "range+angle"
+}

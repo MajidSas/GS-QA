@@ -1,0 +1,72 @@
+{
+  "question": "Where's the closest restaurant on the path leading to SSM Health Saint Louis University Hospital, Saint Louis, MO from Our Lady of the Rivers Shrine, Portage Des Sioux, MO?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography, ST_GeomFromText('POINT (-90.239046 38.622971)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 203781,
+      "geometry": "POINT (-90.345935 38.814648)",
+      "poi_name": "Roberto's",
+      "osm_id": 7100109906,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "website": "www.robertositalianstl.com/",
+      "addr_city": "Florissant",
+      "addr_postcode": "63031",
+      "addr_street": "Mullanphy Gardens Shopping Center",
+      "addr_housenumber": "16",
+      "value": 165.7652496337952
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Our Lady of the Rivers Shrine, Portage Des Sioux, MO",
+      "geo_wkt": "POINT (-90.338654 38.931031)",
+      "poi": {
+        "id": 2278,
+        "geometry": "POINT (-90.338654 38.931031)",
+        "poi_name": "Our Lady of the Rivers Shrine",
+        "osm_id": 3362489091,
+        "description": "Our Lady of the Rivers Shrine gets its name from the fact that three major rivers-the Illinois, Missouri, and the Mississippi-meet within a few miles of the site. Dedicated October 1957 to commemorate an event in July 1951.",
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://ourladyoftheriversshrine.org/",
+        "addr_state": "MO",
+        "addr_city": "Portage Des Sioux",
+        "addr_postcode": "63373"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "SSM Health Saint Louis University Hospital, Saint Louis, MO",
+      "geo_wkt": "POINT (-90.239046 38.622971)",
+      "poi": {
+        "id": 167585,
+        "geometry": "POINT (-90.239046 38.622971)",
+        "poi_name": "SSM Health Saint Louis University Hospital",
+        "osm_id": 358083459,
+        "amenity": "hospital",
+        "operator": "SSM Health",
+        "website": "http://www.ssmhealth.com/sluhospital",
+        "phone": "+1 314 577 8000",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q7401677",
+        "addr_state": "MO",
+        "addr_city": "Saint Louis",
+        "addr_postcode": "63110",
+        "addr_street": "Vista Avenue",
+        "addr_housenumber": "3635"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1391,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,66 @@
+{
+  "question": "Which fast food is nearest on the path towards Everest Rehabilitation Hospital Temple, Temple, TX from Zero Whiskey Tactical Arms, Austin, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography, ST_GeomFromText('POINT (-97.350786 31.067416)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 192895,
+      "geometry": "POINT (-97.703274 30.355587)",
+      "poi_name": "Jack in the Box",
+      "osm_id": 1484203979,
+      "amenity": "fast_food",
+      "wheelchair": "yes",
+      "value": 23.44150773413978
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Zero Whiskey Tactical Arms, Austin, TX",
+      "geo_wkt": "POINT (-97.715155 30.344507)",
+      "poi": {
+        "id": 24505,
+        "geometry": "POINT (-97.715155 30.344507)",
+        "poi_name": "Zero Whiskey Tactical Arms",
+        "osm_id": 11086117116,
+        "tourism": "viewpoint",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://zerowhiskeytacticalarms.com/",
+        "shop": "weapons",
+        "phone": "+1-346-320-9030",
+        "addr_state": "TX",
+        "addr_city": "Austin",
+        "addr_postcode": "78757",
+        "addr_street": "North Lamar Boulevard",
+        "addr_housenumber": "7600"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Everest Rehabilitation Hospital Temple, Temple, TX",
+      "geo_wkt": "POINT (-97.350786 31.067416)",
+      "poi": {
+        "id": 183197,
+        "geometry": "POINT (-97.350786 31.067416)",
+        "poi_name": "Everest Rehabilitation Hospital Temple",
+        "osm_id": 10917032264,
+        "amenity": "hospital",
+        "website": "https://everestrehab.com/hospitals/temple-tx/",
+        "healthcare": "rehabilitation",
+        "addr_state": "TX",
+        "addr_city": "Temple",
+        "addr_postcode": "76504",
+        "addr_street": "Southeast H K Dodgen Loop",
+        "addr_housenumber": "23621"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 164,
+  "type": "knn:towards+name"
+}

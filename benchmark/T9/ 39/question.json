@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest viewpoint towards the southwest of Willowbrooke, Villa Rica, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.913089 33.748578)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5828,
+      "geometry": "POINT (-84.913089 33.748578)",
+      "poi_name": "Vista View of Escambia Bay Bridge",
+      "osm_id": 1634138788,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Willowbrooke, Villa Rica, GA",
+      "geo_wkt": "POINT (-84.913089 33.748578)",
+      "poi": {
+        "id": 205791,
+        "geometry": "POINT (-84.913089 33.748578)",
+        "poi_name": "Willowbrooke",
+        "osm_id": 7180135185,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "GA",
+        "addr_city": "Villa Rica",
+        "addr_postcode": "30180",
+        "addr_street": "Herrell Road",
+        "addr_housenumber": "20"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2538,
+  "type": "knn:direction+name"
+}

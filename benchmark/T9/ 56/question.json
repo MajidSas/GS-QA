@@ -1,0 +1,52 @@
+{
+  "question": "What is the closest attraction in the southwest direction of SpringHill Suites by Marriott, Milwaukee, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.915624 43.039788)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24841,
+      "geometry": "POINT (-87.915624 43.039788)",
+      "poi_name": "Elegant Farmer",
+      "osm_id": 4342033739,
+      "tourism": "attraction",
+      "website": "http://elegantfarmer.com/",
+      "shop": "supermarket",
+      "phone": "+1-262-363-6770",
+      "addr_city": "Mukwonago",
+      "addr_postcode": "53149",
+      "addr_street": "Main Street",
+      "addr_housenumber": "1545"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "SpringHill Suites by Marriott, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.915624 43.039788)",
+      "poi": {
+        "id": 3567,
+        "geometry": "POINT (-87.915624 43.039788)",
+        "poi_name": "SpringHill Suites by Marriott",
+        "osm_id": 5468326999,
+        "tourism": "hotel",
+        "official_name": "SpringHill Suites by Marriott",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53203",
+        "addr_street": "North Vel R. Phillips Avenue",
+        "addr_housenumber": "744"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2555,
+  "type": "knn:direction+name"
+}

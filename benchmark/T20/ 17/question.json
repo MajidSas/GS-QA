@@ -1,0 +1,68 @@
+{
+  "question": "Where is the nearest fast food restaurant as you head towards Joppa Hill Farm, Bedford, NH from Cassidy Farm Conservation Land, Millis, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 125571,
+      "geometry": "POINT (-71.369006 42.239986)",
+      "poi_name": "Dunkin' Donuts",
+      "osm_id": 6965112020,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "MA",
+      "addr_city": "Sherborn",
+      "addr_postcode": "01770",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "21",
+      "value": 348.12814394655084
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Cassidy Farm Conservation Land, Millis, MA",
+      "geo_wkt": "POINT (-71.362131 42.184482)",
+      "poi": {
+        "id": 246987,
+        "geometry": "POINT (-71.362131 42.184482)",
+        "poi_name": "Cassidy Farm Conservation Land",
+        "osm_id": 8514477080,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Millis Conservation Commission",
+        "addr_state": "MA",
+        "addr_city": "Millis",
+        "addr_postcode": "02054",
+        "addr_street": "Exchange Street",
+        "addr_housenumber": "433"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "poi": {
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1316,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,60 @@
+{
+  "question": "Where is the closest emergency hospital from Tribby Caf\u00e9;Overlook Gallery, Fort Myers, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.983581 26.505025)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 154006,
+      "geometry": "POINT (-81.911972 26.507075)",
+      "poi_name": "Golisano Children's Hospital of Southwest Florida",
+      "osm_id": 4218556654,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Lee Health",
+      "website": "https://www.leehealth.org/childrens-health/index.asp",
+      "phone": "+1 239 343 5437",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Fort Myers",
+      "addr_postcode": "33908",
+      "addr_street": "South Healthpark Drive",
+      "addr_housenumber": "9981"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Tribby Caf\u00e9;Overlook Gallery, Fort Myers, FL",
+      "geo_wkt": "POINT (-81.983581 26.505025)",
+      "poi": {
+        "id": 11613,
+        "geometry": "POINT (-81.983581 26.505025)",
+        "poi_name": "Tribby Caf\u00e9;Overlook Gallery",
+        "osm_id": 10024734070,
+        "amenity": "cafe",
+        "cuisine": "cafe",
+        "tourism": "gallery",
+        "opening_hours": "\"Temporarily Closed\";Tu-Sa 10:00-15:00",
+        "operator": "Shell Point Retirement Community",
+        "website": "https://www.tribbyartscenter.com/dining/",
+        "internet_access": "wlan",
+        "phone": "+1 (239) 415-5546",
+        "outdoor_seating": "yes",
+        "addr_state": "FL",
+        "addr_city": "Fort Myers",
+        "addr_postcode": "33908",
+        "addr_street": "On Par Boulevard",
+        "addr_housenumber": "17281"
+      }
+    }
+  },
+  "id": 370,
+  "type": "knn:non_spat_filter+loc"
+}

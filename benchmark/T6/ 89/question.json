@@ -1,0 +1,51 @@
+{
+  "question": "What's the closest archive museum located from Hasley Canyon Equestrian Center, Valencia, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'archive'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8610,
+      "geometry": "POINT (-122.345908 37.929269)",
+      "poi_name": "Internet Archive - Physical Archive",
+      "osm_id": 8593718592,
+      "description": "The off-site Physical Archives of the Internet Archive",
+      "tourism": "museum",
+      "operator": "Internet Archive",
+      "website": "https://archive.org/",
+      "museum": "archive",
+      "addr_state": "CA",
+      "addr_city": "Richmond",
+      "addr_postcode": "94804",
+      "addr_street": "Florida Avenue",
+      "addr_housenumber": "2512"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "archive museum",
+      "poi_filter_sql": "museum = 'archive'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "poi": {
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
+      }
+    }
+  },
+  "id": 688,
+  "type": "knn:non_spat_filter+name"
+}

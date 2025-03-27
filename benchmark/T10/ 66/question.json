@@ -1,0 +1,71 @@
+{
+  "question": "Which fast food is nearest towards Ghostprint Gallery, Richmond, VA from Historic Trade: Wheelwright, Williamsburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography, ST_GeomFromText('POINT (-77.444173 37.547223)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 138545,
+      "geometry": "POINT (-76.709175 37.273412)",
+      "poi_name": "Rick's Cheese Steak Shop",
+      "osm_id": 6154567756,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://www.rickscheesesteakshop.com/",
+      "addr_state": "VA",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23185",
+      "addr_street": "Prince George Street",
+      "addr_housenumber": "603",
+      "value": 295.1629245975527
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Historic Trade: Wheelwright, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.70341 37.272458)",
+      "poi": {
+        "id": 4571,
+        "geometry": "POINT (-76.70341 37.272458)",
+        "poi_name": "Historic Trade: Wheelwright",
+        "osm_id": 11333519974,
+        "tourism": "attraction",
+        "wheelchair": "yes",
+        "opening_hours": "Su-Fr 09:00-17:00",
+        "operator": "Colonial Williamsburg Foundation",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "Palace Green Street",
+        "addr_housenumber": "201 C"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Ghostprint Gallery, Richmond, VA",
+      "geo_wkt": "POINT (-77.444173 37.547223)",
+      "poi": {
+        "id": 2204,
+        "geometry": "POINT (-77.444173 37.547223)",
+        "poi_name": "Ghostprint Gallery",
+        "osm_id": 3328148226,
+        "tourism": "gallery",
+        "opening_hours": "We-Sa 12:00-17:00",
+        "website": "https://www.ghostprintgallery.com/",
+        "phone": "+1 804-344-1557",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_street": "West Broad Street",
+        "addr_housenumber": "220"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 165,
+  "type": "knn:towards+name"
+}

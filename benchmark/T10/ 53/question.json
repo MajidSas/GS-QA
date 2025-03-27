@@ -1,0 +1,63 @@
+{
+  "question": "What's the closest museum located en route to Belk Activity Center, Tuscaloosa, AL from Oak Grove Baseball Stadium, Bessemer, AL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, ST_GeomFromText('POINT (-87.510604 33.1765)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 754,
+      "geometry": "POINT (-87.54398 33.211886)",
+      "poi_name": "Alabama Museum of Natural History",
+      "osm_id": 2665481258,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Mo-Sa 10:00-16:30",
+      "website": "https://almnh.museums.ua.edu/",
+      "value": 225.66053512568195
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Baseball Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156908 33.467656)",
+      "poi": {
+        "id": 247942,
+        "geometry": "POINT (-87.156908 33.467656)",
+        "poi_name": "Oak Grove Baseball Stadium",
+        "osm_id": 6120962256,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Belk Activity Center, Tuscaloosa, AL",
+      "geo_wkt": "POINT (-87.510604 33.1765)",
+      "poi": {
+        "id": 265877,
+        "geometry": "POINT (-87.510604 33.1765)",
+        "poi_name": "Belk Activity Center",
+        "osm_id": 1098722810,
+        "leisure": "park",
+        "website": "https://www.tcpara.org/",
+        "addr_state": "AL",
+        "addr_city": "Tuscaloosa",
+        "addr_postcode": "35405",
+        "addr_street": "Bowers Park Drive",
+        "addr_housenumber": "2101"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 152,
+  "type": "knn:towards+name"
+}

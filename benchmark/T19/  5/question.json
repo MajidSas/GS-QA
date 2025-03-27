@@ -1,0 +1,52 @@
+{
+  "question": "Where is the nearest restaurant towards the west of Rockville Hospital, Vernon, CT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-72.450994 41.866408)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 222405,
+      "geometry": "POINT (-72.450994 41.866408)",
+      "poi_name": "Umami",
+      "osm_id": 11017172913,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "addr_state": "CT",
+      "addr_city": "Vernon",
+      "addr_postcode": "06066",
+      "addr_street": "Union Street",
+      "addr_housenumber": "172"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Rockville Hospital, Vernon, CT",
+      "geo_wkt": "POINT (-72.450994 41.866408)",
+      "poi": {
+        "id": 222409,
+        "geometry": "POINT (-72.450994 41.866408)",
+        "poi_name": "Rockville Hospital",
+        "osm_id": 11017175927,
+        "amenity": "hospital",
+        "operator": "ECHN",
+        "healthcare": "hospital",
+        "addr_state": "CT",
+        "addr_city": "Vernon",
+        "addr_postcode": "06066",
+        "addr_street": "Union Street",
+        "addr_housenumber": "31"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 1104,
+  "type": "knn:direction+loc"
+}

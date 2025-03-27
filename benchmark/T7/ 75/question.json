@@ -1,0 +1,54 @@
+{
+  "question": "When was the nearest university from Hall des Lumi\u00e8res, New York, NY established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.005072 40.713744)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 158346,
+      "geometry": "POINT (-73.995686 40.728648)",
+      "poi_name": "Courant Institute of Mathematical Sciences",
+      "osm_id": 4743911217,
+      "amenity": "university",
+      "internet_access": "no",
+      "wikidata": "Q946028",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10012",
+      "addr_street": "Mercer Street",
+      "addr_housenumber": "251",
+      "multihop_answer": "1935",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Courant Institute of Mathematical Sciences Established: 1935"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Hall des Lumi\u00e8res, New York, NY",
+      "geo_wkt": "POINT (-74.005072 40.713744)",
+      "poi": {
+        "id": 1082,
+        "geometry": "POINT (-74.005072 40.713744)",
+        "poi_name": "Hall des Lumi\u00e8res",
+        "osm_id": 2825233330,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "10:00-18:00; Tu off; Th-Sa 10:00-22:00",
+        "website": "https://www.halldeslumieres.com/",
+        "museum": "art",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10007",
+        "addr_street": "Chambers Street",
+        "addr_housenumber": "49"
+      }
+    }
+  },
+  "id": 974,
+  "type": "knn+name+multihop1"
+}

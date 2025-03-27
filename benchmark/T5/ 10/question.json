@@ -1,0 +1,41 @@
+{
+  "question": "Could you tell me the closest aquarium relative to ECPI University Denver, Centennial, CO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.860994 39.595547)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3189,
+      "geometry": "POINT (-105.651504 36.683827)",
+      "poi_name": "Red River Fish Hatchery",
+      "osm_id": 10227950650,
+      "tourism": "aquarium",
+      "operator": "New Mexico Game and Fish"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "ECPI University Denver, Centennial, CO",
+      "geo_wkt": "POINT (-104.860994 39.595547)",
+      "poi": {
+        "id": 70277,
+        "geometry": "POINT (-104.860994 39.595547)",
+        "poi_name": "ECPI University Denver",
+        "osm_id": 11356406020,
+        "amenity": "university",
+        "addr_state": "CO",
+        "addr_city": "Centennial",
+        "addr_postcode": "80111",
+        "addr_street": "South Kenton Street",
+        "addr_housenumber": "6675"
+      }
+    }
+  },
+  "id": 209,
+  "type": "knn+name"
+}

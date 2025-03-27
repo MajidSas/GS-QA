@@ -1,0 +1,54 @@
+{
+  "question": "Where can I find a viewpoint towards the west of Hotel AKA Boston Common, Boston, MA within 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.060693 42.35733)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.060693 42.35733)',4326)::geography, 180000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 7303,
+      "geometry": "POINT (-71.060693 42.35733)",
+      "poi_name": "Hairpin Turn",
+      "osm_id": 2072400239,
+      "tourism": "viewpoint",
+      "addr_state": "MA",
+      "addr_city": "Clarksburg"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hotel AKA Boston Common, Boston, MA",
+      "geo_wkt": "POINT (-71.060693 42.35733)",
+      "poi": {
+        "id": 1481,
+        "geometry": "POINT (-71.060693 42.35733)",
+        "poi_name": "Hotel AKA Boston Common",
+        "osm_id": 3000733513,
+        "tourism": "hotel",
+        "opening_hours": "24/7",
+        "website": "https://www.stayaka.com/hotel-aka-boston-common",
+        "internet_access": "wlan",
+        "phone": "+1 617 772 5800",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02108",
+        "addr_street": "Tremont Street",
+        "addr_housenumber": "90"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 67,
+  "type": "range:direction+loc"
+}

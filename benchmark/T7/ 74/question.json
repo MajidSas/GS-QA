@@ -1,0 +1,51 @@
+{
+  "question": "What is the nickname of the closest university from Crave Golf Club, Pigeon Forge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167402,
+      "geometry": "POINT (-83.964225 35.751472)",
+      "poi_name": "Maryville College",
+      "osm_id": 356818839,
+      "amenity": "university",
+      "website": "https://www.maryvillecollege.edu/",
+      "phone": "+1 800 597 2687",
+      "wikidata": "Q4309890",
+      "addr_city": "Maryville",
+      "addr_postcode": "37804",
+      "addr_street": "East Lamar Alexander Parkway",
+      "addr_housenumber": "502",
+      "multihop_answer": "Scots",
+      "multihop_attribute": "Nickname",
+      "multihop_long_answer": "Maryville College Nickname: Scots"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "poi": {
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
+      }
+    }
+  },
+  "id": 973,
+  "type": "knn+name+multihop1"
+}

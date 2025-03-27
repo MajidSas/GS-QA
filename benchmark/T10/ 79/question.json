@@ -1,0 +1,65 @@
+{
+  "question": "What's the nearest fast food heading towards Indian Run Falls Park - Observation Deck B, Dublin, OH from Ohio University \u2013 Zanesville, Zanesville, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143388,
+      "geometry": "POINT (-82.400446 40.057989)",
+      "poi_name": "Wendy's",
+      "osm_id": 6338896410,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "value": 279.85460981590984
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Ohio University \u2013 Zanesville, Zanesville, OH",
+      "geo_wkt": "POINT (-82.030557 39.96074)",
+      "poi": {
+        "id": 133639,
+        "geometry": "POINT (-82.030557 39.96074)",
+        "poi_name": "Ohio University \u2013 Zanesville",
+        "osm_id": 10001421871,
+        "amenity": "university",
+        "operator": "Ohio University",
+        "website": "https://www.ohio.edu/zanesville",
+        "phone": "+1-740-453-0762",
+        "wikidata": "Q7081007",
+        "addr_state": "OH",
+        "addr_city": "Zanesville",
+        "addr_postcode": "43701",
+        "addr_street": "Newark Road",
+        "addr_housenumber": "1425"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 178,
+  "type": "knn:towards+name"
+}

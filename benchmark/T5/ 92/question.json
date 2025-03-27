@@ -1,0 +1,46 @@
+{
+  "question": "Could you tell me the closest zoo relative to Bittersweet Falls, Weybridge, VT?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18982,
+      "geometry": "POINT (-74.221224 43.055227)",
+      "poi_name": "Adirondack Animal Land",
+      "osm_id": 2471668960,
+      "tourism": "zoo",
+      "website": "http://www.adirondackanimalland.com/",
+      "phone": "(518) 883-5748",
+      "addr_city": "Gloversville",
+      "addr_postcode": "12078",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "3554"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    }
+  },
+  "id": 291,
+  "type": "knn+name"
+}

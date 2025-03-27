@@ -1,0 +1,59 @@
+{
+  "question": "Which golf course is available east of Salus University, Elkins Park, PA, within a radius of 130 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography, 130000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 265797,
+      "geometry": "POINT (-75.129394 40.086172)",
+      "poi_name": "Golf Kings",
+      "osm_id": 7808376352,
+      "leisure": "golf_course",
+      "description": "Indoor Golf Simulator Lounge",
+      "opening_hours": "09:00-21:00",
+      "website": "https://golfkingsnj.com/",
+      "phone": "+17328006923",
+      "addr_state": "NJ",
+      "addr_city": "Wall",
+      "addr_street": "State Highway 35",
+      "addr_housenumber": "1825"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "poi": {
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2690,
+  "type": "range:direction+name"
+}

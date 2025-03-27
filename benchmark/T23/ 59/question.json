@@ -1,0 +1,42 @@
+{
+  "question": "Could you tell me the number of stadia located within a 180 kilometers radius from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, 180000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 2258,
+  "type": "range+count"
+}

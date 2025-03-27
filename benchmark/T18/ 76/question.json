@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the closest falafel restaurant from Spartanburg Art Museum, Spartanburg, SC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%falafel%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.930148 34.952729)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 196461,
+      "geometry": "POINT (-77.043728 38.921724)",
+      "poi_name": "Oh Mama Grill",
+      "osm_id": 10579918890,
+      "amenity": "restaurant",
+      "cuisine": "mediterranean;kebab;falafel;shawarma",
+      "website": "https://www.ohmamagrill.com/",
+      "phone": "+1-202-885-9728",
+      "addr_state": "DC",
+      "addr_city": "Washington",
+      "addr_postcode": "20009",
+      "addr_street": "Columbia Road",
+      "addr_housenumber": "1829"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "falafel restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%falafel%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Spartanburg Art Museum, Spartanburg, SC",
+      "geo_wkt": "POINT (-81.930148 34.952729)",
+      "poi": {
+        "id": 3931,
+        "geometry": "POINT (-81.930148 34.952729)",
+        "poi_name": "Spartanburg Art Museum",
+        "osm_id": 5637891658,
+        "tourism": "museum",
+        "website": "https://www.spartanburgartmuseum.org/",
+        "addr_state": "SC",
+        "addr_city": "Spartanburg",
+        "addr_postcode": "29306",
+        "addr_street": "East Saint John Street",
+        "addr_housenumber": "200"
+      }
+    }
+  },
+  "id": 375,
+  "type": "knn:non_spat_filter+loc"
+}

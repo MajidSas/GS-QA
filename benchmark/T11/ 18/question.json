@@ -1,0 +1,43 @@
+{
+  "question": "What is the biggest golf course found in Byron, Michigan?",
+  "sql": "SELECT *, ST_Area(parks.geometry::geography) AS computed_area FROM parks\nWHERE leisure = 'golf_course'\nAND ST_Intersects(parks.geometry::geography, ST_GeomFromText('POLYGON ((-83.954413 42.831025, -83.93979 42.831385, -83.939087 42.816707, -83.953602 42.816508, -83.954413 42.831025))',4326)::geography)\nORDER BY computed_area DESC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1008262,
+      "geometry": "POLYGON ((-83.949009 42.823067, -83.948989 42.822203, -83.948166 42.822132, -83.947659 42.820685, -83.947056 42.820514, -83.944877 42.81801, -83.944712 42.816844, -83.945548 42.815768, -83.947604 42.815346, -83.949647 42.814441, -83.950085 42.812993, -83.953416 42.812933, -83.953772 42.81985, -83.952635 42.821097, -83.952073 42.822223, -83.949894 42.822323, -83.949907 42.823057, -83.949009 42.823067))",
+      "park_name": "Willowbrook Golf Club",
+      "osm_id": 293751895,
+      "addr_state": "MI",
+      "addr_city": "Byron",
+      "addr_postcode": "48418",
+      "addr_street": "West Maple Road",
+      "addr_housenumber": "311",
+      "leisure": "golf_course",
+      "computed_area": 546485.3431993872
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course",
+      "table": "parks"
+    },
+    "[2]": {
+      "region_name": "Byron, Michigan",
+      "geo_wkt": "POLYGON ((-83.954413 42.831025, -83.93979 42.831385, -83.939087 42.816707, -83.953602 42.816508, -83.954413 42.831025))",
+      "region": {
+        "id": 16104,
+        "geometry": "POLYGON ((-83.954413 42.831025, -83.93979 42.831385, -83.939087 42.816707, -83.953602 42.816508, -83.954413 42.831025))",
+        "region_name": "Byron",
+        "border_type": "village",
+        "wikidata": "Q2666037",
+        "wikipedia": "en:Byron, Michigan",
+        "place": "village",
+        "admin_level": "8"
+      }
+    }
+  },
+  "id": 1917,
+  "type": "intersects:area_max+name"
+}

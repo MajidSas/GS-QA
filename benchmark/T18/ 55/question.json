@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the closest science museum from C.S.U. Technology Park, Long Beach, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'science'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.221672 33.790124)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10967,
+      "geometry": "POINT (-123.430742 48.120654)",
+      "poi_name": "NOAA - Olympic Coast Discovery Center",
+      "osm_id": 8176116579,
+      "tourism": "museum",
+      "operator": "National Oceanic and Atmospheric Administration",
+      "website": "https://olympiccoast.noaa.gov/visitor/discoverycenter/discoverycenter.html",
+      "museum": "science",
+      "addr_state": "WA",
+      "addr_city": "Port Angeles",
+      "addr_postcode": "98362",
+      "addr_street": "East Railroad Avenue",
+      "addr_housenumber": "115"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "C.S.U. Technology Park, Long Beach, CA",
+      "geo_wkt": "POINT (-118.221672 33.790124)",
+      "poi": {
+        "id": 88666,
+        "geometry": "POINT (-118.221672 33.790124)",
+        "poi_name": "C.S.U. Technology Park",
+        "osm_id": 8791182330,
+        "amenity": "university",
+        "operator": "California State University",
+        "addr_state": "CA",
+        "addr_city": "Long Beach",
+        "addr_street": "Technology Plaza"
+      }
+    }
+  },
+  "id": 354,
+  "type": "knn:non_spat_filter+loc"
+}

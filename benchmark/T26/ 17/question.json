@@ -1,0 +1,47 @@
+{
+  "question": "What's the distance to the nearest restaurant from Bittersweet Falls, Weybridge, VT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 205302,
+      "geometry": "POINT (-73.177349 44.008188)",
+      "poi_name": "The Grille",
+      "osm_id": 7164715410,
+      "amenity": "restaurant",
+      "cuisine": "american;burger;pizza;sandwich",
+      "wheelchair": "limited",
+      "opening_hours": "\"closed due to illness\"",
+      "operator": "Middlebury College",
+      "internet_access": "yes",
+      "takeaway": "yes",
+      "distance": 4036.8970199
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    }
+  },
+  "id": 2416,
+  "type": "knn+distance"
+}

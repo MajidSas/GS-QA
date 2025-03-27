@@ -1,0 +1,68 @@
+{
+  "question": "Where is the nearest restaurant as you progress towards Lebanon Valley College, Annville, PA from Residence Inn Philadelphia Valley Forge, Berwyn, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.451724 40.067103)',4326)::geography, ST_GeomFromText('POINT (-76.514364 40.332402)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.451724 40.067103)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.451724 40.067103)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 203333,
+      "geometry": "POINT (-75.536088 40.067894)",
+      "poi_name": "Avola Kitchen and Bar",
+      "osm_id": 7078972276,
+      "amenity": "restaurant",
+      "opening_hours": "Mo 15:00-21:00; Tu-We 11:00-21:00; Th 11:00-22:00; Fr 11:00-23:00; Sa 15:00-23:00",
+      "website": "https://avolakitchenandbar.com",
+      "phone": "+1 484-328-8584",
+      "addr_city": "Malvern",
+      "addr_postcode": "19355",
+      "addr_street": "North Morehall Road",
+      "addr_housenumber": "625",
+      "value": 288.3769962846401
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn Philadelphia Valley Forge, Berwyn, PA",
+      "geo_wkt": "POINT (-75.451724 40.067103)",
+      "poi": {
+        "id": 22026,
+        "geometry": "POINT (-75.451724 40.067103)",
+        "poi_name": "Residence Inn Philadelphia Valley Forge",
+        "osm_id": 966094582,
+        "tourism": "hotel",
+        "website": "https://www.marriott.com/hotels/travel/phlbw-residence-inn-philadelphia-valley-forge",
+        "phone": "+1-610-640-9494",
+        "addr_state": "PA",
+        "addr_city": "Berwyn",
+        "addr_postcode": "19312",
+        "addr_street": "West Swedesford Road",
+        "addr_housenumber": "600"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Lebanon Valley College, Annville, PA",
+      "geo_wkt": "POINT (-76.514364 40.332402)",
+      "poi": {
+        "id": 158508,
+        "geometry": "POINT (-76.514364 40.332402)",
+        "poi_name": "Lebanon Valley College",
+        "osm_id": 4751392048,
+        "amenity": "university",
+        "website": "https://www.lvc.edu/",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003",
+        "addr_street": "North College Avenue"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1388,
+  "type": "knn:towards+loc"
+}

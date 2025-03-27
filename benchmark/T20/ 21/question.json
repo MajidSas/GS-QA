@@ -1,0 +1,72 @@
+{
+  "question": "Where's the closest fast food restaurant on the path leading to Jeptha Creed Distillery, Shelbyville, KY from North Pole Community Garden, Lexington, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography, ST_GeomFromText('POINT (-85.264482 38.189306)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 150117,
+      "geometry": "POINT (-84.52008 38.063791)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 4042935518,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "phone": "+1 859 309 2999",
+      "takeaway": "yes",
+      "official_name": "Jimmy John's Gourmet Sandwiches",
+      "delivery": "yes",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40508",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "1397",
+      "value": 282.1102610153663
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "North Pole Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.47951 38.058992)",
+      "poi": {
+        "id": 248386,
+        "geometry": "POINT (-84.47951 38.058992)",
+        "poi_name": "North Pole Community Garden",
+        "osm_id": 4072709120,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "North Limestone",
+        "addr_housenumber": "909"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Jeptha Creed Distillery, Shelbyville, KY",
+      "geo_wkt": "POINT (-85.264482 38.189306)",
+      "poi": {
+        "id": 26275,
+        "geometry": "POINT (-85.264482 38.189306)",
+        "poi_name": "Jeptha Creed Distillery",
+        "osm_id": 5832472576,
+        "tourism": "attraction",
+        "website": "https://jepthacreed.com/",
+        "phone": "(502) 487-5007",
+        "addr_state": "KY",
+        "addr_city": "Shelbyville",
+        "addr_postcode": "40065",
+        "addr_street": "Gordon Lane",
+        "addr_housenumber": "500"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1320,
+  "type": "knn:towards+loc"
+}

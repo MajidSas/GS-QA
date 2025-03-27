@@ -1,0 +1,50 @@
+{
+  "question": "What's the distance to a zoo from Royal Kona Resort, Kailua-Kona, HI within 130 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-155.99039 19.632117)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-155.99039 19.632117)',4326)::geography, 130000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 14800,
+      "geometry": "POINT (-155.074226 19.654483)",
+      "poi_name": "Panaewa Rainforest Zoo",
+      "osm_id": 4722581529,
+      "tourism": "zoo",
+      "wikidata": "Q7129731",
+      "distance": 96119.7439576
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Royal Kona Resort, Kailua-Kona, HI",
+      "geo_wkt": "POINT (-155.99039 19.632117)",
+      "poi": {
+        "id": 7318,
+        "geometry": "POINT (-155.99039 19.632117)",
+        "poi_name": "Royal Kona Resort",
+        "osm_id": 2086230383,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.royalkona.com/",
+        "internet_access": "yes",
+        "phone": "+1-808-329-3111",
+        "addr_state": "HI",
+        "addr_city": "Kailua-Kona",
+        "addr_postcode": "96740",
+        "addr_street": "Alii Drive",
+        "addr_housenumber": "75-5852"
+      }
+    }
+  },
+  "id": 751,
+  "type": "range+distance"
+}

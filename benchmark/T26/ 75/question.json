@@ -1,0 +1,50 @@
+{
+  "question": "How distant is the closest fast food restaurant from the reference location Snug Harbor Resort, Friday Harbor, WA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-123.168191 48.570227)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-123.168191 48.570227)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 101208,
+      "geometry": "POINT (-123.016685 48.534162)",
+      "poi_name": "The Bait Shop",
+      "osm_id": 6615232419,
+      "amenity": "fast_food",
+      "cuisine": "fish_and_chips",
+      "drive_through": "no",
+      "addr_state": "WA",
+      "addr_city": "Friday Harbor",
+      "addr_street": "Spring Street",
+      "addr_housenumber": "175",
+      "distance": 11882.2353648
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Snug Harbor Resort, Friday Harbor, WA",
+      "geo_wkt": "POINT (-123.168191 48.570227)",
+      "poi": {
+        "id": 4785,
+        "geometry": "POINT (-123.168191 48.570227)",
+        "poi_name": "Snug Harbor Resort",
+        "osm_id": 9616351378,
+        "tourism": "hotel",
+        "website": "https://www.snugresort.com/",
+        "internet_access": "wlan",
+        "phone": "+1 (360) 378-4762",
+        "addr_state": "WA",
+        "addr_city": "Friday Harbor",
+        "addr_postcode": "98250",
+        "addr_street": "Mitchell Bay Road",
+        "addr_housenumber": "1997"
+      }
+    }
+  },
+  "id": 2474,
+  "type": "knn+distance"
+}

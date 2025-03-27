@@ -1,0 +1,37 @@
+{
+  "question": "In which direction should I proceed to reach the closest viewpoint from Red Hill Lodge, GA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.271548 34.453435)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.271548 34.453435)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15321,
+      "geometry": "POINT (-83.387745 34.676418)",
+      "poi_name": "Upper Falls view",
+      "osm_id": 4852866318,
+      "tourism": "viewpoint",
+      "angle": 336.7130220040695
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Red Hill Lodge, GA",
+      "geo_wkt": "POINT (-83.271548 34.453435)",
+      "poi": {
+        "id": 17707,
+        "geometry": "POINT (-83.271548 34.453435)",
+        "poi_name": "Red Hill Lodge",
+        "osm_id": 367915635,
+        "tourism": "hotel",
+        "addr_state": "GA"
+      }
+    }
+  },
+  "id": 1424,
+  "type": "knn+angle"
+}

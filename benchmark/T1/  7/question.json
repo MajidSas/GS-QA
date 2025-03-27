@@ -1,0 +1,58 @@
+{
+  "question": "I'm interested in finding an aquarium that's 60 kilometers from National Electronics Museum, Linthicum, MD, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.684206 39.195792)',4326)::geography, 60000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 1512,
+      "geometry": "POINT (-76.48474 39.339761)",
+      "poi_name": "Go Fish",
+      "osm_id": 3026471881,
+      "tourism": "aquarium",
+      "addr_state": "MD",
+      "addr_city": "Rosedale",
+      "addr_postcode": "21237",
+      "addr_street": "Philadelphia Road",
+      "addr_housenumber": "8767 G"
+    },
+    {
+      "id": 23816,
+      "geometry": "POINT (-77.13886 38.967344)",
+      "poi_name": "Glen Echo Park Aquarium",
+      "osm_id": 9149543103,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "National Electronics Museum, Linthicum, MD",
+      "geo_wkt": "POINT (-76.684206 39.195792)",
+      "poi": {
+        "id": 5922,
+        "geometry": "POINT (-76.684206 39.195792)",
+        "poi_name": "National Electronics Museum",
+        "osm_id": 1672908664,
+        "tourism": "museum",
+        "website": "https://www.nationalelectronicsmuseum.org/",
+        "wikidata": "Q6972406",
+        "addr_state": "MD",
+        "addr_city": "Linthicum",
+        "addr_postcode": "21090",
+        "addr_street": "West Nursery Road",
+        "addr_housenumber": "1745"
+      }
+    }
+  },
+  "id": 806,
+  "type": "range+name"
+}

@@ -1,0 +1,93 @@
+{
+  "question": "Which nature reserve is available in the direction of west from New York Institute of Technology, New York, NY, within a radius of 70 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 70000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 246484,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Riverbend Marsh",
+      "osm_id": 9756176514,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 267301,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Stransky Nature Trails",
+      "osm_id": 5810940582,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "173"
+    },
+    {
+      "id": 256857,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Great Swamp National Wildlife Refuge",
+      "osm_id": 357732986,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 266149,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Dickerson Mine Preserve",
+      "osm_id": 984448592,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 266299,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "John Sanford Farmland Preserve",
+      "osm_id": 7149210071,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 267302,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Dealaman Nature Trail and Pond",
+      "osm_id": 5811042630,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "182"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "poi": {
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2617,
+  "type": "range:direction+name"
+}

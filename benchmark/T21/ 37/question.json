@@ -1,0 +1,98 @@
+{
+  "question": "What's the route to a stadium from Bremer County Historical Society Museum, IA within 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.475909 42.725902)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.475909 42.725902)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 246569,
+      "geometry": "POINT (-91.680814 41.934742)",
+      "poi_name": "Hawkeye Downs Speedway",
+      "osm_id": 878258336,
+      "leisure": "stadium",
+      "sport": "motor",
+      "angle": 143.02014191030227
+    },
+    {
+      "id": 247635,
+      "geometry": "POINT (-93.059688 41.688871)",
+      "poi_name": "HA Lynn Football Stadium",
+      "osm_id": 7985940223,
+      "leisure": "stadium",
+      "angle": 202.90667289531893
+    },
+    {
+      "id": 247649,
+      "geometry": "POINT (-92.928144 41.404842)",
+      "poi_name": "Ron and Joyce Schipper Stadium",
+      "osm_id": 8018950053,
+      "leisure": "stadium",
+      "angle": 194.4617915166274
+    },
+    {
+      "id": 265357,
+      "geometry": "POINT (-91.694594 44.04413)",
+      "poi_name": "Ice Arena",
+      "osm_id": 367067698,
+      "leisure": "stadium",
+      "addr_state": "MN",
+      "angle": 23.11033702299022
+    },
+    {
+      "id": 247519,
+      "geometry": "POINT (-92.458124 44.021924)",
+      "poi_name": "Taylor Arena",
+      "osm_id": 6762253966,
+      "leisure": "stadium",
+      "angle": 0.567430618360425
+    },
+    {
+      "id": 265360,
+      "geometry": "POINT (-91.600665 41.690452)",
+      "poi_name": "Coral Ridge Ice Arena",
+      "osm_id": 367088905,
+      "leisure": "stadium",
+      "addr_state": "IA",
+      "angle": 147.5590408354553
+    },
+    {
+      "id": 265707,
+      "geometry": "POINT (-93.449931 41.596353)",
+      "poi_name": "SEP Stadium",
+      "osm_id": 10856875747,
+      "leisure": "stadium",
+      "addr_state": "Iowa",
+      "addr_city": "Pleasant Hill",
+      "addr_postcode": "50327",
+      "addr_street": "Martha L. Miller Drive",
+      "addr_housenumber": "7755",
+      "angle": 213.01069305202685
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Bremer County Historical Society Museum, IA",
+      "geo_wkt": "POINT (-92.475909 42.725902)",
+      "poi": {
+        "id": 17113,
+        "geometry": "POINT (-92.475909 42.725902)",
+        "poi_name": "Bremer County Historical Society Museum",
+        "osm_id": 367089563,
+        "tourism": "museum",
+        "website": "https://www.bremercountyhistoricalsociety.org/",
+        "addr_state": "IA"
+      }
+    }
+  },
+  "id": 1036,
+  "type": "range+angle"
+}

@@ -1,0 +1,32 @@
+{
+  "question": "What is the aggregate area of all lakes in Barton Township, Michigan?",
+  "sql": "SELECT SUM(ST_Area(lakes.geometry::geography)) AS area FROM lakes\nWHERE water = 'lake'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-85.681319 43.728241, -85.662482 43.728286, -85.64236 43.728412, -85.562693 43.728323, -85.562397 43.815453, -85.62258 43.815442, -85.681512 43.81545, -85.679041 43.801117, -85.681732 43.786069, -85.681589 43.77169, -85.681534 43.742772, -85.681319 43.728241))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 59616.020130787045
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "water",
+      "sub_category": "lake",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Barton Township, Michigan",
+      "geo_wkt": "POLYGON ((-85.681319 43.728241, -85.662482 43.728286, -85.64236 43.728412, -85.562693 43.728323, -85.562397 43.815453, -85.62258 43.815442, -85.681512 43.81545, -85.679041 43.801117, -85.681732 43.786069, -85.681589 43.77169, -85.681534 43.742772, -85.681319 43.728241))",
+      "region": {
+        "id": 25545,
+        "geometry": "POLYGON ((-85.681319 43.728241, -85.662482 43.728286, -85.64236 43.728412, -85.562693 43.728323, -85.562397 43.815453, -85.62258 43.815442, -85.681512 43.81545, -85.679041 43.801117, -85.681732 43.786069, -85.681589 43.77169, -85.681534 43.742772, -85.681319 43.728241))",
+        "region_name": "Barton Township",
+        "border_type": "township",
+        "wikidata": "Q4865697",
+        "wikipedia": "en:Barton Township, Michigan",
+        "admin_level": "7"
+      }
+    }
+  },
+  "id": 2162,
+  "type": "intersects:area_total+area"
+}

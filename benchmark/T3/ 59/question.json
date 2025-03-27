@@ -1,0 +1,755 @@
+{
+  "question": "Which restaurant is closest when moving towards the north of Reformed Presbyterian theological Seminary, Pittsburgh, PA within 90 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.897696 40.447418)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.897696 40.447418)',4326)::geography, 90000)\nAND amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 30358,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Fox's Pizza Den",
+      "osm_id": 8355333728,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "PA",
+      "addr_city": "Slippery Rock",
+      "addr_postcode": "16057",
+      "addr_street": "Centreville Pike",
+      "addr_housenumber": "662"
+    },
+    {
+      "id": 30359,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "BJ Coney Island",
+      "osm_id": 8355333749,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 30360,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Elephant #8",
+      "osm_id": 8355333751,
+      "amenity": "restaurant",
+      "cuisine": "thai"
+    },
+    {
+      "id": 30361,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Holy Cow",
+      "osm_id": 8355365974,
+      "amenity": "restaurant",
+      "cuisine": "burger"
+    },
+    {
+      "id": 30366,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Katana Asian Fusion",
+      "osm_id": 8355719021,
+      "amenity": "restaurant",
+      "cuisine": "chinese;japanese;thai"
+    },
+    {
+      "id": 64023,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Little It Deli",
+      "osm_id": 5638565067,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "takeaway": "yes"
+    },
+    {
+      "id": 36695,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Ghost Peppers",
+      "osm_id": 2779999249,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 36696,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Posti's Pizza",
+      "osm_id": 2780000651,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "website": "https://www.postispizza.com/"
+    },
+    {
+      "id": 51365,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Tai Pei",
+      "osm_id": 532135797,
+      "amenity": "restaurant",
+      "cuisine": "chinese;sushi",
+      "opening_hours": "Su-Th 11:00-21:30; Fr-Sa 11:00-22:30",
+      "phone": "+1-412-781-4131",
+      "addr_state": "PA",
+      "addr_city": "Pittsburgh",
+      "addr_postcode": "15238",
+      "addr_street": "Freeport Road",
+      "addr_housenumber": "1124"
+    },
+    {
+      "id": 51366,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Donato's Fox Chapel",
+      "osm_id": 532135890,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_city": "Pittsburgh",
+      "addr_postcode": "15238",
+      "addr_street": "Fox Chapel Road",
+      "addr_housenumber": "46"
+    },
+    {
+      "id": 51367,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "TGI Friday's",
+      "osm_id": 532136017,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 51368,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Walnut Grill",
+      "osm_id": 532136142,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 58406,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Ichiban Steakhouse & Sushi Bar",
+      "osm_id": 5373915767,
+      "amenity": "restaurant",
+      "cuisine": "steak_house;japanese;hibachi;sushi",
+      "opening_hours": "Mo-Th 11:00-14:30, 16:30-21:30; Fr 11:00-14:30, 16:30-22:30; Sa 13:00-22:30; Su 12:00-20:30",
+      "website": "ichiban-hibachi-steakhouse.com",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "PA",
+      "addr_city": "Pittsburgh",
+      "addr_postcode": "15238",
+      "addr_street": "Freeport Road",
+      "addr_housenumber": "983"
+    },
+    {
+      "id": 61120,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Rocky's",
+      "osm_id": 5499063906,
+      "amenity": "restaurant",
+      "internet_access": "yes",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 32963,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Sam's Tavern in the wall",
+      "osm_id": 2643925303,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_city": "Aspinwall",
+      "addr_street": "Commercial Avenue"
+    },
+    {
+      "id": 32964,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Luke & Mike's Front Porch",
+      "osm_id": 2643925306,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_state": "PA",
+      "addr_city": "Aspinwall",
+      "addr_postcode": "15215",
+      "addr_street": "Commercial Avenue",
+      "addr_housenumber": "235"
+    },
+    {
+      "id": 46587,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Kings Family Restaurant",
+      "osm_id": 3276292973,
+      "amenity": "restaurant",
+      "website": "https://www.kingsfamily.com/"
+    },
+    {
+      "id": 47657,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Emiliano's",
+      "osm_id": 3340398677,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 122718,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Burgatory",
+      "osm_id": 6816070925,
+      "amenity": "restaurant",
+      "cuisine": "burger"
+    },
+    {
+      "id": 68361,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Plaza Restaurant",
+      "osm_id": 11267161338,
+      "amenity": "restaurant",
+      "cuisine": "american;coffee_shop;burger;sandwich;chicken",
+      "description": "Excellent little diner/truck stop style restaurant with good food.",
+      "opening_hours": "Mo-Su 07:00-21:00",
+      "website": "https://www.emlentontruckplaza.com/plaza-restaurant",
+      "phone": "724-867-9171",
+      "addr_state": "PA",
+      "addr_city": "Emlenton",
+      "addr_postcode": "16373",
+      "addr_street": "Emlenton Clintonville Road",
+      "addr_housenumber": "6406"
+    },
+    {
+      "id": 95808,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Max Mex Waterworks",
+      "osm_id": 6412790042,
+      "amenity": "restaurant",
+      "website": "http://madmex.com/location/waterworks/",
+      "addr_postcode": "15238",
+      "addr_street": "Freeport Road",
+      "addr_housenumber": "1041"
+    },
+    {
+      "id": 106385,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Fox's Pizza Den",
+      "osm_id": 8677610742,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "website": "https://www.foxspizza.com/store/pennsylvania/volant-pa-2/",
+      "phone": "+1-724-533-7006",
+      "addr_state": "PA",
+      "addr_city": "Volant",
+      "addr_postcode": "16156",
+      "addr_street": "Main Street",
+      "addr_housenumber": "800"
+    },
+    {
+      "id": 121283,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Quaker Steak & Lube",
+      "osm_id": 6751172604,
+      "amenity": "restaurant",
+      "cuisine": "wings",
+      "internet_access": "yes",
+      "takeaway": "yes",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 122487,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Blackout Burger Bar",
+      "osm_id": 6806745269,
+      "amenity": "restaurant",
+      "cuisine": "burger;chicken",
+      "phone": "724-748-6767"
+    },
+    {
+      "id": 122719,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Uncle Sam's Subs",
+      "osm_id": 6816070926,
+      "amenity": "restaurant",
+      "cuisine": "sandwich"
+    },
+    {
+      "id": 150207,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Cafe Contrary",
+      "osm_id": 4046324901,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 150208,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Novotny Pizza",
+      "osm_id": 4046346131,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 150209,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Thoma's Meat Market",
+      "osm_id": 4046396656,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 159064,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Broad Street Grille",
+      "osm_id": 4775191237,
+      "amenity": "restaurant",
+      "addr_state": "PA",
+      "addr_city": "Grove City",
+      "addr_postcode": "16127",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "131"
+    },
+    {
+      "id": 150737,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Shurina's Pizza & Restaraunt",
+      "osm_id": 4064867990,
+      "amenity": "restaurant",
+      "phone": "+1 724-352-7050"
+    },
+    {
+      "id": 158092,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Round The Corner",
+      "osm_id": 4734727172,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 158098,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Fox's Pizza Den",
+      "osm_id": 4735057868,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 158099,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Roma",
+      "osm_id": 4735058770,
+      "amenity": "restaurant",
+      "cuisine": "italian;pizza"
+    },
+    {
+      "id": 158100,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Atria's Restaurant and Tavern",
+      "osm_id": 4735058805,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 158101,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Barrel Junction",
+      "osm_id": 4735058806,
+      "amenity": "restaurant",
+      "cuisine": "barbecue"
+    },
+    {
+      "id": 150203,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Zacherl's Restaurant",
+      "osm_id": 4046179490,
+      "amenity": "restaurant",
+      "phone": "+1 724-352-1409"
+    },
+    {
+      "id": 150738,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Runt's Roadhouse",
+      "osm_id": 4064868013,
+      "amenity": "restaurant",
+      "phone": "+1 724-352-4957"
+    },
+    {
+      "id": 159067,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Jin Sushi",
+      "osm_id": 4775191240,
+      "amenity": "restaurant",
+      "cuisine": "japanese;sushi",
+      "website": "https://jinsushigc.com",
+      "phone": "7242644858",
+      "addr_state": "PA",
+      "addr_city": "Grove City",
+      "addr_postcode": "16127",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "138"
+    },
+    {
+      "id": 159068,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Coffaro's Pizza",
+      "osm_id": 4775191241,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "PA",
+      "addr_city": "Grove City",
+      "addr_postcode": "16127",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "116"
+    },
+    {
+      "id": 159069,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Nonni's Corner Trattoria",
+      "osm_id": 4775191247,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_state": "PA",
+      "addr_city": "Grove City",
+      "addr_postcode": "16127",
+      "addr_street": "South Broad Street",
+      "addr_housenumber": "251"
+    },
+    {
+      "id": 165174,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Vocelli Pizza",
+      "osm_id": 9522347170,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 162254,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Stack'd",
+      "osm_id": 4922681237,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 162788,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Burgr'z",
+      "osm_id": 4941299278,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 162120,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Golden Star",
+      "osm_id": 4917241257,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 162153,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Pasquale's Pizzeria",
+      "osm_id": 4917800935,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 162439,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Rachel's Roadhouse",
+      "osm_id": 4931351326,
+      "amenity": "restaurant",
+      "cuisine": "american;steak",
+      "website": "https://www.springfields.com/",
+      "phone": "724-748-3193",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "PA",
+      "addr_city": "Mercer",
+      "addr_postcode": "16137",
+      "addr_street": "Perry Highway",
+      "addr_housenumber": "1553"
+    },
+    {
+      "id": 162469,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "China House",
+      "osm_id": 4932519697,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "phone": "+1 724 443 1998"
+    },
+    {
+      "id": 170851,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "The Mansion",
+      "osm_id": 2351506153,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 165933,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "China Buffet",
+      "osm_id": 9566193435,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "PA",
+      "addr_city": "Grove City",
+      "addr_postcode": "16127",
+      "addr_street": "Pine Grove Square",
+      "addr_housenumber": "31"
+    },
+    {
+      "id": 170761,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Porky's Smokehouse",
+      "osm_id": 2348633301,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 170762,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Reichhold's Cafe",
+      "osm_id": 2348636683,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 170374,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Willey's",
+      "osm_id": 2334042625,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 170786,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Runway Restaurant",
+      "osm_id": 2349357043,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 170857,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Mamma Rosa's",
+      "osm_id": 2351613922,
+      "amenity": "restaurant",
+      "cuisine": "italian"
+    },
+    {
+      "id": 170859,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 2351626201,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 190019,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "North Country Brewing Company",
+      "osm_id": 1262117220,
+      "amenity": "restaurant",
+      "website": "https://northcountrybrewpub.com/",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 186715,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Lin's Garden",
+      "osm_id": 7946014561,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 190041,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Camelot",
+      "osm_id": 1263564139,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 203196,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Spice Affair",
+      "osm_id": 7069890942,
+      "amenity": "restaurant",
+      "cuisine": "indian",
+      "addr_state": "PA",
+      "addr_city": "Aspinwall",
+      "addr_postcode": "15215",
+      "addr_street": "Brilliant Avenue",
+      "addr_housenumber": "8"
+    },
+    {
+      "id": 198076,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Messina's Pizza",
+      "osm_id": 10687433005,
+      "amenity": "restaurant",
+      "addr_postcode": "15044",
+      "addr_street": "Middle Road",
+      "addr_housenumber": "4992"
+    },
+    {
+      "id": 207717,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Bruno's Pizza",
+      "osm_id": 4958656976,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 207349,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Cala Lily",
+      "osm_id": 4945628902,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 207350,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Buffalo Wild Wings",
+      "osm_id": 4945628904,
+      "amenity": "restaurant",
+      "cuisine": "wings",
+      "addr_state": "PA"
+    },
+    {
+      "id": 223663,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Texas Roadhouse",
+      "osm_id": 11060841756,
+      "amenity": "restaurant",
+      "cuisine": "steak_house"
+    },
+    {
+      "id": 207747,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Vocelli Pizza",
+      "osm_id": 4959831724,
+      "amenity": "restaurant",
+      "phone": "+1 412 486 2418"
+    },
+    {
+      "id": 207750,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Bob's Sub",
+      "osm_id": 4959831751,
+      "amenity": "restaurant",
+      "cuisine": "sandwich"
+    },
+    {
+      "id": 207765,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Monte Cello's",
+      "osm_id": 4960547092,
+      "amenity": "restaurant",
+      "cuisine": "italian"
+    },
+    {
+      "id": 207766,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Asian Bistro",
+      "osm_id": 4960547099,
+      "amenity": "restaurant",
+      "cuisine": "asian"
+    },
+    {
+      "id": 208470,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Pat's Place",
+      "osm_id": 4992552009,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 214409,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Smokin' Toads BBQ",
+      "osm_id": 5272195229,
+      "amenity": "restaurant",
+      "opening_hours": "Mo 11:00-15:00; We-Th 11:00-21:00; Fr 11:00-22:00; Sa 7:00-22:00; Su 7:00-21:00",
+      "website": "https://smokintoadsbbq.com/",
+      "addr_state": "PA",
+      "addr_city": "Sarver",
+      "addr_postcode": "16055",
+      "addr_street": "South Pike Road",
+      "addr_housenumber": "110"
+    },
+    {
+      "id": 214410,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Cellar Works Brewing Company",
+      "osm_id": 5272195230,
+      "amenity": "restaurant",
+      "opening_hours": "Th 18:00-22:00; Fr 17:00-24:00; Sa 12:00-23:00",
+      "website": "https://cellarworksbrewing.com/",
+      "addr_state": "PA",
+      "addr_city": "Sarver",
+      "addr_postcode": "16055",
+      "addr_street": "South Pike Road",
+      "addr_housenumber": "110"
+    },
+    {
+      "id": 222840,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Third Eye Pies",
+      "osm_id": 11037687810,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "phone": "724-748-6464"
+    },
+    {
+      "id": 222843,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Villa Pizza",
+      "osm_id": 11037770172,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 222845,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "China Max",
+      "osm_id": 11037770189,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 242468,
+      "geometry": "POINT (-79.897696 40.447418)",
+      "poi_name": "Cornerstone Restaurant and Bar",
+      "osm_id": 7573244287,
+      "amenity": "restaurant",
+      "website": "https://cornerstonepgh.com/",
+      "phone": "+1-412-408-3420",
+      "addr_state": "PA",
+      "addr_city": "Aspinwall",
+      "addr_postcode": "15215",
+      "addr_street": "Freeport Road",
+      "addr_housenumber": "301"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Reformed Presbyterian Theological Seminary, Pittsburgh, PA",
+      "geo_wkt": "POINT (-79.897696 40.447418)",
+      "poi": {
+        "id": 181232,
+        "geometry": "POINT (-79.897696 40.447418)",
+        "poi_name": "Reformed Presbyterian Theological Seminary",
+        "osm_id": 10836285954,
+        "amenity": "university",
+        "operator": "Reformed Presbyterian Church of North America",
+        "website": "https://www.rpts.edu/",
+        "phone": "+14127316000",
+        "addr_state": "PA",
+        "addr_city": "Pittsburgh",
+        "addr_postcode": "15208",
+        "addr_street": "Penn Avenue",
+        "addr_housenumber": "7418"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2658,
+  "type": "range:direction+name"
+}

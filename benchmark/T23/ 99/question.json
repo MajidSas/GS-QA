@@ -1,0 +1,43 @@
+{
+  "question": "Could you tell me the number of stadia located within a 160 kilometers radius from Sonny's Place, Somers, CT?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
+      "poi": {
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
+      }
+    }
+  },
+  "id": 2298,
+  "type": "range+count"
+}

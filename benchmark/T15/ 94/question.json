@@ -1,0 +1,69 @@
+{
+  "question": "Where can I find a gallery positioned towards the southeast of Kettle Creek Environmental Education Center, Stroudsburg, PA, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, 170000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 15750,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Hamilton Street Gallery",
+      "osm_id": 9502088817,
+      "tourism": "gallery",
+      "addr_state": "NJ",
+      "addr_city": "Bound Brook",
+      "addr_postcode": "08805",
+      "addr_street": "Hamilton Street",
+      "addr_housenumber": "6"
+    },
+    {
+      "id": 25971,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Designers Gallery Fine Art & Custom Framing",
+      "osm_id": 5751471849,
+      "tourism": "gallery",
+      "opening_hours": "Tu, We, Sa 10:00-16:30; Th 10:00-19:00; Fr 10:00-17:00",
+      "website": "https://www.designergallery.net/",
+      "phone": "+1-732-381-6093",
+      "addr_state": "NJ",
+      "addr_city": "Clark",
+      "addr_postcode": "07066",
+      "addr_street": "A Raritan Road",
+      "addr_housenumber": "1049"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Kettle Creek Environmental Education Center, Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.29615 40.988615)",
+      "poi": {
+        "id": 246853,
+        "geometry": "POINT (-75.29615 40.988615)",
+        "poi_name": "Kettle Creek Environmental Education Center",
+        "osm_id": 6536561704,
+        "leisure": "nature_reserve",
+        "website": "https://www.mcconservation.org/",
+        "addr_state": "PA",
+        "addr_city": "Stroudsburg",
+        "addr_postcode": "18360",
+        "addr_street": "Running Valley Road",
+        "addr_housenumber": "8050"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 93,
+  "type": "range:direction+loc"
+}

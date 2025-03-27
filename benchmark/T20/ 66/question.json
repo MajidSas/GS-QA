@@ -1,0 +1,64 @@
+{
+  "question": "Where is the nearest restaurant as you head towards Columbia Cultural Garden, Cleveland, OH from Susan Hambley Nature Center, Brunswick, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.816057 41.236319)',4326)::geography, ST_GeomFromText('POINT (-81.619167 41.520496)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.816057 41.236319)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.816057 41.236319)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 196138,
+      "geometry": "POINT (-81.786883 41.278702)",
+      "poi_name": "Asia Garden",
+      "osm_id": 10565352626,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "OH",
+      "addr_city": "Strongsville",
+      "addr_postcode": "44136",
+      "addr_street": "West 130th Street",
+      "addr_housenumber": "19648",
+      "value": 27.492976913724856
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Susan Hambley Nature Center, Brunswick, OH",
+      "geo_wkt": "POINT (-81.816057 41.236319)",
+      "poi": {
+        "id": 267092,
+        "geometry": "POINT (-81.816057 41.236319)",
+        "poi_name": "Susan Hambley Nature Center",
+        "osm_id": 4487990781,
+        "leisure": "nature_reserve",
+        "addr_state": "OH",
+        "addr_city": "Brunswick",
+        "addr_postcode": "44212",
+        "addr_street": "Parschen Boulevard",
+        "addr_housenumber": "1473"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Columbia Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.619167 41.520496)",
+      "poi": {
+        "id": 246677,
+        "geometry": "POINT (-81.619167 41.520496)",
+        "poi_name": "Columbia Cultural Garden",
+        "osm_id": 8809939746,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1365,
+  "type": "knn:towards+loc"
+}

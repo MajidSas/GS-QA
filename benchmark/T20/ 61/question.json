@@ -1,0 +1,65 @@
+{
+  "question": "Where is the closest attraction in the direction of Classic Gas Museum, Embudo, NM from New Mexico Highlands University, Las Vegas, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.221648 35.597175)',4326)::geography, ST_GeomFromText('POINT (-105.951881 36.209014)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.221648 35.597175)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.221648 35.597175)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16562,
+      "geometry": "POINT (-105.669462 35.765032)",
+      "poi_name": "Connells Cabin Historic Site",
+      "osm_id": 366377961,
+      "tourism": "attraction",
+      "addr_state": "NM",
+      "value": 316.0557812363007
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New Mexico Highlands University, Las Vegas, NM",
+      "geo_wkt": "POINT (-105.221648 35.597175)",
+      "poi": {
+        "id": 167487,
+        "geometry": "POINT (-105.221648 35.597175)",
+        "poi_name": "New Mexico Highlands University",
+        "osm_id": 357574967,
+        "amenity": "university",
+        "wheelchair": "limited",
+        "website": "https://www.nmhu.edu/",
+        "phone": "+1 877 850 9064",
+        "wikidata": "Q7010189",
+        "addr_state": "NM",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "87701",
+        "addr_street": "University Avenue",
+        "addr_housenumber": "800"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Classic Gas Museum, Embudo, NM",
+      "geo_wkt": "POINT (-105.951881 36.209014)",
+      "poi": {
+        "id": 8025,
+        "geometry": "POINT (-105.951881 36.209014)",
+        "poi_name": "Classic Gas Museum",
+        "osm_id": 6521961305,
+        "tourism": "museum",
+        "opening_hours": "13:00-unknown",
+        "addr_state": "NM",
+        "addr_city": "Embudo",
+        "addr_postcode": "87531",
+        "addr_street": "NM 68",
+        "addr_housenumber": "1819"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1360,
+  "type": "knn:towards+loc"
+}

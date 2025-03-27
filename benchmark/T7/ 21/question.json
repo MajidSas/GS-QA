@@ -1,0 +1,50 @@
+{
+  "question": "When was the nearest stadium from the Coachlight Inn Motel, Oconto Falls, WI first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 250726,
+      "geometry": "POINT (-87.992711 44.50774)",
+      "poi_name": "City Stadium",
+      "osm_id": 354533238,
+      "leisure": "stadium",
+      "description": "This is the original home field of the Green Bay Packers.",
+      "sport": "american_football",
+      "wikidata": "Q5123438",
+      "addr_city": "Green Bay",
+      "addr_postcode": "54301",
+      "multihop_answer": "1925",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "City Stadium Opened: 1925"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
+      "poi": {
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
+      }
+    }
+  },
+  "id": 920,
+  "type": "knn+name+multihop1"
+}

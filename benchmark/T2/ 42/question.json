@@ -1,0 +1,75 @@
+{
+  "question": "Can you find me an art museum within 130 kilometers from DT Healing Arts Studio, Santa Fe, NM?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.940293 35.687731)',4326)::geography, 130000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "answers": [
+    {
+      "id": 14688,
+      "geometry": "POINT (-105.979418 35.658079)",
+      "poi_name": "Thaw Art History Center",
+      "osm_id": 4686004536,
+      "tourism": "museum",
+      "website": "https://sfai.org/",
+      "museum": "art"
+    },
+    {
+      "id": 24331,
+      "geometry": "POINT (-105.940258 35.687051)",
+      "poi_name": "Museum of Light",
+      "osm_id": 11009448367,
+      "tourism": "museum",
+      "operator": "Richard Fenker",
+      "museum": "art",
+      "addr_state": "NM",
+      "addr_city": "Santa Fe",
+      "addr_postcode": "87501",
+      "addr_street": "Galisteo Street",
+      "addr_housenumber": "105"
+    },
+    {
+      "id": 27139,
+      "geometry": "POINT (-106.317613 36.207873)",
+      "poi_name": "Georgia O'keefe museum and home",
+      "osm_id": 7731798457,
+      "tourism": "museum",
+      "website": "https://www.okeeffemuseum.org/",
+      "phone": "+1 505.946.1000",
+      "museum": "art",
+      "addr_state": "NM",
+      "addr_city": "Abiquiu",
+      "addr_street": "County Road 165"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "DT Healing Arts Studio, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.940293 35.687731)",
+      "poi": {
+        "id": 4471,
+        "geometry": "POINT (-105.940293 35.687731)",
+        "poi_name": "DT Healing Arts Studio",
+        "osm_id": 11270781094,
+        "tourism": "gallery",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87501",
+        "addr_street": "West San Francisco Street",
+        "addr_housenumber": "129"
+      }
+    }
+  },
+  "id": 541,
+  "type": "range:non_spat_filter+name"
+}

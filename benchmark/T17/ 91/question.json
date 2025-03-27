@@ -1,0 +1,44 @@
+{
+  "question": "Seeking the closest museum from Madrona Park, OR, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-123.216718 44.845577)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 19494,
+      "geometry": "POINT (-123.039261 44.931418)",
+      "poi_name": "Bush House Museum",
+      "osm_id": 10788239902,
+      "tourism": "museum",
+      "operator": "Salem Art Association",
+      "website": "https://bushhousemuseum.org/",
+      "phone": "+1 503 363 4714",
+      "addr_state": "OR",
+      "addr_city": "Salem",
+      "addr_postcode": "97302",
+      "addr_street": "Mission Street Southeast",
+      "addr_housenumber": "600"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Madrona Park, OR",
+      "geo_wkt": "POINT (-123.216718 44.845577)",
+      "poi": {
+        "id": 254442,
+        "geometry": "POINT (-123.216718 44.845577)",
+        "poi_name": "Madrona Park",
+        "osm_id": 357355300,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1890,
+  "type": "knn+loc"
+}

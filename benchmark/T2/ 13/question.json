@@ -1,0 +1,54 @@
+{
+  "question": "Could you help me find an emergency hospital, preferably within a 100 kilometers radius of Sand Dunes Frontier, Florence, OR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 167458,
+      "geometry": "POINT (-123.367563 43.224798)",
+      "poi_name": "Roseburg VA Medical Center",
+      "osm_id": 357349177,
+      "amenity": "hospital",
+      "website": "https://www.roseburg.va.gov/",
+      "phone": "+1 541 440 1000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Roseburg",
+      "addr_postcode": "97471",
+      "addr_street": "Northwest Garden Valley Boulevard",
+      "addr_housenumber": "913"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sand Dunes Frontier, Florence, OR",
+      "geo_wkt": "POINT (-124.111464 43.914209)",
+      "poi": {
+        "id": 25873,
+        "geometry": "POINT (-124.111464 43.914209)",
+        "poi_name": "Sand Dunes Frontier",
+        "osm_id": 4630148745,
+        "tourism": "theme_park",
+        "addr_state": "OR",
+        "addr_city": "Florence",
+        "addr_postcode": "97439",
+        "addr_street": "Oregon Coast Highway",
+        "addr_housenumber": "83960"
+      }
+    }
+  },
+  "id": 512,
+  "type": "range:non_spat_filter+name"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "Could you inform me about the number of golf courses within 160 kilometers from WSU Cooperative Extension Energy Program, Olympia, WA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.892715 47.040954)',4326)::geography, 160000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 8
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "WSU Cooperative Extension Energy Program, Olympia, WA",
+      "geo_wkt": "POINT (-122.892715 47.040954)",
+      "poi": {
+        "id": 236382,
+        "geometry": "POINT (-122.892715 47.040954)",
+        "poi_name": "WSU Cooperative Extension Energy Program",
+        "osm_id": 5791448552,
+        "amenity": "university",
+        "website": "https://energy.wsu.edu/",
+        "addr_state": "WA",
+        "addr_city": "Olympia",
+        "addr_postcode": "98501",
+        "addr_street": "Plum Street SE",
+        "addr_housenumber": "905"
+      }
+    }
+  },
+  "id": 2279,
+  "type": "range+count"
+}

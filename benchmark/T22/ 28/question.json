@@ -1,0 +1,42 @@
+{
+  "question": "What's the bearing to the nearest university from Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 225184,
+      "geometry": "POINT (-112.109202 33.664348)",
+      "poi_name": "Aspen University School of Nursing HonorHealth Campus",
+      "osm_id": 11113161721,
+      "amenity": "university",
+      "angle": 189.43836283001892
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "poi": {
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
+      }
+    }
+  },
+  "id": 1427,
+  "type": "knn+angle"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest zoo from Ole Haugsrud Stadium, Superior, WI opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-92.08572 46.719546)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2384,
+      "geometry": "POINT (-92.190199 46.725959)",
+      "poi_name": "Lake Superior Zoo",
+      "osm_id": 3420689893,
+      "tourism": "zoo",
+      "operator": "Lake Superior Zoological Society",
+      "wikidata": "Q20858045",
+      "multihop_answer": "1923",
+      "multihop_attribute": "Date opened",
+      "multihop_long_answer": "Lake Superior Zoo Date opened: 1923"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ole Haugsrud Stadium, Superior, WI",
+      "geo_wkt": "POINT (-92.08572 46.719546)",
+      "poi": {
+        "id": 248569,
+        "geometry": "POINT (-92.08572 46.719546)",
+        "poi_name": "Ole Haugsrud Stadium",
+        "osm_id": 4639063671,
+        "leisure": "stadium",
+        "addr_state": "WI",
+        "addr_city": "Superior",
+        "addr_postcode": "54880",
+        "addr_street": "Mertz Mortorelli Memorial Drive",
+        "addr_housenumber": "1515"
+      }
+    }
+  },
+  "id": 915,
+  "type": "knn+name+multihop1"
+}

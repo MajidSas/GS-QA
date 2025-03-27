@@ -1,0 +1,60 @@
+{
+  "question": "Where is the nearest hotel as you head towards Oceans Behavioral Hospital Of Lufkin, Lufkin, TX from McDonald Museum, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography, ST_GeomFromText('POINT (-94.745768 31.307051)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18062,
+      "geometry": "POINT (-93.737666 30.089377)",
+      "poi_name": "Woodmen of the World Lodge-Phoenix Camp Number 32",
+      "osm_id": 368165472,
+      "tourism": "hotel",
+      "wikidata": "Q8033106",
+      "addr_state": "TX",
+      "value": 130.91299424564806
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "McDonald Museum, TX",
+      "geo_wkt": "POINT (-95.503288 31.872946)",
+      "poi": {
+        "id": 17980,
+        "geometry": "POINT (-95.503288 31.872946)",
+        "poi_name": "McDonald Museum",
+        "osm_id": 368165022,
+        "tourism": "museum",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Lufkin, Lufkin, TX",
+      "geo_wkt": "POINT (-94.745768 31.307051)",
+      "poi": {
+        "id": 183136,
+        "geometry": "POINT (-94.745768 31.307051)",
+        "poi_name": "Oceans Behavioral Hospital Of Lufkin",
+        "osm_id": 10916930770,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/lufkin/",
+        "phone": "+1 936 632 2276",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Lufkin",
+        "addr_postcode": "75904",
+        "addr_street": "Gobblers Knob Road",
+        "addr_housenumber": "302"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1357,
+  "type": "knn:towards+loc"
+}

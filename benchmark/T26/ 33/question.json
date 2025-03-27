@@ -1,0 +1,43 @@
+{
+  "question": "How far is the closest university from Werners Hotel, MI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.312647 44.773391)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.312647 44.773391)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182815,
+      "geometry": "POINT (-83.818127 45.421977)",
+      "poi_name": "Michigan State University (MSU) Extension - Presque Isle County",
+      "osm_id": 10905649867,
+      "amenity": "university",
+      "website": "https://www.canr.msu.edu/presque_isle/index",
+      "addr_state": "MI",
+      "addr_city": "Rogers City",
+      "addr_postcode": "49779",
+      "addr_street": "East Huron Avenue",
+      "addr_housenumber": "106",
+      "distance": 81918.17549353
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Werners Hotel, MI",
+      "geo_wkt": "POINT (-84.312647 44.773391)",
+      "poi": {
+        "id": 17553,
+        "geometry": "POINT (-84.312647 44.773391)",
+        "poi_name": "Werners Hotel",
+        "osm_id": 367815861,
+        "tourism": "hotel",
+        "addr_state": "MI"
+      }
+    }
+  },
+  "id": 2432,
+  "type": "knn+distance"
+}

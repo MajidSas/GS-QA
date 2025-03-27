@@ -1,0 +1,48 @@
+{
+  "question": "Which direction leads to a university situated from Rehabilitation Hospital Of Bristol, Llc, Bristol, VA within 10 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.216836 36.597086)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.216836 36.597086)',4326)::geography, 10000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 167423,
+      "geometry": "POINT (-82.157632 36.58594)",
+      "poi_name": "King University",
+      "osm_id": 356885241,
+      "amenity": "university",
+      "angle": 103.12297605355108
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Rehabilitation Hospital Of Bristol, Llc, Bristol, VA",
+      "geo_wkt": "POINT (-82.216836 36.597086)",
+      "poi": {
+        "id": 181045,
+        "geometry": "POINT (-82.216836 36.597086)",
+        "poi_name": "Rehabilitation Hospital Of Bristol, Llc",
+        "osm_id": 10830688591,
+        "amenity": "hospital",
+        "website": "https://encompasshealth.com/locations/bristolrehab",
+        "phone": "+1 276 642 7900",
+        "healthcare": "rehabilitation",
+        "addr_state": "VA",
+        "addr_city": "Bristol",
+        "addr_postcode": "24201",
+        "addr_street": "North Street",
+        "addr_housenumber": "103"
+      }
+    }
+  },
+  "id": 1006,
+  "type": "range+angle"
+}

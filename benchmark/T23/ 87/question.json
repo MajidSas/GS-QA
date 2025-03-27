@@ -1,0 +1,42 @@
+{
+  "question": "Within 60 kilometers from Vinalhaven Historical Society Museum, Vinalhaven, ME, how many galleries are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-68.838401 44.048739)',4326)::geography, 60000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Vinalhaven Historical Society Museum, Vinalhaven, ME",
+      "geo_wkt": "POINT (-68.838401 44.048739)",
+      "poi": {
+        "id": 17402,
+        "geometry": "POINT (-68.838401 44.048739)",
+        "poi_name": "Vinalhaven Historical Society Museum",
+        "osm_id": 367795350,
+        "tourism": "museum",
+        "website": "http://www.vinalhavenhistoricalsociety.org",
+        "museum": "history",
+        "addr_state": "ME",
+        "addr_city": "Vinalhaven",
+        "addr_postcode": "04863",
+        "addr_street": "High Street",
+        "addr_housenumber": "41"
+      }
+    }
+  },
+  "id": 2286,
+  "type": "range+count"
+}

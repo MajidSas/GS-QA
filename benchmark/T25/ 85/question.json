@@ -1,0 +1,54 @@
+{
+  "question": "How far can I find a garden from Living Memorial Sculpture Garden, Weed, CA within 120 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-122.231083 41.543342)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.231083 41.543342)',4326)::geography, 120000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 245231,
+      "geometry": "POINT (-122.837751 42.307486)",
+      "poi_name": "Memorial rose garden",
+      "osm_id": 2615862338,
+      "leisure": "garden",
+      "distance": 98670.46625246
+    },
+    {
+      "id": 246742,
+      "geometry": "POINT (-122.856819 42.394923)",
+      "poi_name": "Lotus Imports",
+      "osm_id": 2123312914,
+      "leisure": "garden",
+      "distance": 107874.26612818
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Living Memorial Sculpture Garden, Weed, CA",
+      "geo_wkt": "POINT (-122.231083 41.543342)",
+      "poi": {
+        "id": 15323,
+        "geometry": "POINT (-122.231083 41.543342)",
+        "poi_name": "Living Memorial Sculpture Garden",
+        "osm_id": 4853873201,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "website": "https://www.lmsgarden.org",
+        "addr_state": "CA",
+        "addr_city": "Weed",
+        "addr_street": "US 97",
+        "addr_housenumber": "13221"
+      }
+    }
+  },
+  "id": 784,
+  "type": "range+distance"
+}

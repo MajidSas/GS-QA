@@ -1,0 +1,54 @@
+{
+  "question": "Can you recommend the nearest fast food restaurant from the museum established in the year 1914 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.632568 41.87833)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 171098,
+      "geometry": "POINT (-87.631672 41.877995)",
+      "poi_name": "McDonald's",
+      "osm_id": 2360490443,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/il/chicago/111-w-jackson/20104.html",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60604",
+      "addr_street": "West Jackson Boulevard",
+      "addr_housenumber": "111"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Money Museum, Chicago, IL",
+      "geo_wkt": "POINT (-87.632568 41.87833)",
+      "poi": {
+        "id": 1419,
+        "geometry": "POINT (-87.632568 41.87833)",
+        "poi_name": "Money Museum",
+        "osm_id": 2979738790,
+        "tourism": "museum",
+        "fee": "no",
+        "opening_hours": "Mo-Fr 08:30-17:00",
+        "operator": "Federal Reserve Bank of Chicago",
+        "website": "https://www.chicagofed.org/education/money-museum/",
+        "wikidata": "Q965251",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60604",
+        "addr_street": "South LaSalle Street",
+        "addr_housenumber": "230"
+      }
+    }
+  },
+  "id": 2770,
+  "type": "knn+name+multihop2"
+}

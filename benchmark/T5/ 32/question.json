@@ -1,0 +1,42 @@
+{
+  "question": "What's the nearest museum from Irish Cultural Garden, Cleveland, OH?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9967,
+      "geometry": "POINT (-81.611173 41.513281)",
+      "poi_name": "Crawford Auto-Aviation Museum",
+      "osm_id": 9081385307,
+      "tourism": "museum",
+      "website": "https://www.wrhs.org/crawford/",
+      "museum": "history"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Irish Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "poi": {
+        "id": 247028,
+        "geometry": "POINT (-81.621886 41.522378)",
+        "poi_name": "Irish Cultural Garden",
+        "osm_id": 8567373881,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1201"
+      }
+    }
+  },
+  "id": 231,
+  "type": "knn+name"
+}

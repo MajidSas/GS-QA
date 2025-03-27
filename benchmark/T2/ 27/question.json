@@ -1,0 +1,58 @@
+{
+  "question": "Looking for a children museum, preferably within a 190 kilometers radius from Saint Josephs Hospital Behavioral Health Center, Tampa, FL. Can you assist me with this?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.489818 27.99168)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND museum = 'children';\n",
+  "answers": [
+    {
+      "id": 21447,
+      "geometry": "POINT (-82.13069 29.194364)",
+      "poi_name": "Discovery Center",
+      "osm_id": 10268437666,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 10:00-16:00",
+      "website": "https://www.ocalafl.org/government/city-departments-i-z/recreation-parks/discovery-center",
+      "phone": "+1 352 401 3900",
+      "museum": "children",
+      "addr_state": "FL",
+      "addr_city": "Ocala",
+      "addr_postcode": "34470",
+      "addr_street": "Northeast Sanchez Avenue",
+      "addr_housenumber": "701"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "children museum",
+      "poi_filter_sql": "museum = 'children'"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Saint Josephs Hospital Behavioral Health Center, Tampa, FL",
+      "geo_wkt": "POINT (-82.489818 27.99168)",
+      "poi": {
+        "id": 181402,
+        "geometry": "POINT (-82.489818 27.99168)",
+        "poi_name": "Saint Josephs Hospital Behavioral Health Center",
+        "osm_id": 10844797750,
+        "amenity": "hospital",
+        "website": "https://baycare.org/locations/s/st-josephs-hospital-behavioral-health-center",
+        "phone": "+1 813 870 4000",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Tampa",
+        "addr_postcode": "33607",
+        "addr_street": "Habana Avenue",
+        "addr_housenumber": "4918"
+      }
+    }
+  },
+  "id": 526,
+  "type": "range:non_spat_filter+name"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "Which way leads to the nearest restaurant from Carolina Beach Inn, Carolina Beach, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 89663,
+      "geometry": "POINT (-77.894345 34.034623)",
+      "poi_name": "Olde Salty",
+      "osm_id": 8855195539,
+      "amenity": "restaurant",
+      "angle": 147.95008565049514
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Carolina Beach Inn, Carolina Beach, NC",
+      "geo_wkt": "POINT (-77.89455 34.034896)",
+      "poi": {
+        "id": 25826,
+        "geometry": "POINT (-77.89455 34.034896)",
+        "poi_name": "Carolina Beach Inn",
+        "osm_id": 4616135786,
+        "tourism": "hotel",
+        "website": "https://carolinabeachinn.com/",
+        "phone": "+1-910-622-8393",
+        "addr_state": "NC",
+        "addr_city": "Carolina Beach",
+        "addr_postcode": "28428",
+        "addr_street": "Harper Avenue",
+        "addr_housenumber": "205"
+      }
+    }
+  },
+  "id": 1482,
+  "type": "knn+angle"
+}

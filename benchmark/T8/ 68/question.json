@@ -1,0 +1,38 @@
+{
+  "question": "What's the nearest attraction near the stadium that can hold 14500 spectators in Wichita Falls, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8386,
+      "geometry": "POINT (-98.506653 33.91327)",
+      "poi_name": "Wichita Falls",
+      "osm_id": 6669091835,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "poi": {
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
+      }
+    }
+  },
+  "id": 2767,
+  "type": "knn+name+multihop2"
+}

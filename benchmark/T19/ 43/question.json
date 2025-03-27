@@ -1,0 +1,56 @@
+{
+  "question": "Where is the nearest nature reserve in the east direction of New Mexico Slaughter House, Albuquerque, NM?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246820,
+      "geometry": "POINT (-106.657079 35.199273)",
+      "poi_name": "Wildlife West Nature Park",
+      "osm_id": 6471544426,
+      "leisure": "nature_reserve",
+      "opening_hours": "10:00-18:00",
+      "operator": "New Mexico Wildlife Association",
+      "website": "https://wildlifewest.org/",
+      "phone": "+1 505 281-7655",
+      "addr_state": "NM",
+      "addr_city": "Edgewood",
+      "addr_postcode": "87015",
+      "addr_street": "North Frontage Road",
+      "addr_housenumber": "87"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "poi": {
+        "id": 10873,
+        "geometry": "POINT (-106.657079 35.199273)",
+        "poi_name": "New Mexico Slaughter House",
+        "osm_id": 8107941834,
+        "tourism": "theme_park",
+        "opening_hours": "Oct Fr-Su 19:00-22:00",
+        "website": "https://www.nmslaughterhouse.com/",
+        "phone": "+1-505-764-2868",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87114",
+        "addr_street": "Coors Boulevard Bypass Northwest",
+        "addr_housenumber": "10000"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1142,
+  "type": "knn:direction+loc"
+}

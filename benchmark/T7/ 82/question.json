@@ -1,0 +1,48 @@
+{
+  "question": "What is the closest city from the nearest nature reserve from Oak Ridge Children's Museum, Oak Ridge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24867,
+      "geometry": "POINT (-83.931295 35.357363)",
+      "poi_name": "Joyce Kilmer Memorial Forest",
+      "osm_id": 4349050188,
+      "leisure": "nature_reserve",
+      "tourism": "attraction",
+      "wikidata": "Q14708003",
+      "multihop_answer": "Robbinsville, North Carolina",
+      "multihop_attribute": "Nearest\u00a0city",
+      "multihop_long_answer": "Joyce Kilmer Memorial Forest Nearest\u00a0city: Robbinsville, North Carolina"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
+      "poi": {
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
+      }
+    }
+  },
+  "id": 981,
+  "type": "knn+name+multihop1"
+}

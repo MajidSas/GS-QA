@@ -1,0 +1,38 @@
+{
+  "question": "What's the total count of golf courses within 140 kilometers from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, 140000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 2217,
+  "type": "range+count"
+}

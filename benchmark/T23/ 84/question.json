@@ -1,0 +1,42 @@
+{
+  "question": "How many golf courses are available within 90 kilometers from the location the Church of Jesus Christ of Latter-day Saints, Maricopa, AZ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.967748 33.0442)',4326)::geography, 90000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "The Church of Jesus Christ of Latter-day Saints, Maricopa, AZ",
+      "geo_wkt": "POINT (-111.967748 33.0442)",
+      "poi": {
+        "id": 15125,
+        "geometry": "POINT (-111.967748 33.0442)",
+        "poi_name": "The Church of Jesus Christ of Latter-day Saints",
+        "osm_id": 4810756321,
+        "tourism": "attraction",
+        "website": "https://www.mormon.org/",
+        "phone": "1-520-568-5894",
+        "addr_state": "AZ",
+        "addr_city": "Maricopa",
+        "addr_postcode": "85138",
+        "addr_street": "West Bowlin Road",
+        "addr_housenumber": "37280"
+      }
+    }
+  },
+  "id": 2283,
+  "type": "range+count"
+}

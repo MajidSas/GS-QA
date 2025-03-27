@@ -1,0 +1,59 @@
+{
+  "question": "Which attraction is nearest as you move towards Sadsbury Woods Preserve, Sadsbury Township, PA from Leon and Ethel Yeiser Rose Garden, Annville, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, ST_GeomFromText('POINT (-75.910977 40.00201)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25099,
+      "geometry": "POINT (-76.157787 40.203059)",
+      "poi_name": "Mother Tucker's Antiques",
+      "osm_id": 4398914891,
+      "tourism": "attraction",
+      "value": 125.25025835860018
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
+      "geo_wkt": "POINT (-76.51439 40.331543)",
+      "poi": {
+        "id": 267072,
+        "geometry": "POINT (-76.51439 40.331543)",
+        "poi_name": "Leon and Ethel Yeiser Rose Garden",
+        "osm_id": 4422290591,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sadsbury Woods Preserve, Sadsbury Township, PA",
+      "geo_wkt": "POINT (-75.910977 40.00201)",
+      "poi": {
+        "id": 247036,
+        "geometry": "POINT (-75.910977 40.00201)",
+        "poi_name": "Sadsbury Woods Preserve",
+        "osm_id": 8583251052,
+        "leisure": "park",
+        "opening_hours": "daily, sunrise - sunset",
+        "operator": "Natural Lands",
+        "website": "https://natlands.org/sadsbury-woods-preserve/",
+        "addr_state": "PA",
+        "addr_city": "Sadsbury Township",
+        "addr_street": "Old Wilmington Road",
+        "addr_housenumber": "443"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 133,
+  "type": "knn:towards+name"
+}

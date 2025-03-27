@@ -1,0 +1,73 @@
+{
+  "question": "Which golf course is closest when moving towards the southwest of English Street Community Garden, New Haven, CT within 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, 140000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 245395,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bethpage Black",
+      "osm_id": 2854158382,
+      "leisure": "golf_course"
+    },
+    {
+      "id": 245808,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "InHome Golf",
+      "osm_id": 10100433578,
+      "leisure": "golf_course",
+      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
+      "opening_hours": "Mo-Fr 08:00-18:00",
+      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
+      "phone": "+1 800-557-5859",
+      "addr_state": "NJ",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "07071",
+      "addr_street": "Wall Street West",
+      "addr_housenumber": "1000"
+    },
+    {
+      "id": 246144,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Peninsula Golf Club",
+      "osm_id": 5616067006,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "poi": {
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2614,
+  "type": "range:direction+name"
+}

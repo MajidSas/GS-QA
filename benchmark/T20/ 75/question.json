@@ -1,0 +1,65 @@
+{
+  "question": "Where is the closest caf\u00e9 in the direction of Whitney Avenue Community Garden, Lexington, KY from Shechem Ministries, Lawrenceburg, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 226948,
+      "geometry": "POINT (-84.895494 38.03519)",
+      "poi_name": "Bourbon Tails Cat Caf\u00e9",
+      "osm_id": 11174332401,
+      "amenity": "cafe",
+      "website": "https://bourbontailscatcafe.org/",
+      "addr_state": "KY",
+      "addr_city": "Lawrenceburg",
+      "addr_postcode": "40342",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "201",
+      "value": 85.93696255928589
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1374,
+  "type": "knn:towards+loc"
+}

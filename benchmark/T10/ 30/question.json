@@ -1,0 +1,65 @@
+{
+  "question": "What's the nearest hotel heading towards Staple Goods, New Orleans, LA from Laurel Valley Museum, Thibodaux, LA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.78673 29.789934)',4326)::geography, ST_GeomFromText('POINT (-90.05258 29.971764)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.78673 29.789934)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.78673 29.789934)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23327,
+      "geometry": "POINT (-90.072831 29.934233)",
+      "poi_name": "Saint Vincent Guest House",
+      "osm_id": 5119440326,
+      "tourism": "hotel",
+      "addr_street": "Magazine Street",
+      "addr_housenumber": "1507",
+      "value": 73.95180547539502
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Laurel Valley Museum, Thibodaux, LA",
+      "geo_wkt": "POINT (-90.78673 29.789934)",
+      "poi": {
+        "id": 17230,
+        "geometry": "POINT (-90.78673 29.789934)",
+        "poi_name": "Laurel Valley Museum",
+        "osm_id": 367133422,
+        "tourism": "museum",
+        "opening_hours": "Mo-Su 10:30-16:30",
+        "website": "https://www.laurelvalleyplantation.com/laurel-valley-store-museum",
+        "addr_state": "LA",
+        "addr_city": "Thibodaux",
+        "addr_postcode": "70301",
+        "addr_street": "Hwy 308",
+        "addr_housenumber": "595"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Staple Goods, New Orleans, LA",
+      "geo_wkt": "POINT (-90.05258 29.971764)",
+      "poi": {
+        "id": 21728,
+        "geometry": "POINT (-90.05258 29.971764)",
+        "poi_name": "Staple Goods",
+        "osm_id": 10634747246,
+        "tourism": "gallery",
+        "opening_hours": "Sa-Su 12:00-17:00; Mo-Fr closed",
+        "website": "https://www.staplegoods.org/",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70117",
+        "addr_street": "St Roch Avenue",
+        "addr_housenumber": "1340"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 129,
+  "type": "knn:towards+name"
+}

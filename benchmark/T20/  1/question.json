@@ -1,0 +1,70 @@
+{
+  "question": "Where is the closest fast food restaurant from Courtyard Atlanta Alpharetta, Alpharetta, GA towards Centennial High School Football Stadium, Roswell, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography, ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 228490,
+      "geometry": "POINT (-84.270328 34.087465)",
+      "poi_name": "BurgerFi",
+      "osm_id": 4345582890,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "phone": "+1-770-817-4658",
+      "takeaway": "yes",
+      "addr_state": "GA",
+      "addr_city": "Alpharetta",
+      "addr_postcode": "30004",
+      "addr_street": "Windward Parkway",
+      "addr_housenumber": "5475",
+      "value": 193.65847517085217
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Courtyard Atlanta Alpharetta, Alpharetta, GA",
+      "geo_wkt": "POINT (-84.268867 34.089958)",
+      "poi": {
+        "id": 1616,
+        "geometry": "POINT (-84.268867 34.089958)",
+        "poi_name": "Courtyard Atlanta Alpharetta",
+        "osm_id": 3079249674,
+        "tourism": "hotel",
+        "website": "https://www.marriott.com/hotels/travel/atlph-courtyard-atlanta-alpharetta/",
+        "phone": "1-678-366-3360",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "GA",
+        "addr_city": "Alpharetta",
+        "addr_postcode": "30004",
+        "addr_street": "Deerfield Parkway",
+        "addr_housenumber": "12655"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Centennial High School Football Stadium, Roswell, GA",
+      "geo_wkt": "POINT (-84.292979 34.007322)",
+      "poi": {
+        "id": 262496,
+        "geometry": "POINT (-84.292979 34.007322)",
+        "poi_name": "Centennial High School Football Stadium",
+        "osm_id": 358784376,
+        "leisure": "stadium",
+        "fee": "9 USD",
+        "sport": "american_football",
+        "addr_state": "GA",
+        "addr_city": "Roswell",
+        "addr_postcode": "30076"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1300,
+  "type": "knn:towards+loc"
+}

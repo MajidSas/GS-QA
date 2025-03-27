@@ -1,0 +1,74 @@
+{
+  "question": "What fast food restaurant can I find positioned within 20 kilometers towards the east of William & Mary Institute for Integrative Conservation, Williamsburg, VA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.707368 37.272883)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.707368 37.272883)',4326)::geography, 20000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 139543,
+      "geometry": "POINT (-76.707368 37.272883)",
+      "poi_name": "Subway",
+      "osm_id": 6202557855,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "outdoor_seating": "no",
+      "addr_state": "VA",
+      "addr_city": "Hayes",
+      "addr_postcode": "23072",
+      "addr_street": "Hayes Shopping Court",
+      "addr_housenumber": "7110"
+    },
+    {
+      "id": 179845,
+      "geometry": "POINT (-76.707368 37.272883)",
+      "poi_name": "Domino's",
+      "osm_id": 10779460666,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 10:30-00:00; Fr-Sa 10:30-01:00",
+      "phone": "804-699-7000",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "VA",
+      "addr_city": "Gloucester Point",
+      "addr_postcode": "23062",
+      "addr_street": "George Washington Memorial Highway",
+      "addr_housenumber": "1749"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "William & Mary Institute for Integrative Conservation, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.707368 37.272883)",
+      "poi": {
+        "id": 76829,
+        "geometry": "POINT (-76.707368 37.272883)",
+        "poi_name": "William & Mary Institute for Integrative Conservation",
+        "osm_id": 9794684955,
+        "amenity": "university",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "North Boundary Street",
+        "addr_housenumber": "221"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2634,
+  "type": "range:direction+name"
+}

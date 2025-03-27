@@ -1,0 +1,83 @@
+{
+  "question": "Where can I find restaurant heading towards Snail Garden, Lake Jackson, TX from Bayou Safari Wildlife Park, Alvin, TX, within a radius of 50 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography, ST_GeomFromText('POINT (-95.452235 29.043376)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 68082,
+      "geometry": "POINT (-95.418227 29.170546)",
+      "poi_name": "Wild West BBQ",
+      "osm_id": 11259994472,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "phone": "+1 979 864 3666",
+      "addr_state": "TX",
+      "addr_city": "Angleton",
+      "addr_postcode": "77515",
+      "addr_street": "East Mulberry Street",
+      "addr_housenumber": "1205",
+      "value": 212.70412540261117
+    },
+    {
+      "id": 68083,
+      "geometry": "POINT (-95.419418 29.169477)",
+      "poi_name": "Honore's Cajun Cafe",
+      "osm_id": 11259994480,
+      "amenity": "restaurant",
+      "cuisine": "cajun;seafood",
+      "addr_state": "TX",
+      "addr_city": "Angleton",
+      "addr_postcode": "77515",
+      "addr_street": "North Downing Street",
+      "addr_housenumber": "517",
+      "value": 212.70412540261117
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Bayou Safari Wildlife Park, Alvin, TX",
+      "geo_wkt": "POINT (-95.169372 29.43079)",
+      "poi": {
+        "id": 11427,
+        "geometry": "POINT (-95.169372 29.43079)",
+        "poi_name": "Bayou Safari Wildlife Park",
+        "osm_id": 9966719427,
+        "tourism": "zoo",
+        "addr_state": "TX",
+        "addr_city": "Alvin",
+        "addr_postcode": "77511",
+        "addr_street": "FM 517",
+        "addr_housenumber": "5050"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Snail Garden, Lake Jackson, TX",
+      "geo_wkt": "POINT (-95.452235 29.043376)",
+      "poi": {
+        "id": 248645,
+        "geometry": "POINT (-95.452235 29.043376)",
+        "poi_name": "Snail Garden",
+        "osm_id": 4714529268,
+        "leisure": "garden",
+        "addr_state": "TX",
+        "addr_city": "Lake Jackson",
+        "addr_postcode": "77566",
+        "addr_street": "West Way Street"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1287,
+  "type": "range:towards+loc"
+}

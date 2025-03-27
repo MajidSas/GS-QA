@@ -1,0 +1,52 @@
+{
+  "question": "What direction should I take to reach a nature reserve from Indian Run Falls Park - Observation Deck B, Dublin, OH within 40 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 40000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 255445,
+      "geometry": "POINT (-82.797396 39.881453)",
+      "poi_name": "Pickerington Pond Wetlands Nature Preserve",
+      "osm_id": 357514486,
+      "leisure": "nature_reserve",
+      "angle": 131.38211545925458
+    },
+    {
+      "id": 255459,
+      "geometry": "POINT (-82.809619 39.938953)",
+      "poi_name": "Walter A Tucker Nature Preserve",
+      "osm_id": 357518167,
+      "leisure": "nature_reserve",
+      "angle": 124.06240539317926
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 1098,
+  "type": "range+angle"
+}

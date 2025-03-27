@@ -1,0 +1,51 @@
+{
+  "question": "Where's the closest fast food restaurant located in the direction of southwest from Go Fish, Rosedale, MD?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 41854,
+      "geometry": "POINT (-76.48474 39.339761)",
+      "poi_name": "Quiznos",
+      "osm_id": 3026471804,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "MD",
+      "addr_city": "Rosedale",
+      "addr_postcode": "21237",
+      "addr_street": "Philadelphia Road",
+      "addr_housenumber": "8639"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Go Fish, Rosedale, MD",
+      "geo_wkt": "POINT (-76.48474 39.339761)",
+      "poi": {
+        "id": 1512,
+        "geometry": "POINT (-76.48474 39.339761)",
+        "poi_name": "Go Fish",
+        "osm_id": 3026471881,
+        "tourism": "aquarium",
+        "addr_state": "MD",
+        "addr_city": "Rosedale",
+        "addr_postcode": "21237",
+        "addr_street": "Philadelphia Road",
+        "addr_housenumber": "8767 G"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1149,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "What's the nearest stadium from Center For Orthopaedic Reconstruction And Excellence, Jenks, OK?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-96.009856 36.025821)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245239,
+      "geometry": "POINT (-95.964346 35.618273)",
+      "poi_name": "Harmon Stadium",
+      "osm_id": 2623668984,
+      "leisure": "stadium",
+      "sport": "multi"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Center For Orthopaedic Reconstruction And Excellence, Jenks, OK",
+      "geo_wkt": "POINT (-96.009856 36.025821)",
+      "poi": {
+        "id": 182777,
+        "geometry": "POINT (-96.009856 36.025821)",
+        "poi_name": "Center For Orthopaedic Reconstruction And Excellence",
+        "osm_id": 10904126879,
+        "amenity": "hospital",
+        "website": "https://corejenks.com",
+        "phone": "+1 918 701 2300",
+        "healthcare": "hospital",
+        "addr_state": "OK",
+        "addr_city": "Jenks",
+        "addr_postcode": "74037",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "3029"
+      }
+    }
+  },
+  "id": 225,
+  "type": "knn+name"
+}

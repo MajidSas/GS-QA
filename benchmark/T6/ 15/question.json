@@ -1,0 +1,57 @@
+{
+  "question": "What is the nearest emergency hospital from Susan B. Anthony Birthplace Museum, Adams, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.102336 42.615463)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167781,
+      "geometry": "POINT (-72.936331 41.304241)",
+      "poi_name": "Yale New Haven Children's Hospital",
+      "osm_id": 359283462,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Yale New Haven Health",
+      "website": "https://www.ynhh.org/childrens-hospital.aspx",
+      "phone": "+1 203 688 4242",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q91153398",
+      "addr_state": "CT",
+      "addr_city": "New Haven",
+      "addr_postcode": "06510",
+      "addr_street": "Park Street",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Susan B. Anthony Birthplace Museum, Adams, MA",
+      "geo_wkt": "POINT (-73.102336 42.615463)",
+      "poi": {
+        "id": 20849,
+        "geometry": "POINT (-73.102336 42.615463)",
+        "poi_name": "Susan B. Anthony Birthplace Museum",
+        "osm_id": 1277885612,
+        "tourism": "museum",
+        "website": "https://www.susanbanthonybirthplace.com/",
+        "phone": "+1 (413) 743-7121",
+        "wikidata": "Q4772743",
+        "addr_state": "MA",
+        "addr_city": "Adams",
+        "addr_postcode": "01220",
+        "addr_street": "East Road",
+        "addr_housenumber": "67"
+      }
+    }
+  },
+  "id": 614,
+  "type": "knn:non_spat_filter+name"
+}

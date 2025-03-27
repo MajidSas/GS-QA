@@ -1,0 +1,76 @@
+{
+  "question": "Where's the closest fast food restaurant located en route to Gibbs Gardens, GA from Yellow River Game Ranch, Lilburn, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, ST_GeomFromText('POINT (-84.279432 34.379173)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 147639,
+      "geometry": "POINT (-84.092974 33.867326)",
+      "poi_name": "Subway",
+      "osm_id": 7551746963,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 08:00-21:00",
+      "website": "https://restaurants.subway.com/united-states/ga/lilburn/4100-five-forks-trickum-rd?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=46763&utm_campaign=evergreen-2020",
+      "phone": "(770) 717-1237",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "outdoor_seating": "no",
+      "addr_state": "GA",
+      "addr_city": "Lilburn",
+      "addr_postcode": "30047",
+      "addr_street": "Five Forks Trickum Road",
+      "addr_housenumber": "4100",
+      "value": 343.7817155146231
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Yellow River Game Ranch, Lilburn, GA",
+      "geo_wkt": "POINT (-84.087955 33.833501)",
+      "poi": {
+        "id": 5592,
+        "geometry": "POINT (-84.087955 33.833501)",
+        "poi_name": "Yellow River Game Ranch",
+        "osm_id": 827126721,
+        "tourism": "zoo",
+        "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+        "website": "https://www.yellowrivergameranch.com/",
+        "phone": "+1 (770) 972-6643",
+        "zoo": "petting_zoo",
+        "addr_state": "GA",
+        "addr_city": "Lilburn",
+        "addr_postcode": "30047",
+        "addr_street": "US 78",
+        "addr_housenumber": "4525"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Gibbs Gardens, GA",
+      "geo_wkt": "POINT (-84.279432 34.379173)",
+      "poi": {
+        "id": 25504,
+        "geometry": "POINT (-84.279432 34.379173)",
+        "poi_name": "Gibbs Gardens",
+        "osm_id": 4519799389,
+        "tourism": "attraction",
+        "website": "https://www.gibbsgardens.com/",
+        "phone": "+1 770-893-1881",
+        "addr_state": "GA",
+        "addr_postcode": "30107",
+        "addr_street": "Gibbs Drive",
+        "addr_housenumber": "1987"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1389,
+  "type": "knn:towards+loc"
+}

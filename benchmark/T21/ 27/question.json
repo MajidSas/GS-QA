@@ -1,0 +1,49 @@
+{
+  "question": "In which direction should I proceed to reach a hospital from the Last House on Mulholland, Los Angeles, CA within 10 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, 10000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 222344,
+      "geometry": "POINT (-118.386306 34.076966)",
+      "poi_name": "Cedars Sinai Transplant Center",
+      "osm_id": 11014639805,
+      "amenity": "hospital",
+      "addr_street": "Beverly Boulevard",
+      "addr_housenumber": "8900",
+      "angle": 225.2806712501748
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    }
+  },
+  "id": 1026,
+  "type": "range+angle"
+}

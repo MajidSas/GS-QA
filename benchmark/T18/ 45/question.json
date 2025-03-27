@@ -1,0 +1,52 @@
+{
+  "question": "Where is the nearest fusion restaurant available from Pulmonary Medicine Institute P.C., Omaha, NE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fusion%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.977932 41.25814)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143559,
+      "geometry": "POINT (-93.226927 44.973214)",
+      "poi_name": "SotaRol",
+      "osm_id": 6344134129,
+      "amenity": "restaurant",
+      "cuisine": "asian;fusion",
+      "website": "https://www.sotarol.com",
+      "phone": "+1-612-331-3978",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55414",
+      "addr_street": "Southeast Oak Street",
+      "addr_housenumber": "309"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fusion restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fusion%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Pulmonary Medicine Institute P.C., Omaha, NE",
+      "geo_wkt": "POINT (-95.977932 41.25814)",
+      "poi": {
+        "id": 147609,
+        "geometry": "POINT (-95.977932 41.25814)",
+        "poi_name": "Pulmonary Medicine Institute P.C.",
+        "osm_id": 7550167726,
+        "amenity": "university",
+        "website": "https://pmiomaha.com",
+        "phone": "+1-402-552-9875",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68131",
+        "addr_street": "Farnam Street",
+        "addr_housenumber": "4242"
+      }
+    }
+  },
+  "id": 344,
+  "type": "knn:non_spat_filter+loc"
+}

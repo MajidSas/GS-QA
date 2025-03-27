@@ -1,0 +1,44 @@
+{
+  "question": "How far can I find a nature reserve from Ah Louis Store, CA within 50 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-120.66417 35.281568)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-120.66417 35.281568)',4326)::geography, 50000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 245657,
+      "geometry": "POINT (-120.853006 35.364115)",
+      "poi_name": "Morro Bay National Estuary Program",
+      "osm_id": 3284852483,
+      "leisure": "nature_reserve",
+      "distance": 19460.21624673
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Ah Louis Store, CA",
+      "geo_wkt": "POINT (-120.66417 35.281568)",
+      "poi": {
+        "id": 15534,
+        "geometry": "POINT (-120.66417 35.281568)",
+        "poi_name": "Ah Louis Store",
+        "osm_id": 4927543902,
+        "tourism": "attraction",
+        "wikidata": "Q57423003",
+        "addr_state": "CA",
+        "addr_street": "Palm",
+        "addr_housenumber": "800"
+      }
+    }
+  },
+  "id": 781,
+  "type": "range+distance"
+}

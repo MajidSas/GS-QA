@@ -1,0 +1,83 @@
+{
+  "question": "In search of a fast food restaurant and ideally located within 140 kilometers from Barrett, the Honors College at ASU, Tempe, AZ. Can you find one for me?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.927437 33.415436)',4326)::geography, 140000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%';\n",
+  "answers": [
+    {
+      "id": 54002,
+      "geometry": "POINT (-111.704597 33.336238)",
+      "poi_name": "Droosserts",
+      "osm_id": 10110706069,
+      "amenity": "restaurant",
+      "cuisine": "dessert;coffee_shop;breakfast;late_night;bakery;fast_food",
+      "website": "https://order.online/store/droosserts-cookies-and-more-mesa-1498819/?hideModal=true&pickup=true",
+      "phone": "480-329-2947",
+      "addr_state": "AZ",
+      "addr_city": "Gilbert",
+      "addr_postcode": "85296",
+      "addr_street": "East Warner Road",
+      "addr_housenumber": "3940"
+    },
+    {
+      "id": 54004,
+      "geometry": "POINT (-111.546278 33.421547)",
+      "poi_name": "Droosserts",
+      "osm_id": 10110733330,
+      "amenity": "restaurant",
+      "cuisine": "dessert;fast_food;coffee_shop;american",
+      "website": "https://order.online/store/droosserts-cookies-and-more-mesa-1498819/?hideModal=true&pickup=true",
+      "phone": "480-329-2947",
+      "addr_state": "AZ",
+      "addr_city": "Apache Junction",
+      "addr_postcode": "85119",
+      "addr_street": "North Idaho Road",
+      "addr_housenumber": "668"
+    },
+    {
+      "id": 75567,
+      "geometry": "POINT (-112.150367 33.638723)",
+      "poi_name": "Lemonade and Churros",
+      "osm_id": 9735996732,
+      "amenity": "restaurant",
+      "cuisine": "fast_food;churro",
+      "opening_hours": "Tu 15:00-21:00; We 15:00-20:00; Th-Fr 15:00-21:00; Sa 13:00-21:00",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85053",
+      "addr_street": "West Bell Road",
+      "addr_housenumber": "4232"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Barrett, the Honors College at ASU, Tempe, AZ",
+      "geo_wkt": "POINT (-111.927437 33.415436)",
+      "poi": {
+        "id": 50011,
+        "geometry": "POINT (-111.927437 33.415436)",
+        "poi_name": "Barrett, the Honors College at ASU",
+        "osm_id": 3460939942,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Tempe",
+        "addr_postcode": "85281",
+        "addr_street": "East Lemon Mall",
+        "addr_housenumber": "751"
+      }
+    }
+  },
+  "id": 460,
+  "type": "range:non_spat_filter+loc"
+}

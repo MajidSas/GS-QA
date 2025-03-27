@@ -1,0 +1,74 @@
+{
+  "question": "Where can I find a museum west of It's A Zoo Life, Macclesville, NC, within a radius of 60 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography, 60000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 7781,
+      "geometry": "POINT (-77.67449 35.786787)",
+      "poi_name": "Country Doctor Museum",
+      "osm_id": 6399648448,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Tu-Sa 10:00-15:00",
+      "website": "https://www.countrydoctormuseum.org/",
+      "addr_state": "NC",
+      "addr_city": "Bailey",
+      "addr_postcode": "27807",
+      "addr_street": "Peele Road",
+      "addr_housenumber": "7089"
+    },
+    {
+      "id": 21486,
+      "geometry": "POINT (-77.67449 35.786787)",
+      "poi_name": "The Country Doctor Museum",
+      "osm_id": 10282085969,
+      "tourism": "museum",
+      "website": "https://www.countrydoctormuseum.org/",
+      "phone": "(252) 235-4165",
+      "addr_state": "NC",
+      "addr_city": "Bailey",
+      "addr_postcode": "27807",
+      "addr_street": "Peele Road",
+      "addr_housenumber": "7089"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "It's A Zoo Life, Macclesville, NC",
+      "geo_wkt": "POINT (-77.67449 35.786787)",
+      "poi": {
+        "id": 12531,
+        "geometry": "POINT (-77.67449 35.786787)",
+        "poi_name": "It's A Zoo Life",
+        "osm_id": 7297084056,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-17:00",
+        "phone": "(252) 266-7974",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Macclesville",
+        "addr_postcode": "27852",
+        "addr_street": "NC-42",
+        "addr_housenumber": "4313"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 12,
+  "type": "range:direction+loc"
+}

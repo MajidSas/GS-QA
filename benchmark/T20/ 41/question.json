@@ -1,0 +1,69 @@
+{
+  "question": "Where's the nearest hospital heading towards Vulture Mine Tours / Vulture City Ghost Town, Wickenburg, AZ from Creighton University, Phoenix, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography, ST_GeomFromText('POINT (-112.828828 33.816527)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'hospital'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 181754,
+      "geometry": "POINT (-112.271718 33.587047)",
+      "poi_name": "Recovery Innovations Recovery Response Center",
+      "osm_id": 10863657754,
+      "amenity": "hospital",
+      "website": "https://riinternational.com/listing/recovery-response-center-retreat-peoria",
+      "phone": "+1 602 650 1212",
+      "healthcare": "hospital",
+      "addr_city": "Peoria",
+      "addr_postcode": "85345",
+      "addr_street": "North 99th Avenue",
+      "addr_housenumber": "11361",
+      "value": 298.05714010104197
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Creighton University, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.074389 33.483178)",
+      "poi": {
+        "id": 88341,
+        "geometry": "POINT (-112.074389 33.483178)",
+        "poi_name": "Creighton University",
+        "osm_id": 8779535609,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85003",
+        "addr_street": "North Central Avenue",
+        "addr_housenumber": "3100"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Vulture Mine Tours / Vulture City Ghost Town, Wickenburg, AZ",
+      "geo_wkt": "POINT (-112.828828 33.816527)",
+      "poi": {
+        "id": 2137,
+        "geometry": "POINT (-112.828828 33.816527)",
+        "poi_name": "Vulture Mine Tours / Vulture City Ghost Town",
+        "osm_id": 3274100436,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://www.vultureminetours.com/",
+        "phone": "+1-877-425-9229",
+        "addr_state": "AZ",
+        "addr_city": "Wickenburg",
+        "addr_postcode": "85390",
+        "addr_street": "355th Ave",
+        "addr_housenumber": "36610"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    }
+  },
+  "id": 1340,
+  "type": "knn:towards+loc"
+}

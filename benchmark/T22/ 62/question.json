@@ -1,0 +1,41 @@
+{
+  "question": "Which direction should I take to get to the nearest golf course from Role Play Bldg, Wayne, NJ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.222484 40.967732)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.222484 40.967732)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266488,
+      "geometry": "POINT (-74.069558 40.944438)",
+      "poi_name": "Players Club Virtual Golf",
+      "osm_id": 5181045735,
+      "leisure": "golf_course",
+      "angle": 101.3107694832282
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Role Play Bldg, Wayne, NJ",
+      "geo_wkt": "POINT (-74.222484 40.967732)",
+      "poi": {
+        "id": 63246,
+        "geometry": "POINT (-74.222484 40.967732)",
+        "poi_name": "Role Play Bldg",
+        "osm_id": 5605978385,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "1600"
+      }
+    }
+  },
+  "id": 1461,
+  "type": "knn+angle"
+}

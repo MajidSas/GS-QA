@@ -1,0 +1,53 @@
+{
+  "question": "What's the closest emergency hospital from Smoky Mountain Alpine Coaster, Pigeon Forge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 190046,
+      "geometry": "POINT (-82.942738 35.525231)",
+      "poi_name": "Haywood Regional Medical Center",
+      "osm_id": 1264230416,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Duke Lifepoint",
+      "website": "https://www.myhaywoodregional.com/",
+      "phone": "+1 828 456 7311",
+      "emergency": "yes",
+      "addr_city": "Clyde",
+      "addr_postcode": "28721",
+      "addr_street": "Leroy George Drive",
+      "addr_housenumber": "262"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "poi": {
+        "id": 13057,
+        "geometry": "POINT (-83.596543 35.793397)",
+        "poi_name": "Smoky Mountain Alpine Coaster",
+        "osm_id": 4035710749,
+        "tourism": "theme_park",
+        "website": "http://www.smokymountainalpinecoaster.com/",
+        "wikidata": "Q29831450",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Wears Valley Road",
+        "addr_housenumber": "867"
+      }
+    }
+  },
+  "id": 621,
+  "type": "knn:non_spat_filter+name"
+}

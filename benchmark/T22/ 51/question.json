@@ -1,0 +1,46 @@
+{
+  "question": "What's the orientation towards the closest zoo from Rubin Museum of Art, New York, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.997738 40.740096)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.997738 40.740096)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22,
+      "geometry": "POINT (-74.116529 40.625131)",
+      "poi_name": "Kids Korral",
+      "osm_id": 411668741,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 218.2274682181951
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Rubin Museum of Art, New York, NY",
+      "geo_wkt": "POINT (-73.997738 40.740096)",
+      "poi": {
+        "id": 6301,
+        "geometry": "POINT (-73.997738 40.740096)",
+        "poi_name": "Rubin Museum of Art",
+        "osm_id": 1810241472,
+        "tourism": "museum",
+        "opening_hours": "Mo 11:00-17:00, Sa,Su 11:00-18:00; We 11:00-21:00, Th 11:00-17:00, Fr 11:00-22:00",
+        "website": "https://rubinmuseum.org/",
+        "phone": "+1-212-620-5000",
+        "wikidata": "Q63751",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 17th Street",
+        "addr_housenumber": "150"
+      }
+    }
+  },
+  "id": 1450,
+  "type": "knn+angle"
+}

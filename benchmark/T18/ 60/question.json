@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find the nearest emergency hospital near Fresno Chaffee Zoo, Fresno, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.823195 36.752149)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 47313,
+      "geometry": "POINT (-119.666954 36.323862)",
+      "poi_name": "Adventist Health Hanford",
+      "osm_id": 3320792708,
+      "amenity": "hospital",
+      "operator": "Adventist Health",
+      "website": "https://www.adventisthealth.org/hanford",
+      "phone": "559-582-9000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hanford",
+      "addr_postcode": "93230",
+      "addr_street": "Mall Drive",
+      "addr_housenumber": "115"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Fresno Chaffee Zoo, Fresno, CA",
+      "geo_wkt": "POINT (-119.823195 36.752149)",
+      "poi": {
+        "id": 25258,
+        "geometry": "POINT (-119.823195 36.752149)",
+        "poi_name": "Fresno Chaffee Zoo",
+        "osm_id": 4433364107,
+        "tourism": "zoo",
+        "website": "https://www.fresnochaffeezoo.org/",
+        "wikidata": "Q5503166",
+        "addr_state": "CA",
+        "addr_city": "Fresno",
+        "addr_postcode": "93728",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "894"
+      }
+    }
+  },
+  "id": 359,
+  "type": "knn:non_spat_filter+loc"
+}

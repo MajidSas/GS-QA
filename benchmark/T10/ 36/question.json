@@ -1,0 +1,67 @@
+{
+  "question": "Which fast food is closest on the way to Ledge View Nature Center, Chilton, WI from Children's Museum of Fond du Lac, Fond du Lac, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography, ST_GeomFromText('POINT (-88.15542 44.001505)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 124195,
+      "geometry": "POINT (-88.024898 43.92105)",
+      "poi_name": "Subway",
+      "osm_id": 6903145565,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 45.42624905522128
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Children's Museum of Fond du Lac, Fond du Lac, WI",
+      "geo_wkt": "POINT (-88.449668 43.792619)",
+      "poi": {
+        "id": 22536,
+        "geometry": "POINT (-88.449668 43.792619)",
+        "poi_name": "Children's Museum of Fond du Lac",
+        "osm_id": 7147289175,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "Tu-Th 09:00-17:00; Fr,Sa 09:00-16:00",
+        "website": "https://www.cmfdl.org/",
+        "addr_state": "WI",
+        "addr_city": "Fond du Lac",
+        "addr_postcode": "54935",
+        "addr_street": "West Scott Street",
+        "addr_housenumber": "75"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Ledge View Nature Center, Chilton, WI",
+      "geo_wkt": "POINT (-88.15542 44.001505)",
+      "poi": {
+        "id": 2410,
+        "geometry": "POINT (-88.15542 44.001505)",
+        "poi_name": "Ledge View Nature Center",
+        "osm_id": 3435470848,
+        "tourism": "attraction",
+        "website": "https://www.ledgeviewnaturecenter.org/",
+        "phone": "+1-920-849-7094",
+        "wikidata": "Q6512645",
+        "addr_state": "WI",
+        "addr_city": "Chilton",
+        "addr_postcode": "53014",
+        "addr_street": "Short Road",
+        "addr_housenumber": "W2348"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 135,
+  "type": "knn:towards+name"
+}

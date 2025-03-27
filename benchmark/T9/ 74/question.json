@@ -1,0 +1,42 @@
+{
+  "question": "What is the nearest golf course towards the east of Point Lookout, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248518,
+      "geometry": "POINT (-79.663483 39.854147)",
+      "poi_name": "Fairways at Greencastle Greens",
+      "osm_id": 4298637876,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "poi": {
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2573,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "How far is the nearest nature reserve situated from Tracy Medical Offices, Tracy, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-121.456856 37.75575)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.456856 37.75575)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 262832,
+      "geometry": "POINT (-121.830234 38.02131)",
+      "poi_name": "Dow Wetlands Preserve",
+      "osm_id": 358821236,
+      "leisure": "nature_reserve",
+      "operator": "Dow",
+      "website": "https://corporate.dow.com/en-us/about/locations/pittsburg/wetlands",
+      "distance": 44131.13041006
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Tracy Medical Offices, Tracy, CA",
+      "geo_wkt": "POINT (-121.456856 37.75575)",
+      "poi": {
+        "id": 177475,
+        "geometry": "POINT (-121.456856 37.75575)",
+        "poi_name": "Tracy Medical Offices",
+        "osm_id": 2589839882,
+        "amenity": "hospital",
+        "operator": "Kaiser Permanente",
+        "website": "https://healthy.kaiserpermanente.org/northern-california/facilities/Tracy-Medical-Offices-100317",
+        "phone": "+1 209-839-3200",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CA",
+        "addr_city": "Tracy",
+        "addr_postcode": "95377",
+        "addr_street": "West Grant Line Road",
+        "addr_housenumber": "2185"
+      }
+    }
+  },
+  "id": 2425,
+  "type": "knn+distance"
+}

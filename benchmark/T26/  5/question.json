@@ -1,0 +1,45 @@
+{
+  "question": "How distant is the closest gallery from the reference location Lytle Nature Preserve, Lockport, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7000,
+      "geometry": "POINT (-78.685023 43.15849)",
+      "poi_name": "Kenan House Gallery",
+      "osm_id": 8807870933,
+      "tourism": "gallery",
+      "website": "http://kenancenter.org/gallery/",
+      "distance": 4158.88569357
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Lytle Nature Preserve, Lockport, NY",
+      "geo_wkt": "POINT (-78.666286 43.193323)",
+      "poi": {
+        "id": 247569,
+        "geometry": "POINT (-78.666286 43.193323)",
+        "poi_name": "Lytle Nature Preserve",
+        "osm_id": 6868645749,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Town of Lockport",
+        "website": "https://www.elockport.com/department-parks-trails.php",
+        "addr_state": "NY",
+        "addr_city": "Lockport",
+        "addr_postcode": "14094",
+        "addr_street": "North Canal Road",
+        "addr_housenumber": "6637"
+      }
+    }
+  },
+  "id": 2404,
+  "type": "knn+distance"
+}

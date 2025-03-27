@@ -1,0 +1,39 @@
+{
+  "question": "Seeking the nearest golf course from Lee Richardson Zoo, KS, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-100.872277 37.960476)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265849,
+      "geometry": "POINT (-100.442078 37.590803)",
+      "poi_name": "Crooked Creek Country Club",
+      "osm_id": 7906476743,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lee Richardson Zoo, KS",
+      "geo_wkt": "POINT (-100.872277 37.960476)",
+      "poi": {
+        "id": 21298,
+        "geometry": "POINT (-100.872277 37.960476)",
+        "poi_name": "Lee Richardson Zoo",
+        "osm_id": 1482564086,
+        "tourism": "zoo",
+        "wikidata": "Q6514798",
+        "addr_state": "KS",
+        "addr_street": "East Finnup Drive",
+        "addr_housenumber": "312"
+      }
+    }
+  },
+  "id": 266,
+  "type": "knn+name"
+}

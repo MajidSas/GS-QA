@@ -1,0 +1,53 @@
+{
+  "question": "Where is the nearest emergency hospital available from Golden Fish Gallery, Milford, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.801957 41.323151)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 222206,
+      "geometry": "POINT (-74.49608 40.862231)",
+      "poi_name": "True Life Care Center",
+      "osm_id": 11009629478,
+      "amenity": "hospital",
+      "description": "Our team at True Life Care is dedicated to helping you take control of your mental health through a personalized healing approach and compassionate care.",
+      "opening_hours": "Mo-Fr 08:30-17:30",
+      "website": "https://truelifecarementalhealth.com",
+      "phone": "+1-973-490-4563",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Morris Plains",
+      "addr_postcode": "07950",
+      "addr_street": "NJ-10",
+      "addr_housenumber": "3000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Golden Fish Gallery, Milford, PA",
+      "geo_wkt": "POINT (-74.801957 41.323151)",
+      "poi": {
+        "id": 27118,
+        "geometry": "POINT (-74.801957 41.323151)",
+        "poi_name": "Golden Fish Gallery",
+        "osm_id": 7708778845,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Milford",
+        "addr_postcode": "18337",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "307"
+      }
+    }
+  },
+  "id": 376,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,127 @@
+{
+  "question": "Where can I find caf\u00e9 in the direction of Covington Behavioral Health, Covington, LA within 150 kilometers from the Brakeman Hotel, New Orleans, LA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.070794 29.959718)',4326)::geography, ST_GeomFromText('POINT (-90.137591 30.455709)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.070794 29.959718)',4326)::geography, 150000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.070794 29.959718)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 177221,
+      "geometry": "POINT (-90.07586 29.975902)",
+      "poi_name": "Pagoda Cafe",
+      "osm_id": 2578598900,
+      "amenity": "cafe",
+      "wheelchair": "yes",
+      "website": "https://www.pagodacafe.net/",
+      "internet_access": "yes",
+      "addr_city": "New Orleans",
+      "addr_postcode": "70119",
+      "addr_street": "North Dorgenois Street",
+      "addr_housenumber": "1430",
+      "value": 353.3451061558332
+    },
+    {
+      "id": 197134,
+      "geometry": "POINT (-90.072895 29.97212)",
+      "poi_name": "the flagpole",
+      "osm_id": 10613100929,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Fr 06:30-18:00; Sa-Su 08:00-18:00",
+      "website": "https://www.theflagpolenola.com/",
+      "phone": "+1 713 456 9915",
+      "outdoor_seating": "yes",
+      "addr_state": "LA",
+      "addr_city": "New Orleans",
+      "addr_postcode": "70116",
+      "addr_street": "Esplanade Avenue",
+      "addr_housenumber": "2032",
+      "value": 353.3451061558332
+    },
+    {
+      "id": 197538,
+      "geometry": "POINT (-90.085152 30.393225)",
+      "poi_name": "Starbucks",
+      "osm_id": 10652605800,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "phone": "985-626-5234",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "LA",
+      "addr_city": "Mandeville",
+      "addr_postcode": "70471",
+      "addr_street": "Emerald Rd",
+      "addr_housenumber": "3601",
+      "value": 353.3451061558332
+    },
+    {
+      "id": 197542,
+      "geometry": "POINT (-90.083273 30.449978)",
+      "poi_name": "CC's Coffee House",
+      "osm_id": 10652635335,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "985-900-2241",
+      "drive_through": "yes",
+      "addr_state": "LA",
+      "addr_city": "Covington",
+      "addr_postcode": "70433",
+      "addr_street": "North US 190",
+      "addr_housenumber": "1331",
+      "value": 353.3451061558332
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Brakeman Hotel, New Orleans, LA",
+      "geo_wkt": "POINT (-90.070794 29.959718)",
+      "poi": {
+        "id": 21731,
+        "geometry": "POINT (-90.070794 29.959718)",
+        "poi_name": "The Brakeman Hotel",
+        "osm_id": 10635487054,
+        "tourism": "hotel",
+        "website": "https://www.brakemanhotel.com/",
+        "phone": "+1 504 207 6400",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70112",
+        "addr_street": "Basin Street",
+        "addr_housenumber": "501"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Covington Behavioral Health, Covington, LA",
+      "geo_wkt": "POINT (-90.137591 30.455709)",
+      "poi": {
+        "id": 182447,
+        "geometry": "POINT (-90.137591 30.455709)",
+        "poi_name": "Covington Behavioral Health",
+        "osm_id": 10892282751,
+        "amenity": "hospital",
+        "website": "https://www.covingtonbh.com",
+        "phone": "+1 985 893 2970",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Covington",
+        "addr_postcode": "70433",
+        "addr_street": "Greenbriar Boulevard",
+        "addr_housenumber": "201"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1249,
+  "type": "range:towards+loc"
+}

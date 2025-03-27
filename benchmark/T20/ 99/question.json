@@ -1,0 +1,70 @@
+{
+  "question": "Where is the closest fast food restaurant from Wishing Tree Park, Torrance, CA towards Funkmeyer New Reality Garden, Los Angeles, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.293379 33.845882)',4326)::geography, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.293379 33.845882)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.293379 33.845882)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 220160,
+      "geometry": "POINT (-118.302819 33.87246)",
+      "poi_name": "Pita 360 Mediterranian Grill",
+      "osm_id": 9362872041,
+      "amenity": "fast_food",
+      "cuisine": "mediterranean",
+      "wheelchair": "yes",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "toilets": "yes",
+      "addr_state": "CA",
+      "addr_street": "West Artesia Boulevard",
+      "addr_housenumber": "1556",
+      "value": 342.4720650750986
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wishing Tree Park, Torrance, CA",
+      "geo_wkt": "POINT (-118.293379 33.845882)",
+      "poi": {
+        "id": 265659,
+        "geometry": "POINT (-118.293379 33.845882)",
+        "poi_name": "Wishing Tree Park",
+        "osm_id": 10795846914,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Torrance",
+        "addr_postcode": "90502",
+        "addr_street": "W 204th St",
+        "addr_housenumber": "1007"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "poi": {
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1398,
+  "type": "knn:towards+loc"
+}

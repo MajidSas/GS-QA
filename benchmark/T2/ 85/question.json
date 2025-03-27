@@ -1,0 +1,56 @@
+{
+  "question": "Can you find me a fast food restaurant within a 120 kilometers distance from Fairfield Inn & Suites Oskaloosa, Oskaloosa, IA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.672352 41.295401)',4326)::geography, 120000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%';\n",
+  "answers": [
+    {
+      "id": 124298,
+      "geometry": "POINT (-91.608317 41.751287)",
+      "poi_name": "Pancheros",
+      "osm_id": 6910150585,
+      "amenity": "restaurant",
+      "cuisine": "mexican;fast_food"
+    },
+    {
+      "id": 212307,
+      "geometry": "POINT (-93.869756 41.6132)",
+      "poi_name": "Tsing Tsao Waukee",
+      "osm_id": 5198478160,
+      "amenity": "restaurant",
+      "cuisine": "chinese;fast_food"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Fairfield Inn & Suites Oskaloosa, Oskaloosa, IA",
+      "geo_wkt": "POINT (-92.672352 41.295401)",
+      "poi": {
+        "id": 20197,
+        "geometry": "POINT (-92.672352 41.295401)",
+        "poi_name": "Fairfield Inn & Suites Oskaloosa",
+        "osm_id": 7926442741,
+        "tourism": "hotel",
+        "official_name": "Fairfield Inn & Suites by Marriott",
+        "addr_state": "IA",
+        "addr_city": "Oskaloosa",
+        "addr_postcode": "52577",
+        "addr_street": "Coal Mine Loop",
+        "addr_housenumber": "2325"
+      }
+    }
+  },
+  "id": 584,
+  "type": "range:non_spat_filter+name"
+}

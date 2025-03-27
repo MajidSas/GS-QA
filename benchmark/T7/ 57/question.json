@@ -1,0 +1,51 @@
+{
+  "question": "What is the name of the architect that designed the closest museum from Creighton University, Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14083,
+      "geometry": "POINT (-112.065978 33.450208)",
+      "poi_name": "Rosson House Museum",
+      "osm_id": 4219066093,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Th-Sa 10:00-16:00; Su 12:00-16:00",
+      "website": "https://heritagesquarephx.org/rossonhouse/",
+      "wikidata": "Q7369916",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_street": "North 6th Street",
+      "addr_housenumber": "139",
+      "multihop_answer": "George Franklin Barber via A.P. Petit",
+      "multihop_attribute": "Architect",
+      "multihop_long_answer": "Rosson House Museum Architect: George Franklin Barber via A.P. Petit"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Creighton University, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.074389 33.483178)",
+      "poi": {
+        "id": 88341,
+        "geometry": "POINT (-112.074389 33.483178)",
+        "poi_name": "Creighton University",
+        "osm_id": 8779535609,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85003",
+        "addr_street": "North Central Avenue",
+        "addr_housenumber": "3100"
+      }
+    }
+  },
+  "id": 956,
+  "type": "knn+name+multihop1"
+}

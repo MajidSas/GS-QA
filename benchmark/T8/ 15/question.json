@@ -1,0 +1,45 @@
+{
+  "question": "Seeking the nearest caf\u00e9 from the hospital that has pediatric emergency department in Bronx, NY, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62327,
+      "geometry": "POINT (-73.879302 40.875087)",
+      "poi_name": "New Star Coffee Shop",
+      "osm_id": 5564035840,
+      "amenity": "cafe",
+      "addr_street": "Bainbridge Avenue",
+      "addr_housenumber": "3150"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "poi": {
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
+      }
+    }
+  },
+  "id": 2714,
+  "type": "knn+name+multihop2"
+}

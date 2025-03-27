@@ -1,0 +1,61 @@
+{
+  "question": "Where's the nearest park heading towards Gallery Calapooia, Albany, OR from Cascade Head Scenic Research Area, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, ST_GeomFromText('POINT (-123.106986 44.63704)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 253840,
+      "geometry": "POINT (-123.468995 44.872061)",
+      "poi_name": "Gerlinger County Park",
+      "osm_id": 357280987,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 123.36797034125385
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Cascade Head Scenic Research Area, OR",
+      "geo_wkt": "POINT (-123.980114 45.05094)",
+      "poi": {
+        "id": 254075,
+        "geometry": "POINT (-123.980114 45.05094)",
+        "poi_name": "Cascade Head Scenic Research Area",
+        "osm_id": 357321729,
+        "leisure": "nature_reserve",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/siuslaw/recarea/?recid=42717",
+        "addr_state": "OR"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Gallery Calapooia, Albany, OR",
+      "geo_wkt": "POINT (-123.106986 44.63704)",
+      "poi": {
+        "id": 24312,
+        "geometry": "POINT (-123.106986 44.63704)",
+        "poi_name": "Gallery Calapooia",
+        "osm_id": 11000977185,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 11:00-18:00",
+        "website": "https://www.gallerycalapooia.com/",
+        "phone": "+1 541 971 5701",
+        "addr_state": "OR",
+        "addr_city": "Albany",
+        "addr_postcode": "97321",
+        "addr_street": "1st Avenue West",
+        "addr_housenumber": "222"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    }
+  },
+  "id": 1345,
+  "type": "knn:towards+loc"
+}

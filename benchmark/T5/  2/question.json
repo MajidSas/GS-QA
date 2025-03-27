@@ -1,0 +1,42 @@
+{
+  "question": "Any suggestions for the nearest zoo from Jay walk, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.989437 40.771015)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Jay walk, New York, NY",
+      "geo_wkt": "POINT (-73.989437 40.771015)",
+      "poi": {
+        "id": 248157,
+        "geometry": "POINT (-73.989437 40.771015)",
+        "poi_name": "Jay walk",
+        "osm_id": 7332034043,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "operator": "John Jay college",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10019",
+        "addr_street": "West 59th Street",
+        "addr_housenumber": "524"
+      }
+    }
+  },
+  "id": 201,
+  "type": "knn+name"
+}

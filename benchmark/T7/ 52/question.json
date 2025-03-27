@@ -1,0 +1,48 @@
+{
+  "question": "How many spectators can the nearest stadium from Wernick Farm Reserve, Dartmouth, MA hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.04755 41.690084)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246343,
+      "geometry": "POINT (-71.515966 41.717988)",
+      "poi_name": "McCarthy Field",
+      "osm_id": 11331230041,
+      "leisure": "stadium",
+      "wikidata": "Q14709442",
+      "multihop_answer": "2500",
+      "multihop_attribute": "Capacity",
+      "multihop_long_answer": "McCarthy Field Capacity: 2500"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wernick Farm Reserve, Dartmouth, MA",
+      "geo_wkt": "POINT (-71.04755 41.690084)",
+      "poi": {
+        "id": 246662,
+        "geometry": "POINT (-71.04755 41.690084)",
+        "poi_name": "Wernick Farm Reserve",
+        "osm_id": 8790035380,
+        "leisure": "nature_reserve",
+        "description": "Wernick Farm is a 62\u00ad-acre jewel with a variety of habitats that connect the present to the agricultural past of this unique property. DNRT purchased the farm in 2014 from Reva Newfield and her four children, who wanted to preserve it for all to enjoy. Th",
+        "opening_hours": "Mo-Su 06:00-18:00",
+        "operator": "Dartmouth Natural Resources Trust",
+        "website": "https://dnrt.org/wernickfarm/",
+        "addr_state": "MA",
+        "addr_city": "Dartmouth",
+        "addr_postcode": "02747",
+        "addr_street": "North Albro Avenue",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 951,
+  "type": "knn+name+multihop1"
+}

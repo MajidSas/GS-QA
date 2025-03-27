@@ -1,0 +1,44 @@
+{
+  "question": "Seeking the nearest theme park from Knights Inn Dodge City, Dodge City, KS, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-100.035507 37.754448)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22607,
+      "geometry": "POINT (-97.32051 37.820193)",
+      "poi_name": "Wild West World (Permanently Closed)",
+      "osm_id": 7176541395,
+      "description": "See https://en.wikipedia.org/wiki/Wild_West_World",
+      "tourism": "theme_park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Knights Inn Dodge City, Dodge City, KS",
+      "geo_wkt": "POINT (-100.035507 37.754448)",
+      "poi": {
+        "id": 12118,
+        "geometry": "POINT (-100.035507 37.754448)",
+        "poi_name": "Knights Inn Dodge City",
+        "osm_id": 6194647117,
+        "tourism": "hotel",
+        "opening_hours": "24/7",
+        "website": "https://www.wyattearphotelgrill.com/",
+        "phone": "+1-620-371-7226",
+        "addr_state": "KS",
+        "addr_city": "Dodge City",
+        "addr_postcode": "67801",
+        "addr_street": "West Wyatt Earp Boulevard",
+        "addr_housenumber": "1612"
+      }
+    }
+  },
+  "id": 277,
+  "type": "knn+name"
+}

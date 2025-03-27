@@ -1,0 +1,55 @@
+{
+  "question": "Which museum is the closest to the northeast of Gallery Henoch, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.005402 40.750031)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1950,
+      "geometry": "POINT (-74.005402 40.750031)",
+      "poi_name": "American Folk Art Museum",
+      "osm_id": 3224793125,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "website": "http://www.folkartmuseum.org",
+      "museum": "art",
+      "wikidata": "Q464354",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_street": "Lincoln Square",
+      "addr_housenumber": "2"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Gallery Henoch, New York, NY",
+      "geo_wkt": "POINT (-74.005402 40.750031)",
+      "poi": {
+        "id": 19658,
+        "geometry": "POINT (-74.005402 40.750031)",
+        "poi_name": "Gallery Henoch",
+        "osm_id": 10859974148,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:30-18:00",
+        "website": "https://www.galleryhenoch.com",
+        "phone": "+1-917-305-0003",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 25th Street",
+        "addr_housenumber": "555"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2531,
+  "type": "knn:direction+name"
+}

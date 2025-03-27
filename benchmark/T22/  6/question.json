@@ -1,0 +1,45 @@
+{
+  "question": "In what direction is the nearest fast food restaurant located from Forty Oaks, Clarkston, GA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.234474 33.806684)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.234474 33.806684)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 69173,
+      "geometry": "POINT (-84.22691 33.794911)",
+      "poi_name": "Popeyes",
+      "osm_id": 11296353517,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "official_name": "Popeyes Louisiana Kitchen",
+      "angle": 151.78805702989845
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Forty Oaks, Clarkston, GA",
+      "geo_wkt": "POINT (-84.234474 33.806684)",
+      "poi": {
+        "id": 247803,
+        "geometry": "POINT (-84.234474 33.806684)",
+        "poi_name": "Forty Oaks",
+        "osm_id": 9951770357,
+        "leisure": "nature_reserve",
+        "addr_state": "GA",
+        "addr_city": "Clarkston",
+        "addr_postcode": "30021",
+        "addr_street": "Market Street",
+        "addr_housenumber": "3790"
+      }
+    }
+  },
+  "id": 1405,
+  "type": "knn+angle"
+}

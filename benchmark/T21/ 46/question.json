@@ -1,0 +1,48 @@
+{
+  "question": "Which direction leads to an aquarium from River Oaks Hospitals And Clinics, Houston, TX within a range of 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.445038 29.731067)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.445038 29.731067)',4326)::geography, 160000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 18669,
+      "geometry": "POINT (-95.445972 29.017585)",
+      "poi_name": "Sea Center Texas",
+      "osm_id": 2373700701,
+      "tourism": "aquarium",
+      "angle": 180.0659253148174
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "River Oaks Hospitals And Clinics, Houston, TX",
+      "geo_wkt": "POINT (-95.445038 29.731067)",
+      "poi": {
+        "id": 183155,
+        "geometry": "POINT (-95.445038 29.731067)",
+        "poi_name": "River Oaks Hospitals And Clinics",
+        "osm_id": 10916990784,
+        "amenity": "hospital",
+        "website": "https://www.rohc.care",
+        "phone": "+1 713 330 3887",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77027",
+        "addr_street": "Twelve Oaks Drive",
+        "addr_housenumber": "4200"
+      }
+    }
+  },
+  "id": 1045,
+  "type": "range+angle"
+}

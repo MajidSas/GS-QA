@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a stadium located in the south of Leon and Ethel Yeiser Rose Garden, Annville, PA, within a radius of 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, 100000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 246798,
+      "geometry": "POINT (-76.51439 40.331543)",
+      "poi_name": "Cal, Sr.'s Yard",
+      "osm_id": 6441911494,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+      "addr_state": "MD",
+      "addr_city": "Aberdeen",
+      "addr_postcode": "21001",
+      "addr_street": "Long Drive",
+      "addr_housenumber": "873"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
+      "geo_wkt": "POINT (-76.51439 40.331543)",
+      "poi": {
+        "id": 267072,
+        "geometry": "POINT (-76.51439 40.331543)",
+        "poi_name": "Leon and Ethel Yeiser Rose Garden",
+        "osm_id": 4422290591,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 49,
+  "type": "range:direction+loc"
+}

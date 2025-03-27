@@ -1,0 +1,46 @@
+{
+  "question": "What is the motto of the nearest university from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167308,
+      "geometry": "POINT (-89.618331 39.729874)",
+      "poi_name": "University of Illinois Springfield",
+      "osm_id": 354142925,
+      "amenity": "university",
+      "wikidata": "Q941855",
+      "multihop_answer": "\"Leadership Lived\"",
+      "multihop_attribute": "Motto",
+      "multihop_long_answer": "University of Illinois Springfield Motto: \"Leadership Lived\""
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    }
+  },
+  "id": 997,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,121 @@
+{
+  "question": "What's the distance to a beach resort from the William Vale, Brooklyn, NY within a 180 kilometers span?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-73.956922 40.722412)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.956922 40.722412)',4326)::geography, 180000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 246527,
+      "geometry": "POINT (-73.97371 40.369202)",
+      "poi_name": "Surfrider Beach Club",
+      "osm_id": 9809545162,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "931",
+      "distance": 39248.04989734
+    },
+    {
+      "id": 246528,
+      "geometry": "POINT (-73.973603 40.370824)",
+      "poi_name": "Sands Beach Club",
+      "osm_id": 9809545163,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "825",
+      "distance": 39067.71686339
+    },
+    {
+      "id": 247506,
+      "geometry": "POINT (-72.619587 40.800436)",
+      "poi_name": "Quantuck Beach Club",
+      "osm_id": 6712661219,
+      "leisure": "beach_resort",
+      "website": "http://quantuckbeachclub.com/",
+      "distance": 113252.5063822
+    },
+    {
+      "id": 247124,
+      "geometry": "POINT (-73.902011 40.55766)",
+      "poi_name": "Silver Gull Beach Club",
+      "osm_id": 3575812477,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://nysilvergull.com/",
+      "distance": 18875.70723675
+    },
+    {
+      "id": 256279,
+      "geometry": "POINT (-73.746336 40.58821)",
+      "poi_name": "Silver Point Beach Club",
+      "osm_id": 357614780,
+      "leisure": "beach_resort",
+      "website": "https://www.silverpointclub.com/index.php",
+      "wikidata": "Q34861772",
+      "distance": 23222.29821296
+    },
+    {
+      "id": 265569,
+      "geometry": "POINT (-73.973706 40.371534)",
+      "poi_name": "Ship Ahoy Beach Club",
+      "osm_id": 2575212830,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "801",
+      "distance": 38989.27816473
+    },
+    {
+      "id": 265570,
+      "geometry": "POINT (-73.973041 40.365235)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999",
+      "distance": 39686.27562095
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The William Vale, Brooklyn, NY",
+      "geo_wkt": "POINT (-73.956922 40.722412)",
+      "poi": {
+        "id": 15077,
+        "geometry": "POINT (-73.956922 40.722412)",
+        "poi_name": "The William Vale",
+        "osm_id": 4795942922,
+        "tourism": "hotel",
+        "website": "https://www.thewilliamvale.com/",
+        "internet_access": "yes",
+        "phone": "(718) 631-8400",
+        "addr_state": "NY",
+        "addr_city": "Brooklyn",
+        "addr_postcode": "11249",
+        "addr_street": "North 12th Street",
+        "addr_housenumber": "111"
+      }
+    }
+  },
+  "id": 773,
+  "type": "range+distance"
+}

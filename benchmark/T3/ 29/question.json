@@ -1,0 +1,52 @@
+{
+  "question": "Which university can I find northeast of Legoland Discovery Center Chicago, Schaumburg, IL, within a radius of 130 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography, 130000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 126527,
+      "geometry": "POINT (-88.034026 42.039672)",
+      "poi_name": "Lake Forest College",
+      "osm_id": 7007316793,
+      "amenity": "university",
+      "wikidata": "Q6475861"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Legoland Discovery Center Chicago, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.034026 42.039672)",
+      "poi": {
+        "id": 21492,
+        "geometry": "POINT (-88.034026 42.039672)",
+        "poi_name": "Legoland Discovery Center Chicago",
+        "osm_id": 10285659853,
+        "tourism": "theme_park",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/chicago/",
+        "wikidata": "Q20711319",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "North Martingale Road",
+        "addr_housenumber": "601"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2628,
+  "type": "range:direction+name"
+}

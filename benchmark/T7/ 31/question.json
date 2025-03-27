@@ -1,0 +1,44 @@
+{
+  "question": "When was the nearest nature reserve from O'Rena, Rochester, MI established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 254783,
+      "geometry": "POINT (-83.321873 41.686158)",
+      "poi_name": "Cedar Point National Wildlife Refuge",
+      "osm_id": 357390848,
+      "leisure": "nature_reserve",
+      "wikidata": "Q5056837",
+      "multihop_answer": "1964",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Cedar Point National Wildlife Refuge Established: 1964"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "O'Rena, Rochester, MI",
+      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "poi": {
+        "id": 267317,
+        "geometry": "POINT (-83.213305 42.674149)",
+        "poi_name": "O'Rena",
+        "osm_id": 5842381796,
+        "leisure": "stadium",
+        "addr_state": "MI",
+        "addr_city": "Rochester",
+        "addr_postcode": "48309-4482",
+        "addr_street": "Pioneer Drive",
+        "addr_housenumber": "569"
+      }
+    }
+  },
+  "id": 930,
+  "type": "knn+name+multihop1"
+}

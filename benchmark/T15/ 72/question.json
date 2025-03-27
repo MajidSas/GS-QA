@@ -1,0 +1,82 @@
+{
+  "question": "Where can I find a stadium located in the northeast of the Ohio State University at Mansfield, Mansfield, OH, within a radius of 150 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.578229 40.79881)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.578229 40.79881)',4326)::geography, 150000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 247332,
+      "geometry": "POINT (-82.578229 40.79881)",
+      "poi_name": "North Olmsted Recreation Center",
+      "osm_id": 8944513246,
+      "leisure": "stadium",
+      "operator": "City of North Olmsted",
+      "addr_state": "OH",
+      "addr_city": "North Olmsted",
+      "addr_postcode": "44070",
+      "addr_street": "Lorain Road",
+      "addr_housenumber": "26000"
+    },
+    {
+      "id": 246704,
+      "geometry": "POINT (-82.578229 40.79881)",
+      "poi_name": "Mentor Civic Arena",
+      "osm_id": 8842654476,
+      "leisure": "stadium",
+      "operator": "City of Mentor",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Munson Road",
+      "addr_housenumber": "8600"
+    },
+    {
+      "id": 247265,
+      "geometry": "POINT (-82.578229 40.79881)",
+      "poi_name": "Barons Bus Arena",
+      "osm_id": 8888267688,
+      "leisure": "stadium",
+      "addr_state": "OH",
+      "addr_city": "Parma",
+      "addr_postcode": "44129",
+      "addr_street": "Hauserman Road",
+      "addr_housenumber": "5310"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The Ohio State University at Mansfield, Mansfield, OH",
+      "geo_wkt": "POINT (-82.578229 40.79881)",
+      "poi": {
+        "id": 97387,
+        "geometry": "POINT (-82.578229 40.79881)",
+        "poi_name": "The Ohio State University at Mansfield",
+        "osm_id": 6476844898,
+        "amenity": "university",
+        "operator": "The Ohio State University",
+        "website": "https://www.mansfield.osu.edu",
+        "phone": "+1-419-755-4011",
+        "addr_state": "OH",
+        "addr_city": "Mansfield",
+        "addr_postcode": "44906",
+        "addr_street": "University Drive",
+        "addr_housenumber": "1760"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 71,
+  "type": "range:direction+loc"
+}

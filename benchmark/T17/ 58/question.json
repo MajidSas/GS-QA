@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find the nearest golf course in the vicinity of Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265680,
+      "geometry": "POINT (-112.366859 33.642307)",
+      "poi_name": "Sun Village Golf Course",
+      "osm_id": 10823572142,
+      "leisure": "golf_course",
+      "operator": "Sun Village",
+      "website": "https://sunvillage.org/",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85374",
+      "addr_street": "North Sun Village Parkway",
+      "addr_housenumber": "17300"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "poi": {
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
+      }
+    }
+  },
+  "id": 1857,
+  "type": "knn+loc"
+}

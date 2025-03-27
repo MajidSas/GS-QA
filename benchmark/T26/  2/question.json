@@ -1,0 +1,49 @@
+{
+  "question": "How far is the nearest caf\u00e9 from the reference point Spartanburg Art Museum, Spartanburg, SC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.930148 34.952729)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.930148 34.952729)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 141771,
+      "geometry": "POINT (-81.93286 34.952159)",
+      "poi_name": "Pharmacy Coffee",
+      "osm_id": 6296910868,
+      "amenity": "cafe",
+      "cuisine": "coffee",
+      "website": "https://www.facebook.com/pharmacycoffee864/",
+      "addr_state": "SC",
+      "addr_city": "Spartanburg",
+      "addr_postcode": "29306",
+      "addr_street": "North Church Street",
+      "addr_housenumber": "187",
+      "distance": 255.69041665
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Spartanburg Art Museum, Spartanburg, SC",
+      "geo_wkt": "POINT (-81.930148 34.952729)",
+      "poi": {
+        "id": 3931,
+        "geometry": "POINT (-81.930148 34.952729)",
+        "poi_name": "Spartanburg Art Museum",
+        "osm_id": 5637891658,
+        "tourism": "museum",
+        "website": "https://www.spartanburgartmuseum.org/",
+        "addr_state": "SC",
+        "addr_city": "Spartanburg",
+        "addr_postcode": "29306",
+        "addr_street": "East Saint John Street",
+        "addr_housenumber": "200"
+      }
+    }
+  },
+  "id": 2401,
+  "type": "knn+distance"
+}

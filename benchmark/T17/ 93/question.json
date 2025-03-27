@@ -1,0 +1,52 @@
+{
+  "question": "Looking for the closest beach resort in relation to Kona Cloud Forest - Guided Walking Tours, Kailua-Kona, HI, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-155.946499 19.706114)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248040,
+      "geometry": "POINT (-158.102772 21.585436)",
+      "poi_name": "Ke Iki Beach Bungalows",
+      "osm_id": 6301747798,
+      "leisure": "beach_resort",
+      "website": "https://keikibeach.com/",
+      "phone": "+1-808-638-8229",
+      "addr_state": "HI",
+      "addr_city": "Hale\u02bbiwa",
+      "addr_postcode": "96712",
+      "addr_street": "Kamehameha Highway",
+      "addr_housenumber": "66-250"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Kona Cloud Forest - Guided Walking Tours, Kailua-Kona, HI",
+      "geo_wkt": "POINT (-155.946499 19.706114)",
+      "poi": {
+        "id": 246983,
+        "geometry": "POINT (-155.946499 19.706114)",
+        "poi_name": "Kona Cloud Forest - Guided Walking Tours",
+        "osm_id": 8504192679,
+        "leisure": "nature_reserve",
+        "description": "The Only Cloud Forest in the United States. Three Hour Guided Walking Tours weather permitting. All tours are offered through our educational non profit Painted Trees of Hawaii. All donations are 100% tax deductible. All tours are by appointment only.",
+        "opening_hours": "Mo-Su 09:00-16:30",
+        "operator": "Kelly Dunn",
+        "website": "KonaCloudForest.Org",
+        "phone": "+1-808-640-3888",
+        "addr_state": "HI",
+        "addr_city": "Kailua-Kona",
+        "addr_postcode": "96740",
+        "addr_street": "Hao Street",
+        "addr_housenumber": "73-1865"
+      }
+    }
+  },
+  "id": 1892,
+  "type": "knn+loc"
+}

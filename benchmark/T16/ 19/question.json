@@ -1,0 +1,71 @@
+{
+  "question": "Where can I find caf\u00e9 heading towards Borup Coliseum, NE from Pulmonary Medicine Institute P.C., Omaha, NE, within a radius of 30 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.977932 41.25814)',4326)::geography, ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.977932 41.25814)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.977932 41.25814)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 96029,
+      "geometry": "POINT (-95.984298 41.343806)",
+      "poi_name": "Scooter's Coffee",
+      "osm_id": 6418536916,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "website": "https://scooterscoffee.com/",
+      "phone": "(402) 991-1250",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "addr_state": "NE",
+      "addr_city": "Omaha",
+      "addr_postcode": "68152",
+      "addr_street": "Mormon Bridge Road",
+      "addr_housenumber": "9229",
+      "value": 335.1650491639078
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Pulmonary Medicine Institute P.C., Omaha, NE",
+      "geo_wkt": "POINT (-95.977932 41.25814)",
+      "poi": {
+        "id": 147609,
+        "geometry": "POINT (-95.977932 41.25814)",
+        "poi_name": "Pulmonary Medicine Institute P.C.",
+        "osm_id": 7550167726,
+        "amenity": "university",
+        "website": "https://pmiomaha.com",
+        "phone": "+1-402-552-9875",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68131",
+        "addr_street": "Farnam Street",
+        "addr_housenumber": "4242"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Borup Coliseum, NE",
+      "geo_wkt": "POINT (-96.15696 41.548605)",
+      "poi": {
+        "id": 265352,
+        "geometry": "POINT (-96.15696 41.548605)",
+        "poi_name": "Borup Coliseum",
+        "osm_id": 366492197,
+        "leisure": "stadium",
+        "addr_state": "NE"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1218,
+  "type": "range:towards+loc"
+}

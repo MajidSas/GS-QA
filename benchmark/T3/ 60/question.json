@@ -1,0 +1,120 @@
+{
+  "question": "What hotel situated within 150 kilometers towards the northwest of North Olmsted Recreation Center, North Olmsted, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, 150000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 2873,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Red Roof Inn",
+      "osm_id": 10061533093,
+      "tourism": "hotel"
+    },
+    {
+      "id": 9828,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Red Roof Inn Detroit Metro Airport - Taylor",
+      "osm_id": 9010818682,
+      "tourism": "hotel",
+      "addr_state": "MI",
+      "addr_city": "Taylor",
+      "addr_postcode": "48180",
+      "addr_street": "Eureka Road",
+      "addr_housenumber": "21230"
+    },
+    {
+      "id": 6947,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Rivertown Inn & Suites",
+      "osm_id": 8781739686,
+      "tourism": "hotel",
+      "addr_state": "MI",
+      "addr_city": "Detroit",
+      "addr_postcode": "48207",
+      "addr_street": "East Jefferson Avenue",
+      "addr_housenumber": "1316"
+    },
+    {
+      "id": 5167,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "The Westin Book Cadillac Detroit",
+      "osm_id": 9791136173,
+      "tourism": "hotel",
+      "internet_access": "yes",
+      "addr_state": "MI",
+      "addr_city": "Detroit",
+      "addr_postcode": "48226",
+      "addr_street": "Washington Boulevard",
+      "addr_housenumber": "1114"
+    },
+    {
+      "id": 9614,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Shinola Hotel",
+      "osm_id": 8888652178,
+      "tourism": "hotel",
+      "internet_access": "yes",
+      "addr_state": "MI",
+      "addr_city": "Detroit",
+      "addr_postcode": "48226",
+      "addr_street": "Woodward Avenue",
+      "addr_housenumber": "1400"
+    },
+    {
+      "id": 19823,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "The Siren Hotel",
+      "osm_id": 10899381804,
+      "tourism": "hotel"
+    },
+    {
+      "id": 24528,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Sonder Gabriel Richard",
+      "osm_id": 11099089388,
+      "tourism": "hotel"
+    },
+    {
+      "id": 24691,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Cambria Hotel",
+      "osm_id": 11173174730,
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
+      "poi": {
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2659,
+  "type": "range:direction+name"
+}

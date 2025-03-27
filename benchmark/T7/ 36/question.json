@@ -1,0 +1,44 @@
+{
+  "question": "When was the nearest nature reserve from Stephen Kasun Fine Art Gallery, Savannah, GA established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.095259 32.080662)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265997,
+      "geometry": "POINT (-81.100209 32.160618)",
+      "poi_name": "Savannah National Wildlife Refuge",
+      "osm_id": 1549137171,
+      "leisure": "nature_reserve",
+      "wikidata": "Q7427867",
+      "multihop_answer": "1927; 97\u00a0years ago",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Savannah National Wildlife Refuge Established: 1927; 97\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Stephen Kasun Fine Art Gallery, Savannah, GA",
+      "geo_wkt": "POINT (-81.095259 32.080662)",
+      "poi": {
+        "id": 2299,
+        "geometry": "POINT (-81.095259 32.080662)",
+        "poi_name": "Stephen Kasun Fine Art Gallery",
+        "osm_id": 3372942082,
+        "tourism": "gallery",
+        "website": "https://www.kasunstudio.com/",
+        "addr_state": "GA",
+        "addr_city": "Savannah",
+        "addr_street": "West Congress Street",
+        "addr_housenumber": "306"
+      }
+    }
+  },
+  "id": 935,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,38 @@
+{
+  "question": "What's the closest attraction nearby the aquarium that was opened on 5 December 1996 in Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 553,
+      "geometry": "POINT (-106.660591 35.082548)",
+      "poi_name": "pinkman\u2019s residence",
+      "osm_id": 8441040919,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 2776,
+  "type": "knn+name+multihop2"
+}

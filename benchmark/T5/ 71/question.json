@@ -1,0 +1,43 @@
+{
+  "question": "What's the closest park in proximity to Regency Hospital Of Cleveland West, Middleburg Heights, OH?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.827654 41.377343)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 255489,
+      "geometry": "POINT (-81.838603 41.381019)",
+      "poi_name": "Lake Abram Marsh",
+      "osm_id": 357525987,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Regency Hospital Of Cleveland West, Middleburg Heights, OH",
+      "geo_wkt": "POINT (-81.827654 41.377343)",
+      "poi": {
+        "id": 182764,
+        "geometry": "POINT (-81.827654 41.377343)",
+        "poi_name": "Regency Hospital Of Cleveland West",
+        "osm_id": 10904095975,
+        "amenity": "hospital",
+        "website": "https://www.regencyhospital.com/locations-and-tours/oh/middleburg-heights/cleveland-west/",
+        "phone": "+1 717 975 4503",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Middleburg Heights",
+        "addr_postcode": "44130",
+        "addr_street": "Engle Road",
+        "addr_housenumber": "6990"
+      }
+    }
+  },
+  "id": 270,
+  "type": "knn+name"
+}

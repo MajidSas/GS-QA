@@ -1,0 +1,53 @@
+{
+  "question": "What's the closest gallery located in the northwest direction starting from SeaQuest, Lynchburg, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1784,
+      "geometry": "POINT (-79.178489 37.365024)",
+      "poi_name": "The Cabell Gallery",
+      "osm_id": 3154144661,
+      "tourism": "gallery",
+      "website": "https://www.cabellgallery.com/",
+      "phone": "+1-540-461-8488",
+      "addr_state": "VA",
+      "addr_city": "Lexington",
+      "addr_postcode": "24450",
+      "addr_street": "West Washington Street",
+      "addr_housenumber": "5"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "poi": {
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2534,
+  "type": "knn:direction+name"
+}

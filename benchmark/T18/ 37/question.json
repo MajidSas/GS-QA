@@ -1,0 +1,56 @@
+{
+  "question": "Where is the closest emergency hospital within proximity to Marriott Vacation Club Pulse\u00ae at Custom House, Boston, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-71.05365 42.35908)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 188950,
+      "geometry": "POINT (-71.063996 42.349807)",
+      "poi_name": "Floating Hospital for Children",
+      "osm_id": 257489648,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Tufts Medical Center",
+      "website": "https://www.floatinghospital.org/",
+      "phone": "+1 617 636 8100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q22073805",
+      "addr_city": "Boston",
+      "addr_postcode": "02111",
+      "addr_street": "Washington Street",
+      "addr_housenumber": "755"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Marriott Vacation Club Pulse\u00ae at Custom House, Boston, MA",
+      "geo_wkt": "POINT (-71.05365 42.35908)",
+      "poi": {
+        "id": 13690,
+        "geometry": "POINT (-71.05365 42.35908)",
+        "poi_name": "Marriott Vacation Club Pulse\u00ae at Custom House",
+        "osm_id": 4130242617,
+        "tourism": "hotel",
+        "website": "https://www.marriott.com/hotels/travel/bosch-marriott-vacation-club-pulse-at-custom-house-boston/",
+        "internet_access": "wlan",
+        "phone": "+1-617-310-6300",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02109",
+        "addr_street": "McKinley Square",
+        "addr_housenumber": "3"
+      }
+    }
+  },
+  "id": 336,
+  "type": "knn:non_spat_filter+loc"
+}

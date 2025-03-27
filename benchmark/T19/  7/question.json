@@ -1,0 +1,47 @@
+{
+  "question": "Where's the closest museum to the southwest of Rainbow Valley Family Farms, Traverse City, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-85.697759 44.695249)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17586,
+      "geometry": "POINT (-85.697759 44.695249)",
+      "poi_name": "Manistee County Museum",
+      "osm_id": 367816228,
+      "tourism": "museum",
+      "website": "https://www.manisteemuseum.org/",
+      "addr_state": "MI"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Rainbow Valley Family Farms, Traverse City, MI",
+      "geo_wkt": "POINT (-85.697759 44.695249)",
+      "poi": {
+        "id": 24437,
+        "geometry": "POINT (-85.697759 44.695249)",
+        "poi_name": "Rainbow Valley Family Farms",
+        "osm_id": 11054966206,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "MI",
+        "addr_city": "Traverse City",
+        "addr_postcode": "49685",
+        "addr_street": "Culver Road",
+        "addr_housenumber": "6040"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1106,
+  "type": "knn:direction+loc"
+}

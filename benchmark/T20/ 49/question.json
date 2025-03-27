@@ -1,0 +1,72 @@
+{
+  "question": "Where's the closest fast food restaurant on the path leading to September 11 Memorial, VA from the George Washington University - Arlington Education Center, Arlington, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.115914 38.881333)',4326)::geography, ST_GeomFromText('POINT (-77.060914 38.873462)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.115914 38.881333)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.115914 38.881333)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 36683,
+      "geometry": "POINT (-77.112385 38.881535)",
+      "poi_name": "Potbelly",
+      "osm_id": 2779216840,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 11:00-19:00; Sa, Su 11:00-17:00",
+      "website": "https://www.potbelly.com/locations/virginia/ballston",
+      "phone": "+1 703-807-4100",
+      "takeaway": "yes",
+      "official_name": "Potbelly Sandwich Works",
+      "addr_state": "VA",
+      "addr_city": "Arlington",
+      "addr_postcode": "22203",
+      "addr_street": "Fairfax Drive",
+      "addr_housenumber": "4250",
+      "value": 100.3576132904582
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The George Washington University - Arlington Education Center, Arlington, VA",
+      "geo_wkt": "POINT (-77.115914 38.881333)",
+      "poi": {
+        "id": 138847,
+        "geometry": "POINT (-77.115914 38.881333)",
+        "poi_name": "The George Washington University - Arlington Education Center",
+        "osm_id": 6171696809,
+        "amenity": "university",
+        "operator": "The George Washington University",
+        "website": "https://www.cps.gwu.edu/locations",
+        "internet_access": "yes",
+        "phone": "+1-703-248-6200",
+        "addr_state": "VA",
+        "addr_city": "Arlington",
+        "addr_postcode": "22203",
+        "addr_street": "North Glebe Road",
+        "addr_housenumber": "950"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "September 11 Memorial, VA",
+      "geo_wkt": "POINT (-77.060914 38.873462)",
+      "poi": {
+        "id": 2565,
+        "geometry": "POINT (-77.060914 38.873462)",
+        "poi_name": "September 11 Memorial",
+        "osm_id": 511968970,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1348,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Looking for the closest aquarium in relation to Costello Stadium, Palmyra, VA, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10602,
+      "geometry": "POINT (-79.178489 37.365024)",
+      "poi_name": "SeaQuest",
+      "osm_id": 6937652614,
+      "tourism": "aquarium",
+      "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+      "website": "https://visitseaquest.com/lynchburg/",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_postcode": "24502",
+      "addr_street": "Candlers Mountain Road",
+      "addr_housenumber": "3405"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Costello Stadium, Palmyra, VA",
+      "geo_wkt": "POINT (-78.27531 37.826783)",
+      "poi": {
+        "id": 267563,
+        "geometry": "POINT (-78.27531 37.826783)",
+        "poi_name": "Costello Stadium",
+        "osm_id": 7683085715,
+        "leisure": "stadium",
+        "operator": "Fluvanna County Public Schools",
+        "addr_state": "VA",
+        "addr_city": "Palmyra",
+        "addr_postcode": "22963",
+        "addr_street": "Central Plains Road",
+        "addr_housenumber": "3717"
+      }
+    }
+  },
+  "id": 1885,
+  "type": "knn+loc"
+}

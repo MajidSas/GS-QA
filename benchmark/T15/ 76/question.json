@@ -1,0 +1,77 @@
+{
+  "question": "Where can I find a golf course positioned towards the northeast of Stonehedge Gardens, Tamaqua, PA, within a radius of 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography, 100000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 246812,
+      "geometry": "POINT (-75.942183 40.761418)",
+      "poi_name": "Great Bear Golf Club",
+      "osm_id": 6466631565,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "East Stroudsburg",
+      "addr_postcode": "18302",
+      "addr_street": "Great Bear Court",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 246819,
+      "geometry": "POINT (-75.942183 40.761418)",
+      "poi_name": "Country Club of the Poconos Municipal Golf Course",
+      "osm_id": 6471208669,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "East Stroudsburg",
+      "addr_postcode": "18302",
+      "addr_street": "Big Ridge Drive",
+      "addr_housenumber": "1445"
+    },
+    {
+      "id": 246826,
+      "geometry": "POINT (-75.942183 40.761418)",
+      "poi_name": "Pinecrest Lake Golf Club",
+      "osm_id": 6480941365,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Pocono Pines",
+      "addr_postcode": "18350",
+      "addr_street": "Pinecrest Drive",
+      "addr_housenumber": "679"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Stonehedge Gardens, Tamaqua, PA",
+      "geo_wkt": "POINT (-75.942183 40.761418)",
+      "poi": {
+        "id": 267309,
+        "geometry": "POINT (-75.942183 40.761418)",
+        "poi_name": "Stonehedge Gardens",
+        "osm_id": 5823460252,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Tamaqua",
+        "addr_postcode": "18252",
+        "addr_street": "Dairy Road",
+        "addr_housenumber": "51"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 75,
+  "type": "range:direction+loc"
+}

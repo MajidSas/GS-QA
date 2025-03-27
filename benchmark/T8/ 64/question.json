@@ -1,0 +1,46 @@
+{
+  "question": "Can you recommend the nearest restaurant from the stadium that can hold 6600 spectators in Louisville, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 49566,
+      "geometry": "POINT (-85.735935 38.205321)",
+      "poi_name": "The Wing Zone",
+      "osm_id": 3442060420,
+      "amenity": "restaurant",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40217",
+      "addr_street": "Hess Lane",
+      "addr_housenumber": "905"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "poi": {
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
+      }
+    }
+  },
+  "id": 2763,
+  "type": "knn+name+multihop2"
+}

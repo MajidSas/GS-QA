@@ -1,0 +1,46 @@
+{
+  "question": "What's the closest viewpoint to the east of Fire Museum of Memphis, Memphis, TN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.050718 35.148317)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24137,
+      "geometry": "POINT (-90.050718 35.148317)",
+      "poi_name": "Overlook",
+      "osm_id": 9344527675,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Fire Museum of Memphis, Memphis, TN",
+      "geo_wkt": "POINT (-90.050718 35.148317)",
+      "poi": {
+        "id": 21177,
+        "geometry": "POINT (-90.050718 35.148317)",
+        "poi_name": "Fire Museum of Memphis",
+        "osm_id": 1432947859,
+        "tourism": "museum",
+        "opening_hours": "Mo-Sa 09:00-16:30",
+        "website": "https://firemuseum.com/",
+        "wikidata": "Q5451397",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_street": "Adams Avenue",
+        "addr_housenumber": "118"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2565,
+  "type": "knn:direction+name"
+}

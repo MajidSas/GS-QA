@@ -1,0 +1,52 @@
+{
+  "question": "Where can I find a viewpoint to the north of Oregon Coast Scenic Railroad, Garibaldi, OR within 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-123.910627 45.558356)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.910627 45.558356)',4326)::geography, 140000)\nAND tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 21991,
+      "geometry": "POINT (-123.910627 45.558356)",
+      "poi_name": "Silver Point Interpretive Overlook",
+      "osm_id": 954793454,
+      "tourism": "viewpoint",
+      "addr_state": "OR",
+      "addr_street": "Oregon Coast Highway"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Oregon Coast Scenic Railroad, Garibaldi, OR",
+      "geo_wkt": "POINT (-123.910627 45.558356)",
+      "poi": {
+        "id": 1313,
+        "geometry": "POINT (-123.910627 45.558356)",
+        "poi_name": "Oregon Coast Scenic Railroad",
+        "osm_id": 2933695048,
+        "tourism": "museum",
+        "website": "https://oregoncoastscenic.org/",
+        "phone": "+1 503 842 7972",
+        "addr_state": "OR",
+        "addr_city": "Garibaldi",
+        "addr_postcode": "97118",
+        "addr_street": "American Avenue",
+        "addr_housenumber": "306"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 13,
+  "type": "range:direction+loc"
+}

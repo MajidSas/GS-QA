@@ -1,0 +1,40 @@
+{
+  "question": "What's the closest attraction in proximity to S 22nd and Sears St. Garden, Philadelphia, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13899,
+      "geometry": "POINT (-75.157835 39.939009)",
+      "poi_name": "Italian market",
+      "osm_id": 4175144392,
+      "tourism": "attraction",
+      "addr_street": "Christian Street"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "S 22nd and Sears St. Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.180513 39.935321)",
+      "poi": {
+        "id": 247116,
+        "geometry": "POINT (-75.180513 39.935321)",
+        "poi_name": "S 22nd and Sears St. Garden",
+        "osm_id": 3559344530,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_street": "S 22nd St",
+        "addr_housenumber": "1315"
+      }
+    }
+  },
+  "id": 221,
+  "type": "knn+name"
+}

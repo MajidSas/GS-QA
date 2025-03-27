@@ -1,0 +1,54 @@
+{
+  "question": "Where's the closest fast food restaurant located in the direction of south from South Plains Rehab Hospital - An Affiliate Of UMC And Encompass, Lubbock, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.928458 33.60289)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 191242,
+      "geometry": "POINT (-101.928458 33.60289)",
+      "poi_name": "Domino's",
+      "osm_id": 1350518912,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "addr_state": "TX",
+      "addr_city": "Lubbock",
+      "addr_postcode": "79416",
+      "addr_street": "4th Street",
+      "addr_housenumber": "5407"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "South Plains Rehab Hospital - An Affiliate Of UMC And Encompass, Lubbock, TX",
+      "geo_wkt": "POINT (-101.928458 33.60289)",
+      "poi": {
+        "id": 183179,
+        "geometry": "POINT (-101.928458 33.60289)",
+        "poi_name": "South Plains Rehab Hospital - An Affiliate Of UMC And Encompass",
+        "osm_id": 10917011594,
+        "amenity": "hospital",
+        "website": "https://encompasshealth.com/locations/southplainsrehab",
+        "phone": "+1-806-507-3500",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Lubbock",
+        "addr_postcode": "79416",
+        "addr_street": "Colgate Street",
+        "addr_housenumber": "5406"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1137,
+  "type": "knn:direction+loc"
+}

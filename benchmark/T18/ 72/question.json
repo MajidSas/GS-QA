@@ -1,0 +1,46 @@
+{
+  "question": "Where is the nearest aerospace museum available from Dunnellon High School Football Stadium, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'aerospace'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.413432 29.078309)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21416,
+      "geometry": "POINT (-80.808671 28.610577)",
+      "poi_name": "American Space Museum & US Space Walk of Fame",
+      "osm_id": 1570396067,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Mo-Sa 10:00-17:00",
+      "website": "https://spacewalkoffame.org/",
+      "museum": "aerospace",
+      "addr_city": "Titusville",
+      "addr_postcode": "32796",
+      "addr_street": "Pine Street",
+      "addr_housenumber": "305"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "aerospace museum",
+      "poi_filter_sql": "museum = 'aerospace'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Dunnellon High School Football Stadium, FL",
+      "geo_wkt": "POINT (-82.413432 29.078309)",
+      "poi": {
+        "id": 265375,
+        "geometry": "POINT (-82.413432 29.078309)",
+        "poi_name": "Dunnellon High School Football Stadium",
+        "osm_id": 367826900,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 371,
+  "type": "knn:non_spat_filter+loc"
+}

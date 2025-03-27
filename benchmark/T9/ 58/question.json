@@ -1,0 +1,42 @@
+{
+  "question": "Which hospital is the nearest to the southwest of Memory Garden, Mequon, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 185920,
+      "geometry": "POINT (-87.959122 43.254358)",
+      "poi_name": "Henke Nursing Center",
+      "osm_id": 7894337986,
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "poi": {
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2557,
+  "type": "knn:direction+name"
+}

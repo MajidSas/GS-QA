@@ -1,0 +1,41 @@
+{
+  "question": "Seeking the nearest theme park from Lexington Historical Society, Lexington Township, ME, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.041883 44.970804)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24506,
+      "geometry": "POINT (-69.711963 43.971804)",
+      "poi_name": "Monkey C Monkey Do",
+      "osm_id": 11086117496,
+      "description": "Climbing structurrs for kids",
+      "tourism": "theme_park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Lexington Historical Society, Lexington Township, ME",
+      "geo_wkt": "POINT (-70.041883 44.970804)",
+      "poi": {
+        "id": 22563,
+        "geometry": "POINT (-70.041883 44.970804)",
+        "poi_name": "Lexington Historical Society",
+        "osm_id": 7157489211,
+        "tourism": "attraction",
+        "addr_state": "ME",
+        "addr_city": "Lexington Township",
+        "addr_postcode": "04961",
+        "addr_street": "Back Road",
+        "addr_housenumber": "3"
+      }
+    }
+  },
+  "id": 264,
+  "type": "knn+name"
+}

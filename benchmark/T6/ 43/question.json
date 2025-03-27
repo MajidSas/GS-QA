@@ -1,0 +1,46 @@
+{
+  "question": "Which railway museum nearby Wilderness Park, Lincoln, NE?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-96.716962 40.75139)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16765,
+      "geometry": "POINT (-97.173819 40.132612)",
+      "poi_name": "Rock Island Depot Railroad Museum",
+      "osm_id": 366492344,
+      "tourism": "museum",
+      "museum": "railway",
+      "addr_state": "NE",
+      "addr_city": "Fairbury",
+      "addr_postcode": "68352",
+      "addr_street": "Bacon Road",
+      "addr_housenumber": "910"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wilderness Park, Lincoln, NE",
+      "geo_wkt": "POINT (-96.716962 40.75139)",
+      "poi": {
+        "id": 257917,
+        "geometry": "POINT (-96.716962 40.75139)",
+        "poi_name": "Wilderness Park",
+        "osm_id": 357793476,
+        "leisure": "park",
+        "wikidata": "Q8001152",
+        "addr_state": "NE",
+        "addr_city": "Lincoln"
+      }
+    }
+  },
+  "id": 642,
+  "type": "knn:non_spat_filter+name"
+}

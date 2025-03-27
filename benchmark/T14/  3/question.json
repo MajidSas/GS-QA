@@ -1,0 +1,54 @@
+{
+  "question": "Is it possible to locate a children museum, preferably within 160 kilometers from Carson Park Stadium, Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND museum = 'children';\n",
+  "answers": [
+    {
+      "id": 9736,
+      "geometry": "POINT (-91.501728 44.814359)",
+      "poi_name": "Children\u2019s Museum of Eau Claire",
+      "osm_id": 8961917214,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Mo-Fr 09:00-17:00; We off; Sa,Su 10:00-17:00",
+      "museum": "children",
+      "addr_state": "WI",
+      "addr_city": "Eau Claire",
+      "addr_postcode": "54701",
+      "addr_street": "North Barstow Street"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "children museum",
+      "poi_filter_sql": "museum = 'children'"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 402,
+  "type": "range:non_spat_filter+loc"
+}

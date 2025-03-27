@@ -1,0 +1,92 @@
+{
+  "question": "Where can I find a beach resort towards the south of Children's Hospital at Montefiore, Bronx, NY within 200 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography, 200000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 246527,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Surfrider Beach Club",
+      "osm_id": 9809545162,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "931"
+    },
+    {
+      "id": 246528,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Sands Beach Club",
+      "osm_id": 9809545163,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "825"
+    },
+    {
+      "id": 265569,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Ship Ahoy Beach Club",
+      "osm_id": 2575212830,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "801"
+    },
+    {
+      "id": 265570,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 200000,
+      "text": "200 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "poi": {
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 30,
+  "type": "range:direction+loc"
+}

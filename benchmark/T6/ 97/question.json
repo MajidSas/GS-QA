@@ -1,0 +1,54 @@
+{
+  "question": "What's the closest maritime museum located from Harrison Benwell Conservation Area, Wonder Lake, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'maritime'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.332956 42.384311)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17233,
+      "geometry": "POINT (-90.866492 32.375804)",
+      "poi_name": "USS Cairo Museum",
+      "osm_id": 367134866,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su 08:30-17:00",
+      "website": "https://www.nps.gov/vick/u-s-s-cairo-gunboat.htm",
+      "phone": "6016362199",
+      "museum": "maritime",
+      "wikidata": "Q3545006",
+      "addr_state": "MS",
+      "addr_city": "Vicksburg",
+      "addr_postcode": "39183",
+      "addr_street": "Clay Street",
+      "addr_housenumber": "3201"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "maritime museum",
+      "poi_filter_sql": "museum = 'maritime'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Harrison Benwell Conservation Area, Wonder Lake, IL",
+      "geo_wkt": "POINT (-88.332956 42.384311)",
+      "poi": {
+        "id": 249741,
+        "geometry": "POINT (-88.332956 42.384311)",
+        "poi_name": "Harrison Benwell Conservation Area",
+        "osm_id": 354209705,
+        "leisure": "park",
+        "description": "Closed until Aug 2016.",
+        "opening_hours": "sunrise-sunset",
+        "website": "http://www.mccdistrict.org/rccms/index.php/harrison-benwell/",
+        "addr_state": "IL",
+        "addr_city": "Wonder Lake",
+        "addr_street": "McCullom Lake Road",
+        "addr_housenumber": "7055"
+      }
+    }
+  },
+  "id": 696,
+  "type": "knn:non_spat_filter+name"
+}

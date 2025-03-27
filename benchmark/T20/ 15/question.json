@@ -1,0 +1,67 @@
+{
+  "question": "Where is the closest fast food restaurant from Falls Ridge Preserve, Elliston, VA towards Grogans Riverfront, Madison, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, ST_GeomFromText('POINT (-79.953344 36.384575)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 139559,
+      "geometry": "POINT (-79.953132 36.739636)",
+      "poi_name": "Hardee's",
+      "osm_id": 6204049646,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://locations.hardees.com/va/stanleytown/933-fairystone-park-hwy",
+      "takeaway": "yes",
+      "addr_state": "VA",
+      "addr_city": "Stanleytown",
+      "addr_postcode": "24168",
+      "addr_street": "Fairy Stone Park Highway",
+      "addr_housenumber": "933",
+      "value": 159.77373888882966
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Falls Ridge Preserve, Elliston, VA",
+      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "poi": {
+        "id": 266492,
+        "geometry": "POINT (-80.321578 37.193218)",
+        "poi_name": "Falls Ridge Preserve",
+        "osm_id": 5189591887,
+        "leisure": "nature_reserve",
+        "addr_state": "VA",
+        "addr_city": "Elliston",
+        "addr_postcode": "24087",
+        "addr_street": "Falls Ridge Rd"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Grogans Riverfront, Madison, NC",
+      "geo_wkt": "POINT (-79.953344 36.384575)",
+      "poi": {
+        "id": 19512,
+        "geometry": "POINT (-79.953344 36.384575)",
+        "poi_name": "Grogans Riverfront",
+        "osm_id": 10795131653,
+        "tourism": "hotel",
+        "phone": "+13369167070",
+        "addr_state": "NC",
+        "addr_city": "Madison",
+        "addr_postcode": "27025",
+        "addr_street": "NC-704",
+        "addr_housenumber": "4890"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1314,
+  "type": "knn:towards+loc"
+}

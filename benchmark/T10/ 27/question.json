@@ -1,0 +1,57 @@
+{
+  "question": "What's the closest restaurant on the path leading to Sinister Sidney, Sidney, IA from Borup Coliseum, NE?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography, ST_GeomFromText('POINT (-95.635706 40.748182)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 67243,
+      "geometry": "POINT (-96.026607 41.455257)",
+      "poi_name": "The Rustic",
+      "osm_id": 11229953516,
+      "amenity": "restaurant",
+      "value": 153.6194411990489
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Borup Coliseum, NE",
+      "geo_wkt": "POINT (-96.15696 41.548605)",
+      "poi": {
+        "id": 265352,
+        "geometry": "POINT (-96.15696 41.548605)",
+        "poi_name": "Borup Coliseum",
+        "osm_id": 366492197,
+        "leisure": "stadium",
+        "addr_state": "NE"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Sinister Sidney, Sidney, IA",
+      "geo_wkt": "POINT (-95.635706 40.748182)",
+      "poi": {
+        "id": 12190,
+        "geometry": "POINT (-95.635706 40.748182)",
+        "poi_name": "Sinister Sidney",
+        "osm_id": 6239206983,
+        "description": "Seasonal Haunted Attraction",
+        "tourism": "attraction",
+        "operator": "Sinister Sidney LLC",
+        "addr_state": "IA",
+        "addr_city": "Sidney",
+        "addr_postcode": "51652",
+        "addr_street": "Filmore Street",
+        "addr_housenumber": "1308"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 126,
+  "type": "knn:towards+name"
+}

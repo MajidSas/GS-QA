@@ -1,0 +1,55 @@
+{
+  "question": "Which fast food restaurant is closest in the southeast direction of Aquarium Outfitters Carolina, Wake Forest, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62675,
+      "geometry": "POINT (-78.515805 35.970785)",
+      "poi_name": "McDonald's",
+      "osm_id": 5581356497,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/nc/rolesville/415-s-main-st/18373.html",
+      "phone": "+19195567686",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "NC",
+      "addr_city": "Rolesville",
+      "addr_postcode": "27571",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "415"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
+      "poi": {
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2576,
+  "type": "knn:direction+name"
+}

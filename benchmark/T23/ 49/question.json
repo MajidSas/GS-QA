@@ -1,0 +1,39 @@
+{
+  "question": "Could you tell me the number of hotels located within a 150 kilometers radius from Frank Sinatra's Birthplace, Hoboken, NJ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.038603 40.743437)',4326)::geography, 150000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "count": 389
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Frank Sinatra's Birthplace, Hoboken, NJ",
+      "geo_wkt": "POINT (-74.038603 40.743437)",
+      "poi": {
+        "id": 3565,
+        "geometry": "POINT (-74.038603 40.743437)",
+        "poi_name": "Frank Sinatra's Birthplace",
+        "osm_id": 5468067617,
+        "tourism": "attraction",
+        "addr_state": "NJ",
+        "addr_city": "Hoboken",
+        "addr_street": "Monroe Street",
+        "addr_housenumber": "415"
+      }
+    }
+  },
+  "id": 2248,
+  "type": "range+count"
+}

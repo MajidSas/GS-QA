@@ -1,0 +1,42 @@
+{
+  "question": "What is the closest nature reserve positioned towards the west of Cape Cod Coliseum, MA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.191131 41.690388)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265748,
+      "geometry": "POINT (-70.191131 41.690388)",
+      "poi_name": "Lowell Holly Reservation",
+      "osm_id": 10908728821,
+      "leisure": "nature_reserve",
+      "operator": "The Nature Conservancy"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cape Cod Coliseum, MA",
+      "geo_wkt": "POINT (-70.191131 41.690388)",
+      "poi": {
+        "id": 265368,
+        "geometry": "POINT (-70.191131 41.690388)",
+        "poi_name": "Cape Cod Coliseum",
+        "osm_id": 367781392,
+        "leisure": "stadium",
+        "wikidata": "Q5034679",
+        "addr_state": "MA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2526,
+  "type": "knn:direction+name"
+}

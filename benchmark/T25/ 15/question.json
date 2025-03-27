@@ -1,0 +1,117 @@
+{
+  "question": "How distant is a zoo positioned from Caelum Gallery, New York, NY within a distance of 160 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-74.004211 40.74998)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.004211 40.74998)',4326)::geography, 160000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 22,
+      "geometry": "POINT (-74.116529 40.625131)",
+      "poi_name": "Kids Korral",
+      "osm_id": 411668741,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "distance": 16803.54459203
+    },
+    {
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo",
+      "distance": 20758.53721917
+    },
+    {
+      "id": 6973,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551",
+      "distance": 67541.93905573
+    },
+    {
+      "id": 15666,
+      "geometry": "POINT (-74.431868 40.341459)",
+      "poi_name": "Thompson Park Zoo",
+      "osm_id": 9438273157,
+      "tourism": "zoo",
+      "distance": 58054.16456171
+    },
+    {
+      "id": 15667,
+      "geometry": "POINT (-74.183755 40.368213)",
+      "poi_name": "Longstreet Farm Animals",
+      "osm_id": 9438273158,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "distance": 45038.1349564
+    },
+    {
+      "id": 20004,
+      "geometry": "POINT (-74.327266 39.910289)",
+      "poi_name": "Popcorn Park Animal Refuge",
+      "osm_id": 7810633955,
+      "tourism": "zoo",
+      "fee": "yes",
+      "opening_hours": "Mo-Su 11:00-17:00",
+      "operator": "Associated Humane Societies",
+      "website": "https://ahscares.org/popcorn-park/",
+      "phone": "(609) 693-1900",
+      "addr_state": "NJ",
+      "addr_city": "Forked River",
+      "addr_postcode": "08731",
+      "addr_street": "Humane Way",
+      "addr_housenumber": "1",
+      "distance": 97197.64216226
+    },
+    {
+      "id": 26721,
+      "geometry": "POINT (-75.129266 41.021541)",
+      "poi_name": "Pocono Snake & Animal Farm",
+      "osm_id": 6008753954,
+      "tourism": "zoo",
+      "distance": 99499.31248426
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Caelum Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.004211 40.74998)",
+      "poi": {
+        "id": 19653,
+        "geometry": "POINT (-74.004211 40.74998)",
+        "poi_name": "Caelum Gallery",
+        "osm_id": 10859974143,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Sa 12:00-18:00",
+        "website": "https://www.caelumgallery.com",
+        "phone": "+1-646-894-8565",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 26th Street",
+        "addr_housenumber": "526"
+      }
+    }
+  },
+  "id": 714,
+  "type": "range+distance"
+}

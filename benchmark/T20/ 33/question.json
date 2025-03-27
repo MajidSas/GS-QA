@@ -1,0 +1,75 @@
+{
+  "question": "Where's the nearest caf\u00e9 heading towards University of Minnesota School of Dentistry, Minneapolis, MN from SEA LIFE Minnesota Aquarium, Bloomington, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, ST_GeomFromText('POINT (-93.231639 44.972753)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 193618,
+      "geometry": "POINT (-93.232465 44.912806)",
+      "poi_name": "Nokomis Beach Coffee Cafe",
+      "osm_id": 1549185241,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "yes",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55417",
+      "addr_street": "28th Avenue South",
+      "addr_housenumber": "4956",
+      "value": 2.9054272532359833
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
+      "geo_wkt": "POINT (-93.240076 44.854752)",
+      "poi": {
+        "id": 25908,
+        "geometry": "POINT (-93.240076 44.854752)",
+        "poi_name": "SEA LIFE Minnesota Aquarium",
+        "osm_id": 5739830095,
+        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+        "tourism": "aquarium",
+        "fee": "yes",
+        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+        "operator": "Merlin Entertainments'",
+        "website": "https://www.visitsealife.com/minnesota/",
+        "phone": "+1-952-883-0202",
+        "addr_state": "MN",
+        "addr_city": "Bloomington",
+        "addr_postcode": "55425",
+        "addr_street": "East Broadway",
+        "addr_housenumber": "120"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Minnesota School of Dentistry, Minneapolis, MN",
+      "geo_wkt": "POINT (-93.231639 44.972753)",
+      "poi": {
+        "id": 143555,
+        "geometry": "POINT (-93.231639 44.972753)",
+        "poi_name": "University of Minnesota School of Dentistry",
+        "osm_id": 6344104167,
+        "amenity": "university",
+        "operator": "University of Minnesota",
+        "website": "https://www.dentistry.umn.edu/",
+        "phone": "+1-612-625-2495",
+        "addr_state": "MN",
+        "addr_city": "Minneapolis",
+        "addr_postcode": "55455",
+        "addr_street": "Southeast Delaware Street",
+        "addr_housenumber": "515"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1332,
+  "type": "knn:towards+loc"
+}

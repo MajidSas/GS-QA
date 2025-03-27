@@ -1,0 +1,51 @@
+{
+  "question": "Where is the closest emergency hospital within proximity to the Willow Bowl, Wayne, NE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.017423 42.239404)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 201020,
+      "geometry": "POINT (-97.408174 42.873335)",
+      "poi_name": "Avera Sacred Heart Hospital",
+      "osm_id": 606322145,
+      "amenity": "hospital",
+      "operator": "Avera Health",
+      "website": "https://www.avera.org/locations/sacred-heart/",
+      "phone": "+1 605 668 8000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Yankton",
+      "addr_postcode": "57078",
+      "addr_street": "Summit Street",
+      "addr_housenumber": "501"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "The Willow Bowl, Wayne, NE",
+      "geo_wkt": "POINT (-97.017423 42.239404)",
+      "poi": {
+        "id": 257716,
+        "geometry": "POINT (-97.017423 42.239404)",
+        "poi_name": "The Willow Bowl",
+        "osm_id": 357784808,
+        "leisure": "park",
+        "website": "https://www.wsc.edu/info/20035/foundation/132/foundation_projects/2",
+        "wikidata": "Q49581364",
+        "addr_state": "NE",
+        "addr_city": "Wayne",
+        "addr_postcode": "68787"
+      }
+    }
+  },
+  "id": 355,
+  "type": "knn:non_spat_filter+loc"
+}

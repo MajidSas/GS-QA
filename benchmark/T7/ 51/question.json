@@ -1,0 +1,52 @@
+{
+  "question": "What is the name of the architect that designed the closest museum from Bastion Studios, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 20273,
+      "geometry": "POINT (-80.093623 42.126779)",
+      "poi_name": "Watson-Curtze Mansion",
+      "osm_id": 7977022499,
+      "tourism": "museum",
+      "operator": "Hagan History Center",
+      "website": "https://www.eriehistory.org/",
+      "museum": "history",
+      "wikidata": "Q7974795",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16507",
+      "addr_street": "West 6th Street",
+      "addr_housenumber": "356",
+      "multihop_answer": "Green & Wicks",
+      "multihop_attribute": "Architect",
+      "multihop_long_answer": "Watson-Curtze Mansion Architect: Green & Wicks"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
+      "poi": {
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
+      }
+    }
+  },
+  "id": 950,
+  "type": "knn+name+multihop1"
+}

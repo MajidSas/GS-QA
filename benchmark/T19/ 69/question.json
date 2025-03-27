@@ -1,0 +1,53 @@
+{
+  "question": "Where's the closest stadium towards the southeast of Ogallala KOA, Ogallala, NE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.7084 41.11333)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 260589,
+      "geometry": "POINT (-101.7084 41.11333)",
+      "poi_name": "Riverfront Stadium",
+      "osm_id": 358627835,
+      "leisure": "stadium",
+      "website": "https://www.milb.com/wichita/ballpark",
+      "phone": "+1-316-221-8000",
+      "addr_state": "KS",
+      "addr_city": "Wichita",
+      "addr_postcode": "67213",
+      "addr_street": "South McLean Boulevard",
+      "addr_housenumber": "275"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Ogallala KOA, Ogallala, NE",
+      "geo_wkt": "POINT (-101.7084 41.11333)",
+      "poi": {
+        "id": 248255,
+        "geometry": "POINT (-101.7084 41.11333)",
+        "poi_name": "Ogallala KOA",
+        "osm_id": 7560446218,
+        "leisure": "park",
+        "tourism": "caravan_site",
+        "opening_hours": "24/7",
+        "addr_state": "NE",
+        "addr_city": "Ogallala",
+        "addr_postcode": "69153",
+        "addr_street": "Road East 85",
+        "addr_housenumber": "221"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1168,
+  "type": "knn:direction+loc"
+}

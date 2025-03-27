@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest emergency hospital from Sky Ranch Lodge, Sedona, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.790454 34.852442)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 211246,
+      "geometry": "POINT (-112.331391 34.591083)",
+      "poi_name": "Emergency Room",
+      "osm_id": 5148494284,
+      "amenity": "hospital",
+      "description": "Yavapai Medical Emergency Room\n",
+      "healthcare": "hospital",
+      "emergency": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Sky Ranch Lodge, Sedona, AZ",
+      "geo_wkt": "POINT (-111.790454 34.852442)",
+      "poi": {
+        "id": 21984,
+        "geometry": "POINT (-111.790454 34.852442)",
+        "poi_name": "Sky Ranch Lodge",
+        "osm_id": 948456954,
+        "tourism": "hotel",
+        "website": "https://skyranchlodge.com/",
+        "phone": "(928) 282-6400",
+        "addr_state": "AZ",
+        "addr_city": "Sedona",
+        "addr_postcode": "86336",
+        "addr_street": "Airport Road",
+        "addr_housenumber": "1105"
+      }
+    }
+  },
+  "id": 669,
+  "type": "knn:non_spat_filter+name"
+}

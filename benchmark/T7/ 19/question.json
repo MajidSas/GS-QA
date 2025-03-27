@@ -1,0 +1,50 @@
+{
+  "question": "When was the nearest theme park from Mount Washington Boat Terminal, Wolfeboro, NH first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18384,
+      "geometry": "POINT (-71.685641 44.047903)",
+      "poi_name": "Clark's Trading Post",
+      "osm_id": 2276410850,
+      "tourism": "theme_park",
+      "wheelchair": "yes",
+      "website": "http://www.clarkstradingpost.com/",
+      "phone": "+1-603-745-8913",
+      "wikidata": "Q15210824",
+      "addr_city": "Lincoln",
+      "addr_postcode": "03251",
+      "addr_street": "Daniel Webster Highway",
+      "addr_housenumber": "110",
+      "multihop_answer": "1928",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Clark's Trading Post Opened: 1928"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
+      "geo_wkt": "POINT (-71.21302 43.583693)",
+      "poi": {
+        "id": 943,
+        "geometry": "POINT (-71.21302 43.583693)",
+        "poi_name": "Mount Washington Boat Terminal",
+        "osm_id": 2730505188,
+        "tourism": "attraction",
+        "addr_state": "NH",
+        "addr_city": "Wolfeboro",
+        "addr_postcode": "03894",
+        "addr_street": "North Main Street"
+      }
+    }
+  },
+  "id": 918,
+  "type": "knn+name+multihop1"
+}

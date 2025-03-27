@@ -1,0 +1,71 @@
+{
+  "question": "Within a radius of 10 kilometers, where can I find  a fast food restaurant on the path leading to Joppa Hill Farm, Bedford, NH from Gordon College, Wenham, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.820301 42.588853)',4326)::geography, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.820301 42.588853)',4326)::geography, 10000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.820301 42.588853)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 130064,
+      "geometry": "POINT (-70.873229 42.610177)",
+      "poi_name": "Dunkin'",
+      "osm_id": 9853645978,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "addr_state": "MA",
+      "addr_city": "Hamilton",
+      "addr_postcode": "01982",
+      "addr_street": "Walnut Road",
+      "addr_housenumber": "15",
+      "value": 301.8907087416519
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Gordon College, Wenham, MA",
+      "geo_wkt": "POINT (-70.820301 42.588853)",
+      "poi": {
+        "id": 167600,
+        "geometry": "POINT (-70.820301 42.588853)",
+        "poi_name": "Gordon College",
+        "osm_id": 358258911,
+        "amenity": "university",
+        "operator": "Gordon College",
+        "wikidata": "Q5585004",
+        "addr_state": "MA",
+        "addr_city": "Wenham",
+        "addr_postcode": "01984",
+        "addr_street": "Grapevine Road",
+        "addr_housenumber": "255"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "poi": {
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1273,
+  "type": "range:towards+loc"
+}

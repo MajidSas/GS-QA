@@ -1,0 +1,43 @@
+{
+  "question": "What's the proximity of the nearest zoo relative to University Gallery, Yipsilanti, MI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2809,
+      "geometry": "POINT (-83.253052 42.213884)",
+      "poi_name": "Taylor Petting Farm",
+      "osm_id": 10038021903,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "distance": 31202.23688379
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "University Gallery, Yipsilanti, MI",
+      "geo_wkt": "POINT (-83.627624 42.251566)",
+      "poi": {
+        "id": 24563,
+        "geometry": "POINT (-83.627624 42.251566)",
+        "poi_name": "University Gallery",
+        "osm_id": 11112992349,
+        "tourism": "gallery",
+        "operator": "Eastern Michigan University",
+        "addr_state": "MI",
+        "addr_city": "Yipsilanti",
+        "addr_postcode": "48176",
+        "addr_street": "Oakwood Street",
+        "addr_housenumber": "900"
+      }
+    }
+  },
+  "id": 2437,
+  "type": "knn+distance"
+}

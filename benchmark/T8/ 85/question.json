@@ -1,0 +1,44 @@
+{
+  "question": "Seeking the nearest aquarium from the attraction with the former name Hollywoodland Sign in Los Angeles, CA, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25545,
+      "geometry": "POINT (-118.496003 34.010345)",
+      "poi_name": "Santa M\u00f3nica Pier Aquarium",
+      "osm_id": 4538240692,
+      "tourism": "aquarium",
+      "addr_postcode": "90401",
+      "addr_street": "Ocean Front Walk",
+      "addr_housenumber": "1600"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hollywood Sign, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "poi": {
+        "id": 1885,
+        "geometry": "POINT (-118.321652 34.134099)",
+        "poi_name": "Hollywood Sign",
+        "osm_id": 3204926589,
+        "tourism": "attraction",
+        "operator": "The Trust for Public Land",
+        "wikidata": "Q180376",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mount Lee Drive"
+      }
+    }
+  },
+  "id": 2784,
+  "type": "knn+name+multihop2"
+}

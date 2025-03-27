@@ -1,0 +1,43 @@
+{
+  "question": "Do you know of any gallery within 40 kilometers from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 40000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "id": 3875,
+      "geometry": "POINT (-82.98748 39.944299)",
+      "poi_name": "The Archive Gallery",
+      "osm_id": 5618104184,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 883,
+  "type": "range+name"
+}

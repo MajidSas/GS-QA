@@ -1,0 +1,37 @@
+{
+  "question": "What's the course towards the closest beach resort from Detroit Lakes Sports Arena, MN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266250,
+      "geometry": "POINT (-94.325504 46.930364)",
+      "poi_name": "MinneTeepee Resort beach",
+      "osm_id": 7094847808,
+      "leisure": "beach_resort",
+      "angle": 82.7251492685712
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Detroit Lakes Sports Arena, MN",
+      "geo_wkt": "POINT (-95.853333 46.806944)",
+      "poi": {
+        "id": 265358,
+        "geometry": "POINT (-95.853333 46.806944)",
+        "poi_name": "Detroit Lakes Sports Arena",
+        "osm_id": 367067717,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    }
+  },
+  "id": 1480,
+  "type": "knn+angle"
+}

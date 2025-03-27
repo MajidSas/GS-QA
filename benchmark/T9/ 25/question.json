@@ -1,0 +1,47 @@
+{
+  "question": "Which restaurant is closest when moving in the north direction from Portland Seminary, Tigard, OR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.747463 45.427886)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 140623,
+      "geometry": "POINT (-122.747463 45.427886)",
+      "poi_name": "Six Corners",
+      "osm_id": 6254355183,
+      "amenity": "restaurant"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Portland Seminary, Tigard, OR",
+      "geo_wkt": "POINT (-122.747463 45.427886)",
+      "poi": {
+        "id": 223704,
+        "geometry": "POINT (-122.747463 45.427886)",
+        "poi_name": "Portland Seminary",
+        "osm_id": 11061306203,
+        "amenity": "university",
+        "operator": "George Fox University",
+        "website": "https://www.georgefox.edu/seminary/",
+        "phone": "+1-503-554-6150",
+        "addr_state": "OR",
+        "addr_city": "Tigard",
+        "addr_postcode": "97223",
+        "addr_street": "Southwest 68th Avenue",
+        "addr_housenumber": "12753"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2524,
+  "type": "knn:direction+name"
+}

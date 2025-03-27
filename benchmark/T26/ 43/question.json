@@ -1,0 +1,41 @@
+{
+  "question": "What's the separation to the closest viewpoint from Dawson Cole Fine Art, Laguna Beach, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-117.782405 33.5428)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.782405 33.5428)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21032,
+      "geometry": "POINT (-117.799258 33.553719)",
+      "poi_name": "Joseph R. Sweany Bench",
+      "osm_id": 1350767221,
+      "tourism": "viewpoint",
+      "distance": 1979.03260764
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Dawson Cole Fine Art, Laguna Beach, CA",
+      "geo_wkt": "POINT (-117.782405 33.5428)",
+      "poi": {
+        "id": 4673,
+        "geometry": "POINT (-117.782405 33.5428)",
+        "poi_name": "Dawson Cole Fine Art",
+        "osm_id": 11382640633,
+        "tourism": "gallery",
+        "addr_state": "CA",
+        "addr_city": "Laguna Beach",
+        "addr_postcode": "92651",
+        "addr_street": "Glenneyre Street",
+        "addr_housenumber": "326"
+      }
+    }
+  },
+  "id": 2442,
+  "type": "knn+distance"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the closest burger place from Winfield Museum, IA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%burger%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.43849 41.127805)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 241956,
+      "geometry": "POINT (-91.544091 41.658727)",
+      "poi_name": "Black's Gold Grill",
+      "osm_id": 6047220890,
+      "amenity": "restaurant",
+      "cuisine": "pizza;american;burger;sandwich;wings",
+      "website": "https://dining.uiowa.edu/BGG",
+      "phone": "+1-319-353-4366",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "IA",
+      "addr_city": "Iowa City",
+      "addr_postcode": "52242",
+      "addr_street": "Grand Avenue",
+      "addr_housenumber": "304"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Winfield Museum, IA",
+      "geo_wkt": "POINT (-91.43849 41.127805)",
+      "poi": {
+        "id": 17081,
+        "geometry": "POINT (-91.43849 41.127805)",
+        "poi_name": "Winfield Museum",
+        "osm_id": 367089473,
+        "tourism": "museum",
+        "website": "http://winfieldhistoricalsociety.com/",
+        "addr_state": "IA"
+      }
+    }
+  },
+  "id": 349,
+  "type": "knn:non_spat_filter+loc"
+}

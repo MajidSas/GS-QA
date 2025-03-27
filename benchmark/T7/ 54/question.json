@@ -1,0 +1,44 @@
+{
+  "question": "What is the name of the architect that designed the closest hotel from Rogers Rock Campground Entrance, Hague, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.486638 43.793073)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7224,
+      "geometry": "POINT (-73.645652 43.555811)",
+      "poi_name": "Sagamore Hotel and Resort",
+      "osm_id": 2011753956,
+      "tourism": "hotel",
+      "wikidata": "Q7762027",
+      "multihop_answer": "Multiple",
+      "multihop_attribute": "Architect",
+      "multihop_long_answer": "Sagamore Hotel and Resort Architect: Multiple"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rogers Rock Campground Entrance, Hague, NY",
+      "geo_wkt": "POINT (-73.486638 43.793073)",
+      "poi": {
+        "id": 245228,
+        "geometry": "POINT (-73.486638 43.793073)",
+        "poi_name": "Rogers Rock Campground Entrance",
+        "osm_id": 8449930685,
+        "leisure": "park",
+        "addr_state": "NY",
+        "addr_city": "Hague",
+        "addr_postcode": "12836",
+        "addr_street": "Lake Shore Drive",
+        "addr_housenumber": "9894"
+      }
+    }
+  },
+  "id": 953,
+  "type": "knn+name+multihop1"
+}

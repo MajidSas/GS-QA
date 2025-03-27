@@ -1,0 +1,188 @@
+{
+  "question": "Within a radius of 10 kilometers, which fast food restaurant can I find on the route towards Urosurgical Center Of Richmond, Richmond, VA from Historic Trade: Wheelwright, Williamsburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography, ST_GeomFromText('POINT (-77.567566 37.549164)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography, 10000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.70341 37.272458)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 77654,
+      "geometry": "POINT (-76.741349 37.278103)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 704296434,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "official_name": "Jimmy John's Gourmet Sandwiches",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 39364,
+      "geometry": "POINT (-76.718452 37.280013)",
+      "poi_name": "Qdoba",
+      "osm_id": 2919189641,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "opening_hours": "10:30-22:00",
+      "phone": "+1 757 208 0824",
+      "takeaway": "yes",
+      "official_name": "Qdoba Mexican Grill",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23185",
+      "addr_street": "Richmond Road",
+      "addr_housenumber": "1220",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 109825,
+      "geometry": "POINT (-76.71826 37.279874)",
+      "poi_name": "Domino's",
+      "osm_id": 3676536058,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 138506,
+      "geometry": "POINT (-76.724848 37.288722)",
+      "poi_name": "Five Guys",
+      "osm_id": 6152700241,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "official_name": "Five Guys Burgers and Fries",
+      "outdoor_seating": "yes",
+      "delivery": "no",
+      "addr_state": "VA",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23185",
+      "addr_street": "Richmond Road",
+      "addr_housenumber": "1430",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 138475,
+      "geometry": "POINT (-76.719353 37.283814)",
+      "poi_name": "Dunkin'",
+      "osm_id": 6150692297,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "opening_hours": "24/7",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "no",
+      "addr_state": "VA",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23185",
+      "addr_street": "Richmond Road",
+      "addr_housenumber": "1317",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 161214,
+      "geometry": "POINT (-76.754665 37.272593)",
+      "poi_name": "Moe's Southwest Grill",
+      "osm_id": 4870555532,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 138545,
+      "geometry": "POINT (-76.709175 37.273412)",
+      "poi_name": "Rick's Cheese Steak Shop",
+      "osm_id": 6154567756,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://www.rickscheesesteakshop.com/",
+      "addr_state": "VA",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23185",
+      "addr_street": "Prince George Street",
+      "addr_housenumber": "603",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 155596,
+      "geometry": "POINT (-76.749365 37.276898)",
+      "poi_name": "Which Wich?",
+      "osm_id": 4291648892,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 10:30-21:00",
+      "website": "https://www.whichwich.com/",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "addr_city": "Williamsburg",
+      "addr_postcode": "23188",
+      "addr_street": "Casey Boulevard",
+      "addr_housenumber": "4645",
+      "value": 292.1336265921749
+    },
+    {
+      "id": 161223,
+      "geometry": "POINT (-76.739531 37.276406)",
+      "poi_name": "Panera Bread",
+      "osm_id": 4870601423,
+      "amenity": "fast_food",
+      "cuisine": "sandwich;bakery",
+      "takeaway": "yes",
+      "value": 292.1336265921749
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Historic Trade: Wheelwright, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.70341 37.272458)",
+      "poi": {
+        "id": 4571,
+        "geometry": "POINT (-76.70341 37.272458)",
+        "poi_name": "Historic Trade: Wheelwright",
+        "osm_id": 11333519974,
+        "tourism": "attraction",
+        "wheelchair": "yes",
+        "opening_hours": "Su-Fr 09:00-17:00",
+        "operator": "Colonial Williamsburg Foundation",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "Palace Green Street",
+        "addr_housenumber": "201 C"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Urosurgical Center Of Richmond, Richmond, VA",
+      "geo_wkt": "POINT (-77.567566 37.549164)",
+      "poi": {
+        "id": 181039,
+        "geometry": "POINT (-77.567566 37.549164)",
+        "poi_name": "Urosurgical Center Of Richmond",
+        "osm_id": 10830599610,
+        "amenity": "hospital",
+        "website": "https://richmond.bonsecours.com/find-a-facility-memorial-regional-medical-center.html",
+        "phone": "+1 804-330-9105",
+        "healthcare": "hospital",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_postcode": "23235",
+        "addr_street": "Stony Point Drive",
+        "addr_housenumber": "9101"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1690,
+  "type": "range:towards+name"
+}

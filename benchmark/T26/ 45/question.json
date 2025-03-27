@@ -1,0 +1,57 @@
+{
+  "question": "What's the proximity of the closest restaurant from Hemby Children's Hospital, Charlotte, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.824345 35.212772)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.824345 35.212772)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 148635,
+      "geometry": "POINT (-80.826019 35.213422)",
+      "poi_name": "Viva Chicken",
+      "osm_id": 3969555362,
+      "amenity": "restaurant",
+      "cuisine": "international;peruvian",
+      "website": "https://www.vivachicken.com/",
+      "phone": "+1 (980) 335-0176",
+      "takeaway": "yes",
+      "delivery": "no",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28204",
+      "addr_street": "Elizabeth Avenue",
+      "addr_housenumber": "1617",
+      "distance": 168.62523257
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Hemby Children's Hospital, Charlotte, NC",
+      "geo_wkt": "POINT (-80.824345 35.212772)",
+      "poi": {
+        "id": 64374,
+        "geometry": "POINT (-80.824345 35.212772)",
+        "poi_name": "Hemby Children's Hospital",
+        "osm_id": 5650582468,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "Novant Health",
+        "website": "https://www.novanthealth.org/hemby-childrens-hospital.aspx",
+        "phone": "+1 704 384 4021",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28204",
+        "addr_street": "Hawthorne Lane",
+        "addr_housenumber": "200"
+      }
+    }
+  },
+  "id": 2444,
+  "type": "knn+distance"
+}

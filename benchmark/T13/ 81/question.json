@@ -1,0 +1,61 @@
+{
+  "question": "I'm searching for an aquarium within 150 kilometers radius from C.S.U. Technology Park, Long Beach, CA, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.221672 33.790124)',4326)::geography, 150000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 5259,
+      "geometry": "POINT (-118.840161 34.172588)",
+      "poi_name": "Aquatic Zoo Tropical Fish",
+      "osm_id": 9819470337,
+      "tourism": "aquarium",
+      "opening_hours": "Mo-Sa 10:30-19:00",
+      "operator": "Ken Kay Khzam",
+      "shop": "pet",
+      "addr_state": "CA",
+      "addr_city": "Thousand Oaks",
+      "addr_postcode": "91362",
+      "addr_street": "East Thousand Oaks Boulevard",
+      "addr_housenumber": "2655"
+    },
+    {
+      "id": 8046,
+      "geometry": "POINT (-118.414697 33.883358)",
+      "poi_name": "Roundhouse Aquarium",
+      "osm_id": 6534784899,
+      "tourism": "aquarium",
+      "addr_city": "Manhattan Beach",
+      "addr_postcode": "90266",
+      "addr_street": "Manhattan Beach Pier"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "C.S.U. Technology Park, Long Beach, CA",
+      "geo_wkt": "POINT (-118.221672 33.790124)",
+      "poi": {
+        "id": 88666,
+        "geometry": "POINT (-118.221672 33.790124)",
+        "poi_name": "C.S.U. Technology Park",
+        "osm_id": 8791182330,
+        "amenity": "university",
+        "operator": "California State University",
+        "addr_state": "CA",
+        "addr_city": "Long Beach",
+        "addr_street": "Technology Plaza"
+      }
+    }
+  },
+  "id": 2080,
+  "type": "range+loc"
+}

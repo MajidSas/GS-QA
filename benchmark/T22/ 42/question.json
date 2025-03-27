@@ -1,0 +1,50 @@
+{
+  "question": "In which direction should I proceed to reach the closest hotel from Popcorn Park Animal Refuge, Forked River, NJ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15799,
+      "geometry": "POINT (-74.321137 40.03304)",
+      "poi_name": "Air Force Inn",
+      "osm_id": 9535445680,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.gomdl.com",
+      "internet_access": "wlan",
+      "phone": "+1 732 323 2266",
+      "angle": 2.1979710412616447
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
+      "geo_wkt": "POINT (-74.327266 39.910289)",
+      "poi": {
+        "id": 20004,
+        "geometry": "POINT (-74.327266 39.910289)",
+        "poi_name": "Popcorn Park Animal Refuge",
+        "osm_id": 7810633955,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-17:00",
+        "operator": "Associated Humane Societies",
+        "website": "https://ahscares.org/popcorn-park/",
+        "phone": "(609) 693-1900",
+        "addr_state": "NJ",
+        "addr_city": "Forked River",
+        "addr_postcode": "08731",
+        "addr_street": "Humane Way",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 1441,
+  "type": "knn+angle"
+}

@@ -1,0 +1,42 @@
+{
+  "question": "What's the closest nature reserve nearby the stadium designed by the Davis Partnership Architects and Sink Combs Dethlefs in CO?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266925,
+      "geometry": "POINT (-104.674157 39.63892)",
+      "poi_name": "Proghorn Nature Area",
+      "osm_id": 11135148290,
+      "leisure": "nature_reserve",
+      "addr_state": "CO",
+      "addr_city": "Aurora",
+      "addr_postcode": "80016",
+      "addr_street": "East Quincy Avenue",
+      "addr_housenumber": "27800"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2796,
+  "type": "knn+name+multihop2"
+}

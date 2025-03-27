@@ -1,0 +1,72 @@
+{
+  "question": "Can you suggest a hotel within 20 kilometers of San Luis Obispo Historical Museum, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-120.66497 35.280083)',4326)::geography, 20000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "id": 1215,
+      "geometry": "POINT (-120.731961 35.178504)",
+      "poi_name": "Inn at Avila Beach",
+      "osm_id": 2901833398,
+      "tourism": "hotel",
+      "internet_access": "wlan"
+    },
+    {
+      "id": 4996,
+      "geometry": "POINT (-120.665662 35.286472)",
+      "poi_name": "Heritage Inn Bed & Breakfast",
+      "osm_id": 9711259087,
+      "tourism": "hotel",
+      "website": "http://heritageinnslo.com",
+      "phone": "805-544-7440",
+      "addr_state": "CA",
+      "addr_city": "San Luis Obispo",
+      "addr_postcode": "93405",
+      "addr_street": "978 Olive St"
+    },
+    {
+      "id": 23489,
+      "geometry": "POINT (-120.641494 35.142833)",
+      "poi_name": "Valentina Suites",
+      "osm_id": 5226983373,
+      "tourism": "hotel",
+      "website": "https://www.valentinapismobeach.com/",
+      "phone": "+1(805)773-1234",
+      "addr_state": "CA",
+      "addr_city": "Pismo Beach",
+      "addr_postcode": "93449",
+      "addr_street": "Pismo Avenue",
+      "addr_housenumber": "371"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "San Luis Obispo Historical Museum, CA",
+      "geo_wkt": "POINT (-120.66497 35.280083)",
+      "poi": {
+        "id": 18251,
+        "geometry": "POINT (-120.66497 35.280083)",
+        "poi_name": "San Luis Obispo Historical Museum",
+        "osm_id": 368174451,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.historycenterslo.org/",
+        "toilets": "yes",
+        "addr_state": "CA"
+      }
+    }
+  },
+  "id": 853,
+  "type": "range+name"
+}

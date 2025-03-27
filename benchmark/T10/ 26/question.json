@@ -1,0 +1,77 @@
+{
+  "question": "What is the closest hotel along the way to Kidzeum of Health and Science, Springfield, IL from Malibu Jack's, Springfield, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, ST_GeomFromText('POINT (-89.650141 39.8003)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22658,
+      "geometry": "POINT (-89.658984 39.797136)",
+      "poi_name": "Pasfield House Inn",
+      "osm_id": 7199395669,
+      "tourism": "hotel",
+      "website": "https://pasfieldhouse.com/",
+      "phone": "+1-217-525-3663",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "South Pasfield Street",
+      "addr_housenumber": "525",
+      "value": 51.89987061702908
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 67633,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Kidzeum of Health and Science, Springfield, IL",
+      "geo_wkt": "POINT (-89.650141 39.8003)",
+      "poi": {
+        "id": 22751,
+        "geometry": "POINT (-89.650141 39.8003)",
+        "poi_name": "Kidzeum of Health and Science",
+        "osm_id": 7248679561,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "opening_hours": "Sa-Su 09:00-16:00",
+        "website": "https://kidzeum.org/",
+        "phone": "+1-217-679-2123",
+        "museum": "science",
+        "wikidata": "Q114147335",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62701",
+        "addr_street": "East Adams Street",
+        "addr_housenumber": "412"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 125,
+  "type": "knn:towards+name"
+}

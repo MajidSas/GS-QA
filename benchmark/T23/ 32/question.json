@@ -1,0 +1,40 @@
+{
+  "question": "What is the count of attractions within 30 kilometers from Science Hall West, Wayne, NJ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.197766 40.946744)',4326)::geography, 30000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "count": 81
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Science Hall West, Wayne, NJ",
+      "geo_wkt": "POINT (-74.197766 40.946744)",
+      "poi": {
+        "id": 63023,
+        "geometry": "POINT (-74.197766 40.946744)",
+        "poi_name": "Science Hall West",
+        "osm_id": 5597728217,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    }
+  },
+  "id": 2231,
+  "type": "range+count"
+}

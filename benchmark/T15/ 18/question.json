@@ -1,0 +1,135 @@
+{
+  "question": "Within a radius of 150 kilometers, where can I find a museum situated towards the southeast of Ulrich Wildlife Preserve, Morton, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, 150000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 17828,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Krannert Art Museum",
+      "osm_id": 368074521,
+      "tourism": "museum",
+      "operator": "University of Illinois at Urbana-Champaign",
+      "website": "http://www.kam.illinois.edu/",
+      "phone": "+1-217-333-1861",
+      "wikidata": "Q6436109",
+      "addr_state": "IL",
+      "addr_city": "Champaign",
+      "addr_postcode": "61820",
+      "addr_street": "Peabody Drive",
+      "addr_housenumber": "500"
+    },
+    {
+      "id": 7463,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Homer Lake Interpretive Center",
+      "osm_id": 2174331932,
+      "tourism": "museum",
+      "addr_city": "Homer",
+      "addr_street": "South Homer Lake Road",
+      "addr_housenumber": "2573"
+    },
+    {
+      "id": 14516,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Hieronymus Mueller Museum",
+      "osm_id": 4644456104,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 13:00-16:00",
+      "website": "https://www.muellermuseum.org/",
+      "phone": "+1-217-423-6161",
+      "addr_state": "IL",
+      "addr_city": "Decatur",
+      "addr_postcode": "62522",
+      "addr_street": "West eldorado st",
+      "addr_housenumber": "420"
+    },
+    {
+      "id": 17830,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Douglas County Museum",
+      "osm_id": 368074533,
+      "tourism": "museum",
+      "website": "http://www.douglascountymuseum.org/home.html",
+      "addr_state": "IL"
+    },
+    {
+      "id": 17842,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Monticello Railway Museum",
+      "osm_id": 368074773,
+      "tourism": "museum",
+      "operator": "Monticello Railway Museum",
+      "website": "https://www.mrym.org/",
+      "museum": "transport",
+      "addr_state": "IL",
+      "addr_city": "Monticello",
+      "addr_postcode": "61856",
+      "addr_street": "Iron Horse Place",
+      "addr_housenumber": "992"
+    },
+    {
+      "id": 25883,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Staley Museum",
+      "osm_id": 4632339471,
+      "tourism": "museum",
+      "opening_hours": "13:00-16:00",
+      "operator": "Staley Museum Foundation",
+      "website": "https://www.staleymuseum.com/staff-board-of-directors/",
+      "addr_state": "IL",
+      "addr_city": "Decatur",
+      "addr_postcode": "62522",
+      "addr_street": "North College Street",
+      "addr_housenumber": "361"
+    },
+    {
+      "id": 23779,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Route 66 Arcade Museum",
+      "osm_id": 5312226067,
+      "tourism": "museum",
+      "website": "https://www.vintagevideogames.com/",
+      "addr_state": "IL",
+      "addr_city": "Atlanta",
+      "addr_street": "Southwest Arch Street",
+      "addr_housenumber": "108"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
+      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "poi": {
+        "id": 246437,
+        "geometry": "POINT (-89.490228 40.649994)",
+        "poi_name": "Ulrich Wildlife Preserve",
+        "osm_id": 9654359178,
+        "leisure": "nature_reserve",
+        "opening_hours": "dawn-dusk",
+        "operator": "Morton Park District",
+        "addr_state": "IL",
+        "addr_city": "Morton",
+        "addr_postcode": "61550",
+        "addr_street": "Turtle Creek Trail",
+        "addr_housenumber": "100"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 17,
+  "type": "range:direction+loc"
+}

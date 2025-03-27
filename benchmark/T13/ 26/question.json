@@ -1,0 +1,53 @@
+{
+  "question": "Could you help me locate a viewpoint that's within 150 kilometers from UCLA Extension, Woodland Hills, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.601019 34.178993)',4326)::geography, 150000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 3061,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "The Last House on Mulholland",
+      "osm_id": 10152480147,
+      "description": "Hollywood Sign Viewpoint",
+      "tourism": "viewpoint",
+      "parking": "no",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90068",
+      "addr_street": "Mulholland Highway",
+      "addr_housenumber": "6101"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "UCLA Extension, Woodland Hills, CA",
+      "geo_wkt": "POINT (-118.601019 34.178993)",
+      "poi": {
+        "id": 106494,
+        "geometry": "POINT (-118.601019 34.178993)",
+        "poi_name": "UCLA Extension",
+        "osm_id": 8682927461,
+        "amenity": "university",
+        "operator": "UCLA",
+        "website": "https://www.uclaextension.edu/locations/woodland-hills",
+        "addr_state": "CA",
+        "addr_city": "Woodland Hills",
+        "addr_postcode": "91367",
+        "addr_street": "Oxnard Street",
+        "addr_housenumber": "21650"
+      }
+    }
+  },
+  "id": 2025,
+  "type": "range+loc"
+}

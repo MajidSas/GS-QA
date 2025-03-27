@@ -1,0 +1,101 @@
+{
+  "question": "Where can I find fast food restaurant in the direction of JB Rodeo Arena, TX within 30 kilometers from CTOR, Killeen, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.676797 30.96805)',4326)::geography, ST_GeomFromText('POINT (-97.375836 30.914074)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.676797 30.96805)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.676797 30.96805)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 218212,
+      "geometry": "POINT (-97.537269 30.942463)",
+      "poi_name": "Chupacabra Kitchen",
+      "osm_id": 9268022018,
+      "amenity": "fast_food",
+      "cuisine": "burger;sandwich;snack;salad",
+      "wheelchair": "yes",
+      "opening_hours": "Su-We 11:00-21:00; Th 11:00-22:00; Fr-Sa 11:00-23:00",
+      "website": "https://www.chupacabratx.com",
+      "phone": "+1-254-308-2019",
+      "drive_through": "no",
+      "addr_state": "TX",
+      "addr_city": "Salado",
+      "addr_postcode": "76571",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "409",
+      "value": 101.67641583452661
+    },
+    {
+      "id": 118314,
+      "geometry": "POINT (-97.534805 30.955071)",
+      "poi_name": "Old Fashioned Burgers & Ice Cream",
+      "osm_id": 9039206642,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "addr_state": "TX",
+      "addr_city": "Salado",
+      "addr_postcode": "76571",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "882",
+      "value": 101.67641583452661
+    },
+    {
+      "id": 203329,
+      "geometry": "POINT (-97.534857 30.954918)",
+      "poi_name": "Subway",
+      "osm_id": 7078547578,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "TX",
+      "addr_city": "Salado",
+      "addr_postcode": "76571",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "882",
+      "value": 101.67641583452661
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "CTOR, Killeen, TX",
+      "geo_wkt": "POINT (-97.676797 30.96805)",
+      "poi": {
+        "id": 246432,
+        "geometry": "POINT (-97.676797 30.96805)",
+        "poi_name": "CTOR",
+        "osm_id": 9642209730,
+        "leisure": "park",
+        "description": "Central Texas Off-Roaders Dirt Bike Adventure Park",
+        "phone": "+1 (254) 217-3178",
+        "addr_state": "TX",
+        "addr_city": "Killeen",
+        "addr_postcode": "76549",
+        "addr_street": "Texas 195",
+        "addr_housenumber": "23500-23360"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "JB Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.375836 30.914074)",
+      "poi": {
+        "id": 265395,
+        "geometry": "POINT (-97.375836 30.914074)",
+        "poi_name": "JB Rodeo Arena",
+        "osm_id": 368165372,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1261,
+  "type": "range:towards+loc"
+}

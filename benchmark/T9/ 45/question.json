@@ -1,0 +1,45 @@
+{
+  "question": "Which park is nearest in the east direction from Kibel and Linear Galleries, College Park, MD?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.947557 38.984376)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247610,
+      "geometry": "POINT (-76.947557 38.984376)",
+      "poi_name": "Leonardtown Park",
+      "osm_id": 6985102473,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Kibel and Linear Galleries, College Park, MD",
+      "geo_wkt": "POINT (-76.947557 38.984376)",
+      "poi": {
+        "id": 7988,
+        "geometry": "POINT (-76.947557 38.984376)",
+        "poi_name": "Kibel and Linear Galleries",
+        "osm_id": 6502796457,
+        "tourism": "gallery",
+        "website": "https://www.arch.umd.edu/mapp/galleries",
+        "addr_state": "MD",
+        "addr_city": "College Park",
+        "addr_postcode": "20742",
+        "addr_street": "Campus Drive",
+        "addr_housenumber": "3835"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2544,
+  "type": "knn:direction+name"
+}

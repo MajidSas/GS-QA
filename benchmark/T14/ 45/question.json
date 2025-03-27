@@ -1,0 +1,55 @@
+{
+  "question": "I need assistance in locating a burger place within 30 kilometers from Smoky Mountain Alpine Coaster, Pigeon Forge, TN. Can you help me out?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%burger%';\n",
+  "answers": [
+    {
+      "id": 74028,
+      "geometry": "POINT (-83.517162 35.712332)",
+      "poi_name": "Johnny Rockets",
+      "osm_id": 9662022288,
+      "amenity": "restaurant",
+      "cuisine": "burger",
+      "phone": "+18654305844",
+      "addr_state": "TN",
+      "addr_city": "Gatlinburg",
+      "addr_postcode": "37738",
+      "addr_street": "Parkway",
+      "addr_housenumber": "735"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "poi": {
+        "id": 13057,
+        "geometry": "POINT (-83.596543 35.793397)",
+        "poi_name": "Smoky Mountain Alpine Coaster",
+        "osm_id": 4035710749,
+        "tourism": "theme_park",
+        "website": "http://www.smokymountainalpinecoaster.com/",
+        "wikidata": "Q29831450",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Wears Valley Road",
+        "addr_housenumber": "867"
+      }
+    }
+  },
+  "id": 444,
+  "type": "range:non_spat_filter+loc"
+}

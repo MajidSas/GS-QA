@@ -1,0 +1,51 @@
+{
+  "question": "How far away is the nearest university with respect to J. Pepin, Portland, OR?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-122.680325 45.525355)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.680325 45.525355)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143659,
+      "geometry": "POINT (-122.68312 45.527042)",
+      "poi_name": "Pacific University",
+      "osm_id": 6346326097,
+      "amenity": "university",
+      "description": "Master of Fine Arts in Writing",
+      "website": "https://www.pacificu.edu/",
+      "addr_state": "OR",
+      "addr_city": "Portland",
+      "addr_postcode": "97209",
+      "addr_street": "Northwest 12th Avenue",
+      "addr_housenumber": "530",
+      "distance": 287.83498163
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "J. Pepin, Portland, OR",
+      "geo_wkt": "POINT (-122.680325 45.525355)",
+      "poi": {
+        "id": 7466,
+        "geometry": "POINT (-122.680325 45.525355)",
+        "poi_name": "J. Pepin",
+        "osm_id": 2174824165,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 12:00-17:30; Su 12:00-16:00",
+        "website": "http://www.jpepinartgallery.com/",
+        "phone": "+1-503-274-9614",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97209",
+        "addr_street": "Northwest 9th Avenue",
+        "addr_housenumber": "319"
+      }
+    }
+  },
+  "id": 2487,
+  "type": "knn+distance"
+}

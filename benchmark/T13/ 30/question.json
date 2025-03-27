@@ -1,0 +1,50 @@
+{
+  "question": "Could you help me locate a viewpoint that's within 100 kilometers from Days Inn By Wyndham - Donegal, PA, Donegal, PA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.377094 40.106825)',4326)::geography, 100000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 15562,
+      "geometry": "POINT (-79.663483 39.854147)",
+      "poi_name": "Point Lookout",
+      "osm_id": 4939274603,
+      "tourism": "viewpoint",
+      "addr_state": "PA",
+      "addr_street": "Scenic Overlook",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Days Inn By Wyndham - Donegal, PA, Donegal, PA",
+      "geo_wkt": "POINT (-79.377094 40.106825)",
+      "poi": {
+        "id": 15851,
+        "geometry": "POINT (-79.377094 40.106825)",
+        "poi_name": "Days Inn By Wyndham - Donegal, PA",
+        "osm_id": 9563752626,
+        "tourism": "hotel",
+        "website": "https://www.wyndhamhotels.com/days-inn/donegal-pennsylvania/days-inn-donegal/overview",
+        "internet_access": "wlan",
+        "phone": "1-724-593-7536",
+        "addr_state": "PA",
+        "addr_city": "Donegal",
+        "addr_postcode": "15628",
+        "addr_street": "State Route 31",
+        "addr_housenumber": "3620"
+      }
+    }
+  },
+  "id": 2029,
+  "type": "range+loc"
+}

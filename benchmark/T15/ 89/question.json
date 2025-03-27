@@ -1,0 +1,149 @@
+{
+  "question": "Where can I find a museum located within 140 kilometers in the direction of northeast from Kettle Creek Environmental Education Center, Stroudsburg, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, 140000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 6813,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Pine Bush Museum",
+      "osm_id": 8703565078,
+      "tourism": "museum",
+      "operator": "Town of Crawford",
+      "website": "https://pinebushmuseum.com/",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Pine Bush",
+      "addr_postcode": "12566",
+      "addr_street": "Main Street",
+      "addr_housenumber": "86"
+    },
+    {
+      "id": 6943,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Liberty Museum and Arts Center",
+      "osm_id": 8780215851,
+      "tourism": "museum",
+      "building": "civic",
+      "fee": "no",
+      "addr_state": "NY",
+      "addr_city": "Liberty",
+      "addr_postcode": "12754",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "46"
+    },
+    {
+      "id": 14848,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "National Purple Heart Hall of Honor",
+      "osm_id": 4738681762,
+      "tourism": "museum",
+      "opening_hours": "Mo closed; Tu-Sa 10:00-17:00; Su 13:00-17:00",
+      "website": "https://www.thepurpleheart.com/",
+      "phone": "845-561-1765",
+      "addr_state": "NY",
+      "addr_city": "New Windsor",
+      "addr_postcode": "12553",
+      "addr_street": "Temple Hill Road",
+      "addr_housenumber": "374"
+    },
+    {
+      "id": 17811,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Hudson Highlands Nature Museum - Outdoor Discovery Center",
+      "osm_id": 368061730,
+      "tourism": "museum",
+      "operator": "Hudson Highlands Nature Museum",
+      "website": "http://www.hhnaturemuseum.org/",
+      "phone": "845-534-5506",
+      "addr_state": "NY",
+      "addr_city": "Cornwall"
+    },
+    {
+      "id": 17812,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "The Pines Museum",
+      "osm_id": 368061734,
+      "tourism": "museum",
+      "website": "https://orangetourism.org/explore/arts-culture/pines-museum/",
+      "addr_state": "NY"
+    },
+    {
+      "id": 17813,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Minisink Heritage Museum",
+      "osm_id": 368061738,
+      "tourism": "museum",
+      "website": "https://www.townofminisink.com/departments/museum",
+      "addr_state": "NY"
+    },
+    {
+      "id": 17814,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Erie Depot Museum",
+      "osm_id": 368061742,
+      "tourism": "museum",
+      "addr_state": "NY"
+    },
+    {
+      "id": 17818,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Neversink Valley Museum of History & Innovation",
+      "osm_id": 368061777,
+      "tourism": "museum",
+      "website": "https://neversinkmuseum.org/",
+      "addr_state": "NY"
+    },
+    {
+      "id": 17820,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Port Jervis Fireman Museum",
+      "osm_id": 368061788,
+      "tourism": "museum",
+      "addr_state": "NY"
+    },
+    {
+      "id": 17821,
+      "geometry": "POINT (-75.29615 40.988615)",
+      "poi_name": "Sullivan County Historical Society Museum",
+      "osm_id": 368061792,
+      "tourism": "museum",
+      "addr_state": "NY"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Kettle Creek Environmental Education Center, Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.29615 40.988615)",
+      "poi": {
+        "id": 246853,
+        "geometry": "POINT (-75.29615 40.988615)",
+        "poi_name": "Kettle Creek Environmental Education Center",
+        "osm_id": 6536561704,
+        "leisure": "nature_reserve",
+        "website": "https://www.mcconservation.org/",
+        "addr_state": "PA",
+        "addr_city": "Stroudsburg",
+        "addr_postcode": "18360",
+        "addr_street": "Running Valley Road",
+        "addr_housenumber": "8050"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 88,
+  "type": "range:direction+loc"
+}

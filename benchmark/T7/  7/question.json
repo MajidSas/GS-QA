@@ -1,0 +1,44 @@
+{
+  "question": "When was the nearest university from Magic Carpet Lodge, Seaside, CA established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-121.842356 36.616287)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167735,
+      "geometry": "POINT (-121.998198 36.964492)",
+      "poi_name": "Five Branches University",
+      "osm_id": 358858659,
+      "amenity": "university",
+      "wikidata": "Q5455840",
+      "multihop_answer": "1984",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Five Branches University Established: 1984"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Magic Carpet Lodge, Seaside, CA",
+      "geo_wkt": "POINT (-121.842356 36.616287)",
+      "poi": {
+        "id": 2212,
+        "geometry": "POINT (-121.842356 36.616287)",
+        "poi_name": "Magic Carpet Lodge",
+        "osm_id": 3331380927,
+        "tourism": "hotel",
+        "addr_state": "CA",
+        "addr_city": "Seaside",
+        "addr_postcode": "93955",
+        "addr_street": "Fremont Boulevard",
+        "addr_housenumber": "1875"
+      }
+    }
+  },
+  "id": 906,
+  "type": "knn+name+multihop1"
+}

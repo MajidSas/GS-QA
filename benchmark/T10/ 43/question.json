@@ -1,0 +1,69 @@
+{
+  "question": "What is the closest museum from Kimo theater Historic Site, Albuquerque, NM towards Best Western Plus Executive Suites, Albuquerque, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography, ST_GeomFromText('POINT (-106.606813 35.133309)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14751,
+      "geometry": "POINT (-106.111685 35.573584)",
+      "poi_name": "El Rancho de las Golondrinas",
+      "osm_id": 4708774236,
+      "tourism": "museum",
+      "website": "https://golondrinas.org/",
+      "phone": "+1-505-471-2261",
+      "wikidata": "Q5351983",
+      "addr_state": "NM",
+      "addr_city": "Santa Fe",
+      "addr_postcode": "87507",
+      "addr_street": "Los Pinos Road",
+      "addr_housenumber": "334",
+      "value": 37.77199274454415
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Kimo Theater Historic Site, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.652561 35.084818)",
+      "poi": {
+        "id": 16605,
+        "geometry": "POINT (-106.652561 35.084818)",
+        "poi_name": "Kimo Theater Historic Site",
+        "osm_id": 366378268,
+        "amenity": "theatre",
+        "tourism": "attraction",
+        "wikidata": "Q6403585",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_street": "Central Avenue Northwest",
+        "addr_housenumber": "423"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Best Western Plus Executive Suites, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.606813 35.133309)",
+      "poi": {
+        "id": 24166,
+        "geometry": "POINT (-106.606813 35.133309)",
+        "poi_name": "Best Western Plus Executive Suites",
+        "osm_id": 9360810123,
+        "tourism": "hotel",
+        "internet_access": "wlan",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87109",
+        "addr_street": "Pan American Freeway Northeast",
+        "addr_housenumber": "4630"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 142,
+  "type": "knn:towards+name"
+}

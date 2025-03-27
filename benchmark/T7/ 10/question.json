@@ -1,0 +1,49 @@
+{
+  "question": "What is the name of the architect that designed the closest stadium from Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265349,
+      "geometry": "POINT (-104.961685 39.682266)",
+      "poi_name": "Magness Arena",
+      "osm_id": 366396379,
+      "leisure": "stadium",
+      "wikidata": "Q14684923",
+      "addr_state": "CO",
+      "multihop_answer": "Davis Partnership Architects and Sink Combs Dethlefs",
+      "multihop_attribute": "Architect",
+      "multihop_long_answer": "Magness Arena Architect: Davis Partnership Architects and Sink Combs Dethlefs"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO",
+      "geo_wkt": "POINT (-104.799593 38.839378)",
+      "poi": {
+        "id": 46387,
+        "geometry": "POINT (-104.799593 38.839378)",
+        "poi_name": "Children's Hospital Colorado at Memorial Hospital",
+        "osm_id": 3262037034,
+        "amenity": "hospital",
+        "website": "https://www.childrenscolorado.org/about/locations/colorado-springs/memorial-hospital-central",
+        "phone": "+1-719-365-5000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Colorado Springs",
+        "addr_postcode": "80909",
+        "addr_street": "East Boulder Street",
+        "addr_housenumber": "1400"
+      }
+    }
+  },
+  "id": 909,
+  "type": "knn+name+multihop1"
+}

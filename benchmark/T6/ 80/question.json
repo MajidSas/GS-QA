@@ -1,0 +1,49 @@
+{
+  "question": "What's the nearest greek restaurant available from Horton Grove, Durham, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%greek%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.839968 36.124977)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 206862,
+      "geometry": "POINT (-78.787034 35.918535)",
+      "poi_name": "Showmars",
+      "osm_id": 7231241228,
+      "amenity": "restaurant",
+      "cuisine": "greek",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27617",
+      "addr_street": "Corners Parkway",
+      "addr_housenumber": "4203"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "greek restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%greek%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Horton Grove, Durham, NC",
+      "geo_wkt": "POINT (-78.839968 36.124977)",
+      "poi": {
+        "id": 21449,
+        "geometry": "POINT (-78.839968 36.124977)",
+        "poi_name": "Horton Grove",
+        "osm_id": 10268579609,
+        "tourism": "attraction",
+        "phone": "(919) 908-8809",
+        "addr_state": "NC",
+        "addr_city": "Durham",
+        "addr_postcode": "27503",
+        "addr_street": "Jock Road",
+        "addr_housenumber": "5925"
+      }
+    }
+  },
+  "id": 679,
+  "type": "knn:non_spat_filter+name"
+}

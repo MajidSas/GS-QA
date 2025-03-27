@@ -1,0 +1,81 @@
+{
+  "question": "What's the separation to a nature reserve from Riverside Day Use Area, Cartersville, GA within 100 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-84.73893 34.16212)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.73893 34.16212)',4326)::geography, 100000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 245216,
+      "geometry": "POINT (-84.470598 33.40944)",
+      "poi_name": "Sam's Lake Nature Area",
+      "osm_id": 8419207281,
+      "leisure": "nature_reserve",
+      "distance": 87106.45051581
+    },
+    {
+      "id": 247149,
+      "geometry": "POINT (-84.284502 33.806957)",
+      "poi_name": "Clyde Shepherd Nature Preserve",
+      "osm_id": 3648075892,
+      "leisure": "nature_reserve",
+      "wheelchair": "no",
+      "distance": 57577.15790607
+    },
+    {
+      "id": 247528,
+      "geometry": "POINT (-83.831755 34.240555)",
+      "poi_name": "Chicopee Woods Nature Preserve",
+      "osm_id": 6770238149,
+      "leisure": "nature_reserve",
+      "operator": "Elachee Nature Science Center",
+      "addr_state": "GA",
+      "addr_city": "Gainesville",
+      "addr_postcode": "30504",
+      "addr_street": "Elachee Drive",
+      "addr_housenumber": "2125",
+      "distance": 84062.12685822
+    },
+    {
+      "id": 247803,
+      "geometry": "POINT (-84.234474 33.806684)",
+      "poi_name": "Forty Oaks",
+      "osm_id": 9951770357,
+      "leisure": "nature_reserve",
+      "addr_state": "GA",
+      "addr_city": "Clarkston",
+      "addr_postcode": "30021",
+      "addr_street": "Market Street",
+      "addr_housenumber": "3790",
+      "distance": 61049.95543719
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Riverside Day Use Area, Cartersville, GA",
+      "geo_wkt": "POINT (-84.73893 34.16212)",
+      "poi": {
+        "id": 248915,
+        "geometry": "POINT (-84.73893 34.16212)",
+        "poi_name": "Riverside Day Use Area",
+        "osm_id": 4927446931,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Cartersville",
+        "addr_postcode": "30121",
+        "addr_street": "Allatoona Dam Road",
+        "addr_housenumber": "513"
+      }
+    }
+  },
+  "id": 782,
+  "type": "range+distance"
+}

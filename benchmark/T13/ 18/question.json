@@ -1,0 +1,72 @@
+{
+  "question": "Could you locate a hospital within a 10 kilometers radius of New Mexico Slaughter House, Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography, 10000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 84568,
+      "geometry": "POINT (-106.590913 35.131854)",
+      "poi_name": "Lovelace Women's Hopsital",
+      "osm_id": 1799734070,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "opening_hours": "24/7",
+      "website": "http://www.lovelace.com/locations/hospitals/lovelace-womens-hospital",
+      "phone": "+1 505 727 7800",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87109",
+      "addr_street": "Montgomery Boulevard Northeast",
+      "addr_housenumber": "4701"
+    },
+    {
+      "id": 182701,
+      "geometry": "POINT (-106.607595 35.138045)",
+      "poi_name": "Central Desert Behavioral Health Hospital",
+      "osm_id": 10900845708,
+      "amenity": "hospital",
+      "website": "http://www.centraldesertbh.com",
+      "phone": "+1 505 243 3387",
+      "healthcare": "hospital",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87102",
+      "addr_street": "North Renaissance Boulevard Northeast",
+      "addr_housenumber": "1525"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "poi": {
+        "id": 10873,
+        "geometry": "POINT (-106.657079 35.199273)",
+        "poi_name": "New Mexico Slaughter House",
+        "osm_id": 8107941834,
+        "tourism": "theme_park",
+        "opening_hours": "Oct Fr-Su 19:00-22:00",
+        "website": "https://www.nmslaughterhouse.com/",
+        "phone": "+1-505-764-2868",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87114",
+        "addr_street": "Coors Boulevard Bypass Northwest",
+        "addr_housenumber": "10000"
+      }
+    }
+  },
+  "id": 2017,
+  "type": "range+loc"
+}

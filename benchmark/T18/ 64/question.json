@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find the nearest emergency hospital near Dealaman Nature Trail and Pond, Warren Township, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 222206,
+      "geometry": "POINT (-74.49608 40.862231)",
+      "poi_name": "True Life Care Center",
+      "osm_id": 11009629478,
+      "amenity": "hospital",
+      "description": "Our team at True Life Care is dedicated to helping you take control of your mental health through a personalized healing approach and compassionate care.",
+      "opening_hours": "Mo-Fr 08:30-17:30",
+      "website": "https://truelifecarementalhealth.com",
+      "phone": "+1-973-490-4563",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Morris Plains",
+      "addr_postcode": "07950",
+      "addr_street": "NJ-10",
+      "addr_housenumber": "3000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dealaman Nature Trail and Pond, Warren Township, NJ",
+      "geo_wkt": "POINT (-74.506528 40.625648)",
+      "poi": {
+        "id": 267302,
+        "geometry": "POINT (-74.506528 40.625648)",
+        "poi_name": "Dealaman Nature Trail and Pond",
+        "osm_id": 5811042630,
+        "leisure": "nature_reserve",
+        "addr_state": "NJ",
+        "addr_city": "Warren Township",
+        "addr_postcode": "07059",
+        "addr_street": "Mount Horeb Road",
+        "addr_housenumber": "182"
+      }
+    }
+  },
+  "id": 363,
+  "type": "knn:non_spat_filter+loc"
+}

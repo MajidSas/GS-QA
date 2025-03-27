@@ -1,0 +1,56 @@
+{
+  "question": "Looking for an emergency hospital, preferably within a 190 kilometers radius from Kartway, Eagle River, WI. Can you assist me with this?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography, 190000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 239830,
+      "geometry": "POINT (-90.178312 44.6769)",
+      "poi_name": "Marshfield Children's Hospital",
+      "osm_id": 5940818235,
+      "amenity": "hospital",
+      "operator": "Marshfield Clinic",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WI",
+      "addr_city": "Marshfield",
+      "addr_postcode": "54449",
+      "addr_street": "Saint Joseph Avenue",
+      "addr_housenumber": "611"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kartway, Eagle River, WI",
+      "geo_wkt": "POINT (-89.251612 45.940777)",
+      "poi": {
+        "id": 9758,
+        "geometry": "POINT (-89.251612 45.940777)",
+        "poi_name": "Kartway",
+        "osm_id": 8976002654,
+        "tourism": "theme_park",
+        "website": "http://rockingwkartway.com/kartway.html",
+        "phone": "+1-715-479-4450",
+        "addr_state": "WI",
+        "addr_city": "Eagle River",
+        "addr_postcode": "54521",
+        "addr_street": "Pleasure Island Road",
+        "addr_housenumber": "1890"
+      }
+    }
+  },
+  "id": 598,
+  "type": "range:non_spat_filter+name"
+}

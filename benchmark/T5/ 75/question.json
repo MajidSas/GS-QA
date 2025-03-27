@@ -1,0 +1,38 @@
+{
+  "question": "What's the closest park nearby ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266274,
+      "geometry": "POINT (-106.680403 35.093006)",
+      "poi_name": "Children's Fantasy Garden",
+      "osm_id": 7113478417,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 274,
+  "type": "knn+name"
+}

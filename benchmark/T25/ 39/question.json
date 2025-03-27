@@ -1,0 +1,89 @@
+{
+  "question": "What's the distance to a caf\u00e9 from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK within a 20 kilometers span?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, 20000)\nAND amenity = 'cafe';\n",
+  "answers": [
+    {
+      "id": 34308,
+      "geometry": "POINT (-98.434921 34.602563)",
+      "poi_name": "Shepler Cafeteria",
+      "osm_id": 2699056011,
+      "amenity": "cafe",
+      "internet_access": "yes",
+      "distance": 15399.93994045
+    },
+    {
+      "id": 34309,
+      "geometry": "POINT (-98.433656 34.60449)",
+      "poi_name": "Student Union Food-Court",
+      "osm_id": 2699056012,
+      "amenity": "cafe",
+      "distance": 15259.55739201
+    },
+    {
+      "id": 34332,
+      "geometry": "POINT (-98.442747 34.623)",
+      "poi_name": "Starbucks",
+      "osm_id": 2699056037,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "distance": 13051.43326613
+    },
+    {
+      "id": 110020,
+      "geometry": "POINT (-98.413796 34.57307)",
+      "poi_name": "Betty's Airport Cafe",
+      "osm_id": 3683824581,
+      "amenity": "cafe",
+      "phone": "(580) 248-1078",
+      "distance": 19192.11093443
+    },
+    {
+      "id": 129733,
+      "geometry": "POINT (-98.390118 34.613043)",
+      "poi_name": "Viridian Coffe",
+      "osm_id": 9837283981,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "OK",
+      "addr_city": "Lawton",
+      "addr_postcode": "73501",
+      "addr_street": "Northwest 2nd Street",
+      "addr_housenumber": "343",
+      "distance": 16685.76158897
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 738,
+  "type": "range+distance"
+}

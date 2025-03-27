@@ -1,0 +1,50 @@
+{
+  "question": "Where's the nearest beach resort from E H Danner Museum of Telephony, San Angelo, TX located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-100.430648 31.453495)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-87.546195 30.279291)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "E H Danner Museum of Telephony, San Angelo, TX",
+      "geo_wkt": "POINT (-100.430648 31.453495)",
+      "poi": {
+        "id": 18011,
+        "geometry": "POINT (-100.430648 31.453495)",
+        "poi_name": "E H Danner Museum of Telephony",
+        "osm_id": 368165081,
+        "tourism": "museum",
+        "website": "https://texastimetravel.com/directory/eh-danner-museum-telephony/",
+        "phone": "+1-325-481-2646",
+        "addr_state": "TX",
+        "addr_city": "San Angelo",
+        "addr_postcode": "76903",
+        "addr_street": "South Oakes Street",
+        "addr_housenumber": "630"
+      }
+    }
+  },
+  "id": 1828,
+  "type": "knn+loc"
+}

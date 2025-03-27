@@ -1,0 +1,71 @@
+{
+  "question": "Which restaurant is closest on the way to Museum Of American Jewelry Design and Manufacturing, Harrisonburg, VA from Costello Stadium, Palmyra, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography, ST_GeomFromText('POINT (-78.871852 38.447095)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 243801,
+      "geometry": "POINT (-78.313128 37.898218)",
+      "poi_name": "Panda Kitchen",
+      "osm_id": 7678816651,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "phone": "+1 434 591 0067",
+      "takeaway": "yes",
+      "addr_state": "VA",
+      "addr_city": "Palmyra",
+      "addr_postcode": "22963",
+      "addr_street": "Joshua Lane",
+      "addr_housenumber": "82",
+      "value": 322.96529246218705
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Costello Stadium, Palmyra, VA",
+      "geo_wkt": "POINT (-78.27531 37.826783)",
+      "poi": {
+        "id": 267563,
+        "geometry": "POINT (-78.27531 37.826783)",
+        "poi_name": "Costello Stadium",
+        "osm_id": 7683085715,
+        "leisure": "stadium",
+        "operator": "Fluvanna County Public Schools",
+        "addr_state": "VA",
+        "addr_city": "Palmyra",
+        "addr_postcode": "22963",
+        "addr_street": "Central Plains Road",
+        "addr_housenumber": "3717"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Museum Of American Jewelry Design and Manufacturing, Harrisonburg, VA",
+      "geo_wkt": "POINT (-78.871852 38.447095)",
+      "poi": {
+        "id": 23897,
+        "geometry": "POINT (-78.871852 38.447095)",
+        "poi_name": "Museum Of American Jewelry Design and Manufacturing",
+        "osm_id": 9188634160,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 14:30-15:30",
+        "website": "https://hugokohl.com/unearth-the-story/",
+        "phone": "+15405744306",
+        "addr_state": "VA",
+        "addr_city": "Harrisonburg",
+        "addr_postcode": "22801",
+        "addr_street": "South Liberty Street",
+        "addr_housenumber": "217"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 132,
+  "type": "knn:towards+name"
+}

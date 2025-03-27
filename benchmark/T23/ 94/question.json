@@ -1,0 +1,41 @@
+{
+  "question": "How many hotels are situated within a 60 kilometers distance from Mikee Huber Studio & Gallery, Dayton, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.183448 39.77631)',4326)::geography, 60000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Mikee Huber Studio & Gallery, Dayton, OH",
+      "geo_wkt": "POINT (-84.183448 39.77631)",
+      "poi": {
+        "id": 19966,
+        "geometry": "POINT (-84.183448 39.77631)",
+        "poi_name": "Mikee Huber Studio & Gallery",
+        "osm_id": 7787687261,
+        "tourism": "gallery",
+        "website": "https://www.mikeehuber.com/",
+        "addr_state": "OH",
+        "addr_city": "Dayton",
+        "addr_postcode": "45404",
+        "addr_street": "North Keowee Street",
+        "addr_housenumber": "903"
+      }
+    }
+  },
+  "id": 2293,
+  "type": "range+count"
+}

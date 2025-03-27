@@ -1,0 +1,68 @@
+{
+  "question": "What museum is positioned towards the east of White Memorial Foundation, Litchfield, CT within 20 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.213489 41.724615)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.213489 41.724615)',4326)::geography, 20000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 17255,
+      "geometry": "POINT (-73.213489 41.724615)",
+      "poi_name": "Lock Museum of America Library",
+      "osm_id": 367140025,
+      "tourism": "museum",
+      "website": "https://www.lockmuseumofamerica.org/",
+      "addr_state": "CT"
+    },
+    {
+      "id": 17256,
+      "geometry": "POINT (-73.213489 41.724615)",
+      "poi_name": "Lock Museum of America",
+      "osm_id": 367140026,
+      "tourism": "museum",
+      "website": "https://www.lockmuseumofamerica.org/",
+      "wikidata": "Q6665224",
+      "addr_state": "CT",
+      "addr_city": "Terryville",
+      "addr_postcode": "06786",
+      "addr_street": "Main Street",
+      "addr_housenumber": "230"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "White Memorial Foundation, Litchfield, CT",
+      "geo_wkt": "POINT (-73.213489 41.724615)",
+      "poi": {
+        "id": 245812,
+        "geometry": "POINT (-73.213489 41.724615)",
+        "poi_name": "White Memorial Foundation",
+        "osm_id": 10112095367,
+        "leisure": "nature_reserve",
+        "description": "The White Memorial Foundation is the result of the vision of two generous and creative people, Alain C. White and his sister, May W. White. Between 1908 and 1912 they purchased several tracts of land surrounding their family\u2019s Whitehall property on the no",
+        "operator": "White Memorial Foundation",
+        "website": "www.whitememorialcc.org",
+        "phone": "860-567-0857",
+        "addr_state": "CT",
+        "addr_city": "Litchfield",
+        "addr_postcode": "06759",
+        "addr_street": "Whitehall Road",
+        "addr_housenumber": "72"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2682,
+  "type": "range:direction+name"
+}

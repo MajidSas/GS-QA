@@ -1,0 +1,52 @@
+{
+  "question": "Do you know where the closest aquarium from the Art Loft, Zanesville, OH is located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.008466 39.940884)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 27034,
+      "geometry": "POINT (-83.296505 42.70361)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 7653305135,
+      "tourism": "aquarium",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-19:00; Su 11:00-18:00",
+      "website": "https://www.visitsealife.com/michigan/",
+      "phone": "+1 248-409-6001",
+      "toilets": "yes",
+      "addr_state": "MI",
+      "addr_city": "Auburn Hills",
+      "addr_postcode": "48326",
+      "addr_street": "Baldwin Road",
+      "addr_housenumber": "4316"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Art Loft, Zanesville, OH",
+      "geo_wkt": "POINT (-82.008466 39.940884)",
+      "poi": {
+        "id": 11636,
+        "geometry": "POINT (-82.008466 39.940884)",
+        "poi_name": "The Art Loft",
+        "osm_id": 11459367620,
+        "tourism": "gallery",
+        "website": "https://www.theartloftzanesville.com/",
+        "phone": "+1-740-819-8369",
+        "addr_state": "OH",
+        "addr_city": "Zanesville",
+        "addr_postcode": "43701",
+        "addr_street": "North 3rd Street",
+        "addr_housenumber": "26"
+      }
+    }
+  },
+  "id": 1800,
+  "type": "knn+loc"
+}

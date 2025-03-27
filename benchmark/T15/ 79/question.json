@@ -1,0 +1,106 @@
+{
+  "question": "Within a radius of 170 kilometers, where can I find a golf course situated towards the west of Gary Lapelusa Landscaping LLC, Bayonne, NJ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, 170000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 248493,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Twin Ponds Golf Course",
+      "osm_id": 4238541592,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Gilbertsville",
+      "addr_postcode": "19525",
+      "addr_street": "Gilbertsville Road",
+      "addr_housenumber": "700"
+    },
+    {
+      "id": 247155,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Miniature Golf",
+      "osm_id": 3661911115,
+      "leisure": "golf_course",
+      "operator": "Spring Hill Golf and Batting Cages",
+      "website": "http://www.springhillgolfandbattingcages.net/",
+      "phone": "+1 610 769 7900",
+      "addr_state": "PA",
+      "addr_city": "Schnecksville",
+      "addr_postcode": "18078",
+      "addr_street": "Spring Hill Drive",
+      "addr_housenumber": "4565"
+    },
+    {
+      "id": 266215,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "The Golf Range @ Branchburg",
+      "osm_id": 7065436012,
+      "leisure": "golf_course",
+      "addr_state": "NJ",
+      "addr_city": "Branchburg Township",
+      "addr_postcode": "08876",
+      "addr_street": "US-22",
+      "addr_housenumber": "3091"
+    },
+    {
+      "id": 267204,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Fox Hollow Golf Club",
+      "osm_id": 5742212193,
+      "leisure": "golf_course",
+      "addr_state": "NJ",
+      "addr_city": "Branchburg Township",
+      "addr_postcode": "08876",
+      "addr_street": "Fox Chase Run",
+      "addr_housenumber": "59"
+    },
+    {
+      "id": 267310,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Villas Crossing Golf Course",
+      "osm_id": 5824289945,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Tamaqua",
+      "addr_postcode": "18252",
+      "addr_street": "Golf Road",
+      "addr_housenumber": "521"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "poi": {
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 78,
+  "type": "range:direction+loc"
+}

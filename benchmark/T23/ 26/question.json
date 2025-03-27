@@ -1,0 +1,43 @@
+{
+  "question": "Within a 60 kilometers radius from Legoland Discovery Center Chicago, Schaumburg, IL, how many universities are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography, 60000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "count": 12
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Legoland Discovery Center Chicago, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.034026 42.039672)",
+      "poi": {
+        "id": 21492,
+        "geometry": "POINT (-88.034026 42.039672)",
+        "poi_name": "Legoland Discovery Center Chicago",
+        "osm_id": 10285659853,
+        "tourism": "theme_park",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/chicago/",
+        "wikidata": "Q20711319",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "North Martingale Road",
+        "addr_housenumber": "601"
+      }
+    }
+  },
+  "id": 2225,
+  "type": "range+count"
+}

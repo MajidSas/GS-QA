@@ -1,0 +1,42 @@
+{
+  "question": "Could you tell me the closest beach resort relative to Sebago Lake Lodge, Standish, ME?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.465988 43.84535)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266072,
+      "geometry": "POINT (-69.974564 41.92296)",
+      "poi_name": "Maguire Landing Beach",
+      "osm_id": 10544347711,
+      "leisure": "beach_resort",
+      "operator": "Town of Wellfleet",
+      "wikidata": "Q49321914"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Sebago Lake Lodge, Standish, ME",
+      "geo_wkt": "POINT (-70.465988 43.84535)",
+      "poi": {
+        "id": 12613,
+        "geometry": "POINT (-70.465988 43.84535)",
+        "poi_name": "Sebago Lake Lodge",
+        "osm_id": 7386428110,
+        "tourism": "hotel",
+        "addr_state": "ME",
+        "addr_city": "Standish",
+        "addr_postcode": "04084",
+        "addr_street": "Whites Bridge Road",
+        "addr_housenumber": "661"
+      }
+    }
+  },
+  "id": 246,
+  "type": "knn+name"
+}

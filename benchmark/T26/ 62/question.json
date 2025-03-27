@@ -1,0 +1,39 @@
+{
+  "question": "How far is the nearest garden from the location Golden Gate Bridge Lookout, Sausalito, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246909,
+      "geometry": "POINT (-122.476671 37.77487)",
+      "poi_name": "Argonne School Native Garden and Outdoor Classroom",
+      "osm_id": 6592179996,
+      "leisure": "garden",
+      "distance": 6033.24540113
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
+      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "poi": {
+        "id": 20450,
+        "geometry": "POINT (-122.486003 37.82872)",
+        "poi_name": "Golden Gate Bridge Lookout",
+        "osm_id": 1183476394,
+        "tourism": "viewpoint",
+        "addr_state": "CA",
+        "addr_city": "Sausalito",
+        "addr_street": "Conzelman Road"
+      }
+    }
+  },
+  "id": 2461,
+  "type": "knn+distance"
+}

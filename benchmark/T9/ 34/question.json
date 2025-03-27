@@ -1,0 +1,52 @@
+{
+  "question": "Which beach resort is closest when moving towards the south of Raptor Center, Solon, IA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-91.571085 41.782583)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2533,
+  "type": "knn:direction+name"
+}

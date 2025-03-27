@@ -1,0 +1,48 @@
+{
+  "question": "What stadium can I find towards the west of Lincoln Park Zoo, Manitowoc, WI, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, 160000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 265540,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Firebowl",
+      "osm_id": 2491460166,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
+      "poi": {
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2698,
+  "type": "range:direction+name"
+}

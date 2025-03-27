@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the closest children museum from Childrens's Nature Center, Grand Junction, CO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'children'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24499,
+      "geometry": "POINT (-106.982373 38.869898)",
+      "poi_name": "Trailhead Children's Museum",
+      "osm_id": 11081762464,
+      "tourism": "museum",
+      "website": "https://www.trailheadkids.org/",
+      "museum": "children",
+      "addr_state": "CO",
+      "addr_city": "Crested Butte",
+      "addr_street": "Elk Avenue",
+      "addr_housenumber": "501"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "children museum",
+      "poi_filter_sql": "museum = 'children'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Childrens's Nature Center, Grand Junction, CO",
+      "geo_wkt": "POINT (-108.603856 39.09253)",
+      "poi": {
+        "id": 8067,
+        "geometry": "POINT (-108.603856 39.09253)",
+        "poi_name": "Childrens's Nature Center",
+        "osm_id": 6546260867,
+        "description": "Zoo and aquarium great for children and exciting for all ages. Over 100 unique creatures and educational exhibits.",
+        "tourism": "zoo",
+        "opening_hours": "Su 12:00-16:00; Mo-Sa 10:00-16:00",
+        "phone": "+1-970-241-1000",
+        "addr_state": "CO",
+        "addr_city": "Grand Junction",
+        "addr_postcode": "81501",
+        "addr_street": "US 6 and 50",
+        "addr_housenumber": "2424"
+      }
+    }
+  },
+  "id": 365,
+  "type": "knn:non_spat_filter+loc"
+}

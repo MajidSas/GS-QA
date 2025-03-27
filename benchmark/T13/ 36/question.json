@@ -1,0 +1,68 @@
+{
+  "question": "I'm searching for an attraction within 100 kilometers radii from Canyonlands National Park, UT, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-109.984017 38.166652)',4326)::geography, 100000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "id": 1455,
+      "geometry": "POINT (-109.454349 38.390826)",
+      "poi_name": "Hole N'' The Rock",
+      "osm_id": 2991185281,
+      "tourism": "attraction",
+      "website": "https://www.theholeintherock.com/",
+      "addr_state": "UT",
+      "addr_city": "Moab",
+      "addr_street": "US-191"
+    },
+    {
+      "id": 14019,
+      "geometry": "POINT (-109.740305 38.470828)",
+      "poi_name": "Dead Horse Point State Park",
+      "osm_id": 4213407593,
+      "tourism": "attraction",
+      "website": "https://stateparks.utah.gov/parks/dead-horse/",
+      "wikidata": "Q129470",
+      "addr_state": "UT",
+      "addr_city": "Moab",
+      "addr_street": "UT-313"
+    },
+    {
+      "id": 24758,
+      "geometry": "POINT (-109.522677 38.575331)",
+      "poi_name": "Hell's Revenge",
+      "osm_id": 4312427940,
+      "tourism": "attraction",
+      "addr_state": "UT",
+      "addr_city": "Moab",
+      "addr_street": "Sand Flats Road"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Canyonlands National Park, UT",
+      "geo_wkt": "POINT (-109.984017 38.166652)",
+      "poi": {
+        "id": 251562,
+        "geometry": "POINT (-109.984017 38.166652)",
+        "poi_name": "Canyonlands National Park",
+        "osm_id": 356681150,
+        "leisure": "park",
+        "website": "https://cliffsandcanyons.com/contact-us/",
+        "wikidata": "Q541856",
+        "addr_state": "UT"
+      }
+    }
+  },
+  "id": 2035,
+  "type": "range+loc"
+}

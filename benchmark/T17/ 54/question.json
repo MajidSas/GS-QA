@@ -1,0 +1,45 @@
+{
+  "question": "Can you point me to the nearest fast food restaurant from Schowalter Villa, Hesston, KS?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-97.43297 38.131161)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 187295,
+      "geometry": "POINT (-97.345444 38.062766)",
+      "poi_name": "Subway",
+      "osm_id": 1050770109,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "phone": "+1-316-283-8448",
+      "takeaway": "yes",
+      "addr_state": "KS",
+      "addr_city": "Newton",
+      "addr_postcode": "67114",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "1715"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Schowalter Villa, Hesston, KS",
+      "geo_wkt": "POINT (-97.43297 38.131161)",
+      "poi": {
+        "id": 16060,
+        "geometry": "POINT (-97.43297 38.131161)",
+        "poi_name": "Schowalter Villa",
+        "osm_id": 321402505,
+        "tourism": "attraction",
+        "addr_state": "KS",
+        "addr_city": "Hesston"
+      }
+    }
+  },
+  "id": 1853,
+  "type": "knn+loc"
+}

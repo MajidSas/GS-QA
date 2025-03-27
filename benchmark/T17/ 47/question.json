@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the nearest hospital relative to 29 Palms Art at 29 Palms Creative Center, Twentynine Palms, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-116.0539 34.129534)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 181853,
+      "geometry": "POINT (-116.43945 33.81487)",
+      "poi_name": "Vibra Rehabilitation Hospital Of Rancho Mirage",
+      "osm_id": 10866476446,
+      "amenity": "hospital",
+      "website": "https://vrhranchomirage.com",
+      "phone": "+1 442 241 7842",
+      "healthcare": "rehabilitation",
+      "addr_city": "Rancho Mirage",
+      "addr_postcode": "92270",
+      "addr_street": "Ramon Road",
+      "addr_housenumber": "70077"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "29 Palms Art at 29 Palms Creative Center, Twentynine Palms, CA",
+      "geo_wkt": "POINT (-116.0539 34.129534)",
+      "poi": {
+        "id": 25006,
+        "geometry": "POINT (-116.0539 34.129534)",
+        "poi_name": "29 Palms Art at 29 Palms Creative Center",
+        "osm_id": 4373174279,
+        "tourism": "gallery",
+        "website": "https://www.29palmsart.com/",
+        "phone": "+17603613461",
+        "addr_state": "CA",
+        "addr_city": "Twentynine Palms",
+        "addr_postcode": "92277",
+        "addr_street": "Adobe Road",
+        "addr_housenumber": "6847"
+      }
+    }
+  },
+  "id": 1846,
+  "type": "knn+loc"
+}

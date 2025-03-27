@@ -1,0 +1,42 @@
+{
+  "question": "Seeking suggestions for the nearest hospital in relation to the stadium that was constructed in 1936 in Eau Claire, WI.",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143377,
+      "geometry": "POINT (-91.513393 44.812618)",
+      "poi_name": "Mayo Cancer Center",
+      "osm_id": 6338804010,
+      "amenity": "hospital",
+      "healthcare": "hospital"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2717,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "How distant is the closest fast food restaurant located from UIW SPS Alamo Heights Center, San Antonio, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.490182 29.460428)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.490182 29.460428)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 198841,
+      "geometry": "POINT (-98.499036 29.46622)",
+      "poi_name": "Taco Cabana",
+      "osm_id": 921116456,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "distance": 1072.27566868
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "UIW SPS Alamo Heights Center, San Antonio, TX",
+      "geo_wkt": "POINT (-98.490182 29.460428)",
+      "poi": {
+        "id": 206218,
+        "geometry": "POINT (-98.490182 29.460428)",
+        "poi_name": "UIW SPS Alamo Heights Center",
+        "osm_id": 7201375091,
+        "amenity": "university",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_street": "McCullough Avenue",
+        "addr_housenumber": "3200"
+      }
+    }
+  },
+  "id": 2438,
+  "type": "knn+distance"
+}

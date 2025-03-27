@@ -1,0 +1,54 @@
+{
+  "question": "What's the closest archive museum from Regions Behavioral Hospital, Baton Rouge, LA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'archive'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.097562 30.444798)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8610,
+      "geometry": "POINT (-122.345908 37.929269)",
+      "poi_name": "Internet Archive - Physical Archive",
+      "osm_id": 8593718592,
+      "description": "The off-site Physical Archives of the Internet Archive",
+      "tourism": "museum",
+      "operator": "Internet Archive",
+      "website": "https://archive.org/",
+      "museum": "archive",
+      "addr_state": "CA",
+      "addr_city": "Richmond",
+      "addr_postcode": "94804",
+      "addr_street": "Florida Avenue",
+      "addr_housenumber": "2512"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "archive museum",
+      "poi_filter_sql": "museum = 'archive'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Regions Behavioral Hospital, Baton Rouge, LA",
+      "geo_wkt": "POINT (-91.097562 30.444798)",
+      "poi": {
+        "id": 182427,
+        "geometry": "POINT (-91.097562 30.444798)",
+        "poi_name": "Regions Behavioral Hospital",
+        "osm_id": 10892095357,
+        "amenity": "hospital",
+        "website": "https://www.regionsbh.com",
+        "phone": "+1 225 408 6060",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Baton Rouge",
+        "addr_postcode": "70806",
+        "addr_street": "Cumberland",
+        "addr_housenumber": "8416"
+      }
+    }
+  },
+  "id": 613,
+  "type": "knn:non_spat_filter+name"
+}

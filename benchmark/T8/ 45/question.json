@@ -1,0 +1,44 @@
+{
+  "question": "Seeking the nearest restaurant from the museum established in the year 1974 in New York, NY, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.983725 40.755739)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 204670,
+      "geometry": "POINT (-73.98501 40.755877)",
+      "poi_name": "Burger & Lobster",
+      "osm_id": 7139389687,
+      "amenity": "restaurant",
+      "cuisine": "burger;seafood",
+      "opening_hours": "Mo 11:30-22:00; Tu-Th, Su 11:30-23:00; Fr, Sa 11:30-24:00"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "International Center of Photography, New York, NY",
+      "geo_wkt": "POINT (-73.983725 40.755739)",
+      "poi": {
+        "id": 2728,
+        "geometry": "POINT (-73.983725 40.755739)",
+        "poi_name": "International Center of Photography",
+        "osm_id": 566445454,
+        "tourism": "museum",
+        "website": "https://www.icp.org/",
+        "wikidata": "Q636942",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10036",
+        "addr_street": "6th Avenue",
+        "addr_housenumber": "1133"
+      }
+    }
+  },
+  "id": 2744,
+  "type": "knn+name+multihop2"
+}

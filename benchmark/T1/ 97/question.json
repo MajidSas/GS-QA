@@ -1,0 +1,55 @@
+{
+  "question": "Is there a nature reserve within 130 kilometers from George Becker House Bunk House and Barn Historic Site, NM?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.569705 36.729595)',4326)::geography, 130000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 247580,
+      "geometry": "POINT (-107.71131 36.79787)",
+      "poi_name": "San Juan Fishing Easement",
+      "osm_id": 6910505673,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 247581,
+      "geometry": "POINT (-107.699629 36.805574)",
+      "poi_name": "San Juan Fishing Easement",
+      "osm_id": 6910505674,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 266247,
+      "geometry": "POINT (-105.687011 36.937477)",
+      "poi_name": "Cerro del Yuta Wilderness Area",
+      "osm_id": 7087023606,
+      "leisure": "nature_reserve",
+      "operator": "Bureau of Land Management"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "George Becker House Bunk House and Barn Historic Site, NM",
+      "geo_wkt": "POINT (-106.569705 36.729595)",
+      "poi": {
+        "id": 16506,
+        "geometry": "POINT (-106.569705 36.729595)",
+        "poi_name": "George Becker House Bunk House and Barn Historic Site",
+        "osm_id": 366377521,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 896,
+  "type": "range+name"
+}

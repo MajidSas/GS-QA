@@ -1,0 +1,42 @@
+{
+  "question": "Any recommendations for the closest university from the museum established in the year 1992 in Jacksonville, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.656807 30.337046)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 140733,
+      "geometry": "POINT (-81.214463 29.670285)",
+      "poi_name": "Whitney Laboratory for Marine Bioscience",
+      "osm_id": 6258553118,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Karpeles Manuscript Library, Jacksonville, FL",
+      "geo_wkt": "POINT (-81.656807 30.337046)",
+      "poi": {
+        "id": 1648,
+        "geometry": "POINT (-81.656807 30.337046)",
+        "poi_name": "Karpeles Manuscript Library",
+        "osm_id": 3099855229,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 10:00-15:00; Sa 10:00-16:00",
+        "website": "https://karpeles.com/museums/jax.php",
+        "wikidata": "Q6373297",
+        "addr_state": "FL",
+        "addr_city": "Jacksonville",
+        "addr_postcode": "32206",
+        "addr_street": "West 1st Street"
+      }
+    }
+  },
+  "id": 2743,
+  "type": "knn+name+multihop2"
+}

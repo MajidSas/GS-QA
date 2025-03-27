@@ -1,0 +1,107 @@
+{
+  "question": "What fast food restaurant can I find within 30 kilometers from Charlotte Art League, Charlotte, NC towards Norwood Park, Norwood, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.789814 35.253937)',4326)::geography, ST_GeomFromText('POINT (-80.130475 35.231399)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.789814 35.253937)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.789814 35.253937)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 41016,
+      "geometry": "POINT (-80.667465 35.284099)",
+      "poi_name": "Bojangles'",
+      "osm_id": 2990877785,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "takeaway": "yes",
+      "official_name": "Bojangles' Famous Chicken 'n Biscuits",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28215",
+      "addr_street": "Stafford Road",
+      "addr_housenumber": "9501",
+      "value": 92.19567884442488
+    },
+    {
+      "id": 161249,
+      "geometry": "POINT (-80.739076 35.235374)",
+      "poi_name": "Pollo Campero",
+      "osm_id": 4871794421,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "opening_hours": "Su-Th 10:00-22:00; Fr-Sa 10:00-23:00",
+      "website": "https://www.campero.com/menu",
+      "phone": "+1-704-900-5639",
+      "takeaway": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28215",
+      "addr_street": "North Sharon Amity Road",
+      "addr_housenumber": "5727",
+      "value": 92.19567884442488
+    },
+    {
+      "id": 159956,
+      "geometry": "POINT (-80.668497 35.283086)",
+      "poi_name": "Subway",
+      "osm_id": 4812415586,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "07:00-22:00",
+      "takeaway": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28215",
+      "addr_street": "Brookdale Drive",
+      "addr_housenumber": "9611",
+      "value": 92.19567884442488
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Charlotte Art League, Charlotte, NC",
+      "geo_wkt": "POINT (-80.789814 35.253937)",
+      "poi": {
+        "id": 4708,
+        "geometry": "POINT (-80.789814 35.253937)",
+        "poi_name": "Charlotte Art League",
+        "osm_id": 11402143954,
+        "tourism": "gallery",
+        "website": "https://charlotteartleague.org/",
+        "phone": "+1-704-376-2787",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28213",
+        "addr_street": "Raleigh Street",
+        "addr_housenumber": "4237"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Norwood Park, Norwood, NC",
+      "geo_wkt": "POINT (-80.130475 35.231399)",
+      "poi": {
+        "id": 265628,
+        "geometry": "POINT (-80.130475 35.231399)",
+        "poi_name": "Norwood Park",
+        "osm_id": 10763716150,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Norwood",
+        "addr_postcode": "28128",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "782"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1647,
+  "type": "range:towards+name"
+}

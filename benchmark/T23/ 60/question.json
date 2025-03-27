@@ -1,0 +1,41 @@
+{
+  "question": "What's the count of aquaria within 110 kilometers from the location Beltzville State Park - Parking Lot B, Lehighton, PA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.632738 40.859032)',4326)::geography, 110000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Beltzville State Park - Parking Lot B, Lehighton, PA",
+      "geo_wkt": "POINT (-75.632738 40.859032)",
+      "poi": {
+        "id": 247266,
+        "geometry": "POINT (-75.632738 40.859032)",
+        "poi_name": "Beltzville State Park - Parking Lot B",
+        "osm_id": 8888290705,
+        "leisure": "park",
+        "operator": "PA DCNR - Brueau of State Parks",
+        "addr_state": "PA",
+        "addr_city": "Lehighton",
+        "addr_postcode": "18235",
+        "addr_street": "Pohopoco DR",
+        "addr_housenumber": "2950"
+      }
+    }
+  },
+  "id": 2259,
+  "type": "range+count"
+}

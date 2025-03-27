@@ -1,0 +1,42 @@
+{
+  "question": "What's the closest golf course in proximity to the attraction that was opened on June\u00a03,\u00a01937 in Rapid City, SD?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-103.271398 43.990679)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245557,
+      "geometry": "POINT (-103.300024 44.021016)",
+      "poi_name": "Red Rock Golf Club",
+      "osm_id": 3113180614,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Reptile Gardens, Rapid City, SD",
+      "geo_wkt": "POINT (-103.271398 43.990679)",
+      "poi": {
+        "id": 1210,
+        "geometry": "POINT (-103.271398 43.990679)",
+        "poi_name": "Reptile Gardens",
+        "osm_id": 2897438619,
+        "tourism": "attraction",
+        "website": "https://www.reptilegardens.com/",
+        "wikidata": "Q3427461",
+        "addr_state": "SD",
+        "addr_city": "Rapid City",
+        "addr_postcode": "57702",
+        "addr_street": "South Highway 16",
+        "addr_housenumber": "8955"
+      }
+    }
+  },
+  "id": 2771,
+  "type": "knn+name+multihop2"
+}

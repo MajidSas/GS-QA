@@ -1,0 +1,47 @@
+{
+  "question": "Can you recommend a hotel that's not too far from Hairpin Turn, Clarksburg, MA? Maximum distance: 20 kilometers",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, 20000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "id": 14454,
+      "geometry": "POINT (-73.151654 42.577737)",
+      "poi_name": "Harbour House Inn B&B",
+      "osm_id": 4640040190,
+      "tourism": "hotel",
+      "website": "https://harbourhouseinn.com/",
+      "internet_access": "wlan",
+      "phone": "+1 413 553 3128",
+      "addr_postcode": "01225",
+      "addr_street": "North State Road",
+      "addr_housenumber": "725"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "poi": {
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
+      }
+    }
+  },
+  "id": 811,
+  "type": "range+name"
+}

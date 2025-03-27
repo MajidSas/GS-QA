@@ -1,0 +1,45 @@
+{
+  "question": "Which way should I head to access the closest hotel from Smith Street Food Forest, Lexington, KY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.494962 38.056302)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.494962 38.056302)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3156,
+      "geometry": "POINT (-84.501805 38.048288)",
+      "poi_name": "Hyatt Regency Lexington",
+      "osm_id": 10213044366,
+      "tourism": "hotel",
+      "phone": "8592531234",
+      "addr_street": "West High Street",
+      "addr_housenumber": "401",
+      "angle": 214.0267207265431
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Smith Street Food Forest, Lexington, KY",
+      "geo_wkt": "POINT (-84.494962 38.056302)",
+      "poi": {
+        "id": 248380,
+        "geometry": "POINT (-84.494962 38.056302)",
+        "poi_name": "Smith Street Food Forest",
+        "osm_id": 4070871292,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Smith Street",
+        "addr_housenumber": "426"
+      }
+    }
+  },
+  "id": 1434,
+  "type": "knn+angle"
+}

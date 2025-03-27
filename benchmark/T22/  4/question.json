@@ -1,0 +1,48 @@
+{
+  "question": "In which direction should I proceed to reach the closest gallery from Go Ape Treetop Adventure Course, Strongsville, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9701,
+      "geometry": "POINT (-81.898988 41.419561)",
+      "poi_name": "Bottle & Bottega",
+      "osm_id": 8944836844,
+      "tourism": "gallery",
+      "addr_state": "OH",
+      "addr_city": "North Olmsted",
+      "addr_postcode": "44070",
+      "addr_street": "Brookpark Road",
+      "addr_housenumber": "25102",
+      "angle": 328.09373468166956
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Go Ape Treetop Adventure Course, Strongsville, OH",
+      "geo_wkt": "POINT (-81.818381 41.322133)",
+      "poi": {
+        "id": 14029,
+        "geometry": "POINT (-81.818381 41.322133)",
+        "poi_name": "Go Ape Treetop Adventure Course",
+        "osm_id": 4214519779,
+        "tourism": "theme_park",
+        "operator": "Go Ape",
+        "website": "https://goape.com/zip-line/mill-stream-run-reservation",
+        "addr_state": "OH",
+        "addr_city": "Strongsville",
+        "addr_postcode": "44136",
+        "addr_street": "Valley Parkway",
+        "addr_housenumber": "16200"
+      }
+    }
+  },
+  "id": 1403,
+  "type": "knn+angle"
+}

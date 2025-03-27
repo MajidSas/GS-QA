@@ -1,0 +1,41 @@
+{
+  "question": "How many hospitals are situated within a 190 kilometers distance from River Deck, Edgewater, MD?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, 190000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 56
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    }
+  },
+  "id": 2219,
+  "type": "range+count"
+}

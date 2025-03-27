@@ -1,0 +1,79 @@
+{
+  "question": "Where can I find a restaurant positioned towards the south of Mount Washington Boat Terminal, Wolfeboro, NH, within a radius of 20 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography, 20000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 115646,
+      "geometry": "POINT (-71.21302 43.583693)",
+      "poi_name": "Dockside",
+      "osm_id": 8908071114,
+      "amenity": "restaurant",
+      "cuisine": "seafood;steak;spirits",
+      "website": "https://docksidenh.com/",
+      "addr_state": "NH",
+      "addr_city": "Alton Bay",
+      "addr_postcode": "03810",
+      "addr_street": "East Side Drive",
+      "addr_housenumber": "6"
+    },
+    {
+      "id": 32968,
+      "geometry": "POINT (-71.21302 43.583693)",
+      "poi_name": "Ackerly's Grill & Galley",
+      "osm_id": 2644039132,
+      "amenity": "restaurant",
+      "website": "https://www.ackerlysgrillandgalleyrestaurant.com/",
+      "addr_state": "NH",
+      "addr_city": "Alton",
+      "addr_street": "Main Street",
+      "addr_housenumber": "83"
+    },
+    {
+      "id": 46673,
+      "geometry": "POINT (-71.21302 43.583693)",
+      "poi_name": "Johnson's Seafood & Steak",
+      "osm_id": 3282260952,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_state": "NH",
+      "addr_city": "New Durham",
+      "addr_postcode": "03855",
+      "addr_street": "New Hampshire 11",
+      "addr_housenumber": "69"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
+      "geo_wkt": "POINT (-71.21302 43.583693)",
+      "poi": {
+        "id": 943,
+        "geometry": "POINT (-71.21302 43.583693)",
+        "poi_name": "Mount Washington Boat Terminal",
+        "osm_id": 2730505188,
+        "tourism": "attraction",
+        "addr_state": "NH",
+        "addr_city": "Wolfeboro",
+        "addr_postcode": "03894",
+        "addr_street": "North Main Street"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 86,
+  "type": "range:direction+loc"
+}

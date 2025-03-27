@@ -1,0 +1,72 @@
+{
+  "question": "Could you find me a golf course within 140 kilometers from Joy Burns Arena, CO?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, 140000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 247256,
+      "geometry": "POINT (-104.909715 39.469431)",
+      "poi_name": "The Ridge",
+      "osm_id": 3882986857,
+      "leisure": "golf_course",
+      "addr_state": "CO",
+      "addr_city": "Castle Pines",
+      "addr_postcode": "80109",
+      "addr_street": "Castle Pines Parkway",
+      "addr_housenumber": "1414"
+    },
+    {
+      "id": 248643,
+      "geometry": "POINT (-104.791167 40.081937)",
+      "poi_name": "Coyote Creek Golf Course",
+      "osm_id": 4714339137,
+      "leisure": "golf_course",
+      "addr_state": "CO",
+      "addr_city": "Fort Lupton",
+      "addr_postcode": "80621",
+      "addr_street": "Clubhouse Drive",
+      "addr_housenumber": "222"
+    },
+    {
+      "id": 266621,
+      "geometry": "POINT (-104.896649 39.538596)",
+      "poi_name": "Jakes Academy",
+      "osm_id": 9162690294,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Sa 08:00-20:00",
+      "operator": "Riley Andrews",
+      "website": "https://jakesacademy.com/",
+      "addr_state": "CO",
+      "addr_city": "Lone Tree",
+      "addr_postcode": "80124",
+      "addr_street": "Sunningdale Blvd",
+      "addr_housenumber": "9808"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Joy Burns Arena, CO",
+      "geo_wkt": "POINT (-104.961111 39.6825)",
+      "poi": {
+        "id": 265350,
+        "geometry": "POINT (-104.961111 39.6825)",
+        "poi_name": "Joy Burns Arena",
+        "osm_id": 366396382,
+        "leisure": "stadium",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 812,
+  "type": "range+name"
+}

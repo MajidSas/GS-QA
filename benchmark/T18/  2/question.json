@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest Korean restaurant situated from Haven Behavioral Hospital Of Philadelphia, Philadelphia, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%Korean%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.184168 40.011821)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 133459,
+      "geometry": "POINT (-75.199865 39.955066)",
+      "poi_name": "Bonchon Chicken",
+      "osm_id": 9995231385,
+      "amenity": "restaurant",
+      "cuisine": "chicken;korean;sushi",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19104",
+      "addr_street": "Chestnut Street",
+      "addr_housenumber": "3836"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "Korean restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Korean%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Haven Behavioral Hospital Of Philadelphia, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.184168 40.011821)",
+      "poi": {
+        "id": 181376,
+        "geometry": "POINT (-75.184168 40.011821)",
+        "poi_name": "Haven Behavioral Hospital Of Philadelphia",
+        "osm_id": 10844708981,
+        "amenity": "hospital",
+        "website": "https://www.havenphiladelphia.com",
+        "phone": "+1 215 475 3400",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_postcode": "19129",
+        "addr_street": "Henry Avenue",
+        "addr_housenumber": "3300"
+      }
+    }
+  },
+  "id": 301,
+  "type": "knn:non_spat_filter+loc"
+}

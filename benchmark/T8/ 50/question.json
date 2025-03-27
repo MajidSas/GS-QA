@@ -1,0 +1,46 @@
+{
+  "question": "Looking for the closest stadium in relation to the museum established in the year 1976 in Libertyville, IL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.107526 42.260034)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265389,
+      "geometry": "POINT (-88.082005 41.605308)",
+      "poi_name": "Neil Carey Arena",
+      "osm_id": 368073990,
+      "leisure": "stadium",
+      "operator": "Lewis University",
+      "sport": "basketball;volleyball",
+      "addr_state": "IL"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lake County Discovery Museum, Libertyville, IL",
+      "geo_wkt": "POINT (-88.107526 42.260034)",
+      "poi": {
+        "id": 2130,
+        "geometry": "POINT (-88.107526 42.260034)",
+        "poi_name": "Lake County Discovery Museum",
+        "osm_id": 3269928614,
+        "tourism": "museum",
+        "website": "https://www.lcfpd.org/museum/",
+        "phone": "+1-847-367-6640",
+        "wikidata": "Q6475496",
+        "addr_state": "IL",
+        "addr_city": "Libertyville",
+        "addr_postcode": "60048",
+        "addr_street": "Winchester Road",
+        "addr_housenumber": "1899"
+      }
+    }
+  },
+  "id": 2749,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Do you know of any beach resort within 80 kilometers drive from Dolphins Plus Bayside, Key Largo, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, 80000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 246016,
+      "geometry": "POINT (-80.127658 25.786157)",
+      "poi_name": "14th street beach",
+      "osm_id": 5461991172,
+      "leisure": "beach_resort",
+      "fee": "no"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
+      "poi": {
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
+        "tourism": "aquarium",
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
+      }
+    }
+  },
+  "id": 856,
+  "type": "range+name"
+}

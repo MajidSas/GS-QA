@@ -1,0 +1,55 @@
+{
+  "question": "Where is the closest dim sum restaurant within proximity to Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%dim_sum%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 118231,
+      "geometry": "POINT (-74.038441 40.889886)",
+      "poi_name": "88 Rice Shop",
+      "osm_id": 9033684353,
+      "amenity": "restaurant",
+      "cuisine": "asian;dim_sum",
+      "opening_hours": "Mo-Su 11:00-20:00",
+      "website": "https://www.88riceshop.com",
+      "phone": "+1 201 840 8688",
+      "addr_state": "NJ",
+      "addr_city": "Hackensack",
+      "addr_postcode": "07601",
+      "addr_street": "River Street",
+      "addr_housenumber": "366"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "dim sum restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%dim_sum%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    }
+  },
+  "id": 311,
+  "type": "knn:non_spat_filter+loc"
+}

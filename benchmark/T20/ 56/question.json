@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant on the route to Top of the Rock, New York, NY from Speert Green, Wayne, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 219199,
+      "geometry": "POINT (-74.197267 40.942662)",
+      "poi_name": "Bento Sushi",
+      "osm_id": 9317008518,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Pompton Road",
+      "addr_housenumber": "300",
+      "value": 138.00944227809867
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "poi": {
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1355,
+  "type": "knn:towards+loc"
+}

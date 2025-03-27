@@ -1,0 +1,40 @@
+{
+  "question": "What's the count of attractions within 80 kilometers from the location Diane Crespo Fine Art Gallery, Manchester, NH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.461976 42.991048)',4326)::geography, 80000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "count": 163
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Diane Crespo Fine Art Gallery, Manchester, NH",
+      "geo_wkt": "POINT (-71.461976 42.991048)",
+      "poi": {
+        "id": 15651,
+        "geometry": "POINT (-71.461976 42.991048)",
+        "poi_name": "Diane Crespo Fine Art Gallery",
+        "osm_id": 9428923509,
+        "tourism": "gallery",
+        "addr_state": "NH",
+        "addr_city": "Manchester",
+        "addr_postcode": "03101",
+        "addr_street": "Hanover Street",
+        "addr_housenumber": "32"
+      }
+    }
+  },
+  "id": 2211,
+  "type": "range+count"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Which gallery is nearest in the east direction from Four Seasons O'ahu at Ko Olina, Kapolei, HI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-158.125741 21.339296)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7778,
+      "geometry": "POINT (-158.125741 21.339296)",
+      "poi_name": "Lik",
+      "osm_id": 6395685331,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Four Seasons O'ahu at Ko Olina, Kapolei, HI",
+      "geo_wkt": "POINT (-158.125741 21.339296)",
+      "poi": {
+        "id": 14405,
+        "geometry": "POINT (-158.125741 21.339296)",
+        "poi_name": "Four Seasons O'ahu at Ko Olina",
+        "osm_id": 4298836144,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.fourseasons.com/oahu/",
+        "internet_access": "yes",
+        "phone": "+1 808-679-0079",
+        "wikidata": "Q102318865",
+        "addr_state": "HI",
+        "addr_city": "Kapolei",
+        "addr_postcode": "96707",
+        "addr_street": "Olani Street",
+        "addr_housenumber": "92-1001"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2575,
+  "type": "knn:direction+name"
+}

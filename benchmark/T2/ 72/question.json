@@ -1,0 +1,61 @@
+{
+  "question": "Is it possible for you to discover a nature museum that is situated within 190 kilometers of Top of the Rock, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND museum = 'nature';\n",
+  "answers": [
+    {
+      "id": 3097,
+      "geometry": "POINT (-73.974641 40.78158)",
+      "poi_name": "Richard Gilder Center for Science, Education, and Innovation",
+      "osm_id": 10172954431,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su 10:00-17:30; Nov 23: off; Dec 25: off",
+      "website": "https://www.amnh.org/about/gilder-center",
+      "museum": "nature"
+    },
+    {
+      "id": 3098,
+      "geometry": "POINT (-73.973156 40.781649)",
+      "poi_name": "Rose Center for Earth and Space",
+      "osm_id": 10172955743,
+      "tourism": "museum",
+      "website": "https://www.amnh.org/exhibitions/permanent/rose-center",
+      "museum": "nature",
+      "wikidata": "Q2397171"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "poi": {
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
+      }
+    }
+  },
+  "id": 571,
+  "type": "range:non_spat_filter+name"
+}

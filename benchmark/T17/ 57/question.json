@@ -1,0 +1,47 @@
+{
+  "question": "Do you know where the closest gallery from English Street Community Garden, New Haven, CT is located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24099,
+      "geometry": "POINT (-72.809795 41.283636)",
+      "poi_name": "North Light Gallery & Framing",
+      "osm_id": 9316665774,
+      "tourism": "gallery",
+      "addr_state": "CT",
+      "addr_city": "Branford",
+      "addr_postcode": "06405",
+      "addr_street": "Main Street",
+      "addr_housenumber": "1169"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "poi": {
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
+      }
+    }
+  },
+  "id": 1856,
+  "type": "knn+loc"
+}

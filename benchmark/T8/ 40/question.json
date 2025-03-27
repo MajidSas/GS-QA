@@ -1,0 +1,43 @@
+{
+  "question": "Seeking suggestions for the nearest viewpoint in relation to the university established in the year 1972 in Houston, TX.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.403152 29.702991)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2525,
+      "geometry": "POINT (-95.387965 29.721559)",
+      "poi_name": "The Mount",
+      "osm_id": 3503438738,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Texas Health Science Center, Houston, TX",
+      "geo_wkt": "POINT (-95.403152 29.702991)",
+      "poi": {
+        "id": 167414,
+        "geometry": "POINT (-95.403152 29.702991)",
+        "poi_name": "The University of Texas Health Science Center",
+        "osm_id": 356865589,
+        "amenity": "university",
+        "website": "https://www.uth.edu",
+        "phone": "+1-713-500-4472",
+        "wikidata": "Q7896431",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Fannin Street",
+        "addr_housenumber": "7000"
+      }
+    }
+  },
+  "id": 2739,
+  "type": "knn+name+multihop2"
+}

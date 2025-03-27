@@ -1,0 +1,36 @@
+{
+  "question": "What's the nearest viewpoint near Ice Arena, MN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9083,
+      "geometry": "POINT (-91.651506 44.034668)",
+      "poi_name": "Garvin Heights Park Scenic Lookout",
+      "osm_id": 3667846258,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ice Arena, MN",
+      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "poi": {
+        "id": 265357,
+        "geometry": "POINT (-91.694594 44.04413)",
+        "poi_name": "Ice Arena",
+        "osm_id": 367067698,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    }
+  },
+  "id": 249,
+  "type": "knn+name"
+}

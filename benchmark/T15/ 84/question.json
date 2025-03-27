@@ -1,0 +1,122 @@
+{
+  "question": "Where can I find a museum in the direction of east from Crave Golf Club, Pigeon Forge, TN within 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, 170000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 14156,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "Old Fort Railroad Museum",
+      "osm_id": 4238103380,
+      "tourism": "museum",
+      "phone": "+18286684244",
+      "addr_state": "NC",
+      "addr_city": "Old Fort",
+      "addr_postcode": "28762",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "25"
+    },
+    {
+      "id": 21562,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "NC Mineral and Gem Festival",
+      "osm_id": 10539730875,
+      "tourism": "museum",
+      "phone": "+18287659033",
+      "addr_state": "NC",
+      "addr_city": "Spruce Pine",
+      "addr_postcode": "28777",
+      "addr_street": "NC-226",
+      "addr_housenumber": "12085"
+    },
+    {
+      "id": 17680,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "Museum of North Carolina Minerals",
+      "osm_id": 367912291,
+      "tourism": "museum",
+      "website": "https://www.blueridgeheritage.com/destinations/museum-of-north-carolina-minerals/",
+      "phone": "1 828 765 2761",
+      "addr_state": "NC",
+      "addr_city": "Spruce Pine",
+      "addr_postcode": "28777",
+      "addr_street": "Blue Ridge Parkway",
+      "addr_housenumber": "79"
+    },
+    {
+      "id": 22728,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "Joara. Fort San Juan",
+      "osm_id": 7230629906,
+      "tourism": "museum",
+      "addr_state": "NC",
+      "addr_city": "Morganton",
+      "addr_postcode": "28655",
+      "addr_street": "Henderson Mill Road",
+      "addr_housenumber": "1981"
+    },
+    {
+      "id": 22680,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "Marion Train Depot",
+      "osm_id": 7215071348,
+      "tourism": "museum",
+      "website": "https://www.marionnc.org/Facilities/Facility/Details/Historic-Marion-Train-Depot-1",
+      "addr_state": "NC",
+      "addr_city": "Marion",
+      "addr_postcode": "28752",
+      "addr_street": "Depot Street",
+      "addr_housenumber": "45"
+    },
+    {
+      "id": 22710,
+      "geometry": "POINT (-83.564838 35.797212)",
+      "poi_name": "Historic Carson House",
+      "osm_id": 7222985110,
+      "tourism": "museum",
+      "opening_hours": "We-Sa 10:00-16:00; Su 14:00-17:00",
+      "phone": "(828) 724-4948",
+      "wikidata": "Q5046941",
+      "addr_state": "NC",
+      "addr_city": "Marion",
+      "addr_postcode": "28752",
+      "addr_street": "US-70",
+      "addr_housenumber": "1805"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "poi": {
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 83,
+  "type": "range:direction+loc"
+}

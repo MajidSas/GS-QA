@@ -1,0 +1,43 @@
+{
+  "question": "Could you tell me how many viewpoints are present within a 190 kilometers radius from International Quilt Study Center and Museum, Lincoln, NE?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.673502 40.828356)',4326)::geography, 190000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "count": 34
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "International Quilt Study Center and Museum, Lincoln, NE",
+      "geo_wkt": "POINT (-96.673502 40.828356)",
+      "poi": {
+        "id": 7782,
+        "geometry": "POINT (-96.673502 40.828356)",
+        "poi_name": "International Quilt Study Center and Museum",
+        "osm_id": 6400867743,
+        "tourism": "museum",
+        "operator": "University of Nebraska-Lincoln",
+        "website": "https://www.internationalquiltmuseum.org/",
+        "wikidata": "Q14704886",
+        "addr_state": "NE",
+        "addr_city": "Lincoln",
+        "addr_postcode": "68503",
+        "addr_street": "North 33rd Street",
+        "addr_housenumber": "1523"
+      }
+    }
+  },
+  "id": 2203,
+  "type": "range+count"
+}

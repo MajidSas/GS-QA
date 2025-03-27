@@ -1,0 +1,67 @@
+{
+  "question": "What is the nearest museum as you head towards Memory Garden, Baltimore, MD from Super Cichlids Inc, Dover, DE?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14041,
+      "geometry": "POINT (-75.522992 39.157111)",
+      "poi_name": "Biggs Museum of American Art",
+      "osm_id": 4215177437,
+      "tourism": "museum",
+      "website": "https://www.biggsmuseum.org/",
+      "wikidata": "Q18325919",
+      "addr_state": "DE",
+      "addr_city": "Dover",
+      "addr_street": "Federal Street",
+      "addr_housenumber": "406",
+      "value": 279.61602252790664
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "poi": {
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 158,
+  "type": "knn:towards+name"
+}

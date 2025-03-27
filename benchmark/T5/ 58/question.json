@@ -1,0 +1,51 @@
+{
+  "question": "Seeking the nearest golf course from Meerkerk Gardens, Greenbank, WA, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.56177 48.081101)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267074,
+      "geometry": "POINT (-122.643068 47.650904)",
+      "poi_name": "NW Golf Range and Mini Golf",
+      "osm_id": 4425697967,
+      "leisure": "golf_course",
+      "opening_hours": "Su-Th 10:00-21:00; Fr-Sa 10:00-22:00",
+      "website": "http://northwestgolfrange.com/",
+      "addr_state": "WA",
+      "addr_city": "Bremerton",
+      "addr_postcode": "98311",
+      "addr_street": "NE Waaga Way",
+      "addr_housenumber": "368"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Meerkerk Gardens, Greenbank, WA",
+      "geo_wkt": "POINT (-122.56177 48.081101)",
+      "poi": {
+        "id": 245401,
+        "geometry": "POINT (-122.56177 48.081101)",
+        "poi_name": "Meerkerk Gardens",
+        "osm_id": 2871224413,
+        "leisure": "garden",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-16:00",
+        "website": "https://www.meerkerkgardens.org/",
+        "wikidata": "Q6807694",
+        "addr_state": "WA",
+        "addr_city": "Greenbank",
+        "addr_postcode": "98253",
+        "addr_street": "Meerkerk Lane",
+        "addr_housenumber": "3531"
+      }
+    }
+  },
+  "id": 257,
+  "type": "knn+name"
+}

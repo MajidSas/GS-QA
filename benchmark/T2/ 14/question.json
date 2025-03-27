@@ -1,0 +1,67 @@
+{
+  "question": "Is there a chance you could find me a science museum, preferably within 100 kilometers from Two Rivers, WI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.852502 43.761081)',4326)::geography, 100000)\nAND tourism = 'museum'\nAND museum = 'science';\n",
+  "answers": [
+    {
+      "id": 846,
+      "geometry": "POINT (-89.405939 43.070526)",
+      "poi_name": "UW Geology Museum",
+      "osm_id": 2708020790,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 08:30-16:30; Sa 09:00-13:00",
+      "operator": "University of Wisconsin- Madison",
+      "website": "https://geoscience.wisc.edu/museum/",
+      "museum": "science",
+      "wikidata": "Q14714618",
+      "addr_street": "West Dayton Street",
+      "addr_housenumber": "1215"
+    },
+    {
+      "id": 1651,
+      "geometry": "POINT (-89.405416 43.073647)",
+      "poi_name": "L.R. Ingersoll Physics Museum",
+      "osm_id": 3100613313,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 08:00-16:00; PH off; SH off",
+      "operator": "University of Wisconsin- Madison",
+      "website": "https://www.physics.wisc.edu/ingersollmuseum/",
+      "phone": "+1-608-262-3898",
+      "museum": "science",
+      "wikidata": "Q18749057",
+      "addr_city": "Madison",
+      "addr_street": "University Avenue",
+      "addr_housenumber": "1150"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Two Rivers, WI",
+      "geo_wkt": "POINT (-89.852502 43.761081)",
+      "poi": {
+        "id": 248221,
+        "geometry": "POINT (-89.852502 43.761081)",
+        "poi_name": "Two Rivers",
+        "osm_id": 7453596692,
+        "leisure": "park",
+        "toilets": "pitlatrine",
+        "addr_state": "WI"
+      }
+    }
+  },
+  "id": 513,
+  "type": "range:non_spat_filter+name"
+}

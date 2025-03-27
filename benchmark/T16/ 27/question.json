@@ -1,0 +1,77 @@
+{
+  "question": "Where can I find caf\u00e9 located en route to Finn Creek Museum, MN from Detroit Lakes Sports Arena, MN, within a radius of 70 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, ST_GeomFromText('POINT (-95.332038 46.454431)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, 70000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 159711,
+      "geometry": "POINT (-95.573553 46.594816)",
+      "poi_name": "Lakes Cafe",
+      "osm_id": 4803370247,
+      "amenity": "cafe",
+      "opening_hours": "05:30-15:00",
+      "outdoor_seating": "no",
+      "addr_state": "MN",
+      "addr_city": "Perham",
+      "addr_postcode": "56573",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "136",
+      "value": 134.2791424129793
+    },
+    {
+      "id": 232929,
+      "geometry": "POINT (-95.577097 46.578924)",
+      "poi_name": "Mrs. B's",
+      "osm_id": 4550073062,
+      "amenity": "cafe",
+      "cuisine": "cafe",
+      "addr_state": "MN",
+      "addr_city": "Perham",
+      "addr_postcode": "56573",
+      "addr_street": "Fort Thunder Rd",
+      "addr_housenumber": "43869",
+      "value": 134.2791424129793
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Detroit Lakes Sports Arena, MN",
+      "geo_wkt": "POINT (-95.853333 46.806944)",
+      "poi": {
+        "id": 265358,
+        "geometry": "POINT (-95.853333 46.806944)",
+        "poi_name": "Detroit Lakes Sports Arena",
+        "osm_id": 367067717,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Finn Creek Museum, MN",
+      "geo_wkt": "POINT (-95.332038 46.454431)",
+      "poi": {
+        "id": 17006,
+        "geometry": "POINT (-95.332038 46.454431)",
+        "poi_name": "Finn Creek Museum",
+        "osm_id": 367068416,
+        "tourism": "museum",
+        "website": "http://www.finncreek.org/",
+        "addr_state": "MN"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1226,
+  "type": "range:towards+loc"
+}

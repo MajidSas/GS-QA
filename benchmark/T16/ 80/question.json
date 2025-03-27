@@ -1,0 +1,95 @@
+{
+  "question": "Within a radius of 130 kilometers, where can I find  a golf course along the way to Stonehedge Gardens, Tamaqua, PA from Kettle Creek Environmental Education Center, Stroudsburg, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'golf_course'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, 130000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 246261,
+      "geometry": "POINT (-76.629884 40.841862)",
+      "poi_name": "Indian Hills Golf Club & Grille",
+      "osm_id": 11223003190,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Paxinos",
+      "addr_postcode": "17860",
+      "addr_street": "Old Reading Road",
+      "addr_housenumber": "1167",
+      "value": 245.3526508649976
+    },
+    {
+      "id": 267310,
+      "geometry": "POINT (-75.905396 40.767753)",
+      "poi_name": "Villas Crossing Golf Course",
+      "osm_id": 5824289945,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Tamaqua",
+      "addr_postcode": "18252",
+      "addr_street": "Golf Road",
+      "addr_housenumber": "521",
+      "value": 245.3526508649976
+    },
+    {
+      "id": 267320,
+      "geometry": "POINT (-76.273972 40.614545)",
+      "poi_name": "Hidden Valley Golf Course",
+      "osm_id": 5846859136,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Pine Grove",
+      "addr_postcode": "17963",
+      "addr_street": "Panther Valley Road",
+      "addr_housenumber": "1753",
+      "value": 245.3526508649976
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Kettle Creek Environmental Education Center, Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.29615 40.988615)",
+      "poi": {
+        "id": 246853,
+        "geometry": "POINT (-75.29615 40.988615)",
+        "poi_name": "Kettle Creek Environmental Education Center",
+        "osm_id": 6536561704,
+        "leisure": "nature_reserve",
+        "website": "https://www.mcconservation.org/",
+        "addr_state": "PA",
+        "addr_city": "Stroudsburg",
+        "addr_postcode": "18360",
+        "addr_street": "Running Valley Road",
+        "addr_housenumber": "8050"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Stonehedge Gardens, Tamaqua, PA",
+      "geo_wkt": "POINT (-75.942183 40.761418)",
+      "poi": {
+        "id": 267309,
+        "geometry": "POINT (-75.942183 40.761418)",
+        "poi_name": "Stonehedge Gardens",
+        "osm_id": 5823460252,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Tamaqua",
+        "addr_postcode": "18252",
+        "addr_street": "Dairy Road",
+        "addr_housenumber": "51"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf_course"
+    }
+  },
+  "id": 1279,
+  "type": "range:towards+loc"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "Which direction should I take to get to the nearest university from Optimist Park, North Wilkesboro, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.146195 36.164021)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.146195 36.164021)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123350,
+      "geometry": "POINT (-81.503118 36.319687)",
+      "poi_name": "Blackburn Vannoy Farm",
+      "osm_id": 6849367190,
+      "amenity": "university",
+      "operator": "Appalachian State University",
+      "website": "https://bvfarm.appstate.edu/",
+      "addr_state": "NC",
+      "addr_city": "Fleetwood",
+      "addr_postcode": "28626",
+      "addr_street": "Catherine Ct",
+      "addr_housenumber": "720",
+      "angle": 298.4031642197312
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Optimist Park, North Wilkesboro, NC",
+      "geo_wkt": "POINT (-81.146195 36.164021)",
+      "poi": {
+        "id": 258013,
+        "geometry": "POINT (-81.146195 36.164021)",
+        "poi_name": "Optimist Park",
+        "osm_id": 357797069,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "North Wilkesboro",
+        "addr_postcode": "28659",
+        "addr_street": "F Street",
+        "addr_housenumber": "701"
+      }
+    }
+  },
+  "id": 1444,
+  "type": "knn+angle"
+}

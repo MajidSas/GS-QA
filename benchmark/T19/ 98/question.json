@@ -1,0 +1,46 @@
+{
+  "question": "Where is the closest hotel south of Nathan's Divided Nature Education Center, Ebensburg, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.718349 40.502899)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17747,
+      "geometry": "POINT (-78.718349 40.502899)",
+      "poi_name": "Beaverdale Sportsmans Lodge",
+      "osm_id": 367976149,
+      "tourism": "hotel",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Nathan's Divided Nature Education Center, Ebensburg, PA",
+      "geo_wkt": "POINT (-78.718349 40.502899)",
+      "poi": {
+        "id": 265850,
+        "geometry": "POINT (-78.718349 40.502899)",
+        "poi_name": "Nathan's Divided Nature Education Center",
+        "osm_id": 7917999357,
+        "leisure": "nature_reserve",
+        "website": "https://www.nathansdivide.org/",
+        "addr_state": "PA",
+        "addr_city": "Ebensburg",
+        "addr_postcode": "15931",
+        "addr_street": "North Center Street",
+        "addr_housenumber": "1278"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1197,
+  "type": "knn:direction+loc"
+}

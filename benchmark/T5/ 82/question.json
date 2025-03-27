@@ -1,0 +1,44 @@
+{
+  "question": "Any recommendations for the closest zoo from Reitz Union Hotel, Gainesville, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.34779 29.646453)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25580,
+      "geometry": "POINT (-82.438227 29.681842)",
+      "poi_name": "Santa Fe Teaching Zoo",
+      "osm_id": 4545115873,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Reitz Union Hotel, Gainesville, FL",
+      "geo_wkt": "POINT (-82.34779 29.646453)",
+      "poi": {
+        "id": 10804,
+        "geometry": "POINT (-82.34779 29.646453)",
+        "poi_name": "Reitz Union Hotel",
+        "osm_id": 8043492871,
+        "tourism": "hotel",
+        "operator": "University of Florida",
+        "website": "https://union.ufl.edu/hotel/",
+        "internet_access": "wlan",
+        "phone": "+1-352-392-2151",
+        "addr_state": "FL",
+        "addr_city": "Gainesville",
+        "addr_postcode": "32611",
+        "addr_street": "Museum Road",
+        "addr_housenumber": "686"
+      }
+    }
+  },
+  "id": 281,
+  "type": "knn+name"
+}

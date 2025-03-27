@@ -1,0 +1,55 @@
+{
+  "question": "Where is the closest emergency hospital within proximity to San Jose State University, San Jose, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.879994 37.33896)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 236727,
+      "geometry": "POINT (-122.255023 37.479511)",
+      "poi_name": "Sequoia Hospital",
+      "osm_id": 5805243057,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Dignity Health",
+      "website": "https://www.dignityhealth.org/bayarea/locations/sequoia",
+      "phone": "+1 650 369 5811",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7452546",
+      "addr_state": "CA",
+      "addr_city": "Redwood City",
+      "addr_postcode": "94062",
+      "addr_street": "Alameda de las Pulgas",
+      "addr_housenumber": "170"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "San Jose State University, San Jose, CA",
+      "geo_wkt": "POINT (-121.879994 37.33896)",
+      "poi": {
+        "id": 135738,
+        "geometry": "POINT (-121.879994 37.33896)",
+        "poi_name": "San Jose State University",
+        "osm_id": 11532853730,
+        "amenity": "university",
+        "website": "https://www.sjsu.edu/",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_postcode": "95112",
+        "addr_street": "Washington Sq",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 368,
+  "type": "knn:non_spat_filter+loc"
+}

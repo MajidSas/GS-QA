@@ -1,0 +1,51 @@
+{
+  "question": "Where's the nearest stadium located in the north of Aquarium Outfitters Carolina, Wake Forest, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267563,
+      "geometry": "POINT (-78.515805 35.970785)",
+      "poi_name": "Costello Stadium",
+      "osm_id": 7683085715,
+      "leisure": "stadium",
+      "operator": "Fluvanna County Public Schools",
+      "addr_state": "VA",
+      "addr_city": "Palmyra",
+      "addr_postcode": "22963",
+      "addr_street": "Central Plains Road",
+      "addr_housenumber": "3717"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
+      "poi": {
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1132,
+  "type": "knn:direction+loc"
+}

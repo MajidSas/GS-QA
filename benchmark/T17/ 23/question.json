@@ -1,0 +1,47 @@
+{
+  "question": "Where can I find the nearest garden relative to Providence St. Joseph Hospital Eureka, Eureka, CA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-124.142219 40.784072)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266946,
+      "geometry": "POINT (-124.203982 40.700941)",
+      "poi_name": "Humboldt Botanical Garden",
+      "osm_id": 11161511489,
+      "leisure": "garden",
+      "website": "https://www.hbgf.org/",
+      "addr_state": "CA",
+      "addr_city": "Eureka",
+      "addr_postcode": "95503",
+      "addr_street": "Tompkins Hill Road",
+      "addr_housenumber": "7707"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Providence St. Joseph Hospital Eureka, Eureka, CA",
+      "geo_wkt": "POINT (-124.142219 40.784072)",
+      "poi": {
+        "id": 226510,
+        "geometry": "POINT (-124.142219 40.784072)",
+        "poi_name": "Providence St. Joseph Hospital Eureka",
+        "osm_id": 11162267113,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95501",
+        "addr_street": "Dolbeer Street",
+        "addr_housenumber": "2700"
+      }
+    }
+  },
+  "id": 1822,
+  "type": "knn+loc"
+}

@@ -1,0 +1,50 @@
+{
+  "question": "What university can I find towards the east of Go Fish, Rosedale, MD, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, 170000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 173947,
+      "geometry": "POINT (-76.48474 39.339761)",
+      "poi_name": "Technology Assistance Center",
+      "osm_id": 2460525689,
+      "amenity": "university",
+      "website": "https://irt.rowan.edu/help/",
+      "shop": "computer"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Go Fish, Rosedale, MD",
+      "geo_wkt": "POINT (-76.48474 39.339761)",
+      "poi": {
+        "id": 1512,
+        "geometry": "POINT (-76.48474 39.339761)",
+        "poi_name": "Go Fish",
+        "osm_id": 3026471881,
+        "tourism": "aquarium",
+        "addr_state": "MD",
+        "addr_city": "Rosedale",
+        "addr_postcode": "21237",
+        "addr_street": "Philadelphia Road",
+        "addr_housenumber": "8767 G"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2630,
+  "type": "range:direction+name"
+}

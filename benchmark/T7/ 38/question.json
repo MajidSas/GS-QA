@@ -1,0 +1,55 @@
+{
+  "question": "Who is the director of the nearest museum from Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25352,
+      "geometry": "POINT (-80.053124 26.700652)",
+      "poi_name": "Norton Museum of Art",
+      "osm_id": 4459716322,
+      "description": "Museum.",
+      "tourism": "museum",
+      "website": "https://www.norton.org/",
+      "phone": "+1-561-832-5196",
+      "wikidata": "Q3878590",
+      "addr_state": "FL",
+      "addr_city": "West Palm Beach",
+      "addr_postcode": "33401",
+      "addr_street": "Olive Avenue",
+      "addr_housenumber": "1451",
+      "multihop_answer": "Ghislain d'Humi\u00e8res",
+      "multihop_attribute": "Director",
+      "multihop_long_answer": "Norton Museum of Art Director: Ghislain d'Humi\u00e8res"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
+      "poi": {
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
+      }
+    }
+  },
+  "id": 937,
+  "type": "knn+name+multihop1"
+}

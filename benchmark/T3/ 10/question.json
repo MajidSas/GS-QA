@@ -1,0 +1,168 @@
+{
+  "question": "What restaurant is in the direction of southwest from Maryvale Baseball Park, Phoenix, AZ, within a radius of 190 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography, 190000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 61608,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Agave Grill",
+      "osm_id": 5526503320,
+      "amenity": "restaurant",
+      "cuisine": "american;asian;barbecue;burger;chicken;chinese;coffee_shop",
+      "opening_hours": "unknown \"varies\"",
+      "operator": "Varied Menu",
+      "takeaway": "yes",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 37037,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Blossom Asian Cuisine",
+      "osm_id": 2795093022,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "opening_hours": "11:00-21:00",
+      "capacity": "20",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85353",
+      "addr_street": "West Lower Buckeye Road",
+      "addr_housenumber": "8350"
+    },
+    {
+      "id": 70795,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Ph\u1edf Bowl Vietnamese Cuisine",
+      "osm_id": 11374566233,
+      "amenity": "restaurant",
+      "cuisine": "vietnamese"
+    },
+    {
+      "id": 70799,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Tortas Manantial",
+      "osm_id": 11374571122,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 70801,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Sushinola Roll",
+      "osm_id": 11374571125,
+      "amenity": "restaurant",
+      "cuisine": "sushi"
+    },
+    {
+      "id": 233409,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "El Pueblo Mexican Restaurant",
+      "osm_id": 4572217466,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85035",
+      "addr_street": "North 75th Avenue",
+      "addr_housenumber": "2270"
+    },
+    {
+      "id": 103301,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Golden Thai Kitchen",
+      "osm_id": 8494907023,
+      "amenity": "restaurant",
+      "website": "https://www.goldenthaikitchenaz.com",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85035",
+      "addr_street": "North 75th Avenue",
+      "addr_housenumber": "1820"
+    },
+    {
+      "id": 103303,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "New Asian Star",
+      "osm_id": 8494999623,
+      "amenity": "restaurant",
+      "website": "https://www.newasianstartolleson.com",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85353",
+      "addr_street": "South 99th Avenue",
+      "addr_housenumber": "2755"
+    },
+    {
+      "id": 223811,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Taste Of Italy",
+      "osm_id": 11064097105,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_state": "AZ",
+      "addr_city": "Goodyear",
+      "addr_postcode": "85338",
+      "addr_street": "Wesr Elliot Road",
+      "addr_housenumber": "17750"
+    },
+    {
+      "id": 132247,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Denny's",
+      "osm_id": 9948477600,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 195672,
+      "geometry": "POINT (-112.173653 33.489497)",
+      "poi_name": "Space Age Restaurant",
+      "osm_id": 10314941329,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "website": "https://www.spaceagerestaurantandbar.com/",
+      "phone": "+1-928-683-2761",
+      "addr_state": "AZ",
+      "addr_city": "Gila Bend",
+      "addr_postcode": "85337",
+      "addr_street": "East Pima Street",
+      "addr_housenumber": "401"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "poi": {
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2609,
+  "type": "range:direction+name"
+}

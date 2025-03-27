@@ -1,0 +1,47 @@
+{
+  "question": "When was the nearest zoo from Latvian Cultural Garden, Cleveland, OH opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000",
+      "multihop_answer": "January 21, 2012",
+      "multihop_attribute": "Date opened",
+      "multihop_long_answer": "Greater Cleveland Aquarium Date opened: January 21, 2012"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
+      "poi": {
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
+      }
+    }
+  },
+  "id": 967,
+  "type": "knn+name+multihop1"
+}

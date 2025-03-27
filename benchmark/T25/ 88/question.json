@@ -1,0 +1,75 @@
+{
+  "question": "How distant can I find a zoo from Mill Creek Nature Park, Narrows, VA within a span of 170 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-80.793363 37.316888)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.793363 37.316888)',4326)::geography, 170000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 4560,
+      "geometry": "POINT (-79.164736 37.402731)",
+      "poi_name": "The Nature Zone",
+      "osm_id": 11329175932,
+      "description": "An indoor nature center with turtles, snakes, and other Virginia-native animals",
+      "tourism": "zoo",
+      "opening_hours": "Fr, Sa 12:00-16:00",
+      "phone": "+1 434 455 5828",
+      "zoo": "reptile",
+      "addr_street": "Grove Street",
+      "addr_housenumber": "301",
+      "distance": 144593.29723674
+    },
+    {
+      "id": 5116,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Raynay Alpaca Farm",
+      "osm_id": 9761648623,
+      "tourism": "zoo",
+      "phone": "+13369393645",
+      "zoo": "petting_zoo",
+      "addr_state": "NC",
+      "addr_city": "Ruffin",
+      "addr_postcode": "27326",
+      "addr_street": "Ashland Road",
+      "addr_housenumber": "1897",
+      "distance": 156381.87882978
+    },
+    {
+      "id": 20490,
+      "geometry": "POINT (-79.901694 36.081591)",
+      "poi_name": "MoJo JoJo",
+      "osm_id": 1185317999,
+      "tourism": "zoo",
+      "distance": 158556.36203152
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mill Creek Nature Park, Narrows, VA",
+      "geo_wkt": "POINT (-80.793363 37.316888)",
+      "poi": {
+        "id": 246251,
+        "geometry": "POINT (-80.793363 37.316888)",
+        "poi_name": "Mill Creek Nature Park",
+        "osm_id": 11205302380,
+        "leisure": "park",
+        "opening_hours": "24/7",
+        "addr_state": "VA",
+        "addr_city": "Narrows",
+        "addr_postcode": "24124",
+        "addr_street": "Northview Street",
+        "addr_housenumber": "900"
+      }
+    }
+  },
+  "id": 787,
+  "type": "range+distance"
+}

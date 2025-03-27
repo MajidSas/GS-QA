@@ -1,0 +1,70 @@
+{
+  "question": "Which fast food is nearest as you move towards Urban Arts Gallery, Salt Lake City, UT from Brookfield Park, West Valley City, UT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography, ST_GeomFromText('POINT (-111.904248 40.766692)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 159664,
+      "geometry": "POINT (-112.026427 40.698732)",
+      "poi_name": "Little Caesars",
+      "osm_id": 4801956496,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "https://littlecaesars.com/en-us/store/719/",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "UT",
+      "addr_city": "West Valley City",
+      "addr_postcode": "84120",
+      "addr_street": "5600 West",
+      "addr_housenumber": "3380 S",
+      "value": 51.79433721462184
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Brookfield Park, West Valley City, UT",
+      "geo_wkt": "POINT (-112.04708 40.681306)",
+      "poi": {
+        "id": 247071,
+        "geometry": "POINT (-112.04708 40.681306)",
+        "poi_name": "Brookfield Park",
+        "osm_id": 8669040154,
+        "leisure": "park",
+        "addr_state": "UT",
+        "addr_city": "West Valley City",
+        "addr_postcode": "84128",
+        "addr_street": "4100 South"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Urban Arts Gallery, Salt Lake City, UT",
+      "geo_wkt": "POINT (-111.904248 40.766692)",
+      "poi": {
+        "id": 24125,
+        "geometry": "POINT (-111.904248 40.766692)",
+        "poi_name": "Urban Arts Gallery",
+        "osm_id": 9335676387,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su 12:00-21:00",
+        "website": "https://www.urbanartsgallery.org/",
+        "phone": "+1-801-230-0820",
+        "addr_state": "UT",
+        "addr_city": "Salt Lake City",
+        "addr_postcode": "84101",
+        "addr_street": "Rio Grande Street",
+        "addr_housenumber": "116 S"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 193,
+  "type": "knn:towards+name"
+}

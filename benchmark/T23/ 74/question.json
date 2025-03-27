@@ -1,0 +1,40 @@
+{
+  "question": "Within 130 kilometers from Marvin Popcorn Sutton's Homeplace, Waynesville, NC, how many nature reserves are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.069451 35.56574)',4326)::geography, 130000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Marvin Popcorn Sutton's Homeplace, Waynesville, NC",
+      "geo_wkt": "POINT (-83.069451 35.56574)",
+      "poi": {
+        "id": 19318,
+        "geometry": "POINT (-83.069451 35.56574)",
+        "poi_name": "Marvin Popcorn Sutton's Homeplace",
+        "osm_id": 10723640157,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Waynesville",
+        "addr_postcode": "28785",
+        "addr_street": "Hemphill Road",
+        "addr_housenumber": "3134"
+      }
+    }
+  },
+  "id": 2273,
+  "type": "range+count"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest sports bar restaurant available from the Farm at Walnut Creek, Sugarcreek, OH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%_sports_bar%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.737201 40.522778)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 31175,
+      "geometry": "POINT (-87.603765 45.105267)",
+      "poi_name": "Murray's Irish Pub and Grille",
+      "osm_id": 8409124544,
+      "amenity": "restaurant",
+      "cuisine": "pizza;pub;sports_bar;barbecue;bar;banquet",
+      "website": "https://murraysonfirst.com/",
+      "phone": "+1-906-424-4123",
+      "addr_state": "MI",
+      "addr_city": "Menominee",
+      "addr_postcode": "49858",
+      "addr_street": "1st Street",
+      "addr_housenumber": "715"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "sports bar restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%_sports_bar%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "The Farm at Walnut Creek, Sugarcreek, OH",
+      "geo_wkt": "POINT (-81.737201 40.522778)",
+      "poi": {
+        "id": 24839,
+        "geometry": "POINT (-81.737201 40.522778)",
+        "poi_name": "The Farm at Walnut Creek",
+        "osm_id": 4341174209,
+        "tourism": "zoo",
+        "opening_hours": "08:30-18:00",
+        "website": "https://thefarmatwalnutcreek.com/",
+        "addr_state": "OH",
+        "addr_city": "Sugarcreek",
+        "addr_postcode": "44681",
+        "addr_street": "CR 114",
+        "addr_housenumber": "4147"
+      }
+    }
+  },
+  "id": 633,
+  "type": "knn:non_spat_filter+name"
+}

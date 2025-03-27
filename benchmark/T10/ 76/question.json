@@ -1,0 +1,63 @@
+{
+  "question": "What's the closest gallery in the direction of Dealaman Nature Trail and Pond, Warren Township, NJ from Courant Institute of Mathematical Sciences, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.995686 40.728648)',4326)::geography, ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.995686 40.728648)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.995686 40.728648)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21848,
+      "geometry": "POINT (-74.00066 40.726328)",
+      "poi_name": "Georges Berg\u00e8s Gallery",
+      "osm_id": 10695291115,
+      "tourism": "gallery",
+      "addr_street": "West Broadway",
+      "addr_housenumber": "462",
+      "value": 255.33318744878324
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Courant Institute of Mathematical Sciences, New York, NY",
+      "geo_wkt": "POINT (-73.995686 40.728648)",
+      "poi": {
+        "id": 158346,
+        "geometry": "POINT (-73.995686 40.728648)",
+        "poi_name": "Courant Institute of Mathematical Sciences",
+        "osm_id": 4743911217,
+        "amenity": "university",
+        "internet_access": "no",
+        "wikidata": "Q946028",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10012",
+        "addr_street": "Mercer Street",
+        "addr_housenumber": "251"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dealaman Nature Trail and Pond, Warren Township, NJ",
+      "geo_wkt": "POINT (-74.506528 40.625648)",
+      "poi": {
+        "id": 267302,
+        "geometry": "POINT (-74.506528 40.625648)",
+        "poi_name": "Dealaman Nature Trail and Pond",
+        "osm_id": 5811042630,
+        "leisure": "nature_reserve",
+        "addr_state": "NJ",
+        "addr_city": "Warren Township",
+        "addr_postcode": "07059",
+        "addr_street": "Mount Horeb Road",
+        "addr_housenumber": "182"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    }
+  },
+  "id": 175,
+  "type": "knn:towards+name"
+}

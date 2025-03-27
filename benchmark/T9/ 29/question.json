@@ -1,0 +1,54 @@
+{
+  "question": "Which restaurant is the nearest to the south of Arizona Hearing Center, Scottsdale, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.924475 33.583846)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 184881,
+      "geometry": "POINT (-111.924475 33.583846)",
+      "poi_name": "La Fonda Del Sol",
+      "osm_id": 7819098450,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "website": "https://www.lafondadelsoltogo.com/",
+      "addr_postcode": "85258",
+      "addr_street": "E Via Linda H134, Scottsdale  AZ",
+      "addr_housenumber": "10155"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Arizona Hearing Center, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.924475 33.583846)",
+      "poi": {
+        "id": 111333,
+        "geometry": "POINT (-111.924475 33.583846)",
+        "poi_name": "Arizona Hearing Center",
+        "osm_id": 3742487463,
+        "amenity": "hospital",
+        "opening_hours": "Mo-Th 09:00-16:00; Fr 09:00-24:00; Sa-Su off",
+        "website": "http://hearingaidsarizona.com/",
+        "phone": "+602-492-9235",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85254",
+        "addr_street": "North Scottsdale Road",
+        "addr_housenumber": "10893"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2528,
+  "type": "knn:direction+name"
+}

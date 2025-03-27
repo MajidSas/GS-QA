@@ -1,0 +1,42 @@
+{
+  "question": "Could you inform me about the number of universities within 90 kilometers from Memorial Hospital, Belleville, IL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.021471 38.549042)',4326)::geography, 90000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "count": 3
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Memorial Hospital, Belleville, IL",
+      "geo_wkt": "POINT (-90.021471 38.549042)",
+      "poi": {
+        "id": 121779,
+        "geometry": "POINT (-90.021471 38.549042)",
+        "poi_name": "Memorial Hospital",
+        "osm_id": 6779584037,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "IL",
+        "addr_city": "Belleville",
+        "addr_postcode": "62226",
+        "addr_street": "Memorial Drive",
+        "addr_housenumber": "4500"
+      }
+    }
+  },
+  "id": 2299,
+  "type": "range+count"
+}

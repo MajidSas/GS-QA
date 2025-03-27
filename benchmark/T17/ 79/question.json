@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the nearest museum in the vicinity of Wyoming State Hospital, Evanston, WY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-110.947098 41.263829)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13038,
+      "geometry": "POINT (-111.561649 40.711854)",
+      "poi_name": "The Alf Engen Ski Museum",
+      "osm_id": 4029503461,
+      "tourism": "museum",
+      "website": "https://engenmuseum.org/visit-museum",
+      "addr_state": "UT",
+      "addr_city": "Park City",
+      "addr_postcode": "84098",
+      "addr_street": "Olympic Parkway",
+      "addr_housenumber": "3419"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Wyoming State Hospital, Evanston, WY",
+      "geo_wkt": "POINT (-110.947098 41.263829)",
+      "poi": {
+        "id": 183015,
+        "geometry": "POINT (-110.947098 41.263829)",
+        "poi_name": "Wyoming State Hospital",
+        "osm_id": 10914355899,
+        "amenity": "hospital",
+        "website": "https://health.wyo.gov/behavioralhealth/statehospital/",
+        "phone": "+1-307-789-3464",
+        "healthcare": "hospital",
+        "addr_state": "WY",
+        "addr_city": "Evanston",
+        "addr_postcode": "82931",
+        "addr_street": "Highway 150 South",
+        "addr_housenumber": "831"
+      }
+    }
+  },
+  "id": 1878,
+  "type": "knn+loc"
+}

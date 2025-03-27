@@ -1,0 +1,46 @@
+{
+  "question": "What is the closest zoo in the south direction of Adventure Sports in Hershey, Hershey, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2491,
+      "geometry": "POINT (-76.62265 40.236123)",
+      "poi_name": "Amazonia",
+      "osm_id": 3479268111,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Sports in Hershey, Hershey, PA",
+      "geo_wkt": "POINT (-76.62265 40.236123)",
+      "poi": {
+        "id": 18427,
+        "geometry": "POINT (-76.62265 40.236123)",
+        "poi_name": "Adventure Sports in Hershey",
+        "osm_id": 2295840835,
+        "tourism": "theme_park",
+        "website": "https://www.adventurehershey.com/",
+        "phone": "717.533.7479",
+        "addr_state": "PA",
+        "addr_city": "Hershey",
+        "addr_postcode": "17033",
+        "addr_street": "Elizabethtown Road",
+        "addr_housenumber": "3010"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2505,
+  "type": "knn:direction+name"
+}

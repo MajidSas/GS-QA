@@ -1,0 +1,45 @@
+{
+  "question": "How many spectators can the nearest stadium from Acushnet Sawmill, Acushnet, MA hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246343,
+      "geometry": "POINT (-71.515966 41.717988)",
+      "poi_name": "McCarthy Field",
+      "osm_id": 11331230041,
+      "leisure": "stadium",
+      "wikidata": "Q14709442",
+      "multihop_answer": "2500",
+      "multihop_attribute": "Capacity",
+      "multihop_long_answer": "McCarthy Field Capacity: 2500"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
+      "poi": {
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
+        "leisure": "park",
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
+      }
+    }
+  },
+  "id": 961,
+  "type": "knn+name+multihop1"
+}

@@ -1,0 +1,69 @@
+{
+  "question": "What's the proximity of a golf course from Good Knight Castle Children's Museum, MD within a 30 kilometers radius?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography, 30000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 246260,
+      "geometry": "POINT (-77.024806 38.902109)",
+      "poi_name": "CitySwing",
+      "osm_id": 11221520741,
+      "leisure": "golf_course",
+      "opening_hours": "10:00-22:00",
+      "website": "https://www.cityswingdc.com",
+      "phone": "+1 202-902-0983",
+      "addr_street": "New York Avenue Northwest",
+      "addr_housenumber": "901",
+      "distance": 17763.55084294
+    },
+    {
+      "id": 246608,
+      "geometry": "POINT (-77.186237 38.940532)",
+      "poi_name": "Disc Golf Course",
+      "osm_id": 1832660803,
+      "leisure": "golf_course",
+      "distance": 26009.66373436
+    },
+    {
+      "id": 247148,
+      "geometry": "POINT (-76.786591 39.169366)",
+      "poi_name": "Monster Mini Golf",
+      "osm_id": 3646417551,
+      "leisure": "golf_course",
+      "addr_state": "MD",
+      "addr_city": "Jessup",
+      "addr_postcode": "20794",
+      "addr_street": "Assateague Drive",
+      "addr_housenumber": "7351",
+      "distance": 18380.53531243
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Good Knight Castle Children's Museum, MD",
+      "geo_wkt": "POINT (-76.911889 39.035649)",
+      "poi": {
+        "id": 17464,
+        "geometry": "POINT (-76.911889 39.035649)",
+        "poi_name": "Good Knight Castle Children's Museum",
+        "osm_id": 367799293,
+        "tourism": "museum",
+        "operator": "Good Knight Child Empowerment Network",
+        "website": "https://goodknight.org/the-castle/",
+        "addr_state": "MD"
+      }
+    }
+  },
+  "id": 790,
+  "type": "range+distance"
+}

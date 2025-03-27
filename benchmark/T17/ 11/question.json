@@ -1,0 +1,45 @@
+{
+  "question": "Do you know where the nearest golf course is from Prince Conti Hotel, New Orleans, LA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.06858 29.956522)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245942,
+      "geometry": "POINT (-89.766425 30.308978)",
+      "poi_name": "PInewood Golf and Country Club",
+      "osm_id": 5347458590,
+      "leisure": "golf_course",
+      "addr_state": "LA",
+      "addr_city": "Slidell",
+      "addr_postcode": "70458",
+      "addr_street": "Country Club Boulevard",
+      "addr_housenumber": "405"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Prince Conti Hotel, New Orleans, LA",
+      "geo_wkt": "POINT (-90.06858 29.956522)",
+      "poi": {
+        "id": 24670,
+        "geometry": "POINT (-90.06858 29.956522)",
+        "poi_name": "Prince Conti Hotel",
+        "osm_id": 11164357258,
+        "tourism": "hotel",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Conti Street",
+        "addr_housenumber": "830"
+      }
+    }
+  },
+  "id": 1810,
+  "type": "knn+loc"
+}

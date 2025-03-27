@@ -1,0 +1,44 @@
+{
+  "question": "Looking for the closest garden in relation to the university established in the year 1975 in Houston, TX, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248510,
+      "geometry": "POINT (-95.390656 29.719714)",
+      "poi_name": "O. Jack Mitchell Garden",
+      "osm_id": 4287062624,
+      "leisure": "garden",
+      "website": "https://www.hermannpark.org/place/37/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "poi": {
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
+      }
+    }
+  },
+  "id": 2790,
+  "type": "knn+name+multihop2"
+}

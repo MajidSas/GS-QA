@@ -1,0 +1,47 @@
+{
+  "question": "Where can I find a gallery located in the north of Point Lookout, PA, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, 170000)\nAND tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 17722,
+      "geometry": "POINT (-79.663483 39.854147)",
+      "poi_name": "University Gallery",
+      "osm_id": 367959551,
+      "tourism": "gallery",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "poi": {
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 34,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What is the closest fast food restaurant positioned towards the south of Columbia Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.619167 41.520496)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 161878,
+      "geometry": "POINT (-81.619167 41.520496)",
+      "poi_name": "Penn Station",
+      "osm_id": 4904968852,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Columbia Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.619167 41.520496)",
+      "poi": {
+        "id": 246677,
+        "geometry": "POINT (-81.619167 41.520496)",
+        "poi_name": "Columbia Cultural Garden",
+        "osm_id": 8809939746,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2519,
+  "type": "knn:direction+name"
+}

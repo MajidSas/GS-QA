@@ -1,0 +1,47 @@
+{
+  "question": "Where is the nearest stadium in the northwest direction of the Westerner Extended Stay, Amarillo, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.808776 35.193959)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265350,
+      "geometry": "POINT (-101.808776 35.193959)",
+      "poi_name": "Joy Burns Arena",
+      "osm_id": 366396382,
+      "leisure": "stadium",
+      "addr_state": "CO"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Westerner Extended Stay, Amarillo, TX",
+      "geo_wkt": "POINT (-101.808776 35.193959)",
+      "poi": {
+        "id": 24469,
+        "geometry": "POINT (-101.808776 35.193959)",
+        "poi_name": "The Westerner Extended Stay",
+        "osm_id": 11067118867,
+        "tourism": "hotel",
+        "website": "https://www.thewesternerhotel.com/",
+        "phone": "+1-806-905-6089",
+        "addr_state": "TX",
+        "addr_city": "Amarillo",
+        "addr_postcode": "79104",
+        "addr_street": "East Interstate Drive",
+        "addr_housenumber": "2501"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1101,
+  "type": "knn:direction+loc"
+}

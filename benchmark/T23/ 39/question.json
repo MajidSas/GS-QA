@@ -1,0 +1,44 @@
+{
+  "question": "Within 60 kilometers from White Memorial Foundation, Litchfield, CT, how many viewpoints can I find?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.213489 41.724615)',4326)::geography, 60000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "count": 47
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "White Memorial Foundation, Litchfield, CT",
+      "geo_wkt": "POINT (-73.213489 41.724615)",
+      "poi": {
+        "id": 245812,
+        "geometry": "POINT (-73.213489 41.724615)",
+        "poi_name": "White Memorial Foundation",
+        "osm_id": 10112095367,
+        "leisure": "nature_reserve",
+        "description": "The White Memorial Foundation is the result of the vision of two generous and creative people, Alain C. White and his sister, May W. White. Between 1908 and 1912 they purchased several tracts of land surrounding their family\u2019s Whitehall property on the no",
+        "operator": "White Memorial Foundation",
+        "website": "www.whitememorialcc.org",
+        "phone": "860-567-0857",
+        "addr_state": "CT",
+        "addr_city": "Litchfield",
+        "addr_postcode": "06759",
+        "addr_street": "Whitehall Road",
+        "addr_housenumber": "72"
+      }
+    }
+  },
+  "id": 2238,
+  "type": "range+count"
+}

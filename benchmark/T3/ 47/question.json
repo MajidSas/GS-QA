@@ -1,0 +1,59 @@
+{
+  "question": "What stadium can I find positioned within 80 kilometers towards the northeast of Cardiovascular Institute of New England, Cranston, RI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, 80000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 247338,
+      "geometry": "POINT (-71.472092 41.786868)",
+      "poi_name": "Gate P2",
+      "osm_id": 8969236699,
+      "leisure": "stadium",
+      "description": "Gate P2"
+    },
+    {
+      "id": 259649,
+      "geometry": "POINT (-71.472092 41.786868)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 358260110,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
+      "poi": {
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2646,
+  "type": "range:direction+name"
+}

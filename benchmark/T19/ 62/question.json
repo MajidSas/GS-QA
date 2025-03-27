@@ -1,0 +1,49 @@
+{
+  "question": "Where is the closest university northwest of Longfellow Arboretum, Portland, ME?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 208143,
+      "geometry": "POINT (-70.269893 43.680714)",
+      "poi_name": "University of Vermont",
+      "osm_id": 4975151894,
+      "amenity": "university",
+      "addr_city": "Newport",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "316"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Longfellow Arboretum, Portland, ME",
+      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "poi": {
+        "id": 265852,
+        "geometry": "POINT (-70.269893 43.680714)",
+        "poi_name": "Longfellow Arboretum",
+        "osm_id": 7922996124,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_street": "Baxter Boulevard",
+        "addr_housenumber": "755"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1161,
+  "type": "knn:direction+loc"
+}

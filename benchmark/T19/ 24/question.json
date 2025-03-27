@@ -1,0 +1,52 @@
+{
+  "question": "Where is the nearest zoo in the southwest direction of Nelson Avenue Community Garden, Lexington, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.482139 38.043328)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15625,
+      "geometry": "POINT (-84.482139 38.043328)",
+      "poi_name": "Dutch Country Safari Park",
+      "osm_id": 9418210883,
+      "tourism": "zoo",
+      "website": "http://dutchcountrysafaripark.com/",
+      "zoo": "safari_park",
+      "addr_state": "KY",
+      "addr_city": "Horse Cave",
+      "addr_postcode": "42749",
+      "addr_street": "L and N Turnpike Road",
+      "addr_housenumber": "2125"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Nelson Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.482139 38.043328)",
+      "poi": {
+        "id": 248357,
+        "geometry": "POINT (-84.482139 38.043328)",
+        "poi_name": "Nelson Avenue Community Garden",
+        "osm_id": 4057422280,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Nelson Avenue",
+        "addr_housenumber": "311"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1123,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Where is the closest restaurant positioned towards the east of Myers Memorial Arena, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-99.742342 32.483135)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 116711,
+      "geometry": "POINT (-99.742342 32.483135)",
+      "poi_name": "Jason's Deli",
+      "osm_id": 8955544310,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "addr_state": "TX",
+      "addr_city": "Abilene",
+      "addr_postcode": "79601",
+      "addr_street": "Highway 351",
+      "addr_housenumber": "1772"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Myers Memorial Arena, TX",
+      "geo_wkt": "POINT (-99.742342 32.483135)",
+      "poi": {
+        "id": 265393,
+        "geometry": "POINT (-99.742342 32.483135)",
+        "poi_name": "Myers Memorial Arena",
+        "osm_id": 368165257,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1187,
+  "type": "knn:direction+loc"
+}

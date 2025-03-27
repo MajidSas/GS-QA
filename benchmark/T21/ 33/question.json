@@ -1,0 +1,49 @@
+{
+  "question": "What direction does one need to follow to reach a hospital from Maria C Jackson State Park, OR within 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.865648 43.16039)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.865648 43.16039)',4326)::geography, 50000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 167458,
+      "geometry": "POINT (-123.367563 43.224798)",
+      "poi_name": "Roseburg VA Medical Center",
+      "osm_id": 357349177,
+      "amenity": "hospital",
+      "website": "https://www.roseburg.va.gov/",
+      "phone": "+1 541 440 1000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Roseburg",
+      "addr_postcode": "97471",
+      "addr_street": "Northwest Garden Valley Boulevard",
+      "addr_housenumber": "913",
+      "angle": 79.80689921276125
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maria C Jackson State Park, OR",
+      "geo_wkt": "POINT (-123.865648 43.16039)",
+      "poi": {
+        "id": 253863,
+        "geometry": "POINT (-123.865648 43.16039)",
+        "poi_name": "Maria C Jackson State Park",
+        "osm_id": 357284258,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1032,
+  "type": "range+angle"
+}

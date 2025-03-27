@@ -1,0 +1,48 @@
+{
+  "question": "What direction should I head in to reach the closest museum from West Marion Community Park, Marion, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.020539 35.672652)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.020539 35.672652)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22680,
+      "geometry": "POINT (-82.010426 35.681342)",
+      "poi_name": "Marion Train Depot",
+      "osm_id": 7215071348,
+      "tourism": "museum",
+      "website": "https://www.marionnc.org/Facilities/Facility/Details/Historic-Marion-Train-Depot-1",
+      "addr_state": "NC",
+      "addr_city": "Marion",
+      "addr_postcode": "28752",
+      "addr_street": "Depot Street",
+      "addr_housenumber": "45",
+      "angle": 43.515148609504024
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "West Marion Community Park, Marion, NC",
+      "geo_wkt": "POINT (-82.020539 35.672652)",
+      "poi": {
+        "id": 265599,
+        "geometry": "POINT (-82.020539 35.672652)",
+        "poi_name": "West Marion Community Park",
+        "osm_id": 10737396061,
+        "leisure": "park",
+        "phone": "+18286523551",
+        "addr_state": "NC",
+        "addr_city": "Marion",
+        "addr_postcode": "28752",
+        "addr_street": "Ridley Street",
+        "addr_housenumber": "201"
+      }
+    }
+  },
+  "id": 1494,
+  "type": "knn+angle"
+}

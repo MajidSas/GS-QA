@@ -1,0 +1,45 @@
+{
+  "question": "What's the orientation towards the closest attraction from University of New Haven New London Campus, New London, CT?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.092202 41.327524)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.092202 41.327524)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3292,
+      "geometry": "POINT (-71.932151 41.35238)",
+      "poi_name": "Large Glacial Erratic",
+      "osm_id": 5339946667,
+      "tourism": "attraction",
+      "angle": 78.30356763379424
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of New Haven New London Campus, New London, CT",
+      "geo_wkt": "POINT (-72.092202 41.327524)",
+      "poi": {
+        "id": 167779,
+        "geometry": "POINT (-72.092202 41.327524)",
+        "poi_name": "University of New Haven New London Campus",
+        "osm_id": 359280782,
+        "amenity": "university",
+        "description": "The University of New Haven New London Campus has been serving the needs of business people and nearby residents for more than four decades.",
+        "operator": "University of New Haven",
+        "website": "https://www.newhaven.edu/about/campus-locations/new-london.php",
+        "phone": "+1 203 932 7440",
+        "addr_state": "CT",
+        "addr_city": "New London",
+        "addr_postcode": "06320",
+        "addr_street": "Pequot Avenue",
+        "addr_housenumber": "469"
+      }
+    }
+  },
+  "id": 1428,
+  "type": "knn+angle"
+}

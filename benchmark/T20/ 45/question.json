@@ -1,0 +1,74 @@
+{
+  "question": "Where's the closest caf\u00e9 located en route to Grand Hyatt Seattle, Seattle, WA from University of Phoenix - Western Washington Campus, Tukwila, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, ST_GeomFromText('POINT (-122.333448 47.612502)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 173620,
+      "geometry": "POINT (-122.261422 47.51953)",
+      "poi_name": "Redwing Cafe",
+      "osm_id": 2446638590,
+      "amenity": "cafe",
+      "cuisine": "sandwich",
+      "wheelchair": "limited",
+      "opening_hours": "Tu-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+      "website": "https://www.redwingcafe.com/",
+      "phone": "+1-206-420-1706",
+      "outdoor_seating": "no",
+      "toilets": "yes",
+      "addr_city": "Seattle",
+      "addr_postcode": "98118",
+      "addr_street": "57th Avenue South",
+      "addr_housenumber": "9272",
+      "value": 337.8080888151609
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Phoenix - Western Washington Campus, Tukwila, WA",
+      "geo_wkt": "POINT (-122.246496 47.468396)",
+      "poi": {
+        "id": 142373,
+        "geometry": "POINT (-122.246496 47.468396)",
+        "poi_name": "University of Phoenix - Western Washington Campus",
+        "osm_id": 6312094607,
+        "amenity": "university",
+        "website": "https://www.phoenix.edu/campus-locations/wa/seattle-tacoma-campus.html",
+        "addr_state": "WA",
+        "addr_city": "Tukwila",
+        "addr_postcode": "98188",
+        "addr_street": "Fort Dent Way",
+        "addr_housenumber": "7100"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Grand Hyatt Seattle, Seattle, WA",
+      "geo_wkt": "POINT (-122.333448 47.612502)",
+      "poi": {
+        "id": 18780,
+        "geometry": "POINT (-122.333448 47.612502)",
+        "poi_name": "Grand Hyatt Seattle",
+        "osm_id": 2404211298,
+        "tourism": "hotel",
+        "operator": "Hyatt",
+        "website": "https://seattle.grand.hyatt.com/en/hotel/home.html",
+        "phone": "+1-206-774-1234",
+        "addr_state": "WA",
+        "addr_city": "Seattle",
+        "addr_postcode": "98101",
+        "addr_street": "Pine Street",
+        "addr_housenumber": "721"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1344,
+  "type": "knn:towards+loc"
+}

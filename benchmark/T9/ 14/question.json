@@ -1,0 +1,49 @@
+{
+  "question": "Which nature reserve is closest when moving towards the north of Courant Institute of Mathematical Sciences, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.995686 40.728648)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 256045,
+      "geometry": "POINT (-73.995686 40.728648)",
+      "poi_name": "Iona Island Component Hudson River National Estuarine Research Reserve",
+      "osm_id": 357610727,
+      "leisure": "nature_reserve",
+      "operator": "NOAA",
+      "website": "https://www.dec.ny.gov/outdoor/55673.html",
+      "wikidata": "Q34837982"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Courant Institute of Mathematical Sciences, New York, NY",
+      "geo_wkt": "POINT (-73.995686 40.728648)",
+      "poi": {
+        "id": 158346,
+        "geometry": "POINT (-73.995686 40.728648)",
+        "poi_name": "Courant Institute of Mathematical Sciences",
+        "osm_id": 4743911217,
+        "amenity": "university",
+        "internet_access": "no",
+        "wikidata": "Q946028",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10012",
+        "addr_street": "Mercer Street",
+        "addr_housenumber": "251"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2513,
+  "type": "knn:direction+name"
+}

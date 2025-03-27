@@ -1,0 +1,44 @@
+{
+  "question": "Can you point me to the nearest museum from Memory Garden, Mequon, WI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15337,
+      "geometry": "POINT (-87.97408 43.295195)",
+      "poi_name": "Wisconsin Museum of Quilts & Fiber Arts",
+      "osm_id": 4864565218,
+      "tourism": "museum",
+      "opening_hours": "We-Sa 10:00-16:00; Su 12:00-16:00",
+      "website": "https://www.wiquiltmuseum.com/",
+      "addr_state": "WI",
+      "addr_city": "Cedarburg",
+      "addr_postcode": "53012",
+      "addr_street": "Portland Road",
+      "addr_housenumber": "N50W5050"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "poi": {
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
+      }
+    }
+  },
+  "id": 1836,
+  "type": "knn+loc"
+}

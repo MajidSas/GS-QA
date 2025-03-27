@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant on the path leading to Neil Carey Arena, IL from In the Game - Hollywood Park, Crestwood, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 215346,
+      "geometry": "POINT (-87.850576 41.628111)",
+      "poi_name": "Cafe Gaston",
+      "osm_id": 5296330309,
+      "amenity": "restaurant",
+      "opening_hours": "Mo-Th 07:00-20:00; Fr-Sa 07:00-21:00; Su 07:30-15:00",
+      "website": "https://www.cafegaston.com/",
+      "phone": "+1-708-403-3663",
+      "addr_state": "IL",
+      "addr_city": "Orland Park",
+      "addr_postcode": "60462",
+      "addr_street": "John Humphrey Drive",
+      "addr_housenumber": "14438",
+      "value": 258.7391305669109
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "In the Game - Hollywood Park, Crestwood, IL",
+      "geo_wkt": "POINT (-87.747217 41.655827)",
+      "poi": {
+        "id": 22694,
+        "geometry": "POINT (-87.747217 41.655827)",
+        "poi_name": "In the Game - Hollywood Park",
+        "osm_id": 7217378704,
+        "tourism": "theme_park",
+        "website": "https://crestwood.inthegame.net",
+        "phone": "+1 708 389 7275",
+        "addr_state": "IL",
+        "addr_city": "Crestwood",
+        "addr_postcode": "60445",
+        "addr_street": "Cal Sag Road",
+        "addr_housenumber": "5051"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Neil Carey Arena, IL",
+      "geo_wkt": "POINT (-88.082005 41.605308)",
+      "poi": {
+        "id": 265389,
+        "geometry": "POINT (-88.082005 41.605308)",
+        "poi_name": "Neil Carey Arena",
+        "osm_id": 368073990,
+        "leisure": "stadium",
+        "operator": "Lewis University",
+        "sport": "basketball;volleyball",
+        "addr_state": "IL"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1308,
+  "type": "knn:towards+loc"
+}

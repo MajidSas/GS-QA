@@ -1,0 +1,56 @@
+{
+  "question": "Could you track down an emergency hospital and is conveniently situated within 100 kilometers from After Gallery, Milwaukee, WI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.904893 43.067631)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 67613,
+      "geometry": "POINT (-88.285376 42.216938)",
+      "poi_name": "Mercyhealth Hospital and Physician Clinic",
+      "osm_id": 11242669956,
+      "amenity": "hospital",
+      "phone": "+1-779-220-5500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Crystal Lake",
+      "addr_postcode": "60014",
+      "addr_street": "S IL31",
+      "addr_housenumber": "875"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "After Gallery, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.904893 43.067631)",
+      "poi": {
+        "id": 7244,
+        "geometry": "POINT (-87.904893 43.067631)",
+        "poi_name": "After Gallery",
+        "osm_id": 2020025120,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Su 12:00-19:00",
+        "website": "https://www.after.gallery",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53212",
+        "addr_street": "East Center Street",
+        "addr_housenumber": "510"
+      }
+    }
+  },
+  "id": 456,
+  "type": "range:non_spat_filter+loc"
+}

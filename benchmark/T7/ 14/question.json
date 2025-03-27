@@ -1,0 +1,47 @@
+{
+  "question": "How many spectators can the nearest stadium from Cardiovascular Institute of New England, Cranston, RI hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246343,
+      "geometry": "POINT (-71.515966 41.717988)",
+      "poi_name": "McCarthy Field",
+      "osm_id": 11331230041,
+      "leisure": "stadium",
+      "wikidata": "Q14709442",
+      "multihop_answer": "2500",
+      "multihop_attribute": "Capacity",
+      "multihop_long_answer": "McCarthy Field Capacity: 2500"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
+      "poi": {
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
+      }
+    }
+  },
+  "id": 913,
+  "type": "knn+name+multihop1"
+}

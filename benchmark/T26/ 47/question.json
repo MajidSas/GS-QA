@@ -1,0 +1,50 @@
+{
+  "question": "What's the distance between Humboldt Botanical Garden, Eureka, CA and the nearest zoo?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14066,
+      "geometry": "POINT (-122.695392 38.557332)",
+      "poi_name": "Safari West",
+      "osm_id": 4217522083,
+      "tourism": "zoo",
+      "website": "https://www.safariwest.com/",
+      "phone": "(800) 616-2695",
+      "wikidata": "Q7398400",
+      "addr_state": "CA",
+      "addr_city": "Sant Rosa",
+      "addr_postcode": "95404",
+      "addr_street": "Porter Creek Road",
+      "addr_housenumber": "3115",
+      "distance": 270947.34425182
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Humboldt Botanical Garden, Eureka, CA",
+      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "poi": {
+        "id": 266946,
+        "geometry": "POINT (-124.203982 40.700941)",
+        "poi_name": "Humboldt Botanical Garden",
+        "osm_id": 11161511489,
+        "leisure": "garden",
+        "website": "https://www.hbgf.org/",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95503",
+        "addr_street": "Tompkins Hill Road",
+        "addr_housenumber": "7707"
+      }
+    }
+  },
+  "id": 2446,
+  "type": "knn+distance"
+}

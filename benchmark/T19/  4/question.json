@@ -1,0 +1,51 @@
+{
+  "question": "Where's the closest park to the southwest of Sea Life Aquarium Kansas City, Kansas City, MO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246092,
+      "geometry": "POINT (-94.5816 39.082158)",
+      "poi_name": "3625 Park",
+      "osm_id": 5555468725,
+      "leisure": "park",
+      "addr_state": "MO",
+      "addr_city": "Kansas City",
+      "addr_postcode": "64111",
+      "addr_street": "State Line Road",
+      "addr_housenumber": "3625"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
+      "geo_wkt": "POINT (-94.5816 39.082158)",
+      "poi": {
+        "id": 12063,
+        "geometry": "POINT (-94.5816 39.082158)",
+        "poi_name": "Sea Life Aquarium Kansas City",
+        "osm_id": 6171269243,
+        "tourism": "zoo",
+        "website": "https://www.visitsealife.com/kansas-city/",
+        "phone": "+1 (816)471-4386",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64108",
+        "addr_street": "Grand Boulevard",
+        "addr_housenumber": "2475"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1103,
+  "type": "knn:direction+loc"
+}

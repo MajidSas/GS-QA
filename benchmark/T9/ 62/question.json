@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest university towards the southwest of Humboldt Botanical Garden, Eureka, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 214392,
+      "geometry": "POINT (-124.203982 40.700941)",
+      "poi_name": "Chaminade University",
+      "osm_id": 5271167124,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Humboldt Botanical Garden, Eureka, CA",
+      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "poi": {
+        "id": 266946,
+        "geometry": "POINT (-124.203982 40.700941)",
+        "poi_name": "Humboldt Botanical Garden",
+        "osm_id": 11161511489,
+        "leisure": "garden",
+        "website": "https://www.hbgf.org/",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95503",
+        "addr_street": "Tompkins Hill Road",
+        "addr_housenumber": "7707"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2561,
+  "type": "knn:direction+name"
+}

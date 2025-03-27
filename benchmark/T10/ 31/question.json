@@ -1,0 +1,61 @@
+{
+  "question": "What's the closest restaurant in the direction of Dwarfskill Preserve, Milford, PA from Top of the Rock, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 69880,
+      "geometry": "POINT (-73.980766 40.760372)",
+      "poi_name": "Avra Rockefeller Center",
+      "osm_id": 11335080026,
+      "amenity": "restaurant",
+      "value": 308.2996196851042
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "poi": {
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dwarfskill Preserve, Milford, PA",
+      "geo_wkt": "POINT (-74.895166 41.300832)",
+      "poi": {
+        "id": 267602,
+        "geometry": "POINT (-74.895166 41.300832)",
+        "poi_name": "Dwarfskill Preserve",
+        "osm_id": 7740705080,
+        "leisure": "nature_reserve",
+        "addr_state": "PA",
+        "addr_city": "Milford",
+        "addr_postcode": "18337",
+        "addr_street": "Dwarfskill Falls Lane",
+        "addr_housenumber": "132"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 130,
+  "type": "knn:towards+name"
+}

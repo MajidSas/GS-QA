@@ -1,0 +1,71 @@
+{
+  "question": "Which caf\u00e9 is closest when traveling towards Fort Steuben, Steubenville, OH from Fairmont Pittsburgh, Pittsburgh, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.001808 40.441482)',4326)::geography, ST_GeomFromText('POINT (-80.613308 40.357934)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.001808 40.441482)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.001808 40.441482)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 115223,
+      "geometry": "POINT (-80.002846 40.441166)",
+      "poi_name": "Nicholas Coffee Co",
+      "osm_id": 8881675384,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Fr 07:00-15:30; Sa 09:00-15:00",
+      "website": "http://www.nicholascoffee.net",
+      "phone": "412-261-4225",
+      "addr_state": "PA",
+      "addr_city": "Pittsburgh",
+      "addr_postcode": "15222",
+      "addr_street": "Market Street",
+      "addr_housenumber": "23",
+      "value": 260.06582469481225
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Fairmont Pittsburgh, Pittsburgh, PA",
+      "geo_wkt": "POINT (-80.001808 40.441482)",
+      "poi": {
+        "id": 25438,
+        "geometry": "POINT (-80.001808 40.441482)",
+        "poi_name": "Fairmont Pittsburgh",
+        "osm_id": 4491752379,
+        "tourism": "hotel",
+        "website": "https://www.fairmont.com/pittsburgh/",
+        "addr_state": "PA",
+        "addr_city": "Pittsburgh",
+        "addr_postcode": "15222",
+        "addr_street": "Market Street",
+        "addr_housenumber": "510"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Fort Steuben, Steubenville, OH",
+      "geo_wkt": "POINT (-80.613308 40.357934)",
+      "poi": {
+        "id": 14162,
+        "geometry": "POINT (-80.613308 40.357934)",
+        "poi_name": "Fort Steuben",
+        "osm_id": 4239526821,
+        "historic": "fort",
+        "tourism": "attraction",
+        "website": "https://www.oldfortsteuben.com/",
+        "wikidata": "Q5472108",
+        "addr_state": "OH",
+        "addr_city": "Steubenville",
+        "addr_postcode": "43952",
+        "addr_street": "South 3rd Street",
+        "addr_housenumber": "120"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 104,
+  "type": "knn:towards+name"
+}

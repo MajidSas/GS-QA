@@ -1,0 +1,59 @@
+{
+  "question": "What is the nearest fast food as you head towards Tribeca Island Nature Reserve, Egg Harbor Township, NJ from Arthur Hoyt Scott Amphitheature, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography, ST_GeomFromText('POINT (-74.521346 39.327409)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 213978,
+      "geometry": "POINT (-75.322771 39.879604)",
+      "poi_name": "China Wok",
+      "osm_id": 5262891098,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "yes",
+      "addr_state": "PA",
+      "addr_city": "Ridley Park",
+      "addr_postcode": "19078",
+      "value": 131.44319154692377
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
+      "geo_wkt": "POINT (-75.355533 39.902444)",
+      "poi": {
+        "id": 265384,
+        "geometry": "POINT (-75.355533 39.902444)",
+        "poi_name": "Arthur Hoyt Scott Amphitheature",
+        "osm_id": 367975510,
+        "leisure": "stadium",
+        "addr_state": "PA"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Tribeca Island Nature Reserve, Egg Harbor Township, NJ",
+      "geo_wkt": "POINT (-74.521346 39.327409)",
+      "poi": {
+        "id": 267579,
+        "geometry": "POINT (-74.521346 39.327409)",
+        "poi_name": "Tribeca Island Nature Reserve",
+        "osm_id": 7714501962,
+        "leisure": "nature_reserve",
+        "addr_state": "NJ",
+        "addr_city": "Egg Harbor Township"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 134,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "What's the nearest university from Disneyland Resort, Anaheim, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.918953 33.809089)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 39164,
+      "geometry": "POINT (-117.968613 33.848883)",
+      "poi_name": "West Coast University",
+      "osm_id": 2906669294,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Disneyland Resort, Anaheim, CA",
+      "geo_wkt": "POINT (-117.918953 33.809089)",
+      "poi": {
+        "id": 1749,
+        "geometry": "POINT (-117.918953 33.809089)",
+        "poi_name": "Disneyland Resort",
+        "osm_id": 3139378640,
+        "tourism": "theme_park",
+        "wheelchair": "limited",
+        "opening_hours": "\"Check with each entity for their daily operationg hours, either on the website or on program guide\"",
+        "website": "https://disneyland.disney.go.com/",
+        "wikidata": "Q1229066",
+        "addr_state": "CA",
+        "addr_city": "Anaheim",
+        "addr_postcode": "92802",
+        "addr_street": "South Harbor Blvd.",
+        "addr_housenumber": "1313"
+      }
+    }
+  },
+  "id": 290,
+  "type": "knn+name"
+}

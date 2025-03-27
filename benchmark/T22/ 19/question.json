@@ -1,0 +1,46 @@
+{
+  "question": "What's the course towards the closest hotel from Muse SE, Grand Rapids, MI?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.649547 42.953616)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.649547 42.953616)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24699,
+      "geometry": "POINT (-85.670419 42.966739)",
+      "poi_name": "Homewood Suites by Hilton Grand Rapids Downtown",
+      "osm_id": 11175144707,
+      "tourism": "hotel",
+      "official_name": "Homewood Suites by Hilton",
+      "addr_state": "MI",
+      "addr_city": "Grand Rapids",
+      "addr_street": "Ottawa Avenue Northwest",
+      "addr_housenumber": "161",
+      "angle": 310.5718973916999
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Muse SE, Grand Rapids, MI",
+      "geo_wkt": "POINT (-85.649547 42.953616)",
+      "poi": {
+        "id": 24708,
+        "geometry": "POINT (-85.649547 42.953616)",
+        "poi_name": "Muse SE",
+        "osm_id": 11177351025,
+        "tourism": "gallery",
+        "addr_state": "MI",
+        "addr_city": "Grand Rapids",
+        "addr_postcode": "49503",
+        "addr_street": "Eastern Avenue Southeast",
+        "addr_housenumber": "501"
+      }
+    }
+  },
+  "id": 1418,
+  "type": "knn+angle"
+}

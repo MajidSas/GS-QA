@@ -1,0 +1,48 @@
+{
+  "question": "What's the heading to the closest hotel from Lake Stanley Park, DeFuniak Springs, FL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.138555 30.735353)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.138555 30.735353)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21703,
+      "geometry": "POINT (-86.121439 30.690226)",
+      "poi_name": "Best Western",
+      "osm_id": 10609237262,
+      "tourism": "hotel",
+      "addr_state": "FL",
+      "addr_city": "Defuniak Springs",
+      "addr_postcode": "32435",
+      "addr_street": "US Hwy 331 S",
+      "addr_housenumber": "2343",
+      "angle": 161.8509492285898
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lake Stanley Park, DeFuniak Springs, FL",
+      "geo_wkt": "POINT (-86.138555 30.735353)",
+      "poi": {
+        "id": 246104,
+        "geometry": "POINT (-86.138555 30.735353)",
+        "poi_name": "Lake Stanley Park",
+        "osm_id": 5577094778,
+        "leisure": "park",
+        "description": "Park and Recreation",
+        "website": "https://www.defuniaksprings.net/882/Lake-Stanley-Park",
+        "addr_state": "FL",
+        "addr_city": "DeFuniak Springs",
+        "addr_postcode": "32433",
+        "addr_street": "Shoemaker Drive",
+        "addr_housenumber": "271"
+      }
+    }
+  },
+  "id": 1469,
+  "type": "knn+angle"
+}

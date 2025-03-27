@@ -1,0 +1,49 @@
+{
+  "question": "What is the direction towards the closest museum from It's A Zoo Life, Macclesville, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3073,
+      "geometry": "POINT (-77.726499 35.490316)",
+      "poi_name": "Nooherooka Monument, Snow Hill",
+      "osm_id": 10158503818,
+      "tourism": "museum",
+      "website": "https://docsouth.unc.edu/",
+      "addr_postcode": "28580",
+      "addr_street": "Nooherooka Road",
+      "addr_housenumber": "2846",
+      "angle": 188.16484633634815
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "It's A Zoo Life, Macclesville, NC",
+      "geo_wkt": "POINT (-77.67449 35.786787)",
+      "poi": {
+        "id": 12531,
+        "geometry": "POINT (-77.67449 35.786787)",
+        "poi_name": "It's A Zoo Life",
+        "osm_id": 7297084056,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-17:00",
+        "phone": "(252) 266-7974",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Macclesville",
+        "addr_postcode": "27852",
+        "addr_street": "NC-42",
+        "addr_housenumber": "4313"
+      }
+    }
+  },
+  "id": 1463,
+  "type": "knn+angle"
+}

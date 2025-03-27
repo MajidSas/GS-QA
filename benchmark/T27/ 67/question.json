@@ -1,0 +1,34 @@
+{
+  "question": "What is the total land area of all lakes in Forest Lake Township, Susquehanna County, Pennsylvania?",
+  "sql": "SELECT SUM(ST_Area(lakes.geometry::geography)) AS area FROM lakes\nWHERE water = 'lake'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-75.92762 41.842767, -75.933883 41.842419, -76.024626 41.837377, -76.023226 41.826746, -76.045657 41.826669, -76.035266 41.912438, -75.985292 41.914819, -75.934769 41.917953, -75.932046 41.888527, -75.92762 41.842767))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 284141.47353093233
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "water",
+      "sub_category": "lake",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Forest Lake Township, Susquehanna County, Pennsylvania",
+      "geo_wkt": "POLYGON ((-75.92762 41.842767, -75.933883 41.842419, -76.024626 41.837377, -76.023226 41.826746, -76.045657 41.826669, -76.035266 41.912438, -75.985292 41.914819, -75.934769 41.917953, -75.932046 41.888527, -75.92762 41.842767))",
+      "region": {
+        "id": 16378,
+        "geometry": "POLYGON ((-75.92762 41.842767, -75.933883 41.842419, -76.024626 41.837377, -76.023226 41.826746, -76.045657 41.826669, -76.035266 41.912438, -75.985292 41.914819, -75.934769 41.917953, -75.932046 41.888527, -75.92762 41.842767))",
+        "region_name": "Forest Lake Township",
+        "border_type": "township",
+        "wikidata": "Q967340",
+        "wikipedia": "en:Forest Lake Township, Susquehanna County, Pennsylvania",
+        "place": "township",
+        "is_in": "USA, Pennsylvania",
+        "admin_level": "8"
+      }
+    }
+  },
+  "id": 2166,
+  "type": "intersects:area_total+area"
+}

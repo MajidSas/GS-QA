@@ -1,0 +1,38 @@
+{
+  "question": "Can you recommend the nearest hotel from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24271,
+      "geometry": "POINT (-106.650696 35.086261)",
+      "poi_name": "Clyde Hotel",
+      "osm_id": 10989628584,
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 227,
+  "type": "knn+name"
+}

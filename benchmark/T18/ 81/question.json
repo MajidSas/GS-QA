@@ -1,0 +1,45 @@
+{
+  "question": "Where can I find the nearest railway museum from Element Nashville Vanderbilt West End, Nashville, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.819366 36.152015)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17891,
+      "geometry": "POINT (-86.01026 35.163972)",
+      "poi_name": "Cowan Railroad Museum",
+      "osm_id": 368158234,
+      "tourism": "museum",
+      "website": "http://cowanrailroadmuseum.org/",
+      "museum": "railway",
+      "addr_state": "TN"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Element Nashville Vanderbilt West End, Nashville, TN",
+      "geo_wkt": "POINT (-86.819366 36.152015)",
+      "poi": {
+        "id": 23968,
+        "geometry": "POINT (-86.819366 36.152015)",
+        "poi_name": "Element Nashville Vanderbilt West End",
+        "osm_id": 9227869750,
+        "tourism": "hotel",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37209",
+        "addr_street": "C1TY BLVD",
+        "addr_housenumber": "4"
+      }
+    }
+  },
+  "id": 380,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "What is the closest attraction positioned towards the north of Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 26570,
+      "geometry": "POINT (-98.508333 34.72743)",
+      "poi_name": "Lucille's Historic Gas Station",
+      "osm_id": 5934874402,
+      "tourism": "attraction",
+      "addr_street": "N2470 Road"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2506,
+  "type": "knn:direction+name"
+}

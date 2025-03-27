@@ -1,0 +1,53 @@
+{
+  "question": "What's the nearest caf\u00e9 from Boston Marathon Finish Line, Boston, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.078616 42.349751)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 159307,
+      "geometry": "POINT (-71.079006 42.34924)",
+      "poi_name": "Newsfeed Cafe",
+      "osm_id": 4786907864,
+      "amenity": "cafe",
+      "wheelchair": "yes",
+      "internet_access": "wlan",
+      "phone": "+1-617-357-7333",
+      "outdoor_seating": "no",
+      "addr_state": "MA",
+      "addr_city": "Boston",
+      "addr_postcode": "02116",
+      "addr_street": "Boylston Street",
+      "addr_housenumber": "700"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Boston Marathon Finish Line, Boston, MA",
+      "geo_wkt": "POINT (-71.078616 42.349751)",
+      "poi": {
+        "id": 26946,
+        "geometry": "POINT (-71.078616 42.349751)",
+        "poi_name": "Boston Marathon Finish Line",
+        "osm_id": 7644779165,
+        "historic": "yes",
+        "tourism": "attraction",
+        "operator": "Boston Athletic Association",
+        "website": "https://www.baa.org/races/boston-marathon",
+        "wikidata": "Q826038",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02116",
+        "addr_street": "Boylston Street",
+        "addr_housenumber": "665"
+      }
+    }
+  },
+  "id": 214,
+  "type": "knn+name"
+}

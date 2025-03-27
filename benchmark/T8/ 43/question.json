@@ -1,0 +1,38 @@
+{
+  "question": "Could you tell me the closest restaurant relative to the stadium that can hold 14500 spectators in Wichita Falls, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143957,
+      "geometry": "POINT (-98.544323 33.872376)",
+      "poi_name": "Wasabi",
+      "osm_id": 6356947109,
+      "amenity": "restaurant"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "poi": {
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
+      }
+    }
+  },
+  "id": 2742,
+  "type": "knn+name+multihop2"
+}

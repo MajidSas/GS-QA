@@ -1,0 +1,150 @@
+{
+  "question": "Which route leads to a museum from Broadbent Arena, Louisville, KY within 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, 50000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "id": 2474,
+      "geometry": "POINT (-85.743989 38.275954)",
+      "poi_name": "Vintage Fire Museum",
+      "osm_id": 3467939029,
+      "tourism": "museum",
+      "opening_hours": "Fr,Sa,Su unknown; Mo-Th closed",
+      "website": "https://www.vintagefiremuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Spring Street",
+      "angle": 0.983521811228993
+    },
+    {
+      "id": 2475,
+      "geometry": "POINT (-85.744666 38.276461)",
+      "poi_name": "Clark County Museum",
+      "osm_id": 3467940971,
+      "tourism": "museum",
+      "website": "https://www.clarkcountyinmuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "angle": 0.5739178675659691
+    },
+    {
+      "id": 5931,
+      "geometry": "POINT (-85.462324 37.81108)",
+      "poi_name": "Bardstown Civil War Museum",
+      "osm_id": 1676379108,
+      "tourism": "museum",
+      "website": "https://bardstownmuseumrow.org/",
+      "wikidata": "Q5124623",
+      "addr_city": "Bardstown",
+      "addr_postcode": "40004",
+      "addr_street": "East Broadway Street",
+      "addr_housenumber": "310",
+      "angle": 149.99520091906692
+    },
+    {
+      "id": 5932,
+      "geometry": "POINT (-85.471052 37.811386)",
+      "poi_name": "Oscar Getz Museum of Whiskey History/Bardstown Historical Museum",
+      "osm_id": 1676379113,
+      "tourism": "museum",
+      "website": "https://www.oscargetzwhiskeymuseum.com/",
+      "wikidata": "Q7105998",
+      "addr_city": "Bardstown",
+      "addr_postcode": "40004",
+      "addr_street": "North 5th Street",
+      "addr_housenumber": "115",
+      "angle": 150.74774795155938
+    },
+    {
+      "id": 14042,
+      "geometry": "POINT (-85.771363 38.20538)",
+      "poi_name": "Kentucky Derby Museum",
+      "osm_id": 4215189315,
+      "tourism": "museum",
+      "website": "https://www.derbymuseum.org/",
+      "wikidata": "Q14690752",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40208",
+      "addr_street": "Central Avenue",
+      "addr_housenumber": "704",
+      "angle": 283.151685872999
+    },
+    {
+      "id": 17547,
+      "geometry": "POINT (-85.714566 38.25688)",
+      "poi_name": "Museum of the American Printing House for the Blind",
+      "osm_id": 367811872,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "operator": "The American Printing House for the Blind",
+      "website": "https://aphmuseum.org/",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "1839",
+      "angle": 23.531919787506546
+    },
+    {
+      "id": 17549,
+      "geometry": "POINT (-85.695217 38.199392)",
+      "poi_name": "Colonel Sanders Museum",
+      "osm_id": 367811877,
+      "tourism": "museum",
+      "addr_state": "KY",
+      "angle": 91.7785396821497
+    },
+    {
+      "id": 23366,
+      "geometry": "POINT (-85.701313 38.280802)",
+      "poi_name": "WaterWorks Museum",
+      "osm_id": 5146055222,
+      "tourism": "museum",
+      "opening_hours": "We-Fr 10:00-17:00; Sa-Su 10:00-15:00",
+      "wikidata": "Q17019049",
+      "angle": 23.543439652815586
+    },
+    {
+      "id": 24006,
+      "geometry": "POINT (-85.576037 38.232728)",
+      "poi_name": "the big museum",
+      "osm_id": 9247049334,
+      "tourism": "museum",
+      "angle": 76.46041977823339
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "poi": {
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
+      }
+    }
+  },
+  "id": 1022,
+  "type": "range+angle"
+}

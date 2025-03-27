@@ -1,0 +1,41 @@
+{
+  "question": "How distant is a beach resort positioned from Munsel Creek County Park, OR within a distance of 190 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-124.095674 43.990122)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-124.095674 43.990122)',4326)::geography, 190000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 247731,
+      "geometry": "POINT (-124.367756 43.138986)",
+      "poi_name": "NorWinJa",
+      "osm_id": 8224979807,
+      "leisure": "beach_resort",
+      "distance": 97085.42367544
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Munsel Creek County Park, OR",
+      "geo_wkt": "POINT (-124.095674 43.990122)",
+      "poi": {
+        "id": 254162,
+        "geometry": "POINT (-124.095674 43.990122)",
+        "poi_name": "Munsel Creek County Park",
+        "osm_id": 357329710,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 783,
+  "type": "range+distance"
+}

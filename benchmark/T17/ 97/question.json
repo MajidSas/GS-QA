@@ -1,0 +1,46 @@
+{
+  "question": "Looking for the closest caf\u00e9 in relation to Courtyard by Marriott Cleveland Elyria, Elyria, OH, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.113258 41.39125)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 30778,
+      "geometry": "POINT (-82.106651 41.366683)",
+      "poi_name": "Erie Island Coffee Co.",
+      "osm_id": 8381423657,
+      "amenity": "cafe",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Middle Avenue",
+      "addr_housenumber": "148"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Courtyard by Marriott Cleveland Elyria, Elyria, OH",
+      "geo_wkt": "POINT (-82.113258 41.39125)",
+      "poi": {
+        "id": 26806,
+        "geometry": "POINT (-82.113258 41.39125)",
+        "poi_name": "Courtyard by Marriott Cleveland Elyria",
+        "osm_id": 6066626623,
+        "tourism": "hotel",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Travelers Lane",
+        "addr_housenumber": "1755"
+      }
+    }
+  },
+  "id": 1896,
+  "type": "knn+loc"
+}

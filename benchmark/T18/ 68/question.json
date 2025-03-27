@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest children museum from Overley-Worman Park, Zionsville, IN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'children'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.267728 39.933463)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 20105,
+      "geometry": "POINT (-87.609203 41.891472)",
+      "poi_name": "Chicago Children's Museum",
+      "osm_id": 7874287865,
+      "tourism": "museum",
+      "website": "https://www.chicagochildrensmuseum.org/",
+      "museum": "children",
+      "wikidata": "Q2963300",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60611",
+      "addr_street": "East Grand Avenue",
+      "addr_housenumber": "700"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "children museum",
+      "poi_filter_sql": "museum = 'children'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Overley-Worman Park, Zionsville, IN",
+      "geo_wkt": "POINT (-86.267728 39.933463)",
+      "poi": {
+        "id": 247742,
+        "geometry": "POINT (-86.267728 39.933463)",
+        "poi_name": "Overley-Worman Park",
+        "osm_id": 9854172261,
+        "leisure": "park",
+        "addr_state": "IN",
+        "addr_city": "Zionsville",
+        "addr_postcode": "46077",
+        "addr_street": "Godello Circle",
+        "addr_housenumber": "6040"
+      }
+    }
+  },
+  "id": 367,
+  "type": "knn:non_spat_filter+loc"
+}

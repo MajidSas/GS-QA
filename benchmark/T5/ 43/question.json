@@ -1,0 +1,47 @@
+{
+  "question": "Seeking suggestions for the nearest zoo in relation to the Other Side, Utica, NY.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.261843 43.086132)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18982,
+      "geometry": "POINT (-74.221224 43.055227)",
+      "poi_name": "Adirondack Animal Land",
+      "osm_id": 2471668960,
+      "tourism": "zoo",
+      "website": "http://www.adirondackanimalland.com/",
+      "phone": "(518) 883-5748",
+      "addr_city": "Gloversville",
+      "addr_postcode": "12078",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "3554"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Other Side, Utica, NY",
+      "geo_wkt": "POINT (-75.261843 43.086132)",
+      "poi": {
+        "id": 10221,
+        "geometry": "POINT (-75.261843 43.086132)",
+        "poi_name": "The Other Side",
+        "osm_id": 6754230277,
+        "tourism": "gallery",
+        "website": "https://theothersideutica.org/",
+        "addr_state": "NY",
+        "addr_city": "Utica",
+        "addr_postcode": "13501",
+        "addr_street": "Genesee Street",
+        "addr_housenumber": "2011"
+      }
+    }
+  },
+  "id": 242,
+  "type": "knn+name"
+}

@@ -1,0 +1,39 @@
+{
+  "question": "What's the closest theme park nearby the stadium with the former name University of Denver Auditorium in CO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10133,
+      "geometry": "POINT (-104.877823 39.773072)",
+      "poi_name": "Urban Air Trampoline and Adventure Park",
+      "osm_id": 6715163588,
+      "tourism": "theme_park",
+      "website": "https://www.urbanairtrampolinepark.com/locations/colorado/stapleton",
+      "phone": "+1-303-536-1951"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2799,
+  "type": "knn+name+multihop2"
+}

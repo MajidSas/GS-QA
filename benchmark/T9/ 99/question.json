@@ -1,0 +1,49 @@
+{
+  "question": "Which park is closest when moving in the northeast direction from RIME Forensic Medicine, Las Cruces, NM?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-106.737015 32.367961)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 256239,
+      "geometry": "POINT (-106.737015 32.367961)",
+      "poi_name": "Site of San Agustin Springs Historical Marker",
+      "osm_id": 357612855,
+      "leisure": "park",
+      "wikidata": "Q49562060"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "RIME Forensic Medicine, Las Cruces, NM",
+      "geo_wkt": "POINT (-106.737015 32.367961)",
+      "poi": {
+        "id": 221256,
+        "geometry": "POINT (-106.737015 32.367961)",
+        "poi_name": "RIME Forensic Medicine",
+        "osm_id": 10969833866,
+        "amenity": "hospital",
+        "operator": "Daniel Romanelli, M.D.",
+        "phone": "+1-575-652-3528",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "NM",
+        "addr_city": "Las Cruces",
+        "addr_postcode": "88011",
+        "addr_street": "Sonoma Ranch Boulevard",
+        "addr_housenumber": "4500"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2598,
+  "type": "knn:direction+name"
+}

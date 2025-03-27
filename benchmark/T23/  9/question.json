@@ -1,0 +1,42 @@
+{
+  "question": "What's the total count of aquaria within 180 kilometers from Raynay Alpaca Farm, Ruffin, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, 180000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "count": 4
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
+      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "poi": {
+        "id": 5116,
+        "geometry": "POINT (-79.503121 36.362766)",
+        "poi_name": "Raynay Alpaca Farm",
+        "osm_id": 9761648623,
+        "tourism": "zoo",
+        "phone": "+13369393645",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Ruffin",
+        "addr_postcode": "27326",
+        "addr_street": "Ashland Road",
+        "addr_housenumber": "1897"
+      }
+    }
+  },
+  "id": 2208,
+  "type": "range+count"
+}

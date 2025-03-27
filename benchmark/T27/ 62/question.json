@@ -1,0 +1,32 @@
+{
+  "question": "What is the total land area of all lakes in Pleasant Plains Township, Michigan?",
+  "sql": "SELECT SUM(ST_Area(lakes.geometry::geography)) AS area FROM lakes\nWHERE water = 'lake'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-85.801831 43.900931, -85.816076 43.900811, -85.919558 43.901383, -85.918955 43.857848, -85.918429 43.843279, -85.91903 43.828436, -85.918335 43.814627, -85.891242 43.814208, -85.860043 43.814053, -85.800242 43.814166, -85.80142 43.857612, -85.801831 43.900931))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 1128801.936022808
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "water",
+      "sub_category": "lake",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Pleasant Plains Township, Michigan",
+      "geo_wkt": "POLYGON ((-85.801831 43.900931, -85.816076 43.900811, -85.919558 43.901383, -85.918955 43.857848, -85.918429 43.843279, -85.91903 43.828436, -85.918335 43.814627, -85.891242 43.814208, -85.860043 43.814053, -85.800242 43.814166, -85.80142 43.857612, -85.801831 43.900931))",
+      "region": {
+        "id": 4156,
+        "geometry": "POLYGON ((-85.801831 43.900931, -85.816076 43.900811, -85.919558 43.901383, -85.918955 43.857848, -85.918429 43.843279, -85.91903 43.828436, -85.918335 43.814627, -85.891242 43.814208, -85.860043 43.814053, -85.800242 43.814166, -85.80142 43.857612, -85.801831 43.900931))",
+        "region_name": "Pleasant Plains Township",
+        "border_type": "township",
+        "wikidata": "Q7203922",
+        "wikipedia": "en:Pleasant Plains Township, Michigan",
+        "admin_level": "7"
+      }
+    }
+  },
+  "id": 2161,
+  "type": "intersects:area_total+area"
+}

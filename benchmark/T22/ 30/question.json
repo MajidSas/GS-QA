@@ -1,0 +1,45 @@
+{
+  "question": "Which direction leads to the nearest park situated from Hilton Garden Inn, Fremont, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.9314 37.494949)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.9314 37.494949)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 262795,
+      "geometry": "POINT (-121.90468 37.490771)",
+      "poi_name": "Higuera Adobe Park",
+      "osm_id": 358819457,
+      "leisure": "park",
+      "wikidata": "Q49501386",
+      "angle": 101.09500374815129
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn, Fremont, CA",
+      "geo_wkt": "POINT (-121.9314 37.494949)",
+      "poi": {
+        "id": 4830,
+        "geometry": "POINT (-121.9314 37.494949)",
+        "poi_name": "Hilton Garden Inn",
+        "osm_id": 9643349065,
+        "tourism": "hotel",
+        "website": "https://www.hilton.com/en/hotels/sjcfcgi-hilton-garden-inn-fremont-milpitas/",
+        "internet_access": "yes",
+        "phone": "+1-510-668-1050",
+        "addr_state": "CA",
+        "addr_city": "Fremont",
+        "addr_postcode": "94539",
+        "addr_street": "Warm Springs Boulevard",
+        "addr_housenumber": "45976"
+      }
+    }
+  },
+  "id": 1429,
+  "type": "knn+angle"
+}

@@ -1,0 +1,65 @@
+{
+  "question": "Where is the closest restaurant along the way to Medical College of Wisconsin-Central Wisconsin, Wausau, WI from World's Largest Round Barn, Marshfield, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.17427 44.652396)',4326)::geography, ST_GeomFromText('POINT (-89.663831 44.964816)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.17427 44.652396)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.17427 44.652396)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 204481,
+      "geometry": "POINT (-89.96574 44.943232)",
+      "poi_name": "Edgar Family Restaurant",
+      "osm_id": 7127392325,
+      "amenity": "restaurant",
+      "addr_state": "WI",
+      "addr_city": "Edgar",
+      "addr_street": "Opportunity Way",
+      "addr_housenumber": "127588",
+      "value": 49.13168207089542
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "World's Largest Round Barn, Marshfield, WI",
+      "geo_wkt": "POINT (-90.17427 44.652396)",
+      "poi": {
+        "id": 3638,
+        "geometry": "POINT (-90.17427 44.652396)",
+        "poi_name": "World's Largest Round Barn",
+        "osm_id": 5512218629,
+        "tourism": "attraction",
+        "addr_state": "WI",
+        "addr_city": "Marshfield",
+        "addr_postcode": "54449",
+        "addr_street": "E. 17th Street",
+        "addr_housenumber": "513"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Medical College of Wisconsin-Central Wisconsin, Wausau, WI",
+      "geo_wkt": "POINT (-89.663831 44.964816)",
+      "poi": {
+        "id": 155570,
+        "geometry": "POINT (-89.663831 44.964816)",
+        "poi_name": "Medical College of Wisconsin-Central Wisconsin",
+        "osm_id": 4291080657,
+        "amenity": "university",
+        "operator": "Medical College of Wisconsin",
+        "website": "https://www.mcw.edu/education/medical-school/campuses/central-wisconsin-campus",
+        "addr_state": "WI",
+        "addr_city": "Wausau",
+        "addr_postcode": "54401",
+        "addr_street": "Westwood Drive",
+        "addr_housenumber": "1900"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1390,
+  "type": "knn:towards+loc"
+}

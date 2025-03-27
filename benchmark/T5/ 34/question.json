@@ -1,0 +1,40 @@
+{
+  "question": "Looking for the closest stadium in relation to Green Briar Jam Kitchen, MA, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.468673 41.745409)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265368,
+      "geometry": "POINT (-70.191131 41.690388)",
+      "poi_name": "Cape Cod Coliseum",
+      "osm_id": 367781392,
+      "leisure": "stadium",
+      "wikidata": "Q5034679",
+      "addr_state": "MA"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Green Briar Jam Kitchen, MA",
+      "geo_wkt": "POINT (-70.468673 41.745409)",
+      "poi": {
+        "id": 17323,
+        "geometry": "POINT (-70.468673 41.745409)",
+        "poi_name": "Green Briar Jam Kitchen",
+        "osm_id": 367777640,
+        "tourism": "attraction",
+        "operator": "Thornton W. Burgess Society",
+        "website": "https://thorntonburgess.org/",
+        "addr_state": "MA"
+      }
+    }
+  },
+  "id": 233,
+  "type": "knn+name"
+}

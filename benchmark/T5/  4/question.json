@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest zoo in proximity to Erotic Heritage Museum, Las Vegas, NV?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-115.174673 36.130056)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6722,
+      "geometry": "POINT (-112.445503 34.612888)",
+      "poi_name": "Heritage Park Zoo",
+      "osm_id": 1941882647,
+      "tourism": "zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Erotic Heritage Museum, Las Vegas, NV",
+      "geo_wkt": "POINT (-115.174673 36.130056)",
+      "poi": {
+        "id": 5989,
+        "geometry": "POINT (-115.174673 36.130056)",
+        "poi_name": "Erotic Heritage Museum",
+        "osm_id": 1700474230,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-19:00",
+        "website": "https://www.eroticmuseumvegas.com/museum/",
+        "phone": "+1-702-794-4000",
+        "wikidata": "Q5395415",
+        "addr_state": "NV",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "89109",
+        "addr_street": "Sammy Davis Junior Drive",
+        "addr_housenumber": "3275"
+      }
+    }
+  },
+  "id": 203,
+  "type": "knn+name"
+}

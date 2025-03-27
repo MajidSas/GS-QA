@@ -1,0 +1,54 @@
+{
+  "question": "How distant is a beach resort positioned from Bird Rookery Swamp Trail, Naples, FL within a distance of 180 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-81.633933 26.312334)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.633933 26.312334)',4326)::geography, 180000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 246016,
+      "geometry": "POINT (-80.127658 25.786157)",
+      "poi_name": "14th street beach",
+      "osm_id": 5461991172,
+      "leisure": "beach_resort",
+      "fee": "no",
+      "distance": 161619.43655992
+    },
+    {
+      "id": 248774,
+      "geometry": "POINT (-80.071556 26.340163)",
+      "poi_name": "Boca Beach Club",
+      "osm_id": 4791674684,
+      "leisure": "beach_resort",
+      "distance": 156016.53826208
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Bird Rookery Swamp Trail, Naples, FL",
+      "geo_wkt": "POINT (-81.633933 26.312334)",
+      "poi": {
+        "id": 25612,
+        "geometry": "POINT (-81.633933 26.312334)",
+        "poi_name": "Bird Rookery Swamp Trail",
+        "osm_id": 4555346682,
+        "tourism": "attraction",
+        "operator": "CREW Land & Water Trust",
+        "addr_state": "FL",
+        "addr_city": "Naples",
+        "addr_street": "Shady Hollow Boulevard West",
+        "addr_housenumber": "1295"
+      }
+    }
+  },
+  "id": 797,
+  "type": "range+distance"
+}

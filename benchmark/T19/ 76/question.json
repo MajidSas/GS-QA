@@ -1,0 +1,56 @@
+{
+  "question": "Where's the closest university to the south of American Coney Island, Detroit, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.048743 42.331438)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 97387,
+      "geometry": "POINT (-83.048743 42.331438)",
+      "poi_name": "The Ohio State University at Mansfield",
+      "osm_id": 6476844898,
+      "amenity": "university",
+      "operator": "The Ohio State University",
+      "website": "https://www.mansfield.osu.edu",
+      "phone": "+1-419-755-4011",
+      "addr_state": "OH",
+      "addr_city": "Mansfield",
+      "addr_postcode": "44906",
+      "addr_street": "University Drive",
+      "addr_housenumber": "1760"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "American Coney Island, Detroit, MI",
+      "geo_wkt": "POINT (-83.048743 42.331438)",
+      "poi": {
+        "id": 189187,
+        "geometry": "POINT (-83.048743 42.331438)",
+        "poi_name": "American Coney Island",
+        "osm_id": 1218005961,
+        "amenity": "restaurant",
+        "cuisine": "american",
+        "tourism": "attraction",
+        "wheelchair": "no",
+        "website": "http://americanconeyisland.com",
+        "addr_state": "MI",
+        "addr_city": "Detroit",
+        "addr_postcode": "48226",
+        "addr_street": "Lafayette Boulevard West",
+        "addr_housenumber": "114"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1175,
+  "type": "knn:direction+loc"
+}

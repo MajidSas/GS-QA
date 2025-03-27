@@ -1,0 +1,45 @@
+{
+  "question": "What is the nearest garden in the east direction of Flathead Lake State Park - West Shore Unit, Lakeside, MT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-114.188452 47.949392)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267271,
+      "geometry": "POINT (-114.188452 47.949392)",
+      "poi_name": "Secret Garden",
+      "osm_id": 5792889132,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Flathead Lake State Park - West Shore Unit, Lakeside, MT",
+      "geo_wkt": "POINT (-114.188452 47.949392)",
+      "poi": {
+        "id": 258201,
+        "geometry": "POINT (-114.188452 47.949392)",
+        "poi_name": "Flathead Lake State Park - West Shore Unit",
+        "osm_id": 357940525,
+        "leisure": "park",
+        "operator": "Montana State Parks",
+        "addr_state": "MT",
+        "addr_city": "Lakeside",
+        "addr_postcode": "59922",
+        "addr_street": "HWY 93",
+        "addr_housenumber": "17768"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2516,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "How distant can I find an aquarium positioned from Adventure Park, Scottsdale, AZ within 120 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography, 120000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 1374,
+      "geometry": "POINT (-111.963252 33.384803)",
+      "poi_name": "Arizona Sea Life Aquarium",
+      "osm_id": 2963997360,
+      "tourism": "aquarium",
+      "wikidata": "Q20712720",
+      "addr_city": "Tempe",
+      "distance": 18872.94117325
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "poi": {
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
+      }
+    }
+  },
+  "id": 767,
+  "type": "range+distance"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find the closest maritime museum from Assurance Health Toledo, Sylvania, OH?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'maritime'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.722064 41.689749)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17357,
+      "geometry": "POINT (-70.661851 42.613832)",
+      "poi_name": "Cape Ann Historical Museum",
+      "osm_id": 367781156,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "fee": "yes",
+      "website": "https://home.capeannmuseum.org/",
+      "phone": "+1 978 283 0455",
+      "museum": "maritime",
+      "addr_state": "MA",
+      "addr_city": "Gloucester",
+      "addr_postcode": "01930",
+      "addr_street": "Pleasant Street",
+      "addr_housenumber": "27"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "maritime museum",
+      "poi_filter_sql": "museum = 'maritime'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Assurance Health Toledo, Sylvania, OH",
+      "geo_wkt": "POINT (-83.722064 41.689749)",
+      "poi": {
+        "id": 182744,
+        "geometry": "POINT (-83.722064 41.689749)",
+        "poi_name": "Assurance Health Toledo",
+        "osm_id": 10903812923,
+        "amenity": "hospital",
+        "website": "http://assurancehealthsystem.com/locations/toledo-oh",
+        "phone": "+1 219 510 3776",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Sylvania",
+        "addr_postcode": "43560",
+        "addr_street": "King Road",
+        "addr_housenumber": "4040"
+      }
+    }
+  },
+  "id": 393,
+  "type": "knn:non_spat_filter+loc"
+}

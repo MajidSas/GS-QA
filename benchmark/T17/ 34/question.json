@@ -1,0 +1,50 @@
+{
+  "question": "Could you tell me the location of the closest fast food restaurant relative to Ultimate Image Cosmetic Medical Center, Clearwater, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.739045 28.042966)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 168797,
+      "geometry": "POINT (-82.73209 28.02018)",
+      "poi_name": "Smoothie King",
+      "osm_id": 2278596447,
+      "amenity": "fast_food",
+      "cuisine": "juice",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_city": "Clearwater",
+      "addr_postcode": "33761",
+      "addr_street": "Main Street"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Ultimate Image Cosmetic Medical Center, Clearwater, FL",
+      "geo_wkt": "POINT (-82.739045 28.042966)",
+      "poi": {
+        "id": 231069,
+        "geometry": "POINT (-82.739045 28.042966)",
+        "poi_name": "Ultimate Image Cosmetic Medical Center",
+        "osm_id": 4454938437,
+        "amenity": "hospital",
+        "opening_hours": "Mo,Fr 10:00-16:00; Tu 10:00-17:00; We,Th 11:00-19:00; Sa,Su off",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "FL",
+        "addr_city": "Clearwater",
+        "addr_postcode": "33761",
+        "addr_street": "US Highway 19 North",
+        "addr_housenumber": "29750"
+      }
+    }
+  },
+  "id": 1833,
+  "type": "knn+loc"
+}

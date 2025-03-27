@@ -1,0 +1,66 @@
+{
+  "question": "Where's the closest restaurant on the route to Knight Sports Arena, VA from SeaQuest, Lynchburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, ST_GeomFromText('POINT (-79.350197 37.74151)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 173164,
+      "geometry": "POINT (-79.182261 37.372915)",
+      "poi_name": "Milan Indian Cuisine",
+      "osm_id": 2428711618,
+      "amenity": "restaurant",
+      "cuisine": "indian",
+      "opening_hours": "Mo,We-Su 11:00-21:30",
+      "website": "https://www.milan-indian-cuisine.com/",
+      "phone": "+1 434-237-7990",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_postcode": "24502",
+      "addr_street": "Wards Road",
+      "addr_housenumber": "2124",
+      "value": 340.09599640643484
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "poi": {
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Knight Sports Arena, VA",
+      "geo_wkt": "POINT (-79.350197 37.74151)",
+      "poi": {
+        "id": 265386,
+        "geometry": "POINT (-79.350197 37.74151)",
+        "poi_name": "Knight Sports Arena",
+        "osm_id": 367997526,
+        "leisure": "stadium",
+        "addr_state": "VA"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1350,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Where can I find the nearest university in the vicinity of Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 206218,
+      "geometry": "POINT (-98.490182 29.460428)",
+      "poi_name": "UIW SPS Alamo Heights Center",
+      "osm_id": 7201375091,
+      "amenity": "university",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_street": "McCullough Avenue",
+      "addr_housenumber": "3200"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "poi": {
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
+      }
+    }
+  },
+  "id": 1877,
+  "type": "knn+loc"
+}

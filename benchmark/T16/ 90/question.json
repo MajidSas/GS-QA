@@ -1,0 +1,104 @@
+{
+  "question": "Where can I find museum as you head towards Cal, Sr.'s Yard, Aberdeen, MD from Leon and Ethel Yeiser Rose Garden, Annville, PA, within a radius of 30 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 7241,
+      "geometry": "POINT (-76.507681 40.112186)",
+      "poi_name": "Mount Joy Historical Society",
+      "osm_id": 2017381048,
+      "tourism": "museum",
+      "website": "https://www.mountjoyhistory.com/",
+      "museum": "local",
+      "addr_state": "PA",
+      "addr_city": "Mount Joy",
+      "addr_postcode": "17552",
+      "addr_street": "Fairview Street",
+      "addr_housenumber": "120",
+      "value": 162.34200360805406
+    },
+    {
+      "id": 8371,
+      "geometry": "POINT (-76.394069 40.16458)",
+      "poi_name": "The Keath House",
+      "osm_id": 6655864677,
+      "description": "Historic House Museum",
+      "tourism": "museum",
+      "operator": "Manheim Historical Society",
+      "website": "https://www.manheimhistoricalsociety.org/",
+      "phone": "717-665-7989",
+      "addr_state": "PA",
+      "addr_city": "Manheim",
+      "addr_postcode": "17545",
+      "addr_street": "East High Street",
+      "addr_housenumber": "32",
+      "value": 162.34200360805406
+    },
+    {
+      "id": 8372,
+      "geometry": "POINT (-76.394263 40.164477)",
+      "poi_name": "The Fasig House",
+      "osm_id": 6655905405,
+      "description": "The Fasig House is a historic house museum. This early Germanic log house was rescued and moved to this location in 1974. ",
+      "tourism": "museum",
+      "operator": "Manheim Historical Society",
+      "website": "https://www.manheimhistoricalsociety.org/",
+      "phone": "717-665-7989",
+      "addr_state": "PA",
+      "addr_city": "Manheim",
+      "addr_postcode": "17545",
+      "addr_street": "East High Street",
+      "addr_housenumber": "30",
+      "value": 162.34200360805406
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
+      "geo_wkt": "POINT (-76.51439 40.331543)",
+      "poi": {
+        "id": 267072,
+        "geometry": "POINT (-76.51439 40.331543)",
+        "poi_name": "Leon and Ethel Yeiser Rose Garden",
+        "osm_id": 4422290591,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "poi": {
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1289,
+  "type": "range:towards+loc"
+}

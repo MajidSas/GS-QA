@@ -1,0 +1,44 @@
+{
+  "question": "In what direction can I find the closest zoo situated from Norton Health Science Building, Louisville, KY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.703355 38.220352)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.703355 38.220352)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10483,
+      "geometry": "POINT (-85.702877 38.205966)",
+      "poi_name": "Petting Zoo Area",
+      "osm_id": 6882884522,
+      "description": "Petting Zoo",
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 178.49879416969017
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Norton Health Science Building, Louisville, KY",
+      "geo_wkt": "POINT (-85.703355 38.220352)",
+      "poi": {
+        "id": 48689,
+        "geometry": "POINT (-85.703355 38.220352)",
+        "poi_name": "Norton Health Science Building",
+        "osm_id": 3395956277,
+        "amenity": "university",
+        "operator": "Bellarmine University",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40205",
+        "addr_street": "Loftus Circle",
+        "addr_housenumber": "1701"
+      }
+    }
+  },
+  "id": 1478,
+  "type": "knn+angle"
+}

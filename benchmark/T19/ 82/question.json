@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest stadium southwest of Whitefish Community Garden, Whitefish, MT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-114.343403 48.426323)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266859,
+      "geometry": "POINT (-114.343403 48.426323)",
+      "poi_name": "Fran Rish Stadium",
+      "osm_id": 11051987955,
+      "leisure": "stadium",
+      "addr_state": "WA",
+      "addr_city": "Richland",
+      "addr_postcode": "99352",
+      "addr_street": "Lee Boulevard",
+      "addr_housenumber": "1332"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitefish Community Garden, Whitefish, MT",
+      "geo_wkt": "POINT (-114.343403 48.426323)",
+      "poi": {
+        "id": 247141,
+        "geometry": "POINT (-114.343403 48.426323)",
+        "poi_name": "Whitefish Community Garden",
+        "osm_id": 3628015925,
+        "leisure": "garden",
+        "website": "http://www.whitefishcommunitygarden.net/",
+        "addr_state": "MT",
+        "addr_city": "Whitefish",
+        "addr_postcode": "59937",
+        "addr_street": "Glenwood Road",
+        "addr_housenumber": "509"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1181,
+  "type": "knn:direction+loc"
+}

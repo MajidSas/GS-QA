@@ -1,0 +1,43 @@
+{
+  "question": "How far away is the nearest aquarium positioned from Smoky Mountain Alpine Coaster, Pigeon Forge, TN?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1488,
+      "geometry": "POINT (-80.724943 35.369446)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 3006070689,
+      "tourism": "aquarium",
+      "distance": 264481.07348929
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "poi": {
+        "id": 13057,
+        "geometry": "POINT (-83.596543 35.793397)",
+        "poi_name": "Smoky Mountain Alpine Coaster",
+        "osm_id": 4035710749,
+        "tourism": "theme_park",
+        "website": "http://www.smokymountainalpinecoaster.com/",
+        "wikidata": "Q29831450",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Wears Valley Road",
+        "addr_housenumber": "867"
+      }
+    }
+  },
+  "id": 2469,
+  "type": "knn+distance"
+}

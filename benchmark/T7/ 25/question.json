@@ -1,0 +1,54 @@
+{
+  "question": "What is the name of the university that is affiliated with the closest hospital from Art Clinic, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.983174 40.718763)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167520,
+      "geometry": "POINT (-73.984581 40.73188)",
+      "poi_name": "New York Eye and Ear Infirmary of Mount Sinai",
+      "osm_id": 357642745,
+      "amenity": "hospital",
+      "operator": "Mount Sinai",
+      "website": "http://www.nyee.edu/",
+      "phone": "+1 212 979 4000",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q7013496",
+      "addr_city": "New York",
+      "addr_postcode": "10003",
+      "addr_street": "East 14th Street",
+      "addr_housenumber": "310",
+      "multihop_answer": "Icahn School of Medicine at Mount Sinai",
+      "multihop_attribute": "Affiliated university",
+      "multihop_long_answer": "New York Eye and Ear Infirmary of Mount Sinai Affiliated university: Icahn School of Medicine at Mount Sinai"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Art Clinic, New York, NY",
+      "geo_wkt": "POINT (-73.983174 40.718763)",
+      "poi": {
+        "id": 859,
+        "geometry": "POINT (-73.983174 40.718763)",
+        "poi_name": "Art Clinic",
+        "osm_id": 2713432144,
+        "description": "Art Studio operated by NYC street artist #SacSix that provided crayons and coloring books during the height of the pandemic",
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10002",
+        "addr_street": "Ridge Street",
+        "addr_housenumber": "106"
+      }
+    }
+  },
+  "id": 924,
+  "type": "knn+name+multihop1"
+}

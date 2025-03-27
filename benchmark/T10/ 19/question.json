@@ -1,0 +1,67 @@
+{
+  "question": "What's the closest restaurant in the direction of Monarch Sculpture Park, Tenino, WA from University of Phoenix - Western Washington Campus, Tukwila, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, ST_GeomFromText('POINT (-122.761023 46.901484)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 61304,
+      "geometry": "POINT (-122.253743 47.460895)",
+      "poi_name": "Manila Sunset",
+      "osm_id": 5512312521,
+      "amenity": "restaurant",
+      "cuisine": "filipino",
+      "addr_city": "Tukwila",
+      "addr_postcode": "98188",
+      "addr_street": "Tukwila Parkway",
+      "addr_housenumber": "307",
+      "value": 211.93628149345292
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Phoenix - Western Washington Campus, Tukwila, WA",
+      "geo_wkt": "POINT (-122.246496 47.468396)",
+      "poi": {
+        "id": 142373,
+        "geometry": "POINT (-122.246496 47.468396)",
+        "poi_name": "University of Phoenix - Western Washington Campus",
+        "osm_id": 6312094607,
+        "amenity": "university",
+        "website": "https://www.phoenix.edu/campus-locations/wa/seattle-tacoma-campus.html",
+        "addr_state": "WA",
+        "addr_city": "Tukwila",
+        "addr_postcode": "98188",
+        "addr_street": "Fort Dent Way",
+        "addr_housenumber": "7100"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Monarch Sculpture Park, Tenino, WA",
+      "geo_wkt": "POINT (-122.761023 46.901484)",
+      "poi": {
+        "id": 246391,
+        "geometry": "POINT (-122.761023 46.901484)",
+        "poi_name": "Monarch Sculpture Park",
+        "osm_id": 11429079139,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 07:00-18:00",
+        "phone": "360-264-2408",
+        "addr_state": "WA",
+        "addr_city": "Tenino",
+        "addr_postcode": "98589",
+        "addr_street": "Waldrick Road Southeast",
+        "addr_housenumber": "8431"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 118,
+  "type": "knn:towards+name"
+}

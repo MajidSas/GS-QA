@@ -1,0 +1,56 @@
+{
+  "question": "Where can I find the closest emergency hospital from Audubon Insectarium, New Orleans, LA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167563,
+      "geometry": "POINT (-89.88619 31.969046)",
+      "poi_name": "Simpson General Hospital",
+      "osm_id": 357992858,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "phone": "+1 601 847 2221",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Mendenhall",
+      "addr_postcode": "39114",
+      "addr_street": "Simpson Highway 149",
+      "addr_housenumber": "1842"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Audubon Insectarium, New Orleans, LA",
+      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "poi": {
+        "id": 15891,
+        "geometry": "POINT (-90.063318 29.951359)",
+        "poi_name": "Audubon Insectarium",
+        "osm_id": 9588493777,
+        "tourism": "zoo",
+        "wheelchair": "yes",
+        "building": "yes",
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "website": "http://www.auduboninstitute.org/visit/insectarium",
+        "zoo": "insectarium",
+        "wikidata": "Q4820238",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Canal Street",
+        "addr_housenumber": "403"
+      }
+    }
+  },
+  "id": 331,
+  "type": "knn:non_spat_filter+loc"
+}

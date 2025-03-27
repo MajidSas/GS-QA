@@ -1,0 +1,53 @@
+{
+  "question": "When was the nearest theme park from Homewood Suites, Schaumburg, IL first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.059089 42.047655)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21492,
+      "geometry": "POINT (-88.034026 42.039672)",
+      "poi_name": "Legoland Discovery Center Chicago",
+      "osm_id": 10285659853,
+      "tourism": "theme_park",
+      "operator": "Merlin Entertainments",
+      "website": "https://www.legolanddiscoverycenter.com/chicago/",
+      "wikidata": "Q20711319",
+      "addr_state": "IL",
+      "addr_city": "Schaumburg",
+      "addr_postcode": "60173",
+      "addr_street": "North Martingale Road",
+      "addr_housenumber": "601",
+      "multihop_answer": "2008; 16\u00a0years ago",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Legoland Discovery Center Chicago Opened: 2008; 16\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.059089 42.047655)",
+      "poi": {
+        "id": 671,
+        "geometry": "POINT (-88.059089 42.047655)",
+        "poi_name": "Homewood Suites",
+        "osm_id": 2633342285,
+        "tourism": "hotel",
+        "website": "http://www.homewoodsuitesschaumburg.com/",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "East American Lane",
+        "addr_housenumber": "815"
+      }
+    }
+  },
+  "id": 922,
+  "type": "knn+name+multihop1"
+}

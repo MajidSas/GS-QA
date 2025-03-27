@@ -1,0 +1,43 @@
+{
+  "question": "What's the orientation towards the closest zoo from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 296,
+      "geometry": "POINT (-89.738036 40.734904)",
+      "poi_name": "Wildlife Prairie Park",
+      "osm_id": 8290740899,
+      "tourism": "zoo",
+      "angle": 357.55243184183473
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    }
+  },
+  "id": 1430,
+  "type": "knn+angle"
+}

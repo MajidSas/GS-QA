@@ -1,0 +1,46 @@
+{
+  "question": "What's the closest golf course nearby the stadium that can hold 2856 spectators in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247193,
+      "geometry": "POINT (-92.238102 43.984802)",
+      "poi_name": "West Side Park Disc Golf Course",
+      "osm_id": 3740889717,
+      "leisure": "golf_course",
+      "website": "https://www.dgcoursereview.com/course.php?id=1995&mode=ci",
+      "addr_state": "MN",
+      "addr_city": "Eyota",
+      "addr_postcode": "55934",
+      "addr_street": "5th Street SW"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2710,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,53 @@
+{
+  "question": "Where is the closest mediterranean restaurant situated from Dutch Country Safari Park, Horse Cave, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%mediterranean%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.92361 37.225846)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 64351,
+      "geometry": "POINT (-85.708389 38.253977)",
+      "poi_name": "Varanese",
+      "osm_id": 5649537832,
+      "amenity": "restaurant",
+      "cuisine": "american;mediterranean",
+      "opening_hours": "Su-Th 17:00-23:00; Fr-Sa 17:00-24:00",
+      "website": "https://varanese.com/",
+      "phone": "5028999904",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "2106"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "mediterranean restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%mediterranean%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Dutch Country Safari Park, Horse Cave, KY",
+      "geo_wkt": "POINT (-85.92361 37.225846)",
+      "poi": {
+        "id": 15625,
+        "geometry": "POINT (-85.92361 37.225846)",
+        "poi_name": "Dutch Country Safari Park",
+        "osm_id": 9418210883,
+        "tourism": "zoo",
+        "website": "http://dutchcountrysafaripark.com/",
+        "zoo": "safari_park",
+        "addr_state": "KY",
+        "addr_city": "Horse Cave",
+        "addr_postcode": "42749",
+        "addr_street": "L and N Turnpike Road",
+        "addr_housenumber": "2125"
+      }
+    }
+  },
+  "id": 300,
+  "type": "knn:non_spat_filter+loc"
+}

@@ -1,0 +1,113 @@
+{
+  "question": "Where can I find gallery heading towards Gaslamp Museum at the Davis-Horton House, San Diego, CA from Rum Runner Point, San Diego, CA, within a radius of 20 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.256753 32.733068)',4326)::geography, ST_GeomFromText('POINT (-117.160651 32.710565)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.256753 32.733068)',4326)::geography, 20000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.256753 32.733068)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 3563,
+      "geometry": "POINT (-117.170369 32.71044)",
+      "poi_name": "Aaron Chang Ocean Art Gallery",
+      "osm_id": 5466998786,
+      "tourism": "gallery",
+      "shop": "art",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92101",
+      "addr_street": "West Harbor Drive",
+      "addr_housenumber": "789",
+      "value": 105.45702543220418
+    },
+    {
+      "id": 5003,
+      "geometry": "POINT (-117.160079 32.724511)",
+      "poi_name": "Incessant Studies",
+      "osm_id": 9716284495,
+      "tourism": "gallery",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92101",
+      "addr_street": "5th Avenue",
+      "addr_housenumber": "1821",
+      "value": 105.45702543220418
+    },
+    {
+      "id": 9624,
+      "geometry": "POINT (-117.167451 32.723939)",
+      "poi_name": "1805 Gallery",
+      "osm_id": 8893505214,
+      "tourism": "gallery",
+      "website": "https://1805gallery.com/",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92101",
+      "addr_street": "Columbia Street",
+      "addr_housenumber": "1805",
+      "value": 105.45702543220418
+    },
+    {
+      "id": 22192,
+      "geometry": "POINT (-117.232435 32.721128)",
+      "poi_name": "Simpler Gifts Press",
+      "osm_id": 596640221,
+      "tourism": "gallery",
+      "website": "https://simplergifts.com/",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92106",
+      "addr_street": "Rosecrans Street",
+      "addr_housenumber": "1050",
+      "value": 105.45702543220418
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rum Runner Point, San Diego, CA",
+      "geo_wkt": "POINT (-117.256753 32.733068)",
+      "poi": {
+        "id": 247389,
+        "geometry": "POINT (-117.256753 32.733068)",
+        "poi_name": "Rum Runner Point",
+        "osm_id": 9013060781,
+        "leisure": "park",
+        "opening_hours": "24/7",
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92107",
+        "addr_street": "Rum Runner Point"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Gaslamp Museum at the Davis-Horton House, San Diego, CA",
+      "geo_wkt": "POINT (-117.160651 32.710565)",
+      "poi": {
+        "id": 4775,
+        "geometry": "POINT (-117.160651 32.710565)",
+        "poi_name": "Gaslamp Museum at the Davis-Horton House",
+        "osm_id": 9607389522,
+        "tourism": "museum",
+        "website": "https://gaslampfoundation.org/",
+        "phone": "+1 (619) 233-4692",
+        "museum": "history",
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92101",
+        "addr_street": "Island Avenue",
+        "addr_housenumber": "410"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    }
+  },
+  "id": 1297,
+  "type": "range:towards+loc"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Which museum is nearest in the southwest direction from Ragsdale Arena, AR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.090486 34.905099)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11152,
+      "geometry": "POINT (-94.090486 34.905099)",
+      "poi_name": "Museum of the Red River",
+      "osm_id": 9870395916,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Mo-Sa 10:00-17:00; Su 09:45-15:00; PH off",
+      "website": "https://www.museumoftheredriver.org/",
+      "addr_city": "Idabel",
+      "addr_street": "East Lincoln Road",
+      "addr_housenumber": "812"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ragsdale Arena, AR",
+      "geo_wkt": "POINT (-94.090486 34.905099)",
+      "poi": {
+        "id": 265361,
+        "geometry": "POINT (-94.090486 34.905099)",
+        "poi_name": "Ragsdale Arena",
+        "osm_id": 367131556,
+        "leisure": "stadium",
+        "addr_state": "AR"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2559,
+  "type": "knn:direction+name"
+}

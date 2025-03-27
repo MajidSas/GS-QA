@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a hotel positioned within 190 kilometers towards the southwest of Daubenspeck Nature Reserve, Indianapolis, IN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, 190000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 13226,
+      "geometry": "POINT (-86.185252 39.917104)",
+      "poi_name": "Best Western Airport Suites",
+      "osm_id": 4079672858,
+      "tourism": "hotel",
+      "addr_state": "IN",
+      "addr_city": "Indianapolis",
+      "addr_postcode": "46241",
+      "addr_street": "South High School Road",
+      "addr_housenumber": "55"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Daubenspeck Nature Reserve, Indianapolis, IN",
+      "geo_wkt": "POINT (-86.185252 39.917104)",
+      "poi": {
+        "id": 245905,
+        "geometry": "POINT (-86.185252 39.917104)",
+        "poi_name": "Daubenspeck Nature Reserve",
+        "osm_id": 10258441478,
+        "leisure": "nature_reserve",
+        "addr_state": "IN",
+        "addr_city": "Indianapolis",
+        "addr_postcode": "46260",
+        "addr_street": "Ditch Road",
+        "addr_housenumber": "8900"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 76,
+  "type": "range:direction+loc"
+}

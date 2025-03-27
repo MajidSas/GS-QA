@@ -1,0 +1,75 @@
+{
+  "question": "What's the nearest caf\u00e9 on the way to Johnsonburg Swamp Preserve, Johnsonburg, NJ from NYU Courant Institute of Mathematical Sciences, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.995715 40.728699)',4326)::geography, ST_GeomFromText('POINT (-74.867494 40.980105)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.995715 40.728699)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.995715 40.728699)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 45869,
+      "geometry": "POINT (-73.998705 40.729387)",
+      "poi_name": "The Uncommons",
+      "osm_id": 3233791134,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;beer",
+      "wheelchair": "no",
+      "opening_hours": "Mo-Th 08:30-00:00; Fr, Sa 08:30-01:00; Su 08:30-23:00",
+      "website": "uncommonsnyc.com",
+      "shop": "games",
+      "internet_access": "wlan",
+      "phone": "+1-646-543-9215",
+      "outdoor_seating": "yes",
+      "wikidata": "Q20880821",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10012",
+      "addr_street": "Thompson Street",
+      "addr_housenumber": "230",
+      "value": 291.0818037543519
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "NYU Courant Institute of Mathematical Sciences, New York, NY",
+      "geo_wkt": "POINT (-73.995715 40.728699)",
+      "poi": {
+        "id": 168213,
+        "geometry": "POINT (-73.995715 40.728699)",
+        "poi_name": "NYU Courant Institute of Mathematical Sciences",
+        "osm_id": 368055987,
+        "amenity": "university",
+        "internet_access": "wlan",
+        "phone": "+12129983315",
+        "wikidata": "Q946028",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Mercer Street",
+        "addr_housenumber": "251"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Johnsonburg Swamp Preserve, Johnsonburg, NJ",
+      "geo_wkt": "POINT (-74.867494 40.980105)",
+      "poi": {
+        "id": 265643,
+        "geometry": "POINT (-74.867494 40.980105)",
+        "poi_name": "Johnsonburg Swamp Preserve",
+        "osm_id": 10780285209,
+        "leisure": "nature_reserve",
+        "operator": "The Nature Conservancy",
+        "addr_state": "NJ",
+        "addr_city": "Johnsonburg",
+        "addr_postcode": "07860",
+        "addr_street": "Old Stage Road"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 166,
+  "type": "knn:towards+name"
+}

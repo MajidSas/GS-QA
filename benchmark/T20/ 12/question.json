@@ -1,0 +1,60 @@
+{
+  "question": "Where is the nearest gallery as you progress towards Sand Dunes Frontier, Florence, OR from Jasper State Park, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography, ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4269,
+      "geometry": "POINT (-124.10617 43.966615)",
+      "poi_name": "The Laughing Crab Gallery & Tasting Room",
+      "osm_id": 11196553748,
+      "tourism": "gallery",
+      "addr_state": "OR",
+      "addr_city": "Florence",
+      "addr_postcode": "97439",
+      "addr_street": "Bay Street",
+      "addr_housenumber": "1341",
+      "value": 265.9099482169527
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Jasper State Park, OR",
+      "geo_wkt": "POINT (-122.90119 43.983182)",
+      "poi": {
+        "id": 254158,
+        "geometry": "POINT (-122.90119 43.983182)",
+        "poi_name": "Jasper State Park",
+        "osm_id": 357329621,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sand Dunes Frontier, Florence, OR",
+      "geo_wkt": "POINT (-124.111464 43.914209)",
+      "poi": {
+        "id": 25873,
+        "geometry": "POINT (-124.111464 43.914209)",
+        "poi_name": "Sand Dunes Frontier",
+        "osm_id": 4630148745,
+        "tourism": "theme_park",
+        "addr_state": "OR",
+        "addr_city": "Florence",
+        "addr_postcode": "97439",
+        "addr_street": "Oregon Coast Highway",
+        "addr_housenumber": "83960"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    }
+  },
+  "id": 1311,
+  "type": "knn:towards+loc"
+}

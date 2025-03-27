@@ -1,0 +1,52 @@
+{
+  "question": "What is the closest zoo in the southeast direction of Western avenue park, Rocky Mount, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.809646 35.943766)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12531,
+      "geometry": "POINT (-77.809646 35.943766)",
+      "poi_name": "It's A Zoo Life",
+      "osm_id": 7297084056,
+      "tourism": "zoo",
+      "fee": "yes",
+      "opening_hours": "Mo-Sa 08:00-17:00",
+      "phone": "(252) 266-7974",
+      "zoo": "petting_zoo",
+      "addr_state": "NC",
+      "addr_city": "Macclesville",
+      "addr_postcode": "27852",
+      "addr_street": "NC-42",
+      "addr_housenumber": "4313"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Western avenue park, Rocky Mount, NC",
+      "geo_wkt": "POINT (-77.809646 35.943766)",
+      "poi": {
+        "id": 248360,
+        "geometry": "POINT (-77.809646 35.943766)",
+        "poi_name": "Western avenue park",
+        "osm_id": 4058414489,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Rocky Mount",
+        "addr_street": "South Vyne Street",
+        "addr_housenumber": "209"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2580,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,51 @@
+{
+  "question": "When was the the nearest museum from Hasley Canyon Equestrian Center, Valencia, CA built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7522,
+      "geometry": "POINT (-118.756778 34.405632)",
+      "poi_name": "Rancho Camulos",
+      "osm_id": 2197821099,
+      "tourism": "museum",
+      "website": "https://www.ranchocamulos.org/",
+      "phone": "+1 805-521-1501",
+      "museum": "history",
+      "wikidata": "Q7290871",
+      "addr_city": "Piru",
+      "addr_postcode": "93040",
+      "addr_street": "East Telegraph Road",
+      "addr_housenumber": "5164",
+      "multihop_answer": "1853",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Rancho Camulos Built: 1853"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "poi": {
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
+      }
+    }
+  },
+  "id": 980,
+  "type": "knn+name+multihop1"
+}

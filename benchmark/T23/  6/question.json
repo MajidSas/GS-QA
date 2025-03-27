@@ -1,0 +1,40 @@
+{
+  "question": "What's the count of golf courses within 110 kilometers from the location Denison Biological Reserve / Polly Anderson Field Station, Granville, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.52007 40.084033)',4326)::geography, 110000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 35
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Denison Biological Reserve / Polly Anderson Field Station, Granville, OH",
+      "geo_wkt": "POINT (-82.52007 40.084033)",
+      "poi": {
+        "id": 246339,
+        "geometry": "POINT (-82.52007 40.084033)",
+        "poi_name": "Denison Biological Reserve / Polly Anderson Field Station",
+        "osm_id": 11329562516,
+        "leisure": "nature_reserve",
+        "addr_state": "OH",
+        "addr_city": "Granville",
+        "addr_postcode": "43023",
+        "addr_street": "North Street",
+        "addr_housenumber": "1760"
+      }
+    }
+  },
+  "id": 2205,
+  "type": "range+count"
+}

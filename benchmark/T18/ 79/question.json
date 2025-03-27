@@ -1,0 +1,51 @@
+{
+  "question": "Where is the nearest maritime museum available from Montana Grizzly Encounter, Bozeman, MT?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'maritime'\nORDER BY geometry <-> ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13845,
+      "geometry": "POINT (-117.17381 32.720927)",
+      "poi_name": "Maritime Museum of San Diego",
+      "osm_id": 4154351800,
+      "tourism": "museum",
+      "fee": "yes",
+      "website": "https://sdmaritime.org/",
+      "museum": "maritime",
+      "wikidata": "Q3330638",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92101",
+      "addr_street": "The Embarcadero",
+      "addr_housenumber": "1492"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "maritime museum",
+      "poi_filter_sql": "museum = 'maritime'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Montana Grizzly Encounter, Bozeman, MT",
+      "geo_wkt": "POINT (-110.834041 45.663969)",
+      "poi": {
+        "id": 14047,
+        "geometry": "POINT (-110.834041 45.663969)",
+        "poi_name": "Montana Grizzly Encounter",
+        "osm_id": 4215553273,
+        "tourism": "zoo",
+        "addr_state": "MT",
+        "addr_city": "Bozeman",
+        "addr_postcode": "59175",
+        "addr_street": "Bozeman Hill Road",
+        "addr_housenumber": "18000"
+      }
+    }
+  },
+  "id": 378,
+  "type": "knn:non_spat_filter+loc"
+}

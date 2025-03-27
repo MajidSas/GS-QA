@@ -1,0 +1,43 @@
+{
+  "question": "What's the total count of gardens within 180 kilometers from IIT Stuart School of Business, Chicago, IL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography, 180000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "count": 75
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "poi": {
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
+      }
+    }
+  },
+  "id": 2294,
+  "type": "range+count"
+}

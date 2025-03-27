@@ -1,0 +1,53 @@
+{
+  "question": "Where is the closest hospital positioned towards the east of Pennsylvania Mining Museum, Elysburg, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.506624 40.87938)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 115288,
+      "geometry": "POINT (-76.506624 40.87938)",
+      "poi_name": "Lehigh Valley Hospital - Carbon",
+      "osm_id": 8888300330,
+      "amenity": "hospital",
+      "operator": "Lehigh Valley Health Network",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "PA",
+      "addr_city": "Lehighton",
+      "addr_postcode": "18235",
+      "addr_street": "E Blakeslee BLVD DR",
+      "addr_housenumber": "2128"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Pennsylvania Mining Museum, Elysburg, PA",
+      "geo_wkt": "POINT (-76.506624 40.87938)",
+      "poi": {
+        "id": 9186,
+        "geometry": "POINT (-76.506624 40.87938)",
+        "poi_name": "Pennsylvania Mining Museum",
+        "osm_id": 3700461513,
+        "tourism": "museum",
+        "fee": "no",
+        "addr_state": "PA",
+        "addr_city": "Elysburg",
+        "addr_postcode": "17824",
+        "addr_street": "Knoebels Boulevard",
+        "addr_housenumber": "391"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1124,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,66 @@
+{
+  "question": "Where can I find a park located in the west of the Dells Mill and Museum, Augusta, WI, within a radius of 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 140000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 246530,
+      "geometry": "POINT (-91.148747 44.72554)",
+      "poi_name": "Randall Park",
+      "osm_id": 9814815936,
+      "leisure": "park",
+      "addr_state": "WI",
+      "addr_city": "Fall Creek",
+      "addr_postcode": "54742"
+    },
+    {
+      "id": 249118,
+      "geometry": "POINT (-91.148747 44.72554)",
+      "poi_name": "Handy-Andy Memorial Park",
+      "osm_id": 353873131,
+      "leisure": "park",
+      "addr_state": "WI",
+      "addr_city": "Spring Valley",
+      "addr_postcode": "54767",
+      "addr_street": "McKay Avenue",
+      "addr_housenumber": "S242"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "The Dells Mill and Museum, Augusta, WI",
+      "geo_wkt": "POINT (-91.148747 44.72554)",
+      "poi": {
+        "id": 540,
+        "geometry": "POINT (-91.148747 44.72554)",
+        "poi_name": "The Dells Mill and Museum",
+        "osm_id": 8435491750,
+        "tourism": "museum",
+        "opening_hours": "May-Oct 10:00-17:00",
+        "website": "https://dellsmill.com/",
+        "phone": "715-286-2714",
+        "addr_state": "WI",
+        "addr_city": "Augusta",
+        "addr_postcode": "54722",
+        "addr_street": "County Highway V",
+        "addr_housenumber": "E18855"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 16,
+  "type": "range:direction+loc"
+}

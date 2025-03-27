@@ -1,0 +1,51 @@
+{
+  "question": "Looking for the closest fast food restaurant in relation to Mentor Civic Arena, Mentor, OH, any insights where it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 70166,
+      "geometry": "POINT (-81.342693 41.682438)",
+      "poi_name": "Subway",
+      "osm_id": 11347084064,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Su off; Mo-Fr 10:00-20:00; Sa 11:00-15:00",
+      "website": "https://restaurants.subway.com/united-states/oh/mentor/8318-tyler-blvd",
+      "phone": "+1 440 266 2000",
+      "takeaway": "yes",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Tyler Boulevard",
+      "addr_housenumber": "8318"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Mentor Civic Arena, Mentor, OH",
+      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "poi": {
+        "id": 246704,
+        "geometry": "POINT (-81.332139 41.698458)",
+        "poi_name": "Mentor Civic Arena",
+        "osm_id": 8842654476,
+        "leisure": "stadium",
+        "operator": "City of Mentor",
+        "addr_state": "OH",
+        "addr_city": "Mentor",
+        "addr_postcode": "44060",
+        "addr_street": "Munson Road",
+        "addr_housenumber": "8600"
+      }
+    }
+  },
+  "id": 1826,
+  "type": "knn+loc"
+}

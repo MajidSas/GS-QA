@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest restaurant nearby the museum that was built in 1943 in Oak Ridge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 70174,
+      "geometry": "POINT (-84.269574 36.012672)",
+      "poi_name": "Hong's Asian Bistro",
+      "osm_id": 11347617052,
+      "amenity": "restaurant",
+      "cuisine": "asian",
+      "opening_hours": "Su-Mo,We-Th 11:00-21:00;Fr-Sa 11:00-21:30",
+      "website": "https://www.hongasianbistro.com/",
+      "phone": "+1 865-272-3141",
+      "addr_state": "TN",
+      "addr_city": "Oak Ridge",
+      "addr_postcode": "37830",
+      "addr_street": "Oak Ridge Turnpike",
+      "addr_housenumber": "1556"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
+      "poi": {
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
+      }
+    }
+  },
+  "id": 2748,
+  "type": "knn+name+multihop2"
+}

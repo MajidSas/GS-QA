@@ -1,0 +1,48 @@
+{
+  "question": "Can you recommend a zoo that's not too far from Concord Woods Nature Park, Concord Township, OH? Maximum distance: 100 kilometers",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.237046 41.676435)',4326)::geography, 100000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Concord Woods Nature Park, Concord Township, OH",
+      "geo_wkt": "POINT (-81.237046 41.676435)",
+      "poi": {
+        "id": 255491,
+        "geometry": "POINT (-81.237046 41.676435)",
+        "poi_name": "Concord Woods Nature Park",
+        "osm_id": 357526322,
+        "leisure": "park",
+        "addr_state": "OH",
+        "addr_city": "Concord Township",
+        "addr_postcode": "44077",
+        "addr_street": "Spear Road",
+        "addr_housenumber": "11211"
+      }
+    }
+  },
+  "id": 886,
+  "type": "range+name"
+}

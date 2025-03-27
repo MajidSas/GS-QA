@@ -1,0 +1,56 @@
+{
+  "question": "Where is the nearest hotel situated towards the northwest of Elizabeth Hanna Nature Preserve South Entrance, Fremont, IN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.822564 41.731218)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12139,
+      "geometry": "POINT (-84.822564 41.731218)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 6207983391,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.countryinns.com/grand-rapids-hotel-mi-49546/migreast",
+      "phone": "+1-616-942-7000",
+      "addr_state": "MI",
+      "addr_city": "Grand Rapids",
+      "addr_postcode": "49546",
+      "addr_street": "Deposit Drive Northeast",
+      "addr_housenumber": "3251"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Elizabeth Hanna Nature Preserve South Entrance, Fremont, IN",
+      "geo_wkt": "POINT (-84.822564 41.731218)",
+      "poi": {
+        "id": 246388,
+        "geometry": "POINT (-84.822564 41.731218)",
+        "poi_name": "Elizabeth Hanna Nature Preserve South Entrance",
+        "osm_id": 11423394519,
+        "leisure": "park",
+        "description": "Entrance to walking path.",
+        "opening_hours": "dawn-dusk",
+        "operator": "Clear Lake Township Land Conservancy",
+        "website": "https://clearlakeconservancy.org",
+        "addr_state": "IN",
+        "addr_city": "Fremont",
+        "addr_postcode": "46737",
+        "addr_street": "Outer Dr Clear Lake",
+        "addr_housenumber": "103"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1119,
+  "type": "knn:direction+loc"
+}

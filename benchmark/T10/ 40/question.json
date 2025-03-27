@@ -1,0 +1,58 @@
+{
+  "question": "What's the closest park in the direction of Beacon Hill Rehabilitation, Longview, WA from Silver Point Interpretive Overlook, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography, ST_GeomFromText('POINT (-122.916631 46.175156)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 253935,
+      "geometry": "POINT (-123.865529 45.902851)",
+      "poi_name": "C Z Picnic Ground",
+      "osm_id": 357297457,
+      "leisure": "park",
+      "addr_state": "OR",
+      "value": 65.94673571517177
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Silver Point Interpretive Overlook, OR",
+      "geo_wkt": "POINT (-123.962654 45.855581)",
+      "poi": {
+        "id": 21991,
+        "geometry": "POINT (-123.962654 45.855581)",
+        "poi_name": "Silver Point Interpretive Overlook",
+        "osm_id": 954793454,
+        "tourism": "viewpoint",
+        "addr_state": "OR",
+        "addr_street": "Oregon Coast Highway"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Beacon Hill Rehabilitation, Longview, WA",
+      "geo_wkt": "POINT (-122.916631 46.175156)",
+      "poi": {
+        "id": 205578,
+        "geometry": "POINT (-122.916631 46.175156)",
+        "poi_name": "Beacon Hill Rehabilitation",
+        "osm_id": 7173862497,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "WA",
+        "addr_city": "Longview",
+        "addr_postcode": "98632",
+        "addr_street": "Old Beacon Hill Drive",
+        "addr_housenumber": "128"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    }
+  },
+  "id": 139,
+  "type": "knn:towards+name"
+}

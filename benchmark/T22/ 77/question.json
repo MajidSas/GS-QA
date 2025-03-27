@@ -1,0 +1,41 @@
+{
+  "question": "Which direction points towards the nearest stadium from JR\u2019s Art Gallery And Tea Room, San Elizario, TX?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.273204 31.586841)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.273204 31.586841)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 252376,
+      "geometry": "POINT (-106.347136 31.745164)",
+      "poi_name": "Highlander Stadium at Bel Air High School",
+      "osm_id": 356846200,
+      "leisure": "stadium",
+      "angle": 338.24827086116557
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "JR\u2019s Art Gallery And Tea Room, San Elizario, TX",
+      "geo_wkt": "POINT (-106.273204 31.586841)",
+      "poi": {
+        "id": 11148,
+        "geometry": "POINT (-106.273204 31.586841)",
+        "poi_name": "JR\u2019s Art Gallery And Tea Room",
+        "osm_id": 9869669584,
+        "tourism": "gallery",
+        "addr_state": "TX",
+        "addr_city": "San Elizario",
+        "addr_postcode": "79849",
+        "addr_street": "Main Street",
+        "addr_housenumber": "1445"
+      }
+    }
+  },
+  "id": 1476,
+  "type": "knn+angle"
+}

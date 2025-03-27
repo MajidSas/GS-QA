@@ -1,0 +1,41 @@
+{
+  "question": "I'm looking for a university within 80 kilometers from the Villages High School Stadium, FL, any ideas?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.017586 28.924429)',4326)::geography, 80000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "id": 105565,
+      "geometry": "POINT (-81.425138 28.43848)",
+      "poi_name": "Everest University",
+      "osm_id": 8633581887,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "The Villages High School Stadium, FL",
+      "geo_wkt": "POINT (-82.017586 28.924429)",
+      "poi": {
+        "id": 265381,
+        "geometry": "POINT (-82.017586 28.924429)",
+        "poi_name": "The Villages High School Stadium",
+        "osm_id": 367826915,
+        "leisure": "stadium",
+        "sport": "football",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 864,
+  "type": "range+name"
+}

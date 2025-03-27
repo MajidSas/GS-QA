@@ -1,0 +1,41 @@
+{
+  "question": "Could you tell me how many parks are present within a 140 kilometers radius from Georgia Veterans Education Center, Warner Robins, GA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.597294 32.601434)',4326)::geography, 140000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 232
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Georgia Veterans Education Center, Warner Robins, GA",
+      "geo_wkt": "POINT (-83.597294 32.601434)",
+      "poi": {
+        "id": 155741,
+        "geometry": "POINT (-83.597294 32.601434)",
+        "poi_name": "Georgia Veterans Education Center",
+        "osm_id": 4300023753,
+        "amenity": "university",
+        "website": "https://gavectr.org/",
+        "addr_state": "GA",
+        "addr_city": "Warner Robins",
+        "addr_postcode": "31093",
+        "addr_street": "Armed Forces Boulevard",
+        "addr_housenumber": "1001"
+      }
+    }
+  },
+  "id": 2239,
+  "type": "range+count"
+}

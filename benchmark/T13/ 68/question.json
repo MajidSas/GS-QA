@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a golf course within 180 kilometers from Star Valley Health Hospital, Afton, WY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-110.930448 42.717501)',4326)::geography, 180000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 247832,
+      "geometry": "POINT (-110.959789 42.98797)",
+      "poi_name": "Aspen Hills Golf Course",
+      "osm_id": 10011145459,
+      "leisure": "golf_course",
+      "website": "https://svrawy.com/directory/",
+      "phone": "+1-307-883-2899",
+      "addr_state": "WY",
+      "addr_city": "Star Valley Ranch",
+      "addr_postcode": "83127",
+      "addr_street": "Vista West Drive",
+      "addr_housenumber": "781"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Star Valley Health Hospital, Afton, WY",
+      "geo_wkt": "POINT (-110.930448 42.717501)",
+      "poi": {
+        "id": 126759,
+        "geometry": "POINT (-110.930448 42.717501)",
+        "poi_name": "Star Valley Health Hospital",
+        "osm_id": 7996602515,
+        "amenity": "hospital",
+        "phone": "+1-307-885-5800",
+        "healthcare": "hospital",
+        "addr_state": "WY",
+        "addr_city": "Afton",
+        "addr_postcode": "83110",
+        "addr_street": "Adams Street",
+        "addr_housenumber": "901"
+      }
+    }
+  },
+  "id": 2067,
+  "type": "range+loc"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "Can you point me to the nearest golf course from Ice Arena, MN?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247193,
+      "geometry": "POINT (-92.238102 43.984802)",
+      "poi_name": "West Side Park Disc Golf Course",
+      "osm_id": 3740889717,
+      "leisure": "golf_course",
+      "website": "https://www.dgcoursereview.com/course.php?id=1995&mode=ci",
+      "addr_state": "MN",
+      "addr_city": "Eyota",
+      "addr_postcode": "55934",
+      "addr_street": "5th Street SW"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ice Arena, MN",
+      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "poi": {
+        "id": 265357,
+        "geometry": "POINT (-91.694594 44.04413)",
+        "poi_name": "Ice Arena",
+        "osm_id": 367067698,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    }
+  },
+  "id": 1899,
+  "type": "knn+loc"
+}

@@ -1,0 +1,53 @@
+{
+  "question": "Where is the nearest museum situated towards the east of St. Vincent Neighborhood Hospital, Avon, IN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.353892 39.763188)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22982,
+      "geometry": "POINT (-86.353892 39.763188)",
+      "poi_name": "Crispus Attucks Museum",
+      "osm_id": 4988783387,
+      "tourism": "museum",
+      "website": "https://crispusattucksmuseum.business.site/",
+      "addr_state": "IN",
+      "addr_city": "Indianapolis",
+      "addr_postcode": "46202",
+      "addr_street": "Dr Martin Luther King Jr Street",
+      "addr_housenumber": "1140"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "St. Vincent Neighborhood Hospital, Avon, IN",
+      "geo_wkt": "POINT (-86.353892 39.763188)",
+      "poi": {
+        "id": 145151,
+        "geometry": "POINT (-86.353892 39.763188)",
+        "poi_name": "St. Vincent Neighborhood Hospital",
+        "osm_id": 7320540438,
+        "amenity": "hospital",
+        "operator": "Acension Health",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "IN",
+        "addr_city": "Avon",
+        "addr_postcode": "46123",
+        "addr_street": "Rockville Road",
+        "addr_housenumber": "9613"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1178,
+  "type": "knn:direction+loc"
+}

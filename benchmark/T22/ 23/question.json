@@ -1,0 +1,43 @@
+{
+  "question": "In what direction can I find the closest garden situated from Pacific University, Portland, OR?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.68312 45.527042)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.68312 45.527042)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246461,
+      "geometry": "POINT (-122.708819 45.5189)",
+      "poi_name": "Bonsai Terrace",
+      "osm_id": 9696789127,
+      "leisure": "garden",
+      "angle": 245.7474974279057
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Pacific University, Portland, OR",
+      "geo_wkt": "POINT (-122.68312 45.527042)",
+      "poi": {
+        "id": 143659,
+        "geometry": "POINT (-122.68312 45.527042)",
+        "poi_name": "Pacific University",
+        "osm_id": 6346326097,
+        "amenity": "university",
+        "description": "Master of Fine Arts in Writing",
+        "website": "https://www.pacificu.edu/",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97209",
+        "addr_street": "Northwest 12th Avenue",
+        "addr_housenumber": "530"
+      }
+    }
+  },
+  "id": 1422,
+  "type": "knn+angle"
+}

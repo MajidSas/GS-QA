@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a stadium in the direction of northwest from Captain Mike's Fun Park, Bridgman, MI within 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography, 180000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 266349,
+      "geometry": "POINT (-86.576965 41.919871)",
+      "poi_name": "Team 1732 Thunderdome",
+      "osm_id": 7209590118,
+      "leisure": "stadium",
+      "operator": "Hilltopper Robotics Team 1732",
+      "addr_state": "WI",
+      "addr_city": "Milwaukee",
+      "addr_postcode": "53233",
+      "addr_street": "West Michigan Street",
+      "addr_housenumber": "2203"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
+      "geo_wkt": "POINT (-86.576965 41.919871)",
+      "poi": {
+        "id": 4790,
+        "geometry": "POINT (-86.576965 41.919871)",
+        "poi_name": "Captain Mike's Fun Park",
+        "osm_id": 9625343406,
+        "tourism": "theme_park",
+        "website": "https://captainmikesamusementpark.com/",
+        "addr_state": "MI",
+        "addr_city": "Bridgman",
+        "addr_postcode": "49106",
+        "addr_street": "Red Arrow Highway",
+        "addr_housenumber": "10975"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 25,
+  "type": "range:direction+loc"
+}

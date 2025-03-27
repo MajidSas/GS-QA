@@ -1,0 +1,70 @@
+{
+  "question": "Would you be able to track down an emergency hospital, preferably within a 120 kilometers radius from Fairfield Inn & Suites, Barstow, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.081665 34.847776)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 184063,
+      "geometry": "POINT (-117.249969 34.050902)",
+      "poi_name": "Emergency Room Entrance",
+      "osm_id": 7771146882,
+      "amenity": "hospital",
+      "operator": "VHA",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "CA",
+      "addr_city": "Loma Linda",
+      "addr_postcode": "92357",
+      "addr_street": "Benton Street",
+      "addr_housenumber": "11201"
+    },
+    {
+      "id": 243226,
+      "geometry": "POINT (-117.19596 33.910788)",
+      "poi_name": "Riverside University Health System Medical Center",
+      "osm_id": 7633529417,
+      "amenity": "hospital",
+      "phone": "1-951-486-4000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "CA",
+      "addr_city": "Moreno Valley",
+      "addr_postcode": "92555",
+      "addr_street": "Cactus Avenue",
+      "addr_housenumber": "26520"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Fairfield Inn & Suites, Barstow, CA",
+      "geo_wkt": "POINT (-117.081665 34.847776)",
+      "poi": {
+        "id": 11697,
+        "geometry": "POINT (-117.081665 34.847776)",
+        "poi_name": "Fairfield Inn & Suites",
+        "osm_id": 11494834888,
+        "tourism": "hotel",
+        "official_name": "Fairfield Inn & Suites by Marriott",
+        "addr_state": "CA",
+        "addr_city": "Barstow",
+        "addr_postcode": "92311",
+        "addr_street": "Mercantile Way",
+        "addr_housenumber": "2551"
+      }
+    }
+  },
+  "id": 551,
+  "type": "range:non_spat_filter+name"
+}

@@ -1,0 +1,58 @@
+{
+  "question": "Which emergency hospital nearby SEA LIFE Minnesota Aquarium, Bloomington, MN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 96431,
+      "geometry": "POINT (-93.238254 44.967745)",
+      "poi_name": "M Health West Bank Emergency Department",
+      "osm_id": 6433194754,
+      "amenity": "hospital",
+      "operator": "M Health Fairview",
+      "website": "https://www.mhealth.org/care/overarching-care/emergency-services-adult",
+      "phone": "+1 612 273 8383",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55454",
+      "addr_street": "South 6th Street",
+      "addr_housenumber": "2312"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
+      "geo_wkt": "POINT (-93.240076 44.854752)",
+      "poi": {
+        "id": 25908,
+        "geometry": "POINT (-93.240076 44.854752)",
+        "poi_name": "SEA LIFE Minnesota Aquarium",
+        "osm_id": 5739830095,
+        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+        "tourism": "aquarium",
+        "fee": "yes",
+        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+        "operator": "Merlin Entertainments'",
+        "website": "https://www.visitsealife.com/minnesota/",
+        "phone": "+1-952-883-0202",
+        "addr_state": "MN",
+        "addr_city": "Bloomington",
+        "addr_postcode": "55425",
+        "addr_street": "East Broadway",
+        "addr_housenumber": "120"
+      }
+    }
+  },
+  "id": 623,
+  "type": "knn:non_spat_filter+name"
+}

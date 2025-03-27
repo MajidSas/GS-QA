@@ -1,0 +1,40 @@
+{
+  "question": "Can you recommend the nearest attraction from Speert Hall, Wayne, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.19993 40.945873)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15732,
+      "geometry": "POINT (-74.198013 40.969877)",
+      "poi_name": "American flag rock",
+      "osm_id": 9484980187,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Speert Hall, Wayne, NJ",
+      "geo_wkt": "POINT (-74.19993 40.945873)",
+      "poi": {
+        "id": 63024,
+        "geometry": "POINT (-74.19993 40.945873)",
+        "poi_name": "Speert Hall",
+        "osm_id": 5597729522,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    }
+  },
+  "id": 269,
+  "type": "knn+name"
+}

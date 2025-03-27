@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest university from Hollywood Sign, Los Angeles, CA established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167729,
+      "geometry": "POINT (-118.232807 34.043179)",
+      "poi_name": "Southern California Institute of Architecture",
+      "osm_id": 358858290,
+      "amenity": "university",
+      "wikidata": "Q1786506",
+      "multihop_answer": "1972",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Southern California Institute of Architecture Established: 1972"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hollywood Sign, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "poi": {
+        "id": 1885,
+        "geometry": "POINT (-118.321652 34.134099)",
+        "poi_name": "Hollywood Sign",
+        "osm_id": 3204926589,
+        "tourism": "attraction",
+        "operator": "The Trust for Public Land",
+        "wikidata": "Q180376",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mount Lee Drive"
+      }
+    }
+  },
+  "id": 954,
+  "type": "knn+name+multihop1"
+}

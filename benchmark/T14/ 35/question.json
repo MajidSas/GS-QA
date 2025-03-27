@@ -1,0 +1,75 @@
+{
+  "question": "Could you track down an emergency hospital and is conveniently situated within 100 kilometers from Mason in Loudoun, Sterling, VA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.389666 39.024942)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 204829,
+      "geometry": "POINT (-77.222205 38.878159)",
+      "poi_name": "Dominion Plastic Surgery",
+      "osm_id": 7143550380,
+      "amenity": "hospital",
+      "opening_hours": "Mo-Fr 09:00-17:00",
+      "website": "https://www.dominionplasticsurgery.com/",
+      "phone": "+1 703-544-8971",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Falls Church",
+      "addr_postcode": "22043",
+      "addr_street": "Hartland Road",
+      "addr_housenumber": "2755"
+    },
+    {
+      "id": 95401,
+      "geometry": "POINT (-77.234714 39.825123)",
+      "poi_name": "Gettysburg Hospital ER Entrance",
+      "osm_id": 6394945930,
+      "amenity": "hospital",
+      "operator": "WellSpan Health",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "PA",
+      "addr_city": "Gettysburg",
+      "addr_postcode": "17325",
+      "addr_street": "Gettys Street",
+      "addr_housenumber": "147"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Mason in Loudoun, Sterling, VA",
+      "geo_wkt": "POINT (-77.389666 39.024942)",
+      "poi": {
+        "id": 105912,
+        "geometry": "POINT (-77.389666 39.024942)",
+        "poi_name": "Mason in Loudoun",
+        "osm_id": 8653269684,
+        "amenity": "university",
+        "operator": "George Mason University",
+        "website": "https://loudoun.gmu.edu/",
+        "internet_access": "yes",
+        "phone": "+1-703-993-4350",
+        "addr_state": "VA",
+        "addr_city": "Sterling",
+        "addr_postcode": "20164",
+        "addr_street": "Signal Hill Plaza",
+        "addr_housenumber": "21335"
+      }
+    }
+  },
+  "id": 434,
+  "type": "range:non_spat_filter+loc"
+}

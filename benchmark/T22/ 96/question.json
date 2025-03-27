@@ -1,0 +1,46 @@
+{
+  "question": "In what direction can I find the closest golf course situated from Historic Trade: Joiner, Williamsburg, VA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.703466 37.270921)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.703466 37.270921)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247730,
+      "geometry": "POINT (-76.685191 37.225585)",
+      "poi_name": "Kingsmill Resort: The Plantation Course",
+      "osm_id": 8223988919,
+      "leisure": "golf_course",
+      "operator": "Kingsmill Resort",
+      "website": "https://www.kingsmill.com/golf/the-plantation-course/",
+      "angle": 162.13315234256157
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Historic Trade: Joiner, Williamsburg, VA",
+      "geo_wkt": "POINT (-76.703466 37.270921)",
+      "poi": {
+        "id": 4293,
+        "geometry": "POINT (-76.703466 37.270921)",
+        "poi_name": "Historic Trade: Joiner",
+        "osm_id": 11208936675,
+        "tourism": "attraction",
+        "wheelchair": "no",
+        "opening_hours": "Su-Th 09:00-17:00",
+        "operator": "Colonial Williamsburg Foundation",
+        "addr_state": "VA",
+        "addr_city": "Williamsburg",
+        "addr_postcode": "23185",
+        "addr_street": "West Duke of Gloucester Street",
+        "addr_housenumber": "216"
+      }
+    }
+  },
+  "id": 1495,
+  "type": "knn+angle"
+}

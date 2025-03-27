@@ -1,0 +1,56 @@
+{
+  "question": "Where is the closest history museum situated from Alaska Pacific University, Anchorage, AK?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-149.809844 61.188847)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8527,
+      "geometry": "POINT (-122.376757 47.811056)",
+      "poi_name": "Edmonds Historical Museum",
+      "osm_id": 8524916320,
+      "tourism": "museum",
+      "fee": "yes",
+      "operator": "Edmonds South-Snohomish County Historical Society and Museum",
+      "website": "https://www.historicedmonds.org/",
+      "museum": "history",
+      "wikidata": "Q5338951",
+      "addr_state": "WA",
+      "addr_city": "Edmonds",
+      "addr_postcode": "98020",
+      "addr_street": "5th Avenue North",
+      "addr_housenumber": "118"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Alaska Pacific University, Anchorage, AK",
+      "geo_wkt": "POINT (-149.809844 61.188847)",
+      "poi": {
+        "id": 86864,
+        "geometry": "POINT (-149.809844 61.188847)",
+        "poi_name": "Alaska Pacific University",
+        "osm_id": 1956023742,
+        "amenity": "university",
+        "description": "The main campus of Alaska Pacific University sits on 170 heavily wooded acres near the center of Alaska's largest city, Anchorage.  From APU Website",
+        "website": "https://www.alaskapacific.edu/",
+        "internet_access": "yes",
+        "wikidata": "Q1565621",
+        "addr_state": "AK",
+        "addr_city": "Anchorage",
+        "addr_postcode": "99508",
+        "addr_street": "University Drive",
+        "addr_housenumber": "4101"
+      }
+    }
+  },
+  "id": 361,
+  "type": "knn:non_spat_filter+loc"
+}

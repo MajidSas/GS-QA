@@ -1,0 +1,235 @@
+{
+  "question": "Which fast food restaurant is available when moving in the direction of north from Outdoor Biological Research Facility, Vestal, NY within 70 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography, 70000)\nAND amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 67528,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Murray's Pizza",
+      "osm_id": 11238353587,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "https://murrayspizzany.com",
+      "phone": "+1-315-653-0021",
+      "addr_state": "NY",
+      "addr_city": "South Otselic",
+      "addr_postcode": "13155",
+      "addr_street": "State Route 26",
+      "addr_housenumber": "1576"
+    },
+    {
+      "id": 35084,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Dunkin' Donuts",
+      "osm_id": 2710152855,
+      "amenity": "fast_food",
+      "cuisine": "donut"
+    },
+    {
+      "id": 169268,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Subway",
+      "osm_id": 2296242540,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 230599,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Dunkin' Donuts",
+      "osm_id": 4432470630,
+      "amenity": "fast_food",
+      "cuisine": "donut",
+      "takeaway": "yes"
+    },
+    {
+      "id": 238047,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Dunkin'",
+      "osm_id": 5859860254,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Vestal",
+      "addr_postcode": "13850",
+      "addr_street": "Vestal Parkway East",
+      "addr_housenumber": "4005"
+    },
+    {
+      "id": 238048,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 5859860263,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "official_name": "Jimmy John's Gourmet Sandwiches"
+    },
+    {
+      "id": 238054,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Bob's Barbecue",
+      "osm_id": 5859877257,
+      "amenity": "fast_food",
+      "cuisine": "barbecue",
+      "opening_hours": "May 01-Oct 15: Th 16:00-20:00; May 01-Oct 15: Fr-Su 11:00-20:00",
+      "website": "https://www.bobsbarbecue.com/",
+      "phone": "+1-607-753-7098",
+      "takeaway": "yes",
+      "outdoor_seating": "only",
+      "addr_state": "NY",
+      "addr_city": "Homer",
+      "addr_postcode": "13045",
+      "addr_street": "State Route 281",
+      "addr_housenumber": "5920"
+    },
+    {
+      "id": 88228,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Coffee Mania",
+      "osm_id": 8774886317,
+      "amenity": "fast_food",
+      "cuisine": "coffee_shop;smoothie;tea",
+      "website": "https://www.cnycoffee.com",
+      "drive_through": "only",
+      "addr_state": "NY",
+      "addr_city": "Homer",
+      "addr_postcode": "13077",
+      "addr_street": "North West Street",
+      "addr_housenumber": "139"
+    },
+    {
+      "id": 88229,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Little Italy Pizzeria",
+      "osm_id": 8774894991,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Tu off; We,Th 11:00-20:00; Fr,Sa 11:00-21:00; Su 12:00-20:00",
+      "website": "http://www.littleitalyhomer.com",
+      "phone": "+1-607-749-2344",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "NY",
+      "addr_city": "Homer",
+      "addr_postcode": "13077",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "125"
+    },
+    {
+      "id": 149349,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "McDonald's",
+      "osm_id": 4004611395,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ny/cortland/158-clinton-ave/5365.html",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Cortland",
+      "addr_postcode": "13045",
+      "addr_street": "Clinton Avenue",
+      "addr_housenumber": "158"
+    },
+    {
+      "id": 149350,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Wendy's",
+      "osm_id": 4004611396,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes"
+    },
+    {
+      "id": 149351,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Arby's",
+      "osm_id": 4004611397,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "NY"
+    },
+    {
+      "id": 149352,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Subway",
+      "osm_id": 4004611398,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 149353,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Dunkin'",
+      "osm_id": 4004611402,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Cortland",
+      "addr_postcode": "13045",
+      "addr_street": "Clinton Avenue",
+      "addr_housenumber": "152"
+    },
+    {
+      "id": 176986,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "McDonald's",
+      "osm_id": 2570353566,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ny/whitney-point/2972-new-york-rt-11/23622.html",
+      "phone": "(607)692-7210",
+      "takeaway": "yes"
+    },
+    {
+      "id": 231530,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Moe's Southwest Grill",
+      "osm_id": 4472062627,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
+      "geo_wkt": "POINT (-75.978456 42.082185)",
+      "poi": {
+        "id": 246670,
+        "geometry": "POINT (-75.978456 42.082185)",
+        "poi_name": "Outdoor Biological Research Facility",
+        "osm_id": 8793514697,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Vestal",
+        "addr_postcode": "13850",
+        "addr_street": "Bunn Hill Road",
+        "addr_housenumber": "906"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2648,
+  "type": "range:direction+name"
+}

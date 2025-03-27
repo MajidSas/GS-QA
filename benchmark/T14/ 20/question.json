@@ -1,0 +1,52 @@
+{
+  "question": "Could you track down an italian restaurant and is conveniently situated within 100 kilometers from Phillips 66, McLean, TX?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-100.60207 35.232692)',4326)::geography, 100000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%italian%';\n",
+  "answers": [
+    {
+      "id": 207183,
+      "geometry": "POINT (-100.97445 35.546806)",
+      "poi_name": "Verona Italian Bistro",
+      "osm_id": 7241126687,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_state": "TX",
+      "addr_city": "Pampa",
+      "addr_postcode": "79065",
+      "addr_street": "North Hobart Street",
+      "addr_housenumber": "1203"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "italian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%italian%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Phillips 66, McLean, TX",
+      "geo_wkt": "POINT (-100.60207 35.232692)",
+      "poi": {
+        "id": 26590,
+        "geometry": "POINT (-100.60207 35.232692)",
+        "poi_name": "Phillips 66",
+        "osm_id": 5934936921,
+        "tourism": "attraction",
+        "addr_state": "TX",
+        "addr_city": "McLean",
+        "addr_postcode": "79057",
+        "addr_street": "West 1st Street",
+        "addr_housenumber": "212"
+      }
+    }
+  },
+  "id": 419,
+  "type": "range:non_spat_filter+loc"
+}

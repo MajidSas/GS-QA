@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest museum in the southeast direction starting from Coral Ridge Ice Arena, IA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1151,
+      "geometry": "POINT (-91.600665 41.690452)",
+      "poi_name": "Old Capitol Museum",
+      "osm_id": 2868950561,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "fee": "no",
+      "operator": "University of Iowa",
+      "website": "https://oldcap.uiowa.edu/",
+      "museum": "local_history",
+      "addr_state": "IA",
+      "addr_city": "Iowa City",
+      "addr_postcode": "52242",
+      "addr_street": "North Clinton Street",
+      "addr_housenumber": "21"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Coral Ridge Ice Arena, IA",
+      "geo_wkt": "POINT (-91.600665 41.690452)",
+      "poi": {
+        "id": 265360,
+        "geometry": "POINT (-91.600665 41.690452)",
+        "poi_name": "Coral Ridge Ice Arena",
+        "osm_id": 367088905,
+        "leisure": "stadium",
+        "addr_state": "IA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1114,
+  "type": "knn:direction+loc"
+}

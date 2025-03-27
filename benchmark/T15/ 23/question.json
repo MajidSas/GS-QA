@@ -1,0 +1,163 @@
+{
+  "question": "Where can I find a museum towards the north of Red Wolf Sanctuary, Rising Sun, IN within 190 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 10475,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Joseph Moore Museum",
+      "osm_id": 6872505605,
+      "tourism": "museum",
+      "opening_hours": "13:00-17:00; Tu,Th off",
+      "website": "https://jmm.earlham.edu/",
+      "wikidata": "Q28171569",
+      "addr_state": "IN",
+      "addr_city": "Richmond",
+      "addr_postcode": "47374",
+      "addr_street": "National Road West",
+      "addr_housenumber": "801"
+    },
+    {
+      "id": 17865,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Hefner Museum",
+      "osm_id": 368155558,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 09:00-16:00; PH off",
+      "website": "https://miamioh.edu/cas/academics/centers/hefner-museum/",
+      "museum": "nature",
+      "addr_state": "OH"
+    },
+    {
+      "id": 17867,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Limper Museum",
+      "osm_id": 368155567,
+      "tourism": "museum",
+      "website": "https://www.miamioh.edu/cas/academics/centers/limper-museum/",
+      "museum": "geology",
+      "wikidata": "Q6372035",
+      "addr_state": "OH"
+    },
+    {
+      "id": 17880,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "New Bremen Historical Museum",
+      "osm_id": 368155602,
+      "tourism": "museum",
+      "website": "https://newbremenhistory.org/en/",
+      "museum": "local",
+      "addr_state": "OH",
+      "addr_city": "New Bremen",
+      "addr_postcode": "45869",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "120"
+    },
+    {
+      "id": 17882,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Pioneer Farm Museum",
+      "osm_id": 368155605,
+      "tourism": "museum",
+      "website": "https://pioneerfarmmuseum.org/",
+      "addr_state": "OH"
+    },
+    {
+      "id": 18806,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Model T Museum",
+      "osm_id": 2411629109,
+      "tourism": "museum",
+      "addr_city": "Richmond",
+      "addr_street": "North 8th Street",
+      "addr_housenumber": "309"
+    },
+    {
+      "id": 18407,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Fayette County Historical Museum",
+      "osm_id": 2288308868,
+      "tourism": "museum",
+      "opening_hours": "Sa-Su 10:00-15:00",
+      "website": "https://fayetteinchamber.com/list/member/fayette-county-historical-museum-856",
+      "phone": "+1 (765) 825-0946",
+      "addr_state": "IN",
+      "addr_city": "Connersville",
+      "addr_postcode": "47331",
+      "addr_street": "East 5th Street",
+      "addr_housenumber": "200"
+    },
+    {
+      "id": 18773,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Bicycle Museum of America",
+      "osm_id": 2400588016,
+      "tourism": "museum",
+      "website": "https://www.bicyclemuseum.com/",
+      "museum": "transport",
+      "wikidata": "Q4903758",
+      "addr_state": "OH",
+      "addr_city": "New Bremen",
+      "addr_postcode": "45869",
+      "addr_street": "West Monroe Street",
+      "addr_housenumber": "7"
+    },
+    {
+      "id": 25353,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "David Owsley Museum of Art",
+      "osm_id": 4459754589,
+      "tourism": "museum",
+      "website": "http://cms.bsu.edu/web/museumofart",
+      "phone": "+1-765-285-5242",
+      "museum": "art",
+      "wikidata": "Q5238285",
+      "addr_state": "IN",
+      "addr_city": "Muncie",
+      "addr_postcode": "47306",
+      "addr_street": "West Riverside Avenue",
+      "addr_housenumber": "2021"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
+      "geo_wkt": "POINT (-84.875376 38.951571)",
+      "poi": {
+        "id": 245554,
+        "geometry": "POINT (-84.875376 38.951571)",
+        "poi_name": "Red Wolf Sanctuary",
+        "osm_id": 3099118301,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "\"By appointment only\"",
+        "operator": "THE RED WOLF SANCTUARY INC",
+        "website": "https://www.redwolf.org/",
+        "phone": "+1 812 438 2306",
+        "addr_state": "IN",
+        "addr_city": "Rising Sun",
+        "addr_postcode": "47040",
+        "addr_street": "IN-262",
+        "addr_housenumber": "3027"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 22,
+  "type": "range:direction+loc"
+}

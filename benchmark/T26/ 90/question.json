@@ -1,0 +1,38 @@
+{
+  "question": "How far is the nearest aquarium situated from Bennett County Park, OR?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-124.078435 43.112055)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.078435 43.112055)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18181,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Steinhart Aquarium",
+      "osm_id": 368173914,
+      "tourism": "aquarium",
+      "addr_state": "CA",
+      "distance": 608789.65435861
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Bennett County Park, OR",
+      "geo_wkt": "POINT (-124.078435 43.112055)",
+      "poi": {
+        "id": 253812,
+        "geometry": "POINT (-124.078435 43.112055)",
+        "poi_name": "Bennett County Park",
+        "osm_id": 357277249,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 2489,
+  "type": "knn+distance"
+}

@@ -1,0 +1,73 @@
+{
+  "question": "What's the nearest restaurant on the way to Center for Photographic Art, Carmel, CA from Sea Goddess Whale Watching, Moss Landing, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography, ST_GeomFromText('POINT (-121.921383 36.551348)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 98283,
+      "geometry": "POINT (-121.786131 36.798854)",
+      "poi_name": "Haute Enchilada Cafe",
+      "osm_id": 6514122788,
+      "amenity": "restaurant",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "website": "https://www.hauteenchilada.com/",
+      "addr_postcode": "95039",
+      "addr_street": "Moss Landing Road",
+      "addr_housenumber": "7902",
+      "value": 203.7216442651959
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Sea Goddess Whale Watching, Moss Landing, CA",
+      "geo_wkt": "POINT (-121.785442 36.801022)",
+      "poi": {
+        "id": 266074,
+        "geometry": "POINT (-121.785442 36.801022)",
+        "poi_name": "Sea Goddess Whale Watching",
+        "osm_id": 10562026816,
+        "leisure": "nature_reserve",
+        "description": "Sea Goddess Whale Watching gives you a once-in-a-lifetime experience. Our whale-watching and shark tours depart from Moss Landing, at the mouth of the Monterey Bay Canyon, one of the largest underwater canyons in the world! The canyon is a nutrient-rich z",
+        "opening_hours": "Mo,We,Fr,Su 07:00-20:00; Tu,Th,Sa 07:00-17:00",
+        "website": "https://seagoddesswhalewatch.com/",
+        "phone": "831-920-1499",
+        "addr_state": "CA",
+        "addr_city": "Moss Landing",
+        "addr_postcode": "95039",
+        "addr_street": "Sandholdt Road",
+        "addr_housenumber": "7881"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Center for Photographic Art, Carmel, CA",
+      "geo_wkt": "POINT (-121.921383 36.551348)",
+      "poi": {
+        "id": 1026,
+        "geometry": "POINT (-121.921383 36.551348)",
+        "poi_name": "Center for Photographic Art",
+        "osm_id": 2799337563,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "website": "https://photography.org/",
+        "museum": "art",
+        "addr_state": "CA",
+        "addr_city": "Carmel",
+        "addr_postcode": "93921",
+        "addr_street": "San Carlos Street",
+        "addr_housenumber": "9"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 198,
+  "type": "knn:towards+name"
+}

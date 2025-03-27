@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the nearest archive museum near Kenise Barnes Fine Art, Larchmont, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'archive'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.760021 40.931798)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8610,
+      "geometry": "POINT (-122.345908 37.929269)",
+      "poi_name": "Internet Archive - Physical Archive",
+      "osm_id": 8593718592,
+      "description": "The off-site Physical Archives of the Internet Archive",
+      "tourism": "museum",
+      "operator": "Internet Archive",
+      "website": "https://archive.org/",
+      "museum": "archive",
+      "addr_state": "CA",
+      "addr_city": "Richmond",
+      "addr_postcode": "94804",
+      "addr_street": "Florida Avenue",
+      "addr_housenumber": "2512"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "archive museum",
+      "poi_filter_sql": "museum = 'archive'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Kenise Barnes Fine Art, Larchmont, NY",
+      "geo_wkt": "POINT (-73.760021 40.931798)",
+      "poi": {
+        "id": 12724,
+        "geometry": "POINT (-73.760021 40.931798)",
+        "poi_name": "Kenise Barnes Fine Art",
+        "osm_id": 7489709612,
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "Larchmont",
+        "addr_postcode": "10538",
+        "addr_street": "Palmer Avenue",
+        "addr_housenumber": "1947"
+      }
+    }
+  },
+  "id": 387,
+  "type": "knn:non_spat_filter+loc"
+}

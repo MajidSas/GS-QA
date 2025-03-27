@@ -1,0 +1,82 @@
+{
+  "question": "How distant can I find a nature reserve from Rehabilitation Hospital Of Rhode Island, North Smithfield, RI within a span of 30 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-71.512844 41.981578)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.512844 41.981578)',4326)::geography, 30000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 246002,
+      "geometry": "POINT (-71.539863 41.898564)",
+      "poi_name": "Wolf Hill Forest Preserve",
+      "osm_id": 5422164134,
+      "leisure": "nature_reserve",
+      "website": "https://exploreri.org/",
+      "addr_state": "RI",
+      "addr_city": "Smithfield",
+      "addr_postcode": "02917",
+      "addr_street": "Waterview Drive",
+      "distance": 9488.82678373
+    },
+    {
+      "id": 246987,
+      "geometry": "POINT (-71.362131 42.184482)",
+      "poi_name": "Cassidy Farm Conservation Land",
+      "osm_id": 8514477080,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Millis Conservation Commission",
+      "addr_state": "MA",
+      "addr_city": "Millis",
+      "addr_postcode": "02054",
+      "addr_street": "Exchange Street",
+      "addr_housenumber": "433",
+      "distance": 25757.60805958
+    },
+    {
+      "id": 246989,
+      "geometry": "POINT (-71.364939 42.185888)",
+      "poi_name": "Dewey Farm Conservation Land",
+      "osm_id": 8514570141,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Millis Conservation Commission",
+      "addr_state": "MA",
+      "addr_city": "Millis",
+      "addr_postcode": "02054",
+      "addr_street": "Orchard Street",
+      "distance": 25783.17408197
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Rehabilitation Hospital Of Rhode Island, North Smithfield, RI",
+      "geo_wkt": "POINT (-71.512844 41.981578)",
+      "poi": {
+        "id": 181220,
+        "geometry": "POINT (-71.512844 41.981578)",
+        "poi_name": "Rehabilitation Hospital Of Rhode Island",
+        "osm_id": 10836133856,
+        "amenity": "hospital",
+        "website": "https://www.rhri.net/home.aspx",
+        "phone": "+1 401 766 0800",
+        "healthcare": "rehabilitation",
+        "addr_state": "RI",
+        "addr_city": "North Smithfield",
+        "addr_postcode": "02896",
+        "addr_street": "Eddie Dowling Highway",
+        "addr_housenumber": "116"
+      }
+    }
+  },
+  "id": 771,
+  "type": "range+distance"
+}

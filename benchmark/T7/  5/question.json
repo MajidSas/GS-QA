@@ -1,0 +1,47 @@
+{
+  "question": "When was the nearest zoo from Bastion Studios, Erie, PA opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000",
+      "multihop_answer": "January 21, 2012",
+      "multihop_attribute": "Date opened",
+      "multihop_long_answer": "Greater Cleveland Aquarium Date opened: January 21, 2012"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
+      "poi": {
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
+      }
+    }
+  },
+  "id": 904,
+  "type": "knn+name+multihop1"
+}

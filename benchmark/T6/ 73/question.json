@@ -1,0 +1,48 @@
+{
+  "question": "What's the nearest drive-through restaurant available from Dealaman Nature Trail and Pond, Warren Township, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND drive_through ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 206884,
+      "geometry": "POINT (-76.356396 40.010115)",
+      "poi_name": "Two Cousins Pizza",
+      "osm_id": 7231514268,
+      "amenity": "restaurant",
+      "drive_through": "yes",
+      "addr_state": "PA",
+      "addr_city": "Millersville",
+      "addr_postcode": "17551",
+      "addr_street": "Manor Avenue",
+      "addr_housenumber": "115"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "drive through restaurant",
+      "poi_filter_sql": "drive_through ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dealaman Nature Trail and Pond, Warren Township, NJ",
+      "geo_wkt": "POINT (-74.506528 40.625648)",
+      "poi": {
+        "id": 267302,
+        "geometry": "POINT (-74.506528 40.625648)",
+        "poi_name": "Dealaman Nature Trail and Pond",
+        "osm_id": 5811042630,
+        "leisure": "nature_reserve",
+        "addr_state": "NJ",
+        "addr_city": "Warren Township",
+        "addr_postcode": "07059",
+        "addr_street": "Mount Horeb Road",
+        "addr_housenumber": "182"
+      }
+    }
+  },
+  "id": 672,
+  "type": "knn:non_spat_filter+name"
+}

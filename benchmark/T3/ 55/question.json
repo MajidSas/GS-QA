@@ -1,0 +1,51 @@
+{
+  "question": "Which nature reserve is available south of Cardiovascular Institute of New England, Cranston, RI, within a radius of 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, 120000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 253787,
+      "geometry": "POINT (-71.472092 41.786868)",
+      "poi_name": "Fisherville Brook Wildlife Refuge",
+      "osm_id": 357260730,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
+      "poi": {
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2654,
+  "type": "range:direction+name"
+}

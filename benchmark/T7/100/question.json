@@ -1,0 +1,45 @@
+{
+  "question": "When was the nearest university from Monrovia Canyon Park, Monrovia, CA established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167732,
+      "geometry": "POINT (-117.972022 34.130394)",
+      "poi_name": "Irell & Manella Graduate School of Biological Sciences",
+      "osm_id": 358858517,
+      "amenity": "university",
+      "website": "https://www.cityofhope.org/education/irell-and-manella-graduate-school-of-biological-sciences",
+      "wikidata": "Q5123725",
+      "multihop_answer": "1994",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Irell & Manella Graduate School of Biological Sciences Established: 1994"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Monrovia Canyon Park, Monrovia, CA",
+      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "poi": {
+        "id": 262527,
+        "geometry": "POINT (-117.988399 34.176394)",
+        "poi_name": "Monrovia Canyon Park",
+        "osm_id": 358789318,
+        "leisure": "nature_reserve",
+        "addr_state": "CA",
+        "addr_city": "Monrovia",
+        "addr_postcode": "91016",
+        "addr_street": "N. Canyon Boulevard",
+        "addr_housenumber": "1200"
+      }
+    }
+  },
+  "id": 999,
+  "type": "knn+name+multihop1"
+}

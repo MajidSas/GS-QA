@@ -1,0 +1,69 @@
+{
+  "question": "Where's the closest fast food restaurant on the route to Procter Farm Preserve, Wendell, NC from Quality Inn, Dunn, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography, ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 40574,
+      "geometry": "POINT (-78.542958 35.37784)",
+      "poi_name": "McDonald's",
+      "osm_id": 2973560081,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/nc/benson/600-e-main-st/21806.html",
+      "phone": "+19198948503",
+      "takeaway": "yes",
+      "addr_state": "NC",
+      "addr_city": "Benson",
+      "addr_postcode": "27504",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "600",
+      "value": 17.775418918493134
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Quality Inn, Dunn, NC",
+      "geo_wkt": "POINT (-78.598863 35.30081)",
+      "poi": {
+        "id": 27136,
+        "geometry": "POINT (-78.598863 35.30081)",
+        "poi_name": "Quality Inn",
+        "osm_id": 7729137531,
+        "tourism": "hotel",
+        "phone": "+19102924682",
+        "addr_state": "NC",
+        "addr_city": "Dunn",
+        "addr_postcode": "28334",
+        "addr_street": "East Cumberland Street",
+        "addr_housenumber": "1011"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Procter Farm Preserve, Wendell, NC",
+      "geo_wkt": "POINT (-78.390009 35.831172)",
+      "poi": {
+        "id": 247665,
+        "geometry": "POINT (-78.390009 35.831172)",
+        "poi_name": "Procter Farm Preserve",
+        "osm_id": 8057386012,
+        "leisure": "nature_reserve",
+        "addr_state": "NC",
+        "addr_city": "Wendell",
+        "addr_postcode": "27591",
+        "addr_street": "Doc Procter Road",
+        "addr_housenumber": "7201"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1394,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "Any suggestions for the nearest garden from Oceans Behavioral Hospital Of Lake Charles, Lake Charles, LA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.222959 30.17646)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248543,
+      "geometry": "POINT (-91.116573 30.4101)",
+      "poi_name": "Windrush Gardens",
+      "osm_id": 4636170344,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Lake Charles, Lake Charles, LA",
+      "geo_wkt": "POINT (-93.222959 30.17646)",
+      "poi": {
+        "id": 182439,
+        "geometry": "POINT (-93.222959 30.17646)",
+        "poi_name": "Oceans Behavioral Hospital Of Lake Charles",
+        "osm_id": 10892152282,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/lake-charles",
+        "phone": "+1 337 474 7581",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Lake Charles",
+        "addr_postcode": "70607",
+        "addr_street": "West McNeese Street",
+        "addr_housenumber": "302"
+      }
+    }
+  },
+  "id": 265,
+  "type": "knn+name"
+}

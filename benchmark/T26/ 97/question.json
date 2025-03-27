@@ -1,0 +1,46 @@
+{
+  "question": "What's the distance between Algonquin Woods, IL and the closest theme park?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21492,
+      "geometry": "POINT (-88.034026 42.039672)",
+      "poi_name": "Legoland Discovery Center Chicago",
+      "osm_id": 10285659853,
+      "tourism": "theme_park",
+      "operator": "Merlin Entertainments",
+      "website": "https://www.legolanddiscoverycenter.com/chicago/",
+      "wikidata": "Q20711319",
+      "addr_state": "IL",
+      "addr_city": "Schaumburg",
+      "addr_postcode": "60173",
+      "addr_street": "North Martingale Road",
+      "addr_housenumber": "601",
+      "distance": 13520.9488477
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Algonquin Woods, IL",
+      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "poi": {
+        "id": 265397,
+        "geometry": "POINT (-87.872175 42.023616)",
+        "poi_name": "Algonquin Woods",
+        "osm_id": 369047872,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 2496,
+  "type": "knn+distance"
+}

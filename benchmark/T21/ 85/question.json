@@ -1,0 +1,69 @@
+{
+  "question": "What direction should I take to reach a stadium from Bass Lake County Park, Solon Springs, WI within 170 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.755112 46.336904)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.755112 46.336904)',4326)::geography, 170000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 247846,
+      "geometry": "POINT (-93.013086 45.091304)",
+      "poi_name": "White Bear Lake High School Varsity Field",
+      "osm_id": 11465841971,
+      "leisure": "stadium",
+      "description": "Opens fall of 2024 for competition",
+      "sport": "american_football;soccer;field_hockey;athletics",
+      "angle": 215.73104568478686
+    },
+    {
+      "id": 248569,
+      "geometry": "POINT (-92.08572 46.719546)",
+      "poi_name": "Ole Haugsrud Stadium",
+      "osm_id": 4639063671,
+      "leisure": "stadium",
+      "addr_state": "WI",
+      "addr_city": "Superior",
+      "addr_postcode": "54880",
+      "addr_street": "Mertz Mortorelli Memorial Drive",
+      "addr_housenumber": "1515",
+      "angle": 329.31075423786217
+    },
+    {
+      "id": 248965,
+      "geometry": "POINT (-91.255868 46.192935)",
+      "poi_name": "Mount Telemark Village Competition Stadium",
+      "osm_id": 9467372741,
+      "leisure": "stadium",
+      "operator": "Amercan Birkebeiner Ski Foundation",
+      "sport": "cross_country_skiing",
+      "angle": 112.39677208304242
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Bass Lake County Park, Solon Springs, WI",
+      "geo_wkt": "POINT (-91.755112 46.336904)",
+      "poi": {
+        "id": 248188,
+        "geometry": "POINT (-91.755112 46.336904)",
+        "poi_name": "Bass Lake County Park",
+        "osm_id": 7390591927,
+        "leisure": "park",
+        "addr_state": "WI",
+        "addr_city": "Solon Springs",
+        "addr_street": "Bass Lake Road",
+        "addr_housenumber": "11869"
+      }
+    }
+  },
+  "id": 1084,
+  "type": "range+angle"
+}

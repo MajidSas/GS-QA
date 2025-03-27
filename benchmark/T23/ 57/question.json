@@ -1,0 +1,36 @@
+{
+  "question": "Could you provide me with the number of hospitals within a 90 kilometers radius from Rhame Arena, SC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.605612 34.236208)',4326)::geography, 90000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "count": 11
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Rhame Arena, SC",
+      "geo_wkt": "POINT (-80.605612 34.236208)",
+      "poi": {
+        "id": 265369,
+        "geometry": "POINT (-80.605612 34.236208)",
+        "poi_name": "Rhame Arena",
+        "osm_id": 367807582,
+        "leisure": "stadium",
+        "addr_state": "SC"
+      }
+    }
+  },
+  "id": 2256,
+  "type": "range+count"
+}

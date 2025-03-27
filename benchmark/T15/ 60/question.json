@@ -1,0 +1,95 @@
+{
+  "question": "Where can I find an attraction located within 150 kilometers in the direction of southeast from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, 150000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 14022,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "El Pueblo de Los Angeles Historical Monument",
+      "osm_id": 4213558285,
+      "historic": "district",
+      "tourism": "attraction",
+      "website": "https://elpueblo.lacity.org",
+      "wikidata": "Q6682294",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_street": "Olvera Street"
+    },
+    {
+      "id": 14348,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Skyspace LA",
+      "osm_id": 4273733033,
+      "tourism": "attraction",
+      "website": "https://www.skyspace-la.com/",
+      "phone": "+1-213-894-9000",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90071",
+      "addr_street": "West 5th Street",
+      "addr_housenumber": "633"
+    },
+    {
+      "id": 20202,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Giant Wheel at Irvine Spectrum Center",
+      "osm_id": 7929313045,
+      "tourism": "attraction",
+      "opening_hours": "Mo-Su 10:00-23:00",
+      "addr_state": "CA",
+      "addr_city": "Irvine",
+      "addr_postcode": "92618",
+      "addr_street": "Spectrum Center Drive",
+      "addr_housenumber": "805"
+    },
+    {
+      "id": 25544,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Newport Landing Whale Watching",
+      "osm_id": 4538229690,
+      "tourism": "attraction",
+      "addr_state": "CA",
+      "addr_city": "Newport Beach",
+      "addr_postcode": "92661",
+      "addr_street": "Palm Street",
+      "addr_housenumber": "309"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 59,
+  "type": "range:direction+loc"
+}

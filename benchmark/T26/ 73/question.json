@@ -1,0 +1,42 @@
+{
+  "question": "What's the distance between Croatian Cultural Garden, Cleveland, OH and the nearest university?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 189725,
+      "geometry": "POINT (-81.604878 41.504382)",
+      "poi_name": "Research Campus, CWRU School of Medicine",
+      "osm_id": 1246986337,
+      "amenity": "university",
+      "wikidata": "Q5048331",
+      "distance": 2808.86253423
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Croatian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.62453 41.524911)",
+      "poi": {
+        "id": 247019,
+        "geometry": "POINT (-81.62453 41.524911)",
+        "poi_name": "Croatian Cultural Garden",
+        "osm_id": 8567373872,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1141"
+      }
+    }
+  },
+  "id": 2472,
+  "type": "knn+distance"
+}

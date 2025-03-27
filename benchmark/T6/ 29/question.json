@@ -1,0 +1,58 @@
+{
+  "question": "What's the closest emergency hospital from Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 136921,
+      "geometry": "POINT (-80.140646 25.784526)",
+      "poi_name": "Miami Beach Urgent Care",
+      "osm_id": 6076485314,
+      "amenity": "hospital",
+      "description": "Miami Beach Urgent Care is a physician owned and operated center right in the heart of Miami Beach. We offer on-site lab services, x-ray, IV infusions, work and school physicals and well as a full array of other health care services. Our doctors are board",
+      "wheelchair": "yes",
+      "opening_hours": "8am-8pm Daily",
+      "operator": "Miami Beach Urgent Care, LLC",
+      "website": "https://miamibeachurgentcare.com",
+      "internet_access": "wlan",
+      "phone": "+1-305-344-2273",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "FL",
+      "addr_city": "Miami Beach",
+      "addr_postcode": "33139",
+      "addr_street": "Alton Road",
+      "addr_housenumber": "1329"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL",
+      "geo_wkt": "POINT (-80.132523 25.790419)",
+      "poi": {
+        "id": 53329,
+        "geometry": "POINT (-80.132523 25.790419)",
+        "poi_name": "Miami Beach Urban Studios (FIU MBUS)",
+        "osm_id": 10075871652,
+        "amenity": "university",
+        "operator": "Florida International University",
+        "website": "https://carta.fiu.edu/mbus/",
+        "addr_state": "FL",
+        "addr_city": "Miami Beach",
+        "addr_postcode": "33139",
+        "addr_street": "Lincoln Road",
+        "addr_housenumber": "420"
+      }
+    }
+  },
+  "id": 628,
+  "type": "knn:non_spat_filter+name"
+}

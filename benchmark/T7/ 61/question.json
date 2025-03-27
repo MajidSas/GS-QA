@@ -1,0 +1,46 @@
+{
+  "question": "When was the nearest university from Rollins Avenue Park, Capitol Heights, MD established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.902678 38.878173)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 197377,
+      "geometry": "POINT (-77.01674 38.864768)",
+      "poi_name": "National Defense University",
+      "osm_id": 10646874299,
+      "amenity": "university",
+      "description": "The NDU has five colleges: College of Information and Cyberspace, College of International Security Affairs, Dwight D. Eisenhower School for National Security and Resource Strategy, Joint Forces Staff College, and National War College.",
+      "website": "https://www.ndu.edu/",
+      "wikidata": "Q1967074",
+      "multihop_answer": "1976",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "National Defense University Established: 1976"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rollins Avenue Park, Capitol Heights, MD",
+      "geo_wkt": "POINT (-76.902678 38.878173)",
+      "poi": {
+        "id": 246239,
+        "geometry": "POINT (-76.902678 38.878173)",
+        "poi_name": "Rollins Avenue Park",
+        "osm_id": 11197779963,
+        "leisure": "park",
+        "addr_state": "MD",
+        "addr_city": "Capitol Heights",
+        "addr_postcode": "20743",
+        "addr_street": "Rollins Avenue",
+        "addr_housenumber": "711"
+      }
+    }
+  },
+  "id": 960,
+  "type": "knn+name+multihop1"
+}

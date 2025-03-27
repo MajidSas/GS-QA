@@ -1,0 +1,182 @@
+{
+  "question": "Where can I find fast food restaurant in the direction of Lytle Nature Preserve, Lockport, NY within 190 kilometers from Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, 190000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 54805,
+      "geometry": "POINT (-78.877462 43.049383)",
+      "poi_name": "Subway",
+      "osm_id": 10157790409,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "NY",
+      "addr_city": "North Tonawanda",
+      "addr_postcode": "14120",
+      "addr_street": "Payne Avenue",
+      "addr_housenumber": "966",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 88715,
+      "geometry": "POINT (-78.698109 43.146446)",
+      "poi_name": "Panera Bread",
+      "osm_id": 8793241927,
+      "amenity": "fast_food",
+      "cuisine": "sandwich;bakery",
+      "wheelchair": "yes",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "toilets": "yes",
+      "addr_state": "NY",
+      "addr_city": "Lockport",
+      "addr_postcode": "14094",
+      "addr_street": "South Transit Road",
+      "addr_housenumber": "5744",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 83917,
+      "geometry": "POINT (-78.967949 43.028115)",
+      "poi_name": "Mighty Taco",
+      "osm_id": 1770765876,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Grand Island",
+      "addr_postcode": "14072",
+      "addr_street": "Grand Island Boulevard",
+      "addr_housenumber": "2455",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 83918,
+      "geometry": "POINT (-78.966689 43.027544)",
+      "poi_name": "China Wok",
+      "osm_id": 1770767027,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Grand Island",
+      "addr_postcode": "14072",
+      "addr_street": "Grand Island Boulevard",
+      "addr_housenumber": "2409",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 81329,
+      "geometry": "POINT (-78.696247 43.148258)",
+      "poi_name": "Arby's",
+      "osm_id": 1626413960,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 92219,
+      "geometry": "POINT (-78.696201 43.139954)",
+      "poi_name": "McDonald's",
+      "osm_id": 2106261779,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ny/lockport/5863-s-transit-rd/32214.html",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 117124,
+      "geometry": "POINT (-78.843542 43.05644)",
+      "poi_name": "Subway",
+      "osm_id": 8977715911,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "NY",
+      "addr_city": "North Tonawanda",
+      "addr_postcode": "14120",
+      "addr_street": "Niagara Falls Boulevard",
+      "addr_housenumber": "886",
+      "value": 53.23184681272914
+    },
+    {
+      "id": 238681,
+      "geometry": "POINT (-78.911917 43.103201)",
+      "poi_name": "The Meeting Place",
+      "osm_id": 5890434949,
+      "amenity": "fast_food",
+      "opening_hours": "Tu-Fr 11:00-22:00; Sa 15:00-23:00",
+      "website": "http://www.meetingplaceniagarafalls.com/",
+      "phone": "716-731-3662",
+      "addr_state": "NY",
+      "addr_city": "Niagara Falls",
+      "addr_postcode": "14304",
+      "addr_street": "Niagara Road",
+      "addr_housenumber": "2469",
+      "value": 53.23184681272914
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Lytle Nature Preserve, Lockport, NY",
+      "geo_wkt": "POINT (-78.666286 43.193323)",
+      "poi": {
+        "id": 247569,
+        "geometry": "POINT (-78.666286 43.193323)",
+        "poi_name": "Lytle Nature Preserve",
+        "osm_id": 6868645749,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Town of Lockport",
+        "website": "https://www.elockport.com/department-parks-trails.php",
+        "addr_state": "NY",
+        "addr_city": "Lockport",
+        "addr_postcode": "14094",
+        "addr_street": "North Canal Road",
+        "addr_housenumber": "6637"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1211,
+  "type": "range:towards+loc"
+}

@@ -1,0 +1,77 @@
+{
+  "question": "Within 10 kilometers, which attraction can I find from S 22nd and Sears St. Garden, Philadelphia, PA on the way to Saint John Vianney Center, Downingtown, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography, ST_GeomFromText('POINT (-75.683505 40.012309)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography, 10000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 8378,
+      "geometry": "POINT (-75.212262 39.932803)",
+      "poi_name": "Bartram's Garden",
+      "osm_id": 6657981264,
+      "leisure": "park",
+      "tourism": "attraction",
+      "website": "https://bartramsgarden.org/",
+      "value": 281.413121098343
+    },
+    {
+      "id": 246956,
+      "geometry": "POINT (-75.212262 39.932803)",
+      "poi_name": "Bartram's Garden",
+      "osm_id": 6657981264,
+      "leisure": "park",
+      "tourism": "attraction",
+      "website": "https://bartramsgarden.org/",
+      "value": 281.413121098343
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "S 22nd and Sears St. Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.180513 39.935321)",
+      "poi": {
+        "id": 247116,
+        "geometry": "POINT (-75.180513 39.935321)",
+        "poi_name": "S 22nd and Sears St. Garden",
+        "osm_id": 3559344530,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_street": "S 22nd St",
+        "addr_housenumber": "1315"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Saint John Vianney Center, Downingtown, PA",
+      "geo_wkt": "POINT (-75.683505 40.012309)",
+      "poi": {
+        "id": 181369,
+        "geometry": "POINT (-75.683505 40.012309)",
+        "poi_name": "Saint John Vianney Center",
+        "osm_id": 10844645658,
+        "amenity": "hospital",
+        "website": "https://www.sjvcenter.org",
+        "phone": "+1 610-269-2600",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Downingtown",
+        "addr_postcode": "19335",
+        "addr_street": "Woodbine Road",
+        "addr_housenumber": "151"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1635,
+  "type": "range:towards+name"
+}

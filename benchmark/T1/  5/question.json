@@ -1,0 +1,46 @@
+{
+  "question": "Is there a nature reserve within 70 kilometers from Country Inn & Suites, Rochester, NY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.616916 43.104227)',4326)::geography, 70000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 246680,
+      "geometry": "POINT (-77.431318 43.17575)",
+      "poi_name": "Four Mile Creek Nature Preserve",
+      "osm_id": 8818657932,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Country Inn & Suites, Rochester, NY",
+      "geo_wkt": "POINT (-77.616916 43.104227)",
+      "poi": {
+        "id": 13454,
+        "geometry": "POINT (-77.616916 43.104227)",
+        "poi_name": "Country Inn & Suites",
+        "osm_id": 4097678679,
+        "tourism": "hotel",
+        "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-rochester-university-ny",
+        "phone": "+1-585-427-0131",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14623",
+        "addr_street": "East Henrietta Road",
+        "addr_housenumber": "797"
+      }
+    }
+  },
+  "id": 804,
+  "type": "range+name"
+}

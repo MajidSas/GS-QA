@@ -1,0 +1,41 @@
+{
+  "question": "Where is the nearest nature reserve situated towards the southeast of Arthur Hoyt Scott Amphitheature, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267495,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Juice Island",
+      "osm_id": 7599269555,
+      "leisure": "nature_reserve",
+      "addr_city": "Egg Harbor Township"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
+      "geo_wkt": "POINT (-75.355533 39.902444)",
+      "poi": {
+        "id": 265384,
+        "geometry": "POINT (-75.355533 39.902444)",
+        "poi_name": "Arthur Hoyt Scott Amphitheature",
+        "osm_id": 367975510,
+        "leisure": "stadium",
+        "addr_state": "PA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1131,
+  "type": "knn:direction+loc"
+}

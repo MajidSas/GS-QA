@@ -1,0 +1,51 @@
+{
+  "question": "What's the closest zoo towards the north of Oak Grove Football Stadium, Bessemer, AL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15625,
+      "geometry": "POINT (-87.156715 33.468802)",
+      "poi_name": "Dutch Country Safari Park",
+      "osm_id": 9418210883,
+      "tourism": "zoo",
+      "website": "http://dutchcountrysafaripark.com/",
+      "zoo": "safari_park",
+      "addr_state": "KY",
+      "addr_city": "Horse Cave",
+      "addr_postcode": "42749",
+      "addr_street": "L and N Turnpike Road",
+      "addr_housenumber": "2125"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
+      "poi": {
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2563,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,56 @@
+{
+  "question": "What's the nearest emergency hospital situated from Blue Pearl Art, San Diego, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.113015 32.754731)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167717,
+      "geometry": "POINT (-117.055952 32.996822)",
+      "poi_name": "Palomar Medical Center Poway",
+      "osm_id": 358845273,
+      "amenity": "hospital",
+      "operator": "Palomar Health",
+      "website": "http://www.pph.org/ContentPage.aspx?nd=420",
+      "phone": "+18586134000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7227263",
+      "addr_state": "CA",
+      "addr_city": "Poway",
+      "addr_postcode": "92064",
+      "addr_street": "Pomerado Road",
+      "addr_housenumber": "15615"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Blue Pearl Art, San Diego, CA",
+      "geo_wkt": "POINT (-117.113015 32.754731)",
+      "poi": {
+        "id": 11249,
+        "geometry": "POINT (-117.113015 32.754731)",
+        "poi_name": "Blue Pearl Art",
+        "osm_id": 9908007843,
+        "tourism": "gallery",
+        "opening_hours": "By Appointment Only",
+        "operator": "Margaret Gonzales",
+        "website": "https://www.bluepearlartstudio.com/",
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92105",
+        "addr_street": "37th Street",
+        "addr_housenumber": "4275"
+      }
+    }
+  },
+  "id": 635,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,61 @@
+{
+  "question": "What's the closest caf\u00e9 located en route to Romulus Historical Museum, Romulus, MI from O'Rena, Rochester, MI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography, ST_GeomFromText('POINT (-83.394641 42.221105)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 233336,
+      "geometry": "POINT (-83.228738 42.653789)",
+      "poi_name": "Main Cafe",
+      "osm_id": 4568950751,
+      "amenity": "cafe",
+      "internet_access": "no",
+      "outdoor_seating": "yes",
+      "value": 196.57288592777866
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "O'Rena, Rochester, MI",
+      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "poi": {
+        "id": 267317,
+        "geometry": "POINT (-83.213305 42.674149)",
+        "poi_name": "O'Rena",
+        "osm_id": 5842381796,
+        "leisure": "stadium",
+        "addr_state": "MI",
+        "addr_city": "Rochester",
+        "addr_postcode": "48309-4482",
+        "addr_street": "Pioneer Drive",
+        "addr_housenumber": "569"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Romulus Historical Museum, Romulus, MI",
+      "geo_wkt": "POINT (-83.394641 42.221105)",
+      "poi": {
+        "id": 17622,
+        "geometry": "POINT (-83.394641 42.221105)",
+        "poi_name": "Romulus Historical Museum",
+        "osm_id": 367816395,
+        "tourism": "museum",
+        "phone": "+1-734-942-2340",
+        "addr_state": "MI",
+        "addr_city": "Romulus",
+        "addr_street": "Hunt Street",
+        "addr_housenumber": "11120"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 161,
+  "type": "knn:towards+name"
+}

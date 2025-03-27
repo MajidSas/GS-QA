@@ -1,0 +1,54 @@
+{
+  "question": "Could you assist me in locating an emergency hospital within a 90 kilometers radius originating from University of Phoenix Northwest Arkansas, Rogers, AR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.17977 36.344271)',4326)::geography, 90000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 167761,
+      "geometry": "POINT (-94.460438 36.408692)",
+      "poi_name": "Ozarks Community Hospital of Gravette",
+      "osm_id": 359010959,
+      "amenity": "hospital",
+      "website": "https://www.ochonline.com/locations/hospital-gravette/",
+      "phone": "+1 479 787 5291",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Gravette",
+      "addr_postcode": "72736",
+      "addr_street": "Jackson Street Southwest",
+      "addr_housenumber": "1101"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Phoenix Northwest Arkansas, Rogers, AR",
+      "geo_wkt": "POINT (-94.17977 36.344271)",
+      "poi": {
+        "id": 188169,
+        "geometry": "POINT (-94.17977 36.344271)",
+        "poi_name": "University of Phoenix Northwest Arkansas",
+        "osm_id": 1127512456,
+        "amenity": "university",
+        "addr_state": "AR",
+        "addr_city": "Rogers",
+        "addr_postcode": "72756",
+        "addr_street": "North 47th Street",
+        "addr_housenumber": "903"
+      }
+    }
+  },
+  "id": 415,
+  "type": "range:non_spat_filter+loc"
+}

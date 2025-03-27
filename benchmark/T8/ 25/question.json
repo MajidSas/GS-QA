@@ -1,0 +1,48 @@
+{
+  "question": "Can you recommend the nearest caf\u00e9 from the stadium designed by the architect Davis Partnership Architects and Sink Combs Dethlefs in CO?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 201433,
+      "geometry": "POINT (-104.95888 39.679939)",
+      "poi_name": "Starbucks",
+      "osm_id": 631828115,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 04:30-20:30; Sa-Su 5:00-20:30",
+      "internet_access": "wlan",
+      "phone": "+1-303-733-9377",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80210",
+      "addr_street": "South University Boulevard",
+      "addr_housenumber": "2000"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2724,
+  "type": "knn+name+multihop2"
+}

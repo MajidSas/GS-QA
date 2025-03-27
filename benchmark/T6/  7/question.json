@@ -1,0 +1,51 @@
+{
+  "question": "What's the nearest art museum situated from Gator Country Wildlife Adventure Park, Beaumont, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'art'\nORDER BY geometry <-> ST_GeomFromText('POINT (-94.274211 29.929639)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 19902,
+      "geometry": "POINT (-91.188788 30.447698)",
+      "poi_name": "LSU Museum of Art",
+      "osm_id": 10938725787,
+      "tourism": "museum",
+      "operator": "Louisiana State University",
+      "website": "https://www.lsumoa.org/",
+      "museum": "art",
+      "addr_state": "LA",
+      "addr_city": "Baton Rouge",
+      "addr_postcode": "70801",
+      "addr_street": "Lafayette Street",
+      "addr_housenumber": "100"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Gator Country Wildlife Adventure Park, Beaumont, TX",
+      "geo_wkt": "POINT (-94.274211 29.929639)",
+      "poi": {
+        "id": 14222,
+        "geometry": "POINT (-94.274211 29.929639)",
+        "poi_name": "Gator Country Wildlife Adventure Park",
+        "osm_id": 4252509346,
+        "tourism": "zoo",
+        "website": "https://www.gatorrescue.com/",
+        "addr_state": "TX",
+        "addr_city": "Beaumont",
+        "addr_postcode": "77705",
+        "addr_street": "Farm to Market Road 365",
+        "addr_housenumber": "21159"
+      }
+    }
+  },
+  "id": 606,
+  "type": "knn:non_spat_filter+name"
+}

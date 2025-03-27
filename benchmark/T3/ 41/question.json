@@ -1,0 +1,74 @@
+{
+  "question": "Which hospital is closest when moving towards the south of Super Cichlids Inc, Dover, DE within 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 181082,
+      "geometry": "POINT (-75.496486 39.155267)",
+      "poi_name": "Encompass Health Rehab Hospital Of Salisbury",
+      "osm_id": 10832075153,
+      "amenity": "hospital",
+      "website": "https://encompasshealth.com/locations/salisburyrehab",
+      "phone": "+1 410 546 4600",
+      "healthcare": "rehabilitation",
+      "addr_city": "Salisbury",
+      "addr_postcode": "21804",
+      "addr_street": "Tilghman Road",
+      "addr_housenumber": "220"
+    },
+    {
+      "id": 167597,
+      "geometry": "POINT (-75.496486 39.155267)",
+      "poi_name": "Harrison House Nursing Home",
+      "osm_id": 358246374,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no"
+    },
+    {
+      "id": 181223,
+      "geometry": "POINT (-75.496486 39.155267)",
+      "poi_name": "Sun Behavioral Delaware",
+      "osm_id": 10836137936,
+      "amenity": "hospital",
+      "phone": "+1 302 604 5600",
+      "healthcare": "rehabilitation"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2640,
+  "type": "range:direction+name"
+}

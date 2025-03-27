@@ -1,0 +1,40 @@
+{
+  "question": "What is the nearest golf course situated towards the southeast of Wyo-Braska Natural History Museum, NE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-103.658277 41.829413)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265849,
+      "geometry": "POINT (-103.658277 41.829413)",
+      "poi_name": "Crooked Creek Country Club",
+      "osm_id": 7906476743,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Wyo-Braska Natural History Museum, NE",
+      "geo_wkt": "POINT (-103.658277 41.829413)",
+      "poi": {
+        "id": 16709,
+        "geometry": "POINT (-103.658277 41.829413)",
+        "poi_name": "Wyo-Braska Natural History Museum",
+        "osm_id": 366492112,
+        "tourism": "museum",
+        "addr_state": "NE"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2535,
+  "type": "knn:direction+name"
+}

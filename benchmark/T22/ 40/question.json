@@ -1,0 +1,45 @@
+{
+  "question": "What's the heading to the closest fast food restaurant from Captain Mike's Fun Park, Bridgman, MI?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 158509,
+      "geometry": "POINT (-86.570582 41.932598)",
+      "poi_name": "McDonald's",
+      "osm_id": 4751405084,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/mi/bridgman/10280-red-arrow-hwy/12373.html",
+      "takeaway": "yes",
+      "angle": 20.5305413716693
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
+      "geo_wkt": "POINT (-86.576965 41.919871)",
+      "poi": {
+        "id": 4790,
+        "geometry": "POINT (-86.576965 41.919871)",
+        "poi_name": "Captain Mike's Fun Park",
+        "osm_id": 9625343406,
+        "tourism": "theme_park",
+        "website": "https://captainmikesamusementpark.com/",
+        "addr_state": "MI",
+        "addr_city": "Bridgman",
+        "addr_postcode": "49106",
+        "addr_street": "Red Arrow Highway",
+        "addr_housenumber": "10975"
+      }
+    }
+  },
+  "id": 1439,
+  "type": "knn+angle"
+}

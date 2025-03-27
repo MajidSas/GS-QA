@@ -1,0 +1,48 @@
+{
+  "question": "Which beach resort is closest in the southeast direction of Bittersweet Falls, Weybridge, VT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246392,
+      "geometry": "POINT (-73.217661 44.029954)",
+      "poi_name": "InnSeason Resorts Surfside",
+      "osm_id": 11429192634,
+      "leisure": "beach_resort",
+      "website": "https://www.innseason.com/surfside-resort",
+      "phone": "+1 508 548 0313",
+      "addr_street": "Menauhant Road",
+      "addr_housenumber": "134"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2578,
+  "type": "knn:direction+name"
+}

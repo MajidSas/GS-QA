@@ -1,0 +1,72 @@
+{
+  "question": "Which garden is available in the south direction of Cumberland Kingsbay Lodge, Saint Marys, GA within 200 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.575207 30.764092)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.575207 30.764092)',4326)::geography, 200000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 247598,
+      "geometry": "POINT (-81.575207 30.764092)",
+      "poi_name": "Common Area",
+      "osm_id": 6955805815,
+      "leisure": "garden"
+    },
+    {
+      "id": 247120,
+      "geometry": "POINT (-81.575207 30.764092)",
+      "poi_name": "Asian Bamboo Garden",
+      "osm_id": 3572478698,
+      "leisure": "garden"
+    },
+    {
+      "id": 248126,
+      "geometry": "POINT (-81.575207 30.764092)",
+      "poi_name": "Loop's Nursery & Greenhouses",
+      "osm_id": 6360441133,
+      "leisure": "garden",
+      "website": "loopsnursery.com",
+      "phone": "+1 (904) 287-3038"
+    },
+    {
+      "id": 267376,
+      "geometry": "POINT (-81.575207 30.764092)",
+      "poi_name": "Flower Circle",
+      "osm_id": 5930334805,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 200000,
+      "text": "200 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Cumberland Kingsbay Lodge, Saint Marys, GA",
+      "geo_wkt": "POINT (-81.575207 30.764092)",
+      "poi": {
+        "id": 2871,
+        "geometry": "POINT (-81.575207 30.764092)",
+        "poi_name": "Cumberland Kingsbay Lodge",
+        "osm_id": 10061169234,
+        "tourism": "hotel",
+        "phone": "+1 912 882 8900",
+        "addr_state": "GA",
+        "addr_city": "Saint Marys",
+        "addr_postcode": "31558",
+        "addr_street": "Sand Bar Drive",
+        "addr_housenumber": "603"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2631,
+  "type": "range:direction+name"
+}

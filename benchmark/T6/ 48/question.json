@@ -1,0 +1,51 @@
+{
+  "question": "What's the nearest new american restaurant available from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american_new%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 98120,
+      "geometry": "POINT (-118.364416 34.090584)",
+      "poi_name": "Laurel Hardware",
+      "osm_id": 6507202779,
+      "amenity": "restaurant",
+      "cuisine": "american;new_american;farm-to-table",
+      "website": "https://www.laurelhardware.com/",
+      "phone": "+1-323-656-6070",
+      "addr_state": "CA",
+      "addr_city": "West Hollywood",
+      "addr_postcode": "90046",
+      "addr_street": "Santa Monica Boulevard",
+      "addr_housenumber": "7984"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "new american restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%american_new%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "poi": {
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
+      }
+    }
+  },
+  "id": 647,
+  "type": "knn:non_spat_filter+name"
+}

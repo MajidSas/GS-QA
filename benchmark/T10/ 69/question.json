@@ -1,0 +1,65 @@
+{
+  "question": "Which caf\u00e9 is nearest towards Funkmeyer New Reality Garden, Los Angeles, CA from Monrovia Canyon Park, Monrovia, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 93426,
+      "geometry": "POINT (-118.031252 34.144806)",
+      "poi_name": "Goldstein's Bagel Bakery",
+      "osm_id": 2164851854,
+      "amenity": "cafe",
+      "addr_city": "Arcadia",
+      "addr_postcode": "91006",
+      "addr_street": "Santa Anita Avenue",
+      "addr_housenumber": "412",
+      "value": 246.65315790568357
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Monrovia Canyon Park, Monrovia, CA",
+      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "poi": {
+        "id": 262527,
+        "geometry": "POINT (-117.988399 34.176394)",
+        "poi_name": "Monrovia Canyon Park",
+        "osm_id": 358789318,
+        "leisure": "nature_reserve",
+        "addr_state": "CA",
+        "addr_city": "Monrovia",
+        "addr_postcode": "91016",
+        "addr_street": "N. Canyon Boulevard",
+        "addr_housenumber": "1200"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "poi": {
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 168,
+  "type": "knn:towards+name"
+}

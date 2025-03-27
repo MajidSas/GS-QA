@@ -1,0 +1,50 @@
+{
+  "question": "Which beach resort is available within 190 kilometers in the southwest direction of Acushnet Sawmill, Acushnet, MA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography, 190000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 247506,
+      "geometry": "POINT (-70.919597 41.683778)",
+      "poi_name": "Quantuck Beach Club",
+      "osm_id": 6712661219,
+      "leisure": "beach_resort",
+      "website": "http://quantuckbeachclub.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
+      "poi": {
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
+        "leisure": "park",
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2689,
+  "type": "range:direction+name"
+}

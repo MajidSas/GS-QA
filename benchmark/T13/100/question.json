@@ -1,0 +1,75 @@
+{
+  "question": "I'm searching for an attraction within 60 kilometers radii from Taylor's Aquarium, Dunn, NC, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography, 60000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "id": 3052,
+      "geometry": "POINT (-78.417103 35.12195)",
+      "poi_name": "Hubb's Farm (Home of Hubb's Corn Maze)",
+      "osm_id": 10145424617,
+      "tourism": "attraction",
+      "phone": "(910) 564-6709",
+      "addr_state": "NC",
+      "addr_city": "Clinton",
+      "addr_postcode": "28328",
+      "addr_street": "US-421",
+      "addr_housenumber": "10276"
+    },
+    {
+      "id": 25677,
+      "geometry": "POINT (-78.858148 35.148898)",
+      "poi_name": "ZipQuest Waterfall Treetop Adventure",
+      "osm_id": 4574885834,
+      "tourism": "attraction",
+      "website": "https://www.zipquest.com/",
+      "phone": "+1 910-488-8787",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_street": "Carvers Falls Road",
+      "addr_housenumber": "533"
+    },
+    {
+      "id": 25678,
+      "geometry": "POINT (-78.870763 35.088114)",
+      "poi_name": "Cape Fear River Trail",
+      "osm_id": 4574997252,
+      "tourism": "attraction",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_street": "Sherman Drive",
+      "addr_housenumber": "631"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Taylor's Aquarium, Dunn, NC",
+      "geo_wkt": "POINT (-78.589533 35.200429)",
+      "poi": {
+        "id": 24624,
+        "geometry": "POINT (-78.589533 35.200429)",
+        "poi_name": "Taylor's Aquarium",
+        "osm_id": 11141985607,
+        "tourism": "aquarium",
+        "phone": "+19105675377",
+        "addr_state": "NC",
+        "addr_city": "Dunn",
+        "addr_postcode": "28334",
+        "addr_street": "North Spring Branch Road",
+        "addr_housenumber": "590"
+      }
+    }
+  },
+  "id": 2099,
+  "type": "range+loc"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "Looking for the closest theme park in relation to Oak Grove Football Stadium, Bessemer, AL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7371,
+      "geometry": "POINT (-87.614794 34.093004)",
+      "poi_name": "Natural Bridge Park",
+      "osm_id": 2108122273,
+      "tourism": "theme_park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
+      "poi": {
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    }
+  },
+  "id": 222,
+  "type": "knn+name"
+}

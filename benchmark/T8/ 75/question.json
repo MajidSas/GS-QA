@@ -1,0 +1,43 @@
+{
+  "question": "Any recommendations for the closest park from the museum established in the year 1974 in New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.983725 40.755739)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 256663,
+      "geometry": "POINT (-73.991111 40.766389)",
+      "poi_name": "Oasis Garden",
+      "osm_id": 357650718,
+      "leisure": "park",
+      "wikidata": "Q49534533"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "International Center of Photography, New York, NY",
+      "geo_wkt": "POINT (-73.983725 40.755739)",
+      "poi": {
+        "id": 2728,
+        "geometry": "POINT (-73.983725 40.755739)",
+        "poi_name": "International Center of Photography",
+        "osm_id": 566445454,
+        "tourism": "museum",
+        "website": "https://www.icp.org/",
+        "wikidata": "Q636942",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10036",
+        "addr_street": "6th Avenue",
+        "addr_housenumber": "1133"
+      }
+    }
+  },
+  "id": 2774,
+  "type": "knn+name+multihop2"
+}

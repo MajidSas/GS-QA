@@ -1,0 +1,50 @@
+{
+  "question": "Where is the nearest restaurant situated towards the southwest of R & Z Urban Art Gallery, Milwaukee, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.921854 43.023106)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 68913,
+      "geometry": "POINT (-87.921854 43.023106)",
+      "poi_name": "Los Tres Amigos Mexican Restaurant",
+      "osm_id": 11288389139,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "WI",
+      "addr_city": "Milwaukee",
+      "addr_postcode": "53204",
+      "addr_street": "West Washington Street",
+      "addr_housenumber": "1401"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "R & Z Urban Art Gallery, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.921854 43.023106)",
+      "poi": {
+        "id": 4519,
+        "geometry": "POINT (-87.921854 43.023106)",
+        "poi_name": "R & Z Urban Art Gallery",
+        "osm_id": 11288423228,
+        "tourism": "gallery",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53204",
+        "addr_street": "West National Avenue",
+        "addr_housenumber": "823"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1192,
+  "type": "knn:direction+loc"
+}

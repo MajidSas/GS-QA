@@ -1,0 +1,57 @@
+{
+  "question": "How far can I find a nature reserve from Longfellow Arboretum, Portland, ME within 60 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, 60000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 245565,
+      "geometry": "POINT (-69.588607 43.866287)",
+      "poi_name": "Mill Pond Overlook",
+      "osm_id": 3133364461,
+      "leisure": "nature_reserve",
+      "operator": "Boothbay Region Land Trust",
+      "website": "https://www.bbrlt.org/",
+      "distance": 58597.85648542
+    },
+    {
+      "id": 247078,
+      "geometry": "POINT (-69.61629 43.918117)",
+      "poi_name": "Cross River Preserve",
+      "osm_id": 8693374037,
+      "leisure": "nature_reserve",
+      "distance": 58842.41018489
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Longfellow Arboretum, Portland, ME",
+      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "poi": {
+        "id": 265852,
+        "geometry": "POINT (-70.269893 43.680714)",
+        "poi_name": "Longfellow Arboretum",
+        "osm_id": 7922996124,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_street": "Baxter Boulevard",
+        "addr_housenumber": "755"
+      }
+    }
+  },
+  "id": 755,
+  "type": "range+distance"
+}

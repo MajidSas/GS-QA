@@ -1,0 +1,46 @@
+{
+  "question": "Which attraction is nearest when considering the east direction of Silver Reef Museum, Leeds, UT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-113.367397 37.253044)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 385,
+      "geometry": "POINT (-113.367397 37.253044)",
+      "poi_name": "Red Bull Rampage (2001-2004)",
+      "osm_id": 8346029092,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Silver Reef Museum, Leeds, UT",
+      "geo_wkt": "POINT (-113.367397 37.253044)",
+      "poi": {
+        "id": 14732,
+        "geometry": "POINT (-113.367397 37.253044)",
+        "poi_name": "Silver Reef Museum",
+        "osm_id": 4697803185,
+        "tourism": "museum",
+        "opening_hours": "Th-Sa 10:00-15:00, Mo 10:00-15:00",
+        "website": "http://www.silverreefutah.org/",
+        "addr_state": "UT",
+        "addr_city": "Leeds",
+        "addr_postcode": "84746",
+        "addr_street": "Wells Fargo Drive",
+        "addr_housenumber": "1903"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2517,
+  "type": "knn:direction+name"
+}

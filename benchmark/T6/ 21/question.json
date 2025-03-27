@@ -1,0 +1,46 @@
+{
+  "question": "What is the nearest railway museum from Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17918,
+      "geometry": "POINT (-96.285251 31.626281)",
+      "poi_name": "Burlington-Rock Island Railroad Museum",
+      "osm_id": 368164853,
+      "tourism": "museum",
+      "museum": "railway",
+      "addr_state": "TX"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "poi": {
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
+      }
+    }
+  },
+  "id": 620,
+  "type": "knn:non_spat_filter+name"
+}

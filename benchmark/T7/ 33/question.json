@@ -1,0 +1,46 @@
+{
+  "question": "When was the nearest nature reserve from Crave Golf Club, Pigeon Forge, TN established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24867,
+      "geometry": "POINT (-83.931295 35.357363)",
+      "poi_name": "Joyce Kilmer Memorial Forest",
+      "osm_id": 4349050188,
+      "leisure": "nature_reserve",
+      "tourism": "attraction",
+      "wikidata": "Q14708003",
+      "multihop_answer": "1936",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Joyce Kilmer Memorial Forest Established: 1936"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "poi": {
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
+      }
+    }
+  },
+  "id": 932,
+  "type": "knn+name+multihop1"
+}

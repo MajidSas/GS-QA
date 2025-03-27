@@ -1,0 +1,61 @@
+{
+  "question": "Where is the closest university along the way to Adventure Park, Scottsdale, AZ from Southwest Gas Site Mini Park, Eloy, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.552558 32.752144)',4326)::geography, ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'university'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.552558 32.752144)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.552558 32.752144)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 186938,
+      "geometry": "POINT (-111.635317 33.250838)",
+      "poi_name": "Rio Salado College - Testing Center",
+      "osm_id": 7958040582,
+      "amenity": "university",
+      "addr_state": "AZ",
+      "addr_city": "Queen Creek",
+      "addr_postcode": "85142",
+      "addr_street": "South Ellsworth Road",
+      "addr_housenumber": "21740",
+      "value": 340.34892740481195
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Southwest Gas Site Mini Park, Eloy, AZ",
+      "geo_wkt": "POINT (-111.552558 32.752144)",
+      "poi": {
+        "id": 265052,
+        "geometry": "POINT (-111.552558 32.752144)",
+        "poi_name": "Southwest Gas Site Mini Park",
+        "osm_id": 359260628,
+        "leisure": "park",
+        "addr_state": "AZ",
+        "addr_city": "Eloy",
+        "addr_postcode": "85131"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "poi": {
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    }
+  },
+  "id": 1305,
+  "type": "knn:towards+loc"
+}

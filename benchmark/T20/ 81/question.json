@@ -1,0 +1,69 @@
+{
+  "question": "Where's the closest restaurant located en route to Sloth Encounters, Hauppauge, NY from Post University, Waterbury, CT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography, ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 67063,
+      "geometry": "POINT (-73.055743 41.489741)",
+      "poi_name": "Chiangmai Thai",
+      "osm_id": 11221620343,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "addr_state": "CT",
+      "addr_city": "Naugatuck",
+      "addr_postcode": "06770",
+      "addr_street": "Church Street",
+      "addr_housenumber": "166",
+      "value": 189.97000228421012
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Post University, Waterbury, CT",
+      "geo_wkt": "POINT (-73.041211 41.554134)",
+      "poi": {
+        "id": 138346,
+        "geometry": "POINT (-73.041211 41.554134)",
+        "poi_name": "Post University",
+        "osm_id": 6142691782,
+        "amenity": "university",
+        "addr_state": "CT",
+        "addr_city": "Waterbury",
+        "addr_postcode": "06702",
+        "addr_street": "Bank Street",
+        "addr_housenumber": "140"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
+      "poi": {
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1380,
+  "type": "knn:towards+loc"
+}

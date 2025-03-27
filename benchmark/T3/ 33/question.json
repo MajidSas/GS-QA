@@ -1,0 +1,88 @@
+{
+  "question": "Within a radius of 190 kilometers, what stadium can I find to the north of Freedom Lake Park, Pinellas Park, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography, 190000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 265372,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "Trinity Catholic High School Football Stadium",
+      "osm_id": 367826897,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    },
+    {
+      "id": 265373,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "North Marion High School Football Stadium",
+      "osm_id": 367826898,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    },
+    {
+      "id": 265374,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "West Port Football Stadium",
+      "osm_id": 367826899,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    },
+    {
+      "id": 265375,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "Dunnellon High School Football Stadium",
+      "osm_id": 367826900,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    },
+    {
+      "id": 265376,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "Brick City Park Stadium",
+      "osm_id": 367826901,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    },
+    {
+      "id": 265377,
+      "geometry": "POINT (-82.698397 27.861949)",
+      "poi_name": "Hernando High School Football Stadium",
+      "osm_id": 367826909,
+      "leisure": "stadium",
+      "addr_state": "FL"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Freedom Lake Park, Pinellas Park, FL",
+      "geo_wkt": "POINT (-82.698397 27.861949)",
+      "poi": {
+        "id": 246614,
+        "geometry": "POINT (-82.698397 27.861949)",
+        "poi_name": "Freedom Lake Park",
+        "osm_id": 1871938101,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Pinellas Park",
+        "addr_postcode": "33782",
+        "addr_street": "US 19"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2632,
+  "type": "range:direction+name"
+}

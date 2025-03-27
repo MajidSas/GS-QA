@@ -1,0 +1,61 @@
+{
+  "question": "Which university is available within 170 kilometers in the south direction of Homewood Suites, Schaumburg, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.059089 42.047655)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.059089 42.047655)',4326)::geography, 170000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 167307,
+      "geometry": "POINT (-88.059089 42.047655)",
+      "poi_name": "Olivet Nazarene University",
+      "osm_id": 354127757,
+      "amenity": "university",
+      "description": "A top-tier Christian college near Chicago",
+      "wheelchair": "yes",
+      "website": "https://olivet.edu/",
+      "internet_access": "yes",
+      "phone": "+1-800-648-1463",
+      "wikidata": "Q7088000",
+      "addr_state": "IL",
+      "addr_city": "Bourbonnais",
+      "addr_postcode": "60914",
+      "addr_street": "University Avenue",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.059089 42.047655)",
+      "poi": {
+        "id": 671,
+        "geometry": "POINT (-88.059089 42.047655)",
+        "poi_name": "Homewood Suites",
+        "osm_id": 2633342285,
+        "tourism": "hotel",
+        "website": "http://www.homewoodsuitesschaumburg.com/",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "East American Lane",
+        "addr_housenumber": "815"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2684,
+  "type": "range:direction+name"
+}

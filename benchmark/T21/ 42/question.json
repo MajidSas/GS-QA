@@ -1,0 +1,102 @@
+{
+  "question": "Which direction leads to a viewpoint from Raptor Center, Solon, IA within a span of 110 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, 110000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 1077,
+      "geometry": "POINT (-91.034672 41.42651)",
+      "poi_name": "Mark Twain Scenic Overlook",
+      "osm_id": 2824509096,
+      "tourism": "viewpoint",
+      "angle": 131.31144269740076
+    },
+    {
+      "id": 1585,
+      "geometry": "POINT (-90.480843 41.522727)",
+      "poi_name": "Pat and Jack Bush Scenie Overlook",
+      "osm_id": 3060189442,
+      "tourism": "viewpoint",
+      "angle": 107.26724211208744
+    },
+    {
+      "id": 5727,
+      "geometry": "POINT (-90.420085 42.248967)",
+      "poi_name": "Bellevue Overlook",
+      "osm_id": 892648606,
+      "tourism": "viewpoint",
+      "angle": 61.09766159293449
+    },
+    {
+      "id": 8984,
+      "geometry": "POINT (-90.633123 42.459582)",
+      "poi_name": "Observation Deck",
+      "osm_id": 3606168742,
+      "tourism": "viewpoint",
+      "angle": 45.57333522858682
+    },
+    {
+      "id": 15856,
+      "geometry": "POINT (-90.913276 42.29636)",
+      "poi_name": "Scenic Overlook",
+      "osm_id": 9568710827,
+      "tourism": "viewpoint",
+      "angle": 43.444276128363796
+    },
+    {
+      "id": 16138,
+      "geometry": "POINT (-90.637944 42.464008)",
+      "poi_name": "Horseshoe Bluff",
+      "osm_id": 354306224,
+      "tourism": "viewpoint",
+      "angle": 45.239729956759305
+    },
+    {
+      "id": 20055,
+      "geometry": "POINT (-90.42069 42.249339)",
+      "poi_name": "Inspiration Point",
+      "osm_id": 7841313935,
+      "tourism": "viewpoint",
+      "angle": 61.0659571803497
+    },
+    {
+      "id": 22442,
+      "geometry": "POINT (-91.650943 41.961633)",
+      "poi_name": "Mount Trashmore Scenic Overlook",
+      "osm_id": 7061237728,
+      "tourism": "viewpoint",
+      "website": "https://www.solidwasteagency.org/mount-trashmore",
+      "angle": 341.5905850460517
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    }
+  },
+  "id": 1041,
+  "type": "range+angle"
+}

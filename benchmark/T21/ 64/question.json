@@ -1,0 +1,88 @@
+{
+  "question": "Which path guides to a zoo from Residence Inn Seattle Bellevue, Bellevue, WA within 150 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.146505 47.633878)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.146505 47.633878)',4326)::geography, 150000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 3365,
+      "geometry": "POINT (-122.222361 47.959369)",
+      "poi_name": "Animal Farm",
+      "osm_id": 5377263842,
+      "tourism": "zoo",
+      "angle": 351.10372285056724
+    },
+    {
+      "id": 10582,
+      "geometry": "POINT (-122.298438 47.179906)",
+      "poi_name": "The Farm at SillyVille",
+      "osm_id": 6926195794,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 192.85646499090956
+    },
+    {
+      "id": 11143,
+      "geometry": "POINT (-122.276247 46.914687)",
+      "poi_name": "Northwest Trek Wildlife Park",
+      "osm_id": 9868992007,
+      "tourism": "zoo",
+      "opening_hours": "Mo-Su 09:30-17:00",
+      "website": "https://www.nwtrek.org/",
+      "angle": 187.04737982090924
+    },
+    {
+      "id": 11808,
+      "geometry": "POINT (-122.432984 47.131086)",
+      "poi_name": "Debbie Doolittle's Petting Zoo",
+      "osm_id": 11550085362,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "WA",
+      "addr_city": "Tacoma",
+      "addr_postcode": "98444",
+      "addr_street": "138th St. S.",
+      "addr_housenumber": "120",
+      "angle": 201.26134131925414
+    },
+    {
+      "id": 18741,
+      "geometry": "POINT (-122.849389 46.903985)",
+      "poi_name": "Wolf Haven International",
+      "osm_id": 2393458272,
+      "tourism": "zoo",
+      "angle": 213.5025587259905
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn Seattle Bellevue, Bellevue, WA",
+      "geo_wkt": "POINT (-122.146505 47.633878)",
+      "poi": {
+        "id": 9271,
+        "geometry": "POINT (-122.146505 47.633878)",
+        "poi_name": "Residence Inn Seattle Bellevue",
+        "osm_id": 3722428951,
+        "tourism": "hotel",
+        "operator": "Marriott",
+        "official_name": "Residence Inn by Marriott",
+        "addr_state": "WA",
+        "addr_city": "Bellevue",
+        "addr_postcode": "98007",
+        "addr_street": "Northeast 29th Place",
+        "addr_housenumber": "14455"
+      }
+    }
+  },
+  "id": 1063,
+  "type": "range+angle"
+}

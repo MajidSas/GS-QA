@@ -1,0 +1,64 @@
+{
+  "question": "Where's the nearest restaurant heading towards Hurricane Valley Farm, Falmouth, ME from POP-UP 265, Augusta, ME?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774029 44.31523)',4326)::geography, ST_GeomFromText('POINT (-70.304594 43.787343)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774029 44.31523)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-69.774029 44.31523)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 147810,
+      "geometry": "POINT (-69.774179 44.314896)",
+      "poi_name": "Otto's On The River",
+      "osm_id": 7563916790,
+      "amenity": "restaurant",
+      "addr_state": "ME",
+      "addr_city": "Augusta",
+      "addr_postcode": "04330",
+      "addr_street": "Water Street",
+      "addr_housenumber": "287",
+      "value": 216.1222939256164
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "POP-UP 265, Augusta, ME",
+      "geo_wkt": "POINT (-69.774029 44.31523)",
+      "poi": {
+        "id": 9711,
+        "geometry": "POINT (-69.774029 44.31523)",
+        "poi_name": "POP-UP 265",
+        "osm_id": 8949788429,
+        "tourism": "gallery",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Water Street",
+        "addr_housenumber": "265"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hurricane Valley Farm, Falmouth, ME",
+      "geo_wkt": "POINT (-70.304594 43.787343)",
+      "poi": {
+        "id": 266340,
+        "geometry": "POINT (-70.304594 43.787343)",
+        "poi_name": "Hurricane Valley Farm",
+        "osm_id": 7188370375,
+        "leisure": "garden",
+        "addr_state": "ME",
+        "addr_city": "Falmouth",
+        "addr_postcode": "04105",
+        "addr_street": "Gray Road",
+        "addr_housenumber": "459"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1323,
+  "type": "knn:towards+loc"
+}

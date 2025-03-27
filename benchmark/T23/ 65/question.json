@@ -1,0 +1,41 @@
+{
+  "question": "What's the count of hotels within 20 kilometers from the location Animal Haven Farm Zoo, Weyauwega, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography, 20000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Animal Haven Farm Zoo, Weyauwega, WI",
+      "geo_wkt": "POINT (-88.961358 44.301611)",
+      "poi": {
+        "id": 23088,
+        "geometry": "POINT (-88.961358 44.301611)",
+        "poi_name": "Animal Haven Farm Zoo",
+        "osm_id": 5030324218,
+        "tourism": "zoo",
+        "phone": "+1-920-867-3707",
+        "addr_state": "WI",
+        "addr_city": "Weyauwega",
+        "addr_postcode": "54983",
+        "addr_street": "Bucholtz Road",
+        "addr_housenumber": "N1720"
+      }
+    }
+  },
+  "id": 2264,
+  "type": "range+count"
+}

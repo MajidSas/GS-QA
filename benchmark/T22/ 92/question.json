@@ -1,0 +1,40 @@
+{
+  "question": "Which way should I go to reach the closest aquarium from Otto Huechling House Historic Site, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-107.979762 32.856189)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-107.979762 32.856189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6226,
+      "geometry": "POINT (-106.678998 35.093235)",
+      "poi_name": "ABQ BioPark (Aquarium)",
+      "osm_id": 1788029735,
+      "tourism": "aquarium",
+      "wikidata": "Q4712807",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "angle": 25.48597966624827
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Otto Huechling House Historic Site, NM",
+      "geo_wkt": "POINT (-107.979762 32.856189)",
+      "poi": {
+        "id": 16504,
+        "geometry": "POINT (-107.979762 32.856189)",
+        "poi_name": "Otto Huechling House Historic Site",
+        "osm_id": 366377468,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 1491,
+  "type": "knn+angle"
+}

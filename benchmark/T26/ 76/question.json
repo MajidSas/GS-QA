@@ -1,0 +1,52 @@
+{
+  "question": "What's the proximity of the closest museum from New Mexico Slaughter House, Albuquerque, NM?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7341,
+      "geometry": "POINT (-106.654624 35.103176)",
+      "poi_name": "New Mexico Steam Locomotive and Railroad Historical Society",
+      "osm_id": 2094286421,
+      "tourism": "museum",
+      "operator": "NMSL&RHS",
+      "website": "http://www.nmslrhs.org/",
+      "museum": "railway",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87102",
+      "addr_street": "8th Street Northwest",
+      "addr_housenumber": "1833",
+      "distance": 10663.68045544
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "poi": {
+        "id": 10873,
+        "geometry": "POINT (-106.657079 35.199273)",
+        "poi_name": "New Mexico Slaughter House",
+        "osm_id": 8107941834,
+        "tourism": "theme_park",
+        "opening_hours": "Oct Fr-Su 19:00-22:00",
+        "website": "https://www.nmslaughterhouse.com/",
+        "phone": "+1-505-764-2868",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87114",
+        "addr_street": "Coors Boulevard Bypass Northwest",
+        "addr_housenumber": "10000"
+      }
+    }
+  },
+  "id": 2475,
+  "type": "knn+distance"
+}

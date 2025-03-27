@@ -1,0 +1,69 @@
+{
+  "question": "I'm searching for a hospital within 50 kilometers radius from Chestatee Overlook, Dahlonega, GA, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography, 50000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 181182,
+      "geometry": "POINT (-84.412913 34.458249)",
+      "poi_name": "Piedmont Mountainside Hospital",
+      "osm_id": 10834449526,
+      "amenity": "hospital",
+      "phone": "+1 706 301 5269",
+      "addr_city": "Jasper",
+      "addr_postcode": "30143",
+      "addr_street": "Highway 515 South",
+      "addr_housenumber": "1266"
+    },
+    {
+      "id": 197907,
+      "geometry": "POINT (-84.493214 34.678734)",
+      "poi_name": "Piedmont Mountainside - Ellijay",
+      "osm_id": 10681451676,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "operator": "Piedmont",
+      "phone": "+1-706-515-4000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Ellijay",
+      "addr_postcode": "30540",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "1360"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Chestatee Overlook, Dahlonega, GA",
+      "geo_wkt": "POINT (-83.982699 34.665048)",
+      "poi": {
+        "id": 12945,
+        "geometry": "POINT (-83.982699 34.665048)",
+        "poi_name": "Chestatee Overlook",
+        "osm_id": 3980488412,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "opening_hours": "sunrise-sunset",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
+        "addr_state": "GA",
+        "addr_city": "Dahlonega",
+        "addr_postcode": "30533",
+        "addr_street": "GA 60"
+      }
+    }
+  },
+  "id": 2048,
+  "type": "range+loc"
+}

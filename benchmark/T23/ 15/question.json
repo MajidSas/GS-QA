@@ -1,0 +1,42 @@
+{
+  "question": "What is the count of zoos within 70 kilometers from turtle studios, Newton, MA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.19682 42.364928)',4326)::geography, 70000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "turtle studios, Newton, MA",
+      "geo_wkt": "POINT (-71.19682 42.364928)",
+      "poi": {
+        "id": 24016,
+        "geometry": "POINT (-71.19682 42.364928)",
+        "poi_name": "turtle studios",
+        "osm_id": 9249399945,
+        "tourism": "gallery",
+        "website": "https://www.turtlestudios.org/",
+        "phone": "+1 617 244 2865",
+        "addr_state": "MA",
+        "addr_city": "Newton",
+        "addr_postcode": "02458",
+        "addr_street": "California Street",
+        "addr_housenumber": "213"
+      }
+    }
+  },
+  "id": 2214,
+  "type": "range+count"
+}

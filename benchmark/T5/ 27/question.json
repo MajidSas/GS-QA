@@ -1,0 +1,42 @@
+{
+  "question": "What's the closest theme park nearby East Neck Nursing and Rehabilitation Center, West Babylon, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.346351 40.691004)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22552,
+      "geometry": "POINT (-73.593504 40.81941)",
+      "poi_name": "Riggs Park",
+      "osm_id": 7154169212,
+      "leisure": "park",
+      "tourism": "theme_park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "East Neck Nursing and Rehabilitation Center, West Babylon, NY",
+      "geo_wkt": "POINT (-73.346351 40.691004)",
+      "poi": {
+        "id": 96757,
+        "geometry": "POINT (-73.346351 40.691004)",
+        "poi_name": "East Neck Nursing and Rehabilitation Center",
+        "osm_id": 6443787955,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "West Babylon",
+        "addr_postcode": "11704",
+        "addr_street": "Great East Neck Road",
+        "addr_housenumber": "134"
+      }
+    }
+  },
+  "id": 226,
+  "type": "knn+name"
+}

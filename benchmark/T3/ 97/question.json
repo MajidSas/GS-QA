@@ -1,0 +1,67 @@
+{
+  "question": "What park situated within 160 kilometers towards the northwest of Memorial Stadium, Wichita Falls, TX?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography, 160000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 247496,
+      "geometry": "POINT (-98.582518 33.854202)",
+      "poi_name": "Lake Buffalo OHV Park",
+      "osm_id": 9136106924,
+      "leisure": "park"
+    },
+    {
+      "id": 251807,
+      "geometry": "POINT (-98.582518 33.854202)",
+      "poi_name": "Burnett Park",
+      "osm_id": 356730167,
+      "leisure": "park"
+    },
+    {
+      "id": 255226,
+      "geometry": "POINT (-98.582518 33.854202)",
+      "poi_name": "Quartz Mountain State Park",
+      "osm_id": 357457299,
+      "leisure": "park"
+    },
+    {
+      "id": 252547,
+      "geometry": "POINT (-98.582518 33.854202)",
+      "poi_name": "Antelope Park",
+      "osm_id": 356848849,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "poi": {
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2696,
+  "type": "range:direction+name"
+}

@@ -1,0 +1,84 @@
+{
+  "question": "Could you help me locate an attraction that's within 180 kilometers from Nauvoo Family Inn & Suites, Nauvoo, IL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.372541 40.549991)',4326)::geography, 180000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "id": 1922,
+      "geometry": "POINT (-91.313649 40.629533)",
+      "poi_name": "ATSF Depot",
+      "osm_id": 3218326489,
+      "description": "Historic Santa Fe depot which houses the Santa Fe Depot Museum. Amtrak plans to move into the depot once work is completed on the passenger waiting area and a new passenger platform is constructed.",
+      "tourism": "attraction",
+      "addr_state": "IA",
+      "addr_city": "Fort Madison",
+      "addr_street": "10th Street",
+      "addr_housenumber": "814"
+    },
+    {
+      "id": 8216,
+      "geometry": "POINT (-91.176099 40.815004)",
+      "poi_name": "Des Moines County Fair",
+      "osm_id": 6590198808,
+      "tourism": "attraction",
+      "website": "http://desmoinescountyfair.com/",
+      "phone": "+1-319-758-7789",
+      "addr_state": "IA",
+      "addr_city": "West Burlington",
+      "addr_postcode": "52655",
+      "addr_street": "South Gear Avenue",
+      "addr_housenumber": "1015"
+    },
+    {
+      "id": 17836,
+      "geometry": "POINT (-90.119344 41.196015)",
+      "poi_name": "State Historic Site Museum",
+      "osm_id": 368074584,
+      "tourism": "attraction",
+      "addr_state": "IL"
+    },
+    {
+      "id": 25828,
+      "geometry": "POINT (-92.915728 41.406551)",
+      "poi_name": "Klokkenspel",
+      "osm_id": 4616172500,
+      "tourism": "attraction",
+      "addr_state": "IA",
+      "addr_city": "Pella",
+      "addr_postcode": "50219",
+      "addr_street": "Franklin Street",
+      "addr_housenumber": "625"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Nauvoo Family Inn & Suites, Nauvoo, IL",
+      "geo_wkt": "POINT (-91.372541 40.549991)",
+      "poi": {
+        "id": 10097,
+        "geometry": "POINT (-91.372541 40.549991)",
+        "poi_name": "Nauvoo Family Inn & Suites",
+        "osm_id": 6710062558,
+        "tourism": "hotel",
+        "internet_access": "wlan",
+        "addr_state": "IL",
+        "addr_city": "Nauvoo",
+        "addr_postcode": "62354",
+        "addr_street": "Mulholland Street",
+        "addr_housenumber": "1875"
+      }
+    }
+  },
+  "id": 2008,
+  "type": "range+loc"
+}

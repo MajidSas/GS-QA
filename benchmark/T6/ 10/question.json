@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest kebab restaurant from American Coney Island, Detroit, MI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%kebab%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.048743 42.331438)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 176894,
+      "geometry": "POINT (-83.052893 42.349236)",
+      "poi_name": "Kirchenwirt",
+      "osm_id": 2568974207,
+      "amenity": "restaurant",
+      "cuisine": "kebab"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "kebab restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%kebab%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "American Coney Island, Detroit, MI",
+      "geo_wkt": "POINT (-83.048743 42.331438)",
+      "poi": {
+        "id": 20691,
+        "geometry": "POINT (-83.048743 42.331438)",
+        "poi_name": "American Coney Island",
+        "osm_id": 1218005961,
+        "amenity": "restaurant",
+        "cuisine": "american",
+        "tourism": "attraction",
+        "wheelchair": "no",
+        "website": "http://americanconeyisland.com",
+        "addr_state": "MI",
+        "addr_city": "Detroit",
+        "addr_postcode": "48226",
+        "addr_street": "Lafayette Boulevard West",
+        "addr_housenumber": "114"
+      }
+    }
+  },
+  "id": 609,
+  "type": "knn:non_spat_filter+name"
+}

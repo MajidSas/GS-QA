@@ -1,0 +1,46 @@
+{
+  "question": "What's the closest zoo in proximity to the stadium that was constructed in 1936 in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24277,
+      "geometry": "POINT (-92.597456 45.398346)",
+      "poi_name": "Fawn Doe Rosa Wildlife Educational Park",
+      "osm_id": 10991229073,
+      "tourism": "zoo",
+      "website": "https://www.fawndoerosa.com/",
+      "phone": "7154833772",
+      "zoo": "wildlife_park",
+      "addr_street": "US Hwy 8",
+      "addr_housenumber": "2131"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2768,
+  "type": "knn+name+multihop2"
+}

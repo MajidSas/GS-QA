@@ -1,0 +1,51 @@
+{
+  "question": "What's the nearest fast food restaurant located in the northwest of River Deck, Edgewater, MD?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 58059,
+      "geometry": "POINT (-76.540922 38.941815)",
+      "poi_name": "SK's Pizza & Subs",
+      "osm_id": 5362031541,
+      "amenity": "fast_food",
+      "website": "https://skpizzasubs.com/users/login",
+      "addr_state": "MD",
+      "addr_city": "Crownsville",
+      "addr_postcode": "21032",
+      "addr_street": "Generals Highway",
+      "addr_housenumber": "1349 B"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2543,
+  "type": "knn:direction+name"
+}

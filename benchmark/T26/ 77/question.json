@@ -1,0 +1,49 @@
+{
+  "question": "What's the distance between Penn Harris Trademark by Wyndham, Camp Hill, PA and the nearest aquarium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.914706 40.253074)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.914706 40.253074)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1512,
+      "geometry": "POINT (-76.48474 39.339761)",
+      "poi_name": "Go Fish",
+      "osm_id": 3026471881,
+      "tourism": "aquarium",
+      "addr_state": "MD",
+      "addr_city": "Rosedale",
+      "addr_postcode": "21237",
+      "addr_street": "Philadelphia Road",
+      "addr_housenumber": "8767 G",
+      "distance": 107884.93106132
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Penn Harris Trademark by Wyndham, Camp Hill, PA",
+      "geo_wkt": "POINT (-76.914706 40.253074)",
+      "poi": {
+        "id": 20347,
+        "geometry": "POINT (-76.914706 40.253074)",
+        "poi_name": "Penn Harris Trademark by Wyndham",
+        "osm_id": 1106773949,
+        "tourism": "hotel",
+        "website": "https://www.radissonhotels.com/en-us/hotels/radisson-camp-hill-harrisburg",
+        "phone": "+1-717-763-7117",
+        "official_name": "Trademark Collection by Wyndham",
+        "addr_state": "PA",
+        "addr_city": "Camp Hill",
+        "addr_postcode": "17011-3734",
+        "addr_street": "Camp Hill Bypass",
+        "addr_housenumber": "1150"
+      }
+    }
+  },
+  "id": 2476,
+  "type": "knn+distance"
+}

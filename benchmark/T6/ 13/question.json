@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest local museum located from WSU Cooperative Extension Energy Program, Olympia, WA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.892715 47.040954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8740,
+      "geometry": "POINT (-122.59991 47.172323)",
+      "poi_name": "Steilacoom Tribal Cultural Center and Museum",
+      "osm_id": 8663480922,
+      "tourism": "museum",
+      "opening_hours": "Sa 10:00-16:00",
+      "website": "https://steilacoomtribe.business.site",
+      "phone": "+1(253)584-6308",
+      "museum": "local",
+      "addr_state": "WA",
+      "addr_city": "Steilacoom",
+      "addr_postcode": "98388",
+      "addr_street": "Lafayette Street",
+      "addr_housenumber": "1515"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "WSU Cooperative Extension Energy Program, Olympia, WA",
+      "geo_wkt": "POINT (-122.892715 47.040954)",
+      "poi": {
+        "id": 236382,
+        "geometry": "POINT (-122.892715 47.040954)",
+        "poi_name": "WSU Cooperative Extension Energy Program",
+        "osm_id": 5791448552,
+        "amenity": "university",
+        "website": "https://energy.wsu.edu/",
+        "addr_state": "WA",
+        "addr_city": "Olympia",
+        "addr_postcode": "98501",
+        "addr_street": "Plum Street SE",
+        "addr_housenumber": "905"
+      }
+    }
+  },
+  "id": 612,
+  "type": "knn:non_spat_filter+name"
+}

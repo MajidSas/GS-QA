@@ -1,0 +1,95 @@
+{
+  "question": "What university can I find within 80 kilometers from Samuel-Novarro House, Los Angeles, CA towards California Oil Museum, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.311872 34.111066)',4326)::geography, ST_GeomFromText('POINT (-119.059844 34.35432)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'university'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.311872 34.111066)',4326)::geography, 80000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.311872 34.111066)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 148488,
+      "geometry": "POINT (-118.591275 34.178789)",
+      "poi_name": "University of Phoenix",
+      "osm_id": 3956252088,
+      "amenity": "university",
+      "value": 291.5934664229207
+    },
+    {
+      "id": 106494,
+      "geometry": "POINT (-118.601019 34.178993)",
+      "poi_name": "UCLA Extension",
+      "osm_id": 8682927461,
+      "amenity": "university",
+      "operator": "UCLA",
+      "website": "https://www.uclaextension.edu/locations/woodland-hills",
+      "addr_state": "CA",
+      "addr_city": "Woodland Hills",
+      "addr_postcode": "91367",
+      "addr_street": "Oxnard Street",
+      "addr_housenumber": "21650",
+      "value": 291.5934664229207
+    },
+    {
+      "id": 167718,
+      "geometry": "POINT (-118.875123 34.217707)",
+      "poi_name": "California Lutheran University - Thousand Oaks Campus",
+      "osm_id": 358847799,
+      "amenity": "university",
+      "value": 291.5934664229207
+    },
+    {
+      "id": 167730,
+      "geometry": "POINT (-118.501471 34.169601)",
+      "poi_name": "Phillips Graduate Institute",
+      "osm_id": 358858323,
+      "amenity": "university",
+      "website": "https://www.pgu.edu/",
+      "value": 291.5934664229207
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Samuel-Novarro House, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.311872 34.111066)",
+      "poi": {
+        "id": 15848,
+        "geometry": "POINT (-118.311872 34.111066)",
+        "poi_name": "Samuel-Novarro House",
+        "osm_id": 9561062273,
+        "historic": "house",
+        "description": "Historic Mayan Revival dwelling designed by Lloyd Wright in 1928. It is Los Angeles Historic-Cultural Monument #130",
+        "tourism": "attraction",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Verde Oak Drive",
+        "addr_housenumber": "2255"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "California Oil Museum, CA",
+      "geo_wkt": "POINT (-119.059844 34.35432)",
+      "poi": {
+        "id": 18260,
+        "geometry": "POINT (-119.059844 34.35432)",
+        "poi_name": "California Oil Museum",
+        "osm_id": 368174496,
+        "tourism": "museum",
+        "operator": "City of Santa Paula",
+        "addr_state": "CA",
+        "addr_street": "East Main Street"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    }
+  },
+  "id": 1650,
+  "type": "range:towards+name"
+}

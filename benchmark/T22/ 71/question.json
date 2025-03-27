@@ -1,0 +1,46 @@
+{
+  "question": "Which direction points towards the nearest restaurant from Ulrich Wildlife Preserve, Morton, IL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 173816,
+      "geometry": "POINT (-89.46995 40.620815)",
+      "poi_name": "Monical's",
+      "osm_id": 2456848131,
+      "amenity": "restaurant",
+      "cuisine": "italian;pizza",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "angle": 152.0951438045475
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
+      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "poi": {
+        "id": 246437,
+        "geometry": "POINT (-89.490228 40.649994)",
+        "poi_name": "Ulrich Wildlife Preserve",
+        "osm_id": 9654359178,
+        "leisure": "nature_reserve",
+        "opening_hours": "dawn-dusk",
+        "operator": "Morton Park District",
+        "addr_state": "IL",
+        "addr_city": "Morton",
+        "addr_postcode": "61550",
+        "addr_street": "Turtle Creek Trail",
+        "addr_housenumber": "100"
+      }
+    }
+  },
+  "id": 1470,
+  "type": "knn+angle"
+}

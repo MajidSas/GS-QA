@@ -1,0 +1,49 @@
+{
+  "question": "How distant is the closest beach resort in relation to Kartway, Eagle River, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245281,
+      "geometry": "POINT (-91.491978 46.302048)",
+      "poi_name": "Traut's Resort LLC",
+      "osm_id": 2669382020,
+      "leisure": "beach_resort",
+      "phone": "1-715-795-2529",
+      "addr_state": "WI",
+      "addr_city": "Solon Springs",
+      "addr_postcode": "54873",
+      "addr_street": "Twin Bay Road",
+      "addr_housenumber": "3855",
+      "distance": 177754.51571683
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kartway, Eagle River, WI",
+      "geo_wkt": "POINT (-89.251612 45.940777)",
+      "poi": {
+        "id": 9758,
+        "geometry": "POINT (-89.251612 45.940777)",
+        "poi_name": "Kartway",
+        "osm_id": 8976002654,
+        "tourism": "theme_park",
+        "website": "http://rockingwkartway.com/kartway.html",
+        "phone": "+1-715-479-4450",
+        "addr_state": "WI",
+        "addr_city": "Eagle River",
+        "addr_postcode": "54521",
+        "addr_street": "Pleasure Island Road",
+        "addr_housenumber": "1890"
+      }
+    }
+  },
+  "id": 2452,
+  "type": "knn+distance"
+}

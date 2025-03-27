@@ -1,0 +1,65 @@
+{
+  "question": "Where is the closest museum from Bowling Green Ballpark, Bowling Green, KY towards Fontanel Mansion, Nashville, TN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.441176 36.996563)',4326)::geography, ST_GeomFromText('POINT (-86.829525 36.257011)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.441176 36.996563)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-86.441176 36.996563)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17893,
+      "geometry": "POINT (-86.508777 36.583304)",
+      "poi_name": "Cold Springs Museum",
+      "osm_id": 368158238,
+      "tourism": "museum",
+      "website": "http://www.hrhstn.org/cold-springs-school",
+      "addr_state": "TN",
+      "value": 203.0567421330806
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowling Green Ballpark, Bowling Green, KY",
+      "geo_wkt": "POINT (-86.441176 36.996563)",
+      "poi": {
+        "id": 267102,
+        "geometry": "POINT (-86.441176 36.996563)",
+        "poi_name": "Bowling Green Ballpark",
+        "osm_id": 4514482625,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "wikidata": "Q4951144",
+        "addr_state": "KY",
+        "addr_city": "Bowling Green",
+        "addr_postcode": "42101",
+        "addr_street": "East 8th Avenue",
+        "addr_housenumber": "300"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Fontanel Mansion, Nashville, TN",
+      "geo_wkt": "POINT (-86.829525 36.257011)",
+      "poi": {
+        "id": 24787,
+        "geometry": "POINT (-86.829525 36.257011)",
+        "poi_name": "Fontanel Mansion",
+        "osm_id": 4321273360,
+        "tourism": "attraction",
+        "website": "https://www.fontanel.com/",
+        "phone": "+1 615-724-1600",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37189",
+        "addr_street": "Whites Creek Pike",
+        "addr_housenumber": "4125"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1327,
+  "type": "knn:towards+loc"
+}

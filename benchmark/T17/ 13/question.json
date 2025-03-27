@@ -1,0 +1,50 @@
+{
+  "question": "Where can I find the nearest fast food restaurant relative to Urban Air Adventure Park, Port Saint Lucie, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 206059,
+      "geometry": "POINT (-80.348267 27.273373)",
+      "poi_name": "Popeyes",
+      "osm_id": 7194503320,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "takeaway": "yes",
+      "official_name": "Popeyes Louisiana Kitchen",
+      "addr_city": "Port Saint Lucie",
+      "addr_postcode": "34984",
+      "addr_street": "Southwest Port Saint Lucie Boulevard",
+      "addr_housenumber": "190"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
+      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "poi": {
+        "id": 27036,
+        "geometry": "POINT (-80.303867 27.301988)",
+        "poi_name": "Urban Air Adventure Park",
+        "osm_id": 7656494335,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+        "phone": "+1-772-408-9349",
+        "addr_state": "FL",
+        "addr_city": "Port Saint Lucie",
+        "addr_postcode": "34952",
+        "addr_street": "S US Highway 1",
+        "addr_housenumber": "9020"
+      }
+    }
+  },
+  "id": 1812,
+  "type": "knn+loc"
+}

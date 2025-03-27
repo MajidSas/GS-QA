@@ -1,0 +1,50 @@
+{
+  "question": "Which way leads to the nearest restaurant from Adventure Park, Scottsdale, AZ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 80951,
+      "geometry": "POINT (-111.889434 33.540229)",
+      "poi_name": "Barro's Pizza",
+      "osm_id": 1592989278,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 10:30-22:00, Fr-Sa 10:30-23:00",
+      "website": "https://barrospizza.com/",
+      "phone": "(480) 302-6555",
+      "delivery": "yes",
+      "addr_state": "AZ",
+      "addr_city": "Scottsdale",
+      "addr_postcode": "85250;85258",
+      "addr_street": "East Talking Stick Way;East Indian Bend Road",
+      "addr_housenumber": "8940",
+      "angle": 168.88891859015573
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "poi": {
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
+      }
+    }
+  },
+  "id": 1400,
+  "type": "knn+angle"
+}

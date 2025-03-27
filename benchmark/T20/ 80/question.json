@@ -1,0 +1,64 @@
+{
+  "question": "Where is the nearest fast food restaurant as you progress towards Seton Castle Historic Site, NM from Alien Museum, Santa Fe, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography, ST_GeomFromText('POINT (-105.931327 35.599586)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 54950,
+      "geometry": "POINT (-105.983766 35.639197)",
+      "poi_name": "Subway",
+      "osm_id": 10163924426,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "building": "no",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "NM",
+      "addr_city": "Santa Fe",
+      "addr_postcode": "87507",
+      "addr_street": "Rodeo Road",
+      "addr_housenumber": "2801",
+      "value": 139.09203419959172
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Alien Museum, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.998555 35.662973)",
+      "poi": {
+        "id": 10246,
+        "geometry": "POINT (-105.998555 35.662973)",
+        "poi_name": "Alien Museum",
+        "osm_id": 6760507242,
+        "tourism": "museum",
+        "museum": "aliens",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_street": "Agua Fria Street",
+        "addr_housenumber": "2915"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Seton Castle Historic Site, NM",
+      "geo_wkt": "POINT (-105.931327 35.599586)",
+      "poi": {
+        "id": 16582,
+        "geometry": "POINT (-105.931327 35.599586)",
+        "poi_name": "Seton Castle Historic Site",
+        "osm_id": 366378133,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1379,
+  "type": "knn:towards+loc"
+}

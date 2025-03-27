@@ -1,0 +1,39 @@
+{
+  "question": "Which way should I head to access the closest aquarium from Point Lookout, PA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23816,
+      "geometry": "POINT (-77.13886 38.967344)",
+      "poi_name": "Glen Echo Park Aquarium",
+      "osm_id": 9149543103,
+      "tourism": "aquarium",
+      "angle": 113.55669648384836
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "poi": {
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 1402,
+  "type": "knn+angle"
+}

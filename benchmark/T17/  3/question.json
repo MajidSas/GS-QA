@@ -1,0 +1,46 @@
+{
+  "question": "Could you tell me the location of the closest caf\u00e9 relative to Old Tombstone Bunkhouse, Tombstone, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-110.070531 31.715588)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 164030,
+      "geometry": "POINT (-110.067847 31.711454)",
+      "poi_name": "The Hitching Post Cafe",
+      "osm_id": 9447888511,
+      "amenity": "cafe",
+      "description": "A fast grab and go concept with indoor and outdoor dining.\nSpecialty hot dogs, ice cream, (including soft serve), slushie machine, cold sandwiches, salads, nachos, popcorn and assorted beverages.\nGreat location with a friendly atmosphere.",
+      "website": "https://www.facebook.com/The-Hitching-Post-Cafe-103591485360484/",
+      "phone": "(520) 226-7459",
+      "addr_state": "AZ",
+      "addr_city": "Tombstone",
+      "addr_postcode": "85638",
+      "addr_street": "South 4th Street",
+      "addr_housenumber": "339"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Old Tombstone Bunkhouse, Tombstone, AZ",
+      "geo_wkt": "POINT (-110.070531 31.715588)",
+      "poi": {
+        "id": 19443,
+        "geometry": "POINT (-110.070531 31.715588)",
+        "poi_name": "Old Tombstone Bunkhouse",
+        "osm_id": 10759616198,
+        "tourism": "attraction",
+        "addr_state": "AZ",
+        "addr_city": "Tombstone",
+        "addr_postcode": "85638"
+      }
+    }
+  },
+  "id": 1802,
+  "type": "knn+loc"
+}

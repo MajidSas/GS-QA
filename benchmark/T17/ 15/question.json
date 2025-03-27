@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the nearest attraction relative to Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24971,
+      "geometry": "POINT (-119.691518 34.408298)",
+      "poi_name": "Condor Express Whale Watching",
+      "osm_id": 4362555639,
+      "tourism": "attraction",
+      "website": "http://condorexpress.com/#",
+      "phone": "+1-805-882-0088",
+      "addr_state": "CA",
+      "addr_city": "Santa Barbara",
+      "addr_street": "West Cabrillo Boulevard",
+      "addr_housenumber": "301"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 1814,
+  "type": "knn+loc"
+}

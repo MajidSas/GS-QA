@@ -1,0 +1,39 @@
+{
+  "question": "How many hotels are available within 130 kilometers from Wilmington Skate Park, Wilmington, DE?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.562042 39.738354)',4326)::geography, 130000)\nAND tourism = 'hotel';\n",
+  "answers": [
+    {
+      "count": 176
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wilmington Skate Park, Wilmington, DE",
+      "geo_wkt": "POINT (-75.562042 39.738354)",
+      "poi": {
+        "id": 247867,
+        "geometry": "POINT (-75.562042 39.738354)",
+        "poi_name": "Wilmington Skate Park",
+        "osm_id": 11519956885,
+        "leisure": "park",
+        "opening_hours": "Sunrise to Sundown",
+        "addr_state": "DE",
+        "addr_city": "Wilmington",
+        "addr_street": "Linden Street"
+      }
+    }
+  },
+  "id": 2200,
+  "type": "range+count"
+}

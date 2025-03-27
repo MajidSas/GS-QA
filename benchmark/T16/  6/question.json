@@ -1,0 +1,182 @@
+{
+  "question": "Where can I find caf\u00e9 as you progress towards University of Tennessee Martin - Somerville Center, Somerville, TN within 190 kilometers from Bonner Arnold Coliseum, MS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography, ST_GeomFromText('POINT (-89.363845 35.246976)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography, 190000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 28570,
+      "geometry": "POINT (-89.842958 35.072174)",
+      "poi_name": "Starbucks",
+      "osm_id": 8243437737,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "+1-901-753-8450",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "TN",
+      "addr_city": "Memphis",
+      "addr_postcode": "38119",
+      "addr_street": "Kirby Parkway",
+      "addr_housenumber": "2801",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 54160,
+      "geometry": "POINT (-88.890933 35.064139)",
+      "poi_name": "Rainbo Inn Green Frog Coffee & Grill",
+      "osm_id": 10119391820,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "yes",
+      "phone": "731 472 1422",
+      "outdoor_seating": "yes",
+      "addr_state": "TN",
+      "addr_city": "Middleton",
+      "addr_postcode": "38052",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "100",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 96365,
+      "geometry": "POINT (-89.757612 35.066788)",
+      "poi_name": "Cappuccino Coffee Shop",
+      "osm_id": 6431093298,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "TN",
+      "addr_city": "Germantown",
+      "addr_postcode": "38138",
+      "addr_street": "Poplar Avenue",
+      "addr_housenumber": "9155",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 146908,
+      "geometry": "POINT (-89.793183 35.144203)",
+      "poi_name": "Rockin' Nutrition",
+      "osm_id": 7486894382,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;tea",
+      "opening_hours": "Mo-Fr 06:00-17:00; Sa 08:00-16:00; Su 10:00-14:00",
+      "internet_access": "yes",
+      "outdoor_seating": "no",
+      "addr_state": "TN",
+      "addr_city": "Cordova",
+      "addr_postcode": "38108",
+      "addr_street": "N Germantown Pkwy",
+      "addr_housenumber": "680",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 145456,
+      "geometry": "POINT (-90.053886 35.161086)",
+      "poi_name": "Cafe Eclectic",
+      "osm_id": 7359334773,
+      "amenity": "cafe",
+      "website": "https://cafeeclectic.net",
+      "phone": "+1-901-590-4645",
+      "addr_state": "TN",
+      "addr_city": "Memphis",
+      "addr_postcode": "38103",
+      "addr_street": "Harbor Town Square",
+      "addr_housenumber": "110",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 162066,
+      "geometry": "POINT (-89.945464 35.11763)",
+      "poi_name": "Cafe Ecclectic",
+      "osm_id": 4914746572,
+      "amenity": "cafe",
+      "cuisine": "coffee;tea",
+      "addr_state": "TN",
+      "addr_city": "Memphis",
+      "addr_postcode": "38111",
+      "addr_street": "South Highland Street",
+      "addr_housenumber": "510",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 186034,
+      "geometry": "POINT (-89.872504 35.10396)",
+      "poi_name": "Starbucks",
+      "osm_id": 7903721038,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "+1-901-761-3602",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "TN",
+      "addr_city": "Memphis",
+      "addr_postcode": "38119",
+      "addr_street": "Poplar Avenue",
+      "addr_housenumber": "5679",
+      "value": 311.5420665348733
+    },
+    {
+      "id": 240829,
+      "geometry": "POINT (-89.665775 35.04275)",
+      "poi_name": "Square Beans Coffee Company",
+      "osm_id": 5993803094,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Sa 07:00-17:00",
+      "website": "https://www.squarebeanscoffee.com/",
+      "phone": "+1 (901) 286-4322",
+      "addr_state": "TN",
+      "addr_city": "Collierville",
+      "addr_postcode": "38017",
+      "addr_street": "North Center Street",
+      "addr_housenumber": "103",
+      "value": 311.5420665348733
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bonner Arnold Coliseum, MS",
+      "geo_wkt": "POINT (-88.56394 34.66815)",
+      "poi": {
+        "id": 265364,
+        "geometry": "POINT (-88.56394 34.66815)",
+        "poi_name": "Bonner Arnold Coliseum",
+        "osm_id": 367134883,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Tennessee Martin - Somerville Center, Somerville, TN",
+      "geo_wkt": "POINT (-89.363845 35.246976)",
+      "poi": {
+        "id": 183011,
+        "geometry": "POINT (-89.363845 35.246976)",
+        "poi_name": "University of Tennessee Martin - Somerville Center",
+        "osm_id": 10914143539,
+        "amenity": "university",
+        "website": "https://www.utm.edu/academics/somerville-center/",
+        "addr_state": "TN",
+        "addr_city": "Somerville",
+        "addr_postcode": "38068",
+        "addr_street": "Lakeview Drive",
+        "addr_housenumber": "214"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1205,
+  "type": "range:towards+loc"
+}

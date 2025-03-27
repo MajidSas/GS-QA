@@ -1,0 +1,405 @@
+{
+  "question": "Which fast food restaurant is available towards Broder S\u00f6der, Portland, OR within 50 kilometers from Cherry Lane Park, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.241489 44.845675)',4326)::geography, ST_GeomFromText('POINT (-122.76743 45.456129)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.241489 44.845675)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.241489 44.845675)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 27705,
+      "geometry": "POINT (-123.027251 44.978507)",
+      "poi_name": "Burger King",
+      "osm_id": 443610533,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 117308,
+      "geometry": "POINT (-123.026141 44.981848)",
+      "poi_name": "Subway",
+      "osm_id": 8987115083,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
+      "website": "https://www.subway.com",
+      "takeaway": "yes",
+      "addr_state": "OR",
+      "addr_city": "Keizer",
+      "addr_postcode": "97303",
+      "addr_street": "River Road North",
+      "addr_housenumber": "3834",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 30748,
+      "geometry": "POINT (-123.027057 44.997172)",
+      "poi_name": "Jersey Mike's Subs",
+      "osm_id": 8379874253,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 30749,
+      "geometry": "POINT (-123.027619 44.998239)",
+      "poi_name": "Papa Murphy's",
+      "osm_id": 8379874254,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "only",
+      "official_name": "Papa Murphy's Take 'N' Bake Pizza",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 30751,
+      "geometry": "POINT (-123.026105 44.99439)",
+      "poi_name": "McDonald's",
+      "osm_id": 8379896194,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/or/keizer/4880-ne-river-rd/7361.html",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 41376,
+      "geometry": "POINT (-123.000926 45.006536)",
+      "poi_name": "Jamba",
+      "osm_id": 3011827987,
+      "amenity": "fast_food",
+      "cuisine": "juice",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 69291,
+      "geometry": "POINT (-122.956026 45.047619)",
+      "poi_name": "Taqueria Corona",
+      "osm_id": 11299041878,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "opening_hours": "Mo-Sa 09:00-18:00",
+      "addr_state": "OR",
+      "addr_city": "Brooks",
+      "addr_postcode": "97305",
+      "addr_street": "Brooklake Road Northeast",
+      "addr_housenumber": "5053",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 33798,
+      "geometry": "POINT (-123.026129 44.999611)",
+      "poi_name": "Carl's Jr.",
+      "osm_id": 2683994391,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 99600,
+      "geometry": "POINT (-123.025341 45.003878)",
+      "poi_name": "Subway",
+      "osm_id": 6557940585,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 123136,
+      "geometry": "POINT (-122.974749 45.048752)",
+      "poi_name": "Cinnabon",
+      "osm_id": 6835949226,
+      "amenity": "fast_food",
+      "cuisine": "dessert",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 119784,
+      "geometry": "POINT (-122.882856 45.1528)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 9121626111,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "official_name": "Jimmy John's Gourmet Sandwiches",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 119786,
+      "geometry": "POINT (-122.884496 45.151514)",
+      "poi_name": "Chipotle",
+      "osm_id": 9121641532,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "wheelchair": "yes",
+      "takeaway": "yes",
+      "official_name": "Chipotle Mexican Grill",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 196205,
+      "geometry": "POINT (-123.180736 45.226546)",
+      "poi_name": "Wendy's",
+      "osm_id": 10568648014,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 184885,
+      "geometry": "POINT (-122.880575 45.14774)",
+      "poi_name": "McDonald's",
+      "osm_id": 7819302538,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 147882,
+      "geometry": "POINT (-123.025452 45.00392)",
+      "poi_name": "Figaro's Pizza",
+      "osm_id": 7568453117,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 167796,
+      "geometry": "POINT (-122.974967 45.0487)",
+      "poi_name": "Subway",
+      "osm_id": 360095687,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "delivery": "no",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 167797,
+      "geometry": "POINT (-122.975113 45.048729)",
+      "poi_name": "Taco Bell",
+      "osm_id": 360095691,
+      "amenity": "fast_food",
+      "cuisine": "tex-mex",
+      "website": "https://locations.tacobell.com/or/salem/4220-brooklake-rd-ne.html",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "delivery": "no",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 167830,
+      "geometry": "POINT (-123.02695 44.999307)",
+      "poi_name": "Quiznos",
+      "osm_id": 363083791,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 170465,
+      "geometry": "POINT (-122.879464 45.154686)",
+      "poi_name": "Jamba",
+      "osm_id": 2337698884,
+      "amenity": "fast_food",
+      "cuisine": "juice",
+      "takeaway": "yes",
+      "addr_postcode": "97071",
+      "addr_street": "Arney Road Northeast",
+      "addr_housenumber": "1001",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 196206,
+      "geometry": "POINT (-122.878032 45.149576)",
+      "poi_name": "Burger King",
+      "osm_id": 10568668995,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 227640,
+      "geometry": "POINT (-122.834928 45.152123)",
+      "poi_name": "Dale's Deli",
+      "osm_id": 4315248018,
+      "amenity": "fast_food",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 196277,
+      "geometry": "POINT (-122.834056 45.148727)",
+      "poi_name": "Burger King",
+      "osm_id": 10572003317,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 209673,
+      "geometry": "POINT (-122.87781 45.157524)",
+      "poi_name": "Deanies Wienies",
+      "osm_id": 5049864235,
+      "amenity": "fast_food",
+      "cuisine": "hot_dog",
+      "shop": "kiosk",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 210520,
+      "geometry": "POINT (-123.000925 45.006731)",
+      "poi_name": "Subway",
+      "osm_id": 5108030544,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 210521,
+      "geometry": "POINT (-122.996424 45.009986)",
+      "poi_name": "Chipotle",
+      "osm_id": 5108030567,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Su 10:45-22:00",
+      "takeaway": "yes",
+      "official_name": "Chipotle Mexican Grill",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 210522,
+      "geometry": "POINT (-122.994607 45.012405)",
+      "poi_name": "Pizza Hut Express",
+      "osm_id": 5108030578,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 210523,
+      "geometry": "POINT (-122.997813 45.011325)",
+      "poi_name": "Taco Del Mar",
+      "osm_id": 5108030579,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 227717,
+      "geometry": "POINT (-122.878771 45.156348)",
+      "poi_name": "Auntie Anne's",
+      "osm_id": 4316542423,
+      "amenity": "fast_food",
+      "cuisine": "pretzel",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 227720,
+      "geometry": "POINT (-122.880025 45.15513)",
+      "poi_name": "Mio Ro",
+      "osm_id": 4316542474,
+      "amenity": "fast_food",
+      "cuisine": "asian",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 227723,
+      "geometry": "POINT (-122.87828 45.156855)",
+      "poi_name": "Subway",
+      "osm_id": 4316542993,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Sa 09:30-21:00; Su 09:30-19:00",
+      "website": "https://www.subway.com/",
+      "phone": "+1-503-981-1310",
+      "takeaway": "yes",
+      "addr_state": "OR",
+      "addr_city": "Woodburn",
+      "addr_postcode": "97071",
+      "addr_street": "North Arney Road",
+      "addr_housenumber": "1001",
+      "value": 28.62117493818119
+    },
+    {
+      "id": 227724,
+      "geometry": "POINT (-122.877478 45.157589)",
+      "poi_name": "Cinnabon",
+      "osm_id": 4316543009,
+      "amenity": "fast_food",
+      "cuisine": "dessert",
+      "takeaway": "yes",
+      "value": 28.62117493818119
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Cherry Lane Park, OR",
+      "geo_wkt": "POINT (-123.241489 44.845675)",
+      "poi": {
+        "id": 254440,
+        "geometry": "POINT (-123.241489 44.845675)",
+        "poi_name": "Cherry Lane Park",
+        "osm_id": 357355292,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Broder S\u00f6der, Portland, OR",
+      "geo_wkt": "POINT (-122.76743 45.456129)",
+      "poi": {
+        "id": 147097,
+        "geometry": "POINT (-122.76743 45.456129)",
+        "poi_name": "Broder S\u00f6der",
+        "osm_id": 7505192049,
+        "amenity": "restaurant",
+        "cuisine": "nordic",
+        "description": "Inspired by the sights and sounds of Swedish cafes and informed by the New Nordic movement, Broder, and now Broder S\u00f6der, is proud to serve a brunch and lunch menu that's been consistently ranked in Portland's Top Ten since 2007.",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 08:00-17:00",
+        "operator": "Nordic Northwest",
+        "website": "https://www.nordicnorthwest.org",
+        "shop": "variety_store",
+        "phone": "+1-971-373-8762",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97223",
+        "addr_street": "Southwest Oleson Road",
+        "addr_housenumber": "8800"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1606,
+  "type": "range:towards+name"
+}

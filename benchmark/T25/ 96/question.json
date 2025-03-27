@@ -1,0 +1,68 @@
+{
+  "question": "What's the distance between Myrtle Beach Safari Wild Encounters Tour, SC and a golf course within a radius of 100 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography, 100000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 248475,
+      "geometry": "POINT (-78.884376 33.69264)",
+      "poi_name": "Mount Atlanticus Miniature Golf",
+      "osm_id": 4215571066,
+      "leisure": "golf_course",
+      "website": "https://myrtlebeachminigolf.com/",
+      "phone": "+1 843-444-1008",
+      "addr_state": "SC",
+      "addr_city": "Myrtle Beach",
+      "addr_postcode": "29577",
+      "addr_street": "North Kings Highway",
+      "addr_housenumber": "707",
+      "distance": 8081.93222939
+    },
+    {
+      "id": 247503,
+      "geometry": "POINT (-78.627367 33.855284)",
+      "poi_name": "Tidewater Golf Club",
+      "osm_id": 6708490229,
+      "leisure": "golf_course",
+      "distance": 36414.21499264
+    },
+    {
+      "id": 266672,
+      "geometry": "POINT (-79.913797 33.380255)",
+      "poi_name": "Walker Creek Golf",
+      "osm_id": 9284956376,
+      "leisure": "golf_course",
+      "distance": 94293.05794247
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Myrtle Beach Safari Wild Encounters Tour, SC",
+      "geo_wkt": "POINT (-78.971427 33.696456)",
+      "poi": {
+        "id": 10262,
+        "geometry": "POINT (-78.971427 33.696456)",
+        "poi_name": "Myrtle Beach Safari Wild Encounters Tour",
+        "osm_id": 6762935375,
+        "tourism": "zoo",
+        "website": "https://myrtlebeachsafari.com",
+        "phone": "+1 843-361-4552",
+        "addr_state": "SC",
+        "addr_postcode": "29588",
+        "addr_street": "Folly Ranch Lane"
+      }
+    }
+  },
+  "id": 795,
+  "type": "range+distance"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Where is the closest emergency hospital from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167714,
+      "geometry": "POINT (-118.186461 34.01918)",
+      "poi_name": "Los Angeles Community Hospital",
+      "osm_id": 358826153,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Alta Los Angeles Hospitals",
+      "website": "https://www.lach-la.com/",
+      "phone": "+1 323 267 0477",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90023",
+      "addr_street": "East Olympic Boulevard",
+      "addr_housenumber": "4081"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 326,
+  "type": "knn:non_spat_filter+loc"
+}

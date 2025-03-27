@@ -1,0 +1,37 @@
+{
+  "question": "Could you provide me with the number of stadia within a 90 kilometers radius from Shoals Marine Laboratory, ME?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.61465 42.987327)',4326)::geography, 90000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Shoals Marine Laboratory, ME",
+      "geo_wkt": "POINT (-70.61465 42.987327)",
+      "poi": {
+        "id": 168199,
+        "geometry": "POINT (-70.61465 42.987327)",
+        "poi_name": "Shoals Marine Laboratory",
+        "osm_id": 367795025,
+        "amenity": "university",
+        "wikidata": "Q7499746",
+        "addr_state": "ME"
+      }
+    }
+  },
+  "id": 2272,
+  "type": "range+count"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "Can you recommend a beach resort that's not too far from Funkmeyer New Reality Garden, Los Angeles, CA? Maximum distance: 80 kilometers",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, 80000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 247694,
+      "geometry": "POINT (-118.359396 33.736673)",
+      "poi_name": "Portuguese Bend Beach Club",
+      "osm_id": 8122387798,
+      "leisure": "beach_resort",
+      "website": "https://www.pbcbeachclub.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "poi": {
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
+      }
+    }
+  },
+  "id": 846,
+  "type": "range+name"
+}

@@ -1,0 +1,96 @@
+{
+  "question": "Where can I find an attraction towards the west of Whitney Avenue Community Garden, Lexington, KY within 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 160000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 2423,
+      "geometry": "POINT (-84.504606 38.061259)",
+      "poi_name": "Jeffersonville Overlook",
+      "osm_id": 3443754881,
+      "tourism": "attraction",
+      "operator": "Jeffersonville",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Spring Street"
+    },
+    {
+      "id": 8976,
+      "geometry": "POINT (-84.504606 38.061259)",
+      "poi_name": "Squire Boone Caverns",
+      "osm_id": 3603283581,
+      "tourism": "attraction",
+      "website": "https://www.squireboonecaverns.com/",
+      "phone": "+1-888-934-1804",
+      "wikidata": "Q7582288",
+      "addr_state": "IN",
+      "addr_city": "Mauckport",
+      "addr_postcode": "47142",
+      "addr_street": "Squire Boone Rd",
+      "addr_housenumber": "100"
+    },
+    {
+      "id": 26275,
+      "geometry": "POINT (-84.504606 38.061259)",
+      "poi_name": "Jeptha Creed Distillery",
+      "osm_id": 5832472576,
+      "tourism": "attraction",
+      "website": "https://jepthacreed.com/",
+      "phone": "(502) 487-5007",
+      "addr_state": "KY",
+      "addr_city": "Shelbyville",
+      "addr_postcode": "40065",
+      "addr_street": "Gordon Lane",
+      "addr_housenumber": "500"
+    },
+    {
+      "id": 26156,
+      "geometry": "POINT (-84.504606 38.061259)",
+      "poi_name": "Escape Lou",
+      "osm_id": 5795892353,
+      "tourism": "attraction",
+      "website": "https://escapelou.com/",
+      "phone": "5027097533",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "2235"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 19,
+  "type": "range:direction+loc"
+}

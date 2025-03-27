@@ -1,0 +1,51 @@
+{
+  "question": "When was the nearest museum from Nohra Haime Gallery, New York, NY established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25375,
+      "geometry": "POINT (-74.005944 40.749442)",
+      "poi_name": "Gagosian",
+      "osm_id": 4470030189,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 10:00-18:00",
+      "website": "https://gagosian.com",
+      "phone": "+1-212-741-1111",
+      "wikidata": "Q2748031",
+      "addr_street": "West 24th Street",
+      "addr_housenumber": "555",
+      "multihop_answer": "1980; 44\u00a0years ago",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Gagosian Established: 1980; 44\u00a0years ago"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Nohra Haime Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.005499 40.746428)",
+      "poi": {
+        "id": 2885,
+        "geometry": "POINT (-74.005499 40.746428)",
+        "poi_name": "Nohra Haime Gallery",
+        "osm_id": 10064063749,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://nohrahaimegallery.com",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 21st Street",
+        "addr_housenumber": "500A"
+      }
+    }
+  },
+  "id": 945,
+  "type": "knn+name+multihop1"
+}

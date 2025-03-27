@@ -1,0 +1,40 @@
+{
+  "question": "Any suggestions for the nearest zoo from the stadium that can hold 14500 spectators in Wichita Falls, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10921,
+      "geometry": "POINT (-97.155304 31.66712)",
+      "poi_name": "Hayrides and Farm experience",
+      "osm_id": 8144579059,
+      "tourism": "zoo",
+      "fee": "yes",
+      "zoo": "petting_zoo"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "poi": {
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
+      }
+    }
+  },
+  "id": 2746,
+  "type": "knn+name+multihop2"
+}

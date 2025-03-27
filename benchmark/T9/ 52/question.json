@@ -1,0 +1,44 @@
+{
+  "question": "What is the nearest hotel situated towards the southwest of Irish Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1677,
+      "geometry": "POINT (-81.621886 41.522378)",
+      "poi_name": "Metropolitan at The 9, Autograph Collection",
+      "osm_id": 3117729136,
+      "tourism": "hotel"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Irish Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "poi": {
+        "id": 247028,
+        "geometry": "POINT (-81.621886 41.522378)",
+        "poi_name": "Irish Cultural Garden",
+        "osm_id": 8567373881,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1201"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2551,
+  "type": "knn:direction+name"
+}

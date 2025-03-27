@@ -1,0 +1,68 @@
+{
+  "question": "Where's the closest restaurant located en route to Hasley Canyon Equestrian Center, Valencia, CA from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 209622,
+      "geometry": "POINT (-119.642548 34.421364)",
+      "poi_name": "Trattoria Mollie",
+      "osm_id": 5046932921,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "phone": "805-565-9381",
+      "addr_state": "CA",
+      "addr_postcode": "93108",
+      "addr_street": "Coast Village Road",
+      "addr_housenumber": "1250",
+      "value": 86.95364690797894
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "poi": {
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1367,
+  "type": "knn:towards+loc"
+}

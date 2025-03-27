@@ -1,0 +1,62 @@
+{
+  "question": "Where can I find a museum southwest of the Root Acupuncture, Lakewood, CO, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 11165,
+      "geometry": "POINT (-105.15605 39.682803)",
+      "poi_name": "South Park Rail Como Project",
+      "osm_id": 9873236408,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su \"by appointment\"",
+      "operator": "South Park Rail Society",
+      "website": "https://www.southparkrailsociety.org/the-roundhouse",
+      "museum": "history",
+      "addr_state": "CO",
+      "addr_city": "Como",
+      "addr_postcode": "80432",
+      "addr_street": "County Road 33",
+      "addr_housenumber": "990"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "The Root Acupuncture, Lakewood, CO",
+      "geo_wkt": "POINT (-105.15605 39.682803)",
+      "poi": {
+        "id": 56785,
+        "geometry": "POINT (-105.15605 39.682803)",
+        "poi_name": "The Root Acupuncture",
+        "osm_id": 10248312278,
+        "amenity": "hospital",
+        "description": "The Root Acupuncture has successfully used acupuncture and Chinese Medicine to treat a wide range of conditions, but specializes in musculo-skeletal pain, digestive disorders, auto-immune conditions, sleep disorders, and stress management. We use a wide r",
+        "operator": "Erik Johnson",
+        "website": "https://therootacupuncture.com/",
+        "phone": "+1-303-500-5075",
+        "healthcare": "hospital",
+        "addr_state": "CO",
+        "addr_city": "Lakewood",
+        "addr_postcode": "80228",
+        "addr_street": "West Jewell Avenue",
+        "addr_housenumber": "13701"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 42,
+  "type": "range:direction+loc"
+}

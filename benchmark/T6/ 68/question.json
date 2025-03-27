@@ -1,0 +1,51 @@
+{
+  "question": "Which fast food restaurant nearby 6397 E QUARRY DR, Elberta, AL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.53855 30.321001)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 74285,
+      "geometry": "POINT (-86.577454 34.717633)",
+      "poi_name": "Great Panda Restaurant",
+      "osm_id": 9673503817,
+      "amenity": "restaurant",
+      "cuisine": "chinese;fast_food",
+      "opening_hours": "Mo-Sa 10:30-20:30",
+      "website": "https://greatpandahuntsville.com",
+      "phone": "256-534-5488",
+      "addr_state": "AL",
+      "addr_city": "Huntsville",
+      "addr_postcode": "35801",
+      "addr_street": "Whitesburg Drive",
+      "addr_housenumber": "2121"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "6397 E QUARRY DR, Elberta, AL",
+      "geo_wkt": "POINT (-87.53855 30.321001)",
+      "poi": {
+        "id": 267603,
+        "geometry": "POINT (-87.53855 30.321001)",
+        "poi_name": "6397 E QUARRY DR",
+        "osm_id": 7742556760,
+        "leisure": "park",
+        "addr_state": "AL",
+        "addr_city": "Elberta",
+        "addr_postcode": "36530",
+        "addr_street": "East Quarry Drive",
+        "addr_housenumber": "6397"
+      }
+    }
+  },
+  "id": 667,
+  "type": "knn:non_spat_filter+name"
+}

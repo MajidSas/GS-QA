@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a zoo positioned towards the southeast of the Coachlight Inn Motel, Oconto Falls, WI, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography, 160000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 2509,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Lincoln Park Zoo",
+      "osm_id": 3491296260,
+      "tourism": "zoo",
+      "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+      "phone": "920-683-4685",
+      "wikidata": "Q3241309",
+      "addr_state": "WI",
+      "addr_city": "Manitowoc"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
+      "poi": {
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 28,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "Seeking the nearest museum from the stadium with the former name University of Denver Auditorium in CO, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 5160,
+      "geometry": "POINT (-104.982453 39.70918)",
+      "poi_name": "International Church of Cannabis",
+      "osm_id": 9784520819,
+      "tourism": "museum",
+      "website": "https://elevationists.org/",
+      "addr_postcode": "80209",
+      "addr_street": "South Logan Street",
+      "addr_housenumber": "400"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    }
+  },
+  "id": 2745,
+  "type": "knn+name+multihop2"
+}

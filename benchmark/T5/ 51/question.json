@@ -1,0 +1,44 @@
+{
+  "question": "What's the closest university nearby the Camptons, Hancock, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.278896 41.953981)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 172552,
+      "geometry": "POINT (-74.589598 41.448415)",
+      "poi_name": "Fei Tian Academy of Arts",
+      "osm_id": 2406481578,
+      "amenity": "university",
+      "website": "https://www.feitianacademy.org/",
+      "addr_postcode": "12729",
+      "addr_street": "Galley Hill Road",
+      "addr_housenumber": "140"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Camptons, Hancock, NY",
+      "geo_wkt": "POINT (-75.278896 41.953981)",
+      "poi": {
+        "id": 6992,
+        "geometry": "POINT (-75.278896 41.953981)",
+        "poi_name": "The Camptons",
+        "osm_id": 8804403408,
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "Hancock",
+        "addr_postcode": "13783",
+        "addr_street": "East Front Street",
+        "addr_housenumber": "154"
+      }
+    }
+  },
+  "id": 250,
+  "type": "knn+name"
+}

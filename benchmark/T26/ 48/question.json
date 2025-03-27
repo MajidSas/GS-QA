@@ -1,0 +1,55 @@
+{
+  "question": "How distant is the closest hospital located from Malibu Gallery, Malibu, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.667662 34.039708)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.667662 34.039708)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 71828,
+      "geometry": "POINT (-118.701072 34.140346)",
+      "poi_name": "Balance Treatment Center",
+      "osm_id": 11403065224,
+      "amenity": "hospital",
+      "description": "Mental health treatment centers, also known as outpatient therapy centers, psychiatric treatment facilities or rehab centers, are specialized establishments designed to provide comprehensive care for individuals struggling with mental health conditions.",
+      "opening_hours": "Mo, Th 08:00 - 18:00; Fr 08:00 - 17:00",
+      "website": "https://www.balancetreatment.com/calabasas-treatment-center-photos/",
+      "phone": "855-908-0883",
+      "healthcare": "hospital",
+      "addr_state": "CA",
+      "addr_city": "Calabasas",
+      "addr_postcode": "91302",
+      "addr_street": "Las Virgenes Road",
+      "addr_housenumber": "4505",
+      "distance": 11581.13138336
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Malibu Gallery, Malibu, CA",
+      "geo_wkt": "POINT (-118.667662 34.039708)",
+      "poi": {
+        "id": 4894,
+        "geometry": "POINT (-118.667662 34.039708)",
+        "poi_name": "Malibu Gallery",
+        "osm_id": 9673930160,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00",
+        "operator": "Louis Torres",
+        "website": "http://malibugallery.com",
+        "phone": "+1-310-456-5393",
+        "addr_state": "CA",
+        "addr_city": "Malibu",
+        "addr_postcode": "90265",
+        "addr_street": "Pacific Coast Highway",
+        "addr_housenumber": "22625"
+      }
+    }
+  },
+  "id": 2447,
+  "type": "knn+distance"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Within a radius of 110 kilometers, what nature reserve can I find located in the north of Thomson Park, Thunderbolt, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography, 110000)\nAND leisure = 'nature_reserve'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 265997,
+      "geometry": "POINT (-81.050045 32.03109)",
+      "poi_name": "Savannah National Wildlife Refuge",
+      "osm_id": 1549137171,
+      "leisure": "nature_reserve",
+      "wikidata": "Q7427867"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Thomson Park, Thunderbolt, GA",
+      "geo_wkt": "POINT (-81.050045 32.03109)",
+      "poi": {
+        "id": 245088,
+        "geometry": "POINT (-81.050045 32.03109)",
+        "poi_name": "Thomson Park",
+        "osm_id": 411397560,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Thunderbolt",
+        "addr_postcode": "31404",
+        "addr_street": "River Drive",
+        "addr_housenumber": "2821"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2695,
+  "type": "range:direction+name"
+}

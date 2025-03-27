@@ -1,0 +1,47 @@
+{
+  "question": "How many spectators can the nearest stadium from Sea Life Aquarium Kansas City, Kansas City, MO hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267093,
+      "geometry": "POINT (-94.786059 39.762053)",
+      "poi_name": "Spratt Stadium",
+      "osm_id": 4489896600,
+      "leisure": "stadium",
+      "sport": "football",
+      "wikidata": "Q7580208",
+      "multihop_answer": "10000",
+      "multihop_attribute": "Capacity",
+      "multihop_long_answer": "Spratt Stadium Capacity: 10000"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
+      "geo_wkt": "POINT (-94.5816 39.082158)",
+      "poi": {
+        "id": 12063,
+        "geometry": "POINT (-94.5816 39.082158)",
+        "poi_name": "Sea Life Aquarium Kansas City",
+        "osm_id": 6171269243,
+        "tourism": "zoo",
+        "website": "https://www.visitsealife.com/kansas-city/",
+        "phone": "+1 (816)471-4386",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64108",
+        "addr_street": "Grand Boulevard",
+        "addr_housenumber": "2475"
+      }
+    }
+  },
+  "id": 923,
+  "type": "knn+name+multihop1"
+}

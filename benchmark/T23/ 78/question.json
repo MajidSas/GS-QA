@@ -1,0 +1,41 @@
+{
+  "question": "Within 140 kilometers from Silvermann Gallery, Holicong, PA, how many universities are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.055544 40.329172)',4326)::geography, 140000)\nAND amenity = 'university';\n",
+  "answers": [
+    {
+      "count": 58
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Silvermann Gallery, Holicong, PA",
+      "geo_wkt": "POINT (-75.055544 40.329172)",
+      "poi": {
+        "id": 23307,
+        "geometry": "POINT (-75.055544 40.329172)",
+        "poi_name": "Silvermann Gallery",
+        "osm_id": 5108548074,
+        "tourism": "gallery",
+        "artwork_type": "painting",
+        "addr_state": "PA",
+        "addr_city": "Holicong",
+        "addr_postcode": "18928",
+        "addr_street": "York Road",
+        "addr_housenumber": "4920"
+      }
+    }
+  },
+  "id": 2277,
+  "type": "range+count"
+}

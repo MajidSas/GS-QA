@@ -1,0 +1,45 @@
+{
+  "question": "Which park is the nearest to the southwest of Plaza Sports Center, Edinburg, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248108,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Charles E. Curtis Park",
+      "osm_id": 6345377524,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Plaza Sports Center, Edinburg, TX",
+      "geo_wkt": "POINT (-98.166433 26.232776)",
+      "poi": {
+        "id": 248451,
+        "geometry": "POINT (-98.166433 26.232776)",
+        "poi_name": "Plaza Sports Center",
+        "osm_id": 4161977645,
+        "leisure": "stadium",
+        "sport": "soccer",
+        "addr_state": "TX",
+        "addr_city": "Edinburg",
+        "addr_postcode": "78577",
+        "addr_street": "E. Nolana Loop",
+        "addr_housenumber": "1101"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2545,
+  "type": "knn:direction+name"
+}

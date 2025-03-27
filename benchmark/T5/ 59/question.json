@@ -1,0 +1,46 @@
+{
+  "question": "Looking for the closest fast food restaurant in relation to King's Grove, IL, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 184210,
+      "geometry": "POINT (-87.638371 41.478815)",
+      "poi_name": "Subway",
+      "osm_id": 7777637602,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "IL",
+      "addr_city": "South Chicago Heights",
+      "addr_postcode": "60411",
+      "addr_street": "Chicago Road",
+      "addr_housenumber": "3302"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "King's Grove, IL",
+      "geo_wkt": "POINT (-87.656017 41.47522)",
+      "poi": {
+        "id": 265407,
+        "geometry": "POINT (-87.656017 41.47522)",
+        "poi_name": "King's Grove",
+        "osm_id": 369051905,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 258,
+  "type": "knn+name"
+}

@@ -1,0 +1,57 @@
+{
+  "question": "Where can I find a golf course towards the southeast of Cal, Sr.'s Yard, Aberdeen, MD within 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 180000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 246143,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Jonathans Landing Golf Club",
+      "osm_id": 5612442466,
+      "leisure": "golf_course",
+      "opening_hours": "11:00-19:00",
+      "takeaway": "yes",
+      "addr_state": "DE",
+      "addr_city": "Magnolia",
+      "addr_postcode": "19962",
+      "addr_street": "Ponderosa Drive",
+      "addr_housenumber": "1309"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "poi": {
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 41,
+  "type": "range:direction+loc"
+}

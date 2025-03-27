@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest emergency hospital available from Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 44384,
+      "geometry": "POINT (-84.50939 38.031077)",
+      "poi_name": "UK Healthcare",
+      "osm_id": 3158012209,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "opening_hours": "24/7",
+      "website": "https://ukhealthcare.uky.edu/",
+      "phone": "+1 859 257 1000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Lexington",
+      "addr_postcode": "40536",
+      "addr_street": "South Limestone",
+      "addr_housenumber": "1000"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    }
+  },
+  "id": 674,
+  "type": "knn:non_spat_filter+name"
+}

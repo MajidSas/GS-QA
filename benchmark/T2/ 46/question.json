@@ -1,0 +1,50 @@
+{
+  "question": "Would you be able to track down a Korean restaurant, preferably within a 60 kilometers radius from Wintergreen Downhill Ski Lodge, WI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.081513 43.149437)',4326)::geography, 60000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%Korean%';\n",
+  "answers": [
+    {
+      "id": 230778,
+      "geometry": "POINT (-89.513639 43.096289)",
+      "poi_name": "K-Peppers",
+      "osm_id": 4439281800,
+      "amenity": "restaurant",
+      "cuisine": "korean",
+      "opening_hours": "Tu-Fr 11:00-14:00, 17:00-20:30; Mo,Sa 17:00-20:30",
+      "takeaway": "yes",
+      "addr_state": "WI",
+      "addr_city": "Middleton",
+      "addr_postcode": "53562",
+      "addr_street": "Cayuga Street",
+      "addr_housenumber": "1901"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "Korean restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Korean%'"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Wintergreen Downhill Ski Lodge, WI",
+      "geo_wkt": "POINT (-90.081513 43.149437)",
+      "poi": {
+        "id": 17531,
+        "geometry": "POINT (-90.081513 43.149437)",
+        "poi_name": "Wintergreen Downhill Ski Lodge",
+        "osm_id": 367811190,
+        "tourism": "hotel",
+        "addr_state": "WI"
+      }
+    }
+  },
+  "id": 545,
+  "type": "range:non_spat_filter+name"
+}

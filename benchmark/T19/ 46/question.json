@@ -1,0 +1,54 @@
+{
+  "question": "Where's the nearest caf\u00e9 located in the east of Gary Lapelusa Landscaping LLC, Bayonne, NJ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 176162,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Pier 69 Market",
+      "osm_id": 2552486455,
+      "amenity": "cafe",
+      "cuisine": "breakfast;sandwich;italian;coffee_shop",
+      "opening_hours": "Mo-Su 09:00-18:00",
+      "website": "https://pier69market.com",
+      "addr_state": "NY",
+      "addr_city": "Brooklyn",
+      "addr_postcode": "11220",
+      "addr_street": "Bay Ridge Avenue",
+      "addr_housenumber": "10"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "poi": {
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1145,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,38 @@
+{
+  "question": "Where's the nearest park from Silver Point Interpretive Overlook, OR located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 253935,
+      "geometry": "POINT (-123.865529 45.902851)",
+      "poi_name": "C Z Picnic Ground",
+      "osm_id": 357297457,
+      "leisure": "park",
+      "addr_state": "OR"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Silver Point Interpretive Overlook, OR",
+      "geo_wkt": "POINT (-123.962654 45.855581)",
+      "poi": {
+        "id": 21991,
+        "geometry": "POINT (-123.962654 45.855581)",
+        "poi_name": "Silver Point Interpretive Overlook",
+        "osm_id": 954793454,
+        "tourism": "viewpoint",
+        "addr_state": "OR",
+        "addr_street": "Oregon Coast Highway"
+      }
+    }
+  },
+  "id": 1842,
+  "type": "knn+loc"
+}

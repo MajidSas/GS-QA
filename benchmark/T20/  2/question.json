@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant on the route to the Francis, Portland, ME from UMA Handley Hall, Augusta, ME?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography, ST_GeomFromText('POINT (-70.27053 43.653517)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 193200,
+      "geometry": "POINT (-69.790286 44.286327)",
+      "poi_name": "Liberal Cup",
+      "osm_id": 1507961585,
+      "amenity": "restaurant",
+      "phone": "+1-207-623-2739",
+      "addr_state": "ME",
+      "addr_city": "Hallowell",
+      "addr_postcode": "04347",
+      "addr_street": "Water Street",
+      "addr_housenumber": "115",
+      "value": 208.64070871023455
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "UMA Handley Hall, Augusta, ME",
+      "geo_wkt": "POINT (-69.774666 44.313813)",
+      "poi": {
+        "id": 116615,
+        "geometry": "POINT (-69.774666 44.313813)",
+        "poi_name": "UMA Handley Hall",
+        "osm_id": 8949781064,
+        "amenity": "university",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Water Street",
+        "addr_housenumber": "331"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Francis, Portland, ME",
+      "geo_wkt": "POINT (-70.27053 43.653517)",
+      "poi": {
+        "id": 22590,
+        "geometry": "POINT (-70.27053 43.653517)",
+        "poi_name": "The Francis",
+        "osm_id": 7171976319,
+        "tourism": "hotel",
+        "website": "https://thefrancismaine.com/",
+        "phone": "+1 (207) 772-7485",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_postcode": "04102",
+        "addr_street": "Congress Street",
+        "addr_housenumber": "747"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1301,
+  "type": "knn:towards+loc"
+}

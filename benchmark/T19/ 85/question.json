@@ -1,0 +1,54 @@
+{
+  "question": "Where's the closest caf\u00e9 located in the direction of northwest from Swain County Visitor Center and Heritage Museum, Bryson City, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.444823 35.427911)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 158991,
+      "geometry": "POINT (-83.444823 35.427911)",
+      "poi_name": "Everett Street Diner",
+      "osm_id": 4771898129,
+      "amenity": "cafe",
+      "cuisine": "cafe/diner",
+      "addr_state": "NC",
+      "addr_city": "Bryson City",
+      "addr_postcode": "28713",
+      "addr_street": "Everett Street",
+      "addr_housenumber": "126"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Swain County Visitor Center and Heritage Museum, Bryson City, NC",
+      "geo_wkt": "POINT (-83.444823 35.427911)",
+      "poi": {
+        "id": 6907,
+        "geometry": "POINT (-83.444823 35.427911)",
+        "poi_name": "Swain County Visitor Center and Heritage Museum",
+        "osm_id": 8757910286,
+        "tourism": "museum",
+        "opening_hours": "Mo-Sa 10:00-17:00",
+        "operator": "Swain County Tourism Development Authority",
+        "website": "https://www.swainheritagemuseum.com/",
+        "museum": "history",
+        "addr_state": "NC",
+        "addr_city": "Bryson City",
+        "addr_postcode": "28713",
+        "addr_street": "Everett Street",
+        "addr_housenumber": "2"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1184,
+  "type": "knn:direction+loc"
+}

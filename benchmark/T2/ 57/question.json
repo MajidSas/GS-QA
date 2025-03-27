@@ -1,0 +1,62 @@
+{
+  "question": "Is there a chance you could find me a science museum, preferably within 50 kilometers from Malibu Jack's, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, 50000)\nAND tourism = 'museum'\nAND museum = 'science';\n",
+  "answers": [
+    {
+      "id": 22751,
+      "geometry": "POINT (-89.650141 39.8003)",
+      "poi_name": "Kidzeum of Health and Science",
+      "osm_id": 7248679561,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "opening_hours": "Sa-Su 09:00-16:00",
+      "website": "https://kidzeum.org/",
+      "phone": "+1-217-679-2123",
+      "museum": "science",
+      "wikidata": "Q114147335",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62701",
+      "addr_street": "East Adams Street",
+      "addr_housenumber": "412"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "science museum",
+      "poi_filter_sql": "museum = 'science'"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "poi": {
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
+      }
+    }
+  },
+  "id": 556,
+  "type": "range:non_spat_filter+name"
+}

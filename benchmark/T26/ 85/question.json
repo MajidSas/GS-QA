@@ -1,0 +1,43 @@
+{
+  "question": "How distant is the closest golf course from the reference location English Street Community Garden, New Haven, CT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247054,
+      "geometry": "POINT (-73.7392 41.188281)",
+      "poi_name": "3rd Hole",
+      "osm_id": 8659235775,
+      "leisure": "golf_course",
+      "distance": 72055.78541491
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "poi": {
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
+      }
+    }
+  },
+  "id": 2484,
+  "type": "knn+distance"
+}

@@ -1,0 +1,92 @@
+{
+  "question": "Could you track down an emergency hospital that is conveniently situated within 170 kilometers from Meerkerk Gardens, Greenbank, WA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.56177 48.081101)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 30858,
+      "geometry": "POINT (-122.941384 46.64061)",
+      "poi_name": "Capital Oncology",
+      "osm_id": 8389138771,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WA",
+      "addr_city": "Chehalis",
+      "addr_postcode": "98532",
+      "addr_street": "Bishop Road",
+      "addr_housenumber": "1201"
+    },
+    {
+      "id": 134874,
+      "geometry": "POINT (-122.045073 47.543012)",
+      "poi_name": "Evergreen Endodontics - Tooth Pain & Dental Emergency Specialists",
+      "osm_id": 11493936232,
+      "amenity": "hospital",
+      "description": "We specialize in resolving your Tooth Pain, Aches and Infections through root canals, retreatments, endodontic microsurgery and endodontist treatments in a calm and relaxing state-of-the-art environment.",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 07:30-17:00",
+      "operator": "Dr. Nima Dejbod",
+      "website": "https://www.evergreenendo.com",
+      "internet_access": "wlan",
+      "phone": "+1-425-697-9777",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WA",
+      "addr_city": "Issaquah",
+      "addr_postcode": "98027",
+      "addr_street": "Northwest Gilman Boulevard",
+      "addr_housenumber": "600"
+    },
+    {
+      "id": 217666,
+      "geometry": "POINT (-121.763874 47.444956)",
+      "poi_name": "Eastside Fire & Rescue Station88",
+      "osm_id": 9236455016,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WA",
+      "addr_city": "North Bend",
+      "addr_postcode": "98045",
+      "addr_street": "Southeast 172nd Street",
+      "addr_housenumber": "42804"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Meerkerk Gardens, Greenbank, WA",
+      "geo_wkt": "POINT (-122.56177 48.081101)",
+      "poi": {
+        "id": 245401,
+        "geometry": "POINT (-122.56177 48.081101)",
+        "poi_name": "Meerkerk Gardens",
+        "osm_id": 2871224413,
+        "leisure": "garden",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-16:00",
+        "website": "https://www.meerkerkgardens.org/",
+        "wikidata": "Q6807694",
+        "addr_state": "WA",
+        "addr_city": "Greenbank",
+        "addr_postcode": "98253",
+        "addr_street": "Meerkerk Lane",
+        "addr_housenumber": "3531"
+      }
+    }
+  },
+  "id": 546,
+  "type": "range:non_spat_filter+name"
+}

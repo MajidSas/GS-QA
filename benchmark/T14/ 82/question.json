@@ -1,0 +1,55 @@
+{
+  "question": "Could you track down an art museum and is conveniently situated within 130 kilometers from Parker Manatee Aquarium, Bradenton, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.571569 27.497999)',4326)::geography, 130000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "answers": [
+    {
+      "id": 235,
+      "geometry": "POINT (-82.529024 27.325641)",
+      "poi_name": "Sarasota Art Museum",
+      "osm_id": 8248296789,
+      "tourism": "museum",
+      "operator": "Ringling College of Art + Design",
+      "phone": "+1 (941) 309-4300",
+      "museum": "art",
+      "addr_state": "FL",
+      "addr_city": "Sarasota",
+      "addr_postcode": "34236",
+      "addr_street": "South Tamiami Trail",
+      "addr_housenumber": "1001"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Parker Manatee Aquarium, Bradenton, FL",
+      "geo_wkt": "POINT (-82.571569 27.497999)",
+      "poi": {
+        "id": 2533,
+        "geometry": "POINT (-82.571569 27.497999)",
+        "poi_name": "Parker Manatee Aquarium",
+        "osm_id": 493892785,
+        "tourism": "aquarium",
+        "fee": "yes",
+        "addr_state": "FL",
+        "addr_city": "Bradenton",
+        "addr_postcode": "34205",
+        "addr_street": "10th Street West",
+        "addr_housenumber": "201"
+      }
+    }
+  },
+  "id": 481,
+  "type": "range:non_spat_filter+loc"
+}

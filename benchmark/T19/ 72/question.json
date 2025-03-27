@@ -1,0 +1,49 @@
+{
+  "question": "Where's the closest restaurant located in the direction of south from Magness Arena, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 197521,
+      "geometry": "POINT (-104.961685 39.682266)",
+      "poi_name": "Tokyo Bowl",
+      "osm_id": 10651254396,
+      "amenity": "restaurant",
+      "cuisine": "japanese",
+      "website": "https://www.tokyobowldenver.com/",
+      "phone": "+1-720-570-0720",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80210",
+      "addr_street": "East Evans Avenue",
+      "addr_housenumber": "2337"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "poi": {
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1171,
+  "type": "knn:direction+loc"
+}

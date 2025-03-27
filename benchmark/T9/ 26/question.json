@@ -1,0 +1,40 @@
+{
+  "question": "What's the nearest nature reserve located in the northeast of University Gallery, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.380398 41.21048)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246680,
+      "geometry": "POINT (-79.380398 41.21048)",
+      "poi_name": "Four Mile Creek Nature Preserve",
+      "osm_id": 8818657932,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "University Gallery, PA",
+      "geo_wkt": "POINT (-79.380398 41.21048)",
+      "poi": {
+        "id": 17722,
+        "geometry": "POINT (-79.380398 41.21048)",
+        "poi_name": "University Gallery",
+        "osm_id": 367959551,
+        "tourism": "gallery",
+        "addr_state": "PA"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2525,
+  "type": "knn:direction+name"
+}

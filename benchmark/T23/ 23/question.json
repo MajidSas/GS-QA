@@ -1,0 +1,39 @@
+{
+  "question": "What is the number of viewpoints located within 20 kilometers from Bearizona, AZ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.152245 35.256642)',4326)::geography, 20000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Bearizona, AZ",
+      "geo_wkt": "POINT (-112.152245 35.256642)",
+      "poi": {
+        "id": 15345,
+        "geometry": "POINT (-112.152245 35.256642)",
+        "poi_name": "Bearizona",
+        "osm_id": 4868562858,
+        "tourism": "attraction",
+        "phone": "+19286352289",
+        "addr_state": "AZ",
+        "addr_street": "East Route 66",
+        "addr_housenumber": "1500"
+      }
+    }
+  },
+  "id": 2222,
+  "type": "range+count"
+}

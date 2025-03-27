@@ -1,0 +1,44 @@
+{
+  "question": "Where can I find the nearest stadium in the vicinity of Longs Peak Hospital, Longmont, CO?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-105.05851 40.162056)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265351,
+      "geometry": "POINT (-105.041111 39.868611)",
+      "poi_name": "Hidden Hills Ice Arena",
+      "osm_id": 366396389,
+      "leisure": "stadium",
+      "addr_state": "CO"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Longs Peak Hospital, Longmont, CO",
+      "geo_wkt": "POINT (-105.05851 40.162056)",
+      "poi": {
+        "id": 181911,
+        "geometry": "POINT (-105.05851 40.162056)",
+        "poi_name": "Longs Peak Hospital",
+        "osm_id": 10869546329,
+        "amenity": "hospital",
+        "website": "https://www.uchealth.org/locations/uchealth-longs-peak-hospital",
+        "phone": "+1-720-718-3005",
+        "healthcare": "hospital",
+        "addr_state": "CO",
+        "addr_city": "Longmont",
+        "addr_postcode": "80504",
+        "addr_street": "East Ken Pratt Boulevard",
+        "addr_housenumber": "1750"
+      }
+    }
+  },
+  "id": 1844,
+  "type": "knn+loc"
+}

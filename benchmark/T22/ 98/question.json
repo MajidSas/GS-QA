@@ -1,0 +1,38 @@
+{
+  "question": "What's the course towards the closest golf course from Fortier Field, OR?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-124.183996 43.187055)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.183996 43.187055)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247161,
+      "geometry": "POINT (-124.390162 43.188082)",
+      "poi_name": "Bandon Dunes Golf Resort",
+      "osm_id": 3668057526,
+      "leisure": "golf_course",
+      "wikidata": "Q4854672",
+      "angle": 270.4607486081763
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Fortier Field, OR",
+      "geo_wkt": "POINT (-124.183996 43.187055)",
+      "poi": {
+        "id": 253837,
+        "geometry": "POINT (-124.183996 43.187055)",
+        "poi_name": "Fortier Field",
+        "osm_id": 357280798,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1497,
+  "type": "knn+angle"
+}

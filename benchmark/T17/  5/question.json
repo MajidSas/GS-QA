@@ -1,0 +1,46 @@
+{
+  "question": "Where can I find the nearest park relative to LSU AgCenter, Natchitoches, LA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.087882 31.761636)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249006,
+      "geometry": "POINT (-93.088093 31.751266)",
+      "poi_name": "Fort St. Jean Baptiste State Historic Site",
+      "osm_id": 9561369117,
+      "leisure": "park",
+      "opening_hours": "We-Su 09:00-17:00",
+      "website": "https://www.lastateparks.com/historic-sites/fort-st-jean-baptiste-state-historic-site",
+      "phone": "318-357-3101",
+      "addr_city": "Natchitoches",
+      "addr_street": "rue Jefferson",
+      "addr_housenumber": "155"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "LSU AgCenter, Natchitoches, LA",
+      "geo_wkt": "POINT (-93.087882 31.761636)",
+      "poi": {
+        "id": 91532,
+        "geometry": "POINT (-93.087882 31.761636)",
+        "poi_name": "LSU AgCenter",
+        "osm_id": 2071876406,
+        "amenity": "university",
+        "addr_state": "LA",
+        "addr_city": "Natchitoches",
+        "addr_postcode": "71457",
+        "addr_street": "2nd Street",
+        "addr_housenumber": "624"
+      }
+    }
+  },
+  "id": 1804,
+  "type": "knn+loc"
+}

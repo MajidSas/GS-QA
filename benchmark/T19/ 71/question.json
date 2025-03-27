@@ -1,0 +1,55 @@
+{
+  "question": "Where is the nearest hospital in the northeast direction of the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182567,
+      "geometry": "POINT (-118.320457 34.131243)",
+      "poi_name": "Encompass Health Rehabilitation Hospital Of Desert Canyon",
+      "osm_id": 10895078013,
+      "amenity": "hospital",
+      "operator": "Encompass Health",
+      "website": "https://encompasshealth.com/locations/desertcanyonrehab",
+      "phone": "+1 702 252 7342",
+      "healthcare": "hospital",
+      "addr_state": "NV",
+      "addr_city": "Las Vegas",
+      "addr_postcode": "89148",
+      "addr_street": "West Oquendo Road",
+      "addr_housenumber": "9175"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1170,
+  "type": "knn:direction+loc"
+}

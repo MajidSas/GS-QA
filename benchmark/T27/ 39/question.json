@@ -1,0 +1,32 @@
+{
+  "question": "How large is the total area of all lakes in Bushnell Township, Michigan?",
+  "sql": "SELECT SUM(ST_Area(lakes.geometry::geography)) AS area FROM lakes\nWHERE water = 'lake'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-84.955643 43.119611, -85.074928 43.120166, -85.073511 43.206261, -84.955207 43.206454, -84.955643 43.119611))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 188840.92223480344
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "water",
+      "sub_category": "lake",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Bushnell Township, Michigan",
+      "geo_wkt": "POLYGON ((-84.955643 43.119611, -85.074928 43.120166, -85.073511 43.206261, -84.955207 43.206454, -84.955643 43.119611))",
+      "region": {
+        "id": 29684,
+        "geometry": "POLYGON ((-84.955643 43.119611, -85.074928 43.120166, -85.073511 43.206261, -84.955207 43.206454, -84.955643 43.119611))",
+        "region_name": "Bushnell Township",
+        "border_type": "township",
+        "wikidata": "Q5001552",
+        "wikipedia": "en:Bushnell Township, Michigan",
+        "admin_level": "7"
+      }
+    }
+  },
+  "id": 2138,
+  "type": "intersects:area_total+area"
+}

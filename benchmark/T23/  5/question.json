@@ -1,0 +1,38 @@
+{
+  "question": "How many attractions can be found within a 120 kilometers radius from Golden Gate Bridge Lookout, Sausalito, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, 120000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "count": 404
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
+      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "poi": {
+        "id": 20450,
+        "geometry": "POINT (-122.486003 37.82872)",
+        "poi_name": "Golden Gate Bridge Lookout",
+        "osm_id": 1183476394,
+        "tourism": "viewpoint",
+        "addr_state": "CA",
+        "addr_city": "Sausalito",
+        "addr_street": "Conzelman Road"
+      }
+    }
+  },
+  "id": 2204,
+  "type": "range+count"
+}

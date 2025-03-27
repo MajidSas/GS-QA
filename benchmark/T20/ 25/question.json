@@ -1,0 +1,67 @@
+{
+  "question": "Where's the nearest fast food restaurant on the way to Willowbrooke, Villa Rica, GA from Bogan Park, Buford, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography, ST_GeomFromText('POINT (-84.913089 33.748578)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 242822,
+      "geometry": "POINT (-84.004373 34.104112)",
+      "poi_name": "Domino's",
+      "osm_id": 7600873790,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 09:00-23:59",
+      "takeaway": "yes",
+      "addr_state": "GA",
+      "addr_city": "Buford",
+      "addr_postcode": "30518",
+      "addr_street": "Buford Highway Northeast",
+      "value": 245.84351133141388
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Bogan Park, Buford, GA",
+      "geo_wkt": "POINT (-83.968518 34.106096)",
+      "poi": {
+        "id": 248324,
+        "geometry": "POINT (-83.968518 34.106096)",
+        "poi_name": "Bogan Park",
+        "osm_id": 3988178382,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Buford",
+        "addr_postcode": "30519",
+        "addr_street": "North Bogan Road",
+        "addr_housenumber": "2723"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Willowbrooke, Villa Rica, GA",
+      "geo_wkt": "POINT (-84.913089 33.748578)",
+      "poi": {
+        "id": 205791,
+        "geometry": "POINT (-84.913089 33.748578)",
+        "poi_name": "Willowbrooke",
+        "osm_id": 7180135185,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "GA",
+        "addr_city": "Villa Rica",
+        "addr_postcode": "30180",
+        "addr_street": "Herrell Road",
+        "addr_housenumber": "20"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1324,
+  "type": "knn:towards+loc"
+}

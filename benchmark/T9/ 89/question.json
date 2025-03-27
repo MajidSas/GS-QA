@@ -1,0 +1,54 @@
+{
+  "question": "What is the nearest garden in the southwest direction of the Painting Center, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.004398 40.751285)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246948,
+      "geometry": "POINT (-74.004398 40.751285)",
+      "poi_name": "Gary Lapelusa Landscaping LLC",
+      "osm_id": 6627360488,
+      "leisure": "garden",
+      "website": "http://garylapelusalanscaping.com",
+      "phone": "+1-201-823-1868",
+      "addr_state": "NJ",
+      "addr_city": "Bayonne",
+      "addr_postcode": "07002",
+      "addr_street": "W 19th St",
+      "addr_housenumber": "41"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Painting Center, New York, NY",
+      "geo_wkt": "POINT (-74.004398 40.751285)",
+      "poi": {
+        "id": 19696,
+        "geometry": "POINT (-74.004398 40.751285)",
+        "poi_name": "The Painting Center",
+        "osm_id": 10860703827,
+        "tourism": "gallery",
+        "opening_hours": "Tu 10:00-16:00; We-Sa 11:00-18:00",
+        "website": "https://www.thepaintingcenter.org",
+        "phone": "+1-212-343-1060",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 27th Street",
+        "addr_housenumber": "547"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2588,
+  "type": "knn:direction+name"
+}

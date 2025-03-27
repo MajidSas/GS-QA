@@ -1,0 +1,101 @@
+{
+  "question": "Could you assist me in locating a burger place within an 80 kilometers radius originating from SpringHill Suites Nashville Downtown, Nashville, TN?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.775318 36.156081)',4326)::geography, 80000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%burger%';\n",
+  "answers": [
+    {
+      "id": 125881,
+      "geometry": "POINT (-86.883412 35.964756)",
+      "poi_name": "Bricks Caf\u00e9",
+      "osm_id": 6979838518,
+      "amenity": "restaurant",
+      "cuisine": "burger;pizza;salad;pasta;sandwich;grill;fish;chicken;lunch;bar;soup",
+      "opening_hours": "Tu-Sa 15:00-21:00; Fr 15:00-22:00",
+      "phone": "+1-615-791-0709",
+      "addr_state": "TN",
+      "addr_city": "Franklin",
+      "addr_postcode": "37069",
+      "addr_street": "Fieldstone Parkway",
+      "addr_housenumber": "2020"
+    },
+    {
+      "id": 127066,
+      "geometry": "POINT (-86.953552 36.046687)",
+      "poi_name": "Corner Pub Bellevue",
+      "osm_id": 8023510981,
+      "amenity": "restaurant",
+      "cuisine": "burger;regional;american",
+      "website": "https://www.cornerpubtn.com/",
+      "phone": "+1-615-866-9919",
+      "addr_state": "TN",
+      "addr_city": "Nashville",
+      "addr_postcode": "37221",
+      "addr_street": "Highway 100",
+      "addr_housenumber": "8058"
+    },
+    {
+      "id": 145163,
+      "geometry": "POINT (-86.743924 36.192835)",
+      "poi_name": "Tower Market and Deli",
+      "osm_id": 7320915316,
+      "amenity": "restaurant",
+      "cuisine": "burger;sandwich;coffee_shop",
+      "opening_hours": "Mo-Fr 05:30-21:00; Sa-Su 07:00-21:00",
+      "website": "https://www.towerdelimarket.com/",
+      "phone": "(615) 650-1005",
+      "addr_state": "TN",
+      "addr_city": "Nashville",
+      "addr_street": "Gallatin Avenue",
+      "addr_housenumber": "1305"
+    },
+    {
+      "id": 243277,
+      "geometry": "POINT (-86.438093 35.858766)",
+      "poi_name": "Juicy's Wellness Cafe",
+      "osm_id": 7637220690,
+      "amenity": "restaurant",
+      "cuisine": "burger;american",
+      "opening_hours": "Mo-Sa 10:00-19:00",
+      "website": "https://www.juicyscafetn.com/",
+      "phone": "+1-615-617-3732",
+      "addr_state": "TN",
+      "addr_city": "Murfreesboro",
+      "addr_postcode": "37129",
+      "addr_street": "Medical Center Parkway",
+      "addr_housenumber": "2314"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "SpringHill Suites Nashville Downtown, Nashville, TN",
+      "geo_wkt": "POINT (-86.775318 36.156081)",
+      "poi": {
+        "id": 19973,
+        "geometry": "POINT (-86.775318 36.156081)",
+        "poi_name": "SpringHill Suites Nashville Downtown",
+        "osm_id": 7795580350,
+        "tourism": "hotel",
+        "official_name": "SpringHill Suites by Marriott",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37203",
+        "addr_street": "5th Avenue South",
+        "addr_housenumber": "410"
+      }
+    }
+  },
+  "id": 459,
+  "type": "range:non_spat_filter+loc"
+}

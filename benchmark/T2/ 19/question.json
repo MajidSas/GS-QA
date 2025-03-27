@@ -1,0 +1,57 @@
+{
+  "question": "Could you track down a fusion restaurant that is conveniently situated within 100 kilometers from Southern National Motorsport Park, Lucama, NC?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography, 100000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fusion%';\n",
+  "answers": [
+    {
+      "id": 225999,
+      "geometry": "POINT (-78.930486 35.910568)",
+      "poi_name": "Kokyu",
+      "osm_id": 11146259018,
+      "amenity": "restaurant",
+      "cuisine": "sandwich;asian_fusion",
+      "opening_hours": "Tu,We,Su 11:00-21:00; Th,Fr,Sa 11:00-22:00",
+      "website": "http://www.kokyubbq.com/",
+      "phone": "+19192519017",
+      "addr_state": "NC",
+      "addr_city": "Durham",
+      "addr_postcode": "27713",
+      "addr_street": "NC-54",
+      "addr_housenumber": "254 E"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fusion restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fusion%'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "poi": {
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
+        "leisure": "stadium",
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
+      }
+    }
+  },
+  "id": 518,
+  "type": "range:non_spat_filter+name"
+}

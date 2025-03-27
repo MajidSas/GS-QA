@@ -1,0 +1,60 @@
+{
+  "question": "Where can I find a hospital positioned within 60 kilometers towards the northeast of Hall Christmas Tree Farm, Glen Gardner, NJ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.923734 40.717256)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.923734 40.717256)',4326)::geography, 60000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 222206,
+      "geometry": "POINT (-74.923734 40.717256)",
+      "poi_name": "True Life Care Center",
+      "osm_id": 11009629478,
+      "amenity": "hospital",
+      "description": "Our team at True Life Care is dedicated to helping you take control of your mental health through a personalized healing approach and compassionate care.",
+      "opening_hours": "Mo-Fr 08:30-17:30",
+      "website": "https://truelifecarementalhealth.com",
+      "phone": "+1-973-490-4563",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NJ",
+      "addr_city": "Morris Plains",
+      "addr_postcode": "07950",
+      "addr_street": "NJ-10",
+      "addr_housenumber": "3000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hall Christmas Tree Farm, Glen Gardner, NJ",
+      "geo_wkt": "POINT (-74.923734 40.717256)",
+      "poi": {
+        "id": 3218,
+        "geometry": "POINT (-74.923734 40.717256)",
+        "poi_name": "Hall Christmas Tree Farm",
+        "osm_id": 10240300715,
+        "tourism": "attraction",
+        "phone": "+1 908 537 2056",
+        "addr_state": "NJ",
+        "addr_city": "Glen Gardner",
+        "addr_postcode": "08826",
+        "addr_street": "Red Mill Road",
+        "addr_housenumber": "53"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 69,
+  "type": "range:direction+loc"
+}

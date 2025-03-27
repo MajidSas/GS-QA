@@ -1,0 +1,48 @@
+{
+  "question": "What direction should I head in to reach the closest caf\u00e9 from Oxbow Park and Zollman Zoo, Byron, MN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 117451,
+      "geometry": "POINT (-92.755576 44.066538)",
+      "poi_name": "County Seat Coffeehouse",
+      "osm_id": 8994681618,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "MN",
+      "addr_city": "Mantorville",
+      "addr_postcode": "55955",
+      "angle": 257.63329824688157
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
+      "geo_wkt": "POINT (-92.648741 44.083478)",
+      "poi": {
+        "id": 8983,
+        "geometry": "POINT (-92.648741 44.083478)",
+        "poi_name": "Oxbow Park and Zollman Zoo",
+        "osm_id": 3606133825,
+        "tourism": "zoo",
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "operator": "Olmsted County",
+        "addr_state": "MN",
+        "addr_city": "Byron",
+        "addr_postcode": "55920",
+        "addr_street": "County Road 105 Northwest",
+        "addr_housenumber": "5731"
+      }
+    }
+  },
+  "id": 1437,
+  "type": "knn+angle"
+}

@@ -1,0 +1,39 @@
+{
+  "question": "What is the total number of aquaria within 160 kilometers from Ancelmo Hospital, Wayne, NJ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.20464 40.936969)',4326)::geography, 160000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "count": 5
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Ancelmo Hospital, Wayne, NJ",
+      "geo_wkt": "POINT (-74.20464 40.936969)",
+      "poi": {
+        "id": 87947,
+        "geometry": "POINT (-74.20464 40.936969)",
+        "poi_name": "Ancelmo Hospital",
+        "osm_id": 8754960317,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470"
+      }
+    }
+  },
+  "id": 2237,
+  "type": "range+count"
+}

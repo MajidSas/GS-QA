@@ -1,0 +1,44 @@
+{
+  "question": "What's the heading to the closest nature reserve from Pine Hill Health Center, Pine Hill, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-108.417054 34.89023)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.417054 34.89023)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246737,
+      "geometry": "POINT (-106.662721 35.069278)",
+      "poi_name": "Trailhead",
+      "osm_id": 2108343265,
+      "leisure": "nature_reserve",
+      "angle": 82.42900782811805
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Pine Hill Health Center, Pine Hill, NM",
+      "geo_wkt": "POINT (-108.417054 34.89023)",
+      "poi": {
+        "id": 237870,
+        "geometry": "POINT (-108.417054 34.89023)",
+        "poi_name": "Pine Hill Health Center",
+        "osm_id": 5851791408,
+        "amenity": "hospital",
+        "operator": "Ramah Navajo Sch. Brd. Inc.",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "NM",
+        "addr_city": "Pine Hill",
+        "addr_postcode": "87357",
+        "addr_street": "Indian Service Rt 140",
+        "addr_housenumber": "7"
+      }
+    }
+  },
+  "id": 1465,
+  "type": "knn+angle"
+}

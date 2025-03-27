@@ -1,0 +1,39 @@
+{
+  "question": "Do you know where the closest aquarium from Strawberry Hill, San Francisco, CA is located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 18181,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Steinhart Aquarium",
+      "osm_id": 368173914,
+      "tourism": "aquarium",
+      "addr_state": "CA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
+      "poi": {
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
+      }
+    }
+  },
+  "id": 1824,
+  "type": "knn+loc"
+}

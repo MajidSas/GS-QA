@@ -1,0 +1,50 @@
+{
+  "question": "Where is the closest nature museum from Moore-Ward Cobblestone House, Artesia, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'nature'\nORDER BY geometry <-> ST_GeomFromText('POINT (-104.402911 32.839722)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16656,
+      "geometry": "POINT (-106.622951 35.083044)",
+      "poi_name": "Silver Family Geology Museum",
+      "osm_id": 366378658,
+      "description": "The Silver Family Geology Museum was established in the 1930's by Stuart Northrop (after whom our building is named) and provides public exhibits of mineral, fossil, and rock specimens. The material on display represents a small portion of the geological",
+      "tourism": "museum",
+      "website": "https://eps.unm.edu/research/museums/index.html",
+      "museum": "nature",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_street": "Yale Boulevard Northeast",
+      "addr_housenumber": "221"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Moore-Ward Cobblestone House, Artesia, NM",
+      "geo_wkt": "POINT (-104.402911 32.839722)",
+      "poi": {
+        "id": 16574,
+        "geometry": "POINT (-104.402911 32.839722)",
+        "poi_name": "Moore-Ward Cobblestone House",
+        "osm_id": 366378052,
+        "tourism": "attraction",
+        "website": "https://www.artesianm.gov/154/Museum-Art-Center",
+        "addr_state": "NM",
+        "addr_city": "Artesia",
+        "addr_postcode": "88210",
+        "addr_street": "West Richardson Avenue",
+        "addr_housenumber": "505"
+      }
+    }
+  },
+  "id": 334,
+  "type": "knn:non_spat_filter+loc"
+}

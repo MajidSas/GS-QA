@@ -1,0 +1,52 @@
+{
+  "question": "How far away is the nearest restaurant with respect to UIS Greenhouse, Springfield, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 55605,
+      "geometry": "POINT (-89.63493 39.713141)",
+      "poi_name": "Taqueria El Dorado",
+      "osm_id": 10199832371,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 8:00-21:30; Su 8:00-14:00",
+      "phone": "+1-217-679-1170",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62712",
+      "addr_street": "Toronto Road",
+      "addr_housenumber": "1386",
+      "distance": 2308.9918256
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
+      "poi": {
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 2494,
+  "type": "knn+distance"
+}

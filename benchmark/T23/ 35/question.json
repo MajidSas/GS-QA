@@ -1,0 +1,40 @@
+{
+  "question": "What's the total count of museums within 90 kilometers from Bellevue University, Santa Fe, NM?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.974343 35.653894)',4326)::geography, 90000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 40
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Bellevue University, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.974343 35.653894)",
+      "poi": {
+        "id": 127804,
+        "geometry": "POINT (-105.974343 35.653894)",
+        "poi_name": "Bellevue University",
+        "osm_id": 8095198425,
+        "amenity": "university",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87505",
+        "addr_street": "Siringo Road",
+        "addr_housenumber": "1950"
+      }
+    }
+  },
+  "id": 2234,
+  "type": "range+count"
+}

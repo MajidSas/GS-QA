@@ -1,0 +1,46 @@
+{
+  "question": "Seeking the closest nature reserve from Aquarium Outfitters Carolina, Wake Forest, NC, any ideas where it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247665,
+      "geometry": "POINT (-78.390009 35.831172)",
+      "poi_name": "Procter Farm Preserve",
+      "osm_id": 8057386012,
+      "leisure": "nature_reserve",
+      "addr_state": "NC",
+      "addr_city": "Wendell",
+      "addr_postcode": "27591",
+      "addr_street": "Doc Procter Road",
+      "addr_housenumber": "7201"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
+      "poi": {
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
+      }
+    }
+  },
+  "id": 1894,
+  "type": "knn+loc"
+}

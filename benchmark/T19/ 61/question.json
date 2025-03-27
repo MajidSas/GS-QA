@@ -1,0 +1,51 @@
+{
+  "question": "Where's the closest university to the northeast of Adventure Park, Scottsdale, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167506,
+      "geometry": "POINT (-111.890218 33.543572)",
+      "poi_name": "New Mexico State University Grants",
+      "osm_id": 357610813,
+      "amenity": "university",
+      "website": "https://grants.nmsu.edu/",
+      "phone": "+1 505 287 6678",
+      "wikidata": "Q16974705",
+      "addr_state": "NM",
+      "addr_city": "Grants",
+      "addr_postcode": "87020",
+      "addr_street": "3rd Street",
+      "addr_housenumber": "1500"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "poi": {
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1160,
+  "type": "knn:direction+loc"
+}

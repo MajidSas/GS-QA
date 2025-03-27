@@ -1,0 +1,66 @@
+{
+  "question": "Where's the closest restaurant on the route to Fairfield Inn & Suites Duncan, Duncan, OK from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, ST_GeomFromText('POINT (-97.963479 34.529748)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 215289,
+      "geometry": "POINT (-98.505264 34.727068)",
+      "poi_name": "Healthy Hippy",
+      "osm_id": 5294464742,
+      "amenity": "restaurant",
+      "addr_state": "OK",
+      "addr_city": "Medicine Park",
+      "addr_postcode": "73557",
+      "addr_street": "State Hihway 49",
+      "addr_housenumber": "18314",
+      "value": 113.5427555980228
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
+      "poi": {
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Fairfield Inn & Suites Duncan, Duncan, OK",
+      "geo_wkt": "POINT (-97.963479 34.529748)",
+      "poi": {
+        "id": 27185,
+        "geometry": "POINT (-97.963479 34.529748)",
+        "poi_name": "Fairfield Inn & Suites Duncan",
+        "osm_id": 7740694427,
+        "tourism": "hotel",
+        "addr_state": "OK",
+        "addr_city": "Duncan",
+        "addr_postcode": "73533",
+        "addr_street": "Apollo Drive",
+        "addr_housenumber": "1450"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1326,
+  "type": "knn:towards+loc"
+}

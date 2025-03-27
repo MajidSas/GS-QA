@@ -1,0 +1,54 @@
+{
+  "question": "Do you have any suggestions for a garden within 100 kilometers radii from Conde B McCullough State Park, OR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-124.213447 43.444279)',4326)::geography, 100000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 248820,
+      "geometry": "POINT (-124.143454 43.059179)",
+      "poi_name": "Rose Garden",
+      "osm_id": 4826353250,
+      "leisure": "garden"
+    },
+    {
+      "id": 248821,
+      "geometry": "POINT (-124.14277 43.064199)",
+      "poi_name": "Earthworm Acres",
+      "osm_id": 4826358921,
+      "leisure": "garden"
+    },
+    {
+      "id": 248822,
+      "geometry": "POINT (-124.143349 43.060296)",
+      "poi_name": "Student Garden",
+      "osm_id": 4826359409,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Conde B McCullough State Park, OR",
+      "geo_wkt": "POINT (-124.213447 43.444279)",
+      "poi": {
+        "id": 253994,
+        "geometry": "POINT (-124.213447 43.444279)",
+        "poi_name": "Conde B McCullough State Park",
+        "osm_id": 357308237,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 854,
+  "type": "range+name"
+}

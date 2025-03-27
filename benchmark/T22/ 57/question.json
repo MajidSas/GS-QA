@@ -1,0 +1,38 @@
+{
+  "question": "In which direction can I find the closest university from Tablerocks Goodnight Amphitheater, TX?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167392,
+      "geometry": "POINT (-97.362575 31.076985)",
+      "poi_name": "Texas A&M College of Medicine",
+      "osm_id": 356754411,
+      "amenity": "university",
+      "website": "https://medicine.tamhsc.edu/campuses/temple/index.html",
+      "angle": 46.90311109729983
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Tablerocks Goodnight Amphitheater, TX",
+      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "poi": {
+        "id": 265396,
+        "geometry": "POINT (-97.532231 30.940462)",
+        "poi_name": "Tablerocks Goodnight Amphitheater",
+        "osm_id": 368165373,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 1456,
+  "type": "knn+angle"
+}

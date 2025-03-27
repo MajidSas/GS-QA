@@ -1,0 +1,53 @@
+{
+  "question": "What's the distance to a beach resort from UCF Lake Nona Medical Center, Orlando, FL within 190 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-81.28563 28.367409)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.28563 28.367409)',4326)::geography, 190000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 248000,
+      "geometry": "POINT (-80.4022 27.773371)",
+      "poi_name": "Orchid Island Beach Club",
+      "osm_id": 6231201516,
+      "leisure": "beach_resort",
+      "addr_state": "FL",
+      "addr_city": "Orchid",
+      "addr_postcode": "32963",
+      "addr_street": "Beachside Drive",
+      "addr_housenumber": "1",
+      "distance": 108971.14267672
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UCF Lake Nona Medical Center, Orlando, FL",
+      "geo_wkt": "POINT (-81.28563 28.367409)",
+      "poi": {
+        "id": 181401,
+        "geometry": "POINT (-81.28563 28.367409)",
+        "poi_name": "UCF Lake Nona Medical Center",
+        "osm_id": 10844797703,
+        "amenity": "hospital",
+        "website": "https://ucflakenonamedicalcenter.com",
+        "phone": "+1 407 302 7392",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Orlando",
+        "addr_postcode": "32827",
+        "addr_street": "Lake Nona Boulevard",
+        "addr_housenumber": "6700"
+      }
+    }
+  },
+  "id": 799,
+  "type": "range+distance"
+}

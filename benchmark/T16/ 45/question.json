@@ -1,0 +1,158 @@
+{
+  "question": "Within a radius of 10 kilometers, where can I find  a fast food restaurant along the way to Aquatic Zoo Tropical Fish, Thousand Oaks, CA from Disneyland Resort, Anaheim, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.918953 33.809089)',4326)::geography, ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.918953 33.809089)',4326)::geography, 10000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.918953 33.809089)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 28221,
+      "geometry": "POINT (-117.989532 33.847101)",
+      "poi_name": "Subway",
+      "osm_id": 471300290,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_city": "Buena Park",
+      "addr_postcode": "90620",
+      "addr_street": "La Palma Avenue",
+      "addr_housenumber": "8241",
+      "value": 295.6046053043795
+    },
+    {
+      "id": 46624,
+      "geometry": "POINT (-117.988708 33.847053)",
+      "poi_name": "Panda Express",
+      "osm_id": 3279344050,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "opening_hours": "10:00-22:00",
+      "phone": "+1 714-523-7134",
+      "takeaway": "yes",
+      "addr_state": "CA",
+      "addr_city": "Buena Park",
+      "addr_postcode": "90620",
+      "addr_street": "La Palma Avenue",
+      "addr_housenumber": "8317",
+      "value": 295.6046053043795
+    },
+    {
+      "id": 57160,
+      "geometry": "POINT (-117.922949 33.809313)",
+      "poi_name": "Black Tap Craft Burgers & Shakes",
+      "osm_id": 5326951665,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://disneyland.disney.go.com/dining/downtown-disney-district/black-tap-craft-burgers/",
+      "outdoor_seating": "yes",
+      "addr_state": "CA",
+      "addr_city": "Anaheim",
+      "addr_postcode": "92802",
+      "addr_street": "South Disneyland Dive",
+      "addr_housenumber": "1540",
+      "value": 295.6046053043795
+    },
+    {
+      "id": 104690,
+      "geometry": "POINT (-117.987157 33.846399)",
+      "poi_name": "Portillo's",
+      "osm_id": 8581388129,
+      "amenity": "fast_food",
+      "cuisine": "hot_dog;burger",
+      "opening_hours": "Mo-Su 10:30-22:00",
+      "website": "https://www.portillos.com/locations/buena-park/",
+      "phone": "+1 714 220 6400",
+      "takeaway": "yes",
+      "addr_state": "CA",
+      "addr_city": "Buena Park",
+      "addr_postcode": "90620",
+      "addr_street": "La Palma Avenue",
+      "addr_housenumber": "8390",
+      "value": 295.6046053043795
+    },
+    {
+      "id": 114420,
+      "geometry": "POINT (-117.97602 33.85943)",
+      "poi_name": "Burger King",
+      "osm_id": 3882276145,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "addr_city": "Fullerton",
+      "addr_postcode": "92833",
+      "addr_street": "Orangethorpe Avenue",
+      "addr_housenumber": "2751",
+      "value": 295.6046053043795
+    },
+    {
+      "id": 241582,
+      "geometry": "POINT (-117.996166 33.847086)",
+      "poi_name": "Poki Yaki",
+      "osm_id": 6030806511,
+      "amenity": "fast_food",
+      "cuisine": "asian",
+      "opening_hours": "Fr,Sa 11:00-21:00; Su-Th 11:00-20:00",
+      "website": "http://pokiyaki.wixsite.com/pokiyaki",
+      "outdoor_seating": "no",
+      "addr_state": "CA",
+      "addr_city": "Buena Park",
+      "addr_postcode": "90620",
+      "addr_street": "La Palma Avenue",
+      "addr_housenumber": "7855",
+      "value": 295.6046053043795
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 10000,
+      "text": "10 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Disneyland Resort, Anaheim, CA",
+      "geo_wkt": "POINT (-117.918953 33.809089)",
+      "poi": {
+        "id": 1749,
+        "geometry": "POINT (-117.918953 33.809089)",
+        "poi_name": "Disneyland Resort",
+        "osm_id": 3139378640,
+        "tourism": "theme_park",
+        "wheelchair": "limited",
+        "opening_hours": "\"Check with each entity for their daily operationg hours, either on the website or on program guide\"",
+        "website": "https://disneyland.disney.go.com/",
+        "wikidata": "Q1229066",
+        "addr_state": "CA",
+        "addr_city": "Anaheim",
+        "addr_postcode": "92802",
+        "addr_street": "South Harbor Blvd.",
+        "addr_housenumber": "1313"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
+      "geo_wkt": "POINT (-118.840161 34.172588)",
+      "poi": {
+        "id": 5259,
+        "geometry": "POINT (-118.840161 34.172588)",
+        "poi_name": "Aquatic Zoo Tropical Fish",
+        "osm_id": 9819470337,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "operator": "Ken Kay Khzam",
+        "shop": "pet",
+        "addr_state": "CA",
+        "addr_city": "Thousand Oaks",
+        "addr_postcode": "91362",
+        "addr_street": "East Thousand Oaks Boulevard",
+        "addr_housenumber": "2655"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1244,
+  "type": "range:towards+loc"
+}

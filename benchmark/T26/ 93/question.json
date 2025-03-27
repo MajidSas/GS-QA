@@ -1,0 +1,55 @@
+{
+  "question": "How far is the nearest restaurant situated from Discovery Depot at Nature's Art Village, Montville, CT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 109031,
+      "geometry": "POINT (-72.222426 41.431796)",
+      "poi_name": "Cobalt Cafe at Nature's Art Village",
+      "osm_id": 3646701863,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "opening_hours": "10:00-17:00",
+      "website": "http://www.naturesartvillage.com",
+      "capacity": "100",
+      "phone": "860-443-4367",
+      "takeaway": "yes",
+      "delivery": "no",
+      "addr_state": "CT",
+      "addr_city": "Montville",
+      "addr_postcode": "06370",
+      "addr_street": "Hartford-New London Turnpike",
+      "addr_housenumber": "1650",
+      "distance": 22.33927451
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "poi": {
+        "id": 9052,
+        "geometry": "POINT (-72.222213 41.431675)",
+        "poi_name": "Discovery Depot at Nature's Art Village",
+        "osm_id": 3646715046,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-17:00 \"seasonal\"",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    }
+  },
+  "id": 2492,
+  "type": "knn+distance"
+}

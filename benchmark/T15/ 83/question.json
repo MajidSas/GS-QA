@@ -1,0 +1,133 @@
+{
+  "question": "Where can I find a university southeast of the View Lounge, San Francisco, CA, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, 160000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 104359,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Cogswell University of Silicon Valley",
+      "osm_id": 8566442104,
+      "amenity": "university",
+      "addr_state": "CA",
+      "addr_city": "San Jose",
+      "addr_postcode": "95134",
+      "addr_street": "Baypointe Parkway",
+      "addr_housenumber": "191"
+    },
+    {
+      "id": 134959,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Northeastern University Silicon Valley",
+      "osm_id": 11498164632,
+      "amenity": "university",
+      "operator": "Northeastern University",
+      "website": "https://siliconvalley.northeastern.edu/",
+      "addr_state": "CA",
+      "addr_city": "San Jose",
+      "addr_street": "East Santa Clara Street",
+      "addr_housenumber": "75"
+    },
+    {
+      "id": 134960,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Northeastern University Silicon Valley",
+      "osm_id": 11498164633,
+      "amenity": "university",
+      "operator": "Northeastern University",
+      "website": "https://siliconvalley.northeastern.edu/",
+      "addr_state": "CA",
+      "addr_city": "San Jose",
+      "addr_street": "North 2nd Street",
+      "addr_housenumber": "4"
+    },
+    {
+      "id": 135738,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "San Jose State University",
+      "osm_id": 11532853730,
+      "amenity": "university",
+      "website": "https://www.sjsu.edu/",
+      "addr_state": "CA",
+      "addr_city": "San Jose",
+      "addr_postcode": "95112",
+      "addr_street": "Washington Sq",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 163683,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Five Branches University",
+      "osm_id": 9429750441,
+      "amenity": "university",
+      "addr_city": "San Jose",
+      "addr_postcode": "95131",
+      "addr_street": "Lundy Avenue",
+      "addr_housenumber": "1885"
+    },
+    {
+      "id": 175610,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Nine Star University of Health Sciences",
+      "osm_id": 2527515400,
+      "amenity": "university",
+      "addr_city": "Sunnyvale",
+      "addr_street": "De Guigne Drive",
+      "addr_housenumber": "441"
+    },
+    {
+      "id": 242800,
+      "geometry": "POINT (-122.404326 37.785414)",
+      "poi_name": "Northeastern University Silicon Valley",
+      "osm_id": 7598925167,
+      "amenity": "university",
+      "operator": "Northeastern University",
+      "website": "https://bayarea.northeastern.edu/",
+      "addr_state": "CA",
+      "addr_city": "San Jose",
+      "addr_postcode": "95138",
+      "addr_street": "Silver Creek Valley Road",
+      "addr_housenumber": "6024"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 82,
+  "type": "range:direction+loc"
+}

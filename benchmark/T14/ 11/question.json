@@ -1,0 +1,88 @@
+{
+  "question": "Seeking an emergency hospital, ideally within 70 kilometers of Monrovia Canyon Park, Monrovia, CA. Can you find me its location?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography, 70000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 184063,
+      "geometry": "POINT (-117.249969 34.050902)",
+      "poi_name": "Emergency Room Entrance",
+      "osm_id": 7771146882,
+      "amenity": "hospital",
+      "operator": "VHA",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "CA",
+      "addr_city": "Loma Linda",
+      "addr_postcode": "92357",
+      "addr_street": "Benton Street",
+      "addr_housenumber": "11201"
+    },
+    {
+      "id": 167714,
+      "geometry": "POINT (-118.186461 34.01918)",
+      "poi_name": "Los Angeles Community Hospital",
+      "osm_id": 358826153,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Alta Los Angeles Hospitals",
+      "website": "https://www.lach-la.com/",
+      "phone": "+1 323 267 0477",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90023",
+      "addr_street": "East Olympic Boulevard",
+      "addr_housenumber": "4081"
+    },
+    {
+      "id": 222207,
+      "geometry": "POINT (-117.610258 33.63821)",
+      "poi_name": "Orange County Surgical Specialists - Facial Plastic Surgery",
+      "osm_id": 11010229141,
+      "amenity": "hospital",
+      "description": "Orange County Surgical Specialists provides state-of-the-art care for patients seeking facial cosmetic surgery in Mission Viejo, Orange County, and beyond.",
+      "opening_hours": "Mon-Tue,Thu : 08:00AM-05:00PM, Wed : 09:00AM-03:00PM, Fri : 08:00AM-04:00PM",
+      "website": "https://www.facialplasticsoc.com",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "CA",
+      "addr_city": "Rancho Santa Margarita",
+      "addr_postcode": "92688",
+      "addr_street": "Santa Margarita Pkwy",
+      "addr_housenumber": "29829"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Monrovia Canyon Park, Monrovia, CA",
+      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "poi": {
+        "id": 262527,
+        "geometry": "POINT (-117.988399 34.176394)",
+        "poi_name": "Monrovia Canyon Park",
+        "osm_id": 358789318,
+        "leisure": "nature_reserve",
+        "addr_state": "CA",
+        "addr_city": "Monrovia",
+        "addr_postcode": "91016",
+        "addr_street": "N. Canyon Boulevard",
+        "addr_housenumber": "1200"
+      }
+    }
+  },
+  "id": 410,
+  "type": "range:non_spat_filter+loc"
+}

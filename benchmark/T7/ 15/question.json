@@ -1,0 +1,47 @@
+{
+  "question": "When was the nearest university from City of Farmington Museum, Farmington, UT established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 230559,
+      "geometry": "POINT (-111.890792 40.766101)",
+      "poi_name": "Neumont College",
+      "osm_id": 4431459466,
+      "amenity": "university",
+      "website": "https://www.neumont.edu/",
+      "wikidata": "Q7001981",
+      "multihop_answer": "2003",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Neumont College Established: 2003"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "City of Farmington Museum, Farmington, UT",
+      "geo_wkt": "POINT (-111.887141 40.98238)",
+      "poi": {
+        "id": 963,
+        "geometry": "POINT (-111.887141 40.98238)",
+        "poi_name": "City of Farmington Museum",
+        "osm_id": 2750936682,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://artsandmuseums.utah.gov/utah-museums-directory/listing/farmington-historical-museum__trashed/",
+        "addr_state": "UT",
+        "addr_city": "Farmington",
+        "addr_postcode": "84025",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "110"
+      }
+    }
+  },
+  "id": 914,
+  "type": "knn+name+multihop1"
+}

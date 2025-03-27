@@ -1,0 +1,53 @@
+{
+  "question": "What's the closest museum nearby the zoo that was opened on June 13, 2008 in New Orleans, LA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 24677,
+      "geometry": "POINT (-90.063571 29.948961)",
+      "poi_name": "Vue Orleans",
+      "osm_id": 11165860901,
+      "tourism": "museum",
+      "opening_hours": "Su-Sa 10:00-18:00",
+      "website": "https://vueorleans.com/",
+      "addr_state": "LA",
+      "addr_city": "New Orleans",
+      "addr_postcode": "70130",
+      "addr_street": "Canal Street",
+      "addr_housenumber": "2"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Audubon Insectarium, New Orleans, LA",
+      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "poi": {
+        "id": 15891,
+        "geometry": "POINT (-90.063318 29.951359)",
+        "poi_name": "Audubon Insectarium",
+        "osm_id": 9588493777,
+        "tourism": "zoo",
+        "wheelchair": "yes",
+        "building": "yes",
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "website": "http://www.auduboninstitute.org/visit/insectarium",
+        "zoo": "insectarium",
+        "wikidata": "Q4820238",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Canal Street",
+        "addr_housenumber": "403"
+      }
+    }
+  },
+  "id": 2772,
+  "type": "knn+name+multihop2"
+}

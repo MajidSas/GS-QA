@@ -1,0 +1,44 @@
+{
+  "question": "Where's the closest museum to the west of Memorial Stadium, Wayne, NE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.014509 42.243746)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16785,
+      "geometry": "POINT (-97.014509 42.243746)",
+      "poi_name": "Meadow Grove Museum",
+      "osm_id": 366492369,
+      "tourism": "museum",
+      "addr_state": "NE"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Memorial Stadium, Wayne, NE",
+      "geo_wkt": "POINT (-97.014509 42.243746)",
+      "poi": {
+        "id": 257717,
+        "geometry": "POINT (-97.014509 42.243746)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 357784811,
+        "leisure": "park",
+        "addr_state": "NE",
+        "addr_city": "Wayne",
+        "addr_postcode": "68787",
+        "addr_street": "Stadium Drive"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 1185,
+  "type": "knn:direction+loc"
+}

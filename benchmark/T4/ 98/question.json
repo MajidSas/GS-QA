@@ -1,0 +1,73 @@
+{
+  "question": "Which restaurant is available towards Waco-McLennan County Health District, Waco, TX within 30 kilometers from Santa Fe Kids Stop, Temple, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.343742 31.09505)',4326)::geography, ST_GeomFromText('POINT (-97.136199 31.564467)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.343742 31.09505)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.343742 31.09505)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 192782,
+      "geometry": "POINT (-97.342684 31.096905)",
+      "poi_name": "Taste of Thai",
+      "osm_id": 1479240495,
+      "amenity": "restaurant",
+      "value": 20.728821394493092
+    },
+    {
+      "id": 192589,
+      "geometry": "POINT (-97.30233 31.207241)",
+      "poi_name": "Pizza Pit",
+      "osm_id": 1459442511,
+      "amenity": "restaurant",
+      "value": 20.728821394493092
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Santa Fe Kids Stop, Temple, TX",
+      "geo_wkt": "POINT (-97.343742 31.09505)",
+      "poi": {
+        "id": 247881,
+        "geometry": "POINT (-97.343742 31.09505)",
+        "poi_name": "Santa Fe Kids Stop",
+        "osm_id": 11541130039,
+        "leisure": "park",
+        "operator": "City of Temple",
+        "addr_state": "TX",
+        "addr_city": "Temple",
+        "addr_postcode": "76501",
+        "addr_street": "East Avenue B"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Waco-McLennan County Health District, Waco, TX",
+      "geo_wkt": "POINT (-97.136199 31.564467)",
+      "poi": {
+        "id": 147549,
+        "geometry": "POINT (-97.136199 31.564467)",
+        "poi_name": "Waco-McLennan County Health District",
+        "osm_id": 7542394599,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "TX",
+        "addr_city": "Waco",
+        "addr_postcode": "76707",
+        "addr_street": "West Waco Drive",
+        "addr_housenumber": "225"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1697,
+  "type": "range:towards+name"
+}

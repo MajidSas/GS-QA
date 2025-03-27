@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find the nearest university in the vicinity of Cal, Sr.'s Yard, Aberdeen, MD?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 234159,
+      "geometry": "POINT (-76.617663 39.322242)",
+      "poi_name": "Johns Hopkins University School of Education",
+      "osm_id": 4608984015,
+      "amenity": "university",
+      "internet_access": "yes",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21218",
+      "addr_street": "North Charles Street",
+      "addr_housenumber": "2800"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "poi": {
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
+      }
+    }
+  },
+  "id": 1865,
+  "type": "knn+loc"
+}

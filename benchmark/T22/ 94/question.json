@@ -1,0 +1,42 @@
+{
+  "question": "Which way should I take to get to the closest viewpoint from Pioneer Stadium, Ogden, UT?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2456,
+      "geometry": "POINT (-111.915455 41.23455)",
+      "poi_name": "Overlook",
+      "osm_id": 3454884104,
+      "tourism": "viewpoint",
+      "angle": 94.18246769362311
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    }
+  },
+  "id": 1493,
+  "type": "knn+angle"
+}

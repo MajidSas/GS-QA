@@ -1,0 +1,72 @@
+{
+  "question": "Could you track down an organic restaurant and is conveniently situated within 150 kilometers from Taylorsville South Park, Vandalia, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.169435 39.875991)',4326)::geography, 150000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%organic%';\n",
+  "answers": [
+    {
+      "id": 59947,
+      "geometry": "POINT (-84.43403 39.151063)",
+      "poi_name": "Rooted Juicery & Kitchen",
+      "osm_id": 5449248022,
+      "amenity": "restaurant",
+      "cuisine": "organic",
+      "opening_hours": "Mo-Sa 07:00-20:00; Su 09:00-18:00",
+      "website": "https://www.rootedjuicery.com/",
+      "phone": "+1-513-351-2900",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45209",
+      "addr_street": "Madison Road",
+      "addr_housenumber": "3010"
+    },
+    {
+      "id": 170631,
+      "geometry": "POINT (-84.515639 39.100614)",
+      "poi_name": "Red Roost Tavern",
+      "osm_id": 2343008611,
+      "amenity": "restaurant",
+      "cuisine": "organic;american",
+      "opening_hours": "Mo-Su 06:30-24:00",
+      "website": "https://www.cincinnati.hyatt.com/en/hotel/dining/RedRoostTavern.html",
+      "phone": "+1-513-354-4025",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45202",
+      "addr_street": "West 5th Street",
+      "addr_housenumber": "151"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "organic restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%organic%'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Taylorsville South Park, Vandalia, OH",
+      "geo_wkt": "POINT (-84.169435 39.875991)",
+      "poi": {
+        "id": 247792,
+        "geometry": "POINT (-84.169435 39.875991)",
+        "poi_name": "Taylorsville South Park",
+        "osm_id": 9936349341,
+        "leisure": "park",
+        "operator": "Five Rivers MetroParks",
+        "addr_state": "OH",
+        "addr_city": "Vandalia",
+        "addr_postcode": "45377",
+        "addr_street": "U.S. 40",
+        "addr_housenumber": "2000"
+      }
+    }
+  },
+  "id": 404,
+  "type": "range:non_spat_filter+loc"
+}

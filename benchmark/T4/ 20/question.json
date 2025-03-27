@@ -1,0 +1,68 @@
+{
+  "question": "What museum can I find as I head towards Memory Lane, Lexington, IL within 30 kilometers from Luthy Botanical Garden, Peoria, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography, ST_GeomFromText('POINT (-88.78321 40.645607)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 4995,
+      "geometry": "POINT (-89.269312 40.713207)",
+      "poi_name": "Ronald Reagan Museum",
+      "osm_id": 9710565152,
+      "tourism": "museum",
+      "operator": "Eureka College",
+      "website": "https://reagan.eureka.edu/visit-reagans-campus.html#reagan-museum",
+      "museum": "person",
+      "value": 96.64252585153166
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
+      "poi": {
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Memory Lane, Lexington, IL",
+      "geo_wkt": "POINT (-88.78321 40.645607)",
+      "poi": {
+        "id": 26577,
+        "geometry": "POINT (-88.78321 40.645607)",
+        "poi_name": "Memory Lane",
+        "osm_id": 5934936892,
+        "tourism": "attraction",
+        "opening_hours": "24/7",
+        "addr_state": "IL",
+        "addr_city": "Lexington",
+        "addr_street": "Parade Road"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1619,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Which emergency hospital nearby Country Inn & Suites, Rock Hill, SC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.990105 34.969086)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 64374,
+      "geometry": "POINT (-80.824345 35.212772)",
+      "poi_name": "Hemby Children's Hospital",
+      "osm_id": 5650582468,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Novant Health",
+      "website": "https://www.novanthealth.org/hemby-childrens-hospital.aspx",
+      "phone": "+1 704 384 4021",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28204",
+      "addr_street": "Hawthorne Lane",
+      "addr_housenumber": "200"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Country Inn & Suites, Rock Hill, SC",
+      "geo_wkt": "POINT (-80.990105 34.969086)",
+      "poi": {
+        "id": 10788,
+        "geometry": "POINT (-80.990105 34.969086)",
+        "poi_name": "Country Inn & Suites",
+        "osm_id": 8039220357,
+        "tourism": "hotel",
+        "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-rock-hill-sc",
+        "phone": "+1-803-329-5151",
+        "addr_state": "SC",
+        "addr_city": "Rock Hill",
+        "addr_postcode": "29730",
+        "addr_street": "Patriot Parkway",
+        "addr_housenumber": "865"
+      }
+    }
+  },
+  "id": 627,
+  "type": "knn:non_spat_filter+name"
+}

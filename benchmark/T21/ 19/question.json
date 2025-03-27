@@ -1,0 +1,93 @@
+{
+  "question": "Which way should I take to get to a stadium from Boyte Creative, Denver, CO within 170 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.977298 39.765934)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.977298 39.765934)',4326)::geography, 170000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 265349,
+      "geometry": "POINT (-104.961685 39.682266)",
+      "poi_name": "Magness Arena",
+      "osm_id": 366396379,
+      "leisure": "stadium",
+      "wikidata": "Q14684923",
+      "addr_state": "CO",
+      "angle": 171.79533955252197
+    },
+    {
+      "id": 265490,
+      "geometry": "POINT (-104.83625 41.155172)",
+      "poi_name": "Frontier Days Arena",
+      "osm_id": 2394709319,
+      "leisure": "stadium",
+      "wheelchair": "limited",
+      "sport": "rodeo",
+      "website": "https://www.cfdrodeo.com/",
+      "angle": 4.388753683746524
+    },
+    {
+      "id": 265350,
+      "geometry": "POINT (-104.961111 39.6825)",
+      "poi_name": "Joy Burns Arena",
+      "osm_id": 366396382,
+      "leisure": "stadium",
+      "addr_state": "CO",
+      "angle": 171.47456708166902
+    },
+    {
+      "id": 265351,
+      "geometry": "POINT (-105.041111 39.868611)",
+      "poi_name": "Hidden Hills Ice Arena",
+      "osm_id": 366396389,
+      "leisure": "stadium",
+      "addr_state": "CO",
+      "angle": 334.41384703533816
+    },
+    {
+      "id": 265824,
+      "geometry": "POINT (-105.578576 40.34111)",
+      "poi_name": "Everhart Outdoor Amphitheater",
+      "osm_id": 7857876712,
+      "leisure": "stadium",
+      "angle": 321.4168273614517
+    },
+    {
+      "id": 245101,
+      "geometry": "POINT (-104.934969 39.699242)",
+      "poi_name": "Infinity Park Rugby Stadium",
+      "osm_id": 452213617,
+      "leisure": "stadium",
+      "sport": "rugby",
+      "angle": 153.87943275195084
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Boyte Creative, Denver, CO",
+      "geo_wkt": "POINT (-104.977298 39.765934)",
+      "poi": {
+        "id": 14945,
+        "geometry": "POINT (-104.977298 39.765934)",
+        "poi_name": "Boyte Creative",
+        "osm_id": 4769116425,
+        "tourism": "gallery",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80205",
+        "addr_street": "Walnut Street",
+        "addr_housenumber": "3300"
+      }
+    }
+  },
+  "id": 1018,
+  "type": "range+angle"
+}

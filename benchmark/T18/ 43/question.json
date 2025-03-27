@@ -1,0 +1,51 @@
+{
+  "question": "Where can I find the closest steak house from Appalachian Wireless Arena, Pikeville, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%steak_house%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 151297,
+      "geometry": "POINT (-82.523753 36.54042)",
+      "poi_name": "The Chop House",
+      "osm_id": 4092591415,
+      "amenity": "restaurant",
+      "cuisine": "steak_house",
+      "website": "https://www.thechophouse.com/kingsport.html",
+      "addr_city": "Kingsport",
+      "addr_postcode": "37664",
+      "addr_street": "N. Eastman Road",
+      "addr_housenumber": "1704"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "steak house",
+      "poi_filter_sql": "cuisine ILIKE '%steak_house%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
+      "geo_wkt": "POINT (-82.517286 37.477755)",
+      "poi": {
+        "id": 246594,
+        "geometry": "POINT (-82.517286 37.477755)",
+        "poi_name": "Appalachian Wireless Arena",
+        "osm_id": 1736849627,
+        "leisure": "stadium",
+        "building": "yes",
+        "sport": "basketball",
+        "phone": "+1 606 444 5500",
+        "addr_state": "KY",
+        "addr_city": "Pikeville",
+        "addr_postcode": "41501",
+        "addr_street": "Main Street",
+        "addr_housenumber": "126"
+      }
+    }
+  },
+  "id": 342,
+  "type": "knn:non_spat_filter+loc"
+}

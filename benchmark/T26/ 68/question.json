@@ -1,0 +1,52 @@
+{
+  "question": "How distant is the closest hospital from the reference location Getting's Garden, Sanborn, IA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167321,
+      "geometry": "POINT (-95.743071 43.410247)",
+      "poi_name": "Avera Medical Group Sibley",
+      "osm_id": 354339936,
+      "amenity": "hospital",
+      "operator": "Avera Health",
+      "website": "https://www.avera.org/locations/profile/?id=169",
+      "phone": "+1-712-754-3658",
+      "healthcare": "hospital",
+      "addr_city": "Sibley",
+      "addr_postcode": "51249",
+      "addr_street": "9th Avenue North",
+      "addr_housenumber": "600",
+      "distance": 19555.69509947
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Getting's Garden, Sanborn, IA",
+      "geo_wkt": "POINT (-95.724521 43.234748)",
+      "poi": {
+        "id": 266116,
+        "geometry": "POINT (-95.724521 43.234748)",
+        "poi_name": "Getting's Garden",
+        "osm_id": 10686198179,
+        "leisure": "garden",
+        "opening_hours": "Su off",
+        "website": "https://www.gettingsgarden.com/",
+        "shop": "farm",
+        "addr_state": "IA",
+        "addr_city": "Sanborn",
+        "addr_postcode": "51248",
+        "addr_street": "Pierce Avenue",
+        "addr_housenumber": "2861"
+      }
+    }
+  },
+  "id": 2467,
+  "type": "knn+distance"
+}

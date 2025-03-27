@@ -1,0 +1,43 @@
+{
+  "question": "How distant is the closest garden from the reference location Nature and Wildlife Discovery Center: River Campus, Pueblo, CO?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245508,
+      "geometry": "POINT (-104.857005 38.840078)",
+      "poi_name": "The Secret Garden",
+      "osm_id": 2994498649,
+      "leisure": "garden",
+      "distance": 65164.04749418
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Nature and Wildlife Discovery Center: River Campus, Pueblo, CO",
+      "geo_wkt": "POINT (-104.677049 38.270312)",
+      "poi": {
+        "id": 265545,
+        "geometry": "POINT (-104.677049 38.270312)",
+        "poi_name": "Nature and Wildlife Discovery Center: River Campus",
+        "osm_id": 2506706989,
+        "leisure": "nature_reserve",
+        "website": "https://www.hikeandlearn.org",
+        "phone": "+1-719-549-2414",
+        "addr_state": "CO",
+        "addr_city": "Pueblo",
+        "addr_postcode": "81003",
+        "addr_street": "Nature Center Road",
+        "addr_housenumber": "5200"
+      }
+    }
+  },
+  "id": 2430,
+  "type": "knn+distance"
+}

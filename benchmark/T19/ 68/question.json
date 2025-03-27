@@ -1,0 +1,56 @@
+{
+  "question": "Where is the nearest fast food restaurant towards the southeast of Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 97922,
+      "geometry": "POINT (-89.684904 39.78926)",
+      "poi_name": "Little Caesars",
+      "osm_id": 6501102199,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Su 11:00-22:00",
+      "website": "https://littlecaesars.com/en-us/store/8245/",
+      "phone": "+1-217-522-3727",
+      "takeaway": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "South MacArthur Boulevard",
+      "addr_housenumber": "1614"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "poi": {
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1167,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "Where is the nearest indian restaurant available from Myers Memorial Arena, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%indian%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-99.742342 32.483135)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 197635,
+      "geometry": "POINT (-97.271555 32.893535)",
+      "poi_name": "SWAD Indian & Nepal Cuisine",
+      "osm_id": 10659598959,
+      "amenity": "restaurant",
+      "cuisine": "indian;nepalese",
+      "opening_hours": "Mo,We-Fr 11:00-14:30,16:30-21:00; Sa,Su 11:00-21:00",
+      "website": "https://swadindianfw.site/",
+      "phone": "+1-817-587-1575",
+      "addr_state": "TX",
+      "addr_city": "Fort Worth",
+      "addr_postcode": "76137",
+      "addr_street": "Sohi Drive",
+      "addr_housenumber": "8333"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "indian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%indian%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Myers Memorial Arena, TX",
+      "geo_wkt": "POINT (-99.742342 32.483135)",
+      "poi": {
+        "id": 265393,
+        "geometry": "POINT (-99.742342 32.483135)",
+        "poi_name": "Myers Memorial Arena",
+        "osm_id": 368165257,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 327,
+  "type": "knn:non_spat_filter+loc"
+}

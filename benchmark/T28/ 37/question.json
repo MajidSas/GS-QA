@@ -1,0 +1,33 @@
+{
+  "question": "What is the cumulative length of all rivers in Stevens County, Minnesota?",
+  "sql": "SELECT SUM(ST_Length(lakes.geometry::geography)) AS length FROM lakes\nWHERE waterway = 'river'\nAND ST_Intersects(lakes.geometry::geography, ST_GeomFromText('POLYGON ((-96.1185 45.413258, -95.745094 45.412216, -95.748314 45.584988, -95.757439 45.585293, -95.759445 45.759987, -96.254242 45.760906, -96.253548 45.586163, -96.242485 45.586388, -96.241249 45.41357, -96.1185 45.413258))',4326)::geography);\n",
+  "answers": [
+    {
+      "length": 1029.1671958874113
+    }
+  ],
+  "answer_type": "length",
+  "question_entities": {
+    "[1]": {
+      "main_category": "waterway",
+      "sub_category": "river",
+      "sub_category_label": "river",
+      "table": "lakes"
+    },
+    "[2]": {
+      "region_name": "Stevens County, Minnesota",
+      "geo_wkt": "POLYGON ((-96.1185 45.413258, -95.745094 45.412216, -95.748314 45.584988, -95.757439 45.585293, -95.759445 45.759987, -96.254242 45.760906, -96.253548 45.586163, -96.242485 45.586388, -96.241249 45.41357, -96.1185 45.413258))",
+      "region": {
+        "id": 27053,
+        "geometry": "POLYGON ((-96.1185 45.413258, -95.745094 45.412216, -95.748314 45.584988, -95.757439 45.585293, -95.759445 45.759987, -96.254242 45.760906, -96.253548 45.586163, -96.242485 45.586388, -96.241249 45.41357, -96.1185 45.413258))",
+        "region_name": "Stevens County",
+        "border_type": "county",
+        "wikidata": "Q490443",
+        "wikipedia": "en:Stevens County, Minnesota",
+        "admin_level": "6"
+      }
+    }
+  },
+  "id": 1536,
+  "type": "intersects:length_total+length"
+}

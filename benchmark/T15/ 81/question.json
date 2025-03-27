@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a garden to the northwest of Courtyard, Baltimore, MD within 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.599735 39.283445)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.599735 39.283445)',4326)::geography, 100000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 245708,
+      "geometry": "POINT (-76.599735 39.283445)",
+      "poi_name": "Memory Garden",
+      "osm_id": 3432403574,
+      "leisure": "garden",
+      "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21217",
+      "addr_street": "North Carey Street",
+      "addr_housenumber": "929"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Courtyard, Baltimore, MD",
+      "geo_wkt": "POINT (-76.599735 39.283445)",
+      "poi": {
+        "id": 2432,
+        "geometry": "POINT (-76.599735 39.283445)",
+        "poi_name": "Courtyard",
+        "osm_id": 3445777700,
+        "tourism": "hotel",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21202",
+        "addr_street": "Aliceanna Street",
+        "addr_housenumber": "1000"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 80,
+  "type": "range:direction+loc"
+}

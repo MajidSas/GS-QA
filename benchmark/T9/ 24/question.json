@@ -1,0 +1,47 @@
+{
+  "question": "Which nature reserve is nearest in the southwest direction from Caelum Gallery, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.004211 40.74998)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248377,
+      "geometry": "POINT (-74.004211 40.74998)",
+      "poi_name": "Negri-Nepote Native Grassland Preserve",
+      "osm_id": 4066151797,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Caelum Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.004211 40.74998)",
+      "poi": {
+        "id": 19653,
+        "geometry": "POINT (-74.004211 40.74998)",
+        "poi_name": "Caelum Gallery",
+        "osm_id": 10859974143,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Sa 12:00-18:00",
+        "website": "https://www.caelumgallery.com",
+        "phone": "+1-646-894-8565",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 26th Street",
+        "addr_housenumber": "526"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2523,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,75 @@
+{
+  "question": "Where's the nearest fast food restaurant heading towards New York Institute of Technology, New York, NY from Kasmin Gallery, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.00247 40.750406)',4326)::geography, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.00247 40.750406)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.00247 40.750406)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 95443,
+      "geometry": "POINT (-74.001115 40.752688)",
+      "poi_name": "Sweetgreen",
+      "osm_id": 6397326468,
+      "amenity": "fast_food",
+      "cuisine": "salad",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 10:30-21:00; Sa, Su 10:30-20:00",
+      "website": "https://order.sweetgreen.com/hudson-yards/menu",
+      "phone": "+1 646-832-4350",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10001",
+      "addr_street": "Hudson Yards",
+      "addr_housenumber": "10",
+      "value": 36.71362254635127
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Kasmin Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.00247 40.750406)",
+      "poi": {
+        "id": 19701,
+        "geometry": "POINT (-74.00247 40.750406)",
+        "poi_name": "Kasmin Gallery",
+        "osm_id": 10860703833,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://www.kasmingallery.com",
+        "phone": "+1-212-563-4474",
+        "wikidata": "Q28207019",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "10th Avenue",
+        "addr_housenumber": "297"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "poi": {
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1343,
+  "type": "knn:towards+loc"
+}

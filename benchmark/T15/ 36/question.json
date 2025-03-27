@@ -1,0 +1,53 @@
+{
+  "question": "Within a radius of 120 kilometers, where can I find a hotel towards the east of the University of Tennessee Health Science Center, Memphis, TN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography, 120000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 1198,
+      "geometry": "POINT (-90.031353 35.139317)",
+      "poi_name": "Residence Inn Memphis East",
+      "osm_id": 2888164707,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "official_name": "Residence Inn by Marriott",
+      "addr_city": "Memphis",
+      "addr_postcode": "38119",
+      "addr_street": "Old Poplar Pike",
+      "addr_housenumber": "6141"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 35,
+  "type": "range:direction+loc"
+}

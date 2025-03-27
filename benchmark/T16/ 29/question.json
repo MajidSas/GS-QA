@@ -1,0 +1,136 @@
+{
+  "question": "Within a radius of 100 kilometers, where can I find  a restaurant along the way to Allegany Allergy & Asthma, Cumberland, MD from Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography, ST_GeomFromText('POINT (-78.770304 39.651574)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography, 100000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 31687,
+      "geometry": "POINT (-78.928325 39.65773)",
+      "poi_name": "Toasted Goat",
+      "osm_id": 8441895870,
+      "amenity": "restaurant",
+      "phone": "+1 240 558 9463",
+      "addr_state": "MD",
+      "addr_city": "Frostburg",
+      "addr_postcode": "21532",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "11",
+      "value": 353.93935389083515
+    },
+    {
+      "id": 59534,
+      "geometry": "POINT (-78.757195 39.342687)",
+      "poi_name": "Romney Diner",
+      "osm_id": 5430452203,
+      "amenity": "restaurant",
+      "cuisine": "diner",
+      "addr_state": "WV",
+      "addr_city": "Romney",
+      "addr_postcode": "26757",
+      "addr_street": "North Marsham Street",
+      "addr_housenumber": "44",
+      "value": 353.93935389083515
+    },
+    {
+      "id": 103294,
+      "geometry": "POINT (-78.923893 39.655274)",
+      "poi_name": "Dedi's Kitchen",
+      "osm_id": 8493698114,
+      "amenity": "restaurant",
+      "addr_state": "MD",
+      "addr_city": "Frostburg",
+      "addr_postcode": "21532",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "167",
+      "value": 353.93935389083515
+    },
+    {
+      "id": 97465,
+      "geometry": "POINT (-78.762033 39.651294)",
+      "poi_name": "City Lights",
+      "osm_id": 6481187912,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "phone": "+1 301 722 9800",
+      "addr_state": "MD",
+      "addr_city": "Cumberland",
+      "addr_postcode": "21502",
+      "addr_street": "Baltimore Street",
+      "addr_housenumber": "59",
+      "value": 353.93935389083515
+    },
+    {
+      "id": 237690,
+      "geometry": "POINT (-78.834283 39.637836)",
+      "poi_name": "Rio Grande Mexican Restaurant",
+      "osm_id": 5843255239,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+      "website": "https://www.riograndecumberland.com/",
+      "phone": "+1-240-362-7311",
+      "addr_state": "MD",
+      "addr_city": "Cumberland",
+      "addr_postcode": "21502",
+      "addr_street": "National Highway",
+      "addr_housenumber": "1217",
+      "value": 353.93935389083515
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA",
+      "geo_wkt": "POINT (-78.658874 38.840265)",
+      "poi": {
+        "id": 9965,
+        "geometry": "POINT (-78.658874 38.840265)",
+        "poi_name": "Heavenly Heart Farm & Mini Petting Zoo",
+        "osm_id": 9081274336,
+        "description": "Traveling petting zoo, open on location for special events or by appointment. Contact via email or phone for details.",
+        "tourism": "zoo",
+        "fee": "yes",
+        "website": "https://www.heavenlyheartfarmandminipettingzoo.com/",
+        "phone": "+1 540 984 3925",
+        "zoo": "petting_zoo",
+        "addr_state": "VA",
+        "addr_city": "Edinburg",
+        "addr_postcode": "22824",
+        "addr_street": "Swover Creek Road",
+        "addr_housenumber": "3795"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Allegany Allergy & Asthma, Cumberland, MD",
+      "geo_wkt": "POINT (-78.770304 39.651574)",
+      "poi": {
+        "id": 211485,
+        "geometry": "POINT (-78.770304 39.651574)",
+        "poi_name": "Allegany Allergy & Asthma",
+        "osm_id": 5159850811,
+        "amenity": "hospital",
+        "phone": "+1 (301) 777-3300",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "MD",
+        "addr_city": "Cumberland",
+        "addr_postcode": "21502",
+        "addr_street": "Washington Street",
+        "addr_housenumber": "301"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1228,
+  "type": "range:towards+loc"
+}

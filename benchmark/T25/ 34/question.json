@@ -1,0 +1,85 @@
+{
+  "question": "How distant can I find a viewpoint positioned from Midtown Club, Summerville, sc within 110 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-80.123973 33.078456)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.123973 33.078456)',4326)::geography, 110000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 3376,
+      "geometry": "POINT (-79.929232 32.777837)",
+      "poi_name": "Douxsaint house",
+      "osm_id": 5385574385,
+      "tourism": "viewpoint",
+      "distance": 37990.42828405
+    },
+    {
+      "id": 7261,
+      "geometry": "POINT (-80.817837 33.821659)",
+      "poi_name": "Weston Lake Overlook",
+      "osm_id": 2030934985,
+      "tourism": "viewpoint",
+      "distance": 104673.41713065
+    },
+    {
+      "id": 8816,
+      "geometry": "POINT (-80.030832 32.829612)",
+      "poi_name": "Utilities Substation (No Parking)",
+      "osm_id": 3532005257,
+      "tourism": "viewpoint",
+      "distance": 28939.16220484
+    },
+    {
+      "id": 20315,
+      "geometry": "POINT (-80.485674 32.321325)",
+      "poi_name": "Two swings with marsh view",
+      "osm_id": 1079077807,
+      "tourism": "viewpoint",
+      "distance": 90556.15753217
+    },
+    {
+      "id": 20326,
+      "geometry": "POINT (-80.501278 32.307678)",
+      "poi_name": "View of Skull Inlet",
+      "osm_id": 1089367769,
+      "tourism": "viewpoint",
+      "distance": 92511.6858485
+    },
+    {
+      "id": 20344,
+      "geometry": "POINT (-80.67027 32.452326)",
+      "poi_name": "Pigeon Point Boat Landing",
+      "osm_id": 1103223477,
+      "tourism": "viewpoint",
+      "distance": 86265.64660725
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Midtown Club, Summerville, sc",
+      "geo_wkt": "POINT (-80.123973 33.078456)",
+      "poi": {
+        "id": 266843,
+        "geometry": "POINT (-80.123973 33.078456)",
+        "poi_name": "Midtown Club",
+        "osm_id": 11030489893,
+        "leisure": "park",
+        "addr_state": "sc",
+        "addr_city": "Summerville",
+        "addr_postcode": "29486",
+        "addr_street": "Midtown Ave",
+        "addr_housenumber": "165"
+      }
+    }
+  },
+  "id": 733,
+  "type": "range+distance"
+}

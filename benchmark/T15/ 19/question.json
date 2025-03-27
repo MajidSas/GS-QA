@@ -1,0 +1,56 @@
+{
+  "question": "Where can I find a stadium located within 170 kilometers in the direction of north from MTSU Student Services and Admissions Center, Murfreesboro, TN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.359252 35.847932)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.359252 35.847932)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 267102,
+      "geometry": "POINT (-86.359252 35.847932)",
+      "poi_name": "Bowling Green Ballpark",
+      "osm_id": 4514482625,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "wikidata": "Q4951144",
+      "addr_state": "KY",
+      "addr_city": "Bowling Green",
+      "addr_postcode": "42101",
+      "addr_street": "East 8th Avenue",
+      "addr_housenumber": "300"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "MTSU Student Services and Admissions Center, Murfreesboro, TN",
+      "geo_wkt": "POINT (-86.359252 35.847932)",
+      "poi": {
+        "id": 125319,
+        "geometry": "POINT (-86.359252 35.847932)",
+        "poi_name": "MTSU Student Services and Admissions Center",
+        "osm_id": 6955109243,
+        "amenity": "university",
+        "internet_access": "wlan",
+        "addr_state": "TN",
+        "addr_city": "Murfreesboro",
+        "addr_postcode": "37132-0001",
+        "addr_street": "Blue Raider Drive",
+        "addr_housenumber": "1860"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 18,
+  "type": "range:direction+loc"
+}

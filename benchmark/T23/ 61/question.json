@@ -1,0 +1,36 @@
+{
+  "question": "What's the quantity of attractions that can be found within a 130 kilometers distance from Bonner Arnold Coliseum, MS?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography, 130000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "count": 5
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bonner Arnold Coliseum, MS",
+      "geo_wkt": "POINT (-88.56394 34.66815)",
+      "poi": {
+        "id": 265364,
+        "geometry": "POINT (-88.56394 34.66815)",
+        "poi_name": "Bonner Arnold Coliseum",
+        "osm_id": 367134883,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    }
+  },
+  "id": 2260,
+  "type": "range+count"
+}

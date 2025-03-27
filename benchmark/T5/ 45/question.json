@@ -1,0 +1,47 @@
+{
+  "question": "Could you tell me the closest caf\u00e9 relative to Hilton Garden Inn Phoenix Midtown, Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.075192 33.49258)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 85683,
+      "geometry": "POINT (-112.074125 33.500458)",
+      "poi_name": "Lux Central",
+      "osm_id": 1887749279,
+      "amenity": "cafe",
+      "wheelchair": "limited",
+      "internet_access": "wlan",
+      "outdoor_seating": "yes",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_street": "North Central Avenue",
+      "addr_housenumber": "4240"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn Phoenix Midtown, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.075192 33.49258)",
+      "poi": {
+        "id": 13402,
+        "geometry": "POINT (-112.075192 33.49258)",
+        "poi_name": "Hilton Garden Inn Phoenix Midtown",
+        "osm_id": 4095017712,
+        "tourism": "hotel",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85012",
+        "addr_street": "North Central Avenue",
+        "addr_housenumber": "4000"
+      }
+    }
+  },
+  "id": 244,
+  "type": "knn+name"
+}

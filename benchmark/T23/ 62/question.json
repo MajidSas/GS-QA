@@ -1,0 +1,41 @@
+{
+  "question": "Within a 140 kilometers radius from Humboldt Botanical Garden, Eureka, CA, how many caf\u00e9s are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography, 140000)\nAND amenity = 'cafe';\n",
+  "answers": [
+    {
+      "count": 35
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Humboldt Botanical Garden, Eureka, CA",
+      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "poi": {
+        "id": 266946,
+        "geometry": "POINT (-124.203982 40.700941)",
+        "poi_name": "Humboldt Botanical Garden",
+        "osm_id": 11161511489,
+        "leisure": "garden",
+        "website": "https://www.hbgf.org/",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95503",
+        "addr_street": "Tompkins Hill Road",
+        "addr_housenumber": "7707"
+      }
+    }
+  },
+  "id": 2261,
+  "type": "range+count"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "What is the closest museum in the north direction of Wolcott Mill Metropark Historic Center Entrance, Ray, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.941175 42.768664)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11040,
+      "geometry": "POINT (-82.941175 42.768664)",
+      "poi_name": "Pigeon Historical Society",
+      "osm_id": 9830482857,
+      "tourism": "museum",
+      "museum": "history"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Wolcott Mill Metropark Historic Center Entrance, Ray, MI",
+      "geo_wkt": "POINT (-82.941175 42.768664)",
+      "poi": {
+        "id": 24374,
+        "geometry": "POINT (-82.941175 42.768664)",
+        "poi_name": "Wolcott Mill Metropark Historic Center Entrance",
+        "osm_id": 11027903028,
+        "tourism": "attraction",
+        "operator": "Huron-Clinton Metroparks",
+        "addr_state": "MI",
+        "addr_city": "Ray",
+        "addr_postcode": "48096",
+        "addr_street": "Kunstman Road",
+        "addr_housenumber": "64162"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2577,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "What's the closest viewpoint located in the northwest direction starting from the Villages High School Stadium, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.017586 28.924429)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 208,
+      "geometry": "POINT (-82.017586 28.924429)",
+      "poi_name": "River Sink Overlook",
+      "osm_id": 486156860,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "The Villages High School Stadium, FL",
+      "geo_wkt": "POINT (-82.017586 28.924429)",
+      "poi": {
+        "id": 265381,
+        "geometry": "POINT (-82.017586 28.924429)",
+        "poi_name": "The Villages High School Stadium",
+        "osm_id": 367826915,
+        "leisure": "stadium",
+        "sport": "football",
+        "addr_state": "FL"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2568,
+  "type": "knn:direction+name"
+}

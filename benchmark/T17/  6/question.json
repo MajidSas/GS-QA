@@ -1,0 +1,49 @@
+{
+  "question": "Can you point me to the nearest fast food restaurant from Shavers Creek Environmental Center, Petersburg, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 144685,
+      "geometry": "POINT (-77.878325 40.76085)",
+      "poi_name": "Lupita's Authentic Mexican Food",
+      "osm_id": 7280666239,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "phone": "+1-814-954-8768",
+      "addr_state": "PA",
+      "addr_city": "State College",
+      "addr_postcode": "16801",
+      "addr_street": "West College Avenue",
+      "addr_housenumber": "3180"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
+      "poi": {
+        "id": 2748,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
+      }
+    }
+  },
+  "id": 1805,
+  "type": "knn+loc"
+}

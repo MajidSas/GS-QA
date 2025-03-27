@@ -1,0 +1,43 @@
+{
+  "question": "What's the nearest gallery near Charlotte's Quest Nature Center, Manchester, MD?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 19707,
+      "geometry": "POINT (-76.618525 39.411969)",
+      "poi_name": "Towson Arts Collective",
+      "osm_id": 10861359664,
+      "tourism": "gallery",
+      "addr_street": "Kenilworth Drive",
+      "addr_housenumber": "800"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
+      "poi": {
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
+        "leisure": "nature_reserve",
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
+      }
+    }
+  },
+  "id": 284,
+  "type": "knn+name"
+}

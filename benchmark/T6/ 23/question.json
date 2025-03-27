@@ -1,0 +1,48 @@
+{
+  "question": "What's the nearest history museum situated from Shoals Marine Laboratory, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.61465 42.987327)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 15724,
+      "geometry": "POINT (-70.887253 42.521719)",
+      "poi_name": "Public Stores",
+      "osm_id": 9480875854,
+      "historic": "maritime",
+      "description": "It was used by the U.S. Customs Service to hold cargo for merchants until they were able to pay the duties on their goods. Cargo came into Salem in barrels, crates, bags, and chests.",
+      "tourism": "museum",
+      "building": "yes",
+      "operator": "Salem National Historic Site",
+      "museum": "history",
+      "addr_state": "MA",
+      "addr_city": "Salem",
+      "addr_postcode": "01970",
+      "addr_street": "Derby Street"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Shoals Marine Laboratory, ME",
+      "geo_wkt": "POINT (-70.61465 42.987327)",
+      "poi": {
+        "id": 168199,
+        "geometry": "POINT (-70.61465 42.987327)",
+        "poi_name": "Shoals Marine Laboratory",
+        "osm_id": 367795025,
+        "amenity": "university",
+        "wikidata": "Q7499746",
+        "addr_state": "ME"
+      }
+    }
+  },
+  "id": 622,
+  "type": "knn:non_spat_filter+name"
+}

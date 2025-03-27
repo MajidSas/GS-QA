@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find the nearest pizza restaurant from University of South Carolina Beaufort - Bluffton campus, Bluffton, SC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%pizza%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.973603 32.303243)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 72166,
+      "geometry": "POINT (-80.800925 32.131252)",
+      "poi_name": "Guispeppi's Pizza",
+      "osm_id": 11415344585,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "SC",
+      "addr_city": "Hilton Head Island",
+      "addr_postcode": "29928",
+      "addr_street": "Lighthouse Road",
+      "addr_housenumber": "71"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "pizza restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%pizza%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of South Carolina Beaufort - Bluffton campus, Bluffton, SC",
+      "geo_wkt": "POINT (-80.973603 32.303243)",
+      "poi": {
+        "id": 217111,
+        "geometry": "POINT (-80.973603 32.303243)",
+        "poi_name": "University of South Carolina Beaufort - Bluffton campus",
+        "osm_id": 9205449468,
+        "amenity": "university",
+        "addr_state": "SC",
+        "addr_city": "Bluffton",
+        "addr_postcode": "29909",
+        "addr_street": "University Boulevard",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 345,
+  "type": "knn:non_spat_filter+loc"
+}

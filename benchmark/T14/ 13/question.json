@@ -1,0 +1,57 @@
+{
+  "question": "Is it possible to locate an emergency hospital, preferably within 40 kilometers from Hilton Garden Inn, Toledo, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.536135 41.648728)',4326)::geography, 40000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 231220,
+      "geometry": "POINT (-83.721983 41.674958)",
+      "poi_name": "Mercy Health Sylvania Medical Center",
+      "osm_id": 4459970689,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Mercy Health",
+      "website": "https://www.mercy.com/toledo/locations/medical-centers/mercy-health-sylvania-medical-center",
+      "phone": "+1 567 455 5800",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Sylvania",
+      "addr_postcode": "43560",
+      "addr_street": "King Road",
+      "addr_housenumber": "3100"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn, Toledo, OH",
+      "geo_wkt": "POINT (-83.536135 41.648728)",
+      "poi": {
+        "id": 12306,
+        "geometry": "POINT (-83.536135 41.648728)",
+        "poi_name": "Hilton Garden Inn",
+        "osm_id": 6293258539,
+        "tourism": "hotel",
+        "internet_access": "yes",
+        "addr_state": "OH",
+        "addr_city": "Toledo",
+        "addr_postcode": "43604",
+        "addr_street": "North Summit Street",
+        "addr_housenumber": "101"
+      }
+    }
+  },
+  "id": 412,
+  "type": "range:non_spat_filter+loc"
+}

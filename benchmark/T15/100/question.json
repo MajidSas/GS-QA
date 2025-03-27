@@ -1,0 +1,56 @@
+{
+  "question": "Within a radius of 180 kilometers, where can I find a viewpoint towards the northeast of Brown's Farm Barn, Fairview, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.172179 42.046723)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.172179 42.046723)',4326)::geography, 180000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 241,
+      "geometry": "POINT (-80.172179 42.046723)",
+      "poi_name": "Glenhill Farmhouse",
+      "osm_id": 8255522795,
+      "tourism": "viewpoint",
+      "opening_hours": "Mo-Fr 08:00-17:00",
+      "operator": "Penn State Behrend",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16563",
+      "addr_street": "College Drive",
+      "addr_housenumber": "4701"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Brown's Farm Barn, Fairview, PA",
+      "geo_wkt": "POINT (-80.172179 42.046723)",
+      "poi": {
+        "id": 267523,
+        "geometry": "POINT (-80.172179 42.046723)",
+        "poi_name": "Brown's Farm Barn",
+        "osm_id": 7620791993,
+        "leisure": "nature_reserve",
+        "operator": "Millcreek Township",
+        "addr_state": "PA",
+        "addr_city": "Fairview",
+        "addr_postcode": "16415",
+        "addr_street": "Sterrettania Road",
+        "addr_housenumber": "5774"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 99,
+  "type": "range:direction+loc"
+}

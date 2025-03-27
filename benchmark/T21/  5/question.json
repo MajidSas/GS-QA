@@ -1,0 +1,41 @@
+{
+  "question": "In which direction should I proceed to reach a beach resort from Rock Creek Recreation Site, OR within 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.930337 43.397966)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.930337 43.397966)',4326)::geography, 160000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 247731,
+      "geometry": "POINT (-124.367756 43.138986)",
+      "poi_name": "NorWinJa",
+      "osm_id": 8224979807,
+      "leisure": "beach_resort",
+      "angle": 256.6430599632778
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rock Creek Recreation Site, OR",
+      "geo_wkt": "POINT (-122.930337 43.397966)",
+      "poi": {
+        "id": 253946,
+        "geometry": "POINT (-122.930337 43.397966)",
+        "poi_name": "Rock Creek Recreation Site",
+        "osm_id": 357297916,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1004,
+  "type": "range+angle"
+}

@@ -1,0 +1,65 @@
+{
+  "question": "Where can I find a nature reserve towards the southwest of Radcliffe Institute for Advanced Studies, MA within 60 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.122317 42.376159)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.122317 42.376159)',4326)::geography, 60000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 246987,
+      "geometry": "POINT (-71.122317 42.376159)",
+      "poi_name": "Cassidy Farm Conservation Land",
+      "osm_id": 8514477080,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Millis Conservation Commission",
+      "addr_state": "MA",
+      "addr_city": "Millis",
+      "addr_postcode": "02054",
+      "addr_street": "Exchange Street",
+      "addr_housenumber": "433"
+    },
+    {
+      "id": 246989,
+      "geometry": "POINT (-71.122317 42.376159)",
+      "poi_name": "Dewey Farm Conservation Land",
+      "osm_id": 8514570141,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Millis Conservation Commission",
+      "addr_state": "MA",
+      "addr_city": "Millis",
+      "addr_postcode": "02054",
+      "addr_street": "Orchard Street"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Radcliffe Institute for Advanced Studies, MA",
+      "geo_wkt": "POINT (-71.122317 42.376159)",
+      "poi": {
+        "id": 70992,
+        "geometry": "POINT (-71.122317 42.376159)",
+        "poi_name": "Radcliffe Institute for Advanced Studies",
+        "osm_id": 11378728082,
+        "amenity": "university",
+        "wikidata": "Q7280030",
+        "addr_state": "MA"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 32,
+  "type": "range:direction+loc"
+}

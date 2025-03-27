@@ -1,0 +1,48 @@
+{
+  "question": "Where is the nearest university towards the southwest of Ezekiel Cullen Home Museum, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.108251 31.52907)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 30759,
+      "geometry": "POINT (-94.108251 31.52907)",
+      "poi_name": "George R. Brown School of Engineering",
+      "osm_id": 8379958482,
+      "amenity": "university",
+      "website": "https://engineering.rice.edu/",
+      "phone": "+1-713-348-4955",
+      "wikidata": "Q5543612",
+      "addr_state": "TX",
+      "addr_city": "Houston",
+      "addr_postcode": "77005",
+      "addr_street": "Main Street",
+      "addr_housenumber": "6100"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Ezekiel Cullen Home Museum, TX",
+      "geo_wkt": "POINT (-94.108251 31.52907)",
+      "poi": {
+        "id": 18073,
+        "geometry": "POINT (-94.108251 31.52907)",
+        "poi_name": "Ezekiel Cullen Home Museum",
+        "osm_id": 368165527,
+        "tourism": "museum",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 1135,
+  "type": "knn:direction+loc"
+}

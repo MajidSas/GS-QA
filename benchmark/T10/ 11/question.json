@@ -1,0 +1,65 @@
+{
+  "question": "Which hotel is closest along the route to Lovely Bride, Scottsdale, AZ from the Potted Plant Inc., Scottsdale, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, ST_GeomFromText('POINT (-111.927183 33.49292)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13416,
+      "geometry": "POINT (-111.918023 33.621787)",
+      "poi_name": "BEST WESTERN PLUS Scottsdale Thunderbird Suites",
+      "osm_id": 4095415192,
+      "tourism": "hotel",
+      "addr_state": "AZ",
+      "addr_city": "Scottsdale",
+      "addr_postcode": "85260",
+      "addr_street": "East Butherus Drive",
+      "addr_housenumber": "7515",
+      "value": 182.23387540016418
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.920729 33.631545)",
+      "poi": {
+        "id": 247645,
+        "geometry": "POINT (-111.920729 33.631545)",
+        "poi_name": "The Potted Plant Inc.",
+        "osm_id": 8008054008,
+        "leisure": "garden",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85260",
+        "addr_street": "North Dial Boulevard",
+        "addr_housenumber": "16055"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Lovely Bride, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.927183 33.49292)",
+      "poi": {
+        "id": 23406,
+        "geometry": "POINT (-111.927183 33.49292)",
+        "poi_name": "Lovely Bride",
+        "osm_id": 5173662907,
+        "tourism": "attraction",
+        "shop": "clothes",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85251",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "7155"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 110,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "What's the distance to the closest caf\u00e9 in reference to Five Wells Roping Rodeo Arena, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 162586,
+      "geometry": "POINT (-97.385028 31.057012)",
+      "poi_name": "Daddy",
+      "osm_id": 4936216222,
+      "amenity": "cafe",
+      "addr_postcode": "76502",
+      "addr_street": "Buckskin Trail",
+      "addr_housenumber": "4815",
+      "distance": 7049.07180633
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Five Wells Roping Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "poi": {
+        "id": 265394,
+        "geometry": "POINT (-97.402227 30.995182)",
+        "poi_name": "Five Wells Roping Rodeo Arena",
+        "osm_id": 368165371,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 2495,
+  "type": "knn+distance"
+}

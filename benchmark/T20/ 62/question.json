@@ -1,0 +1,64 @@
+{
+  "question": "Where's the closest restaurant located en route to J P Riddle Stadium, Fayetteville, NC from Strickland Art Gallery, Selma, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography, ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 120397,
+      "geometry": "POINT (-78.286642 35.534184)",
+      "poi_name": "My Casa Hispano Restaurant",
+      "osm_id": 6701077669,
+      "amenity": "restaurant",
+      "addr_city": "Selma",
+      "addr_postcode": "27576",
+      "addr_street": "South Pollock Street",
+      "addr_housenumber": "302",
+      "value": 224.43843736607866
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Strickland Art Gallery, Selma, NC",
+      "geo_wkt": "POINT (-78.283565 35.53543)",
+      "poi": {
+        "id": 4984,
+        "geometry": "POINT (-78.283565 35.53543)",
+        "poi_name": "Strickland Art Gallery",
+        "osm_id": 9707094897,
+        "tourism": "gallery",
+        "phone": "Strickland Art Gallery",
+        "addr_state": "NC",
+        "addr_city": "Selma",
+        "addr_postcode": "27576",
+        "addr_street": "South Raiford Street",
+        "addr_housenumber": "115"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
+      "poi": {
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
+        "leisure": "stadium",
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1361,
+  "type": "knn:towards+loc"
+}

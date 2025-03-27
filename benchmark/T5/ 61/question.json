@@ -1,0 +1,41 @@
+{
+  "question": "Any recommendations for the closest viewpoint from Courtyard, Los Angeles, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.265787 34.045787)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25934,
+      "geometry": "POINT (-118.242673 34.05388)",
+      "poi_name": "City Hall Observation Deck",
+      "osm_id": 5745696621,
+      "tourism": "viewpoint",
+      "fee": "no"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Courtyard, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.265787 34.045787)",
+      "poi": {
+        "id": 7955,
+        "geometry": "POINT (-118.265787 34.045787)",
+        "poi_name": "Courtyard",
+        "osm_id": 6486380556,
+        "tourism": "hotel",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_street": "West Olympic Boulevard",
+        "addr_housenumber": "901"
+      }
+    }
+  },
+  "id": 260,
+  "type": "knn+name"
+}

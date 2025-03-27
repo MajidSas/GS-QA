@@ -1,0 +1,70 @@
+{
+  "question": "What's the closest fast food in the direction of Luthy Botanical Garden, Peoria, IL from Blackthorn Hill Nature Preserve, Alexis, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography, ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 119819,
+      "geometry": "POINT (-90.383767 40.967493)",
+      "poi_name": "Subway",
+      "osm_id": 9123360400,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "IL",
+      "addr_city": "Galesburg",
+      "addr_postcode": "61401",
+      "addr_street": "North Henderson Street",
+      "value": 112.82013757694597
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Blackthorn Hill Nature Preserve, Alexis, IL",
+      "geo_wkt": "POINT (-90.473362 41.009491)",
+      "poi": {
+        "id": 267584,
+        "geometry": "POINT (-90.473362 41.009491)",
+        "poi_name": "Blackthorn Hill Nature Preserve",
+        "osm_id": 7728102374,
+        "leisure": "nature_reserve",
+        "website": "https://www.blackthornhill.org/",
+        "addr_state": "IL",
+        "addr_city": "Alexis",
+        "addr_postcode": "61412",
+        "addr_street": "Angling Rd - County Highway 4",
+        "addr_housenumber": "1590"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
+      "poi": {
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 115,
+  "type": "knn:towards+name"
+}

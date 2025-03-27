@@ -1,0 +1,49 @@
+{
+  "question": "When was the nearest museum from Troll Bridge, Portland, OR established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.848267 45.647307)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1280,
+      "geometry": "POINT (-122.674644 45.560518)",
+      "poi_name": "Portland Museum of Modern Art",
+      "osm_id": 2924967041,
+      "tourism": "museum",
+      "wikidata": "Q62572135",
+      "addr_state": "OR",
+      "addr_city": "Portland",
+      "addr_postcode": "97217",
+      "addr_street": "North Sumner Street",
+      "addr_housenumber": "5204",
+      "multihop_answer": "2012",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Portland Museum of Modern Art Established: 2012"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Troll Bridge, Portland, OR",
+      "geo_wkt": "POINT (-122.848267 45.647307)",
+      "poi": {
+        "id": 567,
+        "geometry": "POINT (-122.848267 45.647307)",
+        "poi_name": "Troll Bridge",
+        "osm_id": 8447034730,
+        "tourism": "attraction",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97231",
+        "addr_street": "Northwest McNamee Road",
+        "addr_housenumber": "16498"
+      }
+    }
+  },
+  "id": 972,
+  "type": "knn+name+multihop1"
+}

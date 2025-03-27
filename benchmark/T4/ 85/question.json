@@ -1,0 +1,71 @@
+{
+  "question": "Which museum is available towards the University of Tennessee Health Science Center, Memphis, TN within 70 kilometers from Arkansas Continued Care Hospital Of Jonesboro, Jonesboro, AR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.666568 35.808393)',4326)::geography, ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.666568 35.808393)',4326)::geography, 70000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.666568 35.808393)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 8060,
+      "geometry": "POINT (-90.330708 35.611311)",
+      "poi_name": "Lepanto Museum",
+      "osm_id": 6541068492,
+      "tourism": "museum",
+      "website": "https://www.arkansas.com/lepanto/attractions-culture/museum-lepanto-usa",
+      "addr_state": "AR",
+      "addr_city": "Lepanto",
+      "addr_postcode": "72354",
+      "addr_street": "Greenwood Avenue",
+      "addr_housenumber": "310",
+      "value": 141.98155426566134
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Arkansas Continued Care Hospital Of Jonesboro, Jonesboro, AR",
+      "geo_wkt": "POINT (-90.666568 35.808393)",
+      "poi": {
+        "id": 181778,
+        "geometry": "POINT (-90.666568 35.808393)",
+        "poi_name": "Arkansas Continued Care Hospital Of Jonesboro",
+        "osm_id": 10863818038,
+        "amenity": "hospital",
+        "website": "https://arkansascontinuedcarehospital.com",
+        "phone": "+1 870 819 4040",
+        "healthcare": "hospital",
+        "addr_state": "AR",
+        "addr_city": "Jonesboro",
+        "addr_postcode": "72401-7415",
+        "addr_street": "Red Wolf Boulevard",
+        "addr_housenumber": "3024"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1684,
+  "type": "range:towards+name"
+}

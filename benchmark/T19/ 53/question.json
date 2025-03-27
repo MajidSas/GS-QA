@@ -1,0 +1,46 @@
+{
+  "question": "Where's the closest gallery positioned towards the southeast of Attala County Coliseum, MS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.577528 33.067521)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23712,
+      "geometry": "POINT (-89.577528 33.067521)",
+      "poi_name": "Quayside Art Gallery",
+      "osm_id": 5283052163,
+      "tourism": "gallery",
+      "fee": "no",
+      "addr_state": "FL",
+      "addr_city": "Pensacola",
+      "addr_postcode": "32502",
+      "addr_street": "East Zarragossa Street",
+      "addr_housenumber": "17"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Attala County Coliseum, MS",
+      "geo_wkt": "POINT (-89.577528 33.067521)",
+      "poi": {
+        "id": 265363,
+        "geometry": "POINT (-89.577528 33.067521)",
+        "poi_name": "Attala County Coliseum",
+        "osm_id": 367134880,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1152,
+  "type": "knn:direction+loc"
+}

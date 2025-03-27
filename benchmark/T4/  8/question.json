@@ -1,0 +1,113 @@
+{
+  "question": "Which restaurant is available when approaching Jeffersonville Overlook, Jeffersonville, IN within 30 kilometers from Shechem Ministries, Lawrenceburg, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, ST_GeomFromText('POINT (-85.738574 38.26945)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 30000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 237445,
+      "geometry": "POINT (-85.265667 38.201288)",
+      "poi_name": "Asian Buffet",
+      "osm_id": 5832382453,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "KY",
+      "addr_city": "Shelbyville",
+      "addr_postcode": "40065",
+      "addr_street": "Howard Drive",
+      "addr_housenumber": "89",
+      "value": 293.3036754935588
+    },
+    {
+      "id": 54158,
+      "geometry": "POINT (-85.366472 38.097267)",
+      "poi_name": "Parks Place Restaurant 5.0",
+      "osm_id": 10119249109,
+      "amenity": "restaurant",
+      "value": 293.3036754935588
+    },
+    {
+      "id": 142349,
+      "geometry": "POINT (-85.340484 38.042473)",
+      "poi_name": "Snappy Tomato Pizza",
+      "osm_id": 6311943098,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su 12:00-21:00, Mo 11:00-21:00, Tu-Fr 11:00-22:00",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "KY",
+      "addr_city": "Taylorsville",
+      "addr_postcode": "40071",
+      "addr_street": "Taylorsville Road",
+      "addr_housenumber": "793",
+      "value": 293.3036754935588
+    },
+    {
+      "id": 114161,
+      "geometry": "POINT (-85.263332 38.211335)",
+      "poi_name": "Fire Fresh BBQ",
+      "osm_id": 3869651011,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "value": 293.3036754935588
+    },
+    {
+      "id": 232480,
+      "geometry": "POINT (-85.266279 38.202423)",
+      "poi_name": "Waffle House",
+      "osm_id": 4526851079,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "opening_hours": "24/7",
+      "value": 293.3036754935588
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Jeffersonville Overlook, Jeffersonville, IN",
+      "geo_wkt": "POINT (-85.738574 38.26945)",
+      "poi": {
+        "id": 2423,
+        "geometry": "POINT (-85.738574 38.26945)",
+        "poi_name": "Jeffersonville Overlook",
+        "osm_id": 3443754881,
+        "tourism": "attraction",
+        "operator": "Jeffersonville",
+        "addr_state": "IN",
+        "addr_city": "Jeffersonville",
+        "addr_postcode": "47130",
+        "addr_street": "Spring Street"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1607,
+  "type": "range:towards+name"
+}

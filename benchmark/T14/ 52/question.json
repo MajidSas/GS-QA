@@ -1,0 +1,62 @@
+{
+  "question": "Could you locate a japanese ramen place available within an 80 kilometers radius originating from 3 Palms Zoo & Education Center, Townsend, DE?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, 80000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%japanese_ramen%';\n",
+  "answers": [
+    {
+      "id": 208646,
+      "geometry": "POINT (-76.582464 39.282067)",
+      "poi_name": "Katana Sushi",
+      "osm_id": 5000345537,
+      "amenity": "restaurant",
+      "cuisine": "sushi;japanese;ramen",
+      "opening_hours": "Mo-Th 11:00-22:00; Fr,Sa 11:00-23:00; Su 12:00-21:30",
+      "website": "http://www.katanabaltimore.com/",
+      "phone": "+1-410-522-7100",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21224",
+      "addr_street": "South Montford Avenue",
+      "addr_housenumber": "845"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "japanese ramen place",
+      "poi_filter_sql": "cuisine ILIKE '%japanese_ramen%'"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
+      "geo_wkt": "POINT (-75.695391 39.329473)",
+      "poi": {
+        "id": 9742,
+        "geometry": "POINT (-75.695391 39.329473)",
+        "poi_name": "3 Palms Zoo & Education Center",
+        "osm_id": 8969296347,
+        "tourism": "zoo",
+        "wheelchair": "limited",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-15:00",
+        "operator": "3 Palms Zoo LLC",
+        "website": "https://3palmszoo.org",
+        "phone": "+1 302-504-6500",
+        "zoo": "petting_zoo",
+        "addr_state": "DE",
+        "addr_city": "Townsend",
+        "addr_postcode": "19734",
+        "addr_street": "Vandyke Greenspring Road",
+        "addr_housenumber": "1060"
+      }
+    }
+  },
+  "id": 451,
+  "type": "range:non_spat_filter+loc"
+}

@@ -1,0 +1,64 @@
+{
+  "question": "What gallery is positioned towards the west of Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO within 60 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography, 60000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 19590,
+      "geometry": "POINT (-104.799593 38.839378)",
+      "poi_name": "surface gallery",
+      "osm_id": 10822781665,
+      "tourism": "gallery",
+      "addr_state": "CO",
+      "addr_city": "Colorado Springs",
+      "addr_postcode": "80904",
+      "addr_street": "West Colorado Avenue",
+      "addr_housenumber": "2752"
+    },
+    {
+      "id": 9899,
+      "geometry": "POINT (-104.799593 38.839378)",
+      "poi_name": "The Michael Garman Museum & Gallery",
+      "osm_id": 9049229773,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO",
+      "geo_wkt": "POINT (-104.799593 38.839378)",
+      "poi": {
+        "id": 46387,
+        "geometry": "POINT (-104.799593 38.839378)",
+        "poi_name": "Children's Hospital Colorado at Memorial Hospital",
+        "osm_id": 3262037034,
+        "amenity": "hospital",
+        "website": "https://www.childrenscolorado.org/about/locations/colorado-springs/memorial-hospital-central",
+        "phone": "+1-719-365-5000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Colorado Springs",
+        "addr_postcode": "80909",
+        "addr_street": "East Boulder Street",
+        "addr_housenumber": "1400"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2610,
+  "type": "range:direction+name"
+}

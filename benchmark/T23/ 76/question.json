@@ -1,0 +1,41 @@
+{
+  "question": "Could you provide me with the number of museums within a 130 kilometers radius from Whitefish Community Garden, Whitefish, MT?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-114.343403 48.426323)',4326)::geography, 130000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 9
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitefish Community Garden, Whitefish, MT",
+      "geo_wkt": "POINT (-114.343403 48.426323)",
+      "poi": {
+        "id": 247141,
+        "geometry": "POINT (-114.343403 48.426323)",
+        "poi_name": "Whitefish Community Garden",
+        "osm_id": 3628015925,
+        "leisure": "garden",
+        "website": "http://www.whitefishcommunitygarden.net/",
+        "addr_state": "MT",
+        "addr_city": "Whitefish",
+        "addr_postcode": "59937",
+        "addr_street": "Glenwood Road",
+        "addr_housenumber": "509"
+      }
+    }
+  },
+  "id": 2275,
+  "type": "range+count"
+}

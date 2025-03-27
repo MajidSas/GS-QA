@@ -1,0 +1,57 @@
+{
+  "question": "Where can I find a fast food restaurant to the southwest of Catskill Mountain Lodge, Palenville, NY within 50 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography, 50000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 145107,
+      "geometry": "POINT (-74.009838 42.163279)",
+      "poi_name": "Hong Kong Chinese Restaurant",
+      "osm_id": 7313772776,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "opening_hours": "Mo-Sa 11:00-21:00; Su 12:00-21:00",
+      "phone": "+1-845-657-6711",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Boiceville",
+      "addr_postcode": "12412",
+      "addr_street": "State Route 28",
+      "addr_housenumber": "4123"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Catskill Mountain Lodge, Palenville, NY",
+      "geo_wkt": "POINT (-74.009838 42.163279)",
+      "poi": {
+        "id": 477,
+        "geometry": "POINT (-74.009838 42.163279)",
+        "poi_name": "Catskill Mountain Lodge",
+        "osm_id": 8401145450,
+        "tourism": "hotel",
+        "addr_state": "NY",
+        "addr_city": "Palenville",
+        "addr_postcode": "12463",
+        "addr_street": "Route 32A",
+        "addr_housenumber": "334"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 95,
+  "type": "range:direction+loc"
+}

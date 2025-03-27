@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest gallery from LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 19519,
+      "geometry": "POINT (-97.078541 32.938656)",
+      "poi_name": "Rtown Art Gallery",
+      "osm_id": 10797363042,
+      "tourism": "gallery",
+      "addr_housenumber": "314"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX",
+      "geo_wkt": "POINT (-97.043468 32.966617)",
+      "poi": {
+        "id": 9989,
+        "geometry": "POINT (-97.043468 32.966617)",
+        "poi_name": "LEGOLAND Discovery Center Dallas/Fort Worth",
+        "osm_id": 9095109739,
+        "tourism": "theme_park",
+        "wheelchair": "limited",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/dallas-fw/",
+        "phone": "(469) 444-3050",
+        "wikidata": "Q20712562",
+        "addr_state": "TX",
+        "addr_city": "Grapevine",
+        "addr_postcode": "76051",
+        "addr_street": "Grapevine Mills Pkwy",
+        "addr_housenumber": "3000"
+      }
+    }
+  },
+  "id": 283,
+  "type": "knn+name"
+}

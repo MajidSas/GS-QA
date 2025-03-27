@@ -1,0 +1,60 @@
+{
+  "question": "What restaurant can I find along the way to Southside Gallery, Oxford, MS within 50 kilometers from Chickasaw County Coliseum, MS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, ST_GeomFromText('POINT (-89.519384 34.365941)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 182256,
+      "geometry": "POINT (-89.003402 33.906095)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 10884331840,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "value": 317.61896911573444
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Chickasaw County Coliseum, MS",
+      "geo_wkt": "POINT (-88.982282 33.879002)",
+      "poi": {
+        "id": 265362,
+        "geometry": "POINT (-88.982282 33.879002)",
+        "poi_name": "Chickasaw County Coliseum",
+        "osm_id": 367134879,
+        "leisure": "stadium",
+        "addr_state": "MS"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Southside Gallery, Oxford, MS",
+      "geo_wkt": "POINT (-89.519384 34.365941)",
+      "poi": {
+        "id": 4177,
+        "geometry": "POINT (-89.519384 34.365941)",
+        "poi_name": "Southside Gallery",
+        "osm_id": 5705321985,
+        "tourism": "gallery",
+        "addr_state": "MS",
+        "addr_city": "Oxford",
+        "addr_postcode": "38655",
+        "addr_street": "Courthouse Square",
+        "addr_housenumber": "150"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1615,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,56 @@
+{
+  "question": "Where can I find the closest taiwanese restaurant from Aquarium Depot, Miami, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%taiwanese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 180349,
+      "geometry": "POINT (-81.45268 28.55105)",
+      "poi_name": "OEC Taiwanese Cuisine",
+      "osm_id": 10798192670,
+      "amenity": "restaurant",
+      "cuisine": "asian;taiwanese",
+      "wheelchair": "yes",
+      "opening_hours": "Tu-Su 11:00-21:00",
+      "website": "https://oectaiwanesecuisinefl.kwickmenu.com",
+      "phone": "+1-407-299-4256",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "toilets": "yes",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32808",
+      "addr_street": "West Colonial Drive",
+      "addr_housenumber": "5270"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "taiwanese restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%taiwanese%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Depot, Miami, FL",
+      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "poi": {
+        "id": 26765,
+        "geometry": "POINT (-80.386248 25.685662)",
+        "poi_name": "Aquarium Depot",
+        "osm_id": 6035376680,
+        "tourism": "aquarium",
+        "phone": "+13055963373",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33186",
+        "addr_street": "Southwest 88th Street",
+        "addr_housenumber": "11762"
+      }
+    }
+  },
+  "id": 377,
+  "type": "knn:non_spat_filter+loc"
+}

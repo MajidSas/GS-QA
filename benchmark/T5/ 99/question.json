@@ -1,0 +1,43 @@
+{
+  "question": "What's the closest garden in proximity to Walton County Heritage Museum (Museum Depot), DeFuniak Springs, FL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-86.113933 30.71997)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267323,
+      "geometry": "POINT (-87.606542 30.27486)",
+      "poi_name": "Butterfly Garden",
+      "osm_id": 5852973997,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Walton County Heritage Museum (Museum Depot), DeFuniak Springs, FL",
+      "geo_wkt": "POINT (-86.113933 30.71997)",
+      "poi": {
+        "id": 22352,
+        "geometry": "POINT (-86.113933 30.71997)",
+        "poi_name": "Walton County Heritage Museum (Museum Depot)",
+        "osm_id": 671081600,
+        "historic": "building",
+        "description": "Museum in a former L&N Train Depot",
+        "tourism": "attraction",
+        "website": "https://www.waltoncountyheritage.org/",
+        "addr_state": "FL",
+        "addr_city": "DeFuniak Springs",
+        "addr_postcode": "32435",
+        "addr_street": "Circle Drive",
+        "addr_housenumber": "1140"
+      }
+    }
+  },
+  "id": 298,
+  "type": "knn+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "How many galleries are situated within a 180 kilometers distance from Research Psychiatric Center, Kansas City, MO?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.560016 39.011403)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "count": 14
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Research Psychiatric Center, Kansas City, MO",
+      "geo_wkt": "POINT (-94.560016 39.011403)",
+      "poi": {
+        "id": 182512,
+        "geometry": "POINT (-94.560016 39.011403)",
+        "poi_name": "Research Psychiatric Center",
+        "osm_id": 10894596657,
+        "amenity": "hospital",
+        "wheelchair": "yes",
+        "website": "https://hcamidwest.com/locations/research-psychiatric-center",
+        "phone": "+1 816 444 8161",
+        "healthcare": "hospital",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64130",
+        "addr_street": "East 63rd Street",
+        "addr_housenumber": "2323"
+      }
+    }
+  },
+  "id": 2246,
+  "type": "range+count"
+}

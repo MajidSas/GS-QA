@@ -1,0 +1,61 @@
+{
+  "question": "Which attraction is located to the west of the University of Tennessee Health Science Center, Memphis, TN, within a radius of 40 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography, 40000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 21179,
+      "geometry": "POINT (-90.031353 35.139317)",
+      "poi_name": "Gibson Guitar Factory Tour",
+      "osm_id": 1433022627,
+      "tourism": "attraction"
+    },
+    {
+      "id": 323,
+      "geometry": "POINT (-90.031353 35.139317)",
+      "poi_name": "Sidewalk of Stars at the Orpheum",
+      "osm_id": 8319593787,
+      "tourism": "attraction"
+    },
+    {
+      "id": 3596,
+      "geometry": "POINT (-90.031353 35.139317)",
+      "poi_name": "Memphis Riverboats",
+      "osm_id": 5483818129,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2600,
+  "type": "range:direction+name"
+}

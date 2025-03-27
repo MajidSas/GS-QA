@@ -1,0 +1,49 @@
+{
+  "question": "What's the closest gallery in proximity to the hospital affiliated with Case Western Reserve University School of Medicine in Cleveland, OH?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.605748 41.504861)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3614,
+      "geometry": "POINT (-81.679713 41.500971)",
+      "poi_name": "Bonfoey Gallery",
+      "osm_id": 5497146455,
+      "tourism": "gallery",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 09:00-17:00; Sa 09:00-13:00"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UH Rainbow Babies & Children\u2019s Hospital, Cleveland, OH",
+      "geo_wkt": "POINT (-81.605748 41.504861)",
+      "poi": {
+        "id": 64505,
+        "geometry": "POINT (-81.605748 41.504861)",
+        "poi_name": "UH Rainbow Babies & Children\u2019s Hospital",
+        "osm_id": 5656050761,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "University Hospitals",
+        "website": "https://www.uhhospitals.org/rainbow",
+        "phone": "+1 216 844 5437",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q7284577",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_postcode": "44106",
+        "addr_street": "Adelbert Road",
+        "addr_housenumber": "2101"
+      }
+    }
+  },
+  "id": 2738,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "In what direction can I find the closest restaurant situated from Earle - Wightman House Museum, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.530324 40.870718)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.530324 40.870718)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 88395,
+      "geometry": "POINT (-73.531081 40.871737)",
+      "poi_name": "Autentico",
+      "osm_id": 8783481565,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "website": "https://autenticooysterbay.com/",
+      "phone": "+1 516-922-2212",
+      "addr_state": "NY",
+      "addr_city": "Oyster Bay",
+      "addr_postcode": "11771",
+      "addr_street": "South Street",
+      "addr_housenumber": "124",
+      "angle": 330.56290170214623
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Earle - Wightman House Museum, NY",
+      "geo_wkt": "POINT (-73.530324 40.870718)",
+      "poi": {
+        "id": 17798,
+        "geometry": "POINT (-73.530324 40.870718)",
+        "poi_name": "Earle - Wightman House Museum",
+        "osm_id": 368061551,
+        "tourism": "museum",
+        "website": "https://www.oysterbayhistorical.org/house-and-garden.html",
+        "wikidata": "Q5326398",
+        "addr_state": "NY"
+      }
+    }
+  },
+  "id": 1486,
+  "type": "knn+angle"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "Do you know of any zoo within 30 kilometers from Forestiere Underground Gardens, Fresno, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-119.881841 36.807584)',4326)::geography, 30000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 25258,
+      "geometry": "POINT (-119.823195 36.752149)",
+      "poi_name": "Fresno Chaffee Zoo",
+      "osm_id": 4433364107,
+      "tourism": "zoo",
+      "website": "https://www.fresnochaffeezoo.org/",
+      "wikidata": "Q5503166",
+      "addr_state": "CA",
+      "addr_city": "Fresno",
+      "addr_postcode": "93728",
+      "addr_street": "West Belmont Avenue",
+      "addr_housenumber": "894"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Forestiere Underground Gardens, Fresno, CA",
+      "geo_wkt": "POINT (-119.881841 36.807584)",
+      "poi": {
+        "id": 14025,
+        "geometry": "POINT (-119.881841 36.807584)",
+        "poi_name": "Forestiere Underground Gardens",
+        "osm_id": 4213930993,
+        "tourism": "attraction",
+        "website": "https://www.undergroundgardens.com/",
+        "wikidata": "Q5469244",
+        "addr_state": "CA",
+        "addr_city": "Fresno",
+        "addr_street": "West Shaw Avenue",
+        "addr_housenumber": "5021"
+      }
+    }
+  },
+  "id": 887,
+  "type": "range+name"
+}

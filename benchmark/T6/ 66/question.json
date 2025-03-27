@@ -1,0 +1,49 @@
+{
+  "question": "What is the nearest hot pot restaurant from Waterford Lakes Dog Park, Orlando, Florida?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%hot_pot%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.200487 28.539394)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 221114,
+      "geometry": "POINT (-81.485775 28.386372)",
+      "poi_name": "Boil Spot",
+      "osm_id": 10968086567,
+      "amenity": "restaurant",
+      "cuisine": "hot_pot;asian",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32821",
+      "addr_street": "Vineland Avenue",
+      "addr_housenumber": "8133"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "hot pot restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%hot_pot%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Waterford Lakes Dog Park, Orlando, Florida",
+      "geo_wkt": "POINT (-81.200487 28.539394)",
+      "poi": {
+        "id": 247800,
+        "geometry": "POINT (-81.200487 28.539394)",
+        "poi_name": "Waterford Lakes Dog Park",
+        "osm_id": 9948449917,
+        "leisure": "park",
+        "opening_hours": "24/7",
+        "operator": "Waterford Lakes Community Association",
+        "addr_state": "Florida",
+        "addr_city": "Orlando",
+        "addr_postcode": "32828",
+        "addr_street": "Mark Twain Boulevard"
+      }
+    }
+  },
+  "id": 665,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "Any recommendations for the closest restaurant from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 222770,
+      "geometry": "POINT (-119.685577 34.409889)",
+      "poi_name": "Great Pacific Ice Cream Co",
+      "osm_id": 11035056976,
+      "amenity": "restaurant",
+      "cuisine": "ice_cream",
+      "opening_hours": "10am-9pm",
+      "website": "https://stearnswharf.org/great-pacific/",
+      "phone": "+18059620108",
+      "addr_state": "CA",
+      "addr_city": "Santa Barbara",
+      "addr_postcode": "93101",
+      "addr_street": "Stearns Wharf",
+      "addr_housenumber": "219"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "poi": {
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
+      }
+    }
+  },
+  "id": 252,
+  "type": "knn+name"
+}

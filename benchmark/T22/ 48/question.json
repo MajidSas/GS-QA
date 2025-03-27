@@ -1,0 +1,48 @@
+{
+  "question": "Which way should I take to get to the closest fast food restaurant from Raptor Center, Solon, IA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 116777,
+      "geometry": "POINT (-91.602527 41.752354)",
+      "poi_name": "Pizza Plus",
+      "osm_id": 8960109847,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Fr 17:00-21:00; Sa-Su 11:00-21:00",
+      "phone": "+1-319-626-3434",
+      "addr_state": "IA",
+      "addr_city": "North Liberty",
+      "addr_street": "North Dubuque Street",
+      "addr_housenumber": "515",
+      "angle": 217.9175313485792
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raptor Center, Solon, IA",
+      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "poi": {
+        "id": 25164,
+        "geometry": "POINT (-91.571085 41.782583)",
+        "poi_name": "Raptor Center",
+        "osm_id": 4415617837,
+        "tourism": "zoo",
+        "addr_state": "IA",
+        "addr_city": "Solon",
+        "addr_postcode": "52333",
+        "addr_street": "Raptor Ridge Road Northeast",
+        "addr_housenumber": "3673"
+      }
+    }
+  },
+  "id": 1447,
+  "type": "knn+angle"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Which viewpoint is nearest in the south direction from Jaine Cottage, Woodinville, WA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.141413 47.731718)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23009,
+      "geometry": "POINT (-122.141413 47.731718)",
+      "poi_name": "Overlook",
+      "osm_id": 4996247887,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Jaine Cottage, Woodinville, WA",
+      "geo_wkt": "POINT (-122.141413 47.731718)",
+      "poi": {
+        "id": 25426,
+        "geometry": "POINT (-122.141413 47.731718)",
+        "poi_name": "Jaine Cottage",
+        "osm_id": 4491062193,
+        "tourism": "attraction",
+        "opening_hours": "Th-Su 12:00-19:00",
+        "website": "https://jaine.co/",
+        "shop": "wine",
+        "internet_access": "wlan",
+        "phone": "+1-425-487-9810",
+        "addr_state": "WA",
+        "addr_city": "Woodinville",
+        "addr_postcode": "98072",
+        "addr_street": "Woodinville Redmond Road Northeast",
+        "addr_housenumber": "14421"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2509,
+  "type": "knn:direction+name"
+}

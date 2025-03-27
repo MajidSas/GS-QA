@@ -1,0 +1,37 @@
+{
+  "question": "Within 70 kilometers from Cape Cod Coliseum, MA, how many nature reserves are available?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.191131 41.690388)',4326)::geography, 70000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cape Cod Coliseum, MA",
+      "geo_wkt": "POINT (-70.191131 41.690388)",
+      "poi": {
+        "id": 265368,
+        "geometry": "POINT (-70.191131 41.690388)",
+        "poi_name": "Cape Cod Coliseum",
+        "osm_id": 367781392,
+        "leisure": "stadium",
+        "wikidata": "Q5034679",
+        "addr_state": "MA"
+      }
+    }
+  },
+  "id": 2250,
+  "type": "range+count"
+}

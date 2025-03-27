@@ -1,0 +1,62 @@
+{
+  "question": "How distant is a stadium positioned from Pine Grove Zoo, Little Falls, MN within a distance of 160 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 247846,
+      "geometry": "POINT (-93.013086 45.091304)",
+      "poi_name": "White Bear Lake High School Varsity Field",
+      "osm_id": 11465841971,
+      "leisure": "stadium",
+      "description": "Opens fall of 2024 for competition",
+      "sport": "american_football;soccer;field_hockey;athletics",
+      "distance": 145587.05757829
+    },
+    {
+      "id": 265358,
+      "geometry": "POINT (-95.853333 46.806944)",
+      "poi_name": "Detroit Lakes Sports Arena",
+      "osm_id": 367067717,
+      "leisure": "stadium",
+      "addr_state": "MN",
+      "distance": 145753.85005208
+    },
+    {
+      "id": 267381,
+      "geometry": "POINT (-93.371388 45.134783)",
+      "poi_name": "Auditorium",
+      "osm_id": 5937051959,
+      "leisure": "stadium",
+      "distance": 122688.51817726
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Pine Grove Zoo, Little Falls, MN",
+      "geo_wkt": "POINT (-94.383608 45.979142)",
+      "poi": {
+        "id": 22633,
+        "geometry": "POINT (-94.383608 45.979142)",
+        "poi_name": "Pine Grove Zoo",
+        "osm_id": 7185157936,
+        "tourism": "zoo",
+        "website": "https://www.pinegrovezoo.com/",
+        "addr_state": "MN",
+        "addr_city": "Little Falls"
+      }
+    }
+  },
+  "id": 786,
+  "type": "range+distance"
+}

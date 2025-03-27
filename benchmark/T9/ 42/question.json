@@ -1,0 +1,50 @@
+{
+  "question": "Which golf course is closest in the northwest direction of Rockford Career College, Rockford, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.027608 42.25571)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266573,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "River Run Golf Course",
+      "osm_id": 5278256119,
+      "leisure": "golf_course",
+      "addr_state": "WI",
+      "addr_city": "Sparta",
+      "addr_postcode": "54656",
+      "addr_street": "East Montgomery Street",
+      "addr_housenumber": "1210"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Rockford Career College, Rockford, IL",
+      "geo_wkt": "POINT (-89.027608 42.25571)",
+      "poi": {
+        "id": 30721,
+        "geometry": "POINT (-89.027608 42.25571)",
+        "poi_name": "Rockford Career College",
+        "osm_id": 8378810046,
+        "amenity": "university",
+        "wheelchair": "yes",
+        "addr_state": "IL",
+        "addr_city": "Rockford",
+        "addr_postcode": "61108",
+        "addr_street": "South Alpine Road",
+        "addr_housenumber": "1130"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2541,
+  "type": "knn:direction+name"
+}

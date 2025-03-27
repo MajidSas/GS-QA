@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest hotel positioned towards the east of Center for Drug Delivery and Nanomedicine, Omaha, NE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13255,
+      "geometry": "POINT (-95.980829 41.255456)",
+      "poi_name": "Element Omaha Midtown Crossing",
+      "osm_id": 4080963509,
+      "tourism": "hotel",
+      "website": "https://www.midtowncrossing.com/retail/hotel/element-hotel/",
+      "phone": "402-614-8080",
+      "wikidata": "Q111393746",
+      "addr_state": "NE",
+      "addr_city": "Omaha",
+      "addr_postcode": "68131",
+      "addr_street": "Dodge Street",
+      "addr_housenumber": "3253"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Center for Drug Delivery and Nanomedicine, Omaha, NE",
+      "geo_wkt": "POINT (-95.980829 41.255456)",
+      "poi": {
+        "id": 147575,
+        "geometry": "POINT (-95.980829 41.255456)",
+        "poi_name": "Center for Drug Delivery and Nanomedicine",
+        "osm_id": 7546124073,
+        "amenity": "university",
+        "website": "cddn.unmc.edu",
+        "phone": "+1-402-559-9330",
+        "addr_state": "NE",
+        "addr_city": "Omaha",
+        "addr_postcode": "68198"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1117,
+  "type": "knn:direction+loc"
+}

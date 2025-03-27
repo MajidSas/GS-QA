@@ -1,0 +1,134 @@
+{
+  "question": "Within a radius of 50 kilometers, where can I find  a restaurant from Amazing Air, San Antonio, TX towards James C. Curry Nature Center, Canyon Lake, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography, ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 36210,
+      "geometry": "POINT (-98.31003 29.580556)",
+      "poi_name": "Rudy's Country Store & Bar-B-Q",
+      "osm_id": 2753904545,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "phone": "+1-210-653-7839",
+      "addr_state": "TX",
+      "addr_city": "Selma",
+      "addr_postcode": "78154",
+      "addr_street": "North Interstate Highway 35",
+      "addr_housenumber": "15560",
+      "value": 27.00888720416711
+    },
+    {
+      "id": 48270,
+      "geometry": "POINT (-98.27893 29.5998)",
+      "poi_name": "Denny's",
+      "osm_id": 3373779239,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_city": "Schertz",
+      "addr_postcode": "78154-1265",
+      "addr_street": "Interstate Highway 35 North",
+      "addr_housenumber": "17455",
+      "value": 27.00888720416711
+    },
+    {
+      "id": 82253,
+      "geometry": "POINT (-98.390626 29.510627)",
+      "poi_name": "Fishland Fish Market",
+      "osm_id": 1689856245,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "opening_hours": "Mo-Th 10:30-22:00; Fr 10:30-21:00; Sa 11:30-21:00",
+      "website": "https://www.fishlandfishmarket.com/",
+      "phone": "+1-210-655-3232",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78218",
+      "addr_street": "Walzem Road",
+      "addr_housenumber": "4941",
+      "value": 27.00888720416711
+    },
+    {
+      "id": 82254,
+      "geometry": "POINT (-98.392281 29.510812)",
+      "poi_name": "Thai Chalurn",
+      "osm_id": 1689859450,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "opening_hours": "Mo-Fr 11:00-21:00; Sa 11:30-21:00",
+      "website": "http://www.thaichalurn.com/",
+      "phone": "+1-210-599-6835",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78218",
+      "addr_street": "Walzem Road",
+      "addr_housenumber": "4941",
+      "value": 27.00888720416711
+    },
+    {
+      "id": 220721,
+      "geometry": "POINT (-98.325321 29.575894)",
+      "poi_name": "Pasha Mediterranean Grill",
+      "osm_id": 9384151548,
+      "amenity": "restaurant",
+      "website": "https://gopasha.com",
+      "phone": "+1-210-396-7645",
+      "addr_state": "TX",
+      "addr_city": "Selma",
+      "addr_postcode": "78154",
+      "addr_street": "Interstate 35 North",
+      "addr_housenumber": "15069",
+      "value": 27.00888720416711
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Amazing Air, San Antonio, TX",
+      "geo_wkt": "POINT (-98.39639 29.503891)",
+      "poi": {
+        "id": 7732,
+        "geometry": "POINT (-98.39639 29.503891)",
+        "poi_name": "Amazing Air",
+        "osm_id": 6382562047,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
+        "website": "https://amazingairsa.com/",
+        "phone": "+1-210-946-9800",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78218",
+        "addr_street": "North Interstate Highway 35",
+        "addr_housenumber": "7702"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
+      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "poi": {
+        "id": 246012,
+        "geometry": "POINT (-98.194766 29.848573)",
+        "poi_name": "James C. Curry Nature Center",
+        "osm_id": 5449527323,
+        "leisure": "nature_reserve",
+        "operator": "Comal County",
+        "addr_state": "TX",
+        "addr_city": "Canyon Lake",
+        "addr_postcode": "78133",
+        "addr_street": "Skyline Drive",
+        "addr_housenumber": "1889"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1296,
+  "type": "range:towards+loc"
+}

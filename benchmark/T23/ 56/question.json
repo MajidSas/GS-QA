@@ -1,0 +1,41 @@
+{
+  "question": "What is the count of viewpoints within 150 kilometers from Bresnan Arena, Mankato, MN?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography, 150000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "count": 51
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
+      "poi": {
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
+      }
+    }
+  },
+  "id": 2255,
+  "type": "range+count"
+}

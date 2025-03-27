@@ -1,0 +1,48 @@
+{
+  "question": "How far away is the nearest zoo positioned from Ephraim Preserve at Anderson Pond, Ephraim, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.169401 45.161904)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.169401 45.161904)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2509,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Lincoln Park Zoo",
+      "osm_id": 3491296260,
+      "tourism": "zoo",
+      "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+      "phone": "920-683-4685",
+      "wikidata": "Q3241309",
+      "addr_state": "WI",
+      "addr_city": "Manitowoc",
+      "distance": 122860.00578058
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ephraim Preserve at Anderson Pond, Ephraim, WI",
+      "geo_wkt": "POINT (-87.169401 45.161904)",
+      "poi": {
+        "id": 248114,
+        "geometry": "POINT (-87.169401 45.161904)",
+        "poi_name": "Ephraim Preserve at Anderson Pond",
+        "osm_id": 6346555099,
+        "leisure": "nature_reserve",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/ephraim-preserve-at-anderson-pond/",
+        "addr_state": "WI",
+        "addr_city": "Ephraim",
+        "addr_postcode": "54234",
+        "addr_street": "Moravia Street",
+        "addr_housenumber": "10118"
+      }
+    }
+  },
+  "id": 2423,
+  "type": "knn+distance"
+}

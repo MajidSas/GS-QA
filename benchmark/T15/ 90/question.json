@@ -1,0 +1,57 @@
+{
+  "question": "Where can I find a gallery positioned within 160 kilometers towards the southwest of Centennial High School Football Stadium, Roswell, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography, 160000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 4703,
+      "geometry": "POINT (-84.292979 34.007322)",
+      "poi_name": "Gregg Irby Gallery",
+      "osm_id": 11396923401,
+      "tourism": "gallery",
+      "wheelchair": "yes",
+      "website": "https://www.greggirbygallery.com",
+      "shop": "art",
+      "phone": "+1 404 549 8303",
+      "addr_state": "GA",
+      "addr_city": "Atlanta",
+      "addr_postcode": "30305",
+      "addr_street": "Peachtree Street Northeast",
+      "addr_housenumber": "2345"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Centennial High School Football Stadium, Roswell, GA",
+      "geo_wkt": "POINT (-84.292979 34.007322)",
+      "poi": {
+        "id": 262496,
+        "geometry": "POINT (-84.292979 34.007322)",
+        "poi_name": "Centennial High School Football Stadium",
+        "osm_id": 358784376,
+        "leisure": "stadium",
+        "fee": "9 USD",
+        "sport": "american_football",
+        "addr_state": "GA",
+        "addr_city": "Roswell",
+        "addr_postcode": "30076"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 89,
+  "type": "range:direction+loc"
+}

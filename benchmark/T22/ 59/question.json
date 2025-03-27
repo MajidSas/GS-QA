@@ -1,0 +1,37 @@
+{
+  "question": "Which direction points towards the nearest zoo from Laureano Cordova Mill Historic Site, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.670429 36.190709)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.670429 36.190709)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12897,
+      "geometry": "POINT (-104.254326 39.406558)",
+      "poi_name": "Prairy Wind Animal Refuge",
+      "osm_id": 3945064487,
+      "tourism": "zoo",
+      "angle": 18.829288596805696
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Laureano Cordova Mill Historic Site, NM",
+      "geo_wkt": "POINT (-105.670429 36.190709)",
+      "poi": {
+        "id": 16568,
+        "geometry": "POINT (-105.670429 36.190709)",
+        "poi_name": "Laureano Cordova Mill Historic Site",
+        "osm_id": 366378020,
+        "tourism": "attraction",
+        "addr_state": "NM"
+      }
+    }
+  },
+  "id": 1458,
+  "type": "knn+angle"
+}

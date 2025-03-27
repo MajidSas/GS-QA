@@ -1,0 +1,48 @@
+{
+  "question": "Where can I find the nearest railway museum near ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7341,
+      "geometry": "POINT (-106.654624 35.103176)",
+      "poi_name": "New Mexico Steam Locomotive and Railroad Historical Society",
+      "osm_id": 2094286421,
+      "tourism": "museum",
+      "operator": "NMSL&RHS",
+      "website": "http://www.nmslrhs.org/",
+      "museum": "railway",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87102",
+      "addr_street": "8th Street Northwest",
+      "addr_housenumber": "1833"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 389,
+  "type": "knn:non_spat_filter+loc"
+}

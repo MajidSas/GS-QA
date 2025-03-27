@@ -1,0 +1,55 @@
+{
+  "question": "In what direction can I find a stadium from Top of the Rock, New York, NY within 110 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, 110000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 246348,
+      "geometry": "POINT (-74.171068 40.73335)",
+      "poi_name": "Prudential Center",
+      "osm_id": 11343840343,
+      "leisure": "stadium",
+      "angle": 260.07010090263066
+    },
+    {
+      "id": 265596,
+      "geometry": "POINT (-73.686422 41.014447)",
+      "poi_name": "Crawford Park",
+      "osm_id": 10732702283,
+      "leisure": "stadium",
+      "angle": 40.94439698534998
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "poi": {
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
+      }
+    }
+  },
+  "id": 1042,
+  "type": "range+angle"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "Is there a beach resort within 150 kilometers from East Shore Loon Lake Recreation Site, OR?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.834545 43.592894)',4326)::geography, 150000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 247731,
+      "geometry": "POINT (-124.367756 43.138986)",
+      "poi_name": "NorWinJa",
+      "osm_id": 8224979807,
+      "leisure": "beach_resort"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "East Shore Loon Lake Recreation Site, OR",
+      "geo_wkt": "POINT (-123.834545 43.592894)",
+      "poi": {
+        "id": 254198,
+        "geometry": "POINT (-123.834545 43.592894)",
+        "poi_name": "East Shore Loon Lake Recreation Site",
+        "osm_id": 357330239,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 878,
+  "type": "range+name"
+}

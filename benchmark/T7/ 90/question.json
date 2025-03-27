@@ -1,0 +1,56 @@
+{
+  "question": "What is the name of the university that is affiliated with the closest hospital from Bowditch Middle School Auditorium, Foster City, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 236727,
+      "geometry": "POINT (-122.255023 37.479511)",
+      "poi_name": "Sequoia Hospital",
+      "osm_id": 5805243057,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Dignity Health",
+      "website": "https://www.dignityhealth.org/bayarea/locations/sequoia",
+      "phone": "+1 650 369 5811",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7452546",
+      "addr_state": "CA",
+      "addr_city": "Redwood City",
+      "addr_postcode": "94062",
+      "addr_street": "Alameda de las Pulgas",
+      "addr_housenumber": "170",
+      "multihop_answer": "nan",
+      "multihop_attribute": "Affiliated university",
+      "multihop_long_answer": "Sequoia Hospital Affiliated university: nan"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
+      "geo_wkt": "POINT (-122.248613 37.559053)",
+      "poi": {
+        "id": 246975,
+        "geometry": "POINT (-122.248613 37.559053)",
+        "poi_name": "Bowditch Middle School Auditorium",
+        "osm_id": 8468035653,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball",
+        "addr_state": "CA",
+        "addr_city": "Foster City",
+        "addr_postcode": "94404",
+        "addr_street": "Tarpon Street",
+        "addr_housenumber": "1450"
+      }
+    }
+  },
+  "id": 989,
+  "type": "knn+name+multihop1"
+}

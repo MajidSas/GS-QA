@@ -1,0 +1,57 @@
+{
+  "question": "Which way should I go to access a gallery from Spella Park, Algonquin, IL within 50 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.351252 42.161567)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.351252 42.161567)',4326)::geography, 50000)\nAND tourism = 'gallery';\n",
+  "answers": [
+    {
+      "id": 1012,
+      "geometry": "POINT (-87.831164 42.35797)",
+      "poi_name": "Dandelion Art Gallery",
+      "osm_id": 2797782837,
+      "tourism": "gallery",
+      "angle": 62.877962336570384
+    },
+    {
+      "id": 17826,
+      "geometry": "POINT (-88.761695 41.935285)",
+      "poi_name": "Jack Olson Gallery",
+      "osm_id": 368064447,
+      "tourism": "gallery",
+      "addr_state": "IL",
+      "angle": 233.64802911331049
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Spella Park, Algonquin, IL",
+      "geo_wkt": "POINT (-88.351252 42.161567)",
+      "poi": {
+        "id": 245791,
+        "geometry": "POINT (-88.351252 42.161567)",
+        "poi_name": "Spella Park",
+        "osm_id": 10061767035,
+        "leisure": "park",
+        "opening_hours": "06:00-sunset",
+        "operator": "Village of Algonquin",
+        "website": "https://www.algonquin.org/egov/apps/locations/facilities.egov?view=detail&id=17",
+        "addr_state": "IL",
+        "addr_city": "Algonquin",
+        "addr_postcode": "60102",
+        "addr_street": "Harnish Drive",
+        "addr_housenumber": "2610"
+      }
+    }
+  },
+  "id": 1019,
+  "type": "range+angle"
+}

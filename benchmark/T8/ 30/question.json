@@ -1,0 +1,40 @@
+{
+  "question": "What's the nearest hotel from the university established in the year 1911 in Memphis, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13748,
+      "geometry": "POINT (-90.05208 35.155596)",
+      "poi_name": "Big Cypress Lodge",
+      "osm_id": 4142466444,
+      "tourism": "hotel",
+      "wikidata": "Q111394212"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    }
+  },
+  "id": 2729,
+  "type": "knn+name+multihop2"
+}

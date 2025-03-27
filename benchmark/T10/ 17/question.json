@@ -1,0 +1,67 @@
+{
+  "question": "Which restaurant is closest on the route towards Arthur Hoyt Scott Amphitheature, PA from Townley House, Easton, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.209563 40.693912)',4326)::geography, ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.209563 40.693912)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.209563 40.693912)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 128736,
+      "geometry": "POINT (-75.209433 40.692186)",
+      "poi_name": "Tokyo Sushi",
+      "osm_id": 8181555386,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "opening_hours": "Mo-Th 11:00-21:30; Fr-Sa 11:00-22:30; Su 12:00-21:00",
+      "website": "https://www.tokyosushieastonpa.com/",
+      "phone": "610.559.8888",
+      "addr_state": "PA",
+      "addr_city": "Easton",
+      "addr_postcode": "18042",
+      "addr_street": "North 3rd Street",
+      "addr_housenumber": "22",
+      "value": 188.0850743443372
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Townley House, Easton, PA",
+      "geo_wkt": "POINT (-75.209563 40.693912)",
+      "poi": {
+        "id": 10976,
+        "geometry": "POINT (-75.209563 40.693912)",
+        "poi_name": "Townley House",
+        "osm_id": 8181758610,
+        "tourism": "hotel",
+        "website": "https://www.townleyhousehotel.com/",
+        "internet_access": "wlan",
+        "phone": "484.544.4801",
+        "addr_state": "PA",
+        "addr_city": "Easton",
+        "addr_postcode": "18042",
+        "addr_street": "North 3rd Street",
+        "addr_housenumber": "130"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
+      "geo_wkt": "POINT (-75.355533 39.902444)",
+      "poi": {
+        "id": 265384,
+        "geometry": "POINT (-75.355533 39.902444)",
+        "poi_name": "Arthur Hoyt Scott Amphitheature",
+        "osm_id": 367975510,
+        "leisure": "stadium",
+        "addr_state": "PA"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 116,
+  "type": "knn:towards+name"
+}

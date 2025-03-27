@@ -1,0 +1,50 @@
+{
+  "question": "Can you point me to the nearest golf course from WellSpan Surgery and Rehabilitation Hospital, York, PA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.718936 39.926176)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247098,
+      "geometry": "POINT (-76.810376 39.981785)",
+      "poi_name": "Grandview Golf Club",
+      "osm_id": 3524431869,
+      "leisure": "golf_course",
+      "website": "https://golfgrandview.com/",
+      "addr_state": "PA",
+      "addr_city": "York",
+      "addr_postcode": "17408",
+      "addr_street": "Carlisle Road",
+      "addr_housenumber": "2779"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "WellSpan Surgery and Rehabilitation Hospital, York, PA",
+      "geo_wkt": "POINT (-76.718936 39.926176)",
+      "poi": {
+        "id": 234454,
+        "geometry": "POINT (-76.718936 39.926176)",
+        "poi_name": "WellSpan Surgery and Rehabilitation Hospital",
+        "osm_id": 4623740758,
+        "amenity": "hospital",
+        "wheelchair": "yes",
+        "operator": "WellSpan Health",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "PA",
+        "addr_city": "York",
+        "addr_postcode": "17403",
+        "addr_street": "Monument Rd",
+        "addr_housenumber": "55"
+      }
+    }
+  },
+  "id": 1881,
+  "type": "knn+loc"
+}

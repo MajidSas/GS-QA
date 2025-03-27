@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest fast food restaurant on the path leading to Chicopee Woods Nature Preserve, Gainesville, GA from Riverside Day Use Area, Cartersville, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.73893 34.16212)',4326)::geography, ST_GeomFromText('POINT (-83.831755 34.240555)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.73893 34.16212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.73893 34.16212)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 172610,
+      "geometry": "POINT (-84.551282 34.177681)",
+      "poi_name": "Subway",
+      "osm_id": 2408221717,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "GA",
+      "addr_city": "Canton",
+      "addr_postcode": "30114",
+      "addr_street": "Sixes Road",
+      "addr_housenumber": "3775",
+      "value": 83.80438753614642
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Riverside Day Use Area, Cartersville, GA",
+      "geo_wkt": "POINT (-84.73893 34.16212)",
+      "poi": {
+        "id": 248915,
+        "geometry": "POINT (-84.73893 34.16212)",
+        "poi_name": "Riverside Day Use Area",
+        "osm_id": 4927446931,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Cartersville",
+        "addr_postcode": "30121",
+        "addr_street": "Allatoona Dam Road",
+        "addr_housenumber": "513"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Chicopee Woods Nature Preserve, Gainesville, GA",
+      "geo_wkt": "POINT (-83.831755 34.240555)",
+      "poi": {
+        "id": 247528,
+        "geometry": "POINT (-83.831755 34.240555)",
+        "poi_name": "Chicopee Woods Nature Preserve",
+        "osm_id": 6770238149,
+        "leisure": "nature_reserve",
+        "operator": "Elachee Nature Science Center",
+        "addr_state": "GA",
+        "addr_city": "Gainesville",
+        "addr_postcode": "30504",
+        "addr_street": "Elachee Drive",
+        "addr_housenumber": "2125"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1366,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,58 @@
+{
+  "question": "Within a radius of 80 kilometers, where can I find a caf\u00e9 towards the east of the Denver Hospice, Denver, CO?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography, 80000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 164781,
+      "geometry": "POINT (-104.891985 39.719901)",
+      "poi_name": "Ziggi's Coffee",
+      "osm_id": 9500011958,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "CO",
+      "addr_city": "Bennett",
+      "addr_postcode": "80102",
+      "addr_street": "Marketplace Drive",
+      "addr_housenumber": "111"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "The Denver Hospice, Denver, CO",
+      "geo_wkt": "POINT (-104.891985 39.719901)",
+      "poi": {
+        "id": 37397,
+        "geometry": "POINT (-104.891985 39.719901)",
+        "poi_name": "The Denver Hospice",
+        "osm_id": 2810255127,
+        "amenity": "hospital",
+        "website": "https://thedenverhospice.org/",
+        "phone": "+1-303-418-3000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80230",
+        "addr_street": "East Lowry Boulevard",
+        "addr_housenumber": "8299"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 53,
+  "type": "range:direction+loc"
+}

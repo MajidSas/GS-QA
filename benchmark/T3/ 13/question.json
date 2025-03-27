@@ -1,0 +1,48 @@
+{
+  "question": "What gallery situated within 20 kilometers towards the southwest of E.O. Wilson Biophilia Center, Freeport, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.054207 30.476436)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.054207 30.476436)',4326)::geography, 20000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 14270,
+      "geometry": "POINT (-86.054207 30.476436)",
+      "poi_name": "The Justin Gaffrey Studio",
+      "osm_id": 4263671720,
+      "tourism": "gallery",
+      "artwork_type": "painting"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "E.O. Wilson Biophilia Center, Freeport, FL",
+      "geo_wkt": "POINT (-86.054207 30.476436)",
+      "poi": {
+        "id": 246958,
+        "geometry": "POINT (-86.054207 30.476436)",
+        "poi_name": "E.O. Wilson Biophilia Center",
+        "osm_id": 6662841103,
+        "leisure": "nature_reserve",
+        "addr_state": "FL",
+        "addr_city": "Freeport",
+        "addr_street": "FL-20",
+        "addr_housenumber": "4956"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2612,
+  "type": "range:direction+name"
+}

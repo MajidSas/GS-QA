@@ -1,0 +1,43 @@
+{
+  "question": "What's the nearest garden from the university that has the nickname Ravens in Rindge, NH?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.055892 42.779337)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265842,
+      "geometry": "POINT (-72.062495 42.883794)",
+      "poi_name": "Noahs Ark",
+      "osm_id": 7886830678,
+      "leisure": "garden",
+      "operator": "The Alberts"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University, Rindge, NH",
+      "geo_wkt": "POINT (-72.055892 42.779337)",
+      "poi": {
+        "id": 97577,
+        "geometry": "POINT (-72.055892 42.779337)",
+        "poi_name": "Franklin Pierce University",
+        "osm_id": 6484120956,
+        "amenity": "university",
+        "website": "https://franklinpierce.edu/",
+        "wikidata": "Q5491762",
+        "addr_state": "NH",
+        "addr_city": "Rindge",
+        "addr_postcode": "03461",
+        "addr_street": "University Drive",
+        "addr_housenumber": "40"
+      }
+    }
+  },
+  "id": 2711,
+  "type": "knn+name+multihop2"
+}

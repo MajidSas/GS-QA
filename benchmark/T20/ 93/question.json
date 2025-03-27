@@ -1,0 +1,71 @@
+{
+  "question": "Where's the closest fast food restaurant on the route to Maryvale Baseball Park, Phoenix, AZ from Faith Arena, Surprise, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 196714,
+      "geometry": "POINT (-112.359989 33.610924)",
+      "poi_name": "Subway",
+      "osm_id": 10593102174,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Su-Th 09:00-22:00; Fr-Sa 09:00-23:00",
+      "website": "https://restaurants.subway.com/united-states/az/surprise/13954-w-waddell-rd",
+      "phone": "+1-623-975-6175",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85379",
+      "addr_street": "West Waddell Road",
+      "addr_housenumber": "13954",
+      "value": 129.83440608229324
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Faith Arena, Surprise, AZ",
+      "geo_wkt": "POINT (-112.371855 33.62819)",
+      "poi": {
+        "id": 265626,
+        "geometry": "POINT (-112.371855 33.62819)",
+        "poi_name": "Faith Arena",
+        "osm_id": 10762941402,
+        "leisure": "stadium",
+        "addr_state": "AZ",
+        "addr_city": "Surprise",
+        "addr_postcode": "85374",
+        "addr_street": "West Tierra Buena Lane",
+        "addr_housenumber": "14470"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "poi": {
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1392,
+  "type": "knn:towards+loc"
+}

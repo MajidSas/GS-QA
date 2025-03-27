@@ -1,0 +1,74 @@
+{
+  "question": "Which caf\u00e9 is closest when traveling towards Community Behavorial Health Hospital - Annandale, Annandale, MN from Dow Art Gallery and Picture Framing, Saint Paul, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.192767 44.961684)',4326)::geography, ST_GeomFromText('POINT (-94.101381 45.255051)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.192767 44.961684)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-93.192767 44.961684)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 110000,
+      "geometry": "POINT (-93.196709 44.963346)",
+      "poi_name": "Caffe Biaggio",
+      "osm_id": 3682587069,
+      "amenity": "cafe",
+      "cuisine": "italian",
+      "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 16:30-22:00; Su closed",
+      "website": "https://www.caffebiaggio.com/",
+      "phone": "+1-651-917-7997",
+      "addr_state": "MN",
+      "addr_city": "Saint Paul",
+      "addr_postcode": "55114",
+      "addr_street": "University Avenue West",
+      "addr_housenumber": "2356",
+      "value": 294.83184759941537
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Dow Art Gallery and Picture Framing, Saint Paul, MN",
+      "geo_wkt": "POINT (-93.192767 44.961684)",
+      "poi": {
+        "id": 22551,
+        "geometry": "POINT (-93.192767 44.961684)",
+        "poi_name": "Dow Art Gallery and Picture Framing",
+        "osm_id": 7152738744,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Fr 10:00-17:30; Sa 11:00-16:00",
+        "website": "https://www.dowartgallery.com/",
+        "phone": "+1-612-607-9203",
+        "addr_state": "MN",
+        "addr_city": "Saint Paul",
+        "addr_postcode": "55114",
+        "addr_street": "University Avenue West",
+        "addr_housenumber": "2242"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Community Behavorial Health Hospital - Annandale, Annandale, MN",
+      "geo_wkt": "POINT (-94.101381 45.255051)",
+      "poi": {
+        "id": 182490,
+        "geometry": "POINT (-94.101381 45.255051)",
+        "poi_name": "Community Behavorial Health Hospital - Annandale",
+        "osm_id": 10893912238,
+        "amenity": "hospital",
+        "website": "https://www.minnesotahelp.info/Providers/Community_Behavioral_Health_Hospital_CBHH_Annandale/Community_Behavioral_Health_Hospital_CBHH/1",
+        "phone": "+1 651 259 3850",
+        "healthcare": "hospital",
+        "addr_state": "MN",
+        "addr_city": "Annandale",
+        "addr_postcode": "55302",
+        "addr_street": "Annandale Boulevard",
+        "addr_housenumber": "400"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 199,
+  "type": "knn:towards+name"
+}

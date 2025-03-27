@@ -1,0 +1,41 @@
+{
+  "question": "Seeking the nearest garden from the university with the former name Denmark Industrial School for African Americans in Denmark, SC, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245343,
+      "geometry": "POINT (-80.871461 33.486997)",
+      "poi_name": "Sensory Garden",
+      "osm_id": 2773287169,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "poi": {
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
+      }
+    }
+  },
+  "id": 2733,
+  "type": "knn+name+multihop2"
+}

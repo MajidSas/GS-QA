@@ -1,0 +1,43 @@
+{
+  "question": "Could you tell me the closest viewpoint relative to the museum established in the year 1973 in Oak Ridge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9140,
+      "geometry": "POINT (-84.094556 36.223266)",
+      "poi_name": "Norris Dam Overlook",
+      "osm_id": 3686006506,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
+      "poi": {
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
+      }
+    }
+  },
+  "id": 2778,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,59 @@
+{
+  "question": "Could you help me locate a stadium that's within 140 kilometers from Tank Masters, Pennsburg, PA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, 140000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 246798,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Cal, Sr.'s Yard",
+      "osm_id": 6441911494,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+      "addr_state": "MD",
+      "addr_city": "Aberdeen",
+      "addr_postcode": "21001",
+      "addr_street": "Long Drive",
+      "addr_housenumber": "873"
+    },
+    {
+      "id": 265384,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    }
+  },
+  "id": 2036,
+  "type": "range+loc"
+}

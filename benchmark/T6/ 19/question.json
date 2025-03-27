@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest emergency hospital situated from Smithfield Community Park, Smithfield, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.32926 35.528601)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167557,
+      "geometry": "POINT (-78.703262 35.818116)",
+      "poi_name": "UNC REX Healthcare",
+      "osm_id": 357814276,
+      "amenity": "hospital",
+      "operator": "UNC Health Care",
+      "website": "http://www.rexhealth.com/",
+      "phone": "+1 919 784 3100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7319213",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27607",
+      "addr_street": "Lake Boone Trail",
+      "addr_housenumber": "4420"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Smithfield Community Park, Smithfield, NC",
+      "geo_wkt": "POINT (-78.32926 35.528601)",
+      "poi": {
+        "id": 247650,
+        "geometry": "POINT (-78.32926 35.528601)",
+        "poi_name": "Smithfield Community Park",
+        "osm_id": 8022117641,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Smithfield",
+        "addr_postcode": "27577",
+        "addr_street": "East Booker Dairy Road"
+      }
+    }
+  },
+  "id": 618,
+  "type": "knn:non_spat_filter+name"
+}

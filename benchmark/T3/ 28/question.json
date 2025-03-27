@@ -1,0 +1,60 @@
+{
+  "question": "Within a radius of 120 kilometers, which museum is in the south direction from Eddy Lookout Tower, Sanderson, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography, 120000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 17654,
+      "geometry": "POINT (-82.34337 30.543305)",
+      "poi_name": "Micanopy Historical Society Museum",
+      "osm_id": 367827588,
+      "tourism": "museum",
+      "fee": "donation",
+      "opening_hours": "We-Su 13:00-16:00",
+      "website": "http://micanopyhistoricalsociety.com/home.htm",
+      "addr_state": "FL"
+    },
+    {
+      "id": 15800,
+      "geometry": "POINT (-82.34337 30.543305)",
+      "poi_name": "Waldo Historical Railway Museum",
+      "osm_id": 9535453410,
+      "tourism": "museum",
+      "website": "https://waldohistoricalsociety.yolasite.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Eddy Lookout Tower, Sanderson, FL",
+      "geo_wkt": "POINT (-82.34337 30.543305)",
+      "poi": {
+        "id": 8681,
+        "geometry": "POINT (-82.34337 30.543305)",
+        "poi_name": "Eddy Lookout Tower",
+        "osm_id": 8618634369,
+        "tourism": "viewpoint",
+        "addr_state": "FL",
+        "addr_city": "Sanderson",
+        "addr_postcode": "32087",
+        "addr_street": "State Road 2",
+        "addr_housenumber": "18568"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2627,
+  "type": "range:direction+name"
+}

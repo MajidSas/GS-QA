@@ -1,0 +1,50 @@
+{
+  "question": "Where can I find the closest railway museum from Adventure Park, Scottsdale, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6779,
+      "geometry": "POINT (-111.836381 33.270072)",
+      "poi_name": "Arizona Railway Museum",
+      "osm_id": 1969314430,
+      "tourism": "museum",
+      "opening_hours": "Sa-Su 12:00-16:00",
+      "website": "http://www.azrymuseum.org/",
+      "museum": "railway",
+      "wikidata": "Q4791377",
+      "addr_state": "AZ",
+      "addr_city": "Chandler",
+      "addr_postcode": "85286",
+      "addr_street": "East Ryan Road",
+      "addr_housenumber": "330"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "poi": {
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
+      }
+    }
+  },
+  "id": 388,
+  "type": "knn:non_spat_filter+loc"
+}

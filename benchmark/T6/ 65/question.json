@@ -1,0 +1,48 @@
+{
+  "question": "What's the nearest railway museum situated from Turtle Lake County Park, Shoreview, MN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.129528 45.09252)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16972,
+      "geometry": "POINT (-94.641421 43.97326)",
+      "poi_name": "Round House Railroad Club",
+      "osm_id": 367068284,
+      "tourism": "museum",
+      "website": "http://roundhouseinc.org/",
+      "museum": "railway",
+      "addr_state": "MN",
+      "addr_city": "St. James",
+      "addr_postcode": "56081",
+      "addr_street": "Tiell Drive",
+      "addr_housenumber": "112"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Turtle Lake County Park, Shoreview, MN",
+      "geo_wkt": "POINT (-93.129528 45.09252)",
+      "poi": {
+        "id": 247257,
+        "geometry": "POINT (-93.129528 45.09252)",
+        "poi_name": "Turtle Lake County Park",
+        "osm_id": 3886991285,
+        "leisure": "park",
+        "addr_state": "MN",
+        "addr_city": "Shoreview",
+        "addr_street": "Hodgson Road",
+        "addr_housenumber": "4979"
+      }
+    }
+  },
+  "id": 664,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,53 @@
+{
+  "question": "Where's the closest hotel towards the southeast of Aloha Safari Park, Cameron, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25665,
+      "geometry": "POINT (-79.113032 35.317294)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 4573038660,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-fayetteville-fort-bragg-nc",
+      "phone": "+1-910-436-1900",
+      "addr_state": "NC",
+      "addr_city": "Spring Lake",
+      "addr_postcode": "28390",
+      "addr_street": "Brook Lane",
+      "addr_housenumber": "103"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Aloha Safari Park, Cameron, NC",
+      "geo_wkt": "POINT (-79.113032 35.317294)",
+      "poi": {
+        "id": 18897,
+        "geometry": "POINT (-79.113032 35.317294)",
+        "poi_name": "Aloha Safari Park",
+        "osm_id": 2440275710,
+        "tourism": "zoo",
+        "operator": "Lee Crutchfield",
+        "website": "http://alohasafarizoo.org/",
+        "addr_state": "NC",
+        "addr_city": "Cameron",
+        "addr_postcode": "28348",
+        "addr_street": "Mini Lane",
+        "addr_housenumber": "159"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 1151,
+  "type": "knn:direction+loc"
+}

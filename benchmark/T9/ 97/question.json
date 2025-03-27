@@ -1,0 +1,45 @@
+{
+  "question": "What is the closest golf course northeast of Jones Art Gallery, Kansas City, MO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.582258 39.092692)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245551,
+      "geometry": "POINT (-94.582258 39.092692)",
+      "poi_name": "Carthage Golf Club",
+      "osm_id": 3095981624,
+      "leisure": "golf_course"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Jones Art Gallery, Kansas City, MO",
+      "geo_wkt": "POINT (-94.582258 39.092692)",
+      "poi": {
+        "id": 3160,
+        "geometry": "POINT (-94.582258 39.092692)",
+        "poi_name": "Jones Art Gallery",
+        "osm_id": 10216148256,
+        "tourism": "gallery",
+        "website": "https://jonesgallerykc.com/",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64108",
+        "addr_street": "Walnut Street",
+        "addr_housenumber": "1717"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2596,
+  "type": "knn:direction+name"
+}

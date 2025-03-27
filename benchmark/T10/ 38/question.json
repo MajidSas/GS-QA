@@ -1,0 +1,66 @@
+{
+  "question": "Which university is closest on the way to Dudley House, Ventura, CA from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'university'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167730,
+      "geometry": "POINT (-118.501471 34.169601)",
+      "poi_name": "Phillips Graduate Institute",
+      "osm_id": 358858323,
+      "amenity": "university",
+      "website": "https://www.pgu.edu/",
+      "value": 281.10219211925505
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Dudley House, Ventura, CA",
+      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "poi": {
+        "id": 1032,
+        "geometry": "POINT (-119.24024 34.277629)",
+        "poi_name": "Dudley House",
+        "osm_id": 2800250595,
+        "tourism": "museum",
+        "operator": "San Buenaventura Heritage",
+        "website": "https://dudleyhouse.org/",
+        "phone": "+1 (805) 644-3286",
+        "wikidata": "Q14681880",
+        "addr_state": "CA",
+        "addr_city": "Ventura",
+        "addr_postcode": "93003",
+        "addr_street": "North Ashwood Avenue",
+        "addr_housenumber": "197"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    }
+  },
+  "id": 137,
+  "type": "knn:towards+name"
+}

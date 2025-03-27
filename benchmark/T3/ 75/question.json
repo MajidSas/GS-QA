@@ -1,0 +1,170 @@
+{
+  "question": "Which viewpoint is available within 90 kilometers in the south direction of Latvian Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, 90000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 5791,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Waters Park Overlook",
+      "osm_id": 1591494895,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 977,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Chippewa Creek Gorge Overlook",
+      "osm_id": 2765824033,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 998,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Linda Falls",
+      "osm_id": 2789307070,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 1303,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Tallgrass Prairie",
+      "osm_id": 2931873368,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 7421,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Tinker's Creek Gorge Scenic Overlook",
+      "osm_id": 2141917791,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 6661,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Brandywine Falls",
+      "osm_id": 1913071012,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 13114,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "My Mountain Overlook",
+      "osm_id": 4057487060,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11256,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Overlook Vista",
+      "osm_id": 9910493624,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 12930,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Dedication Overlook",
+      "osm_id": 3967342187,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 7821,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Observation Deck",
+      "osm_id": 6422122314,
+      "description": "Observation deck for spillway",
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 13133,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Mill Creek Falls Overlook",
+      "osm_id": 4066048415,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18564,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Overlook Deck",
+      "osm_id": 2335435034,
+      "tourism": "viewpoint",
+      "website": "https://www.summitmetroparks.org/",
+      "phone": "+1-330-867-5511"
+    },
+    {
+      "id": 13223,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Overlook",
+      "osm_id": 4078900819,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 19970,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Ledges Overlook",
+      "osm_id": 7795340162,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 19138,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Bridal Veil Falls Overlook",
+      "osm_id": 2519251489,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 19155,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Bluebird Point Overlook",
+      "osm_id": 2525828497,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 21334,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Deer Lick Cave",
+      "osm_id": 1511399783,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26047,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Cuyahoga River Overlook",
+      "osm_id": 5774304114,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
+      "poi": {
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2674,
+  "type": "range:direction+name"
+}

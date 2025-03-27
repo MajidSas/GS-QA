@@ -1,0 +1,64 @@
+{
+  "question": "Where can I find fast food restaurant heading towards Cape Perpetua Special Interest Area, OR from Little Nestucca County Park, OR, within a radius of 90 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.89567 45.133162)',4326)::geography, ST_GeomFromText('POINT (-124.111809 44.279836)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.89567 45.133162)',4326)::geography, 90000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.89567 45.133162)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 233775,
+      "geometry": "POINT (-124.067525 44.427524)",
+      "poi_name": "Subway",
+      "osm_id": 4586485062,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "OR",
+      "addr_city": "Waldport",
+      "addr_postcode": "97394",
+      "addr_street": "Northwest Highway 101",
+      "addr_housenumber": "650",
+      "value": 190.3151204411872
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Little Nestucca County Park, OR",
+      "geo_wkt": "POINT (-123.89567 45.133162)",
+      "poi": {
+        "id": 254039,
+        "geometry": "POINT (-123.89567 45.133162)",
+        "poi_name": "Little Nestucca County Park",
+        "osm_id": 357319114,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Cape Perpetua Special Interest Area, OR",
+      "geo_wkt": "POINT (-124.111809 44.279836)",
+      "poi": {
+        "id": 254112,
+        "geometry": "POINT (-124.111809 44.279836)",
+        "poi_name": "Cape Perpetua Special Interest Area",
+        "osm_id": 357324152,
+        "leisure": "nature_reserve",
+        "website": "https://www.fs.fed.us/wildflowers/regions/Pacific_Northwest/CapePerpetua/index.shtml",
+        "wikidata": "Q49476871",
+        "addr_state": "OR"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1246,
+  "type": "range:towards+loc"
+}

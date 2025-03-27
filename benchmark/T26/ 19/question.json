@@ -1,0 +1,43 @@
+{
+  "question": "What's the proximity of the closest park from Richter Community Forest Nature Preserve, Washington Island, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-86.94988 45.339585)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.94988 45.339585)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249311,
+      "geometry": "POINT (-86.89734 45.337208)",
+      "poi_name": "Sand Dunes Park",
+      "osm_id": 353891417,
+      "leisure": "park",
+      "distance": 4126.62498103
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Richter Community Forest Nature Preserve, Washington Island, WI",
+      "geo_wkt": "POINT (-86.94988 45.339585)",
+      "poi": {
+        "id": 248112,
+        "geometry": "POINT (-86.94988 45.339585)",
+        "poi_name": "Richter Community Forest Nature Preserve",
+        "osm_id": 6346545342,
+        "leisure": "nature_reserve",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/richter-community-forest-nature-preserve/",
+        "addr_state": "WI",
+        "addr_city": "Washington Island",
+        "addr_postcode": "54246",
+        "addr_street": "Green Bay Road",
+        "addr_housenumber": "300"
+      }
+    }
+  },
+  "id": 2418,
+  "type": "knn+distance"
+}

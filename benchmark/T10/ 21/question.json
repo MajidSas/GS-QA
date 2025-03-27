@@ -1,0 +1,62 @@
+{
+  "question": "What's the closest restaurant on the route to Hilton Garden Inn, Rio Rancho, NM from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, ST_GeomFromText('POINT (-106.660838 35.226562)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 91566,
+      "geometry": "POINT (-106.667862 35.138186)",
+      "poi_name": "Flying Star",
+      "osm_id": 2073777394,
+      "amenity": "restaurant",
+      "phone": "+1 505 344 6714",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87107",
+      "addr_street": "Rio Grande Boulevard Northwest",
+      "addr_housenumber": "4026",
+      "value": 6.377173503425384
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn, Rio Rancho, NM",
+      "geo_wkt": "POINT (-106.660838 35.226562)",
+      "poi": {
+        "id": 13109,
+        "geometry": "POINT (-106.660838 35.226562)",
+        "poi_name": "Hilton Garden Inn",
+        "osm_id": 4056023080,
+        "tourism": "hotel",
+        "addr_state": "NM",
+        "addr_city": "Rio Rancho",
+        "addr_postcode": "87124",
+        "addr_street": "Rio Rancho Boulevard Southeast",
+        "addr_housenumber": "1771"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 120,
+  "type": "knn:towards+name"
+}

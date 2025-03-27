@@ -1,0 +1,53 @@
+{
+  "question": "Within a radius of 90 kilometers, where can I find a nature reserve situated towards the west of University of North Georgia (Oconee Campus), Watkinsville, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.42624 33.866134)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.42624 33.866134)',4326)::geography, 90000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 247803,
+      "geometry": "POINT (-83.42624 33.866134)",
+      "poi_name": "Forty Oaks",
+      "osm_id": 9951770357,
+      "leisure": "nature_reserve",
+      "addr_state": "GA",
+      "addr_city": "Clarkston",
+      "addr_postcode": "30021",
+      "addr_street": "Market Street",
+      "addr_housenumber": "3790"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of North Georgia (Oconee Campus), Watkinsville, GA",
+      "geo_wkt": "POINT (-83.42624 33.866134)",
+      "poi": {
+        "id": 78627,
+        "geometry": "POINT (-83.42624 33.866134)",
+        "poi_name": "University of North Georgia (Oconee Campus)",
+        "osm_id": 761326697,
+        "amenity": "university",
+        "addr_state": "GA",
+        "addr_city": "Watkinsville",
+        "addr_postcode": "30677",
+        "addr_street": "Bishop Farms Parkway",
+        "addr_housenumber": "1207"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 74,
+  "type": "range:direction+loc"
+}

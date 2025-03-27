@@ -1,0 +1,59 @@
+{
+  "question": "Which museum can I find west of Action Behavior Centers - ABA therapy for Autism, San Antonio, TX, within a radius of 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-98.689976 29.461831)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.689976 29.461831)',4326)::geography, 100000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 17997,
+      "geometry": "POINT (-98.689976 29.461831)",
+      "poi_name": "Sabinal Canyon Museum",
+      "osm_id": 368165053,
+      "tourism": "museum",
+      "addr_state": "TX"
+    },
+    {
+      "id": 9472,
+      "geometry": "POINT (-98.689976 29.461831)",
+      "poi_name": "Sabinal Canyon Museum ",
+      "osm_id": 3825363439,
+      "tourism": "museum"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, San Antonio, TX",
+      "geo_wkt": "POINT (-98.689976 29.461831)",
+      "poi": {
+        "id": 52937,
+        "geometry": "POINT (-98.689976 29.461831)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10055836944,
+        "amenity": "hospital",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-westover-hills-tx/",
+        "phone": "+1-210-775-2222",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78251",
+        "addr_street": "Highway 151 Access Rd",
+        "addr_housenumber": "12031"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2603,
+  "type": "range:direction+name"
+}

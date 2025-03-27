@@ -1,0 +1,39 @@
+{
+  "question": "Could you tell me the number of stadia located within a 110 kilometers radius from Canal Park, Nanticoke, PA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.016846 41.221006)',4326)::geography, 110000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Canal Park, Nanticoke, PA",
+      "geo_wkt": "POINT (-76.016846 41.221006)",
+      "poi": {
+        "id": 266463,
+        "geometry": "POINT (-76.016846 41.221006)",
+        "poi_name": "Canal Park",
+        "osm_id": 5118604069,
+        "leisure": "park",
+        "addr_state": "PA",
+        "addr_city": "Nanticoke",
+        "addr_postcode": "18634",
+        "addr_street": "Canal Street"
+      }
+    }
+  },
+  "id": 2245,
+  "type": "range+count"
+}

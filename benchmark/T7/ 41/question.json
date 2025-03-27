@@ -1,0 +1,46 @@
+{
+  "question": "When was the the nearest attraction from Tensas River National Wildlife Refuge, Tallulah, LA built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6330,
+      "geometry": "POINT (-90.866659 32.375917)",
+      "poi_name": "USS Cairo",
+      "osm_id": 1820725848,
+      "historic": "ship",
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "wikidata": "Q3545006",
+      "multihop_answer": "1861",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "USS Cairo Built: 1861"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Tensas River National Wildlife Refuge, Tallulah, LA",
+      "geo_wkt": "POINT (-91.377071 32.317567)",
+      "poi": {
+        "id": 247209,
+        "geometry": "POINT (-91.377071 32.317567)",
+        "poi_name": "Tensas River National Wildlife Refuge",
+        "osm_id": 3777211992,
+        "leisure": "nature_reserve",
+        "addr_state": "LA",
+        "addr_city": "Tallulah",
+        "addr_postcode": "71282",
+        "addr_street": "Quebec Road",
+        "addr_housenumber": "2312"
+      }
+    }
+  },
+  "id": 940,
+  "type": "knn+name+multihop1"
+}

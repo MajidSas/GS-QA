@@ -1,0 +1,42 @@
+{
+  "question": "What direction does one need to follow to reach the closest hotel from Forest High School Stadium, FL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.067859 29.140252)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.067859 29.140252)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11865,
+      "geometry": "POINT (-81.888211 28.829688)",
+      "poi_name": "Best Western Plus Chain Of Lakes Inn & Suites",
+      "osm_id": 11592590116,
+      "tourism": "hotel",
+      "addr_state": "FL",
+      "addr_city": "Leesburg",
+      "addr_postcode": "34748",
+      "addr_street": "North 14th Street",
+      "addr_housenumber": "1321",
+      "angle": 152.99793603334797
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Forest High School Stadium, FL",
+      "geo_wkt": "POINT (-82.067859 29.140252)",
+      "poi": {
+        "id": 265378,
+        "geometry": "POINT (-82.067859 29.140252)",
+        "poi_name": "Forest High School Stadium",
+        "osm_id": 367826912,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 1440,
+  "type": "knn+angle"
+}

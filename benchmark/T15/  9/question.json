@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a viewpoint positioned within 180 kilometers towards the southwest of Shavers Creek Environmental Center, Petersburg, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography, 180000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 15562,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Point Lookout",
+      "osm_id": 4939274603,
+      "tourism": "viewpoint",
+      "addr_state": "PA",
+      "addr_street": "Scenic Overlook",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
+      "poi": {
+        "id": 2748,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 8,
+  "type": "range:direction+loc"
+}

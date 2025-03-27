@@ -1,0 +1,49 @@
+{
+  "question": "What's the closest museum to the southeast of Clifford Woods, Farmington, ME?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.139414 44.674384)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12811,
+      "geometry": "POINT (-70.139414 44.674384)",
+      "poi_name": "Oakland historical artifacts & photo museum",
+      "osm_id": 7566907154,
+      "tourism": "museum",
+      "addr_state": "ME",
+      "addr_city": "Oakland",
+      "addr_postcode": "04963",
+      "addr_street": "Railroad Avenue",
+      "addr_housenumber": "7"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Clifford Woods, Farmington, ME",
+      "geo_wkt": "POINT (-70.139414 44.674384)",
+      "poi": {
+        "id": 248262,
+        "geometry": "POINT (-70.139414 44.674384)",
+        "poi_name": "Clifford Woods",
+        "osm_id": 7564193702,
+        "leisure": "park",
+        "addr_state": "ME",
+        "addr_city": "Farmington",
+        "addr_postcode": "04938",
+        "addr_street": "Perham Street",
+        "addr_housenumber": "214"
+      }
+    },
+    "[3]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2553,
+  "type": "knn:direction+name"
+}

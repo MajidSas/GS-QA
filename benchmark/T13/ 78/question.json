@@ -1,0 +1,47 @@
+{
+  "question": "Could you help me locate a viewpoint that's within 150 kilometers from Swallow Cliff Woods South, IL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.857277 41.67531)',4326)::geography, 150000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 7684,
+      "geometry": "POINT (-87.623142 41.89902)",
+      "poi_name": "360 Chicago",
+      "osm_id": 2250380156,
+      "tourism": "viewpoint",
+      "wheelchair": "yes",
+      "website": "https://360chicago.com",
+      "wikidata": "Q217727",
+      "addr_city": "Chicago",
+      "addr_street": "North Michigan Avenue",
+      "addr_housenumber": "875"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Swallow Cliff Woods South, IL",
+      "geo_wkt": "POINT (-87.857277 41.67531)",
+      "poi": {
+        "id": 265403,
+        "geometry": "POINT (-87.857277 41.67531)",
+        "poi_name": "Swallow Cliff Woods South",
+        "osm_id": 369051006,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 2077,
+  "type": "range+loc"
+}

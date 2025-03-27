@@ -1,0 +1,46 @@
+{
+  "question": "How far away is a garden from Plaza Sports Center, Edinburg, TX within a 40 kilometers distance?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography, 40000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 248106,
+      "geometry": "POINT (-98.230767 26.229482)",
+      "poi_name": "Mcallen Community Garden",
+      "osm_id": 6344125068,
+      "leisure": "garden",
+      "distance": 6438.64099665
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Plaza Sports Center, Edinburg, TX",
+      "geo_wkt": "POINT (-98.166433 26.232776)",
+      "poi": {
+        "id": 248451,
+        "geometry": "POINT (-98.166433 26.232776)",
+        "poi_name": "Plaza Sports Center",
+        "osm_id": 4161977645,
+        "leisure": "stadium",
+        "sport": "soccer",
+        "addr_state": "TX",
+        "addr_city": "Edinburg",
+        "addr_postcode": "78577",
+        "addr_street": "E. Nolana Loop",
+        "addr_housenumber": "1101"
+      }
+    }
+  },
+  "id": 761,
+  "type": "range+distance"
+}

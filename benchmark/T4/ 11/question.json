@@ -1,0 +1,433 @@
+{
+  "question": "Which caf\u00e9 can I find when moving towards Sacajawea Park, Three Forks, MT within 160 kilometers from Montana Grizzly Encounter, Bozeman, MT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography, ST_GeomFromText('POINT (-111.552192 45.894928)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography, 160000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 29516,
+      "geometry": "POINT (-112.53973 46.014089)",
+      "poi_name": "Roy Cafe",
+      "osm_id": 8307978034,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 58349,
+      "geometry": "POINT (-111.182563 45.779572)",
+      "poi_name": "Cafe M",
+      "osm_id": 5371437926,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 29510,
+      "geometry": "POINT (-112.537721 46.012543)",
+      "poi_name": "Oro Fino Coffee",
+      "osm_id": 8307949201,
+      "amenity": "cafe",
+      "addr_city": "Butte",
+      "addr_postcode": "59701",
+      "addr_street": "West Park Street",
+      "addr_housenumber": "68",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 29511,
+      "geometry": "POINT (-112.536291 46.012985)",
+      "poi_name": "Gamer's Cafe",
+      "osm_id": 8307949210,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Sa 07:00-14:00; Su 08:00-14:00",
+      "website": "https://www.gamerscafebutte.com/",
+      "addr_city": "Butte",
+      "addr_postcode": "59701",
+      "addr_street": "West Park Street",
+      "addr_housenumber": "15",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 29514,
+      "geometry": "POINT (-112.534334 46.014091)",
+      "poi_name": "Uptown Cafe",
+      "osm_id": 8307978017,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 29515,
+      "geometry": "POINT (-112.537195 46.014097)",
+      "poi_name": "Venus Rising Espresso House",
+      "osm_id": 8307978027,
+      "amenity": "cafe",
+      "addr_city": "Butte",
+      "addr_postcode": "59701",
+      "addr_street": "Hamilton Street",
+      "addr_housenumber": "113",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 29522,
+      "geometry": "POINT (-112.53094 46.007728)",
+      "poi_name": "Elevation Espresso",
+      "osm_id": 8307978068,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 49977,
+      "geometry": "POINT (-111.333357 45.855841)",
+      "poi_name": "Garden Cafe",
+      "osm_id": 3458156117,
+      "amenity": "cafe",
+      "addr_city": "Manhattan",
+      "addr_postcode": "59741",
+      "addr_street": "Broadway Street South",
+      "addr_housenumber": "107",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 44043,
+      "geometry": "POINT (-111.060518 45.679903)",
+      "poi_name": "Starbucks",
+      "osm_id": 3141037282,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 130582,
+      "geometry": "POINT (-111.065437 45.676783)",
+      "poi_name": "Starbucks",
+      "osm_id": 9877598377,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 49950,
+      "geometry": "POINT (-111.553658 45.891945)",
+      "poi_name": "Remuda Coffee",
+      "osm_id": 3456442278,
+      "amenity": "cafe",
+      "addr_city": "Three Forks",
+      "addr_postcode": "59752",
+      "addr_street": "Montana Highway 2",
+      "addr_housenumber": "202",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 66378,
+      "geometry": "POINT (-111.190756 45.783636)",
+      "poi_name": "The Buzz Coffee Bar",
+      "osm_id": 11191679086,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 68204,
+      "geometry": "POINT (-112.506672 45.987631)",
+      "poi_name": "Starbucks",
+      "osm_id": 11263471839,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "shop": "coffee",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 100867,
+      "geometry": "POINT (-112.544908 46.012522)",
+      "poi_name": "Hummingbird Cafe",
+      "osm_id": 6603177387,
+      "amenity": "cafe",
+      "addr_postcode": "59701",
+      "addr_street": "West Park Street",
+      "addr_housenumber": "9124",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 104389,
+      "geometry": "POINT (-111.186225 45.742042)",
+      "poi_name": "Rise and Shine Cafe & Bakery",
+      "osm_id": 8568192990,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 104398,
+      "geometry": "POINT (-111.184839 45.762939)",
+      "poi_name": "Broadway Brew",
+      "osm_id": 8568274813,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 119468,
+      "geometry": "POINT (-111.035492 45.677146)",
+      "poi_name": "Ghost Town Coffee Roasters",
+      "osm_id": 9103791961,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "yes",
+      "takeaway": "yes",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59715",
+      "addr_street": "East Olive Street",
+      "addr_housenumber": "110",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 97072,
+      "geometry": "POINT (-111.045875 45.688752)",
+      "poi_name": "City Brew",
+      "osm_id": 6459956901,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 115630,
+      "geometry": "POINT (-111.071006 45.710611)",
+      "poi_name": "Starbucks",
+      "osm_id": 8906155650,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 124736,
+      "geometry": "POINT (-112.53877 45.997469)",
+      "poi_name": "Java Junction",
+      "osm_id": 6928109163,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 148538,
+      "geometry": "POINT (-111.032604 45.680852)",
+      "poi_name": "Fresco",
+      "osm_id": 3960877160,
+      "amenity": "cafe",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_street": "East Mendenhall Street",
+      "addr_housenumber": "317",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 149391,
+      "geometry": "POINT (-111.058154 45.678972)",
+      "poi_name": "Feed Cafe",
+      "osm_id": 4006601356,
+      "amenity": "cafe",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "1530",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 153835,
+      "geometry": "POINT (-112.538135 46.012485)",
+      "poi_name": "Jail House Coffee",
+      "osm_id": 4213406891,
+      "amenity": "cafe",
+      "addr_city": "Butte",
+      "addr_postcode": "59701",
+      "addr_street": "West Park Street",
+      "addr_housenumber": "116",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 155223,
+      "geometry": "POINT (-111.027071 45.679536)",
+      "poi_name": "Cafe M",
+      "osm_id": 4274774764,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "06:00-17:00",
+      "internet_access": "yes",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59715",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "777",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 179562,
+      "geometry": "POINT (-111.185775 45.765629)",
+      "poi_name": "SheBrews Coffee & Espresso",
+      "osm_id": 10767879577,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 155489,
+      "geometry": "POINT (-111.014512 45.671327)",
+      "poi_name": "Off the Eatin' Path",
+      "osm_id": 4286979462,
+      "amenity": "cafe",
+      "cuisine": "sandwich",
+      "opening_hours": "07:00-15:00",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59715",
+      "addr_street": "Ellis Street",
+      "addr_housenumber": "1532",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 166872,
+      "geometry": "POINT (-111.031813 45.691723)",
+      "poi_name": "The Daily Coffee Bar and Bakery",
+      "osm_id": 318162163,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 06:30-19:00",
+      "internet_access": "wlan",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59715",
+      "addr_street": "North Rouse Avenue",
+      "addr_housenumber": "1203",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 179507,
+      "geometry": "POINT (-111.034201 45.699884)",
+      "poi_name": "The Bumble Bean Espresso Barn",
+      "osm_id": 10766795484,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 179508,
+      "geometry": "POINT (-111.028515 45.702328)",
+      "poi_name": "Ghost Town Coffee",
+      "osm_id": 10766806629,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 226464,
+      "geometry": "POINT (-111.101198 45.672703)",
+      "poi_name": "Cats Show Cat Caf\u00e9",
+      "osm_id": 11160932721,
+      "amenity": "cafe",
+      "website": "https://catshowcatcafe.com/",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59718",
+      "addr_street": "Boardwalk Avenue",
+      "addr_housenumber": "730",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 197152,
+      "geometry": "POINT (-111.078911 45.671667)",
+      "poi_name": "Treeline Coffee",
+      "osm_id": 10613531288,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 197593,
+      "geometry": "POINT (-111.102698 45.673064)",
+      "poi_name": "The Well Juicery",
+      "osm_id": 10655843379,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 197598,
+      "geometry": "POINT (-111.041553 45.705478)",
+      "poi_name": "Sunrise Coffeehouse",
+      "osm_id": 10655926254,
+      "amenity": "cafe",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 213934,
+      "geometry": "POINT (-111.034754 45.693266)",
+      "poi_name": "Lot G Cafe",
+      "osm_id": 5262272400,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Su 07:00-14:00",
+      "value": 294.9416513647625
+    },
+    {
+      "id": 228398,
+      "geometry": "POINT (-111.03469 45.693134)",
+      "poi_name": "Dean's Zesty Booch",
+      "osm_id": 4341852747,
+      "amenity": "cafe",
+      "cuisine": "kombucha",
+      "description": "Bozeman's only Kombucha brewery. Fermented tea made from fresh, local and organic ingredients.",
+      "opening_hours": "11:00-21:00",
+      "internet_access": "yes",
+      "addr_state": "MT",
+      "addr_city": "Bozeman",
+      "addr_postcode": "59715",
+      "addr_street": "East Oak Street",
+      "addr_housenumber": "111 Suite 1F",
+      "value": 294.9416513647625
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Montana Grizzly Encounter, Bozeman, MT",
+      "geo_wkt": "POINT (-110.834041 45.663969)",
+      "poi": {
+        "id": 14047,
+        "geometry": "POINT (-110.834041 45.663969)",
+        "poi_name": "Montana Grizzly Encounter",
+        "osm_id": 4215553273,
+        "tourism": "zoo",
+        "addr_state": "MT",
+        "addr_city": "Bozeman",
+        "addr_postcode": "59175",
+        "addr_street": "Bozeman Hill Road",
+        "addr_housenumber": "18000"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sacajawea Park, Three Forks, MT",
+      "geo_wkt": "POINT (-111.552192 45.894928)",
+      "poi": {
+        "id": 258489,
+        "geometry": "POINT (-111.552192 45.894928)",
+        "poi_name": "Sacajawea Park",
+        "osm_id": 357972129,
+        "leisure": "park",
+        "addr_state": "MT",
+        "addr_city": "Three Forks"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1610,
+  "type": "range:towards+name"
+}

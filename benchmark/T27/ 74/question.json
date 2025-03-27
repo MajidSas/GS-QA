@@ -1,0 +1,32 @@
+{
+  "question": "What is the total land area of all nature reserves in Clement Township, Michigan?",
+  "sql": "SELECT SUM(ST_Area(parks.geometry::geography)) AS area FROM parks\nWHERE leisure = 'nature_reserve'\nAND ST_Intersects(parks.geometry::geography, ST_GeomFromText('POLYGON ((-84.288421 44.083714, -84.288392 44.098292, -84.288775 44.161305, -84.367989 44.16055, -84.367619 44.14117, -84.367447 44.125033, -84.367014 44.083772, -84.328394 44.083632, -84.317905 44.083653, -84.288421 44.083714))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 953909580.708676
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "table": "parks"
+    },
+    "[2]": {
+      "region_name": "Clement Township, Michigan",
+      "geo_wkt": "POLYGON ((-84.288421 44.083714, -84.288392 44.098292, -84.288775 44.161305, -84.367989 44.16055, -84.367619 44.14117, -84.367447 44.125033, -84.367014 44.083772, -84.328394 44.083632, -84.317905 44.083653, -84.288421 44.083714))",
+      "region": {
+        "id": 30853,
+        "geometry": "POLYGON ((-84.288421 44.083714, -84.288392 44.098292, -84.288775 44.161305, -84.367989 44.16055, -84.367619 44.14117, -84.367447 44.125033, -84.367014 44.083772, -84.328394 44.083632, -84.317905 44.083653, -84.288421 44.083714))",
+        "region_name": "Clement Township",
+        "border_type": "township",
+        "wikidata": "Q5131426",
+        "wikipedia": "en:Clement Township, Michigan",
+        "admin_level": "7"
+      }
+    }
+  },
+  "id": 2173,
+  "type": "intersects:area_total+area"
+}

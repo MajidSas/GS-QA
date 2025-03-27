@@ -1,0 +1,64 @@
+{
+  "question": "Which way should I go to access an aquarium from LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX within 170 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, 170000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 331,
+      "geometry": "POINT (-97.043812 32.966179)",
+      "poi_name": "SEA LIFE Aquarium",
+      "osm_id": 8325062259,
+      "tourism": "aquarium",
+      "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-20:00; Su 11:00-17:30",
+      "operator": "Merlin Entertainments",
+      "website": "https://www.visitsealife.com/grapevine",
+      "phone": "+14694443050",
+      "addr_street": "Grapevine Mills Parkway",
+      "addr_housenumber": "3000",
+      "angle": 213.5130096115585
+    },
+    {
+      "id": 10607,
+      "geometry": "POINT (-97.147937 31.669069)",
+      "poi_name": "Aquaponics Greenhouse",
+      "osm_id": 6938680993,
+      "tourism": "aquarium",
+      "angle": 183.93914148356168
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX",
+      "geo_wkt": "POINT (-97.043468 32.966617)",
+      "poi": {
+        "id": 9989,
+        "geometry": "POINT (-97.043468 32.966617)",
+        "poi_name": "LEGOLAND Discovery Center Dallas/Fort Worth",
+        "osm_id": 9095109739,
+        "tourism": "theme_park",
+        "wheelchair": "limited",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/dallas-fw/",
+        "phone": "(469) 444-3050",
+        "wikidata": "Q20712562",
+        "addr_state": "TX",
+        "addr_city": "Grapevine",
+        "addr_postcode": "76051",
+        "addr_street": "Grapevine Mills Pkwy",
+        "addr_housenumber": "3000"
+      }
+    }
+  },
+  "id": 1021,
+  "type": "range+angle"
+}

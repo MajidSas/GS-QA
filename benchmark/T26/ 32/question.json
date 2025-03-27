@@ -1,0 +1,40 @@
+{
+  "question": "How far is the nearest garden situated from Altadena Lodge, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.088402 34.172521)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.088402 34.172521)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247346,
+      "geometry": "POINT (-118.065922 34.162684)",
+      "poi_name": "Vinny's Mini-World",
+      "osm_id": 8975865494,
+      "leisure": "garden",
+      "description": "This is a mini-world created by Vinny",
+      "fee": "no",
+      "operator": "Vinny",
+      "distance": 2342.39680566
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Altadena Lodge, CA",
+      "geo_wkt": "POINT (-118.088402 34.172521)",
+      "poi": {
+        "id": 18175,
+        "geometry": "POINT (-118.088402 34.172521)",
+        "poi_name": "Altadena Lodge",
+        "osm_id": 368173868,
+        "tourism": "hotel",
+        "addr_state": "CA"
+      }
+    }
+  },
+  "id": 2431,
+  "type": "knn+distance"
+}

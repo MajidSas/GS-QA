@@ -1,0 +1,52 @@
+{
+  "question": "Within a radius of 60 kilometers, where can I find a park situated towards the east of Shechem Ministries, Lawrenceburg, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 60000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 245740,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Rock Fence Park",
+      "osm_id": 3497329897,
+      "leisure": "park",
+      "addr_state": "KY",
+      "addr_city": "Nicholasville",
+      "addr_postcode": "40356",
+      "addr_street": "N 3rd Street"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 33,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,93 @@
+{
+  "question": "Where can I find an attraction towards the north of Aloha Safari Park, Cameron, NC within 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography, 160000)\nAND tourism = 'attraction'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 1828,
+      "geometry": "POINT (-79.113032 35.317294)",
+      "poi_name": "Ganyard Hill Farms",
+      "osm_id": 3159155056,
+      "tourism": "attraction",
+      "website": "http://ganyardhillfarm.com/",
+      "addr_state": "NC",
+      "addr_city": "Durham",
+      "addr_postcode": "27703",
+      "addr_street": "Sherron Road",
+      "addr_housenumber": "319"
+    },
+    {
+      "id": 4784,
+      "geometry": "POINT (-79.113032 35.317294)",
+      "poi_name": "Fireside Farm & Sawmill",
+      "osm_id": 9615093449,
+      "tourism": "attraction",
+      "addr_state": "NC",
+      "addr_city": "Efland",
+      "addr_postcode": "27243",
+      "addr_street": "Mt Mitchell Road",
+      "addr_housenumber": "6323"
+    },
+    {
+      "id": 22639,
+      "geometry": "POINT (-79.113032 35.317294)",
+      "poi_name": "Shangri-La Stone Village",
+      "osm_id": 7190898013,
+      "tourism": "attraction",
+      "addr_state": "NC",
+      "addr_city": "Prospect Hill",
+      "addr_postcode": "27314",
+      "addr_street": "Henry Warren Road",
+      "addr_housenumber": "11535"
+    },
+    {
+      "id": 21449,
+      "geometry": "POINT (-79.113032 35.317294)",
+      "poi_name": "Horton Grove",
+      "osm_id": 10268579609,
+      "tourism": "attraction",
+      "phone": "(919) 908-8809",
+      "addr_state": "NC",
+      "addr_city": "Durham",
+      "addr_postcode": "27503",
+      "addr_street": "Jock Road",
+      "addr_housenumber": "5925"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Aloha Safari Park, Cameron, NC",
+      "geo_wkt": "POINT (-79.113032 35.317294)",
+      "poi": {
+        "id": 18897,
+        "geometry": "POINT (-79.113032 35.317294)",
+        "poi_name": "Aloha Safari Park",
+        "osm_id": 2440275710,
+        "tourism": "zoo",
+        "operator": "Lee Crutchfield",
+        "website": "http://alohasafarizoo.org/",
+        "addr_state": "NC",
+        "addr_city": "Cameron",
+        "addr_postcode": "28348",
+        "addr_street": "Mini Lane",
+        "addr_housenumber": "159"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 50,
+  "type": "range:direction+loc"
+}

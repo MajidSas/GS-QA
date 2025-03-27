@@ -1,0 +1,46 @@
+{
+  "question": "What's the closest nature reserve towards the east of Discovery Depot at Nature's Art Village, Montville, CT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 253787,
+      "geometry": "POINT (-72.222213 41.431675)",
+      "poi_name": "Fisherville Brook Wildlife Refuge",
+      "osm_id": 357260730,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "poi": {
+        "id": 9052,
+        "geometry": "POINT (-72.222213 41.431675)",
+        "poi_name": "Discovery Depot at Nature's Art Village",
+        "osm_id": 3646715046,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-17:00 \"seasonal\"",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2582,
+  "type": "knn:direction+name"
+}

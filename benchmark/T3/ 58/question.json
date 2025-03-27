@@ -1,0 +1,51 @@
+{
+  "question": "Which university is located to the north of Pioneer Museum, Pleasant Grove, UT, within a radius of 70 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.738615 40.362989)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.738615 40.362989)',4326)::geography, 70000)\nAND amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 230559,
+      "geometry": "POINT (-111.738615 40.362989)",
+      "poi_name": "Neumont College",
+      "osm_id": 4431459466,
+      "amenity": "university",
+      "website": "https://www.neumont.edu/",
+      "wikidata": "Q7001981"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Pioneer Museum, Pleasant Grove, UT",
+      "geo_wkt": "POINT (-111.738615 40.362989)",
+      "poi": {
+        "id": 724,
+        "geometry": "POINT (-111.738615 40.362989)",
+        "poi_name": "Pioneer Museum",
+        "osm_id": 2651012863,
+        "tourism": "museum",
+        "website": "https://www.plgrove.org/history/daughters-of-utah-pioneers/",
+        "museum": "history",
+        "addr_state": "UT",
+        "addr_city": "Pleasant Grove",
+        "addr_street": "South 100 East",
+        "addr_housenumber": "73"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2657,
+  "type": "range:direction+name"
+}

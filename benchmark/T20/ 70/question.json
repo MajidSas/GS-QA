@@ -1,0 +1,66 @@
+{
+  "question": "Where is the nearest fast food restaurant as you head towards Zao Island, Valparaiso, IN from Allison Woods, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography, ST_GeomFromText('POINT (-87.067399 41.458418)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 73076,
+      "geometry": "POINT (-87.870513 42.086049)",
+      "poi_name": "Rosati's",
+      "osm_id": 9604800170,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "official_name": "Rosati's Authentic Chicago Pizza",
+      "addr_state": "IL",
+      "addr_city": "Glenview",
+      "addr_postcode": "60025",
+      "addr_street": "Milwaukee Avenue",
+      "addr_housenumber": "1708",
+      "value": 135.93590653455004
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Allison Woods, IL",
+      "geo_wkt": "POINT (-87.888401 42.099472)",
+      "poi": {
+        "id": 265398,
+        "geometry": "POINT (-87.888401 42.099472)",
+        "poi_name": "Allison Woods",
+        "osm_id": 369049527,
+        "leisure": "nature_reserve",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Zao Island, Valparaiso, IN",
+      "geo_wkt": "POINT (-87.067399 41.458418)",
+      "poi": {
+        "id": 22695,
+        "geometry": "POINT (-87.067399 41.458418)",
+        "poi_name": "Zao Island",
+        "osm_id": 7217435771,
+        "tourism": "theme_park",
+        "website": "https://zaoisland.net/",
+        "phone": "+1-219-462-1194",
+        "addr_state": "IN",
+        "addr_city": "Valparaiso",
+        "addr_postcode": "46385",
+        "addr_street": "Horse Prairie Avenue",
+        "addr_housenumber": "1050"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1369,
+  "type": "knn:towards+loc"
+}

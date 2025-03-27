@@ -1,0 +1,54 @@
+{
+  "question": "Seeking the nearest caf\u00e9 from River Deck, Edgewater, MD, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62560,
+      "geometry": "POINT (-76.561241 38.942234)",
+      "poi_name": "Starbucks",
+      "osm_id": 5576333844,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 04:30-21:00; Sa-Su 04:30-20:30",
+      "website": "https://www.starbucks.com/store-locator/store/8140/3059-solomons-island-road-3059-solomons-island-road-edgewater-md-21037-us",
+      "internet_access": "wlan",
+      "phone": "+1 410 956 8206",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "delivery": "no",
+      "addr_state": "MD",
+      "addr_postcode": "21037",
+      "addr_street": "Solomons Island Road",
+      "addr_housenumber": "3059"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    }
+  },
+  "id": 299,
+  "type": "knn+name"
+}

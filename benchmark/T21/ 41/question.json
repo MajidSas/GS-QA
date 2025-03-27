@@ -1,0 +1,113 @@
+{
+  "question": "Which direction leads to a stadium from Tank Masters, Pennsburg, PA within a range of 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, 160000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 245562,
+      "geometry": "POINT (-76.917114 41.24981)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 3129663021,
+      "leisure": "stadium",
+      "angle": 308.7441628235387
+    },
+    {
+      "id": 246348,
+      "geometry": "POINT (-74.171068 40.73335)",
+      "poi_name": "Prudential Center",
+      "osm_id": 11343840343,
+      "leisure": "stadium",
+      "angle": 71.25713443541125
+    },
+    {
+      "id": 246724,
+      "geometry": "POINT (-75.60116 39.936995)",
+      "poi_name": "John A. Farrell Stadium",
+      "osm_id": 2015427812,
+      "leisure": "stadium",
+      "operator": "West Chester University",
+      "sport": "american_football",
+      "addr_street": "N New Street",
+      "angle": 189.82294992094222
+    },
+    {
+      "id": 246798,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Cal, Sr.'s Yard",
+      "osm_id": 6441911494,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+      "addr_state": "MD",
+      "addr_city": "Aberdeen",
+      "addr_postcode": "21001",
+      "addr_street": "Long Drive",
+      "addr_housenumber": "873",
+      "angle": 211.7101661106126
+    },
+    {
+      "id": 246813,
+      "geometry": "POINT (-75.541179 39.177918)",
+      "poi_name": "Dover High School Stadium",
+      "osm_id": 6470644086,
+      "leisure": "stadium",
+      "angle": 181.60106161719014
+    },
+    {
+      "id": 248016,
+      "geometry": "POINT (-75.564356 39.73265)",
+      "poi_name": "Frawley Stadium",
+      "osm_id": 6266627710,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "angle": 184.4426859216881
+    },
+    {
+      "id": 265384,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA",
+      "angle": 167.58402682904085
+    },
+    {
+      "id": 266534,
+      "geometry": "POINT (-76.594565 40.304782)",
+      "poi_name": "Buck Swank Stadium",
+      "osm_id": 5262502970,
+      "leisure": "stadium",
+      "angle": 263.9778911275657
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    }
+  },
+  "id": 1040,
+  "type": "range+angle"
+}

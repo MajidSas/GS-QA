@@ -1,0 +1,54 @@
+{
+  "question": "Could you track down a restaurant with a patio and is conveniently situated within 120 kilometers from Charlotte's Quest Nature Center, Manchester, MD?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography, 120000)\nAND amenity = 'restaurant'\nAND outdoor_seating ILIKE '%patio%';\n",
+  "answers": [
+    {
+      "id": 202154,
+      "geometry": "POINT (-76.543691 39.397259)",
+      "poi_name": "Mamma Lucia",
+      "osm_id": 684790485,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "outdoor_seating": "patio",
+      "addr_state": "MD",
+      "addr_city": "Parkville",
+      "addr_postcode": "21234",
+      "addr_street": "East Joppa Road",
+      "addr_housenumber": "1991"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with a patio",
+      "poi_filter_sql": "outdoor_seating ILIKE '%patio%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
+      "poi": {
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
+        "leisure": "nature_reserve",
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
+      }
+    }
+  },
+  "id": 438,
+  "type": "range:non_spat_filter+loc"
+}

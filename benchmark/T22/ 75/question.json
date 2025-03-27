@@ -1,0 +1,41 @@
+{
+  "question": "What's the orientation towards the closest park from Go Fish, Rosedale, MD?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 259326,
+      "geometry": "POINT (-76.515797 39.352052)",
+      "poi_name": "Holt Park",
+      "osm_id": 358242024,
+      "leisure": "park",
+      "angle": 297.0168010358112
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Go Fish, Rosedale, MD",
+      "geo_wkt": "POINT (-76.48474 39.339761)",
+      "poi": {
+        "id": 1512,
+        "geometry": "POINT (-76.48474 39.339761)",
+        "poi_name": "Go Fish",
+        "osm_id": 3026471881,
+        "tourism": "aquarium",
+        "addr_state": "MD",
+        "addr_city": "Rosedale",
+        "addr_postcode": "21237",
+        "addr_street": "Philadelphia Road",
+        "addr_housenumber": "8767 G"
+      }
+    }
+  },
+  "id": 1474,
+  "type": "knn+angle"
+}

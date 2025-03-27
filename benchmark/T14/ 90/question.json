@@ -1,0 +1,91 @@
+{
+  "question": "Could you help me find the location of an emergency hospital, preferably within a 140 kilometers radius of Livestock Exchange Building, Fort Worth, TX?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.346717 32.789331)',4326)::geography, 140000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 65577,
+      "geometry": "POINT (-96.789958 33.014781)",
+      "poi_name": "The Heart Hospital Baylor Plano",
+      "osm_id": 5703281373,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Baylor Scott & White Health",
+      "website": "https://www.thehearthospitalbaylor.com/",
+      "phone": "+1 469 814 3278",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q30269519",
+      "addr_city": "Plano",
+      "addr_postcode": "75093",
+      "addr_street": "Allied Drive",
+      "addr_housenumber": "1100"
+    },
+    {
+      "id": 65613,
+      "geometry": "POINT (-96.771204 32.874924)",
+      "poi_name": "North Central Surgical Center",
+      "osm_id": 5704846598,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.northcentralsurgical.com/",
+      "phone": "+1-214-265-2810",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Dallas",
+      "addr_postcode": "75231",
+      "addr_street": "North Central Expressway",
+      "addr_housenumber": "9301"
+    },
+    {
+      "id": 65705,
+      "geometry": "POINT (-97.116453 32.748716)",
+      "poi_name": "Texas Health Heart & Vascular Hospital Arlington",
+      "osm_id": 5708269480,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Texas Health",
+      "website": "http://texashealthheartandvascular.org/",
+      "phone": "+1-817-960-3500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "TX",
+      "addr_city": "Arlington",
+      "addr_postcode": "76012",
+      "addr_street": "Wright Street",
+      "addr_housenumber": "811"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Livestock Exchange Building, Fort Worth, TX",
+      "geo_wkt": "POINT (-97.346717 32.789331)",
+      "poi": {
+        "id": 14347,
+        "geometry": "POINT (-97.346717 32.789331)",
+        "poi_name": "Livestock Exchange Building",
+        "osm_id": 4273376249,
+        "tourism": "attraction",
+        "addr_state": "TX",
+        "addr_city": "Fort Worth",
+        "addr_postcode": "76164",
+        "addr_street": "East Exchange Avenue",
+        "addr_housenumber": "131"
+      }
+    }
+  },
+  "id": 489,
+  "type": "range:non_spat_filter+loc"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "Could you provide me with the number of restaurants within a 170 kilometers radius from Dolphins Plus Bayside, Key Largo, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, 170000)\nAND amenity = 'restaurant';\n",
+  "answers": [
+    {
+      "count": 1480
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
+      "poi": {
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
+        "tourism": "aquarium",
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
+      }
+    }
+  },
+  "id": 2291,
+  "type": "range+count"
+}

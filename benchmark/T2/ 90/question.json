@@ -1,0 +1,55 @@
+{
+  "question": "Looking for a steak house that is conveniently located within 50 kilometers from Carolina Ziplines Canopy Tour, Westfield, NC. Can you assist me?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.332384 36.422532)',4326)::geography, 50000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%steak_house%';\n",
+  "answers": [
+    {
+      "id": 103593,
+      "geometry": "POINT (-80.246961 36.09921)",
+      "poi_name": "Butcher & Bull",
+      "osm_id": 8512193776,
+      "amenity": "restaurant",
+      "cuisine": "steak_house",
+      "opening_hours": "Mo-Su 06:30-22:00",
+      "website": "https://www.butcherandbull.com/",
+      "phone": "+1-336-722-5232",
+      "addr_state": "NC",
+      "addr_city": "Winston-Salem",
+      "addr_postcode": "27101",
+      "addr_street": "Cherry Street North",
+      "addr_housenumber": "425"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "steak house",
+      "poi_filter_sql": "cuisine ILIKE '%steak_house%'"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Carolina Ziplines Canopy Tour, Westfield, NC",
+      "geo_wkt": "POINT (-80.332384 36.422532)",
+      "poi": {
+        "id": 2829,
+        "geometry": "POINT (-80.332384 36.422532)",
+        "poi_name": "Carolina Ziplines Canopy Tour",
+        "osm_id": 10044849624,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Westfield",
+        "addr_postcode": "27053",
+        "addr_street": "Nickell Farm Road",
+        "addr_housenumber": "1085"
+      }
+    }
+  },
+  "id": 589,
+  "type": "range:non_spat_filter+name"
+}

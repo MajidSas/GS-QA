@@ -1,0 +1,44 @@
+{
+  "question": "When was the the nearest attraction from African American Cultural Garden, Cleveland, OH built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16205,
+      "geometry": "POINT (-81.627924 41.529212)",
+      "poi_name": "Cleveland Cultural Gardens",
+      "osm_id": 357465429,
+      "tourism": "attraction",
+      "wikidata": "Q5132117",
+      "multihop_answer": "1916 through 2019 and still building",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Cleveland Cultural Gardens Built: 1916 through 2019 and still building"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "African American Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.629472 41.530044)",
+      "poi": {
+        "id": 247006,
+        "geometry": "POINT (-81.629472 41.530044)",
+        "poi_name": "African American Cultural Garden",
+        "osm_id": 8567373858,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "890"
+      }
+    }
+  },
+  "id": 938,
+  "type": "knn+name+multihop1"
+}

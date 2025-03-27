@@ -1,0 +1,47 @@
+{
+  "question": "What is the nearest stadium situated towards the northwest of Adventure Sports in Hershey, Hershey, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 255531,
+      "geometry": "POINT (-76.62265 40.236123)",
+      "poi_name": "Bradner Stadium",
+      "osm_id": 357550083,
+      "leisure": "stadium",
+      "wikidata": "Q4955092"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Sports in Hershey, Hershey, PA",
+      "geo_wkt": "POINT (-76.62265 40.236123)",
+      "poi": {
+        "id": 18427,
+        "geometry": "POINT (-76.62265 40.236123)",
+        "poi_name": "Adventure Sports in Hershey",
+        "osm_id": 2295840835,
+        "tourism": "theme_park",
+        "website": "https://www.adventurehershey.com/",
+        "phone": "717.533.7479",
+        "addr_state": "PA",
+        "addr_city": "Hershey",
+        "addr_postcode": "17033",
+        "addr_street": "Elizabethtown Road",
+        "addr_housenumber": "3010"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2537,
+  "type": "knn:direction+name"
+}

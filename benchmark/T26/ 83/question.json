@@ -1,0 +1,44 @@
+{
+  "question": "What's the distance between Slag Gallery, New York, NY and the nearest nature reserve?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.006962 40.745518)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.006962 40.745518)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246484,
+      "geometry": "POINT (-74.089283 40.754577)",
+      "poi_name": "Riverbend Marsh",
+      "osm_id": 9756176514,
+      "leisure": "nature_reserve",
+      "distance": 7024.61679501
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Slag Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.006962 40.745518)",
+      "poi": {
+        "id": 19779,
+        "geometry": "POINT (-74.006962 40.745518)",
+        "poi_name": "Slag Gallery",
+        "osm_id": 10873303786,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Fr 10:00-13:00; Tu-Fr 14:00-18:00; Sa 10:00-18:00",
+        "website": "https://www.slaggallery.com",
+        "phone": "+1-212-967-9818",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 19th Street",
+        "addr_housenumber": "522"
+      }
+    }
+  },
+  "id": 2482,
+  "type": "knn+distance"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What is the direction towards the closest hotel from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1359,
+      "geometry": "POINT (-83.132333 40.079383)",
+      "poi_name": "Columbus Marriott Northwest",
+      "osm_id": 2955201364,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Dublin",
+      "addr_postcode": "43017",
+      "addr_street": "Blazer Parkway",
+      "addr_housenumber": "5605",
+      "angle": 203.46166756161438
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "poi": {
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
+      }
+    }
+  },
+  "id": 1409,
+  "type": "knn+angle"
+}

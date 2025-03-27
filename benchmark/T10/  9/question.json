@@ -1,0 +1,70 @@
+{
+  "question": "What's the nearest caf\u00e9 on the way to Saugatuck Dune Rides, MI from 45 Ottawa, Grand Rapids, MI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.671213 42.96433)',4326)::geography, ST_GeomFromText('POINT (-86.185248 42.679336)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.671213 42.96433)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-85.671213 42.96433)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 165732,
+      "geometry": "POINT (-85.76385 42.909497)",
+      "poi_name": "Wildroast Coffee Co.",
+      "osm_id": 9554701919,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "website": "https://wildroastcoffeeco.com",
+      "internet_access": "wlan",
+      "outdoor_seating": "no",
+      "addr_state": "MI",
+      "addr_city": "Grandville",
+      "addr_postcode": "49418",
+      "addr_street": "Chicago Drive Southwest",
+      "addr_housenumber": "4035",
+      "value": 233.1892464850232
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "45 Ottawa, Grand Rapids, MI",
+      "geo_wkt": "POINT (-85.671213 42.96433)",
+      "poi": {
+        "id": 226949,
+        "geometry": "POINT (-85.671213 42.96433)",
+        "poi_name": "45 Ottawa",
+        "osm_id": 11174619316,
+        "amenity": "university",
+        "website": "https://rockfordconstruction.com/properties/45-ottawa",
+        "addr_state": "MI",
+        "addr_city": "Grand Rapids",
+        "addr_postcode": "49503",
+        "addr_street": "Ottawa Avenue Northwest",
+        "addr_housenumber": "45"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Saugatuck Dune Rides, MI",
+      "geo_wkt": "POINT (-86.185248 42.679336)",
+      "poi": {
+        "id": 12803,
+        "geometry": "POINT (-86.185248 42.679336)",
+        "poi_name": "Saugatuck Dune Rides",
+        "osm_id": 7557652185,
+        "tourism": "attraction",
+        "website": "https://saugatuckduneride.com/",
+        "phone": "+1-269-857-2253",
+        "addr_state": "MI",
+        "addr_postcode": "49453",
+        "addr_street": "Blue Star Highway",
+        "addr_housenumber": "6495"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 108,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,51 @@
+{
+  "question": "Which restaurant is closest when moving towards the west of Southern National Motorsport Park, Lucama, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 205121,
+      "geometry": "POINT (-78.060871 35.61119)",
+      "poi_name": "Stormin Norman's Barbeque",
+      "osm_id": 7157909415,
+      "amenity": "restaurant",
+      "addr_state": "NC",
+      "addr_city": "Kenly",
+      "addr_postcode": "27542",
+      "addr_street": "South Church Street",
+      "addr_housenumber": "404"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "poi": {
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
+        "leisure": "stadium",
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
+      }
+    },
+    "[3]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2527,
+  "type": "knn:direction+name"
+}

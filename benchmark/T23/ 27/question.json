@@ -1,0 +1,40 @@
+{
+  "question": "In the vicinity of Tank Masters, Pennsburg, PA, within 170 kilometers, how many beach resorts are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, 170000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "count": 6
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    }
+  },
+  "id": 2226,
+  "type": "range+count"
+}

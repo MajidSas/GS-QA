@@ -1,0 +1,140 @@
+{
+  "question": "What museum can I find as I progress towards Broadbent Arena, Louisville, KY from Shechem Ministries, Lawrenceburg, KY, within a radius of 140 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 140000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 2474,
+      "geometry": "POINT (-85.743989 38.275954)",
+      "poi_name": "Vintage Fire Museum",
+      "osm_id": 3467939029,
+      "tourism": "museum",
+      "opening_hours": "Fr,Sa,Su unknown; Mo-Th closed",
+      "website": "https://www.vintagefiremuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Spring Street",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 2475,
+      "geometry": "POINT (-85.744666 38.276461)",
+      "poi_name": "Clark County Museum",
+      "osm_id": 3467940971,
+      "tourism": "museum",
+      "website": "https://www.clarkcountyinmuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 14042,
+      "geometry": "POINT (-85.771363 38.20538)",
+      "poi_name": "Kentucky Derby Museum",
+      "osm_id": 4215189315,
+      "tourism": "museum",
+      "website": "https://www.derbymuseum.org/",
+      "wikidata": "Q14690752",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40208",
+      "addr_street": "Central Avenue",
+      "addr_housenumber": "704",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 23366,
+      "geometry": "POINT (-85.701313 38.280802)",
+      "poi_name": "WaterWorks Museum",
+      "osm_id": 5146055222,
+      "tourism": "museum",
+      "opening_hours": "We-Fr 10:00-17:00; Sa-Su 10:00-15:00",
+      "wikidata": "Q17019049",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 17547,
+      "geometry": "POINT (-85.714566 38.25688)",
+      "poi_name": "Museum of the American Printing House for the Blind",
+      "osm_id": 367811872,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "operator": "The American Printing House for the Blind",
+      "website": "https://aphmuseum.org/",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "1839",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 17549,
+      "geometry": "POINT (-85.695217 38.199392)",
+      "poi_name": "Colonel Sanders Museum",
+      "osm_id": 367811877,
+      "tourism": "museum",
+      "addr_state": "KY",
+      "value": 286.8784949756444
+    },
+    {
+      "id": 24006,
+      "geometry": "POINT (-85.576037 38.232728)",
+      "poi_name": "the big museum",
+      "osm_id": 9247049334,
+      "tourism": "museum",
+      "value": 286.8784949756444
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
+      "poi": {
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "poi": {
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1687,
+  "type": "range:towards+name"
+}

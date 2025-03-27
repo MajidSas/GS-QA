@@ -1,0 +1,44 @@
+{
+  "question": "Which way should I take to get to the closest park from Luthy Botanical Garden, Peoria, IL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246473,
+      "geometry": "POINT (-89.57462 40.698196)",
+      "poi_name": "Sinclair Grove",
+      "osm_id": 9728483675,
+      "leisure": "park",
+      "angle": 177.58211698949387
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
+      "poi": {
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
+      }
+    }
+  },
+  "id": 1484,
+  "type": "knn+angle"
+}

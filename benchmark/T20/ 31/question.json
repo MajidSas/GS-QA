@@ -1,0 +1,72 @@
+{
+  "question": "Where is the closest restaurant from 3 Studios Gallery, Santa Fe, NM towards Homewood Suites by Hilton Santa Fe-North, Santa Fe, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.923332 35.680109)',4326)::geography, ST_GeomFromText('POINT (-105.993545 35.859402)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.923332 35.680109)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.923332 35.680109)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 207321,
+      "geometry": "POINT (-105.945952 35.768672)",
+      "poi_name": "Cottonwood Kitchen",
+      "osm_id": 7249316316,
+      "amenity": "restaurant",
+      "opening_hours": "24/7",
+      "operator": "Tesuque Development Corporation",
+      "website": "https://tesuquecasino.com",
+      "phone": "(800) 462-2635",
+      "addr_state": "NM",
+      "addr_city": "Santa Fe",
+      "addr_postcode": "87506",
+      "addr_street": "Tesuque Road",
+      "addr_housenumber": "7",
+      "value": 342.31994382620286
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "3 Studios Gallery, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.923332 35.680109)",
+      "poi": {
+        "id": 25680,
+        "geometry": "POINT (-105.923332 35.680109)",
+        "poi_name": "3 Studios Gallery",
+        "osm_id": 4576042790,
+        "tourism": "gallery",
+        "opening_hours": "Th-Tu 10:00-17:00",
+        "website": "http://www.3studiosgallery.com/",
+        "phone": "+1-505-819-3255",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87501",
+        "addr_street": "Canyon Road",
+        "addr_housenumber": "901"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites by Hilton Santa Fe-North, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.993545 35.859402)",
+      "poi": {
+        "id": 3413,
+        "geometry": "POINT (-105.993545 35.859402)",
+        "poi_name": "Homewood Suites by Hilton Santa Fe-North",
+        "osm_id": 5400866067,
+        "tourism": "hotel",
+        "operator": "Hilton",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87506",
+        "addr_street": "Buffalo Thunder Trail",
+        "addr_housenumber": "10"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1330,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "What's the nearest viewpoint near Camp R. Allen Williams, Carlsbad, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-100.654189 31.601899)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25598,
+      "geometry": "POINT (-99.583556 29.827483)",
+      "poi_name": "Birds Eye View",
+      "osm_id": 4551138913,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Camp R. Allen Williams, Carlsbad, TX",
+      "geo_wkt": "POINT (-100.654189 31.601899)",
+      "poi": {
+        "id": 248500,
+        "geometry": "POINT (-100.654189 31.601899)",
+        "poi_name": "Camp R. Allen Williams",
+        "osm_id": 4247850790,
+        "leisure": "park",
+        "addr_state": "TX",
+        "addr_city": "Carlsbad",
+        "addr_postcode": "76934",
+        "addr_street": "US Highway 87 North",
+        "addr_housenumber": "10950"
+      }
+    }
+  },
+  "id": 272,
+  "type": "knn+name"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "How distant is the closest caf\u00e9 from the point Petzel Gallery, New York, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.004233 40.749237)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.004233 40.749237)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123394,
+      "geometry": "POINT (-74.00468 40.747315)",
+      "poi_name": "Juban",
+      "osm_id": 6852842985,
+      "amenity": "cafe",
+      "cuisine": "japanese",
+      "distance": 216.79729102
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Petzel Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.004233 40.749237)",
+      "poi": {
+        "id": 19662,
+        "geometry": "POINT (-74.004233 40.749237)",
+        "poi_name": "Petzel Gallery",
+        "osm_id": 10859974152,
+        "tourism": "gallery",
+        "opening_hours": "tu-sa 10:00-18:00",
+        "website": "https://www.petzel.com",
+        "phone": "+1-212-680-9467",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 25th Street",
+        "addr_housenumber": "520"
+      }
+    }
+  },
+  "id": 2473,
+  "type": "knn+distance"
+}

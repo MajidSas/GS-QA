@@ -1,0 +1,47 @@
+{
+  "question": "What's the separation between Nemacolin, Farmington, PA and the nearest hospital?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.55178 39.804851)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.55178 39.804851)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167363,
+      "geometry": "POINT (-79.958858 39.653775)",
+      "poi_name": "Mary Babb Randolph Cancer Center",
+      "osm_id": 356536005,
+      "amenity": "hospital",
+      "website": "https://wvucancer.org/",
+      "phone": "+1 877 427 2894",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "distance": 38720.59435365
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Nemacolin, Farmington, PA",
+      "geo_wkt": "POINT (-79.55178 39.804851)",
+      "poi": {
+        "id": 3069,
+        "geometry": "POINT (-79.55178 39.804851)",
+        "poi_name": "Nemacolin",
+        "osm_id": 10155810291,
+        "tourism": "hotel",
+        "website": "https://www.nemacolin.com/",
+        "phone": "866-344-6957",
+        "addr_state": "PA",
+        "addr_city": "Farmington",
+        "addr_postcode": "15437",
+        "addr_street": "Lafayette Drive",
+        "addr_housenumber": "1001"
+      }
+    }
+  },
+  "id": 2433,
+  "type": "knn+distance"
+}

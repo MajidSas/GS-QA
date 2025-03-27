@@ -1,0 +1,55 @@
+{
+  "question": "What viewpoint is in the direction of southwest from Bunker Hill, IL, within a radius of 40 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography, 40000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 3912,
+      "geometry": "POINT (-87.781473 42.004049)",
+      "poi_name": "Des Plaines River Scenic Overlook",
+      "osm_id": 5631437027,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 8340,
+      "geometry": "POINT (-87.781473 42.004049)",
+      "poi_name": "Greene Valley Scenic Overlook",
+      "osm_id": 6634611192,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Bunker Hill, IL",
+      "geo_wkt": "POINT (-87.781473 42.004049)",
+      "poi": {
+        "id": 265726,
+        "geometry": "POINT (-87.781473 42.004049)",
+        "poi_name": "Bunker Hill",
+        "osm_id": 10874811379,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/bunker-hill/",
+        "phone": "+1-800-870-3666",
+        "addr_state": "IL"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2606,
+  "type": "range:direction+name"
+}

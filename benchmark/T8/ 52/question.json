@@ -1,0 +1,53 @@
+{
+  "question": "What's the closest fast food restaurant nearby the university established in the year 1975 in Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 53933,
+      "geometry": "POINT (-95.390115 29.722254)",
+      "poi_name": "Periodic Table",
+      "osm_id": 10107277344,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 09:00-17:00",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "delivery": "no",
+      "addr_state": "TX",
+      "addr_city": "Houston",
+      "addr_postcode": "77030",
+      "addr_street": "Hermann Park Drive",
+      "addr_housenumber": "5555"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "poi": {
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
+      }
+    }
+  },
+  "id": 2751,
+  "type": "knn+name+multihop2"
+}

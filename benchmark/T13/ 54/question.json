@@ -1,0 +1,41 @@
+{
+  "question": "Where can I find a viewpoint that's 130 kilometers from Knight Sports Arena, VA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.350197 37.74151)',4326)::geography, 130000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 27037,
+      "geometry": "POINT (-78.862279 38.432989)",
+      "poi_name": "Telescopes",
+      "osm_id": 7656756560,
+      "tourism": "viewpoint",
+      "addr_city": "Harrisonburg"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Knight Sports Arena, VA",
+      "geo_wkt": "POINT (-79.350197 37.74151)",
+      "poi": {
+        "id": 265386,
+        "geometry": "POINT (-79.350197 37.74151)",
+        "poi_name": "Knight Sports Arena",
+        "osm_id": 367997526,
+        "leisure": "stadium",
+        "addr_state": "VA"
+      }
+    }
+  },
+  "id": 2053,
+  "type": "range+loc"
+}

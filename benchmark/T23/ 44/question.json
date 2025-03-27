@@ -1,0 +1,43 @@
+{
+  "question": "How many restaurants are available within 70 kilometers from MICA Gallery, Lansing, MI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.549353 42.747811)',4326)::geography, 70000)\nAND amenity = 'restaurant';\n",
+  "answers": [
+    {
+      "count": 310
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "MICA Gallery, Lansing, MI",
+      "geo_wkt": "POINT (-84.549353 42.747811)",
+      "poi": {
+        "id": 4099,
+        "geometry": "POINT (-84.549353 42.747811)",
+        "poi_name": "MICA Gallery",
+        "osm_id": 5676662291,
+        "tourism": "gallery",
+        "operator": "Michigan Institute for Contemporary Art",
+        "website": "http://www.micagallery.org/",
+        "phone": "+1-517-371-4600",
+        "addr_state": "MI",
+        "addr_city": "Lansing",
+        "addr_postcode": "48906",
+        "addr_street": "Turner Street",
+        "addr_housenumber": "1210"
+      }
+    }
+  },
+  "id": 2243,
+  "type": "range+count"
+}

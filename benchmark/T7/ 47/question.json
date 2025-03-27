@@ -1,0 +1,55 @@
+{
+  "question": "What is the nickname of the closest university from Meerkerk Gardens, Greenbank, WA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.56177 48.081101)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 113854,
+      "geometry": "POINT (-122.68427 48.50805)",
+      "poi_name": "Shannon Point Marine Center",
+      "osm_id": 3850931477,
+      "amenity": "university",
+      "operator": "Western Washington University",
+      "website": "https://www.wwu.edu/spmc",
+      "phone": "1-360-650-7400",
+      "wikidata": "Q284777",
+      "addr_city": "Anacortes",
+      "addr_postcode": "98221",
+      "addr_street": "Shannon Point Road",
+      "addr_housenumber": "1900",
+      "multihop_answer": "Vikings",
+      "multihop_attribute": "Nickname",
+      "multihop_long_answer": "Shannon Point Marine Center Nickname: Vikings"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Meerkerk Gardens, Greenbank, WA",
+      "geo_wkt": "POINT (-122.56177 48.081101)",
+      "poi": {
+        "id": 245401,
+        "geometry": "POINT (-122.56177 48.081101)",
+        "poi_name": "Meerkerk Gardens",
+        "osm_id": 2871224413,
+        "leisure": "garden",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-16:00",
+        "website": "https://www.meerkerkgardens.org/",
+        "wikidata": "Q6807694",
+        "addr_state": "WA",
+        "addr_city": "Greenbank",
+        "addr_postcode": "98253",
+        "addr_street": "Meerkerk Lane",
+        "addr_housenumber": "3531"
+      }
+    }
+  },
+  "id": 946,
+  "type": "knn+name+multihop1"
+}

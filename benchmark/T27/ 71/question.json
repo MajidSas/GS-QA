@@ -1,0 +1,34 @@
+{
+  "question": "What is the combined area of all parks in Melrose, Massachusetts?",
+  "sql": "SELECT SUM(ST_Area(parks.geometry::geography)) AS area FROM parks\nWHERE leisure = 'park'\nAND ST_Intersects(parks.geometry::geography, ST_GeomFromText('POLYGON ((-71.078152 42.474021, -71.07919 42.461648, -71.082116 42.44394, -71.082919 42.43884, -71.025836 42.444709, -71.029832 42.449241, -71.037319 42.457731, -71.053365 42.475925, -71.061323 42.474196, -71.061356 42.47266, -71.069305 42.471638, -71.078152 42.474021))',4326)::geography)\n",
+  "answers": [
+    {
+      "area": 1821713.2005808044
+    }
+  ],
+  "answer_type": "area",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "table": "parks"
+    },
+    "[2]": {
+      "region_name": "Melrose, Massachusetts",
+      "geo_wkt": "POLYGON ((-71.078152 42.474021, -71.07919 42.461648, -71.082116 42.44394, -71.082919 42.43884, -71.025836 42.444709, -71.029832 42.449241, -71.037319 42.457731, -71.053365 42.475925, -71.061323 42.474196, -71.061356 42.47266, -71.069305 42.471638, -71.078152 42.474021))",
+      "region": {
+        "id": 13553,
+        "geometry": "POLYGON ((-71.078152 42.474021, -71.07919 42.461648, -71.082116 42.44394, -71.082919 42.43884, -71.025836 42.444709, -71.029832 42.449241, -71.037319 42.457731, -71.053365 42.475925, -71.061323 42.474196, -71.061356 42.47266, -71.069305 42.471638, -71.078152 42.474021))",
+        "region_name": "Melrose",
+        "border_type": "city",
+        "wikidata": "Q54143",
+        "wikipedia": "en:Melrose, Massachusetts",
+        "place": "city",
+        "admin_level": "8",
+        "population": "26983"
+      }
+    }
+  },
+  "id": 2170,
+  "type": "intersects:area_total+area"
+}

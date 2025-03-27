@@ -1,0 +1,52 @@
+{
+  "question": "What's the proximity of a golf course from Nature and Wildlife Discovery Center: River Campus, Pueblo, CO within a 120 kilometers radius?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography, 120000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 265825,
+      "geometry": "POINT (-105.096524 38.37079)",
+      "poi_name": "Sumo Golf Village",
+      "osm_id": 7858016926,
+      "leisure": "golf_course",
+      "addr_state": "CO",
+      "addr_city": "Florence",
+      "addr_postcode": "81226",
+      "addr_street": "Gary Player Dr",
+      "addr_housenumber": "5201",
+      "distance": 38340.58112063
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Nature and Wildlife Discovery Center: River Campus, Pueblo, CO",
+      "geo_wkt": "POINT (-104.677049 38.270312)",
+      "poi": {
+        "id": 265545,
+        "geometry": "POINT (-104.677049 38.270312)",
+        "poi_name": "Nature and Wildlife Discovery Center: River Campus",
+        "osm_id": 2506706989,
+        "leisure": "nature_reserve",
+        "website": "https://www.hikeandlearn.org",
+        "phone": "+1-719-549-2414",
+        "addr_state": "CO",
+        "addr_city": "Pueblo",
+        "addr_postcode": "81003",
+        "addr_street": "Nature Center Road",
+        "addr_housenumber": "5200"
+      }
+    }
+  },
+  "id": 716,
+  "type": "range+distance"
+}

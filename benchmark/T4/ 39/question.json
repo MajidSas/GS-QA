@@ -1,0 +1,142 @@
+{
+  "question": "What park is available on the path leading to Center for American History Winedale Historical Center, TX from Sherwood Forest Faire, McDade, TX, within a radius of 130 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, ST_GeomFromText('POINT (-96.758167 30.053558)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, 130000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 251707,
+      "geometry": "POINT (-96.559694 29.70079)",
+      "poi_name": "City Park",
+      "osm_id": 356702183,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 246252,
+      "geometry": "POINT (-96.381634 30.12796)",
+      "poi_name": "Patrick Heard Park",
+      "osm_id": 11206870329,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 251728,
+      "geometry": "POINT (-96.604973 30.038554)",
+      "poi_name": "Historical Marker",
+      "osm_id": 356708139,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 251792,
+      "geometry": "POINT (-96.108057 29.810957)",
+      "poi_name": "Stephen F Austin State Park",
+      "osm_id": 356724799,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 251723,
+      "geometry": "POINT (-96.600806 30.021333)",
+      "poi_name": "Harmonie Park",
+      "osm_id": 356707460,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 246904,
+      "geometry": "POINT (-96.93142 30.095412)",
+      "poi_name": "Tejas Camp and Retreat",
+      "osm_id": 6586526783,
+      "leisure": "park",
+      "opening_hours": "Mo-Fr 08:00-17:00",
+      "addr_state": "TX",
+      "addr_city": "Giddings",
+      "addr_postcode": "78942",
+      "addr_street": "Private Road 2191",
+      "addr_housenumber": "1038",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 247900,
+      "geometry": "POINT (-96.671412 29.906911)",
+      "poi_name": "Fayetteville City Park",
+      "osm_id": 11577978900,
+      "leisure": "park",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 252468,
+      "geometry": "POINT (-96.09607 29.807453)",
+      "poi_name": "City Park",
+      "osm_id": 356847874,
+      "leisure": "park",
+      "wikidata": "Q34926999",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 252469,
+      "geometry": "POINT (-96.246352 29.948836)",
+      "poi_name": "City Park",
+      "osm_id": 356847882,
+      "leisure": "park",
+      "wikidata": "Q34927011",
+      "value": 116.55003572175079
+    },
+    {
+      "id": 252528,
+      "geometry": "POINT (-96.246074 29.948559)",
+      "poi_name": "Bellville City Park",
+      "osm_id": 356848717,
+      "leisure": "park",
+      "wikidata": "Q34896119",
+      "value": 116.55003572175079
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
+      "poi": {
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Center for American History Winedale Historical Center, TX",
+      "geo_wkt": "POINT (-96.758167 30.053558)",
+      "poi": {
+        "id": 17928,
+        "geometry": "POINT (-96.758167 30.053558)",
+        "poi_name": "Center for American History Winedale Historical Center",
+        "osm_id": 368164879,
+        "tourism": "museum",
+        "website": "https://texastimetravel.com/directory/winedale-historical-center/",
+        "addr_state": "TX"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    }
+  },
+  "id": 1638,
+  "type": "range:towards+name"
+}

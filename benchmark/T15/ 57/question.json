@@ -1,0 +1,79 @@
+{
+  "question": "Within a radius of 180 kilometers, where can I find a park situated towards the southwest of Comal County Rebels Art Gallery, New Braunfels, TX?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-98.126551 29.70219)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.126551 29.70219)',4326)::geography, 180000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 251724,
+      "geometry": "POINT (-98.126551 29.70219)",
+      "poi_name": "Haskin Park",
+      "osm_id": 356707688,
+      "leisure": "park",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78209",
+      "addr_street": "Haskin Drive",
+      "addr_housenumber": "200"
+    },
+    {
+      "id": 245809,
+      "geometry": "POINT (-98.126551 29.70219)",
+      "poi_name": "Oakwell TrailHead Park",
+      "osm_id": 10107143636,
+      "leisure": "park",
+      "opening_hours": "24/7",
+      "phone": "+1-210-207-7275",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78218",
+      "addr_street": "Ira Lee Road",
+      "addr_housenumber": "150"
+    },
+    {
+      "id": 248549,
+      "geometry": "POINT (-98.126551 29.70219)",
+      "poi_name": "Shearer Hills/Ridgeview Walking Trail-Olmos Basin Park",
+      "osm_id": 4636532433,
+      "leisure": "park",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78216",
+      "addr_street": "Jackson Keller Road",
+      "addr_housenumber": "101"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Comal County Rebels Art Gallery, New Braunfels, TX",
+      "geo_wkt": "POINT (-98.126551 29.70219)",
+      "poi": {
+        "id": 6976,
+        "geometry": "POINT (-98.126551 29.70219)",
+        "poi_name": "Comal County Rebels Art Gallery",
+        "osm_id": 8792816844,
+        "tourism": "gallery",
+        "addr_state": "TX",
+        "addr_city": "New Braunfels",
+        "addr_postcode": "78130",
+        "addr_street": "North Castell Avenue",
+        "addr_housenumber": "139"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 56,
+  "type": "range:direction+loc"
+}

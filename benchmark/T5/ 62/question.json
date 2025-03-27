@@ -1,0 +1,52 @@
+{
+  "question": "What's the nearest hospital near SoMa, Oakland, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.251437 37.837684)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 62192,
+      "geometry": "POINT (-122.389664 37.764772)",
+      "poi_name": "UCSF Benioff Children's Hospital San Francisco",
+      "osm_id": 5555408498,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.ucsfbenioffchildrens.org/",
+      "phone": "+1 415 353 1664",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q17031376",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94158",
+      "addr_street": "4th Street",
+      "addr_housenumber": "1975"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "SoMa, Oakland, CA",
+      "geo_wkt": "POINT (-122.251437 37.837684)",
+      "poi": {
+        "id": 19819,
+        "geometry": "POINT (-122.251437 37.837684)",
+        "poi_name": "SoMa",
+        "osm_id": 10895285076,
+        "tourism": "gallery",
+        "opening_hours": "We,Th 12:--19:00; Fr 12:00-20:00; Sa 11:00-19:00; Su 10:00-17:00",
+        "website": "https://somaartgallery.com",
+        "addr_state": "CA",
+        "addr_city": "Oakland",
+        "addr_postcode": "94618",
+        "addr_street": "College Avenue",
+        "addr_housenumber": "5289"
+      }
+    }
+  },
+  "id": 261,
+  "type": "knn+name"
+}

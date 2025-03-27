@@ -1,0 +1,52 @@
+{
+  "question": "What's the closest archive museum located from the Westbrook Inn, Westbrook, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'archive'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.349125 43.681954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8610,
+      "geometry": "POINT (-122.345908 37.929269)",
+      "poi_name": "Internet Archive - Physical Archive",
+      "osm_id": 8593718592,
+      "description": "The off-site Physical Archives of the Internet Archive",
+      "tourism": "museum",
+      "operator": "Internet Archive",
+      "website": "https://archive.org/",
+      "museum": "archive",
+      "addr_state": "CA",
+      "addr_city": "Richmond",
+      "addr_postcode": "94804",
+      "addr_street": "Florida Avenue",
+      "addr_housenumber": "2512"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "archive museum",
+      "poi_filter_sql": "museum = 'archive'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Westbrook Inn, Westbrook, ME",
+      "geo_wkt": "POINT (-70.349125 43.681954)",
+      "poi": {
+        "id": 22543,
+        "geometry": "POINT (-70.349125 43.681954)",
+        "poi_name": "The Westbrook Inn",
+        "osm_id": 7149535915,
+        "tourism": "hotel",
+        "building": "yes",
+        "addr_state": "ME",
+        "addr_city": "Westbrook",
+        "addr_postcode": "04092",
+        "addr_street": "Cumberland Street",
+        "addr_housenumber": "36"
+      }
+    }
+  },
+  "id": 604,
+  "type": "knn:non_spat_filter+name"
+}

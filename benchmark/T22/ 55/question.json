@@ -1,0 +1,46 @@
+{
+  "question": "What's the heading to the closest golf course from Oceans Behavioral Hospital Of Opelousas, Opelousas, LA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.072869 30.508208)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.072869 30.508208)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 266219,
+      "geometry": "POINT (-91.94497 30.093366)",
+      "poi_name": "Le Triomphe Golf and Country Club",
+      "osm_id": 7071780887,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Su 09:00-21:00",
+      "addr_housenumber": "100 Club Dr, Broussard, LA 70518",
+      "angle": 164.99033795689664
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Opelousas, Opelousas, LA",
+      "geo_wkt": "POINT (-92.072869 30.508208)",
+      "poi": {
+        "id": 182423,
+        "geometry": "POINT (-92.072869 30.508208)",
+        "poi_name": "Oceans Behavioral Hospital Of Opelousas",
+        "osm_id": 10892087233,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/opelousas",
+        "phone": "+1 337 948 8820",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Opelousas",
+        "addr_postcode": "70570",
+        "addr_street": "Heather Drive",
+        "addr_housenumber": "1310"
+      }
+    }
+  },
+  "id": 1454,
+  "type": "knn+angle"
+}

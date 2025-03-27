@@ -1,0 +1,44 @@
+{
+  "question": "What's the nearest steak house available from Horseshoe Bend, Page, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%steak_house%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.516134 36.880453)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 159805,
+      "geometry": "POINT (-111.462561 36.919685)",
+      "poi_name": "Glen Canyon Steak House",
+      "osm_id": 4807313333,
+      "amenity": "restaurant",
+      "cuisine": "steak_house;american",
+      "phone": "+19286453363"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "steak house",
+      "poi_filter_sql": "cuisine ILIKE '%steak_house%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Horseshoe Bend, Page, AZ",
+      "geo_wkt": "POINT (-111.516134 36.880453)",
+      "poi": {
+        "id": 24861,
+        "geometry": "POINT (-111.516134 36.880453)",
+        "poi_name": "Horseshoe Bend",
+        "osm_id": 4346013600,
+        "tourism": "attraction",
+        "wikidata": "Q1064449",
+        "addr_state": "AZ",
+        "addr_city": "Page",
+        "addr_postcode": "86040",
+        "addr_street": "South Highway 89"
+      }
+    }
+  },
+  "id": 657,
+  "type": "knn:non_spat_filter+name"
+}

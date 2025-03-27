@@ -1,0 +1,69 @@
+{
+  "question": "Where can I find a park positioned towards the north of Bidwell House Museum, Monterey, MA, within a radius of 150 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.218371 42.208433)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.218371 42.208433)',4326)::geography, 150000)\nAND leisure = 'park'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 245515,
+      "geometry": "POINT (-73.218371 42.208433)",
+      "poi_name": "West End Park",
+      "osm_id": 3009465102,
+      "leisure": "park",
+      "opening_hours": "Apr-Nov: sunrise-sunset",
+      "operator": "Town of QueensburyRecreation Department",
+      "website": "https://recreation.queensbury.net/parks/",
+      "addr_state": "NY",
+      "addr_city": "Queensbury",
+      "addr_postcode": "12804",
+      "addr_street": "Luzerne Road",
+      "addr_housenumber": "117"
+    },
+    {
+      "id": 256528,
+      "geometry": "POINT (-73.218371 42.208433)",
+      "poi_name": "Glens Falls City Park",
+      "osm_id": 357640193,
+      "leisure": "park",
+      "addr_city": "Glens Falls",
+      "addr_postcode": "12801"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Bidwell House Museum, Monterey, MA",
+      "geo_wkt": "POINT (-73.218371 42.208433)",
+      "poi": {
+        "id": 245,
+        "geometry": "POINT (-73.218371 42.208433)",
+        "poi_name": "Bidwell House Museum",
+        "osm_id": 8257476461,
+        "tourism": "museum",
+        "opening_hours": "Tours available by reservation only from Memorial Day to Columbus Day.",
+        "operator": "Bidwell House Museum",
+        "website": "https://www.bidwellhousemuseum.org/",
+        "museum": "history",
+        "addr_state": "MA",
+        "addr_city": "Monterey",
+        "addr_postcode": "01245",
+        "addr_street": "Art School Road",
+        "addr_housenumber": "100"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 45,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "Do you know where the nearest hotel is from UIS Greenhouse, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3134,
+      "geometry": "POINT (-89.638419 39.714967)",
+      "poi_name": "Days Inn by Wyndham Springfield",
+      "osm_id": 10199832372,
+      "tourism": "hotel",
+      "website": "https://www.wyndhamhotels.com/days-inn/springfield-illinois/days-inn-springfield-il/overview",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "South 6th Street Road",
+      "addr_housenumber": "5970"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
+      "poi": {
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 1874,
+  "type": "knn+loc"
+}

@@ -1,0 +1,95 @@
+{
+  "question": "Which direction leads to an aquarium from Dealaman Nature Trail and Pond, Warren Township, NJ within a span of 180 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography, 180000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 7087,
+      "geometry": "POINT (-74.071561 40.808857)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 8850984245,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/new-jersey/",
+      "angle": 60.89036161019277
+    },
+    {
+      "id": 7884,
+      "geometry": "POINT (-75.624216 39.738809)",
+      "poi_name": "William\u2019s Greenbank Aquarium",
+      "osm_id": 6448697240,
+      "tourism": "aquarium",
+      "addr_street": "Greenbank Road",
+      "addr_housenumber": "107",
+      "angle": 224.39044578435937
+    },
+    {
+      "id": 12565,
+      "geometry": "POINT (-75.497341 40.398608)",
+      "poi_name": "Tank Masters",
+      "osm_id": 7329544147,
+      "tourism": "aquarium",
+      "phone": "+1 267-923-5015",
+      "addr_state": "PA",
+      "addr_city": "Pennsburg",
+      "addr_street": "Main Street",
+      "addr_housenumber": "359",
+      "angle": 253.61087045742138
+    },
+    {
+      "id": 14684,
+      "geometry": "POINT (-74.013529 40.728456)",
+      "poi_name": "The River Project Wetlab",
+      "osm_id": 4685779445,
+      "tourism": "aquarium",
+      "operator": "The River Project",
+      "angle": 74.52129882057466
+    },
+    {
+      "id": 15474,
+      "geometry": "POINT (-72.65672 40.917419)",
+      "poi_name": "Penguin Exhibit",
+      "osm_id": 4899672375,
+      "tourism": "aquarium",
+      "operator": "Atlantis Marine World",
+      "angle": 77.67593515478579
+    },
+    {
+      "id": 24617,
+      "geometry": "POINT (-74.298923 40.557173)",
+      "poi_name": "SeaQuest",
+      "osm_id": 11139863829,
+      "tourism": "aquarium",
+      "angle": 113.3289679407669
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dealaman Nature Trail and Pond, Warren Township, NJ",
+      "geo_wkt": "POINT (-74.506528 40.625648)",
+      "poi": {
+        "id": 267302,
+        "geometry": "POINT (-74.506528 40.625648)",
+        "poi_name": "Dealaman Nature Trail and Pond",
+        "osm_id": 5811042630,
+        "leisure": "nature_reserve",
+        "addr_state": "NJ",
+        "addr_city": "Warren Township",
+        "addr_postcode": "07059",
+        "addr_street": "Mount Horeb Road",
+        "addr_housenumber": "182"
+      }
+    }
+  },
+  "id": 1049,
+  "type": "range+angle"
+}

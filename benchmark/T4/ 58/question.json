@@ -1,0 +1,127 @@
+{
+  "question": "Within a radius of 110 kilometers, which restaurant can I find on the route towards Hotel Blessing, TX from Downtown Gazebo, Lake Jackson, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.450044 29.041946)',4326)::geography, ST_GeomFromText('POINT (-96.222466 28.84443)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.450044 29.041946)',4326)::geography, 110000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.450044 29.041946)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 204392,
+      "geometry": "POINT (-95.457628 29.041697)",
+      "poi_name": "La Casona",
+      "osm_id": 7125085852,
+      "amenity": "restaurant",
+      "cuisine": "tex-mex",
+      "wheelchair": "yes",
+      "website": "https://lacasonatexmexcantina.com/",
+      "addr_state": "TX",
+      "addr_city": "Lake Jackson",
+      "addr_street": "Abner Jackson Parkway",
+      "addr_housenumber": "105",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 133084,
+      "geometry": "POINT (-95.971862 28.984234)",
+      "poi_name": "K - 2 Steak House",
+      "osm_id": 9980078365,
+      "amenity": "restaurant",
+      "cuisine": "steak_house",
+      "opening_hours": "Mo-Th,Su 11:00-21:00; Fr-Sa 11:00-22:00",
+      "website": "https://k2steakhouse.com/",
+      "phone": "979-245-6936",
+      "addr_state": "TX",
+      "addr_city": "Bay City",
+      "addr_postcode": "77414",
+      "addr_street": "8th Street",
+      "addr_housenumber": "1701",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 195830,
+      "geometry": "POINT (-96.214196 28.713446)",
+      "poi_name": "Simple Simon's Pizza",
+      "osm_id": 10542249567,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 195832,
+      "geometry": "POINT (-96.217148 28.70135)",
+      "poi_name": "PMR",
+      "osm_id": 10542249575,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 195837,
+      "geometry": "POINT (-96.223894 28.71352)",
+      "poi_name": "Cheli's Cafe",
+      "osm_id": 10542249589,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 195838,
+      "geometry": "POINT (-96.224574 28.713585)",
+      "poi_name": "Tran's Restaurant",
+      "osm_id": 10542249590,
+      "amenity": "restaurant",
+      "cuisine": "vietnamese",
+      "value": 253.97767191965852
+    },
+    {
+      "id": 195839,
+      "geometry": "POINT (-96.210936 28.717639)",
+      "poi_name": "Mi Casa",
+      "osm_id": 10542249593,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "value": 253.97767191965852
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Downtown Gazebo, Lake Jackson, TX",
+      "geo_wkt": "POINT (-95.450044 29.041946)",
+      "poi": {
+        "id": 248644,
+        "geometry": "POINT (-95.450044 29.041946)",
+        "poi_name": "Downtown Gazebo",
+        "osm_id": 4714526068,
+        "leisure": "garden",
+        "addr_state": "TX",
+        "addr_city": "Lake Jackson",
+        "addr_postcode": "77566",
+        "addr_street": "Parking Way"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hotel Blessing, TX",
+      "geo_wkt": "POINT (-96.222466 28.84443)",
+      "poi": {
+        "id": 18031,
+        "geometry": "POINT (-96.222466 28.84443)",
+        "poi_name": "Hotel Blessing",
+        "osm_id": 368165334,
+        "tourism": "hotel",
+        "addr_state": "TX"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1657,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "What's the closest italian restaurant from Homewood Suites by Hilton Buffalo-Airport, Buffalo, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%italian%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.742277 42.923901)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 188579,
+      "geometry": "POINT (-78.69597 42.937024)",
+      "poi_name": "Salvatore's Italian Gardens",
+      "osm_id": 1162660608,
+      "amenity": "restaurant",
+      "cuisine": "italian"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "italian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%italian%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites by Hilton Buffalo-Airport, Buffalo, NY",
+      "geo_wkt": "POINT (-78.742277 42.923901)",
+      "poi": {
+        "id": 20495,
+        "geometry": "POINT (-78.742277 42.923901)",
+        "poi_name": "Homewood Suites by Hilton Buffalo-Airport",
+        "osm_id": 1186737948,
+        "tourism": "hotel",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "NY",
+        "addr_city": "Buffalo",
+        "addr_postcode": "14225",
+        "addr_street": "Dick Road",
+        "addr_housenumber": "760"
+      }
+    }
+  },
+  "id": 686,
+  "type": "knn:non_spat_filter+name"
+}

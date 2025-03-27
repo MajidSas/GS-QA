@@ -1,0 +1,67 @@
+{
+  "question": "Which caf\u00e9 is closest along the route to Walker's Point Center for the Arts, Milwaukee, WI from Bettendorf Castle, Fox River Grove, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.216046 42.195346)',4326)::geography, ST_GeomFromText('POINT (-87.917045 43.02231)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.216046 42.195346)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.216046 42.195346)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 221993,
+      "geometry": "POINT (-88.165917 42.321916)",
+      "poi_name": "Starbucks",
+      "osm_id": 11001055671,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 04:30-21:00; Sa 05:00-21:00; Su 05:30-20:00",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "value": 14.852490991919636
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Bettendorf Castle, Fox River Grove, IL",
+      "geo_wkt": "POINT (-88.216046 42.195346)",
+      "poi": {
+        "id": 15328,
+        "geometry": "POINT (-88.216046 42.195346)",
+        "poi_name": "Bettendorf Castle",
+        "osm_id": 4858712179,
+        "historic": "castle",
+        "tourism": "attraction",
+        "addr_state": "IL",
+        "addr_city": "Fox River Grove",
+        "addr_postcode": "60021",
+        "addr_street": "Concord Avenue",
+        "addr_housenumber": "418"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Walker's Point Center for the Arts, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.917045 43.02231)",
+      "poi": {
+        "id": 4501,
+        "geometry": "POINT (-87.917045 43.02231)",
+        "poi_name": "Walker's Point Center for the Arts",
+        "osm_id": 11279118111,
+        "tourism": "gallery",
+        "website": "https://wpca-milwaukee.org/",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53204",
+        "addr_street": "South 5th Street",
+        "addr_housenumber": "839"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 174,
+  "type": "knn:towards+name"
+}

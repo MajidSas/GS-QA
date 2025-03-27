@@ -1,0 +1,47 @@
+{
+  "question": "Where's the nearest beach resort from Snail Garden, Lake Jackson, TX located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.452235 29.043376)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-87.546195 30.279291)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Snail Garden, Lake Jackson, TX",
+      "geo_wkt": "POINT (-95.452235 29.043376)",
+      "poi": {
+        "id": 248645,
+        "geometry": "POINT (-95.452235 29.043376)",
+        "poi_name": "Snail Garden",
+        "osm_id": 4714529268,
+        "leisure": "garden",
+        "addr_state": "TX",
+        "addr_city": "Lake Jackson",
+        "addr_postcode": "77566",
+        "addr_street": "West Way Street"
+      }
+    }
+  },
+  "id": 1807,
+  "type": "knn+loc"
+}

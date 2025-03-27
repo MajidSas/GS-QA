@@ -1,0 +1,50 @@
+{
+  "question": "On what date was the closest theme park from Hotel Colee, Autograph Collection, Atlanta, GA opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.366222 33.847888)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13057,
+      "geometry": "POINT (-83.596543 35.793397)",
+      "poi_name": "Smoky Mountain Alpine Coaster",
+      "osm_id": 4035710749,
+      "tourism": "theme_park",
+      "website": "http://www.smokymountainalpinecoaster.com/",
+      "wikidata": "Q29831450",
+      "addr_state": "TN",
+      "addr_city": "Pigeon Forge",
+      "addr_postcode": "37863",
+      "addr_street": "Wears Valley Road",
+      "addr_housenumber": "867",
+      "multihop_answer": "August\u00a03,\u00a02013",
+      "multihop_attribute": "Opening date",
+      "multihop_long_answer": "Smoky Mountain Alpine Coaster Opening date: August\u00a03,\u00a02013"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hotel Colee, Autograph Collection, Atlanta, GA",
+      "geo_wkt": "POINT (-84.366222 33.847888)",
+      "poi": {
+        "id": 1750,
+        "geometry": "POINT (-84.366222 33.847888)",
+        "poi_name": "Hotel Colee, Autograph Collection",
+        "osm_id": 3140329594,
+        "tourism": "hotel",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30326",
+        "addr_street": "Peachtree Road Northeast",
+        "addr_housenumber": "3377"
+      }
+    }
+  },
+  "id": 993,
+  "type": "knn+name+multihop1"
+}

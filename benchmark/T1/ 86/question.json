@@ -1,0 +1,75 @@
+{
+  "question": "Can you suggest a zoo that's within 180 kilometers from Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 180000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 10483,
+      "geometry": "POINT (-85.702877 38.205966)",
+      "poi_name": "Petting Zoo Area",
+      "osm_id": 6882884522,
+      "description": "Petting Zoo",
+      "tourism": "zoo",
+      "zoo": "petting_zoo"
+    },
+    {
+      "id": 15625,
+      "geometry": "POINT (-85.92361 37.225846)",
+      "poi_name": "Dutch Country Safari Park",
+      "osm_id": 9418210883,
+      "tourism": "zoo",
+      "website": "http://dutchcountrysafaripark.com/",
+      "zoo": "safari_park",
+      "addr_state": "KY",
+      "addr_city": "Horse Cave",
+      "addr_postcode": "42749",
+      "addr_street": "L and N Turnpike Road",
+      "addr_housenumber": "2125"
+    },
+    {
+      "id": 23661,
+      "geometry": "POINT (-85.705218 38.20499)",
+      "poi_name": "Louisville zoo",
+      "osm_id": 5266544810,
+      "tourism": "zoo"
+    },
+    {
+      "id": 25402,
+      "geometry": "POINT (-83.70393 37.793243)",
+      "poi_name": "Kentucky Reptile Zoo",
+      "osm_id": 4484835854,
+      "tourism": "zoo",
+      "wikidata": "Q6392336"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "poi": {
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
+      }
+    }
+  },
+  "id": 885,
+  "type": "range+name"
+}

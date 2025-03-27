@@ -1,0 +1,50 @@
+{
+  "question": "Which stadium is closest when moving towards the east of Aquarium Depot, Miami, FL within 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography, 140000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 261336,
+      "geometry": "POINT (-80.386248 25.685662)",
+      "poi_name": "Marine Stadium",
+      "osm_id": 358699859,
+      "leisure": "stadium",
+      "wikidata": "Q6827353"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Depot, Miami, FL",
+      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "poi": {
+        "id": 26765,
+        "geometry": "POINT (-80.386248 25.685662)",
+        "poi_name": "Aquarium Depot",
+        "osm_id": 6035376680,
+        "tourism": "aquarium",
+        "phone": "+13055963373",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33186",
+        "addr_street": "Southwest 88th Street",
+        "addr_housenumber": "11762"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2645,
+  "type": "range:direction+name"
+}

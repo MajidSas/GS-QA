@@ -1,0 +1,45 @@
+{
+  "question": "What's the closest attraction located in the northeast direction starting from Animal Haven Farm Zoo, Weyauwega, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 22980,
+      "geometry": "POINT (-88.961358 44.301611)",
+      "poi_name": "Mini golf",
+      "osm_id": 4988379031,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Animal Haven Farm Zoo, Weyauwega, WI",
+      "geo_wkt": "POINT (-88.961358 44.301611)",
+      "poi": {
+        "id": 23088,
+        "geometry": "POINT (-88.961358 44.301611)",
+        "poi_name": "Animal Haven Farm Zoo",
+        "osm_id": 5030324218,
+        "tourism": "zoo",
+        "phone": "+1-920-867-3707",
+        "addr_state": "WI",
+        "addr_city": "Weyauwega",
+        "addr_postcode": "54983",
+        "addr_street": "Bucholtz Road",
+        "addr_housenumber": "N1720"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2597,
+  "type": "knn:direction+name"
+}

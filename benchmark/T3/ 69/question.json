@@ -1,0 +1,139 @@
+{
+  "question": "Within a radius of 160 kilometers, what caf\u00e9 can I find located in the east of Raynay Alpaca Farm, Ruffin, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, 160000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 89036,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Flat River Cafe",
+      "osm_id": 8818581417,
+      "amenity": "cafe",
+      "opening_hours": "Tu-Sa 06:00-14:00",
+      "website": "https://hurdlemillsmarket.com/",
+      "internet_access": "wlan",
+      "phone": "3363648800",
+      "addr_state": "NC",
+      "addr_city": "Hurdle Mills",
+      "addr_postcode": "27541",
+      "addr_street": "Hurdle Mills Road",
+      "addr_housenumber": "9580"
+    },
+    {
+      "id": 145133,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "City Lunch Cafe",
+      "osm_id": 7317282833,
+      "amenity": "cafe",
+      "addr_state": "NC",
+      "addr_city": "Franklinton",
+      "addr_postcode": "27525",
+      "addr_street": "Main Street",
+      "addr_housenumber": "5"
+    },
+    {
+      "id": 133602,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Starbucks",
+      "osm_id": 10000480950,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "shop": "coffee",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 203545,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "The Honeybaked Ham",
+      "osm_id": 7092233604,
+      "amenity": "cafe"
+    },
+    {
+      "id": 145132,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Sugar Grinders Creamery and Bakery",
+      "osm_id": 7317282832,
+      "amenity": "cafe",
+      "addr_state": "NC",
+      "addr_city": "Franklinton",
+      "addr_postcode": "27525",
+      "addr_street": "Main Street",
+      "addr_housenumber": "2"
+    },
+    {
+      "id": 194679,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Corner Coffee Cafe",
+      "osm_id": 10280564334,
+      "amenity": "cafe",
+      "phone": "+12523160442",
+      "addr_state": "NC",
+      "addr_city": "Nashville",
+      "addr_postcode": "27856",
+      "addr_street": "West Washington Street",
+      "addr_housenumber": "201"
+    },
+    {
+      "id": 194969,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "Mason x Main",
+      "osm_id": 10290846431,
+      "amenity": "cafe",
+      "addr_state": "NC",
+      "addr_city": "Franklinton",
+      "addr_postcode": "27525",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "2"
+    },
+    {
+      "id": 212991,
+      "geometry": "POINT (-79.503121 36.362766)",
+      "poi_name": "The Kitchen Table",
+      "osm_id": 5229488313,
+      "amenity": "cafe",
+      "cuisine": "breakfast;lunch",
+      "addr_state": "VA",
+      "addr_city": "Gasburg",
+      "addr_postcode": "23857",
+      "addr_street": "Gasburg Road",
+      "addr_housenumber": "4111"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
+      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "poi": {
+        "id": 5116,
+        "geometry": "POINT (-79.503121 36.362766)",
+        "poi_name": "Raynay Alpaca Farm",
+        "osm_id": 9761648623,
+        "tourism": "zoo",
+        "phone": "+13369393645",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Ruffin",
+        "addr_postcode": "27326",
+        "addr_street": "Ashland Road",
+        "addr_housenumber": "1897"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2668,
+  "type": "range:direction+name"
+}

@@ -1,0 +1,59 @@
+{
+  "question": "Where's the closest fast food restaurant towards the northeast of Just For Kids therapy, Phoenix, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-112.108591 33.588704)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 169830,
+      "geometry": "POINT (-112.108591 33.588704)",
+      "poi_name": "McDonald's",
+      "osm_id": 2321311581,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/az/phoenix/719-e-thunderbird-rd/23008.html",
+      "phone": "+1-602-866-8575",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85022",
+      "addr_street": "East Thunderbird Road",
+      "addr_housenumber": "719"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Just For Kids Therapy, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.108591 33.588704)",
+      "poi": {
+        "id": 135076,
+        "geometry": "POINT (-112.108591 33.588704)",
+        "poi_name": "Just For Kids Therapy",
+        "osm_id": 11504216167,
+        "amenity": "hospital",
+        "description": "Children's Speech, Occupational, Physical, and Music Therapy center.  Accepting DDD insurance.",
+        "operator": "Just For Kids Therapy",
+        "website": "https://www.justforkidsaz.com",
+        "phone": "602-794-7221",
+        "healthcare": "hospital",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85029",
+        "addr_street": "North 23rd Avenue",
+        "addr_housenumber": "11226"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1116,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,53 @@
+{
+  "question": "Where's the closest gallery to the east of Reba McEntire Center For Rehabilitation, Denison, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-96.551281 33.770218)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 26733,
+      "geometry": "POINT (-96.551281 33.770218)",
+      "poi_name": "M2Gallery",
+      "osm_id": 6016323214,
+      "tourism": "gallery",
+      "website": "https://m2lr.com/",
+      "addr_state": "AR",
+      "addr_city": "Little Rock",
+      "addr_postcode": "72212",
+      "addr_street": "Cantrell Road",
+      "addr_housenumber": "11525"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Reba McEntire Center For Rehabilitation, Denison, TX",
+      "geo_wkt": "POINT (-96.551281 33.770218)",
+      "poi": {
+        "id": 183171,
+        "geometry": "POINT (-96.551281 33.770218)",
+        "poi_name": "Reba McEntire Center For Rehabilitation",
+        "osm_id": 10917006194,
+        "amenity": "hospital",
+        "website": "https://www.texomamedicalcenter.net/inpatient-rehabilitation",
+        "phone": "+1 903 416 1000",
+        "healthcare": "rehabilitation",
+        "addr_state": "TX",
+        "addr_city": "Denison",
+        "addr_postcode": "75020",
+        "addr_street": "Reba Mcentire Lane",
+        "addr_housenumber": "1200"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1169,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "How distant is the closest park in relation to Kentucky Action Park, Cave City, KY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-86.0041 37.132939)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.0041 37.132939)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246106,
+      "geometry": "POINT (-85.887851 37.257297)",
+      "poi_name": "Battle for the Bridge Preserve",
+      "osm_id": 5577540403,
+      "leisure": "park",
+      "distance": 17233.80184711
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kentucky Action Park, Cave City, KY",
+      "geo_wkt": "POINT (-86.0041 37.132939)",
+      "poi": {
+        "id": 14316,
+        "geometry": "POINT (-86.0041 37.132939)",
+        "poi_name": "Kentucky Action Park",
+        "osm_id": 4268014471,
+        "tourism": "theme_park",
+        "website": "https://www.kentuckyactionpark.com/",
+        "phone": "+1 270-773-2560",
+        "addr_state": "KY",
+        "addr_city": "Cave City",
+        "addr_postcode": "42127",
+        "addr_street": "Mammoth Cave Road",
+        "addr_housenumber": "3057"
+      }
+    }
+  },
+  "id": 2491,
+  "type": "knn+distance"
+}

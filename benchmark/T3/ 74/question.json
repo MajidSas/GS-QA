@@ -1,0 +1,55 @@
+{
+  "question": "Which nature reserve is available within 70 kilometers in the northwest direction of New York Institute of Technology, New York, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 70000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 247765,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Janet Van Gelder Wildlife Sanctuary",
+      "osm_id": 9891613689,
+      "leisure": "nature_reserve"
+    },
+    {
+      "id": 267605,
+      "geometry": "POINT (-73.983176 40.770074)",
+      "poi_name": "Beacon Hill Bird Sanctuary",
+      "osm_id": 7747880527,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "poi": {
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2673,
+  "type": "range:direction+name"
+}

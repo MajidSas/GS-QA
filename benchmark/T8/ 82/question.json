@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest nature reserve from the university established in the year 1969 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267143,
+      "geometry": "POINT (-87.740809 41.975523)",
+      "poi_name": "Irene C. Hernandez Family Picnic Grove",
+      "osm_id": 4591260689,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Forest Preserve District of Cook County",
+      "website": "https://fpdcc.com/places/locations/labagh-woods/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "poi": {
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
+      }
+    }
+  },
+  "id": 2781,
+  "type": "knn+name+multihop2"
+}

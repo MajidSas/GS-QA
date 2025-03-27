@@ -1,0 +1,39 @@
+{
+  "question": "What's the distance between Coral Ridge Ice Arena, IA and the closest aquarium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8156,
+      "geometry": "POINT (-87.895468 43.036753)",
+      "poi_name": "Reiman Aquarium",
+      "osm_id": 6578835963,
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Apr-Sep Mo-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off; Sep-Apr Tu-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off",
+      "distance": 339848.23625009
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Coral Ridge Ice Arena, IA",
+      "geo_wkt": "POINT (-91.600665 41.690452)",
+      "poi": {
+        "id": 265360,
+        "geometry": "POINT (-91.600665 41.690452)",
+        "poi_name": "Coral Ridge Ice Arena",
+        "osm_id": 367088905,
+        "leisure": "stadium",
+        "addr_state": "IA"
+      }
+    }
+  },
+  "id": 2481,
+  "type": "knn+distance"
+}

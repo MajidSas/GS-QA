@@ -1,0 +1,49 @@
+{
+  "question": "Where is the closest golf course in the northwest direction starting from Cockrell Butterfly Center, Houston, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.39032 29.722176)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 245415,
+      "geometry": "POINT (-95.39032 29.722176)",
+      "poi_name": "Forest Creek Golf Club",
+      "osm_id": 2883390980,
+      "leisure": "golf_course",
+      "addr_city": "Round Rock",
+      "addr_postcode": "78664",
+      "addr_street": "Twin Ridge Parkway",
+      "addr_housenumber": "99"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Cockrell Butterfly Center, Houston, TX",
+      "geo_wkt": "POINT (-95.39032 29.722176)",
+      "poi": {
+        "id": 14408,
+        "geometry": "POINT (-95.39032 29.722176)",
+        "poi_name": "Cockrell Butterfly Center",
+        "osm_id": 4299317974,
+        "tourism": "zoo",
+        "operator": "Houston Museum of Natural Science",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Hermann Park Drive",
+        "addr_housenumber": "5555"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1140,
+  "type": "knn:direction+loc"
+}

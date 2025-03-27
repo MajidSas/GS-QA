@@ -1,0 +1,155 @@
+{
+  "question": "Is it possible for you to discover a local museum that is situated within 160 kilometers of Post University, Waterbury, CT?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND museum = 'local';\n",
+  "answers": [
+    {
+      "id": 5468,
+      "geometry": "POINT (-74.432254 42.314712)",
+      "poi_name": "Zadock Pratt Museum",
+      "osm_id": 761470487,
+      "tourism": "museum",
+      "opening_hours": "Sa-Su 12:00-17:00",
+      "website": "https://zadockprattmuseum.org/",
+      "phone": "1-518-299-3395",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Prattsville",
+      "addr_postcode": "12468",
+      "addr_street": "State Highway 23",
+      "addr_housenumber": "14540"
+    },
+    {
+      "id": 6813,
+      "geometry": "POINT (-74.301059 41.609741)",
+      "poi_name": "Pine Bush Museum",
+      "osm_id": 8703565078,
+      "tourism": "museum",
+      "operator": "Town of Crawford",
+      "website": "https://pinebushmuseum.com/",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Pine Bush",
+      "addr_postcode": "12566",
+      "addr_street": "Main Street",
+      "addr_housenumber": "86"
+    },
+    {
+      "id": 10894,
+      "geometry": "POINT (-73.955741 40.713954)",
+      "poi_name": "The City Reliquary",
+      "osm_id": 8132573640,
+      "tourism": "museum",
+      "opening_hours": "Th-Su 12:00-18:00; PH off",
+      "website": "https://cityreliquary.org/",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Brooklyn",
+      "addr_postcode": "11211",
+      "addr_street": "Metropolitan Avenue",
+      "addr_housenumber": "370"
+    },
+    {
+      "id": 17249,
+      "geometry": "POINT (-73.311052 41.63061)",
+      "poi_name": "Gunn Memorial Museum",
+      "osm_id": 367140010,
+      "tourism": "museum",
+      "website": "https://www.gunnlibrary.org/gunn-museum/",
+      "museum": "local",
+      "addr_state": "CT"
+    },
+    {
+      "id": 19959,
+      "geometry": "POINT (-74.020896 41.933613)",
+      "poi_name": "Mattewis Persen House",
+      "osm_id": 7782475244,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Tu-Fr 09:00-16:00; Sa 09:00-15:00",
+      "website": "https://clerk.ulstercountyny.gov/archives/persen-house",
+      "museum": "local"
+    },
+    {
+      "id": 20188,
+      "geometry": "POINT (-72.257647 41.80723)",
+      "poi_name": "J. Robert Donnelly Husky Heritage Sports Museum",
+      "osm_id": 7921579368,
+      "tourism": "museum",
+      "operator": "University of Connecticut",
+      "website": "https://uconnhuskies.com/sports/2018/6/12/trads-museum-html.aspx",
+      "museum": "local",
+      "wikidata": "Q24183704",
+      "addr_state": "CT",
+      "addr_city": "Storrs",
+      "addr_postcode": "06269",
+      "addr_street": "Alumni Drive",
+      "addr_housenumber": "2384"
+    },
+    {
+      "id": 24241,
+      "geometry": "POINT (-74.018583 41.93329)",
+      "poi_name": "Volunteer Firemen's Museum",
+      "osm_id": 10975457709,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Apr-Nov Fr 11:00-15:00; Sa 10:00-16:00:  Jun-Sep [2] We-Fr 11:00-15:00; Sa 10:00-16:00",
+      "website": "https://kingstonvolunteerfiremensmuseum.weebly.com/",
+      "phone": "+1-845-331-0866",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Kingston",
+      "addr_postcode": "12401",
+      "addr_street": "Fair Street",
+      "addr_housenumber": "265"
+    },
+    {
+      "id": 24243,
+      "geometry": "POINT (-73.985941 41.920209)",
+      "poi_name": "Reher Center for Immigrant Culture and History",
+      "osm_id": 10975590498,
+      "tourism": "museum",
+      "opening_hours": "Fr-Su 13:00-18:00",
+      "website": "https://www.rehercenter.org/",
+      "phone": "+1-845-481-3738",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Kingston",
+      "addr_postcode": "12401",
+      "addr_street": "Broadway",
+      "addr_housenumber": "101"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Post University, Waterbury, CT",
+      "geo_wkt": "POINT (-73.041211 41.554134)",
+      "poi": {
+        "id": 138346,
+        "geometry": "POINT (-73.041211 41.554134)",
+        "poi_name": "Post University",
+        "osm_id": 6142691782,
+        "amenity": "university",
+        "addr_state": "CT",
+        "addr_city": "Waterbury",
+        "addr_postcode": "06702",
+        "addr_street": "Bank Street",
+        "addr_housenumber": "140"
+      }
+    }
+  },
+  "id": 573,
+  "type": "range:non_spat_filter+name"
+}

@@ -1,0 +1,37 @@
+{
+  "question": "What's the quantity of parks that can be found within a 120 kilometers distance from Hairpin Turn, Clarksburg, MA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, 120000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 502
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "poi": {
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
+      }
+    }
+  },
+  "id": 2287,
+  "type": "range+count"
+}

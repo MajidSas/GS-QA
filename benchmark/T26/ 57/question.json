@@ -1,0 +1,50 @@
+{
+  "question": "How far away is the nearest hotel positioned from Jeffrey Deitch, New York, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.002655 40.721943)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.002655 40.721943)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 14557,
+      "geometry": "POINT (-74.004356 40.722004)",
+      "poi_name": "Soho Grand Hotel",
+      "osm_id": 4654873356,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.sohogrand.com/",
+      "phone": "+1 (212) 965-3000",
+      "wikidata": "Q7554755",
+      "addr_city": "New York",
+      "addr_postcode": "10013",
+      "addr_street": "West Broadway",
+      "addr_housenumber": "310",
+      "distance": 143.88110285
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Jeffrey Deitch, New York, NY",
+      "geo_wkt": "POINT (-74.002655 40.721943)",
+      "poi": {
+        "id": 24465,
+        "geometry": "POINT (-74.002655 40.721943)",
+        "poi_name": "Jeffrey Deitch",
+        "osm_id": 11066047179,
+        "tourism": "gallery",
+        "website": "https://www.deitch.com/new-york/exhibitions",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10013",
+        "addr_street": "Grand Street",
+        "addr_housenumber": "76"
+      }
+    }
+  },
+  "id": 2456,
+  "type": "knn+distance"
+}

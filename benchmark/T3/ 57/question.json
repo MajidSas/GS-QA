@@ -1,0 +1,68 @@
+{
+  "question": "Within a radius of 190 kilometers, what aquarium can I find to the southwest of the Dinosaur Place at Nature's Art Village, Montville, CT?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography, 190000)\nAND tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 15474,
+      "geometry": "POINT (-72.222926 41.432518)",
+      "poi_name": "Penguin Exhibit",
+      "osm_id": 4899672375,
+      "tourism": "aquarium",
+      "operator": "Atlantis Marine World"
+    },
+    {
+      "id": 7087,
+      "geometry": "POINT (-72.222926 41.432518)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 8850984245,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/new-jersey/"
+    },
+    {
+      "id": 14684,
+      "geometry": "POINT (-72.222926 41.432518)",
+      "poi_name": "The River Project Wetlab",
+      "osm_id": 4685779445,
+      "tourism": "aquarium",
+      "operator": "The River Project"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
+      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "poi": {
+        "id": 9051,
+        "geometry": "POINT (-72.222926 41.432518)",
+        "poi_name": "The Dinosaur Place at Nature's Art Village",
+        "osm_id": 3646707526,
+        "tourism": "theme_park",
+        "opening_hours": "10:00-dusk",
+        "website": "www.naturesartvillage.com",
+        "phone": "860-443-4367",
+        "addr_state": "CT",
+        "addr_city": "Montville",
+        "addr_postcode": "06370",
+        "addr_street": "Hartford-New London Turnpike",
+        "addr_housenumber": "1650"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2656,
+  "type": "range:direction+name"
+}

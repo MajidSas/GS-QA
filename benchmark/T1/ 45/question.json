@@ -1,0 +1,40 @@
+{
+  "question": "I'm searching for a nature reserve within 90 kilometers radius from Heritage Museum, TX, any suggestions?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.700861 32.9904)',4326)::geography, 90000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 267086,
+      "geometry": "POINT (-97.147631 32.995102)",
+      "poi_name": "Bob Jones Nature Center",
+      "osm_id": 4464012701,
+      "leisure": "nature_reserve"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Heritage Museum, TX",
+      "geo_wkt": "POINT (-97.700861 32.9904)",
+      "poi": {
+        "id": 18149,
+        "geometry": "POINT (-97.700861 32.9904)",
+        "poi_name": "Heritage Museum",
+        "osm_id": 368165700,
+        "tourism": "museum",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 844,
+  "type": "range+name"
+}

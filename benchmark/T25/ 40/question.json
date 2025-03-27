@@ -1,0 +1,47 @@
+{
+  "question": "What's the distance to a nature reserve from ACA Galleries, New York, NY within a 20 kilometers span?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-74.006847 40.746543)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.006847 40.746543)',4326)::geography, 20000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 246484,
+      "geometry": "POINT (-74.089283 40.754577)",
+      "poi_name": "Riverbend Marsh",
+      "osm_id": 9756176514,
+      "leisure": "nature_reserve",
+      "distance": 7018.80116272
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 20000,
+      "text": "20 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "ACA Galleries, New York, NY",
+      "geo_wkt": "POINT (-74.006847 40.746543)",
+      "poi": {
+        "id": 19773,
+        "geometry": "POINT (-74.006847 40.746543)",
+        "poi_name": "ACA Galleries",
+        "osm_id": 10873196749,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 11:00-18:00",
+        "phone": "+1-212-206-8080",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 20th Street",
+        "addr_housenumber": "529"
+      }
+    }
+  },
+  "id": 739,
+  "type": "range+distance"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Which beach resort is nearest to the east of United Memorial Medical Center - Sugar Land Hospital, Sugar Land, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.636093 29.605347)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-95.636093 29.605347)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "United Memorial Medical Center - Sugar Land Hospital, Sugar Land, TX",
+      "geo_wkt": "POINT (-95.636093 29.605347)",
+      "poi": {
+        "id": 183158,
+        "geometry": "POINT (-95.636093 29.605347)",
+        "poi_name": "United Memorial Medical Center - Sugar Land Hospital",
+        "osm_id": 10916995868,
+        "amenity": "hospital",
+        "website": "https://ummc.care/ummcsugarland",
+        "phone": "+1 281 238 3900",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Sugar Land",
+        "addr_postcode": "77478",
+        "addr_street": "Highway 6",
+        "addr_housenumber": "1211"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2503,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,44 @@
+{
+  "question": "Seeking suggestions for the nearest garden in relation to Miguel Abreu Gallery, New York, NY.",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.991291 40.715832)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248429,
+      "geometry": "POINT (-73.988321 40.725831)",
+      "poi_name": "Schoolchildren's Greenhouse",
+      "osm_id": 4113336291,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Miguel Abreu Gallery, New York, NY",
+      "geo_wkt": "POINT (-73.991291 40.715832)",
+      "poi": {
+        "id": 24139,
+        "geometry": "POINT (-73.991291 40.715832)",
+        "poi_name": "Miguel Abreu Gallery",
+        "osm_id": 9346533768,
+        "tourism": "gallery",
+        "opening_hours": "We-Su 10:00-18:00",
+        "operator": "Miguel Abreu",
+        "website": "https://miguelabreugallery.com/",
+        "phone": "+1-212-995-1774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10002",
+        "addr_street": "Orchard Street",
+        "addr_housenumber": "36"
+      }
+    }
+  },
+  "id": 213,
+  "type": "knn+name"
+}

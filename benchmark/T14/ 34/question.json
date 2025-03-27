@@ -1,0 +1,71 @@
+{
+  "question": "Could you locate an emergency hospital available within a 180 kilometers radius originating from Riverfront Stadium, Wichita, KS?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography, 180000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 167632,
+      "geometry": "POINT (-96.768286 39.083116)",
+      "poi_name": "Irwin Army Community Hospital",
+      "osm_id": 358630329,
+      "amenity": "hospital",
+      "website": "https://iach.amedd.army.mil/",
+      "phone": "+1-785-239-7000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q19880893",
+      "addr_city": "Fort Riley",
+      "addr_postcode": "66442",
+      "addr_street": "Caisson Hill Road",
+      "addr_housenumber": "600"
+    },
+    {
+      "id": 229041,
+      "geometry": "POINT (-98.219668 38.742689)",
+      "poi_name": "Ellsworth County Medical Center",
+      "osm_id": 4364272509,
+      "amenity": "hospital",
+      "website": "https://www.ewmed.com/",
+      "phone": "+1-785-472-3111",
+      "emergency": "yes",
+      "addr_city": "Ellsworth",
+      "addr_postcode": "67439",
+      "addr_street": "Aylward Avenue",
+      "addr_housenumber": "1604"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Riverfront Stadium, Wichita, KS",
+      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "poi": {
+        "id": 260589,
+        "geometry": "POINT (-97.345485 37.681386)",
+        "poi_name": "Riverfront Stadium",
+        "osm_id": 358627835,
+        "leisure": "stadium",
+        "website": "https://www.milb.com/wichita/ballpark",
+        "phone": "+1-316-221-8000",
+        "addr_state": "KS",
+        "addr_city": "Wichita",
+        "addr_postcode": "67213",
+        "addr_street": "South McLean Boulevard",
+        "addr_housenumber": "275"
+      }
+    }
+  },
+  "id": 433,
+  "type": "range:non_spat_filter+loc"
+}

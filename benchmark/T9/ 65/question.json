@@ -1,0 +1,47 @@
+{
+  "question": "What is the nearest aquarium situated towards the south of Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1374,
+      "geometry": "POINT (-111.9207 34.612641)",
+      "poi_name": "Arizona Sea Life Aquarium",
+      "osm_id": 2963997360,
+      "tourism": "aquarium",
+      "wikidata": "Q20712720",
+      "addr_city": "Tempe"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "poi": {
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2564,
+  "type": "knn:direction+name"
+}

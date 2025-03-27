@@ -1,0 +1,54 @@
+{
+  "question": "Where's the closest aquarium located in the direction of south from Harborcreek Historical Society, Erie, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.972672 42.159332)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 10602,
+      "geometry": "POINT (-79.972672 42.159332)",
+      "poi_name": "SeaQuest",
+      "osm_id": 6937652614,
+      "tourism": "aquarium",
+      "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+      "website": "https://visitseaquest.com/lynchburg/",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_postcode": "24502",
+      "addr_street": "Candlers Mountain Road",
+      "addr_housenumber": "3405"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Harborcreek Historical Society, Erie, PA",
+      "geo_wkt": "POINT (-79.972672 42.159332)",
+      "poi": {
+        "id": 26859,
+        "geometry": "POINT (-79.972672 42.159332)",
+        "poi_name": "Harborcreek Historical Society",
+        "osm_id": 7600797538,
+        "tourism": "museum",
+        "operator": "Harborcreek Township",
+        "website": "https://www.harborcreekhistory.org/",
+        "museum": "history",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16510",
+        "addr_street": "Buffalo Road",
+        "addr_housenumber": "5661"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1164,
+  "type": "knn:direction+loc"
+}

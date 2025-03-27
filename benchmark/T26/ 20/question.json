@@ -1,0 +1,54 @@
+{
+  "question": "What's the distance to the closest zoo with respect to Farmingdale State College (SUNY), Farmingdale, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.427778 40.752778)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.427778 40.752778)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6973,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551",
+      "distance": 20031.12502145
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Farmingdale State College (SUNY), Farmingdale, NY",
+      "geo_wkt": "POINT (-73.427778 40.752778)",
+      "poi": {
+        "id": 167509,
+        "geometry": "POINT (-73.427778 40.752778)",
+        "poi_name": "Farmingdale State College (SUNY)",
+        "osm_id": 357615813,
+        "amenity": "university",
+        "operator": "State of New York",
+        "website": "https://www.farmingdale.edu/",
+        "phone": "631-420-2000",
+        "official_name": "Farmingdale State College (SUNY)",
+        "addr_state": "NY",
+        "addr_city": "Farmingdale",
+        "addr_postcode": "11735-1021",
+        "addr_street": "Broad Hollow Road",
+        "addr_housenumber": "2350"
+      }
+    }
+  },
+  "id": 2419,
+  "type": "knn+distance"
+}

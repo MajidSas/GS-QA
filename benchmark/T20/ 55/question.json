@@ -1,0 +1,70 @@
+{
+  "question": "Where's the nearest gallery heading towards Porte des Morts Park, Ellison Bay, WI from Bay Shore Blufflands Nature Preserve, Sturgeon Bay, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.368569 44.938122)',4326)::geography, ST_GeomFromText('POINT (-86.98659 45.295507)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.368569 44.938122)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.368569 44.938122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 11419,
+      "geometry": "POINT (-87.299956 44.987552)",
+      "poi_name": "Plum Bottom Gallery",
+      "osm_id": 9964525731,
+      "tourism": "gallery",
+      "building": "yes",
+      "website": "https://plumbottomgallery.com/",
+      "phone": "920-743-2819",
+      "addr_state": "WI",
+      "addr_city": "Egg Harbor",
+      "addr_street": "Plum Bottom Road",
+      "addr_housenumber": "4999",
+      "value": 36.981659335586635
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Bay Shore Blufflands Nature Preserve, Sturgeon Bay, WI",
+      "geo_wkt": "POINT (-87.368569 44.938122)",
+      "poi": {
+        "id": 248118,
+        "geometry": "POINT (-87.368569 44.938122)",
+        "poi_name": "Bay Shore Blufflands Nature Preserve",
+        "osm_id": 6346595862,
+        "leisure": "nature_reserve",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/bay-shore-blufflands-nature-preserve_2/",
+        "addr_state": "WI",
+        "addr_city": "Sturgeon Bay",
+        "addr_postcode": "54235",
+        "addr_street": "Reynolds Road",
+        "addr_housenumber": "5519"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Porte des Morts Park, Ellison Bay, WI",
+      "geo_wkt": "POINT (-86.98659 45.295507)",
+      "poi": {
+        "id": 246368,
+        "geometry": "POINT (-86.98659 45.295507)",
+        "poi_name": "Porte des Morts Park",
+        "osm_id": 11369525444,
+        "leisure": "park",
+        "operator": "Town of Liberty Grove",
+        "website": "https://libertygrovewi.gov/",
+        "addr_state": "WI",
+        "addr_city": "Ellison Bay",
+        "addr_postcode": "54210",
+        "addr_street": "Kenosha Drive",
+        "addr_housenumber": "12832"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    }
+  },
+  "id": 1354,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,52 @@
+{
+  "question": "When was the nearest museum from Blue Ocean Discovery Center, Hampton, NH established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17358,
+      "geometry": "POINT (-70.928666 42.845368)",
+      "poi_name": "Bartlett Museum",
+      "osm_id": 367781160,
+      "tourism": "museum",
+      "website": "http://bartlettmuseum.org/",
+      "wikidata": "Q4865412",
+      "addr_state": "MA",
+      "addr_city": "Amesbury",
+      "addr_postcode": "01913",
+      "addr_street": "Main Street",
+      "addr_housenumber": "220",
+      "multihop_answer": "1968",
+      "multihop_attribute": "Established",
+      "multihop_long_answer": "Bartlett Museum Established: 1968"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "poi": {
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
+      }
+    }
+  },
+  "id": 955,
+  "type": "knn+name+multihop1"
+}

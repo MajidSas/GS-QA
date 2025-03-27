@@ -1,0 +1,52 @@
+{
+  "question": "I'm searching for a viewpoint within 30 kilometers radius from In the Game - Hollywood Park, Crestwood, IL, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, 30000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "id": 7684,
+      "geometry": "POINT (-87.623142 41.89902)",
+      "poi_name": "360 Chicago",
+      "osm_id": 2250380156,
+      "tourism": "viewpoint",
+      "wheelchair": "yes",
+      "website": "https://360chicago.com",
+      "wikidata": "Q217727",
+      "addr_city": "Chicago",
+      "addr_street": "North Michigan Avenue",
+      "addr_housenumber": "875"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "In the Game - Hollywood Park, Crestwood, IL",
+      "geo_wkt": "POINT (-87.747217 41.655827)",
+      "poi": {
+        "id": 22694,
+        "geometry": "POINT (-87.747217 41.655827)",
+        "poi_name": "In the Game - Hollywood Park",
+        "osm_id": 7217378704,
+        "tourism": "theme_park",
+        "website": "https://crestwood.inthegame.net",
+        "phone": "+1 708 389 7275",
+        "addr_state": "IL",
+        "addr_city": "Crestwood",
+        "addr_postcode": "60445",
+        "addr_street": "Cal Sag Road",
+        "addr_housenumber": "5051"
+      }
+    }
+  },
+  "id": 2094,
+  "type": "range+loc"
+}

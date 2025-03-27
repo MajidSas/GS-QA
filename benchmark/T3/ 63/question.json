@@ -1,0 +1,59 @@
+{
+  "question": "Within a radius of 80 kilometers, what viewpoint is available towards the east of Sarasota Art Museum, Sarasota, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography, 80000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 13022,
+      "geometry": "POINT (-82.529024 27.325641)",
+      "poi_name": "Observation Deck",
+      "osm_id": 4017979623,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26523,
+      "geometry": "POINT (-82.529024 27.325641)",
+      "poi_name": "Observation Mound",
+      "osm_id": 5918542648,
+      "description": "View of the Celery Fields and surrounding area",
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Sarasota Art Museum, Sarasota, FL",
+      "geo_wkt": "POINT (-82.529024 27.325641)",
+      "poi": {
+        "id": 235,
+        "geometry": "POINT (-82.529024 27.325641)",
+        "poi_name": "Sarasota Art Museum",
+        "osm_id": 8248296789,
+        "tourism": "museum",
+        "operator": "Ringling College of Art + Design",
+        "phone": "+1 (941) 309-4300",
+        "museum": "art",
+        "addr_state": "FL",
+        "addr_city": "Sarasota",
+        "addr_postcode": "34236",
+        "addr_street": "South Tamiami Trail",
+        "addr_housenumber": "1001"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2662,
+  "type": "range:direction+name"
+}

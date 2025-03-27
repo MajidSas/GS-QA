@@ -1,0 +1,44 @@
+{
+  "question": "Seeking suggestions for the nearest university in relation to the museum that was built in 1830 in Arlington, MA.",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 106806,
+      "geometry": "POINT (-71.119678 42.379106)",
+      "poi_name": "Harvard Law School",
+      "osm_id": 3516592380,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
+      "poi": {
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
+      }
+    }
+  },
+  "id": 2715,
+  "type": "knn+name+multihop2"
+}

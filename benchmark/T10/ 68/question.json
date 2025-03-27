@@ -1,0 +1,56 @@
+{
+  "question": "What's the closest attraction located en route to Wilkin County Museum, Breckenridge, MN from Detroit Lakes Sports Arena, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, ST_GeomFromText('POINT (-96.584722 46.265)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7972,
+      "geometry": "POINT (-102.241593 43.991974)",
+      "poi_name": "Story of Wounded Knee",
+      "osm_id": 6496482785,
+      "tourism": "attraction",
+      "value": 223.22944463540972
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Detroit Lakes Sports Arena, MN",
+      "geo_wkt": "POINT (-95.853333 46.806944)",
+      "poi": {
+        "id": 265358,
+        "geometry": "POINT (-95.853333 46.806944)",
+        "poi_name": "Detroit Lakes Sports Arena",
+        "osm_id": 367067717,
+        "leisure": "stadium",
+        "addr_state": "MN"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Wilkin County Museum, Breckenridge, MN",
+      "geo_wkt": "POINT (-96.584722 46.265)",
+      "poi": {
+        "id": 17018,
+        "geometry": "POINT (-96.584722 46.265)",
+        "poi_name": "Wilkin County Museum",
+        "osm_id": 367068452,
+        "tourism": "museum",
+        "website": "https://www.exploreminnesota.com/profile/wilkin-county-museum/2270",
+        "addr_state": "MN",
+        "addr_city": "Breckenridge",
+        "addr_postcode": "56520",
+        "addr_street": "Nebraska Avenue",
+        "addr_housenumber": "704"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 167,
+  "type": "knn:towards+name"
+}

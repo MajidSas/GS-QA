@@ -1,0 +1,48 @@
+{
+  "question": "What's the distance between Bartels Museum of Rocks and Minerals, NE and the closest aquarium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.090312 40.881397)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.090312 40.881397)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25908,
+      "geometry": "POINT (-93.240076 44.854752)",
+      "poi_name": "SEA LIFE Minnesota Aquarium",
+      "osm_id": 5739830095,
+      "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+      "operator": "Merlin Entertainments'",
+      "website": "https://www.visitsealife.com/minnesota/",
+      "phone": "+1-952-883-0202",
+      "addr_state": "MN",
+      "addr_city": "Bloomington",
+      "addr_postcode": "55425",
+      "addr_street": "East Broadway",
+      "addr_housenumber": "120",
+      "distance": 541906.28901421
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Bartels Museum of Rocks and Minerals, NE",
+      "geo_wkt": "POINT (-97.090312 40.881397)",
+      "poi": {
+        "id": 16773,
+        "geometry": "POINT (-97.090312 40.881397)",
+        "poi_name": "Bartels Museum of Rocks and Minerals",
+        "osm_id": 366492356,
+        "tourism": "museum",
+        "addr_state": "NE"
+      }
+    }
+  },
+  "id": 2448,
+  "type": "knn+distance"
+}

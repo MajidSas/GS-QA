@@ -1,0 +1,50 @@
+{
+  "question": "Where can I find a park northwest of Montana Grizzly Encounter, Bozeman, MT, within a radius of 150 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography, 150000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 258489,
+      "geometry": "POINT (-110.834041 45.663969)",
+      "poi_name": "Sacajawea Park",
+      "osm_id": 357972129,
+      "leisure": "park",
+      "addr_state": "MT",
+      "addr_city": "Three Forks"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Montana Grizzly Encounter, Bozeman, MT",
+      "geo_wkt": "POINT (-110.834041 45.663969)",
+      "poi": {
+        "id": 14047,
+        "geometry": "POINT (-110.834041 45.663969)",
+        "poi_name": "Montana Grizzly Encounter",
+        "osm_id": 4215553273,
+        "tourism": "zoo",
+        "addr_state": "MT",
+        "addr_city": "Bozeman",
+        "addr_postcode": "59175",
+        "addr_street": "Bozeman Hill Road",
+        "addr_housenumber": "18000"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 0,
+  "type": "range:direction+loc"
+}

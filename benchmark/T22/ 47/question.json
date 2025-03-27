@@ -1,0 +1,42 @@
+{
+  "question": "Which way should I go to reach the closest theme park from Humboldt Botanical Garden, Eureka, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 7176,
+      "geometry": "POINT (-122.880566 42.349499)",
+      "poi_name": "Southern Oregon Live Streamers",
+      "osm_id": 1991878080,
+      "tourism": "theme_park",
+      "angle": 30.664833687330834
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Humboldt Botanical Garden, Eureka, CA",
+      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "poi": {
+        "id": 266946,
+        "geometry": "POINT (-124.203982 40.700941)",
+        "poi_name": "Humboldt Botanical Garden",
+        "osm_id": 11161511489,
+        "leisure": "garden",
+        "website": "https://www.hbgf.org/",
+        "addr_state": "CA",
+        "addr_city": "Eureka",
+        "addr_postcode": "95503",
+        "addr_street": "Tompkins Hill Road",
+        "addr_housenumber": "7707"
+      }
+    }
+  },
+  "id": 1446,
+  "type": "knn+angle"
+}

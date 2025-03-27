@@ -1,0 +1,54 @@
+{
+  "question": "Within a radius of 170 kilometers, what hospital is available towards the east of Falls Ridge Preserve, Elliston, VA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 72600,
+      "geometry": "POINT (-80.321578 37.193218)",
+      "poi_name": "Altavista Medical Center",
+      "osm_id": 11436052502,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Altavista",
+      "addr_postcode": "24517",
+      "addr_street": "7th Street",
+      "addr_housenumber": "1280"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Falls Ridge Preserve, Elliston, VA",
+      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "poi": {
+        "id": 266492,
+        "geometry": "POINT (-80.321578 37.193218)",
+        "poi_name": "Falls Ridge Preserve",
+        "osm_id": 5189591887,
+        "leisure": "nature_reserve",
+        "addr_state": "VA",
+        "addr_city": "Elliston",
+        "addr_postcode": "24087",
+        "addr_street": "Falls Ridge Rd"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2601,
+  "type": "range:direction+name"
+}

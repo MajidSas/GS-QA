@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest restaurant located in the east direction starting from Allison Woods, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 196521,
+      "geometry": "POINT (-87.888401 42.099472)",
+      "poi_name": "Blufish",
+      "osm_id": 10583030927,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "phone": "8472723474",
+      "addr_state": "IL",
+      "addr_city": "Glenview",
+      "addr_postcode": "60026",
+      "addr_street": "Pfingsten Road",
+      "addr_housenumber": "2709"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Allison Woods, IL",
+      "geo_wkt": "POINT (-87.888401 42.099472)",
+      "poi": {
+        "id": 265398,
+        "geometry": "POINT (-87.888401 42.099472)",
+        "poi_name": "Allison Woods",
+        "osm_id": 369049527,
+        "leisure": "nature_reserve",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2586,
+  "type": "knn:direction+name"
+}

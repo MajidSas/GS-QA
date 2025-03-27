@@ -1,0 +1,55 @@
+{
+  "question": "What's the closest emergency hospital from Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167408,
+      "geometry": "POINT (-98.572054 29.507212)",
+      "poi_name": "Methodist Children's Hospital",
+      "osm_id": 356844344,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "HCA",
+      "website": "https://sahealth.com/locations/methodistchildrens/",
+      "phone": "+1-210-575-7000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q50036898",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78229",
+      "addr_street": "Floyd Curl Drive",
+      "addr_housenumber": "7700"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "poi": {
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
+      }
+    }
+  },
+  "id": 670,
+  "type": "knn:non_spat_filter+name"
+}

@@ -1,0 +1,48 @@
+{
+  "question": "I'm searching for a garden within 130 kilometers radii from Brick City Park Stadium, FL, any suggestions where it is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography, 130000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 246454,
+      "geometry": "POINT (-81.327543 28.262181)",
+      "poi_name": "Chopper's Lawn Equipment",
+      "osm_id": 9684453306,
+      "leisure": "garden",
+      "opening_hours": "Mo-Fr 08:00-17:00",
+      "website": "https://chopperslawnequipment.com",
+      "phone": "+1-407-891-8990",
+      "addr_state": "FL",
+      "addr_city": "Kissimmee",
+      "addr_postcode": "34744",
+      "addr_street": "Big Sky Boulevard",
+      "addr_housenumber": "2899"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Brick City Park Stadium, FL",
+      "geo_wkt": "POINT (-82.121758 29.166644)",
+      "poi": {
+        "id": 265376,
+        "geometry": "POINT (-82.121758 29.166644)",
+        "poi_name": "Brick City Park Stadium",
+        "osm_id": 367826901,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 2084,
+  "type": "range+loc"
+}

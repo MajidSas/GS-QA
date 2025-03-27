@@ -1,0 +1,52 @@
+{
+  "question": "Where can I find the nearest nature museum near Advanced Medical Imaging Surgery Center, Lincoln, NE?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'nature'\nORDER BY geometry <-> ST_GeomFromText('POINT (-96.617445 40.769221)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 3759,
+      "geometry": "POINT (-96.030596 41.541235)",
+      "poi_name": "DeSoto National Wildlife Refuge Visitor Center",
+      "osm_id": 5585189191,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 08:30-16:30 open \"Visitor Center\"; PH off",
+      "website": "https://www.fws.gov/refuge/desoto",
+      "museum": "nature",
+      "addr_state": "IA",
+      "addr_city": "Missouri Valley",
+      "addr_postcode": "51555",
+      "addr_street": "316th Lane",
+      "addr_housenumber": "1434"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Advanced Medical Imaging Surgery Center, Lincoln, NE",
+      "geo_wkt": "POINT (-96.617445 40.769221)",
+      "poi": {
+        "id": 182527,
+        "geometry": "POINT (-96.617445 40.769221)",
+        "poi_name": "Advanced Medical Imaging Surgery Center",
+        "osm_id": 10894774747,
+        "amenity": "hospital",
+        "website": "https://amimaging.com/surgery-center",
+        "healthcare": "hospital",
+        "addr_state": "NE",
+        "addr_city": "Lincoln",
+        "addr_postcode": "68506",
+        "addr_street": "Pioneers Boulevard",
+        "addr_housenumber": "7555"
+      }
+    }
+  },
+  "id": 356,
+  "type": "knn:non_spat_filter+loc"
+}

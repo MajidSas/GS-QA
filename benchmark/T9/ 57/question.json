@@ -1,0 +1,46 @@
+{
+  "question": "Which park is nearest when considering the south direction of Sky Oaks Reserve, Warner Springs, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-116.62249 33.374661)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 262666,
+      "geometry": "POINT (-116.62249 33.374661)",
+      "poi_name": "Butterfield Stage Station",
+      "osm_id": 358803053,
+      "leisure": "park"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Sky Oaks Reserve, Warner Springs, CA",
+      "geo_wkt": "POINT (-116.62249 33.374661)",
+      "poi": {
+        "id": 247638,
+        "geometry": "POINT (-116.62249 33.374661)",
+        "poi_name": "Sky Oaks Reserve",
+        "osm_id": 7990437450,
+        "leisure": "nature_reserve",
+        "opening_hours": "24/7",
+        "operator": "San Diego State University",
+        "website": "https://fsp.sdsu.edu/",
+        "addr_state": "CA",
+        "addr_city": "Warner Springs",
+        "addr_postcode": "92086",
+        "addr_street": "Lost Valley Road"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2556,
+  "type": "knn:direction+name"
+}

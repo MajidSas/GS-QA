@@ -1,0 +1,40 @@
+{
+  "question": "Could you tell me the number of parks located within a 130 kilometers radius from Reyes | Finn, Detroit, MI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.06476 42.328909)',4326)::geography, 130000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 29
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Reyes | Finn, Detroit, MI",
+      "geo_wkt": "POINT (-83.06476 42.328909)",
+      "poi": {
+        "id": 8734,
+        "geometry": "POINT (-83.06476 42.328909)",
+        "poi_name": "Reyes | Finn",
+        "osm_id": 8656203815,
+        "tourism": "gallery",
+        "addr_state": "MI",
+        "addr_city": "Detroit",
+        "addr_postcode": "48216",
+        "addr_street": "Trumbull Street",
+        "addr_housenumber": "1500"
+      }
+    }
+  },
+  "id": 2241,
+  "type": "range+count"
+}

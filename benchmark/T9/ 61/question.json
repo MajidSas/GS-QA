@@ -1,0 +1,45 @@
+{
+  "question": "What is the closest caf\u00e9 northeast of Strawberry Hill, San Francisco, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 162183,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "De Young Caf\u00e9",
+      "osm_id": 4919829393,
+      "amenity": "cafe",
+      "wheelchair": "yes",
+      "opening_hours": "Tu-Su 09:30-16:30; Mo off",
+      "outdoor_seating": "yes"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
+      "poi": {
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2560,
+  "type": "knn:direction+name"
+}

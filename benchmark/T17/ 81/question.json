@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the nearest aquarium in the vicinity of University of Maine Cooperative Extension in York County, Springvale, ME?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.798343 43.465235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4389,
+      "geometry": "POINT (-70.810543 42.909869)",
+      "poi_name": "Blue Ocean Discovery Center",
+      "osm_id": 11244479725,
+      "tourism": "aquarium",
+      "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+      "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+      "addr_state": "NH",
+      "addr_city": "Hampton",
+      "addr_postcode": "03842",
+      "addr_street": "Ocean Boulevard",
+      "addr_housenumber": "180"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of Maine Cooperative Extension in York County, Springvale, ME",
+      "geo_wkt": "POINT (-70.798343 43.465235)",
+      "poi": {
+        "id": 123177,
+        "geometry": "POINT (-70.798343 43.465235)",
+        "poi_name": "University of Maine Cooperative Extension in York County",
+        "osm_id": 6838986230,
+        "amenity": "university",
+        "website": "https://extension.umaine.edu/york/",
+        "phone": "+1-207.324.2814",
+        "addr_state": "ME",
+        "addr_city": "Springvale",
+        "addr_postcode": "04083",
+        "addr_street": "Oak Street",
+        "addr_housenumber": "15"
+      }
+    }
+  },
+  "id": 1880,
+  "type": "knn+loc"
+}

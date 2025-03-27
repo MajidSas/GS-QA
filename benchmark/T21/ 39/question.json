@@ -1,0 +1,89 @@
+{
+  "question": "In what direction can I find a garden from Strayer University, Charlotte, NC within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography, 90000)\nAND leisure = 'garden';\n",
+  "answers": [
+    {
+      "id": 246378,
+      "geometry": "POINT (-80.773601 35.080837)",
+      "poi_name": "Lower School Garden",
+      "osm_id": 11404292321,
+      "leisure": "garden",
+      "operator": "Charlotte Latin School",
+      "angle": 114.26826204153572
+    },
+    {
+      "id": 246379,
+      "geometry": "POINT (-80.773247 35.080155)",
+      "poi_name": "Anna's Garden",
+      "osm_id": 11404292324,
+      "leisure": "garden",
+      "angle": 114.47054301450011
+    },
+    {
+      "id": 266478,
+      "geometry": "POINT (-80.805642 35.255092)",
+      "poi_name": "4 square garden",
+      "osm_id": 5161019154,
+      "leisure": "garden",
+      "description": "Grow edible and medicinal herbs. Would have been an important part of Dr. Caldwell's medical practice. ",
+      "angle": 41.383407423681184
+    },
+    {
+      "id": 266479,
+      "geometry": "POINT (-80.80627 35.254631)",
+      "poi_name": "Rosedale Arbor",
+      "osm_id": 5161019158,
+      "leisure": "garden",
+      "description": "Centerpiece of the historic garden. Blooms with jasmine & lady banks rose in the spring. many weddings take place under this arbor.",
+      "angle": 41.35327187077157
+    },
+    {
+      "id": 266480,
+      "geometry": "POINT (-80.805973 35.254799)",
+      "poi_name": "Lake, Simpson, Dixon Gardens Sign",
+      "osm_id": 5161019167,
+      "leisure": "garden",
+      "description": "Dedications sign to the reseration of the historic formal gardens. ",
+      "angle": 41.37992802057145
+    },
+    {
+      "id": 266787,
+      "geometry": "POINT (-80.793698 35.204346)",
+      "poi_name": "Charlotte Rose Society Memorial Garden",
+      "osm_id": 9384874423,
+      "leisure": "garden",
+      "angle": 59.76403738457621
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Strayer University, Charlotte, NC",
+      "geo_wkt": "POINT (-80.930371 35.139039)",
+      "poi": {
+        "id": 71121,
+        "geometry": "POINT (-80.930371 35.139039)",
+        "poi_name": "Strayer University",
+        "osm_id": 11382339319,
+        "amenity": "university",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28273",
+        "addr_street": "North Kings Parade Boulevard",
+        "addr_housenumber": "9101"
+      }
+    }
+  },
+  "id": 1038,
+  "type": "range+angle"
+}

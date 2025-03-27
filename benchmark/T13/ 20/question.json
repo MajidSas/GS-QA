@@ -1,0 +1,53 @@
+{
+  "question": "Could you locate a golf course within a 170 kilometers radius of Pioneer Stadium, Ogden, UT?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, 170000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 248479,
+      "geometry": "POINT (-111.556062 40.686594)",
+      "poi_name": "Canyons Golf Course",
+      "osm_id": 4220431911,
+      "leisure": "golf_course",
+      "description": "18 hole Par 70",
+      "website": "http://www.canyonsresort.com/activities/golf.aspx#/GeneralInformation",
+      "phone": "(435) 615-4728",
+      "addr_state": "UT",
+      "addr_city": "Park City",
+      "addr_postcode": "84098",
+      "addr_street": "Canyons Resort Drive",
+      "addr_housenumber": "4000"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    }
+  },
+  "id": 2019,
+  "type": "range+loc"
+}

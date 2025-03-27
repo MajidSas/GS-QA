@@ -1,0 +1,132 @@
+{
+  "question": "Where can I find a hospital south of Hollywood Sign, Los Angeles, CA, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 167708,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "Tarzana Treatment Centers Long Beach",
+      "osm_id": 358808301,
+      "amenity": "hospital",
+      "website": "https://www.tarzanatc.org/location-detail/long-beach/2101-magnolia-avenue/",
+      "phone": "+1 562 218 1868",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Long Beach",
+      "addr_postcode": "90806",
+      "addr_street": "Magnolia Avenue",
+      "addr_housenumber": "2101"
+    },
+    {
+      "id": 167723,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "Miller Children's & Women's Hospital Long Beach",
+      "osm_id": 358857879,
+      "amenity": "hospital",
+      "operator": "MemorialCare",
+      "website": "https://www.millerchildrenshospitallb.org/",
+      "phone": "+1 562 933 5437",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q6859100",
+      "addr_city": "Long Beach",
+      "addr_postcode": "90806",
+      "addr_street": "Atlantic Avenue",
+      "addr_housenumber": "2801"
+    },
+    {
+      "id": 176351,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "Kedren Community Health Center",
+      "osm_id": 2556689683,
+      "amenity": "hospital",
+      "website": "https://kedren.org/",
+      "phone": "+1 323 233 0425",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90011",
+      "addr_street": "South Avalon Boulevard",
+      "addr_housenumber": "4211"
+    },
+    {
+      "id": 181824,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "Star View Adolescent - PHF",
+      "osm_id": 10866365486,
+      "amenity": "hospital",
+      "website": "https://www.starsinc.com/star-view-community-services/star-view-adolescent-center",
+      "healthcare": "hospital",
+      "addr_city": "Torrance",
+      "addr_postcode": "90505",
+      "addr_street": "West 226 Street",
+      "addr_housenumber": "4025"
+    },
+    {
+      "id": 181837,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "Kindred Hospital - Los Angeles",
+      "osm_id": 10866445651,
+      "amenity": "hospital",
+      "website": "https://www.kindredhospitals.com/locations/ltac/kindred-hospital-los-angeles",
+      "phone": "+1 310 981 0601",
+      "healthcare": "hospital",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90056-1047",
+      "addr_street": "West Slauson Avenue",
+      "addr_housenumber": "5525"
+    },
+    {
+      "id": 181848,
+      "geometry": "POINT (-118.321652 34.134099)",
+      "poi_name": "College Medical Center Hawthorne Campus",
+      "osm_id": 10866467674,
+      "amenity": "hospital",
+      "website": "https://www.collegemedicalcenter.com",
+      "phone": "+1 424 365 3000",
+      "healthcare": "hospital",
+      "addr_state": "CA",
+      "addr_city": "Hawthorne",
+      "addr_postcode": "90250-5805",
+      "addr_street": "Hawthorne Boulevard",
+      "addr_housenumber": "13300"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hollywood Sign, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "poi": {
+        "id": 1885,
+        "geometry": "POINT (-118.321652 34.134099)",
+        "poi_name": "Hollywood Sign",
+        "osm_id": 3204926589,
+        "tourism": "attraction",
+        "operator": "The Trust for Public Land",
+        "wikidata": "Q180376",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mount Lee Drive"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 52,
+  "type": "range:direction+loc"
+}

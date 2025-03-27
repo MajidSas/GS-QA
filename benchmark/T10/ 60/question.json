@@ -1,0 +1,55 @@
+{
+  "question": "Which fast food is closest when traveling towards Cedar Lakes Woods and Gardens, Williston, FL from Trinity Catholic High School Football Stadium, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.165289 29.144778)',4326)::geography, ST_GeomFromText('POINT (-82.478763 29.404338)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.165289 29.144778)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.165289 29.144778)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 219437,
+      "geometry": "POINT (-82.172965 29.15857)",
+      "poi_name": "Poke Express",
+      "osm_id": 9330792010,
+      "amenity": "fast_food",
+      "value": 313.4386093514757
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Trinity Catholic High School Football Stadium, FL",
+      "geo_wkt": "POINT (-82.165289 29.144778)",
+      "poi": {
+        "id": 265372,
+        "geometry": "POINT (-82.165289 29.144778)",
+        "poi_name": "Trinity Catholic High School Football Stadium",
+        "osm_id": 367826897,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Cedar Lakes Woods and Gardens, Williston, FL",
+      "geo_wkt": "POINT (-82.478763 29.404338)",
+      "poi": {
+        "id": 25203,
+        "geometry": "POINT (-82.478763 29.404338)",
+        "poi_name": "Cedar Lakes Woods and Gardens",
+        "osm_id": 4421931219,
+        "tourism": "attraction",
+        "addr_state": "FL",
+        "addr_city": "Williston",
+        "addr_postcode": "32696",
+        "addr_street": "Northeast 180th Avenue",
+        "addr_housenumber": "4990"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 159,
+  "type": "knn:towards+name"
+}

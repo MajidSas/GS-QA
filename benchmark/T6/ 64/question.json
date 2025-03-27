@@ -1,0 +1,55 @@
+{
+  "question": "What's the nearest emergency hospital available from J. Robert Donnelly Husky Heritage Sports Museum, Storrs, CT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.257647 41.80723)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167451,
+      "geometry": "POINT (-71.412474 41.810772)",
+      "poi_name": "Women & Infants Hospital of Rhode Island",
+      "osm_id": 357268056,
+      "amenity": "hospital",
+      "website": "https://www.care.com/b/l/the-tavares-pediatric-center-inc/providence-ri",
+      "phone": "+1 401 274 1100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q8031277",
+      "addr_city": "Providence",
+      "addr_postcode": "02905",
+      "addr_street": "Dudley Street",
+      "addr_housenumber": "101"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "J. Robert Donnelly Husky Heritage Sports Museum, Storrs, CT",
+      "geo_wkt": "POINT (-72.257647 41.80723)",
+      "poi": {
+        "id": 20188,
+        "geometry": "POINT (-72.257647 41.80723)",
+        "poi_name": "J. Robert Donnelly Husky Heritage Sports Museum",
+        "osm_id": 7921579368,
+        "tourism": "museum",
+        "operator": "University of Connecticut",
+        "website": "https://uconnhuskies.com/sports/2018/6/12/trads-museum-html.aspx",
+        "museum": "local",
+        "wikidata": "Q24183704",
+        "addr_state": "CT",
+        "addr_city": "Storrs",
+        "addr_postcode": "06269",
+        "addr_street": "Alumni Drive",
+        "addr_housenumber": "2384"
+      }
+    }
+  },
+  "id": 663,
+  "type": "knn:non_spat_filter+name"
+}

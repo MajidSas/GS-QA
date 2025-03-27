@@ -1,0 +1,44 @@
+{
+  "question": "Can you recommend the nearest fast food restaurant from the park that can hold 10000 spectators in Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 117208,
+      "geometry": "POINT (-112.169422 33.493766)",
+      "poi_name": "Subway",
+      "osm_id": 8981482111,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "poi": {
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
+      }
+    }
+  },
+  "id": 2734,
+  "type": "knn+name+multihop2"
+}

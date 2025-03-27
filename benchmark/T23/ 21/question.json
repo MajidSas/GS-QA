@@ -1,0 +1,40 @@
+{
+  "question": "Could you tell me how many zoos are present within a 150 kilometers radius from Dead Horse Point State Park, Moab, UT?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-109.740305 38.470828)',4326)::geography, 150000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Dead Horse Point State Park, Moab, UT",
+      "geo_wkt": "POINT (-109.740305 38.470828)",
+      "poi": {
+        "id": 14019,
+        "geometry": "POINT (-109.740305 38.470828)",
+        "poi_name": "Dead Horse Point State Park",
+        "osm_id": 4213407593,
+        "tourism": "attraction",
+        "website": "https://stateparks.utah.gov/parks/dead-horse/",
+        "wikidata": "Q129470",
+        "addr_state": "UT",
+        "addr_city": "Moab",
+        "addr_street": "UT-313"
+      }
+    }
+  },
+  "id": 2220,
+  "type": "range+count"
+}

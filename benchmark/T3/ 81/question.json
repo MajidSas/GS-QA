@@ -1,0 +1,59 @@
+{
+  "question": "What stadium is positioned towards the southwest of the Dells Mill and Museum, Augusta, WI within 150 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 150000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 247519,
+      "geometry": "POINT (-91.148747 44.72554)",
+      "poi_name": "Taylor Arena",
+      "osm_id": 6762253966,
+      "leisure": "stadium"
+    },
+    {
+      "id": 265357,
+      "geometry": "POINT (-91.148747 44.72554)",
+      "poi_name": "Ice Arena",
+      "osm_id": 367067698,
+      "leisure": "stadium",
+      "addr_state": "MN"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "The Dells Mill and Museum, Augusta, WI",
+      "geo_wkt": "POINT (-91.148747 44.72554)",
+      "poi": {
+        "id": 540,
+        "geometry": "POINT (-91.148747 44.72554)",
+        "poi_name": "The Dells Mill and Museum",
+        "osm_id": 8435491750,
+        "tourism": "museum",
+        "opening_hours": "May-Oct 10:00-17:00",
+        "website": "https://dellsmill.com/",
+        "phone": "715-286-2714",
+        "addr_state": "WI",
+        "addr_city": "Augusta",
+        "addr_postcode": "54722",
+        "addr_street": "County Highway V",
+        "addr_housenumber": "E18855"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2680,
+  "type": "range:direction+name"
+}

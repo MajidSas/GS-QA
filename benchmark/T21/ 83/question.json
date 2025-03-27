@@ -1,0 +1,46 @@
+{
+  "question": "Which way should I take to get to a beach resort from Bittersweet Falls, Weybridge, VT within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography, 90000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 267249,
+      "geometry": "POINT (-73.219366 44.464488)",
+      "poi_name": "Burlington Surf Club",
+      "osm_id": 5769217582,
+      "leisure": "beach_resort",
+      "website": "https://www.burlingtonsurfclub.com/",
+      "angle": 359.8389955020772
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bittersweet Falls, Weybridge, VT",
+      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "poi": {
+        "id": 25384,
+        "geometry": "POINT (-73.217661 44.029954)",
+        "poi_name": "Bittersweet Falls",
+        "osm_id": 4475236640,
+        "tourism": "viewpoint",
+        "addr_state": "VT",
+        "addr_city": "Weybridge",
+        "addr_postcode": "05753",
+        "addr_street": "Bittersweet Falls Road",
+        "addr_housenumber": "617"
+      }
+    }
+  },
+  "id": 1082,
+  "type": "range+angle"
+}

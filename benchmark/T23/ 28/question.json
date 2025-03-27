@@ -1,0 +1,41 @@
+{
+  "question": "In the vicinity of Anderson Park, Hometown, IL, within 60 kilometers, how many restaurants are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.730972 41.727764)',4326)::geography, 60000)\nAND amenity = 'restaurant';\n",
+  "answers": [
+    {
+      "count": 3193
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Anderson Park, Hometown, IL",
+      "geo_wkt": "POINT (-87.730972 41.727764)",
+      "poi": {
+        "id": 249602,
+        "geometry": "POINT (-87.730972 41.727764)",
+        "poi_name": "Anderson Park",
+        "osm_id": 354176524,
+        "leisure": "park",
+        "operator": "Hometown Park District",
+        "addr_state": "IL",
+        "addr_city": "Hometown",
+        "addr_postcode": "60456",
+        "addr_street": "Southwest Highway",
+        "addr_housenumber": "4401"
+      }
+    }
+  },
+  "id": 2227,
+  "type": "range+count"
+}

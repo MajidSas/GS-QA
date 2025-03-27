@@ -1,0 +1,112 @@
+{
+  "question": "Where can I find caf\u00e9 in the direction of Wilkinson Village Heritage Museum, MI within 80 kilometers from King's Grove, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography, ST_GeomFromText('POINT (-86.693311 41.82759)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography, 80000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 55972,
+      "geometry": "POINT (-87.42788 41.524472)",
+      "poi_name": "Grindhouse Cafe",
+      "osm_id": 10218839243,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 6:00-19:00",
+      "website": "https://grindhouse-cafe.square.site/",
+      "internet_access": "wlan",
+      "phone": "+1-219-595-5678",
+      "outdoor_seating": "yes",
+      "addr_state": "IN",
+      "addr_city": "Griffith",
+      "addr_postcode": "46319",
+      "addr_street": "North Broad Street",
+      "addr_housenumber": "146",
+      "value": 63.6674340213566
+    },
+    {
+      "id": 206641,
+      "geometry": "POINT (-87.536779 41.564983)",
+      "poi_name": "Troost Coffee & Tea",
+      "osm_id": 7221015185,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;coffee;tea;pastry;breakfast",
+      "addr_state": "IL",
+      "addr_city": "Lansing",
+      "addr_postcode": "60438",
+      "addr_street": "Roy Street",
+      "addr_housenumber": "18155",
+      "value": 63.6674340213566
+    },
+    {
+      "id": 87973,
+      "geometry": "POINT (-87.067318 41.505512)",
+      "poi_name": "Campbell Street Cafe",
+      "osm_id": 8756122858,
+      "amenity": "cafe",
+      "opening_hours": "We-Fr 07:00-14:00",
+      "website": "https://www.pinesvillage.org/campbell-st-cafe-valparaiso",
+      "phone": "+1 219 531 1800",
+      "addr_city": "Valparaiso",
+      "addr_street": "Meridian Woods Drive",
+      "addr_housenumber": "4254",
+      "value": 63.6674340213566
+    },
+    {
+      "id": 213733,
+      "geometry": "POINT (-87.470818 41.522232)",
+      "poi_name": "Starbucks",
+      "osm_id": 5258516630,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "IN",
+      "addr_city": "Schererville",
+      "addr_postcode": "46375",
+      "addr_street": "Indianapolis Boulevard",
+      "addr_housenumber": "45",
+      "value": 63.6674340213566
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "King's Grove, IL",
+      "geo_wkt": "POINT (-87.656017 41.47522)",
+      "poi": {
+        "id": 265407,
+        "geometry": "POINT (-87.656017 41.47522)",
+        "poi_name": "King's Grove",
+        "osm_id": 369051905,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/",
+        "addr_state": "IL"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Wilkinson Village Heritage Museum, MI",
+      "geo_wkt": "POINT (-86.693311 41.82759)",
+      "poi": {
+        "id": 17602,
+        "geometry": "POINT (-86.693311 41.82759)",
+        "poi_name": "Wilkinson Village Heritage Museum",
+        "osm_id": 367816282,
+        "tourism": "museum",
+        "addr_state": "MI"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1243,
+  "type": "range:towards+loc"
+}

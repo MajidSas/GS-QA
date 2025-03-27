@@ -1,0 +1,53 @@
+{
+  "question": "What hotel situated within 30 kilometers towards the east of African American Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography, 30000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 15782,
+      "geometry": "POINT (-81.629472 41.530044)",
+      "poi_name": "Hyatt Place Cleveland/Lyndhurst/Legacy Village",
+      "osm_id": 9520384747,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "44124",
+      "addr_street": "Cedar Road",
+      "addr_housenumber": "24665"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 30000,
+      "text": "30 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "African American Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.629472 41.530044)",
+      "poi": {
+        "id": 247006,
+        "geometry": "POINT (-81.629472 41.530044)",
+        "poi_name": "African American Cultural Garden",
+        "osm_id": 8567373858,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "890"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2699,
+  "type": "range:direction+name"
+}

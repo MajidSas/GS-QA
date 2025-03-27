@@ -1,0 +1,72 @@
+{
+  "question": "Which museum is available towards industrial park, Dumas, AR within 140 kilometers from Dockery Farms, Cleveland, MS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.616382 33.72951)',4326)::geography, ST_GeomFromText('POINT (-91.49332 33.881895)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.616382 33.72951)',4326)::geography, 140000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.616382 33.72951)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 14198,
+      "geometry": "POINT (-90.722612 33.743238)",
+      "poi_name": "Martin & Sue King Railroad Museum",
+      "osm_id": 4244578316,
+      "tourism": "museum",
+      "website": "https://clevelandtrainmuseum.com/",
+      "museum": "railway",
+      "addr_state": "MS",
+      "addr_city": "Cleveland",
+      "addr_postcode": "38732",
+      "addr_street": "South Bayou Avenue",
+      "addr_housenumber": "115",
+      "value": 282.0023933927625
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Dockery Farms, Cleveland, MS",
+      "geo_wkt": "POINT (-90.616382 33.72951)",
+      "poi": {
+        "id": 14197,
+        "geometry": "POINT (-90.616382 33.72951)",
+        "poi_name": "Dockery Farms",
+        "osm_id": 4244521826,
+        "tourism": "attraction",
+        "website": "https://www.dockeryfarms.org/",
+        "phone": "+1 662-719-1048",
+        "addr_state": "MS",
+        "addr_city": "Cleveland",
+        "addr_postcode": "38732",
+        "addr_street": "MS 8",
+        "addr_housenumber": "229`"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "industrial park, Dumas, AR",
+      "geo_wkt": "POINT (-91.49332 33.881895)",
+      "poi": {
+        "id": 267190,
+        "geometry": "POINT (-91.49332 33.881895)",
+        "poi_name": "industrial park",
+        "osm_id": 4632389175,
+        "leisure": "park",
+        "addr_state": "AR",
+        "addr_city": "Dumas",
+        "addr_postcode": "71639",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "400"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1660,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "What's the nearest local museum available from Comfort Inn, Oskaloosa, IA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.672792 41.297453)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2842,
+      "geometry": "POINT (-91.902753 41.796649)",
+      "poi_name": "Communal Kitchen Museum",
+      "osm_id": 10049794679,
+      "tourism": "museum",
+      "website": "https://amanaheritage.org/",
+      "museum": "local",
+      "addr_state": "IA",
+      "addr_city": "Middle Amana",
+      "addr_street": "26th Avenue",
+      "addr_housenumber": "1003"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Comfort Inn, Oskaloosa, IA",
+      "geo_wkt": "POINT (-92.672792 41.297453)",
+      "poi": {
+        "id": 13956,
+        "geometry": "POINT (-92.672792 41.297453)",
+        "poi_name": "Comfort Inn",
+        "osm_id": 4201327308,
+        "tourism": "hotel",
+        "phone": "+1-641-676-6000",
+        "addr_state": "IA",
+        "addr_city": "Oskaloosa",
+        "addr_postcode": "52577",
+        "addr_street": "A Avenue West",
+        "addr_housenumber": "2401"
+      }
+    }
+  },
+  "id": 654,
+  "type": "knn:non_spat_filter+name"
+}

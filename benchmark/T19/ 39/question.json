@@ -1,0 +1,45 @@
+{
+  "question": "Where's the closest museum to the north of School of Architecture, Coral Gables, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.279337 25.717224)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17632,
+      "geometry": "POINT (-80.279337 25.717224)",
+      "poi_name": "Anhinga Indian Museum",
+      "osm_id": 367827363,
+      "tourism": "museum",
+      "addr_state": "FL"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Architecture, Coral Gables, FL",
+      "geo_wkt": "POINT (-80.279337 25.717224)",
+      "poi": {
+        "id": 238674,
+        "geometry": "POINT (-80.279337 25.717224)",
+        "poi_name": "School of Architecture",
+        "osm_id": 5889618224,
+        "amenity": "university",
+        "addr_state": "FL",
+        "addr_city": "Coral Gables",
+        "addr_postcode": "33146",
+        "addr_street": "Theo Dickinson Drive",
+        "addr_housenumber": "1223"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1138,
+  "type": "knn:direction+loc"
+}

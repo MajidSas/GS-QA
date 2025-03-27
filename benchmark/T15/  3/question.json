@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a university in the west direction of Proghorn Nature Area, Aurora, CO, within a radius of 170 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.674157 39.63892)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.674157 39.63892)',4326)::geography, 170000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 70277,
+      "geometry": "POINT (-104.674157 39.63892)",
+      "poi_name": "ECPI University Denver",
+      "osm_id": 11356406020,
+      "amenity": "university",
+      "addr_state": "CO",
+      "addr_city": "Centennial",
+      "addr_postcode": "80111",
+      "addr_street": "South Kenton Street",
+      "addr_housenumber": "6675"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Proghorn Nature Area, Aurora, CO",
+      "geo_wkt": "POINT (-104.674157 39.63892)",
+      "poi": {
+        "id": 266925,
+        "geometry": "POINT (-104.674157 39.63892)",
+        "poi_name": "Proghorn Nature Area",
+        "osm_id": 11135148290,
+        "leisure": "nature_reserve",
+        "addr_state": "CO",
+        "addr_city": "Aurora",
+        "addr_postcode": "80016",
+        "addr_street": "East Quincy Avenue",
+        "addr_housenumber": "27800"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2,
+  "type": "range:direction+loc"
+}

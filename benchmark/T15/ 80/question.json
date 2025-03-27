@@ -1,0 +1,79 @@
+{
+  "question": "Where can I find an attraction to the south of Gary Lapelusa Landscaping LLC, Bayonne, NJ within 80 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, 80000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 3270,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Jurassic Park",
+      "osm_id": 5327546602,
+      "tourism": "attraction",
+      "website": "https://www.dnainfo.com/new-york/20120606/todt-hill/dinosaurs-dragons-transform-staten-island-home-into-fantasy-world",
+      "addr_state": "NY",
+      "addr_city": "Staten Island",
+      "addr_postcode": "10304",
+      "addr_street": "Todt Hill Road",
+      "addr_housenumber": "724"
+    },
+    {
+      "id": 22224,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "The Dancing Crab",
+      "osm_id": 608975109,
+      "tourism": "attraction",
+      "shop": "department_store",
+      "addr_city": "Normandy Beach",
+      "addr_postcode": "08739",
+      "addr_street": "559 State Route 35"
+    },
+    {
+      "id": 22225,
+      "geometry": "POINT (-74.122011 40.662412)",
+      "poi_name": "Coastal Living LLC\u200e",
+      "osm_id": 608975837,
+      "tourism": "attraction",
+      "shop": "department_store",
+      "phone": "(732) 292-1866\u200e",
+      "addr_state": "NJ",
+      "addr_city": "Brielle",
+      "addr_street": "605 Higgins Avenue"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 80000,
+      "text": "80 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "poi": {
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 79,
+  "type": "range:direction+loc"
+}

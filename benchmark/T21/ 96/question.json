@@ -1,0 +1,50 @@
+{
+  "question": "Which route leads to a golf course from Gator Park, Greenbush, MN within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.184876 48.695181)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.184876 48.695181)',4326)::geography, 90000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 247222,
+      "geometry": "POINT (-96.513572 48.584812)",
+      "poi_name": "Karlstad Golf Club",
+      "osm_id": 3810786023,
+      "leisure": "golf_course",
+      "angle": 243.25398464121892
+    },
+    {
+      "id": 266388,
+      "geometry": "POINT (-96.510257 48.584571)",
+      "poi_name": "Karlstad Country Golf Club",
+      "osm_id": 4963045600,
+      "leisure": "golf_course",
+      "angle": 242.967345293061
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Gator Park, Greenbush, MN",
+      "geo_wkt": "POINT (-96.184876 48.695181)",
+      "poi": {
+        "id": 247568,
+        "geometry": "POINT (-96.184876 48.695181)",
+        "poi_name": "Gator Park",
+        "osm_id": 6868554694,
+        "leisure": "park",
+        "addr_state": "MN",
+        "addr_city": "Greenbush"
+      }
+    }
+  },
+  "id": 1095,
+  "type": "range+angle"
+}

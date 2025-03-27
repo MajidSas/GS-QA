@@ -1,0 +1,46 @@
+{
+  "question": "Can you recommend the nearest museum from Hopewell Park, Center Valley, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.429632 40.537218)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25087,
+      "geometry": "POINT (-75.470347 40.602161)",
+      "poi_name": "The Liberty Bell Museum",
+      "osm_id": 4393570830,
+      "tourism": "museum",
+      "website": "https://libertybellmuseum.org/",
+      "wikidata": "Q6541604",
+      "addr_state": "PA",
+      "addr_city": "Allentown",
+      "addr_postcode": "18101",
+      "addr_street": "Hamilton Street",
+      "addr_housenumber": "622"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hopewell Park, Center Valley, PA",
+      "geo_wkt": "POINT (-75.429632 40.537218)",
+      "poi": {
+        "id": 246443,
+        "geometry": "POINT (-75.429632 40.537218)",
+        "poi_name": "Hopewell Park",
+        "osm_id": 9672700702,
+        "leisure": "park",
+        "addr_state": "PA",
+        "addr_city": "Center Valley",
+        "addr_street": "West Hopewell Road",
+        "addr_housenumber": "4695"
+      }
+    }
+  },
+  "id": 286,
+  "type": "knn+name"
+}

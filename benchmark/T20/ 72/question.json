@@ -1,0 +1,69 @@
+{
+  "question": "Where's the closest fast food restaurant in the direction of Lake Shelby Campground, Shelbyville, KY from Nelson Avenue Community Garden, Lexington, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.482139 38.043328)',4326)::geography, ST_GeomFromText('POINT (-85.221317 38.231345)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.482139 38.043328)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.482139 38.043328)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 47552,
+      "geometry": "POINT (-84.495527 38.045219)",
+      "poi_name": "Subway",
+      "osm_id": 3331218996,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "wheelchair": "yes",
+      "takeaway": "yes",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40507",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "175",
+      "value": 288.0791955674687
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Nelson Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.482139 38.043328)",
+      "poi": {
+        "id": 248357,
+        "geometry": "POINT (-84.482139 38.043328)",
+        "poi_name": "Nelson Avenue Community Garden",
+        "osm_id": 4057422280,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Nelson Avenue",
+        "addr_housenumber": "311"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lake Shelby Campground, Shelbyville, KY",
+      "geo_wkt": "POINT (-85.221317 38.231345)",
+      "poi": {
+        "id": 247335,
+        "geometry": "POINT (-85.221317 38.231345)",
+        "poi_name": "Lake Shelby Campground",
+        "osm_id": 8947567896,
+        "leisure": "park",
+        "tourism": "caravan_site",
+        "website": "https://shelbycountyparks.com/our-parks/lake-shelby-campground/",
+        "addr_state": "KY",
+        "addr_city": "Shelbyville",
+        "addr_street": "Burks Branch Road",
+        "addr_housenumber": "1433"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1371,
+  "type": "knn:towards+loc"
+}

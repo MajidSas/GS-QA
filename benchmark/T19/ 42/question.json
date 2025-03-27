@@ -1,0 +1,51 @@
+{
+  "question": "Where's the closest hotel towards the north of Nanticoke Lenni-Lenape, Bridgeton, NJ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.235559 39.42905)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 8507,
+      "geometry": "POINT (-75.235559 39.42905)",
+      "poi_name": "Airport Waterfront Inn",
+      "osm_id": 8514591754,
+      "tourism": "hotel",
+      "website": "http://www.airportwaterfrontinn.us",
+      "addr_state": "PA",
+      "addr_city": "Essington",
+      "addr_postcode": "19029",
+      "addr_street": "Taylor Avenue",
+      "addr_housenumber": "103"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Nanticoke Lenni-Lenape, Bridgeton, NJ",
+      "geo_wkt": "POINT (-75.235559 39.42905)",
+      "poi": {
+        "id": 12464,
+        "geometry": "POINT (-75.235559 39.42905)",
+        "poi_name": "Nanticoke Lenni-Lenape",
+        "osm_id": 7255929320,
+        "tourism": "museum",
+        "website": "https://nanticoke-lenape.info/",
+        "addr_state": "NJ",
+        "addr_city": "Bridgeton",
+        "addr_postcode": "08302",
+        "addr_street": "Commerce Street East",
+        "addr_housenumber": "18"
+      }
+    },
+    "[3]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 1141,
+  "type": "knn:direction+loc"
+}

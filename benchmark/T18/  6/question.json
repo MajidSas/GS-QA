@@ -1,0 +1,51 @@
+{
+  "question": "Where is the closest emergency hospital situated from Vintage Flying Museum, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.356106 32.811695)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 65705,
+      "geometry": "POINT (-97.116453 32.748716)",
+      "poi_name": "Texas Health Heart & Vascular Hospital Arlington",
+      "osm_id": 5708269480,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Texas Health",
+      "website": "http://texashealthheartandvascular.org/",
+      "phone": "+1-817-960-3500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "TX",
+      "addr_city": "Arlington",
+      "addr_postcode": "76012",
+      "addr_street": "Wright Street",
+      "addr_housenumber": "811"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Vintage Flying Museum, TX",
+      "geo_wkt": "POINT (-97.356106 32.811695)",
+      "poi": {
+        "id": 18013,
+        "geometry": "POINT (-97.356106 32.811695)",
+        "poi_name": "Vintage Flying Museum",
+        "osm_id": 368165084,
+        "tourism": "museum",
+        "website": "https://vintageflyingmuseum.org/",
+        "wikidata": "Q14711398",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 305,
+  "type": "knn:non_spat_filter+loc"
+}

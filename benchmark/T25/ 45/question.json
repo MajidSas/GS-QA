@@ -1,0 +1,84 @@
+{
+  "question": "What's the proximity of a hospital from Adams Museum, Deadwood, SD within 140 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-103.729437 44.375718)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-103.729437 44.375718)',4326)::geography, 140000)\nAND amenity = 'hospital';\n",
+  "answers": [
+    {
+      "id": 167438,
+      "geometry": "POINT (-103.471543 44.412476)",
+      "poi_name": "VA Black Hills Health Care System",
+      "osm_id": 357097971,
+      "amenity": "hospital",
+      "website": "https://www.blackhills.va.gov/",
+      "phone": "+1 605 347 2511",
+      "emergency": "no",
+      "addr_city": "Fort Meade",
+      "addr_postcode": "57741",
+      "addr_street": "Comanche Road",
+      "addr_housenumber": "113",
+      "distance": 20949.3389254
+    },
+    {
+      "id": 182851,
+      "geometry": "POINT (-103.817806 44.484454)",
+      "poi_name": "Canyon Hills Center",
+      "osm_id": 10906471374,
+      "amenity": "hospital",
+      "website": "https://lsssd.org/what-we-do/residential-services-for-children-youth/canyon-hills-spearfish.html",
+      "phone": "+1 605 559 3500",
+      "healthcare": "hospital",
+      "addr_state": "SD",
+      "addr_city": "Spearfish",
+      "addr_postcode": "57783",
+      "addr_street": "Windmill Drive",
+      "addr_housenumber": "2519",
+      "distance": 13982.23144426
+    },
+    {
+      "id": 182856,
+      "geometry": "POINT (-103.377592 43.909219)",
+      "poi_name": "Black Hills Children's Home",
+      "osm_id": 10906756024,
+      "amenity": "hospital",
+      "website": "https://chssd.org/residential-treatment-and-education",
+      "phone": "+1 605 343 5422",
+      "healthcare": "hospital",
+      "addr_state": "SD",
+      "addr_city": "Rapid City",
+      "addr_postcode": "57702-7422",
+      "addr_street": "S. Rockerville Rd.",
+      "addr_housenumber": "24100",
+      "distance": 58986.6144963
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Adams Museum, Deadwood, SD",
+      "geo_wkt": "POINT (-103.729437 44.375718)",
+      "poi": {
+        "id": 24927,
+        "geometry": "POINT (-103.729437 44.375718)",
+        "poi_name": "Adams Museum",
+        "osm_id": 4357491128,
+        "tourism": "museum",
+        "website": "https://www.deadwoodhistory.com/",
+        "addr_state": "SD",
+        "addr_city": "Deadwood",
+        "addr_street": "Sherman Street",
+        "addr_housenumber": "54"
+      }
+    }
+  },
+  "id": 744,
+  "type": "range+distance"
+}

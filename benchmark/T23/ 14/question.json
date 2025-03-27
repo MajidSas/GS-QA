@@ -1,0 +1,39 @@
+{
+  "question": "In the vicinity of Joppa Hill Farm, Bedford, NH, within 120 kilometers, how many attractions are there?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography, 120000)\nAND tourism = 'attraction';\n",
+  "answers": [
+    {
+      "count": 283
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "poi": {
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
+      }
+    }
+  },
+  "id": 2213,
+  "type": "range+count"
+}

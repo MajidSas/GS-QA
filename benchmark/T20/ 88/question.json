@@ -1,0 +1,70 @@
+{
+  "question": "Where is the closest restaurant in the direction of Gary Lapelusa Landscaping LLC, Bayonne, NJ from Archer Hotel, Florham Park, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 43006,
+      "geometry": "POINT (-74.382307 40.740514)",
+      "poi_name": "A Taste of Asia",
+      "osm_id": 3091939329,
+      "amenity": "restaurant",
+      "cuisine": "asian",
+      "addr_city": "Chatham",
+      "addr_postcode": "07928",
+      "addr_street": "Main Street",
+      "addr_housenumber": "245",
+      "value": 116.75397718476852
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Archer Hotel, Florham Park, NJ",
+      "geo_wkt": "POINT (-74.426974 40.779888)",
+      "poi": {
+        "id": 10627,
+        "geometry": "POINT (-74.426974 40.779888)",
+        "poi_name": "Archer Hotel",
+        "osm_id": 6953084786,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://archerhotel.com/florham-park",
+        "internet_access": "wlan",
+        "phone": "+1-862-286-7000",
+        "addr_state": "NJ",
+        "addr_city": "Florham Park",
+        "addr_postcode": "07932",
+        "addr_street": "Park Avenue",
+        "addr_housenumber": "130"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "poi": {
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1387,
+  "type": "knn:towards+loc"
+}

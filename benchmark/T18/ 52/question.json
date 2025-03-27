@@ -1,0 +1,49 @@
+{
+  "question": "Where can I find the nearest sandwich restaurant near Lake Stanley Draper Park Recreation Area #2, Oklahoma City, OK?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.370202 35.374271)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 232570,
+      "geometry": "POINT (-97.529557 35.363865)",
+      "poi_name": "McAlister's Deli",
+      "osm_id": 4532458904,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "opening_hours": "Su-Th 10:30-22:00; Fr, Sa 10:30-22:30",
+      "takeaway": "yes",
+      "delivery": "no",
+      "addr_state": "OK",
+      "addr_city": "Oklahoma City",
+      "addr_postcode": "73139",
+      "addr_street": "South Western Avenue",
+      "addr_housenumber": "10440"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "sandwich restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lake Stanley Draper Park Recreation Area #2, Oklahoma City, OK",
+      "geo_wkt": "POINT (-97.370202 35.374271)",
+      "poi": {
+        "id": 248824,
+        "geometry": "POINT (-97.370202 35.374271)",
+        "poi_name": "Lake Stanley Draper Park Recreation Area #2",
+        "osm_id": 4829549005,
+        "leisure": "park",
+        "addr_state": "OK",
+        "addr_city": "Oklahoma City",
+        "addr_postcode": "73165"
+      }
+    }
+  },
+  "id": 351,
+  "type": "knn:non_spat_filter+loc"
+}

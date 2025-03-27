@@ -1,0 +1,153 @@
+{
+  "question": "Where can I find a hotel positioned within 140 kilometers towards the north of Haven Senior Horizons of Phoenix, Phoenix, AZ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-112.081214 33.435646)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.081214 33.435646)',4326)::geography, 140000)\nAND tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 4665,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Best Western Prescottonian",
+      "osm_id": 11381479900,
+      "tourism": "hotel",
+      "addr_state": "AZ",
+      "addr_city": "Prescott",
+      "addr_postcode": "86301",
+      "addr_street": "East Gurley Street",
+      "addr_housenumber": "1317"
+    },
+    {
+      "id": 2965,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "SpringHill Suites Prescott",
+      "osm_id": 10103392060,
+      "tourism": "hotel",
+      "building": "yes",
+      "internet_access": "wlan",
+      "official_name": "SpringHill Suites by Marriott",
+      "addr_state": "AZ",
+      "addr_city": "Prescott",
+      "addr_postcode": "86301",
+      "addr_street": "East Sheldon Street",
+      "addr_housenumber": "200"
+    },
+    {
+      "id": 3854,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Grand Canyon University Hotel",
+      "osm_id": 5613756082,
+      "tourism": "hotel",
+      "internet_access": "wlan",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85017",
+      "addr_street": "North 27th Avenue",
+      "addr_housenumber": "5115"
+    },
+    {
+      "id": 8556,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Pointe Hilton Tapatio Cliffs Resort",
+      "osm_id": 8551237457,
+      "tourism": "hotel",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85020",
+      "addr_street": "North 7th Street",
+      "addr_housenumber": "11111"
+    },
+    {
+      "id": 12972,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Marriott's Canyon Villas",
+      "osm_id": 3996124363,
+      "tourism": "hotel",
+      "operator": "Marriott Vacation Club",
+      "website": "https://www.marriott.com/hotels/travel/phxcv-marriotts-canyon-villas/",
+      "phone": "480-629-3200",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85054",
+      "addr_street": "East Marriott Drive",
+      "addr_housenumber": "5220"
+    },
+    {
+      "id": 13402,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Hilton Garden Inn Phoenix Midtown",
+      "osm_id": 4095017712,
+      "tourism": "hotel",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85012",
+      "addr_street": "North Central Avenue",
+      "addr_housenumber": "4000"
+    },
+    {
+      "id": 13404,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "Hilton Phoenix Resort at the Peak",
+      "osm_id": 4095017714,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.hiltonphoenixresortatthepeak.com/",
+      "internet_access": "yes",
+      "phone": "+1-602-997-2626",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85020",
+      "addr_street": "North 16th Street",
+      "addr_housenumber": "7677"
+    },
+    {
+      "id": 13407,
+      "geometry": "POINT (-112.081214 33.435646)",
+      "poi_name": "La Quinta Inn Phoenix North",
+      "osm_id": 4095205467,
+      "tourism": "hotel",
+      "official_name": "La Quinta Inn by Wyndham",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85023",
+      "addr_street": "West Greenway Road",
+      "addr_housenumber": "2510"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Haven Senior Horizons of Phoenix, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.081214 33.435646)",
+      "poi": {
+        "id": 54354,
+        "geometry": "POINT (-112.081214 33.435646)",
+        "poi_name": "Haven Senior Horizons of Phoenix",
+        "osm_id": 10128741386,
+        "amenity": "hospital",
+        "operator": "Haven Behavioral Healthcare",
+        "website": "https://www.havenofphoenix.com/",
+        "phone": "+1-623-236-2000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85007",
+        "addr_street": "South 7th Avenue",
+        "addr_housenumber": "1201"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 62,
+  "type": "range:direction+loc"
+}

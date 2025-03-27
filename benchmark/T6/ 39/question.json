@@ -1,0 +1,53 @@
+{
+  "question": "What's the nearest history museum available from Smoky Mountain Alpine Coaster, Pigeon Forge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6907,
+      "geometry": "POINT (-83.444823 35.427911)",
+      "poi_name": "Swain County Visitor Center and Heritage Museum",
+      "osm_id": 8757910286,
+      "tourism": "museum",
+      "opening_hours": "Mo-Sa 10:00-17:00",
+      "operator": "Swain County Tourism Development Authority",
+      "website": "https://www.swainheritagemuseum.com/",
+      "museum": "history",
+      "addr_state": "NC",
+      "addr_city": "Bryson City",
+      "addr_postcode": "28713",
+      "addr_street": "Everett Street",
+      "addr_housenumber": "2"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "poi": {
+        "id": 13057,
+        "geometry": "POINT (-83.596543 35.793397)",
+        "poi_name": "Smoky Mountain Alpine Coaster",
+        "osm_id": 4035710749,
+        "tourism": "theme_park",
+        "website": "http://www.smokymountainalpinecoaster.com/",
+        "wikidata": "Q29831450",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Wears Valley Road",
+        "addr_housenumber": "867"
+      }
+    }
+  },
+  "id": 638,
+  "type": "knn:non_spat_filter+name"
+}

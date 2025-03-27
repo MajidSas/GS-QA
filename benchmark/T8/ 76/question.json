@@ -1,0 +1,47 @@
+{
+  "question": "What's the nearest fast food restaurant near the university established in the year 1969 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 80943,
+      "geometry": "POINT (-87.640918 41.879564)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 1591485484,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "official_name": "Jimmy John's Gourmet Sandwiches"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "poi": {
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
+      }
+    }
+  },
+  "id": 2775,
+  "type": "knn+name+multihop2"
+}

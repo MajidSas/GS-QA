@@ -1,0 +1,85 @@
+{
+  "question": "Which garden is available within 60 kilometers in the southeast direction of Elyria Arts Council, Elyria, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, 60000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 265625,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Rock and Herb Garden",
+      "osm_id": 10762232807,
+      "leisure": "garden"
+    },
+    {
+      "id": 267405,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Japanese Garden",
+      "osm_id": 5977090076,
+      "leisure": "garden"
+    },
+    {
+      "id": 267408,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Dell",
+      "osm_id": 5977189801,
+      "leisure": "garden"
+    },
+    {
+      "id": 267409,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Elliptical Garden",
+      "osm_id": 5977189804,
+      "leisure": "garden"
+    },
+    {
+      "id": 267410,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Great Garden",
+      "osm_id": 5977189805,
+      "leisure": "garden"
+    },
+    {
+      "id": 267411,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Great Meadow",
+      "osm_id": 5977189806,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
+      "poi": {
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2694,
+  "type": "range:direction+name"
+}

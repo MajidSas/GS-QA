@@ -1,0 +1,74 @@
+{
+  "question": "Which fast food is nearest as you move towards 7 Wonders Gallery, Flagstaff, AZ from Sedona Real Inn and Suites, Sedona, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.815958 34.860895)',4326)::geography, ST_GeomFromText('POINT (-111.659437 35.192476)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.815958 34.860895)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.815958 34.860895)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 145202,
+      "geometry": "POINT (-111.815331 34.861822)",
+      "poi_name": "Local Juicery",
+      "osm_id": 7324423951,
+      "amenity": "fast_food",
+      "cuisine": "juice;smoothie;salad;coffee",
+      "website": "https://www.localjuicery.com",
+      "drive_through": "no",
+      "addr_state": "AZ",
+      "addr_city": "Sedona",
+      "addr_postcode": "86336",
+      "addr_street": "West State Route 89A",
+      "addr_housenumber": "3150",
+      "value": 21.1761639848204
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Sedona Real Inn and Suites, Sedona, AZ",
+      "geo_wkt": "POINT (-111.815958 34.860895)",
+      "poi": {
+        "id": 13486,
+        "geometry": "POINT (-111.815958 34.860895)",
+        "poi_name": "Sedona Real Inn and Suites",
+        "osm_id": 4102571583,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.sedonareal.com/",
+        "internet_access": "wlan",
+        "phone": "+1-928-282-1414",
+        "addr_state": "AZ",
+        "addr_city": "Sedona",
+        "addr_postcode": "86336",
+        "addr_street": "Arroyo Pi\u00f1on Drive",
+        "addr_housenumber": "95"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "7 Wonders Gallery, Flagstaff, AZ",
+      "geo_wkt": "POINT (-111.659437 35.192476)",
+      "poi": {
+        "id": 25970,
+        "geometry": "POINT (-111.659437 35.192476)",
+        "poi_name": "7 Wonders Gallery",
+        "osm_id": 5750743789,
+        "tourism": "gallery",
+        "wheelchair": "yes",
+        "opening_hours": "Mo-Sa 10:00-21:00; Su 10:00-18:00",
+        "shop": "art",
+        "addr_state": "AZ",
+        "addr_city": "Flagstaff",
+        "addr_postcode": "86001",
+        "addr_street": "South Milton Road",
+        "addr_housenumber": "801"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 155,
+  "type": "knn:towards+name"
+}

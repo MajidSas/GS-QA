@@ -1,0 +1,47 @@
+{
+  "question": "What's the separation to an aquarium from Muir Beach Overlook, Muir Beach, CA within 160 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-122.585725 37.86281)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.585725 37.86281)',4326)::geography, 160000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 18181,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Steinhart Aquarium",
+      "osm_id": 368173914,
+      "tourism": "aquarium",
+      "addr_state": "CA",
+      "distance": 14780.8386535
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Muir Beach Overlook, Muir Beach, CA",
+      "geo_wkt": "POINT (-122.585725 37.86281)",
+      "poi": {
+        "id": 14224,
+        "geometry": "POINT (-122.585725 37.86281)",
+        "poi_name": "Muir Beach Overlook",
+        "osm_id": 4252751969,
+        "tourism": "attraction",
+        "operator": "National Park Service",
+        "website": "https://www.nps.gov/goga/planyourvisit/muirbeach.htm",
+        "wikidata": "Q14683443",
+        "addr_state": "CA",
+        "addr_city": "Muir Beach",
+        "addr_street": "Muir Beach Overlook"
+      }
+    }
+  },
+  "id": 704,
+  "type": "range+distance"
+}

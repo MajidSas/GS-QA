@@ -1,0 +1,53 @@
+{
+  "question": "Where can I find a stadium in the southwest direction of Kindred Hospital Chicago Northlake, Northlake, IL, within a radius of 160 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography, 160000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 265389,
+      "geometry": "POINT (-87.89054 41.906867)",
+      "poi_name": "Neil Carey Arena",
+      "osm_id": 368073990,
+      "leisure": "stadium",
+      "operator": "Lewis University",
+      "sport": "basketball;volleyball",
+      "addr_state": "IL"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Kindred Hospital Chicago Northlake, Northlake, IL",
+      "geo_wkt": "POINT (-87.89054 41.906867)",
+      "poi": {
+        "id": 53851,
+        "geometry": "POINT (-87.89054 41.906867)",
+        "poi_name": "Kindred Hospital Chicago Northlake",
+        "osm_id": 10100695466,
+        "amenity": "hospital",
+        "operator": "Kindred Healthcare",
+        "healthcare": "hospital",
+        "addr_state": "IL",
+        "addr_city": "Northlake",
+        "addr_postcode": "60164",
+        "addr_street": "East North Avenue",
+        "addr_housenumber": "365"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 61,
+  "type": "range:direction+loc"
+}

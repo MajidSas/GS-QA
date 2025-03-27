@@ -1,0 +1,103 @@
+{
+  "question": "How far is a stadium located from Brighton Asylum, Passaic, NJ within a radius of 190 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-74.143347 40.858032)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.143347 40.858032)',4326)::geography, 190000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 245804,
+      "geometry": "POINT (-72.254821 41.801202)",
+      "poi_name": "Joseph J. Morrone Stadium",
+      "osm_id": 10091178354,
+      "leisure": "stadium",
+      "sport": "soccer",
+      "distance": 189642.22728583
+    },
+    {
+      "id": 246724,
+      "geometry": "POINT (-75.60116 39.936995)",
+      "poi_name": "John A. Farrell Stadium",
+      "osm_id": 2015427812,
+      "leisure": "stadium",
+      "operator": "West Chester University",
+      "sport": "american_football",
+      "addr_street": "N New Street",
+      "distance": 160548.98863296
+    },
+    {
+      "id": 265596,
+      "geometry": "POINT (-73.686422 41.014447)",
+      "poi_name": "Crawford Park",
+      "osm_id": 10732702283,
+      "leisure": "stadium",
+      "distance": 42219.32703149
+    },
+    {
+      "id": 245936,
+      "geometry": "POINT (-72.089711 41.491106)",
+      "poi_name": "Mohegan Sun Arena",
+      "osm_id": 5339696382,
+      "leisure": "stadium",
+      "operator": "Mohegan Gaming and Entertainment",
+      "sport": "basketball",
+      "wikidata": "Q2056942",
+      "distance": 186110.53499427
+    },
+    {
+      "id": 246348,
+      "geometry": "POINT (-74.171068 40.73335)",
+      "poi_name": "Prudential Center",
+      "osm_id": 11343840343,
+      "leisure": "stadium",
+      "distance": 14042.20476991
+    },
+    {
+      "id": 248016,
+      "geometry": "POINT (-75.564356 39.73265)",
+      "poi_name": "Frawley Stadium",
+      "osm_id": 6266627710,
+      "leisure": "stadium",
+      "sport": "baseball",
+      "distance": 173814.88911342
+    },
+    {
+      "id": 265384,
+      "geometry": "POINT (-75.355533 39.902444)",
+      "poi_name": "Arthur Hoyt Scott Amphitheature",
+      "osm_id": 367975510,
+      "leisure": "stadium",
+      "addr_state": "PA",
+      "distance": 147832.45841918
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Brighton Asylum, Passaic, NJ",
+      "geo_wkt": "POINT (-74.143347 40.858032)",
+      "poi": {
+        "id": 15218,
+        "geometry": "POINT (-74.143347 40.858032)",
+        "poi_name": "Brighton Asylum",
+        "osm_id": 4830873565,
+        "tourism": "attraction",
+        "phone": "+1-201-716-2827",
+        "addr_state": "NJ",
+        "addr_city": "Passaic",
+        "addr_postcode": "07055",
+        "addr_street": "Brighton Avenue",
+        "addr_housenumber": "2"
+      }
+    }
+  },
+  "id": 731,
+  "type": "range+distance"
+}

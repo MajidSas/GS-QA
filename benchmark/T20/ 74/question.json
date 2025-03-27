@@ -1,0 +1,67 @@
+{
+  "question": "Where's the nearest restaurant heading towards Santa Monica Museum of Art, CA from Aquatic Zoo Tropical Fish, Thousand Oaks, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, ST_GeomFromText('POINT (-118.484479 34.003611)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 72288,
+      "geometry": "POINT (-118.833808 34.167111)",
+      "poi_name": "Phil's",
+      "osm_id": 11419386112,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "wheelchair": "yes",
+      "website": "https://www.phils1000oaks.com/",
+      "phone": "(805)371-7773",
+      "addr_state": "CA",
+      "addr_city": "Thousand Oaks",
+      "addr_postcode": "91362",
+      "addr_street": "E Thousand Oaks Blvd.",
+      "addr_housenumber": "3316",
+      "value": 119.62681315127487
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
+      "geo_wkt": "POINT (-118.840161 34.172588)",
+      "poi": {
+        "id": 5259,
+        "geometry": "POINT (-118.840161 34.172588)",
+        "poi_name": "Aquatic Zoo Tropical Fish",
+        "osm_id": 9819470337,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "operator": "Ken Kay Khzam",
+        "shop": "pet",
+        "addr_state": "CA",
+        "addr_city": "Thousand Oaks",
+        "addr_postcode": "91362",
+        "addr_street": "East Thousand Oaks Boulevard",
+        "addr_housenumber": "2655"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Santa Monica Museum of Art, CA",
+      "geo_wkt": "POINT (-118.484479 34.003611)",
+      "poi": {
+        "id": 18200,
+        "geometry": "POINT (-118.484479 34.003611)",
+        "poi_name": "Santa Monica Museum of Art",
+        "osm_id": 368174027,
+        "tourism": "museum",
+        "addr_state": "CA"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1373,
+  "type": "knn:towards+loc"
+}

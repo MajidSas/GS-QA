@@ -1,0 +1,43 @@
+{
+  "question": "What's the nearest viewpoint near the hospital that has pediatric emergency department in Bronx, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 4736,
+      "geometry": "POINT (-73.919539 40.88838)",
+      "poi_name": "Scenic Viewing Platform",
+      "osm_id": 11422245035,
+      "tourism": "viewpoint"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "poi": {
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
+      }
+    }
+  },
+  "id": 2741,
+  "type": "knn+name+multihop2"
+}

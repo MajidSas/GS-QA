@@ -1,0 +1,54 @@
+{
+  "question": "Where can I find the nearest coffee shop near Super Cichlids Inc, Dover, DE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%coffee_shop%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 212764,
+      "geometry": "POINT (-75.747876 39.683348)",
+      "poi_name": "The Original Hot Bagels",
+      "osm_id": 5220433256,
+      "amenity": "restaurant",
+      "cuisine": "american;breakfast;bagel;coffee_shop",
+      "opening_hours": "Mo-Su 07:00-15:00",
+      "website": "https://www.theoriginalhotbagels.com",
+      "phone": "+1 302-533-7299; +1 302-533-7578",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "addr_state": "DE",
+      "addr_city": "Newark",
+      "addr_postcode": "19711",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "131"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "coffee shop",
+      "poi_filter_sql": "cuisine ILIKE '%coffee_shop%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "poi": {
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
+      }
+    }
+  },
+  "id": 307,
+  "type": "knn:non_spat_filter+loc"
+}

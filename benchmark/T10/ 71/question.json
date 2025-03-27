@@ -1,0 +1,68 @@
+{
+  "question": "Which fast food is closest towards English Street Community Garden, New Haven, CT from Sloth Encounters, Hauppauge, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 107823,
+      "geometry": "POINT (-73.185888 40.853435)",
+      "poi_name": "Moe's Southwest Grill",
+      "osm_id": 3580579326,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "value": 25.652022074831095
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
+      "poi": {
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "poi": {
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 170,
+  "type": "knn:towards+name"
+}

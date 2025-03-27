@@ -1,0 +1,40 @@
+{
+  "question": "I'm searching for a stadium within 70 kilometers radii from Tilt Studio, IL, any suggestions?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, 70000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 249191,
+      "geometry": "POINT (-89.023512 42.67099)",
+      "poi_name": "Monterey Stadium",
+      "osm_id": 353885114,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Tilt Studio, IL",
+      "geo_wkt": "POINT (-88.973072 42.24581)",
+      "poi": {
+        "id": 5126,
+        "geometry": "POINT (-88.973072 42.24581)",
+        "poi_name": "Tilt Studio",
+        "osm_id": 9768506456,
+        "tourism": "theme_park",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 839,
+  "type": "range+name"
+}

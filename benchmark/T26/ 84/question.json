@@ -1,0 +1,45 @@
+{
+  "question": "How distant is the closest hospital from the reference location Enchanted Forest Water Safari, Old Forge, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.967749 43.714598)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.967749 43.714598)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 113679,
+      "geometry": "POINT (-73.774942 43.563241)",
+      "poi_name": "Forest Lake Camp infirmary",
+      "osm_id": 3843267788,
+      "amenity": "hospital",
+      "emergency": "no",
+      "distance": 97705.91263468
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Enchanted Forest Water Safari, Old Forge, NY",
+      "geo_wkt": "POINT (-74.967749 43.714598)",
+      "poi": {
+        "id": 18855,
+        "geometry": "POINT (-74.967749 43.714598)",
+        "poi_name": "Enchanted Forest Water Safari",
+        "osm_id": 2424113484,
+        "leisure": "water_park",
+        "tourism": "theme_park",
+        "website": "https://www.watersafari.com/",
+        "phone": "(315) 369-6145",
+        "addr_state": "NY",
+        "addr_city": "Old Forge",
+        "addr_postcode": "13420",
+        "addr_street": "State Highway 28",
+        "addr_housenumber": "3183"
+      }
+    }
+  },
+  "id": 2483,
+  "type": "knn+distance"
+}

@@ -1,0 +1,47 @@
+{
+  "question": "Do you know of any stadium within 120 kilometers drive from Getting's Garden, Sanborn, IA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography, 120000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "id": 250215,
+      "geometry": "POINT (-95.209017 42.639046)",
+      "poi_name": "J. Leslie Rollins Stadium",
+      "osm_id": 354340560,
+      "leisure": "stadium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Getting's Garden, Sanborn, IA",
+      "geo_wkt": "POINT (-95.724521 43.234748)",
+      "poi": {
+        "id": 266116,
+        "geometry": "POINT (-95.724521 43.234748)",
+        "poi_name": "Getting's Garden",
+        "osm_id": 10686198179,
+        "leisure": "garden",
+        "opening_hours": "Su off",
+        "website": "https://www.gettingsgarden.com/",
+        "shop": "farm",
+        "addr_state": "IA",
+        "addr_city": "Sanborn",
+        "addr_postcode": "51248",
+        "addr_street": "Pierce Avenue",
+        "addr_housenumber": "2861"
+      }
+    }
+  },
+  "id": 874,
+  "type": "range+name"
+}

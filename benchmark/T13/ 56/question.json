@@ -1,0 +1,50 @@
+{
+  "question": "Where can I find a zoo that's 100 kilometers from Blue Ocean Discovery Center, Hampton, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography, 100000)\nAND tourism = 'zoo';\n",
+  "answers": [
+    {
+      "id": 10743,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Joppa Hill Farm",
+      "osm_id": 8014170407,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "NH",
+      "addr_city": "Bedford",
+      "addr_postcode": "03110"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "poi": {
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
+      }
+    }
+  },
+  "id": 2055,
+  "type": "range+loc"
+}

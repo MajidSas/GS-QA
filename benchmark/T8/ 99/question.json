@@ -1,0 +1,48 @@
+{
+  "question": "Any suggestions for the nearest garden from the stadium that can hold 2856 spectators in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248857,
+      "geometry": "POINT (-93.234364 44.913029)",
+      "poi_name": "Nokomis Naturescape Garden",
+      "osm_id": 4865581364,
+      "leisure": "garden",
+      "website": "https://www.facebook.com/NokomisNaturescape/?fref=ts",
+      "phone": "+1 612 727 3562",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55417",
+      "addr_street": "East Lake Nokomis Parkway",
+      "addr_housenumber": "5000"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "poi": {
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
+      }
+    }
+  },
+  "id": 2798,
+  "type": "knn+name+multihop2"
+}

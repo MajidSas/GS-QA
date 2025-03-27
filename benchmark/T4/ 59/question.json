@@ -1,0 +1,183 @@
+{
+  "question": "What caf\u00e9 can I find along the way to East End Park, Frostburg, MD within 120 kilometers from Point Lookout, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, ST_GeomFromText('POINT (-78.918865 39.651391)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, 120000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 80498,
+      "geometry": "POINT (-78.762592 39.651172)",
+      "poi_name": "Cafe Mark",
+      "osm_id": 879249297,
+      "amenity": "cafe",
+      "website": "http://www.cafemarkcumberland.com/",
+      "addr_street": "Baltimore Street",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 53916,
+      "geometry": "POINT (-79.468307 39.767271)",
+      "poi_name": "Rustic Joe's Coffee House",
+      "osm_id": 10106474642,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Th 06:00-15:00; Fr 06:00-17:00; Sa 07:00-17:00; Su 08:00-17:00",
+      "website": "https://rustic-joes-coffee-house.business.site/",
+      "internet_access": "wlan",
+      "phone": "+1 724 329 5005",
+      "outdoor_seating": "no",
+      "addr_state": "PA",
+      "addr_city": "Markleysburg",
+      "addr_postcode": "15459",
+      "addr_street": "National Pike",
+      "addr_housenumber": "4983",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 43402,
+      "geometry": "POINT (-78.760057 39.65031)",
+      "poi_name": "Queen City Creamery & Deli",
+      "osm_id": 3110345579,
+      "amenity": "cafe",
+      "cuisine": "coffee;tea",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 220603,
+      "geometry": "POINT (-78.767376 39.649838)",
+      "poi_name": "Basecamp Coffee Company",
+      "osm_id": 9379739822,
+      "amenity": "cafe",
+      "website": "https://www.basecampcoffees.com/",
+      "internet_access": "yes",
+      "phone": "+1-240-362-7022",
+      "addr_street": "Greene Street",
+      "addr_housenumber": "108",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 98470,
+      "geometry": "POINT (-78.9289 39.656998)",
+      "poi_name": "Clatter Cafe",
+      "osm_id": 6519217883,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "yes",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 135419,
+      "geometry": "POINT (-79.157439 39.697944)",
+      "poi_name": "The Travel Mug",
+      "osm_id": 11514140169,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "(301) 895-8067",
+      "addr_postcode": "21536",
+      "addr_street": "Miller Street",
+      "addr_housenumber": "168",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 213368,
+      "geometry": "POINT (-79.141011 39.696892)",
+      "poi_name": "The Cornucopia Caf\u00e9",
+      "osm_id": 5247451059,
+      "amenity": "cafe",
+      "website": "https://www.thecornucopiacafe.com/",
+      "phone": "+1 301-895-8142",
+      "outdoor_seating": "yes",
+      "addr_state": "MD",
+      "addr_city": "Grantsville",
+      "addr_street": "Casselman Road",
+      "addr_housenumber": "146",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 218142,
+      "geometry": "POINT (-78.835082 39.637536)",
+      "poi_name": "Holy Grounds Coffee and Bagel Shop",
+      "osm_id": 9261933924,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 96559,
+      "geometry": "POINT (-78.763738 39.654321)",
+      "poi_name": "Corner Tavern & Cafe",
+      "osm_id": 6437388785,
+      "amenity": "cafe",
+      "addr_street": "North Centre Street",
+      "addr_housenumber": "171",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 107196,
+      "geometry": "POINT (-78.926815 39.656752)",
+      "poi_name": "Mountain City Coffeehouse & Creamery",
+      "osm_id": 3541577791,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "addr_city": "Frostburg",
+      "addr_postcode": "21532",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "60",
+      "value": 109.1930650057478
+    },
+    {
+      "id": 232993,
+      "geometry": "POINT (-79.36337 39.805956)",
+      "poi_name": "Lucky Dog Cafe",
+      "osm_id": 4551999156,
+      "amenity": "cafe",
+      "value": 109.1930650057478
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "poi": {
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "East End Park, Frostburg, MD",
+      "geo_wkt": "POINT (-78.918865 39.651391)",
+      "poi": {
+        "id": 259533,
+        "geometry": "POINT (-78.918865 39.651391)",
+        "poi_name": "East End Park",
+        "osm_id": 358252199,
+        "leisure": "park",
+        "wikidata": "Q49485107",
+        "addr_state": "MD",
+        "addr_city": "Frostburg",
+        "addr_street": "Cemetary Road"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1658,
+  "type": "range:towards+name"
+}

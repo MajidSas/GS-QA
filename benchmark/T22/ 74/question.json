@@ -1,0 +1,43 @@
+{
+  "question": "Which direction leads to the nearest nature reserve situated from Hudson Gateway Place LLC, San Jose, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.923427 37.369617)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.923427 37.369617)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 267497,
+      "geometry": "POINT (-121.881471 37.214754)",
+      "poi_name": "McAbee Entry",
+      "osm_id": 7600110978,
+      "leisure": "nature_reserve",
+      "opening_hours": "08:00-sunset",
+      "official_name": "Almaden Quicksilver County Park",
+      "angle": 167.7738262155306
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Hudson Gateway Place LLC, San Jose, CA",
+      "geo_wkt": "POINT (-121.923427 37.369617)",
+      "poi": {
+        "id": 8752,
+        "geometry": "POINT (-121.923427 37.369617)",
+        "poi_name": "Hudson Gateway Place LLC",
+        "osm_id": 8671046749,
+        "tourism": "gallery",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_postcode": "95110",
+        "addr_street": "Gateway Place",
+        "addr_housenumber": "2001;2033;2055,2077;2099"
+      }
+    }
+  },
+  "id": 1473,
+  "type": "knn+angle"
+}

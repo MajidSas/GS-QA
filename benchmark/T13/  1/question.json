@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a nature reserve within 50 kilometers from Boca Recovery Center, Delray Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.067727 26.481469)',4326)::geography, 50000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 245998,
+      "geometry": "POINT (-80.19366 26.857865)",
+      "poi_name": "Loxahatchee Slough Natural Area",
+      "osm_id": 5411289604,
+      "leisure": "nature_reserve",
+      "phone": "(561) 233-2400",
+      "addr_state": "FL",
+      "addr_city": "Jupiter",
+      "addr_postcode": "33478",
+      "addr_street": "West Indiantown Road",
+      "addr_housenumber": "9060"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Boca Recovery Center, Delray Beach, FL",
+      "geo_wkt": "POINT (-80.067727 26.481469)",
+      "poi": {
+        "id": 126873,
+        "geometry": "POINT (-80.067727 26.481469)",
+        "poi_name": "Boca Recovery Center",
+        "osm_id": 8005914240,
+        "amenity": "hospital",
+        "description": "Our housing component is nestled in the heart of Delray Beach, which is close to several prominent sober community meetings, the Atlantic Ocean, and streets bustling with restaurants and stores. This residence has been beautifully-appointed and upgraded, ",
+        "opening_hours": "24/7",
+        "website": "https://bocarecoverycenter.com/location/delray-beach-drug-rehab",
+        "phone": "(561) 621-4357",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Delray Beach",
+        "addr_postcode": "33444",
+        "addr_street": "Northeast 3rd Avenue",
+        "addr_housenumber": "1605"
+      }
+    }
+  },
+  "id": 2000,
+  "type": "range+loc"
+}

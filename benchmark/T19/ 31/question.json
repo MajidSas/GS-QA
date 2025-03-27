@@ -1,0 +1,55 @@
+{
+  "question": "Where's the nearest aquarium located in the east of Fran Rish Stadium, Richland, WA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-119.286251 46.275954)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 25908,
+      "geometry": "POINT (-119.286251 46.275954)",
+      "poi_name": "SEA LIFE Minnesota Aquarium",
+      "osm_id": 5739830095,
+      "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+      "tourism": "aquarium",
+      "fee": "yes",
+      "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+      "operator": "Merlin Entertainments'",
+      "website": "https://www.visitsealife.com/minnesota/",
+      "phone": "+1-952-883-0202",
+      "addr_state": "MN",
+      "addr_city": "Bloomington",
+      "addr_postcode": "55425",
+      "addr_street": "East Broadway",
+      "addr_housenumber": "120"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Fran Rish Stadium, Richland, WA",
+      "geo_wkt": "POINT (-119.286251 46.275954)",
+      "poi": {
+        "id": 266859,
+        "geometry": "POINT (-119.286251 46.275954)",
+        "poi_name": "Fran Rish Stadium",
+        "osm_id": 11051987955,
+        "leisure": "stadium",
+        "addr_state": "WA",
+        "addr_city": "Richland",
+        "addr_postcode": "99352",
+        "addr_street": "Lee Boulevard",
+        "addr_housenumber": "1332"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1130,
+  "type": "knn:direction+loc"
+}

@@ -1,0 +1,40 @@
+{
+  "question": "How distant is the closest park from the reference location Good Knight Castle Children's Museum, MD?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 259548,
+      "geometry": "POINT (-76.91335 39.054195)",
+      "poi_name": "Beltsville North Park",
+      "osm_id": 358253160,
+      "leisure": "park",
+      "wikidata": "Q34896272",
+      "distance": 2062.75705071
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Good Knight Castle Children's Museum, MD",
+      "geo_wkt": "POINT (-76.911889 39.035649)",
+      "poi": {
+        "id": 17464,
+        "geometry": "POINT (-76.911889 39.035649)",
+        "poi_name": "Good Knight Castle Children's Museum",
+        "osm_id": 367799293,
+        "tourism": "museum",
+        "operator": "Good Knight Child Empowerment Network",
+        "website": "https://goodknight.org/the-castle/",
+        "addr_state": "MD"
+      }
+    }
+  },
+  "id": 2462,
+  "type": "knn+distance"
+}

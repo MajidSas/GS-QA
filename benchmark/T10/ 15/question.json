@@ -1,0 +1,67 @@
+{
+  "question": "Which caf\u00e9 is nearest when approaching UCI Campus Assault Resources & Education (CARE), Irvine, CA from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, ST_GeomFromText('POINT (-117.842493 33.6485)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 102972,
+      "geometry": "POINT (-118.300113 34.118292)",
+      "poi_name": "Cafe at the End of the Universe",
+      "osm_id": 8473996364,
+      "amenity": "cafe",
+      "website": "https://wolfgangpuck.com/dining/griffith-cafe/",
+      "value": 140.3196707659245
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "poi": {
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
+      }
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "UCI Campus Assault Resources & Education (CARE), Irvine, CA",
+      "geo_wkt": "POINT (-117.842493 33.6485)",
+      "poi": {
+        "id": 234952,
+        "geometry": "POINT (-117.842493 33.6485)",
+        "poi_name": "UCI Campus Assault Resources & Education (CARE)",
+        "osm_id": 5741894635,
+        "amenity": "university",
+        "description": "Offering support to those affected by sexual assault, relationship abuse, family violence and stalking at UCI.",
+        "operator": "University of California, Irvine",
+        "website": "https://care.uci.edu/",
+        "internet_access": "wlan",
+        "phone": "949-824-7273",
+        "addr_state": "CA",
+        "addr_city": "Irvine",
+        "addr_postcode": "92697",
+        "addr_street": "West Peltason Drive",
+        "addr_housenumber": "311"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 114,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "Where is the nearest beach resort in the south direction of St Louis Park Historical Society, Saint Louis Park, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.360941 44.938725)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 249010,
+      "geometry": "POINT (-93.360941 44.938725)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "St Louis Park Historical Society, Saint Louis Park, MN",
+      "geo_wkt": "POINT (-93.360941 44.938725)",
+      "poi": {
+        "id": 4773,
+        "geometry": "POINT (-93.360941 44.938725)",
+        "poi_name": "St Louis Park Historical Society",
+        "osm_id": 9604575735,
+        "tourism": "museum",
+        "website": "https://slphistory.org/",
+        "museum": "history",
+        "addr_state": "MN",
+        "addr_city": "Saint Louis Park",
+        "addr_postcode": "55416",
+        "addr_street": "Dakota Avenue South",
+        "addr_housenumber": "3546"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1162,
+  "type": "knn:direction+loc"
+}

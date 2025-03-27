@@ -1,0 +1,45 @@
+{
+  "question": "Which way should I head to get to an aquarium from Northwest Nazarene University, Idaho Falls, ID within 130 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.051353 43.483539)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.051353 43.483539)',4326)::geography, 130000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 7128,
+      "geometry": "POINT (-112.021499 43.510858)",
+      "poi_name": "East Idaho Aquarium",
+      "osm_id": 8873854009,
+      "tourism": "aquarium",
+      "angle": 38.49230058351597
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Northwest Nazarene University, Idaho Falls, ID",
+      "geo_wkt": "POINT (-112.051353 43.483539)",
+      "poi": {
+        "id": 76377,
+        "geometry": "POINT (-112.051353 43.483539)",
+        "poi_name": "Northwest Nazarene University",
+        "osm_id": 9774123453,
+        "amenity": "university",
+        "internet_access": "wlan",
+        "addr_state": "ID",
+        "addr_city": "Idaho Falls",
+        "addr_street": "Pier View Drive",
+        "addr_housenumber": "901"
+      }
+    }
+  },
+  "id": 1099,
+  "type": "range+angle"
+}

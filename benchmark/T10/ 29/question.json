@@ -1,0 +1,61 @@
+{
+  "question": "Which restaurant is closest towards Aquarium Depot, Miami, FL from Gallery 2612, Miami, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography, ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 44780,
+      "geometry": "POINT (-80.199725 25.801355)",
+      "poi_name": "Jugofresh",
+      "osm_id": 3175726143,
+      "amenity": "restaurant",
+      "cuisine": "juice",
+      "value": 235.601387696377
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Gallery 2612, Miami, FL",
+      "geo_wkt": "POINT (-80.199232 25.801806)",
+      "poi": {
+        "id": 14211,
+        "geometry": "POINT (-80.199232 25.801806)",
+        "poi_name": "Gallery 2612",
+        "osm_id": 4249047169,
+        "tourism": "gallery",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33127",
+        "addr_street": "Northwest 2nd Avenue",
+        "addr_housenumber": "2612"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Depot, Miami, FL",
+      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "poi": {
+        "id": 26765,
+        "geometry": "POINT (-80.386248 25.685662)",
+        "poi_name": "Aquarium Depot",
+        "osm_id": 6035376680,
+        "tourism": "aquarium",
+        "phone": "+13055963373",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33186",
+        "addr_street": "Southwest 88th Street",
+        "addr_housenumber": "11762"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 128,
+  "type": "knn:towards+name"
+}

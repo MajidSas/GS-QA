@@ -1,0 +1,65 @@
+{
+  "question": "What is the nearest hotel as you progress towards Paul Lange Arboretum, Delavan, WI from Legoland Discovery Center Chicago, Schaumburg, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography, ST_GeomFromText('POINT (-88.649647 42.638262)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 6034,
+      "geometry": "POINT (-88.285386 42.220125)",
+      "poi_name": "Crystal Lake Holiday Inn",
+      "osm_id": 1717024971,
+      "tourism": "hotel",
+      "internet_access": "wlan",
+      "value": 322.86317775046933
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Legoland Discovery Center Chicago, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.034026 42.039672)",
+      "poi": {
+        "id": 21492,
+        "geometry": "POINT (-88.034026 42.039672)",
+        "poi_name": "Legoland Discovery Center Chicago",
+        "osm_id": 10285659853,
+        "tourism": "theme_park",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/chicago/",
+        "wikidata": "Q20711319",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "North Martingale Road",
+        "addr_housenumber": "601"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Paul Lange Arboretum, Delavan, WI",
+      "geo_wkt": "POINT (-88.649647 42.638262)",
+      "poi": {
+        "id": 248877,
+        "geometry": "POINT (-88.649647 42.638262)",
+        "poi_name": "Paul Lange Arboretum",
+        "osm_id": 4896106861,
+        "leisure": "garden",
+        "website": "http://ci.delavan.wi.us/departments/parks-recreation/city-parks/#paul",
+        "phone": "+1-262-728-5585",
+        "addr_state": "WI",
+        "addr_city": "Delavan",
+        "addr_postcode": "53115",
+        "addr_street": "North Terrace Street",
+        "addr_housenumber": "515"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 181,
+  "type": "knn:towards+name"
+}

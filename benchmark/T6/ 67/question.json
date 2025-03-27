@@ -1,0 +1,57 @@
+{
+  "question": "What is the nearest emergency hospital from Gabis Arboretum at Purdue Northwest, Valparaiso, IN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 214643,
+      "geometry": "POINT (-87.732089 41.72357)",
+      "poi_name": "Advocate Children's Hospital",
+      "osm_id": 5276572197,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Advocate Aurora Health",
+      "website": "https://www.advocatechildrenshospital.com/",
+      "phone": "+1 708 684 8000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q30254234",
+      "addr_state": "IL",
+      "addr_city": "Oak Lawn",
+      "addr_postcode": "60453",
+      "addr_street": "West 95th Street",
+      "addr_housenumber": "4440"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Gabis Arboretum at Purdue Northwest, Valparaiso, IN",
+      "geo_wkt": "POINT (-87.149569 41.444803)",
+      "poi": {
+        "id": 266246,
+        "geometry": "POINT (-87.149569 41.444803)",
+        "poi_name": "Gabis Arboretum at Purdue Northwest",
+        "osm_id": 7086478117,
+        "leisure": "nature_reserve",
+        "opening_hours": "Mo-Su 08:00-sunset",
+        "website": "https://www.pnw.edu/gabis-arboretum/",
+        "phone": "+1 219 462 0025",
+        "addr_state": "IN",
+        "addr_city": "Valparaiso",
+        "addr_postcode": "46385",
+        "addr_street": "West 100 North",
+        "addr_housenumber": "450"
+      }
+    }
+  },
+  "id": 666,
+  "type": "knn:non_spat_filter+name"
+}

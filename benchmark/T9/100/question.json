@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest gallery towards the south of Texas Surgical Hospital, Plano, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-96.854075 33.031635)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9763,
+      "geometry": "POINT (-96.854075 33.031635)",
+      "poi_name": "Martin Lawrence Galleries",
+      "osm_id": 8978871108,
+      "tourism": "gallery"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Texas Surgical Hospital, Plano, TX",
+      "geo_wkt": "POINT (-96.854075 33.031635)",
+      "poi": {
+        "id": 183165,
+        "geometry": "POINT (-96.854075 33.031635)",
+        "poi_name": "Texas Surgical Hospital",
+        "osm_id": 10917000060,
+        "amenity": "hospital",
+        "website": "https://txsurgical.com",
+        "phone": "+1 972 820 2600",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Plano",
+        "addr_postcode": "75093-8497",
+        "addr_street": "Marsh Lane",
+        "addr_housenumber": "2301"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2599,
+  "type": "knn:direction+name"
+}

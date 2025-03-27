@@ -1,0 +1,49 @@
+{
+  "question": "How far away is the nearest fast food restaurant positioned from Preble County Medical Center, Eaton, OH?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.646719 39.766768)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.646719 39.766768)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 40709,
+      "geometry": "POINT (-84.637201 39.757368)",
+      "poi_name": "Subway",
+      "osm_id": 2980282366,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_street": "N Barron St",
+      "addr_housenumber": "1201",
+      "distance": 1324.60057614
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Preble County Medical Center, Eaton, OH",
+      "geo_wkt": "POINT (-84.646719 39.766768)",
+      "poi": {
+        "id": 100630,
+        "geometry": "POINT (-84.646719 39.766768)",
+        "poi_name": "Preble County Medical Center",
+        "osm_id": 6594393096,
+        "amenity": "hospital",
+        "operator": "Grandview Medical Center",
+        "website": "https://www.ketteringhealth.org/preble/",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "OH",
+        "addr_city": "Eaton",
+        "addr_postcode": "45320",
+        "addr_street": "Washington Jackson Road",
+        "addr_housenumber": "450"
+      }
+    }
+  },
+  "id": 2412,
+  "type": "knn+distance"
+}

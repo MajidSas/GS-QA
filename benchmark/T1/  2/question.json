@@ -1,0 +1,66 @@
+{
+  "question": "I'm looking for an aquarium within 170 kilometers radii of Sherwood Forest Faire, McDade, TX.",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, 170000)\nAND tourism = 'aquarium';\n",
+  "answers": [
+    {
+      "id": 2324,
+      "geometry": "POINT (-97.792282 30.449834)",
+      "poi_name": "Austin Aquarium",
+      "osm_id": 3391837793,
+      "tourism": "aquarium"
+    },
+    {
+      "id": 3121,
+      "geometry": "POINT (-98.485816 29.424103)",
+      "poi_name": "Sea Life Aquarium",
+      "osm_id": 10184935041,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/san-antonio/",
+      "wikidata": "Q664334",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78205",
+      "addr_street": "East Commerce Street",
+      "addr_housenumber": "849"
+    },
+    {
+      "id": 10607,
+      "geometry": "POINT (-97.147937 31.669069)",
+      "poi_name": "Aquaponics Greenhouse",
+      "osm_id": 6938680993,
+      "tourism": "aquarium"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
+      "poi": {
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
+      }
+    }
+  },
+  "id": 801,
+  "type": "range+name"
+}

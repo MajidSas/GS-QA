@@ -1,0 +1,68 @@
+{
+  "question": "Where is the closest restaurant from Public Park, Waterville, ME towards Vacationland Inn & Suites, Brewer, ME?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.624349 44.550462)',4326)::geography, ST_GeomFromText('POINT (-68.748537 44.78236)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.624349 44.550462)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-69.624349 44.550462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 228572,
+      "geometry": "POINT (-68.845209 44.638297)",
+      "poi_name": "Winterport Pizza",
+      "osm_id": 4348866546,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Sa 11:00-20:00",
+      "phone": "+1-207-223-4902",
+      "takeaway": "yes",
+      "addr_state": "ME",
+      "addr_city": "Winterport",
+      "addr_postcode": "04496",
+      "addr_street": "Main Street",
+      "addr_housenumber": "109",
+      "value": 69.33616153745191
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Public Park, Waterville, ME",
+      "geo_wkt": "POINT (-69.624349 44.550462)",
+      "poi": {
+        "id": 266353,
+        "geometry": "POINT (-69.624349 44.550462)",
+        "poi_name": "Public Park",
+        "osm_id": 7215450124,
+        "leisure": "park",
+        "addr_state": "ME",
+        "addr_city": "Waterville",
+        "addr_postcode": "04901",
+        "addr_street": "Benton Avenue",
+        "addr_housenumber": "110"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Vacationland Inn & Suites, Brewer, ME",
+      "geo_wkt": "POINT (-68.748537 44.78236)",
+      "poi": {
+        "id": 22672,
+        "geometry": "POINT (-68.748537 44.78236)",
+        "poi_name": "Vacationland Inn & Suites",
+        "osm_id": 7209111959,
+        "tourism": "hotel",
+        "addr_state": "ME",
+        "addr_city": "Brewer",
+        "addr_postcode": "04412",
+        "addr_street": "Wilson Street",
+        "addr_housenumber": "453"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1333,
+  "type": "knn:towards+loc"
+}

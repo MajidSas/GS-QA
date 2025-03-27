@@ -1,0 +1,74 @@
+{
+  "question": "Within a radius of 170 kilometers, where can I find a museum situated towards the northwest of Xtreme Action Park, Fort Lauderdale, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography, 170000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "answers": [
+    {
+      "id": 15015,
+      "geometry": "POINT (-80.153423 26.191598)",
+      "poi_name": "LaBelle Heritage Museum",
+      "osm_id": 4782153322,
+      "tourism": "museum",
+      "website": "https://www.facebook.com/people/Labelle-Heritage-Museum/100057307636419/",
+      "addr_state": "FL",
+      "addr_city": "LaBelle",
+      "addr_postcode": "33935",
+      "addr_street": "North Bridge Street",
+      "addr_housenumber": "360"
+    },
+    {
+      "id": 17636,
+      "geometry": "POINT (-80.153423 26.191598)",
+      "poi_name": "Clewiston Museum",
+      "osm_id": 367827370,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 09:00-16:00",
+      "website": "https://www.theclewistonmuseum.org/",
+      "phone": "+1 863 983 2870",
+      "wikidata": "Q5132353",
+      "addr_state": "FL",
+      "addr_city": "Clewiston",
+      "addr_postcode": "33440",
+      "addr_street": "Central Avenue",
+      "addr_housenumber": "109"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "poi": {
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 85,
+  "type": "range:direction+loc"
+}

@@ -1,0 +1,43 @@
+{
+  "question": "Which direction guides to the nearest beach resort from City of Farmington Museum, Farmington, UT?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247801,
+      "geometry": "POINT (-116.85094 48.530908)",
+      "poi_name": "Clambake Beach",
+      "osm_id": 9949883738,
+      "leisure": "beach_resort",
+      "angle": 336.6176686803711
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "City of Farmington Museum, Farmington, UT",
+      "geo_wkt": "POINT (-111.887141 40.98238)",
+      "poi": {
+        "id": 963,
+        "geometry": "POINT (-111.887141 40.98238)",
+        "poi_name": "City of Farmington Museum",
+        "osm_id": 2750936682,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://artsandmuseums.utah.gov/utah-museums-directory/listing/farmington-historical-museum__trashed/",
+        "addr_state": "UT",
+        "addr_city": "Farmington",
+        "addr_postcode": "84025",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "110"
+      }
+    }
+  },
+  "id": 1481,
+  "type": "knn+angle"
+}

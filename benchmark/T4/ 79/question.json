@@ -1,0 +1,215 @@
+{
+  "question": "Within 40 kilometers, which museum can I find from Salus University, Elkins Park, PA on the way to Soft Illusions Fine Art Gallery, Philadelphia, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography, ST_GeomFromText('POINT (-75.221125 40.024267)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography, 40000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 3657,
+      "geometry": "POINT (-75.20907 39.967525)",
+      "poi_name": "New Africa Center",
+      "osm_id": 5524144227,
+      "tourism": "museum",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19104",
+      "addr_street": "Lancaster Avenue",
+      "addr_housenumber": "4243",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 3482,
+      "geometry": "POINT (-75.181222 40.043354)",
+      "poi_name": "Johnson House Historic Site",
+      "osm_id": 5429763941,
+      "tourism": "museum",
+      "website": "https://www.johnsonhouse.org/",
+      "phone": "+1-215-438-1768",
+      "wikidata": "Q6241947",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19144",
+      "addr_street": "Germantown Avenue",
+      "addr_housenumber": "6306",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 2756,
+      "geometry": "POINT (-75.257318 39.891564)",
+      "poi_name": "John Heinz Environmental Education Center",
+      "osm_id": 575513050,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "\"Closed due to COVID-19\"",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 4146,
+      "geometry": "POINT (-75.359818 39.847701)",
+      "poi_name": "Delaware County Historical Society Museum & Research Library",
+      "osm_id": 5695046777,
+      "tourism": "museum",
+      "website": "https://www.padelcohistory.org/museum-exhibitions",
+      "phone": "+1 610-359-0832",
+      "addr_state": "PA",
+      "addr_city": "Chester",
+      "addr_postcode": "19013",
+      "addr_street": "Avenue of the States",
+      "addr_housenumber": "408",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 22524,
+      "geometry": "POINT (-75.213664 39.990885)",
+      "poi_name": "Underground Railroad Museum at Belmont Mansion",
+      "osm_id": 7134774357,
+      "tourism": "museum",
+      "website": "https://www.belmontmansion.org/tours_belmont_mansion.html",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 4253,
+      "geometry": "POINT (-75.142429 40.066197)",
+      "poi_name": "Camp William Penn Gate",
+      "osm_id": 11189411347,
+      "tourism": "museum",
+      "operator": "CROHL",
+      "museum": "history",
+      "addr_state": "PA",
+      "addr_city": "Elkins Park",
+      "addr_postcode": "19027",
+      "addr_street": "Sycamore Avenue",
+      "addr_housenumber": "7320",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 10610,
+      "geometry": "POINT (-75.221406 39.956607)",
+      "poi_name": "Paul Robeson House and Museum",
+      "osm_id": 6944020724,
+      "tourism": "museum",
+      "website": "https://www.paulrobesonhouse.org/",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 17734,
+      "geometry": "POINT (-75.178428 40.040009)",
+      "poi_name": "Wyck Museum",
+      "osm_id": 367974369,
+      "tourism": "museum",
+      "website": "https://wyck.org/",
+      "addr_state": "PA",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 5968,
+      "geometry": "POINT (-75.288876 39.986149)",
+      "poi_name": "Nitre Hall",
+      "osm_id": 1687517332,
+      "tourism": "museum",
+      "website": "https://haverfordhistoricalsociety.org/",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 22707,
+      "geometry": "POINT (-75.175614 40.036962)",
+      "poi_name": "ACES Museum",
+      "osm_id": 7221500786,
+      "tourism": "museum",
+      "website": "https://www.acesmuseum.online/",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 22731,
+      "geometry": "POINT (-75.171916 40.034359)",
+      "poi_name": "Germantown Historical Society",
+      "osm_id": 7232030214,
+      "tourism": "museum",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 22708,
+      "geometry": "POINT (-75.176285 40.03581)",
+      "poi_name": "Black Writers Museum",
+      "osm_id": 7221500810,
+      "tourism": "museum",
+      "website": "https://www.blackwritersmuseum.com/",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 22711,
+      "geometry": "POINT (-75.167681 40.041954)",
+      "poi_name": "The Museum of the Miraculous Medal Shrine",
+      "osm_id": 7223154595,
+      "tourism": "museum",
+      "operator": "The Central Association of the Miraculous Medal",
+      "website": "https://cammonline.org/shrine-museum/art-museum/",
+      "value": 228.73976843471564
+    },
+    {
+      "id": 24889,
+      "geometry": "POINT (-75.412348 39.813798)",
+      "poi_name": "Marcus Hook Plank House",
+      "osm_id": 4352921237,
+      "tourism": "museum",
+      "website": "https://marcushookps.org/house.php",
+      "addr_state": "PA",
+      "addr_city": "Marcus Hook",
+      "addr_postcode": "19061",
+      "addr_street": "Market Street",
+      "value": 228.73976843471564
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "poi": {
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Soft Illusions Fine Art Gallery, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.221125 40.024267)",
+      "poi": {
+        "id": 13126,
+        "geometry": "POINT (-75.221125 40.024267)",
+        "poi_name": "Soft Illusions Fine Art Gallery",
+        "osm_id": 4064343335,
+        "tourism": "gallery",
+        "website": "http://www.softillusions.net/",
+        "phone": "+1 215-840-0832",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_postcode": "19127",
+        "addr_street": "Main Street",
+        "addr_housenumber": "4226"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 1678,
+  "type": "range:towards+name"
+}

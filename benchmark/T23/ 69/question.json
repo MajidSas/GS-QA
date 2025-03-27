@@ -1,0 +1,43 @@
+{
+  "question": "What's the count of stadia within 50 kilometers from the location Embassy Suites, Duluth, GA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.089795 33.987927)',4326)::geography, 50000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 2
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Embassy Suites, Duluth, GA",
+      "geo_wkt": "POINT (-84.089795 33.987927)",
+      "poi": {
+        "id": 8198,
+        "geometry": "POINT (-84.089795 33.987927)",
+        "poi_name": "Embassy Suites",
+        "osm_id": 6586979386,
+        "tourism": "hotel",
+        "website": "https://embassysuites3.hilton.com/en/hotels/georgia/embassy-suites-by-hilton-atlanta-ne-gwinnett-sugarloaf-ATLAEES/index.html",
+        "phone": "+1-770-622-6391",
+        "official_name": "Embassy Suites by Hilton",
+        "addr_state": "GA",
+        "addr_city": "Duluth",
+        "addr_postcode": "30097",
+        "addr_street": "Satellite Boulevard Northwest",
+        "addr_housenumber": "2029"
+      }
+    }
+  },
+  "id": 2268,
+  "type": "range+count"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Can you recommend the nearest caf\u00e9 from the university established in the year 1975 in Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 106128,
+      "geometry": "POINT (-95.400868 29.717911)",
+      "poi_name": "Little Kitchen HTX",
+      "osm_id": 8666012094,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Fr 07:30-19:00; Sa, Su 09:00-17:00",
+      "website": "https://www.littlekitchenhtx.com",
+      "phone": "+1-713-348-2279"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "poi": {
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
+      }
+    }
+  },
+  "id": 2773,
+  "type": "knn+name+multihop2"
+}

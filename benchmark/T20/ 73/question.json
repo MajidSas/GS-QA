@@ -1,0 +1,74 @@
+{
+  "question": "Where is the closest caf\u00e9 along the way to Gallery 19C, Westlake, TX from LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, ST_GeomFromText('POINT (-97.174004 32.983278)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 242710,
+      "geometry": "POINT (-97.168285 32.97901)",
+      "poi_name": "Starbucks",
+      "osm_id": 7592772161,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "yes",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "no",
+      "addr_state": "TX",
+      "addr_city": "Westlake",
+      "addr_postcode": "76262",
+      "addr_street": "Solana Boulevard",
+      "addr_housenumber": "1301",
+      "value": 278.64618719969627
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX",
+      "geo_wkt": "POINT (-97.043468 32.966617)",
+      "poi": {
+        "id": 9989,
+        "geometry": "POINT (-97.043468 32.966617)",
+        "poi_name": "LEGOLAND Discovery Center Dallas/Fort Worth",
+        "osm_id": 9095109739,
+        "tourism": "theme_park",
+        "wheelchair": "limited",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/dallas-fw/",
+        "phone": "(469) 444-3050",
+        "wikidata": "Q20712562",
+        "addr_state": "TX",
+        "addr_city": "Grapevine",
+        "addr_postcode": "76051",
+        "addr_street": "Grapevine Mills Pkwy",
+        "addr_housenumber": "3000"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Gallery 19C, Westlake, TX",
+      "geo_wkt": "POINT (-97.174004 32.983278)",
+      "poi": {
+        "id": 11867,
+        "geometry": "POINT (-97.174004 32.983278)",
+        "poi_name": "Gallery 19C",
+        "osm_id": 11592998741,
+        "tourism": "gallery",
+        "addr_state": "TX",
+        "addr_city": "Westlake",
+        "addr_postcode": "76262",
+        "addr_street": "Solana Boulevard",
+        "addr_housenumber": "1500"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1372,
+  "type": "knn:towards+loc"
+}

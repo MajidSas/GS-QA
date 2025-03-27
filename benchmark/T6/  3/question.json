@@ -1,0 +1,46 @@
+{
+  "question": "What's the nearest Korean restaurant available from Elkhorn Valley Rehabilitation Hospital, Casper, WY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%Korean%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.24237 42.844226)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 153985,
+      "geometry": "POINT (-103.069014 44.133878)",
+      "poi_name": "Kang San",
+      "osm_id": 4218270896,
+      "amenity": "restaurant",
+      "cuisine": "korean"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "Korean restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Korean%'"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Elkhorn Valley Rehabilitation Hospital, Casper, WY",
+      "geo_wkt": "POINT (-106.24237 42.844226)",
+      "poi": {
+        "id": 183017,
+        "geometry": "POINT (-106.24237 42.844226)",
+        "poi_name": "Elkhorn Valley Rehabilitation Hospital",
+        "osm_id": 10914361328,
+        "amenity": "hospital",
+        "website": "https://evrh.ernesthealth.com",
+        "phone": "+1-307-265-0005",
+        "healthcare": "rehabilitation",
+        "addr_state": "WY",
+        "addr_city": "Casper",
+        "addr_postcode": "82609",
+        "addr_street": "East 2nd Street",
+        "addr_housenumber": "5715"
+      }
+    }
+  },
+  "id": 602,
+  "type": "knn:non_spat_filter+name"
+}

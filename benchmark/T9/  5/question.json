@@ -1,0 +1,55 @@
+{
+  "question": "Which hospital is the closest to the south of Urban Air Adventure Park, Port Saint Lucie, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167667,
+      "geometry": "POINT (-80.303867 27.301988)",
+      "poi_name": "The Jerome Golden Center for Behavioral Health",
+      "osm_id": 358741723,
+      "amenity": "hospital",
+      "website": "http://goldenctr.org/",
+      "phone": "+1 561 383 8000",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "West Palm Beach",
+      "addr_postcode": "33407",
+      "addr_street": "45th Street",
+      "addr_housenumber": "1041"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
+      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "poi": {
+        "id": 27036,
+        "geometry": "POINT (-80.303867 27.301988)",
+        "poi_name": "Urban Air Adventure Park",
+        "osm_id": 7656494335,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+        "phone": "+1-772-408-9349",
+        "addr_state": "FL",
+        "addr_city": "Port Saint Lucie",
+        "addr_postcode": "34952",
+        "addr_street": "S US Highway 1",
+        "addr_housenumber": "9020"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 2504,
+  "type": "knn:direction+name"
+}

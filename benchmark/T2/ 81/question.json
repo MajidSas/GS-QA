@@ -1,0 +1,100 @@
+{
+  "question": "Seeking an emergency hospital situated within 170 kilometers of the University of Tennessee Health Science Center, Memphis, TN. Can you help me find one?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 60438,
+      "geometry": "POINT (-89.854958 35.128142)",
+      "poi_name": "Spence and Becky Wilson Baptist Children's Hospital",
+      "osm_id": 5464768674,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Baptist Memorial Health Care Corporation",
+      "website": "https://www.baptistonline.org/locations/childrens",
+      "phone": "+1 901 227 7337",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "TN",
+      "addr_city": "Memphis",
+      "addr_postcode": "38120",
+      "addr_street": "Humphreys Boulevard",
+      "addr_housenumber": "6225"
+    },
+    {
+      "id": 71119,
+      "geometry": "POINT (-89.666246 35.266531)",
+      "poi_name": "Baptist Arlington Emergency Department",
+      "osm_id": 11382331289,
+      "amenity": "hospital",
+      "website": "https://www.baptistonline.org/services/emergency",
+      "phone": "+1-901-226-1850",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "TN",
+      "addr_city": "Arlington",
+      "addr_postcode": "38002",
+      "addr_street": "Airline Road",
+      "addr_housenumber": "5150"
+    },
+    {
+      "id": 167759,
+      "geometry": "POINT (-90.205 36.390278)",
+      "poi_name": "Piggott Community Hospital",
+      "osm_id": 358993641,
+      "amenity": "hospital",
+      "website": "https://pch-health.com/",
+      "phone": "+1 870 598 3881",
+      "emergency": "yes",
+      "addr_city": "Piggott",
+      "addr_postcode": "72454",
+      "addr_street": "Gordon Duckworth Drive",
+      "addr_housenumber": "1206"
+    },
+    {
+      "id": 149741,
+      "geometry": "POINT (-90.04116 36.235344)",
+      "poi_name": "Twin Rivers Regional Medical Center",
+      "osm_id": 4022923799,
+      "amenity": "hospital",
+      "website": "https://www.twinriversregional.com/",
+      "phone": "+1 573 888 4522",
+      "emergency": "yes",
+      "addr_city": "Kennett",
+      "addr_postcode": "63857",
+      "addr_street": "1st Street",
+      "addr_housenumber": "1301"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "poi": {
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
+        "amenity": "university",
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
+      }
+    }
+  },
+  "id": 580,
+  "type": "range:non_spat_filter+name"
+}

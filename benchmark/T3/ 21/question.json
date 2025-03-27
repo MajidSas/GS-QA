@@ -1,0 +1,71 @@
+{
+  "question": "Which university is located to the west of Riverfront Stadium, Wichita, KS, within a radius of 90 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography, 90000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 62608,
+      "geometry": "POINT (-97.345485 37.681386)",
+      "poi_name": "Cheney High School",
+      "osm_id": 5578562286,
+      "amenity": "university"
+    },
+    {
+      "id": 62609,
+      "geometry": "POINT (-97.345485 37.681386)",
+      "poi_name": "Cheney High School",
+      "osm_id": 5578562287,
+      "amenity": "university"
+    },
+    {
+      "id": 62610,
+      "geometry": "POINT (-97.345485 37.681386)",
+      "poi_name": "Cheney High School",
+      "osm_id": 5578562288,
+      "amenity": "university"
+    },
+    {
+      "id": 62611,
+      "geometry": "POINT (-97.345485 37.681386)",
+      "poi_name": "Cheney High School",
+      "osm_id": 5578562289,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Riverfront Stadium, Wichita, KS",
+      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "poi": {
+        "id": 260589,
+        "geometry": "POINT (-97.345485 37.681386)",
+        "poi_name": "Riverfront Stadium",
+        "osm_id": 358627835,
+        "leisure": "stadium",
+        "website": "https://www.milb.com/wichita/ballpark",
+        "phone": "+1-316-221-8000",
+        "addr_state": "KS",
+        "addr_city": "Wichita",
+        "addr_postcode": "67213",
+        "addr_street": "South McLean Boulevard",
+        "addr_housenumber": "275"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2620,
+  "type": "range:direction+name"
+}

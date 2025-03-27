@@ -1,0 +1,43 @@
+{
+  "question": "What's the nearest attraction from Sonny's Place, Somers, CT?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16287,
+      "geometry": "POINT (-72.432584 42.061206)",
+      "poi_name": "Goat Rock",
+      "osm_id": 358270661,
+      "tourism": "attraction"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
+      "poi": {
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
+      }
+    }
+  },
+  "id": 200,
+  "type": "knn+name"
+}

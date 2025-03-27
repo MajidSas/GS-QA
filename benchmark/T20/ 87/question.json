@@ -1,0 +1,64 @@
+{
+  "question": "Where is the closest restaurant from Depot Museum, CA towards Hungry Valley SVRA, Gorman, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography, ST_GeomFromText('POINT (-118.871038 34.791936)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 138079,
+      "geometry": "POINT (-119.274525 35.502614)",
+      "poi_name": "La Fonda Taqueria y Mariscos",
+      "osm_id": 6128776295,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "CA",
+      "addr_city": "Shafter",
+      "addr_postcode": "93263",
+      "addr_street": "Central Avenue",
+      "addr_housenumber": "358",
+      "value": 154.82087318916888
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Depot Museum, CA",
+      "geo_wkt": "POINT (-119.277375 35.505634)",
+      "poi": {
+        "id": 18282,
+        "geometry": "POINT (-119.277375 35.505634)",
+        "poi_name": "Depot Museum",
+        "osm_id": 368174562,
+        "tourism": "museum",
+        "website": "https://shafterdepotmuseum.org/",
+        "addr_state": "CA"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hungry Valley SVRA, Gorman, CA",
+      "geo_wkt": "POINT (-118.871038 34.791936)",
+      "poi": {
+        "id": 246478,
+        "geometry": "POINT (-118.871038 34.791936)",
+        "poi_name": "Hungry Valley SVRA",
+        "osm_id": 9733590976,
+        "leisure": "park",
+        "tourism": "camp_site",
+        "fee": "yes",
+        "operator": "California Department of Parks and Recreation",
+        "addr_state": "CA",
+        "addr_city": "Gorman",
+        "addr_postcode": "92343",
+        "addr_street": "Hungry Valley Road"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1386,
+  "type": "knn:towards+loc"
+}

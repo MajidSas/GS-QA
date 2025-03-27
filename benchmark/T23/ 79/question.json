@@ -1,0 +1,36 @@
+{
+  "question": "How many parks can be found within a 180 kilometers radius from Acadia Cliffs Wildlife Area, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.845367 39.320973)',4326)::geography, 180000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "count": 294
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Acadia Cliffs Wildlife Area, OH",
+      "geo_wkt": "POINT (-81.845367 39.320973)",
+      "poi": {
+        "id": 247766,
+        "geometry": "POINT (-81.845367 39.320973)",
+        "poi_name": "Acadia Cliffs Wildlife Area",
+        "osm_id": 9892480783,
+        "leisure": "nature_reserve",
+        "addr_state": "OH"
+      }
+    }
+  },
+  "id": 2278,
+  "type": "range+count"
+}

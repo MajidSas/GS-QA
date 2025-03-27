@@ -1,0 +1,45 @@
+{
+  "question": "What's the separation to the closest restaurant relative to Scottish Inn, Rocky Top, TN?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.157543 36.229819)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.157543 36.229819)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 169327,
+      "geometry": "POINT (-84.158227 36.230782)",
+      "poi_name": "La Fiesta Mexican Restaurant",
+      "osm_id": 2296687799,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_postcode": "37769",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "622",
+      "distance": 123.26007511
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Scottish Inn, Rocky Top, TN",
+      "geo_wkt": "POINT (-84.157543 36.229819)",
+      "poi": {
+        "id": 23056,
+        "geometry": "POINT (-84.157543 36.229819)",
+        "poi_name": "Scottish Inn",
+        "osm_id": 5017479640,
+        "tourism": "hotel",
+        "addr_state": "TN",
+        "addr_city": "Rocky Top",
+        "addr_postcode": "37769",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "530"
+      }
+    }
+  },
+  "id": 2421,
+  "type": "knn+distance"
+}

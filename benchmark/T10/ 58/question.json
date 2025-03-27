@@ -1,0 +1,73 @@
+{
+  "question": "Which museum is closest when moving towards Houmas House Plantation and Gardens, Darrow, LA from Audubon Insectarium, New Orleans, LA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography, ST_GeomFromText('POINT (-90.935337 30.141359)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 26235,
+      "geometry": "POINT (-90.091531 29.965243)",
+      "poi_name": "Katrina National Memorial Museum",
+      "osm_id": 5822739953,
+      "description": "The Katrina National Memorial Museum honors, archives, & celebrates the strength & memories of those who perished, survived & rebuilt the Gulf Coast.",
+      "tourism": "museum",
+      "opening_hours": "Mo-Sa 10:30-16:00",
+      "website": "https://knmfno.org/",
+      "phone": "+1-504-510-9570",
+      "addr_state": "LA",
+      "addr_city": "New Orleans",
+      "addr_postcode": "70119",
+      "addr_street": "Cleveland Avenue",
+      "addr_housenumber": "2800",
+      "value": 284.2782869238409
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Audubon Insectarium, New Orleans, LA",
+      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "poi": {
+        "id": 15891,
+        "geometry": "POINT (-90.063318 29.951359)",
+        "poi_name": "Audubon Insectarium",
+        "osm_id": 9588493777,
+        "tourism": "zoo",
+        "wheelchair": "yes",
+        "building": "yes",
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "website": "http://www.auduboninstitute.org/visit/insectarium",
+        "zoo": "insectarium",
+        "wikidata": "Q4820238",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Canal Street",
+        "addr_housenumber": "403"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Houmas House Plantation and Gardens, Darrow, LA",
+      "geo_wkt": "POINT (-90.935337 30.141359)",
+      "poi": {
+        "id": 14178,
+        "geometry": "POINT (-90.935337 30.141359)",
+        "poi_name": "Houmas House Plantation and Gardens",
+        "osm_id": 4242944475,
+        "tourism": "attraction",
+        "addr_state": "LA",
+        "addr_city": "Darrow",
+        "addr_street": "River Road",
+        "addr_housenumber": "40136"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 157,
+  "type": "knn:towards+name"
+}

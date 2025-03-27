@@ -1,0 +1,47 @@
+{
+  "question": "What's the nearest railway museum situated from Monkey Island, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.616906 28.785839)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 17638,
+      "geometry": "POINT (-80.122289 26.316622)",
+      "poi_name": "South Florida Railway Museum",
+      "osm_id": 367827378,
+      "tourism": "museum",
+      "website": "https://sfrm.org/",
+      "museum": "railway",
+      "wikidata": "Q7567245",
+      "addr_state": "FL",
+      "addr_city": "Deerfield Beach",
+      "addr_postcode": "33442",
+      "addr_street": "West Hillsboro Boulevard",
+      "addr_housenumber": "1300"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Monkey Island, FL",
+      "geo_wkt": "POINT (-82.616906 28.785839)",
+      "poi": {
+        "id": 6597,
+        "geometry": "POINT (-82.616906 28.785839)",
+        "poi_name": "Monkey Island",
+        "osm_id": 1884113746,
+        "tourism": "zoo",
+        "addr_state": "FL",
+        "addr_postcode": "34448"
+      }
+    }
+  },
+  "id": 687,
+  "type": "knn:non_spat_filter+name"
+}

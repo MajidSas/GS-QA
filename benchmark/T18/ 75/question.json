@@ -1,0 +1,48 @@
+{
+  "question": "Where is the closest sandwich restaurant situated from Cobblestone Inn & Suites, Ord, NE?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.909215 41.592089)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 205098,
+      "geometry": "POINT (-97.376848 41.459954)",
+      "poi_name": "Big Apple Bagels",
+      "osm_id": 7157223700,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "website": "https://bigapplebagels.com/columbusne",
+      "phone": "231-773-4777",
+      "addr_state": "NE",
+      "addr_city": "Columbus",
+      "addr_postcode": "49442",
+      "addr_street": "41ST AVENUE",
+      "addr_housenumber": "4471"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "sandwich restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Cobblestone Inn & Suites, Ord, NE",
+      "geo_wkt": "POINT (-98.909215 41.592089)",
+      "poi": {
+        "id": 15748,
+        "geometry": "POINT (-98.909215 41.592089)",
+        "poi_name": "Cobblestone Inn & Suites",
+        "osm_id": 9501823825,
+        "tourism": "hotel",
+        "building": "commercial",
+        "addr_state": "NE",
+        "addr_city": "Ord"
+      }
+    }
+  },
+  "id": 374,
+  "type": "knn:non_spat_filter+loc"
+}

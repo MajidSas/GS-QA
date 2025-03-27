@@ -1,0 +1,63 @@
+{
+  "question": "What's the closest restaurant on the path leading to Holiday Inn Express & Suites Ashtabula-Geneva, Austinburg, OH from Ukrainian Cultural Garden, Cleveland, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography, ST_GeomFromText('POINT (-80.853977 41.79064)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 168791,
+      "geometry": "POINT (-81.550033 41.583422)",
+      "poi_name": "Scotti's Italian Eatery",
+      "osm_id": 2278423546,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_postcode": "44119",
+      "addr_street": "East 185th Street",
+      "addr_housenumber": "882",
+      "value": 65.31702639762852
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ukrainian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.627549 41.527165)",
+      "poi": {
+        "id": 247011,
+        "geometry": "POINT (-81.627549 41.527165)",
+        "poi_name": "Ukrainian Cultural Garden",
+        "osm_id": 8567373864,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1008"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn Express & Suites Ashtabula-Geneva, Austinburg, OH",
+      "geo_wkt": "POINT (-80.853977 41.79064)",
+      "poi": {
+        "id": 3377,
+        "geometry": "POINT (-80.853977 41.79064)",
+        "poi_name": "Holiday Inn Express & Suites Ashtabula-Geneva",
+        "osm_id": 5386568486,
+        "tourism": "hotel",
+        "addr_state": "OH",
+        "addr_city": "Austinburg",
+        "addr_postcode": "44010",
+        "addr_street": "Austinburg Road",
+        "addr_housenumber": "1831"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 150,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,54 @@
+{
+  "question": "Within a radius of 50 kilometers, where can I find a golf course towards the south of Mission Hills Church Park, San Marcos, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography, 50000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "answers": [
+    {
+      "id": 246425,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "Mission Bay Golf Course",
+      "osm_id": 9632409806,
+      "leisure": "golf_course",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92109",
+      "addr_street": "N Mission Bay Dr",
+      "addr_housenumber": "2702"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 50000,
+      "text": "50 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mission Hills Church Park, San Marcos, CA",
+      "geo_wkt": "POINT (-117.148078 33.148133)",
+      "poi": {
+        "id": 246426,
+        "geometry": "POINT (-117.148078 33.148133)",
+        "poi_name": "Mission Hills Church Park",
+        "osm_id": 9632460029,
+        "leisure": "park",
+        "operator": "Mission Hills Church",
+        "addr_state": "CA",
+        "addr_city": "San Marcos",
+        "addr_postcode": "92069",
+        "addr_street": "E. Mission Hills Court",
+        "addr_housenumber": "400"
+      }
+    },
+    "[4]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 48,
+  "type": "range:direction+loc"
+}

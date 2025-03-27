@@ -1,0 +1,51 @@
+{
+  "question": "Which hospital is the closest to the northwest of Southside Gallery, Oxford, MS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.519384 34.365941)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167566,
+      "geometry": "POINT (-89.519384 34.365941)",
+      "poi_name": "Parkwood Behavioral Health Systems",
+      "osm_id": 357998928,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Olive Branch",
+      "addr_postcode": "38654",
+      "addr_street": "Goodman Road",
+      "addr_housenumber": "8135"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Southside Gallery, Oxford, MS",
+      "geo_wkt": "POINT (-89.519384 34.365941)",
+      "poi": {
+        "id": 4177,
+        "geometry": "POINT (-89.519384 34.365941)",
+        "poi_name": "Southside Gallery",
+        "osm_id": 5705321985,
+        "tourism": "gallery",
+        "addr_state": "MS",
+        "addr_city": "Oxford",
+        "addr_postcode": "38655",
+        "addr_street": "Courthouse Square",
+        "addr_housenumber": "150"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 2552,
+  "type": "knn:direction+name"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Where can I find a garden to the southeast of Hasley Canyon Equestrian Center, Valencia, CA within 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography, 100000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 247152,
+      "geometry": "POINT (-118.636206 34.452191)",
+      "poi_name": "Funkmeyer New Reality Garden",
+      "osm_id": 3659354357,
+      "leisure": "garden",
+      "wheelchair": "yes",
+      "operator": "Otis and Jenny Funkmeyer",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90016",
+      "addr_street": "South Spaulding Avenue",
+      "addr_housenumber": "2033"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "poi": {
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 3,
+  "type": "range:direction+loc"
+}

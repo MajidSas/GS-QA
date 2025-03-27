@@ -1,0 +1,41 @@
+{
+  "question": "Looking for the closest garden in relation to the attraction with the former name Hollywoodland Sign in Los Angeles, CA, any insights what it is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248982,
+      "geometry": "POINT (-118.356651 34.064263)",
+      "poi_name": "Pleistocene Garden",
+      "osm_id": 9504140108,
+      "leisure": "garden"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hollywood Sign, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "poi": {
+        "id": 1885,
+        "geometry": "POINT (-118.321652 34.134099)",
+        "poi_name": "Hollywood Sign",
+        "osm_id": 3204926589,
+        "tourism": "attraction",
+        "operator": "The Trust for Public Land",
+        "wikidata": "Q180376",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mount Lee Drive"
+      }
+    }
+  },
+  "id": 2709,
+  "type": "knn+name+multihop2"
+}

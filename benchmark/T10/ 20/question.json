@@ -1,0 +1,59 @@
+{
+  "question": "Which museum is closest when moving towards Speert Green, Wayne, NJ from Costa's Family Fun Park, Hawley, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography, ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9705,
+      "geometry": "POINT (-74.880242 41.158788)",
+      "poi_name": "Rosenkrans House and Museum",
+      "osm_id": 8947629718,
+      "tourism": "museum",
+      "value": 124.2492421393884
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Costa's Family Fun Park, Hawley, PA",
+      "geo_wkt": "POINT (-75.123004 41.425411)",
+      "poi": {
+        "id": 20096,
+        "geometry": "POINT (-75.123004 41.425411)",
+        "poi_name": "Costa's Family Fun Park",
+        "osm_id": 7863514314,
+        "tourism": "attraction",
+        "addr_state": "PA",
+        "addr_city": "Hawley",
+        "addr_postcode": "18428",
+        "addr_street": "US-6",
+        "addr_housenumber": "2111"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "poi": {
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    }
+  },
+  "id": 119,
+  "type": "knn:towards+name"
+}

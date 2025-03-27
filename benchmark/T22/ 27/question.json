@@ -1,0 +1,39 @@
+{
+  "question": "What's the heading to the closest fast food restaurant from Greenwood Landing County Park, OR?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.632253 44.120733)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.632253 44.120733)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 210200,
+      "geometry": "POINT (-122.929931 44.046801)",
+      "poi_name": "Subway",
+      "osm_id": 5084677241,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "angle": 251.09199401507206
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Greenwood Landing County Park, OR",
+      "geo_wkt": "POINT (-122.632253 44.120733)",
+      "poi": {
+        "id": 254093,
+        "geometry": "POINT (-122.632253 44.120733)",
+        "poi_name": "Greenwood Landing County Park",
+        "osm_id": 357322868,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    }
+  },
+  "id": 1426,
+  "type": "knn+angle"
+}

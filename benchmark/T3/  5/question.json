@@ -1,0 +1,70 @@
+{
+  "question": "Which hotel is available when moving in the direction of north from Vintage Fire Museum, Jeffersonville, IN within 100 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.743989 38.275954)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.743989 38.275954)',4326)::geography, 100000)\nAND tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 20355,
+      "geometry": "POINT (-85.743989 38.275954)",
+      "poi_name": "Hampton",
+      "osm_id": 1111726813,
+      "tourism": "hotel",
+      "website": "https://hamptoninn.hilton.com/en/hp/hotels/index.jhtml?ctyhocn=CLUSMHX",
+      "phone": "+1-812-523-2409",
+      "official_name": "Hampton by Hilton",
+      "addr_state": "IN",
+      "addr_city": "Seymour",
+      "addr_postcode": "47274",
+      "addr_street": "N Sandy Creek Dr",
+      "addr_housenumber": "247"
+    },
+    {
+      "id": 24439,
+      "geometry": "POINT (-85.743989 38.275954)",
+      "poi_name": "Hilton Garden Inn Jeffersonville Louisville North",
+      "osm_id": 11056001351,
+      "tourism": "hotel",
+      "website": "https://www.hilton.com/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Water Tower Rd",
+      "addr_housenumber": "4900"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Vintage Fire Museum, Jeffersonville, IN",
+      "geo_wkt": "POINT (-85.743989 38.275954)",
+      "poi": {
+        "id": 2474,
+        "geometry": "POINT (-85.743989 38.275954)",
+        "poi_name": "Vintage Fire Museum",
+        "osm_id": 3467939029,
+        "tourism": "museum",
+        "opening_hours": "Fr,Sa,Su unknown; Mo-Th closed",
+        "website": "https://www.vintagefiremuseum.org/",
+        "addr_state": "IN",
+        "addr_city": "Jeffersonville",
+        "addr_postcode": "47130",
+        "addr_street": "Spring Street"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2604,
+  "type": "range:direction+name"
+}

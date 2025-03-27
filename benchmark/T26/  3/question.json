@@ -1,0 +1,47 @@
+{
+  "question": "What's the proximity of the nearest zoo relative to North Carolina Heart & Vascular Hospital, Raleigh, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.703359 35.819392)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.703359 35.819392)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 21981,
+      "geometry": "POINT (-79.114316 35.710947)",
+      "poi_name": "Carolina Tiger Rescue",
+      "osm_id": 947443188,
+      "tourism": "zoo",
+      "wheelchair": "yes",
+      "opening_hours": "\"by appointment only\"",
+      "website": "https://carolinatigerrescue.org/",
+      "wikidata": "Q5044904",
+      "distance": 39062.23871217
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "North Carolina Heart & Vascular Hospital, Raleigh, NC",
+      "geo_wkt": "POINT (-78.703359 35.819392)",
+      "poi": {
+        "id": 195426,
+        "geometry": "POINT (-78.703359 35.819392)",
+        "poi_name": "North Carolina Heart & Vascular Hospital",
+        "osm_id": 10304703981,
+        "amenity": "hospital",
+        "phone": "(919) 784-3100",
+        "healthcare": "hospital",
+        "addr_state": "NC",
+        "addr_city": "Raleigh",
+        "addr_postcode": "27607",
+        "addr_street": "Lake Boone Trail",
+        "addr_housenumber": "4420"
+      }
+    }
+  },
+  "id": 2402,
+  "type": "knn+distance"
+}

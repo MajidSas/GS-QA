@@ -1,0 +1,43 @@
+{
+  "question": "Any suggestions for the nearest restaurant from the university that has Ex umbris ad lucem as its motto in Rindge, NH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.055892 42.779337)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 118788,
+      "geometry": "POINT (-72.022497 42.814507)",
+      "poi_name": "Golden Wok",
+      "osm_id": 9064496986,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University, Rindge, NH",
+      "geo_wkt": "POINT (-72.055892 42.779337)",
+      "poi": {
+        "id": 97577,
+        "geometry": "POINT (-72.055892 42.779337)",
+        "poi_name": "Franklin Pierce University",
+        "osm_id": 6484120956,
+        "amenity": "university",
+        "website": "https://franklinpierce.edu/",
+        "wikidata": "Q5491762",
+        "addr_state": "NH",
+        "addr_city": "Rindge",
+        "addr_postcode": "03461",
+        "addr_street": "University Drive",
+        "addr_housenumber": "40"
+      }
+    }
+  },
+  "id": 2769,
+  "type": "knn+name+multihop2"
+}

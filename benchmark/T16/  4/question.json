@@ -1,0 +1,110 @@
+{
+  "question": "Where can I find hotel heading towards Irondale Public Library, Irondale, AL from Bill Harris Arena, Birmingham, AL, within a radius of 90 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.874042 33.494874)',4326)::geography, ST_GeomFromText('POINT (-86.706358 33.537895)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.874042 33.494874)',4326)::geography, 90000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.874042 33.494874)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 4485,
+      "geometry": "POINT (-86.114726 33.452434)",
+      "poi_name": "Budget Inn & Suites",
+      "osm_id": 11270817526,
+      "tourism": "hotel",
+      "opening_hours": "24/7",
+      "operator": "Jay Patel",
+      "website": "https://talladegabudgetinn.net",
+      "phone": "+1-256-362-0900",
+      "addr_state": "AL",
+      "addr_city": "Talladega",
+      "addr_postcode": "35160",
+      "addr_street": "AL-77",
+      "addr_housenumber": "65600",
+      "value": 72.92434232871655
+    },
+    {
+      "id": 13156,
+      "geometry": "POINT (-86.796463 33.50129)",
+      "poi_name": "Hotel Indigo",
+      "osm_id": 4071201322,
+      "tourism": "hotel",
+      "website": "https://www.ihg.com/hotelindigo/hotels/us/en/birmingham/bhmid/hoteldetail",
+      "addr_state": "AL",
+      "addr_city": "Birmingham",
+      "addr_postcode": "35205",
+      "addr_street": "20th Street South",
+      "addr_housenumber": "1023",
+      "value": 72.92434232871655
+    },
+    {
+      "id": 21076,
+      "geometry": "POINT (-86.809968 33.524175)",
+      "poi_name": "Sheraton Birmingham Hotel",
+      "osm_id": 1384963341,
+      "tourism": "hotel",
+      "website": "https://www.marriott.com/hotels/travel/bhmsi-sheraton-birmingham-hotel/",
+      "phone": "+1 205-324-5000",
+      "addr_state": "AL",
+      "addr_city": "Birmingham",
+      "addr_postcode": "35203",
+      "addr_street": "Richard Arrington Jr Boulevard North",
+      "addr_housenumber": "2101",
+      "value": 72.92434232871655
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bill Harris Arena, Birmingham, AL",
+      "geo_wkt": "POINT (-86.874042 33.494874)",
+      "poi": {
+        "id": 266251,
+        "geometry": "POINT (-86.874042 33.494874)",
+        "poi_name": "Bill Harris Arena",
+        "osm_id": 7096572035,
+        "leisure": "stadium",
+        "sport": "wrestling;volleyball;basketball",
+        "phone": "+1-205-279-8900",
+        "addr_state": "AL",
+        "addr_city": "Birmingham",
+        "addr_postcode": "35208",
+        "addr_street": "Bessemer Road",
+        "addr_housenumber": "2331"
+      }
+    },
+    "[4]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Irondale Public Library, Irondale, AL",
+      "geo_wkt": "POINT (-86.706358 33.537895)",
+      "poi": {
+        "id": 3689,
+        "geometry": "POINT (-86.706358 33.537895)",
+        "poi_name": "Irondale Public Library",
+        "osm_id": 5553315038,
+        "amenity": "library",
+        "description": "IPL is a member of the Public Libraries in Jefferson County which means we share resources with all 40 member public libraries in Jefferson County.",
+        "tourism": "attraction",
+        "opening_hours": "Su 14:00-17:00, Mo-Tu 09:30-19:00, We 09:30-18:00, Th 09:30-19:00, Fr 09:00-13:00, Sa 11:00-15:00",
+        "operator": "City of Irondale, AL",
+        "website": "https://www.irondalelibrary.org/",
+        "internet_access": "yes",
+        "phone": "205-951-1415",
+        "addr_state": "AL",
+        "addr_city": "Irondale",
+        "addr_postcode": "35210",
+        "addr_street": "20th Street South",
+        "addr_housenumber": "105"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    }
+  },
+  "id": 1203,
+  "type": "range:towards+loc"
+}

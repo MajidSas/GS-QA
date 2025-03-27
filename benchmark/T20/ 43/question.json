@@ -1,0 +1,61 @@
+{
+  "question": "Where is the nearest caf\u00e9 as you head towards Laura Kattlowski, Denver, CO from Joy Burns Arena, CO?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, ST_GeomFromText('POINT (-104.977175 39.76593)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 27643,
+      "geometry": "POINT (-104.961585 39.697838)",
+      "poi_name": "Devil's Food",
+      "osm_id": 440624971,
+      "amenity": "cafe",
+      "phone": "+1-303-733-7448",
+      "outdoor_seating": "no",
+      "addr_city": "Denver",
+      "addr_postcode": "80205",
+      "addr_street": "South Gaylord Street",
+      "addr_housenumber": "1024",
+      "value": 351.5482246187869
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Joy Burns Arena, CO",
+      "geo_wkt": "POINT (-104.961111 39.6825)",
+      "poi": {
+        "id": 265350,
+        "geometry": "POINT (-104.961111 39.6825)",
+        "poi_name": "Joy Burns Arena",
+        "osm_id": 366396382,
+        "leisure": "stadium",
+        "addr_state": "CO"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Laura Kattlowski, Denver, CO",
+      "geo_wkt": "POINT (-104.977175 39.76593)",
+      "poi": {
+        "id": 14951,
+        "geometry": "POINT (-104.977175 39.76593)",
+        "poi_name": "Laura Kattlowski",
+        "osm_id": 4769116437,
+        "tourism": "gallery",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80205",
+        "addr_street": "Walnut Street",
+        "addr_housenumber": "3300"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1342,
+  "type": "knn:towards+loc"
+}

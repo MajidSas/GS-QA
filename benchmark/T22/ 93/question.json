@@ -1,0 +1,51 @@
+{
+  "question": "What's the direction to the nearest university from Nokomis Naturescape Garden, Minneapolis, MN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.234364 44.913029)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.234364 44.913029)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 143555,
+      "geometry": "POINT (-93.231639 44.972753)",
+      "poi_name": "University of Minnesota School of Dentistry",
+      "osm_id": 6344104167,
+      "amenity": "university",
+      "operator": "University of Minnesota",
+      "website": "https://www.dentistry.umn.edu/",
+      "phone": "+1-612-625-2495",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55455",
+      "addr_street": "Southeast Delaware Street",
+      "addr_housenumber": "515",
+      "angle": 1.855274257083159
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Nokomis Naturescape Garden, Minneapolis, MN",
+      "geo_wkt": "POINT (-93.234364 44.913029)",
+      "poi": {
+        "id": 248857,
+        "geometry": "POINT (-93.234364 44.913029)",
+        "poi_name": "Nokomis Naturescape Garden",
+        "osm_id": 4865581364,
+        "leisure": "garden",
+        "website": "https://www.facebook.com/NokomisNaturescape/?fref=ts",
+        "phone": "+1 612 727 3562",
+        "addr_state": "MN",
+        "addr_city": "Minneapolis",
+        "addr_postcode": "55417",
+        "addr_street": "East Lake Nokomis Parkway",
+        "addr_housenumber": "5000"
+      }
+    }
+  },
+  "id": 1492,
+  "type": "knn+angle"
+}

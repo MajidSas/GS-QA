@@ -1,0 +1,41 @@
+{
+  "question": "How distant is the closest attraction in relation to S. 15th St. Community Garden, Philadelphia, PA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 13899,
+      "geometry": "POINT (-75.157835 39.939009)",
+      "poi_name": "Italian market",
+      "osm_id": 4175144392,
+      "tourism": "attraction",
+      "addr_street": "Christian Street",
+      "distance": 1153.28829917
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "poi": {
+        "id": 247115,
+        "geometry": "POINT (-75.169239 39.933457)",
+        "poi_name": "S. 15th St. Community Garden",
+        "osm_id": 3559344406,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_street": "S. 15th St.",
+        "addr_housenumber": "1329"
+      }
+    }
+  },
+  "id": 2497,
+  "type": "knn+distance"
+}

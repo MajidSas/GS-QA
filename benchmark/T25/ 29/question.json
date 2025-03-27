@@ -1,0 +1,45 @@
+{
+  "question": "How far is a beach resort located from Stratton Fire Tower, Stratton, Vermont within a radius of 160 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography, 160000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 267249,
+      "geometry": "POINT (-73.219366 44.464488)",
+      "poi_name": "Burlington Surf Club",
+      "osm_id": 5769217582,
+      "leisure": "beach_resort",
+      "website": "https://www.burlingtonsurfclub.com/",
+      "distance": 154960.02866207
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Stratton Fire Tower, Stratton, Vermont",
+      "geo_wkt": "POINT (-72.924966 43.086214)",
+      "poi": {
+        "id": 16156,
+        "geometry": "POINT (-72.924966 43.086214)",
+        "poi_name": "Stratton Fire Tower",
+        "osm_id": 356555377,
+        "tourism": "viewpoint",
+        "addr_state": "Vermont",
+        "addr_city": "Stratton",
+        "addr_street": "Maintenance Road",
+        "addr_housenumber": "2148"
+      }
+    }
+  },
+  "id": 728,
+  "type": "range+distance"
+}

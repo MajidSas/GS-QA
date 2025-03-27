@@ -1,0 +1,51 @@
+{
+  "question": "Any recommendations for the closest restaurant from the museum directed by Gannit Ankori in Waltham, MA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.262505 42.365638)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 223843,
+      "geometry": "POINT (-71.254305 42.376205)",
+      "poi_name": "Enzina Pizzeria",
+      "osm_id": 11065321505,
+      "amenity": "restaurant",
+      "cuisine": "italian;italian_pizza",
+      "opening_hours": "We-Th 16:00-21:00; Fr-Sa 11:00-14:00, 16:00-22:00; Su 11:00-14:00, 16:00-21:00",
+      "website": "https://www.getenzina.com/",
+      "phone": "(781) 786-1970",
+      "outdoor_seating": "yes",
+      "addr_postcode": "02451",
+      "addr_street": "Main Street",
+      "addr_housenumber": "1056"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Rose Art Museum, Waltham, MA",
+      "geo_wkt": "POINT (-71.262505 42.365638)",
+      "poi": {
+        "id": 2603,
+        "geometry": "POINT (-71.262505 42.365638)",
+        "poi_name": "Rose Art Museum",
+        "osm_id": 530711258,
+        "tourism": "museum",
+        "website": "http://www.brandeis.edu/rose/",
+        "phone": "+1-781-736-2028",
+        "wikidata": "Q7367636",
+        "addr_state": "MA",
+        "addr_city": "Waltham",
+        "addr_postcode": "02453-2728",
+        "addr_street": "South Street",
+        "addr_housenumber": "415"
+      }
+    }
+  },
+  "id": 2703,
+  "type": "knn+name+multihop2"
+}

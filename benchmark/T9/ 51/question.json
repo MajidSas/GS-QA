@@ -1,0 +1,41 @@
+{
+  "question": "Which gallery is nearest when considering the northeast direction of Buena Vista County Park, OR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-123.147875 44.770676)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 9774,
+      "geometry": "POINT (-123.147875 44.770676)",
+      "poi_name": "Studios at The Mill",
+      "osm_id": 8984357152,
+      "tourism": "gallery",
+      "website": "https://www.facebook.com/artistsatthemissionmill/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Buena Vista County Park, OR",
+      "geo_wkt": "POINT (-123.147875 44.770676)",
+      "poi": {
+        "id": 254418,
+        "geometry": "POINT (-123.147875 44.770676)",
+        "poi_name": "Buena Vista County Park",
+        "osm_id": 357355057,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 2550,
+  "type": "knn:direction+name"
+}

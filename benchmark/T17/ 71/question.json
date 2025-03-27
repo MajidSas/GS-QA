@@ -1,0 +1,45 @@
+{
+  "question": "Where's the nearest attraction from Weld House Museum, Nauvoo, IL located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.380554 40.549562)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 1922,
+      "geometry": "POINT (-91.313649 40.629533)",
+      "poi_name": "ATSF Depot",
+      "osm_id": 3218326489,
+      "description": "Historic Santa Fe depot which houses the Santa Fe Depot Museum. Amtrak plans to move into the depot once work is completed on the passenger waiting area and a new passenger platform is constructed.",
+      "tourism": "attraction",
+      "addr_state": "IA",
+      "addr_city": "Fort Madison",
+      "addr_street": "10th Street",
+      "addr_housenumber": "814"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Weld House Museum, Nauvoo, IL",
+      "geo_wkt": "POINT (-91.380554 40.549562)",
+      "poi": {
+        "id": 10095,
+        "geometry": "POINT (-91.380554 40.549562)",
+        "poi_name": "Weld House Museum",
+        "osm_id": 6709992661,
+        "tourism": "museum",
+        "addr_state": "IL",
+        "addr_city": "Nauvoo",
+        "addr_postcode": "62354",
+        "addr_street": "Mulholland Street",
+        "addr_housenumber": "1380"
+      }
+    }
+  },
+  "id": 1870,
+  "type": "knn+loc"
+}

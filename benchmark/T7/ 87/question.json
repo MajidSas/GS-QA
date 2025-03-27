@@ -1,0 +1,53 @@
+{
+  "question": "What is the nickname of the closest university from First Responders Park, Germantown Hills, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.472894 40.76596)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 139542,
+      "geometry": "POINT (-89.590248 40.690162)",
+      "poi_name": "Robert Morris University Illinois\u2014Peoria Campus",
+      "osm_id": 6202521229,
+      "amenity": "university",
+      "operator": "Robert Morris University Illinois",
+      "website": "https://robertmorris.edu/peoria/",
+      "phone": "+1 309 636 8600",
+      "wikidata": "Q7347822",
+      "addr_state": "IL",
+      "addr_city": "Peoria",
+      "addr_postcode": "61602",
+      "addr_street": "Fulton Street",
+      "addr_housenumber": "211",
+      "multihop_answer": "Eagles",
+      "multihop_attribute": "Nickname",
+      "multihop_long_answer": "Robert Morris University Illinois\u2014Peoria Campus Nickname: Eagles"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "First Responders Park, Germantown Hills, IL",
+      "geo_wkt": "POINT (-89.472894 40.76596)",
+      "poi": {
+        "id": 245170,
+        "geometry": "POINT (-89.472894 40.76596)",
+        "poi_name": "First Responders Park",
+        "osm_id": 8340064919,
+        "leisure": "park",
+        "operator": "Village of Germantown Hills",
+        "addr_state": "IL",
+        "addr_city": "Germantown Hills",
+        "addr_postcode": "61548",
+        "addr_street": "Holland Road",
+        "addr_housenumber": "102"
+      }
+    }
+  },
+  "id": 986,
+  "type": "knn+name+multihop1"
+}

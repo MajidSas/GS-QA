@@ -1,0 +1,53 @@
+{
+  "question": "Where is the closest garden in the northwest direction starting from Loxahatchee Slough Natural Area, Jupiter, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.19366 26.857865)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 246454,
+      "geometry": "POINT (-80.19366 26.857865)",
+      "poi_name": "Chopper's Lawn Equipment",
+      "osm_id": 9684453306,
+      "leisure": "garden",
+      "opening_hours": "Mo-Fr 08:00-17:00",
+      "website": "https://chopperslawnequipment.com",
+      "phone": "+1-407-891-8990",
+      "addr_state": "FL",
+      "addr_city": "Kissimmee",
+      "addr_postcode": "34744",
+      "addr_street": "Big Sky Boulevard",
+      "addr_housenumber": "2899"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Loxahatchee Slough Natural Area, Jupiter, FL",
+      "geo_wkt": "POINT (-80.19366 26.857865)",
+      "poi": {
+        "id": 245998,
+        "geometry": "POINT (-80.19366 26.857865)",
+        "poi_name": "Loxahatchee Slough Natural Area",
+        "osm_id": 5411289604,
+        "leisure": "nature_reserve",
+        "phone": "(561) 233-2400",
+        "addr_state": "FL",
+        "addr_city": "Jupiter",
+        "addr_postcode": "33478",
+        "addr_street": "West Indiantown Road",
+        "addr_housenumber": "9060"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+    }
+  },
+  "id": 1102,
+  "type": "knn:direction+loc"
+}

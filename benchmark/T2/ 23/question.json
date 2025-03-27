@@ -1,0 +1,105 @@
+{
+  "question": "Is it possible for you to discover an emergency hospital that is situated within 180 kilometers of School of Cosmetology, Somerset, KY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography, 180000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 44384,
+      "geometry": "POINT (-84.50939 38.031077)",
+      "poi_name": "UK Healthcare",
+      "osm_id": 3158012209,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "opening_hours": "24/7",
+      "website": "https://ukhealthcare.uky.edu/",
+      "phone": "+1 859 257 1000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Lexington",
+      "addr_postcode": "40536",
+      "addr_street": "South Limestone",
+      "addr_housenumber": "1000"
+    },
+    {
+      "id": 63663,
+      "geometry": "POINT (-82.750314 37.578856)",
+      "poi_name": "Saint Joseph Martin",
+      "osm_id": 5626554788,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "KentuckyOne Health",
+      "website": "https://www.kentuckyonehealth.org/martin",
+      "phone": "+1 606 285 6400",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Martin",
+      "addr_postcode": "41649",
+      "addr_street": "Main Street",
+      "addr_housenumber": "11203"
+    },
+    {
+      "id": 167415,
+      "geometry": "POINT (-86.511342 36.557309)",
+      "poi_name": "TriStar Portland ER",
+      "osm_id": 356868079,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "TriStar Health",
+      "website": "https://tristarportland.com/",
+      "phone": "+1 615 745 8000",
+      "emergency": "yes",
+      "addr_city": "Portland",
+      "addr_postcode": "37148",
+      "addr_street": "Red Bud Drive",
+      "addr_housenumber": "105"
+    },
+    {
+      "id": 167625,
+      "geometry": "POINT (-82.747126 37.456676)",
+      "poi_name": "McDowell ARH Hospital",
+      "osm_id": 358610357,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Appalachian Regional Healthcare",
+      "website": "https://www.arh.org/locations/mcdowell.aspx",
+      "phone": "+1 606 377 3400",
+      "emergency": "yes",
+      "addr_city": "McDowell",
+      "addr_postcode": "41647",
+      "addr_street": "Route 122"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
+      "poi": {
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
+      }
+    }
+  },
+  "id": 522,
+  "type": "range:non_spat_filter+name"
+}

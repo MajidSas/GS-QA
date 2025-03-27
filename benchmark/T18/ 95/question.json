@@ -1,0 +1,50 @@
+{
+  "question": "Where is the nearest hot pot restaurant available from Natchez National Historical Park - Melrose, Natchez, MS?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%hot_pot%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.385213 31.544506)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 221114,
+      "geometry": "POINT (-81.485775 28.386372)",
+      "poi_name": "Boil Spot",
+      "osm_id": 10968086567,
+      "amenity": "restaurant",
+      "cuisine": "hot_pot;asian",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32821",
+      "addr_street": "Vineland Avenue",
+      "addr_housenumber": "8133"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "hot pot restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%hot_pot%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Natchez National Historical Park - Melrose, Natchez, MS",
+      "geo_wkt": "POINT (-91.385213 31.544506)",
+      "poi": {
+        "id": 258776,
+        "geometry": "POINT (-91.385213 31.544506)",
+        "poi_name": "Natchez National Historical Park - Melrose",
+        "osm_id": 357998428,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "operator": "National Park Service",
+        "addr_state": "MS",
+        "addr_city": "Natchez",
+        "addr_postcode": "39120",
+        "addr_street": "Melrose-Montebello Parkway",
+        "addr_housenumber": "1"
+      }
+    }
+  },
+  "id": 394,
+  "type": "knn:non_spat_filter+loc"
+}

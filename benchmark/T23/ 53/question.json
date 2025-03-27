@@ -1,0 +1,41 @@
+{
+  "question": "Could you tell me the number of stadia located within a 60 kilometers radius from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, 60000)\nAND leisure = 'stadium';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "poi": {
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
+      }
+    }
+  },
+  "id": 2252,
+  "type": "range+count"
+}

@@ -1,0 +1,49 @@
+{
+  "question": "How far away is the nearest aquarium with respect to WakeMed Cardiovascular & Thoracic Surgery, Raleigh, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.589113 35.784756)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.589113 35.784756)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 12563,
+      "geometry": "POINT (-78.515805 35.970785)",
+      "poi_name": "Aquarium Outfitters Carolina",
+      "osm_id": 7329125760,
+      "tourism": "aquarium",
+      "phone": "(919) 556-8335",
+      "addr_state": "NC",
+      "addr_city": "Wake Forest",
+      "addr_postcode": "27587",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "823",
+      "distance": 21676.73551614
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "WakeMed Cardiovascular & Thoracic Surgery, Raleigh, NC",
+      "geo_wkt": "POINT (-78.589113 35.784756)",
+      "poi": {
+        "id": 195435,
+        "geometry": "POINT (-78.589113 35.784756)",
+        "poi_name": "WakeMed Cardiovascular & Thoracic Surgery",
+        "osm_id": 10304812051,
+        "amenity": "hospital",
+        "phone": "(919) 231-6333",
+        "healthcare": "hospital",
+        "addr_state": "NC",
+        "addr_city": "Raleigh",
+        "addr_postcode": "27610",
+        "addr_street": "New Bern Avenue",
+        "addr_housenumber": "3000"
+      }
+    }
+  },
+  "id": 2478,
+  "type": "knn+distance"
+}

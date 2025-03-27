@@ -1,0 +1,67 @@
+{
+  "question": "Which fast food is closest towards Hampton Inn Ashtabula, Austinburg, OH from Latvian Cultural Garden, Cleveland, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, ST_GeomFromText('POINT (-80.8576 41.783775)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 89103,
+      "geometry": "POINT (-81.582194 41.530741)",
+      "poi_name": "Rally's",
+      "osm_id": 8825635932,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "addr_state": "OH",
+      "addr_city": "East Cleveland",
+      "addr_postcode": "44112",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "14421",
+      "value": 65.67852805259811
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
+      "poi": {
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hampton Inn Ashtabula, Austinburg, OH",
+      "geo_wkt": "POINT (-80.8576 41.783775)",
+      "poi": {
+        "id": 21630,
+        "geometry": "POINT (-80.8576 41.783775)",
+        "poi_name": "Hampton Inn Ashtabula",
+        "osm_id": 10584118043,
+        "tourism": "hotel",
+        "official_name": "Hampton by Hilton",
+        "addr_state": "OH",
+        "addr_city": "Austinburg",
+        "addr_postcode": "44010",
+        "addr_street": "G.H. Drive",
+        "addr_housenumber": "2900"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 169,
+  "type": "knn:towards+name"
+}

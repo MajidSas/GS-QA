@@ -1,0 +1,71 @@
+{
+  "question": "Which attraction is available as you move towards Sun Behavioral Health, Erlanger, KY from Red Wolf Sanctuary, Rising Sun, IN, within a radius of 70 kilometers?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, ST_GeomFromText('POINT (-84.594441 39.038947)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, 70000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 8334,
+      "geometry": "POINT (-84.519923 39.134241)",
+      "poi_name": "LIVE",
+      "osm_id": 6632375017,
+      "tourism": "attraction",
+      "value": 68.18156051971071
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
+      "geo_wkt": "POINT (-84.875376 38.951571)",
+      "poi": {
+        "id": 1647,
+        "geometry": "POINT (-84.875376 38.951571)",
+        "poi_name": "Red Wolf Sanctuary",
+        "osm_id": 3099118301,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "\"By appointment only\"",
+        "operator": "THE RED WOLF SANCTUARY INC",
+        "website": "https://www.redwolf.org/",
+        "phone": "+1 812 438 2306",
+        "addr_state": "IN",
+        "addr_city": "Rising Sun",
+        "addr_postcode": "47040",
+        "addr_street": "IN-262",
+        "addr_housenumber": "3027"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Sun Behavioral Health, Erlanger, KY",
+      "geo_wkt": "POINT (-84.594441 39.038947)",
+      "poi": {
+        "id": 182311,
+        "geometry": "POINT (-84.594441 39.038947)",
+        "poi_name": "Sun Behavioral Health",
+        "osm_id": 10888189383,
+        "amenity": "hospital",
+        "website": "https://sunbehavioral.com/kentucky",
+        "phone": "+1 859 429 5188",
+        "healthcare": "hospital",
+        "addr_state": "KY",
+        "addr_city": "Erlanger",
+        "addr_postcode": "41018",
+        "addr_street": "Dolwick Drive",
+        "addr_housenumber": "820"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1671,
+  "type": "range:towards+name"
+}

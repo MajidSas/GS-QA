@@ -1,0 +1,42 @@
+{
+  "question": "What's the quantity of golf courses that can be found within a 100 kilometers distance from Saint Alphonsus Medical Center - Nampa, Nampa, ID?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-116.517177 43.597494)',4326)::geography, 100000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "count": 1
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Saint Alphonsus Medical Center - Nampa, Nampa, ID",
+      "geo_wkt": "POINT (-116.517177 43.597494)",
+      "poi": {
+        "id": 141407,
+        "geometry": "POINT (-116.517177 43.597494)",
+        "poi_name": "Saint Alphonsus Medical Center - Nampa",
+        "osm_id": 6283888336,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "ID",
+        "addr_city": "Nampa",
+        "addr_postcode": "83687",
+        "addr_street": "East Flamingo Avenue",
+        "addr_housenumber": "4300"
+      }
+    }
+  },
+  "id": 2209,
+  "type": "range+count"
+}

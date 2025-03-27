@@ -1,0 +1,69 @@
+{
+  "question": "What's the nearest restaurant on the way to Half-Mile Farm, Highlands, NC from Crave Golf Club, Pigeon Forge, TN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, ST_GeomFromText('POINT (-83.197783 35.070356)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 149969,
+      "geometry": "POINT (-83.561299 35.793013)",
+      "poi_name": "Kinkaku Japanese Steak House",
+      "osm_id": 4036071576,
+      "amenity": "restaurant",
+      "cuisine": "japanese",
+      "website": "https://www.pigeonforgejapanese.com/",
+      "addr_city": "Pigeon Forge",
+      "addr_postcode": "37863",
+      "addr_street": "Parkway",
+      "addr_housenumber": "3152",
+      "value": 157.4380986695535
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "poi": {
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Half-Mile Farm, Highlands, NC",
+      "geo_wkt": "POINT (-83.197783 35.070356)",
+      "poi": {
+        "id": 3333,
+        "geometry": "POINT (-83.197783 35.070356)",
+        "poi_name": "Half-Mile Farm",
+        "osm_id": 5358549817,
+        "description": "Experience a sumptuous, cozy country inn, with all the comforts of Old Edwards, on the outskirts of downtown Highlands, North Carolina.",
+        "tourism": "hotel",
+        "website": "https://www.halfmilefarm.com/",
+        "phone": "855-271-7246",
+        "addr_state": "NC",
+        "addr_city": "Highlands",
+        "addr_postcode": "28741",
+        "addr_street": "Half Mile Dr",
+        "addr_housenumber": "214"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 176,
+  "type": "knn:towards+name"
+}

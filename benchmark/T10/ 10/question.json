@@ -1,0 +1,70 @@
+{
+  "question": "Which fast food is closest along the route to Charlotte's Quest Nature Center, Manchester, MD from River Deck, Edgewater, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 120667,
+      "geometry": "POINT (-76.542328 38.974672)",
+      "poi_name": "Robeks",
+      "osm_id": 6718395547,
+      "amenity": "fast_food",
+      "cuisine": "juice",
+      "description": "Smoothies",
+      "opening_hours": "Mo-Th 07:00-21:00; Fr 07:00-21:30; Sa 08:00-21:30; Su 10:00-20:00",
+      "takeaway": "yes",
+      "addr_state": "MD",
+      "addr_city": "Annapolis",
+      "addr_postcode": "21401",
+      "addr_street": "Solomons Island Road",
+      "addr_housenumber": "2466",
+      "value": 340.007922531941
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "poi": {
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
+      "poi": {
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
+        "leisure": "nature_reserve",
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 109,
+  "type": "knn:towards+name"
+}

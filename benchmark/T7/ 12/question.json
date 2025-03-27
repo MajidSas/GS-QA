@@ -1,0 +1,48 @@
+{
+  "question": "What is the closest city from the nearest nature reserve from Harbor Oaks Hospital, New Baltimore, MI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.756088 42.676753)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 254783,
+      "geometry": "POINT (-83.321873 41.686158)",
+      "poi_name": "Cedar Point National Wildlife Refuge",
+      "osm_id": 357390848,
+      "leisure": "nature_reserve",
+      "wikidata": "Q5056837",
+      "multihop_answer": "Toledo, Ohio",
+      "multihop_attribute": "Nearest\u00a0city",
+      "multihop_long_answer": "Cedar Point National Wildlife Refuge Nearest\u00a0city: Toledo, Ohio"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Harbor Oaks Hospital, New Baltimore, MI",
+      "geo_wkt": "POINT (-82.756088 42.676753)",
+      "poi": {
+        "id": 31875,
+        "geometry": "POINT (-82.756088 42.676753)",
+        "poi_name": "Harbor Oaks Hospital",
+        "osm_id": 8453619003,
+        "amenity": "hospital",
+        "website": "https://www.harboroaks.com/",
+        "phone": "+1-586-684-4870",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "MI",
+        "addr_city": "New Baltimore",
+        "addr_postcode": "48047",
+        "addr_street": "23 Mile Road",
+        "addr_housenumber": "35031"
+      }
+    }
+  },
+  "id": 911,
+  "type": "knn+name+multihop1"
+}

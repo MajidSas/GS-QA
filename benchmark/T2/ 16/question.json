@@ -1,0 +1,73 @@
+{
+  "question": "In search of an art museum that is ideally located within 100 kilometers from Sugar Brook Field Trial and Wildlife Management Area, Plainfield, CT. Can you find one for me?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.940538 41.716725)',4326)::geography, 100000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "answers": [
+    {
+      "id": 7966,
+      "geometry": "POINT (-72.243097 41.804767)",
+      "poi_name": "Ballard Institute and Museum of Puppetry",
+      "osm_id": 6491642615,
+      "description": "The Ballard Institute and Museum of Puppetry is one of America\u2019s hidden treasures\u2014a superb collection of over 3,500 puppets from all over the world; an archive of books, manuscripts, posters, drawings, audio-visual materials and photographs.",
+      "tourism": "museum",
+      "fee": "no",
+      "operator": "University of Connecticut",
+      "website": "https://bimp.uconn.edu/",
+      "phone": "+1 (860) 486-8580",
+      "museum": "art",
+      "wikidata": "Q24534715",
+      "addr_state": "CT",
+      "addr_city": "Storrs",
+      "addr_postcode": "06268",
+      "addr_street": "Royce Circle",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 17289,
+      "geometry": "POINT (-72.081128 41.536445)",
+      "poi_name": "John F. Slater Memorial Museum",
+      "osm_id": 367140290,
+      "tourism": "museum",
+      "operator": "Norwich Free Academy",
+      "website": "https://www.slatermuseum.org/",
+      "museum": "art",
+      "wikidata": "Q7538903",
+      "addr_state": "CT",
+      "addr_city": "Norwich",
+      "addr_postcode": "06360",
+      "addr_street": "Crescent Street",
+      "addr_housenumber": "108"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "art museum",
+      "poi_filter_sql": "museum = 'art'"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sugar Brook Field Trial and Wildlife Management Area, Plainfield, CT",
+      "geo_wkt": "POINT (-71.940538 41.716725)",
+      "poi": {
+        "id": 266572,
+        "geometry": "POINT (-71.940538 41.716725)",
+        "poi_name": "Sugar Brook Field Trial and Wildlife Management Area",
+        "osm_id": 5277645174,
+        "leisure": "park",
+        "description": "Outdoor recreation and hunting dog training area, Activities: Hiking, Horseback riding, X-country skiing, snowshoeing, hunting, fishing",
+        "addr_state": "CT",
+        "addr_city": "Plainfield",
+        "addr_street": "Sugar Brook Road"
+      }
+    }
+  },
+  "id": 515,
+  "type": "range:non_spat_filter+name"
+}

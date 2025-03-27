@@ -1,0 +1,48 @@
+{
+  "question": "In which direction should I proceed to reach the closest hospital from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167508,
+      "geometry": "POINT (-106.638038 35.089039)",
+      "poi_name": "Kindred Hospital - Albuquerque",
+      "osm_id": 357613858,
+      "amenity": "hospital",
+      "website": "http://www.kindredalbuquerque.com/",
+      "phone": "+1 505 242 4444",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "addr_postcode": "87102",
+      "addr_street": "High Street Northeast",
+      "addr_housenumber": "700",
+      "angle": 97.09292177137814
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    }
+  },
+  "id": 1416,
+  "type": "knn+angle"
+}

@@ -1,0 +1,64 @@
+{
+  "question": "What is the nearest restaurant as you progress towards Urban Arts Gallery, Salt Lake City, UT from Pioneer Stadium, Ogden, UT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, ST_GeomFromText('POINT (-111.904248 40.766692)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123585,
+      "geometry": "POINT (-111.965112 41.220784)",
+      "poi_name": "Thai Curry Chicken",
+      "osm_id": 6864080801,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "value": 174.6795044700538
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Pioneer Stadium, Ogden, UT",
+      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "poi": {
+        "id": 266188,
+        "geometry": "POINT (-111.96187 41.237122)",
+        "poi_name": "Pioneer Stadium",
+        "osm_id": 598066080,
+        "leisure": "stadium",
+        "sport": "equestrian",
+        "wikidata": "Q7079951",
+        "addr_state": "UT",
+        "addr_city": "Ogden",
+        "addr_street": "17th Street",
+        "addr_housenumber": "668"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Urban Arts Gallery, Salt Lake City, UT",
+      "geo_wkt": "POINT (-111.904248 40.766692)",
+      "poi": {
+        "id": 24125,
+        "geometry": "POINT (-111.904248 40.766692)",
+        "poi_name": "Urban Arts Gallery",
+        "osm_id": 9335676387,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su 12:00-21:00",
+        "website": "https://www.urbanartsgallery.org/",
+        "phone": "+1-801-230-0820",
+        "addr_state": "UT",
+        "addr_city": "Salt Lake City",
+        "addr_postcode": "84101",
+        "addr_street": "Rio Grande Street",
+        "addr_housenumber": "116 S"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 190,
+  "type": "knn:towards+name"
+}

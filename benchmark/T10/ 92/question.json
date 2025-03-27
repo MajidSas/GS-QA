@@ -1,0 +1,67 @@
+{
+  "question": "What is the closest restaurant in the direction of the Loren Hotel, Austin, TX from Five Wells Roping Rodeo Arena, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, ST_GeomFromText('POINT (-97.757 30.264164)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 105519,
+      "geometry": "POINT (-97.608782 30.810246)",
+      "poi_name": "Aurora\u2019s Family Kitchen",
+      "osm_id": 8632896541,
+      "amenity": "restaurant",
+      "wheelchair": "yes",
+      "opening_hours": "Tu-Sa 08:00-20:00; Su 08:00-19:00",
+      "website": "https://www.facebook.com/JarrellKitchen/",
+      "phone": "+1-972-971-7216",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "TX",
+      "addr_city": "Jarrell",
+      "addr_postcode": "76537",
+      "addr_street": "Sonterra Boulevard",
+      "addr_housenumber": "205",
+      "value": 202.85767474543078
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Five Wells Roping Rodeo Arena, TX",
+      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "poi": {
+        "id": 265394,
+        "geometry": "POINT (-97.402227 30.995182)",
+        "poi_name": "Five Wells Roping Rodeo Arena",
+        "osm_id": 368165371,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Loren Hotel, Austin, TX",
+      "geo_wkt": "POINT (-97.757 30.264164)",
+      "poi": {
+        "id": 9737,
+        "geometry": "POINT (-97.757 30.264164)",
+        "poi_name": "The Loren Hotel",
+        "osm_id": 8964090024,
+        "tourism": "hotel",
+        "internet_access": "wlan",
+        "addr_state": "TX",
+        "addr_city": "Austin",
+        "addr_postcode": "78704",
+        "addr_street": "South Lamar Boulevard",
+        "addr_housenumber": "211"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 191,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,45 @@
+{
+  "question": "What's the distance to the closest university with respect to Neil Carey Arena, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 110104,
+      "geometry": "POINT (-87.719202 41.592582)",
+      "poi_name": "South Suburban College Oak Forest Center",
+      "osm_id": 3687805176,
+      "amenity": "university",
+      "operator": "South Suburban College",
+      "addr_state": "IL",
+      "addr_city": "Oak Forest",
+      "addr_postcode": "60452",
+      "addr_street": "KIlbourn Avenue",
+      "addr_housenumber": "16333",
+      "distance": 30279.45150197
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Neil Carey Arena, IL",
+      "geo_wkt": "POINT (-88.082005 41.605308)",
+      "poi": {
+        "id": 265389,
+        "geometry": "POINT (-88.082005 41.605308)",
+        "poi_name": "Neil Carey Arena",
+        "osm_id": 368073990,
+        "leisure": "stadium",
+        "operator": "Lewis University",
+        "sport": "basketball;volleyball",
+        "addr_state": "IL"
+      }
+    }
+  },
+  "id": 2411,
+  "type": "knn+distance"
+}

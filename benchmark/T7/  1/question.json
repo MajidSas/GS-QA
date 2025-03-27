@@ -1,0 +1,46 @@
+{
+  "question": "When was the the nearest hospital from J P Riddle Stadium, Fayetteville, NC built?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 181095,
+      "geometry": "POINT (-79.002433 35.145995)",
+      "poi_name": "Womack Army Medical Center",
+      "osm_id": 10832193884,
+      "amenity": "hospital",
+      "website": "https://womack.tricare.mil",
+      "phone": "+1 910 907 9262",
+      "wikidata": "Q8030615",
+      "multihop_answer": "2000 (current structure)",
+      "multihop_attribute": "Built",
+      "multihop_long_answer": "Womack Army Medical Center Built: 2000 (current structure)"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
+      "poi": {
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
+        "leisure": "stadium",
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
+      }
+    }
+  },
+  "id": 900,
+  "type": "knn+name+multihop1"
+}

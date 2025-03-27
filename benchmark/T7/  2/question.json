@@ -1,0 +1,49 @@
+{
+  "question": "How many spectators can the nearest stadium from Curtis Motel, Bridgeton, NC hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.017685 35.11729)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 248769,
+      "geometry": "POINT (-78.060871 35.61119)",
+      "poi_name": "Southern National Motorsport Park",
+      "osm_id": 4773889332,
+      "leisure": "stadium",
+      "sport": "motor",
+      "wikidata": "Q7570163",
+      "addr_state": "NC",
+      "addr_city": "Lucama",
+      "addr_postcode": "27851",
+      "addr_street": "Newsome Mill Road",
+      "addr_housenumber": "8071",
+      "multihop_answer": "4500[1]",
+      "multihop_attribute": "Capacity",
+      "multihop_long_answer": "Southern National Motorsport Park Capacity: 4500[1]"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Curtis Motel, Bridgeton, NC",
+      "geo_wkt": "POINT (-77.017685 35.11729)",
+      "poi": {
+        "id": 280,
+        "geometry": "POINT (-77.017685 35.11729)",
+        "poi_name": "Curtis Motel",
+        "osm_id": 8280832784,
+        "tourism": "hotel",
+        "phone": "+12526383011",
+        "addr_state": "NC",
+        "addr_city": "Bridgeton",
+        "addr_postcode": "28519"
+      }
+    }
+  },
+  "id": 901,
+  "type": "knn+name+multihop1"
+}

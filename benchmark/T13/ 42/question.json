@@ -1,0 +1,56 @@
+{
+  "question": "Could you locate a nature reserve within a 120 kilometers radius of Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, 120000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 247569,
+      "geometry": "POINT (-78.666286 43.193323)",
+      "poi_name": "Lytle Nature Preserve",
+      "osm_id": 6868645749,
+      "leisure": "nature_reserve",
+      "opening_hours": "sunrise-sunset",
+      "operator": "Town of Lockport",
+      "website": "https://www.elockport.com/department-parks-trails.php",
+      "addr_state": "NY",
+      "addr_city": "Lockport",
+      "addr_postcode": "14094",
+      "addr_street": "North Canal Road",
+      "addr_housenumber": "6637"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    }
+  },
+  "id": 2041,
+  "type": "range+loc"
+}

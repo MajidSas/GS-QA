@@ -1,0 +1,54 @@
+{
+  "question": "Where is the closest fast food restaurant positioned towards the east of Dobson Splash Pad, Dobson, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.72397 36.394984)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 205168,
+      "geometry": "POINT (-80.72397 36.394984)",
+      "poi_name": "Bojangles'",
+      "osm_id": 7159204146,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "phone": "+13363562238",
+      "takeaway": "yes",
+      "official_name": "Bojangles' Famous Chicken 'n Biscuits",
+      "addr_state": "NC",
+      "addr_city": "Dobson",
+      "addr_postcode": "27017",
+      "addr_street": "East Atkins Street",
+      "addr_housenumber": "402"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Dobson Splash Pad, Dobson, NC",
+      "geo_wkt": "POINT (-80.72397 36.394984)",
+      "poi": {
+        "id": 266133,
+        "geometry": "POINT (-80.72397 36.394984)",
+        "poi_name": "Dobson Splash Pad",
+        "osm_id": 10706892392,
+        "leisure": "park",
+        "phone": "+13363568962",
+        "addr_state": "NC",
+        "addr_city": "Dobson",
+        "addr_postcode": "27017",
+        "addr_street": "South Crutchfield Street",
+        "addr_housenumber": "110"
+      }
+    },
+    "[3]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 1189,
+  "type": "knn:direction+loc"
+}

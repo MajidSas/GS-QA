@@ -1,0 +1,70 @@
+{
+  "question": "Where's the closest caf\u00e9 on the path leading to Crabtree Falls, Montebello, VA from SeaQuest, Lynchburg, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, ST_GeomFromText('POINT (-79.079728 37.851133)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 100677,
+      "geometry": "POINT (-79.143913 37.415346)",
+      "poi_name": "Marigold",
+      "osm_id": 6595226830,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;sandwich",
+      "opening_hours": "Mo-Su 06:30-15:00",
+      "website": "https://www.thevirginianhotel.com/restaurants-bars/marigold",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_street": "Church Street",
+      "addr_housenumber": "712",
+      "value": 9.151201493641151
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "poi": {
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Crabtree Falls, Montebello, VA",
+      "geo_wkt": "POINT (-79.079728 37.851133)",
+      "poi": {
+        "id": 6945,
+        "geometry": "POINT (-79.079728 37.851133)",
+        "poi_name": "Crabtree Falls",
+        "osm_id": 8780834098,
+        "tourism": "attraction",
+        "fee": "yes",
+        "wikidata": "Q38081",
+        "addr_state": "VA",
+        "addr_city": "Montebello",
+        "addr_postcode": "24464",
+        "addr_street": "Crabtree Falls Highway",
+        "addr_housenumber": "11581"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1362,
+  "type": "knn:towards+loc"
+}

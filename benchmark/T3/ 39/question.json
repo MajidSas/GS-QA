@@ -1,0 +1,49 @@
+{
+  "question": "Which museum is available when moving in the direction of southeast from the Potted Plant Inc., Scottsdale, AZ within 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, 140000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 19345,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Museum of Illusions",
+      "osm_id": 10728802653,
+      "tourism": "museum",
+      "website": "https://moiscottsdale.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 140000,
+      "text": "140 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.920729 33.631545)",
+      "poi": {
+        "id": 247645,
+        "geometry": "POINT (-111.920729 33.631545)",
+        "poi_name": "The Potted Plant Inc.",
+        "osm_id": 8008054008,
+        "leisure": "garden",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85260",
+        "addr_street": "North Dial Boulevard",
+        "addr_housenumber": "16055"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 2638,
+  "type": "range:direction+name"
+}

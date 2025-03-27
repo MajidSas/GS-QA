@@ -1,0 +1,65 @@
+{
+  "question": "Can you find me a nature museum within a 160 kilometers distance from Joppa Hill Farm, Bedford, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND museum = 'nature';\n",
+  "answers": [
+    {
+      "id": 6931,
+      "geometry": "POINT (-71.408062 41.826985)",
+      "poi_name": "The Nature Lab at Rhode Island School of Design",
+      "osm_id": 8769619385,
+      "tourism": "museum",
+      "website": "https://naturelab.risd.edu/",
+      "museum": "nature",
+      "addr_state": "RI",
+      "addr_city": "Providence",
+      "addr_postcode": "02903",
+      "addr_street": "Waterman Street",
+      "addr_housenumber": "13"
+    },
+    {
+      "id": 17350,
+      "geometry": "POINT (-71.115646 42.378466)",
+      "poi_name": "Harvard Museum of Natural History",
+      "osm_id": 367781130,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su 09:00-17:00",
+      "operator": "Harvard University",
+      "website": "https://hmnh.harvard.edu/",
+      "museum": "nature",
+      "wikidata": "Q2001855",
+      "addr_state": "MA"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "poi": {
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
+      }
+    }
+  },
+  "id": 540,
+  "type": "range:non_spat_filter+name"
+}

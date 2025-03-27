@@ -1,0 +1,65 @@
+{
+  "question": "What is the closest fast food in the direction of Biggest Loser Resort Chicago, Bloomingdale, IL from Sauk Trail Woods, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography, ST_GeomFromText('POINT (-88.097137 41.951268)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 146866,
+      "geometry": "POINT (-87.661952 41.506657)",
+      "poi_name": "Dunkin'",
+      "osm_id": 7484411847,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "takeaway": "yes",
+      "addr_state": "IL",
+      "addr_city": "Chicago Heights",
+      "addr_postcode": "60411",
+      "addr_street": "West Lincoln Highway",
+      "addr_housenumber": "431",
+      "value": 324.1209934738296
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Sauk Trail Woods, IL",
+      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "poi": {
+        "id": 265408,
+        "geometry": "POINT (-87.649076 41.489705)",
+        "poi_name": "Sauk Trail Woods",
+        "osm_id": 369059365,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Biggest Loser Resort Chicago, Bloomingdale, IL",
+      "geo_wkt": "POINT (-88.097137 41.951268)",
+      "poi": {
+        "id": 9590,
+        "geometry": "POINT (-88.097137 41.951268)",
+        "poi_name": "Biggest Loser Resort Chicago",
+        "osm_id": 3902668100,
+        "tourism": "hotel",
+        "website": "https://www.biggestloserresort.com/chicago-il/",
+        "phone": "+1 855 420 9950",
+        "addr_state": "IL",
+        "addr_city": "Bloomingdale",
+        "addr_postcode": "60108",
+        "addr_street": "Schick Road",
+        "addr_housenumber": "250"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 143,
+  "type": "knn:towards+name"
+}

@@ -1,0 +1,46 @@
+{
+  "question": "Could you tell me the location of the closest park relative to Shoe Repair Display, West Palm Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.188452 26.685127)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247154,
+      "geometry": "POINT (-80.237777 26.668585)",
+      "poi_name": "Berkshire Park",
+      "osm_id": 3660933209,
+      "leisure": "park",
+      "addr_state": "FL",
+      "addr_city": "Wellington",
+      "addr_postcode": "33414",
+      "addr_street": "Old Country Road S",
+      "addr_housenumber": "12181"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Shoe Repair Display, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.188452 26.685127)",
+      "poi": {
+        "id": 3441,
+        "geometry": "POINT (-80.188452 26.685127)",
+        "poi_name": "Shoe Repair Display",
+        "osm_id": 5413361163,
+        "tourism": "museum",
+        "operator": "South Florida Fairgrounds",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33411",
+        "addr_street": "Southern Blvd",
+        "addr_housenumber": "9067"
+      }
+    }
+  },
+  "id": 1831,
+  "type": "knn+loc"
+}

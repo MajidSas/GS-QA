@@ -1,0 +1,99 @@
+{
+  "question": "I need assistance in locating an emergency hospital within 170 kilometers from Hendersons Arena, GA. Can you help me out?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.5221 33.6101)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 56631,
+      "geometry": "POINT (-85.263699 34.947252)",
+      "poi_name": "CHI Memorial Hospital",
+      "osm_id": 10245316896,
+      "amenity": "hospital",
+      "operator": "Catholic Health Initiatives",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Fort Oglethorpe",
+      "addr_postcode": "30742",
+      "addr_street": "Gross Crescent",
+      "addr_housenumber": "100"
+    },
+    {
+      "id": 118486,
+      "geometry": "POINT (-85.500735 32.58455)",
+      "poi_name": "East Alabama Medical Center Freestanding Emergency Department",
+      "osm_id": 9048559747,
+      "amenity": "hospital",
+      "operator": "East Alabama Medical Center",
+      "phone": "+1 334 364 3000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "AL",
+      "addr_city": "Auburn",
+      "addr_postcode": "36832",
+      "addr_street": "Camp Auburn Road",
+      "addr_housenumber": "900"
+    },
+    {
+      "id": 167681,
+      "geometry": "POINT (-83.348036 34.592997)",
+      "poi_name": "Stephens County Hospital",
+      "osm_id": 358760090,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://stephenscountyhospital.com/",
+      "phone": "+1 (706) 282-4200",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Toccoa",
+      "addr_postcode": "30577",
+      "addr_street": "Hospital Drive",
+      "addr_housenumber": "163"
+    },
+    {
+      "id": 197907,
+      "geometry": "POINT (-84.493214 34.678734)",
+      "poi_name": "Piedmont Mountainside - Ellijay",
+      "osm_id": 10681451676,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "operator": "Piedmont",
+      "phone": "+1-706-515-4000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Ellijay",
+      "addr_postcode": "30540",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "1360"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Hendersons Arena, GA",
+      "geo_wkt": "POINT (-84.5221 33.6101)",
+      "poi": {
+        "id": 265382,
+        "geometry": "POINT (-84.5221 33.6101)",
+        "poi_name": "Hendersons Arena",
+        "osm_id": 367915659,
+        "leisure": "stadium",
+        "addr_state": "GA"
+      }
+    }
+  },
+  "id": 497,
+  "type": "range:non_spat_filter+loc"
+}

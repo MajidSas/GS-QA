@@ -1,0 +1,48 @@
+{
+  "question": "Any recommendations for the closest hospital from the park that was constructed in 1998 in Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 167784,
+      "geometry": "POINT (-112.09927 33.517203)",
+      "poi_name": "North Phoenix Heart Center",
+      "osm_id": 359292620,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85015",
+      "addr_street": "North 19th Avenue",
+      "addr_housenumber": "5501"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "poi": {
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
+      }
+    }
+  },
+  "id": 2791,
+  "type": "knn+name+multihop2"
+}

@@ -1,0 +1,42 @@
+{
+  "question": "What's the nearest university from Sugarplum Zoo, Temecula, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 150261,
+      "geometry": "POINT (-117.15999 33.128244)",
+      "poi_name": "CSUSM",
+      "osm_id": 4048122405,
+      "amenity": "university"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sugarplum Zoo, Temecula, CA",
+      "geo_wkt": "POINT (-117.055191 33.546915)",
+      "poi": {
+        "id": 24034,
+        "geometry": "POINT (-117.055191 33.546915)",
+        "poi_name": "Sugarplum Zoo",
+        "osm_id": 9270599265,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-18:00",
+        "addr_state": "CA",
+        "addr_city": "Temecula",
+        "addr_postcode": "92591",
+        "addr_street": "Berenda Rd",
+        "addr_housenumber": "39695"
+      }
+    }
+  },
+  "id": 256,
+  "type": "knn+name"
+}

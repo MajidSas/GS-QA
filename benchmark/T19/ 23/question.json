@@ -1,0 +1,50 @@
+{
+  "question": "Where's the closest gallery positioned towards the south of Oak Grove Baseball Stadium, Bessemer, AL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23712,
+      "geometry": "POINT (-87.156908 33.467656)",
+      "poi_name": "Quayside Art Gallery",
+      "osm_id": 5283052163,
+      "tourism": "gallery",
+      "fee": "no",
+      "addr_state": "FL",
+      "addr_city": "Pensacola",
+      "addr_postcode": "32502",
+      "addr_street": "East Zarragossa Street",
+      "addr_housenumber": "17"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Baseball Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156908 33.467656)",
+      "poi": {
+        "id": 247942,
+        "geometry": "POINT (-87.156908 33.467656)",
+        "poi_name": "Oak Grove Baseball Stadium",
+        "osm_id": 6120962256,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
+      }
+    },
+    "[3]": {
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+    }
+  },
+  "id": 1122,
+  "type": "knn:direction+loc"
+}

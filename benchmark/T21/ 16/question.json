@@ -1,0 +1,95 @@
+{
+  "question": "Which way should I go to access a nature reserve from Peachtree Ridge Park, Suwanee, GA within 100 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.082557 34.018818)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.082557 34.018818)',4326)::geography, 100000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 247149,
+      "geometry": "POINT (-84.284502 33.806957)",
+      "poi_name": "Clyde Shepherd Nature Preserve",
+      "osm_id": 3648075892,
+      "leisure": "nature_reserve",
+      "wheelchair": "no",
+      "angle": 218.53112929326878
+    },
+    {
+      "id": 247528,
+      "geometry": "POINT (-83.831755 34.240555)",
+      "poi_name": "Chicopee Woods Nature Preserve",
+      "osm_id": 6770238149,
+      "leisure": "nature_reserve",
+      "operator": "Elachee Nature Science Center",
+      "addr_state": "GA",
+      "addr_city": "Gainesville",
+      "addr_postcode": "30504",
+      "addr_street": "Elachee Drive",
+      "addr_housenumber": "2125",
+      "angle": 43.17645387397955
+    },
+    {
+      "id": 247803,
+      "geometry": "POINT (-84.234474 33.806684)",
+      "poi_name": "Forty Oaks",
+      "osm_id": 9951770357,
+      "leisure": "nature_reserve",
+      "addr_state": "GA",
+      "addr_city": "Clarkston",
+      "addr_postcode": "30021",
+      "addr_street": "Market Street",
+      "addr_housenumber": "3790",
+      "angle": 210.88265925299612
+    },
+    {
+      "id": 248864,
+      "geometry": "POINT (-83.390157 33.734073)",
+      "poi_name": "Georgia Nature Center",
+      "osm_id": 4873065186,
+      "leisure": "nature_reserve",
+      "website": "www.naturecenter.com",
+      "addr_state": "GA",
+      "addr_city": "Watkinsville",
+      "addr_postcode": "30677",
+      "addr_street": "Salem Road",
+      "addr_housenumber": "3001",
+      "angle": 116.05186458609765
+    },
+    {
+      "id": 245216,
+      "geometry": "POINT (-84.470598 33.40944)",
+      "poi_name": "Sam's Lake Nature Area",
+      "osm_id": 8419207281,
+      "leisure": "nature_reserve",
+      "angle": 208.12782807251676
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 100000,
+      "text": "100 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Peachtree Ridge Park, Suwanee, GA",
+      "geo_wkt": "POINT (-84.082557 34.018818)",
+      "poi": {
+        "id": 248318,
+        "geometry": "POINT (-84.082557 34.018818)",
+        "poi_name": "Peachtree Ridge Park",
+        "osm_id": 3985000957,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Suwanee",
+        "addr_postcode": "30044",
+        "addr_street": "Suwanee Creek Road",
+        "addr_housenumber": "3170"
+      }
+    }
+  },
+  "id": 1015,
+  "type": "range+angle"
+}

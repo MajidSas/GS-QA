@@ -1,0 +1,47 @@
+{
+  "question": "Is there a beach resort within 190 kilometers from Sugarplum Zoo, Temecula, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, 190000)\nAND leisure = 'beach_resort';\n",
+  "answers": [
+    {
+      "id": 247694,
+      "geometry": "POINT (-118.359396 33.736673)",
+      "poi_name": "Portuguese Bend Beach Club",
+      "osm_id": 8122387798,
+      "leisure": "beach_resort",
+      "website": "https://www.pbcbeachclub.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 190000,
+      "text": "190 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sugarplum Zoo, Temecula, CA",
+      "geo_wkt": "POINT (-117.055191 33.546915)",
+      "poi": {
+        "id": 24034,
+        "geometry": "POINT (-117.055191 33.546915)",
+        "poi_name": "Sugarplum Zoo",
+        "osm_id": 9270599265,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-18:00",
+        "addr_state": "CA",
+        "addr_city": "Temecula",
+        "addr_postcode": "92591",
+        "addr_street": "Berenda Rd",
+        "addr_housenumber": "39695"
+      }
+    }
+  },
+  "id": 869,
+  "type": "range+name"
+}

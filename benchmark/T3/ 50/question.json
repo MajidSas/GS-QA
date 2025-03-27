@@ -1,0 +1,168 @@
+{
+  "question": "Which garden is available within 120 kilometers in the east direction of Horrigan Hall, Louisville, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.70426 38.218629)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.70426 38.218629)',4326)::geography, 120000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 247615,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "GTP Forest Garden",
+      "osm_id": 6993512113,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247616,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Roosevelt Blvd Community Garden",
+      "osm_id": 6993520309,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247617,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Castlewood Community Garden",
+      "osm_id": 6993537841,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247618,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Castlewood Park Orchard",
+      "osm_id": 6993537842,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247619,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Ohio Street/Kids Cafe Garden",
+      "osm_id": 6993673460,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247620,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Grace Garden",
+      "osm_id": 6993721721,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 247621,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Baby Health Garden",
+      "osm_id": 6993733122,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/"
+    },
+    {
+      "id": 248386,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "North Pole Community Garden",
+      "osm_id": 4072709120,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "North Limestone",
+      "addr_housenumber": "909"
+    },
+    {
+      "id": 248350,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Whitney Avenue Community Garden",
+      "osm_id": 4045039017,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Whitney Avenue",
+      "addr_housenumber": "829"
+    },
+    {
+      "id": 248357,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Nelson Avenue Community Garden",
+      "osm_id": 4057422280,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Nelson Avenue",
+      "addr_housenumber": "311"
+    },
+    {
+      "id": 248379,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Bascayne Apt Garden at Urban Farm",
+      "osm_id": 4070492707,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "North Limestone",
+      "addr_housenumber": "1411"
+    },
+    {
+      "id": 248380,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Smith Street Food Forest",
+      "osm_id": 4070871292,
+      "leisure": "garden",
+      "operator": "Seedleaf",
+      "website": "https://www.seedleaf.org/",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Smith Street",
+      "addr_housenumber": "426"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "garden"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Horrigan Hall, Louisville, KY",
+      "geo_wkt": "POINT (-85.70426 38.218629)",
+      "poi": {
+        "id": 48688,
+        "geometry": "POINT (-85.70426 38.218629)",
+        "poi_name": "Horrigan Hall",
+        "osm_id": 3395956265,
+        "amenity": "university",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40205",
+        "addr_street": "Bellarmine Boulevard",
+        "addr_housenumber": "2021"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2649,
+  "type": "range:direction+name"
+}

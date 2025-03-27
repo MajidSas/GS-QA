@@ -1,0 +1,49 @@
+{
+  "question": "Which attraction is available when moving in the direction of east from Long Eddy Preserve, Jamison, PA within 60 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.160958 41.848195)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.160958 41.848195)',4326)::geography, 60000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 8732,
+      "geometry": "POINT (-75.160958 41.848195)",
+      "poi_name": "VanTran Covered Bridge",
+      "osm_id": 8655020017,
+      "tourism": "attraction",
+      "addr_postcode": "12758",
+      "addr_street": "Covered Bridge Road"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 60000,
+      "text": "60 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Long Eddy Preserve, Jamison, PA",
+      "geo_wkt": "POINT (-75.160958 41.848195)",
+      "poi": {
+        "id": 248975,
+        "geometry": "POINT (-75.160958 41.848195)",
+        "poi_name": "Long Eddy Preserve",
+        "osm_id": 9481406351,
+        "leisure": "park",
+        "operator": "Nature Conservancy",
+        "addr_state": "PA",
+        "addr_city": "Jamison",
+        "addr_street": "River Road"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 2619,
+  "type": "range:direction+name"
+}

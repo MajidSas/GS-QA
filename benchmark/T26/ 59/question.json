@@ -1,0 +1,50 @@
+{
+  "question": "How distant is the closest hospital in relation to Titanic: the Experience, Orlando, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.471402 28.455322)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.471402 28.455322)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 135749,
+      "geometry": "POINT (-81.478832 28.429229)",
+      "poi_name": "Orlando Health Dr. P. Phillips Hospital",
+      "osm_id": 11534665333,
+      "amenity": "hospital",
+      "operator": "Orlando Health",
+      "website": "https://orlandohealth.com",
+      "phone": "+1-407-351-8500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32819",
+      "addr_street": "Turkey Lake Road",
+      "addr_housenumber": "9400",
+      "distance": 2981.95640516
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Titanic: The Experience, Orlando, FL",
+      "geo_wkt": "POINT (-81.471402 28.455322)",
+      "poi": {
+        "id": 21366,
+        "geometry": "POINT (-81.471402 28.455322)",
+        "poi_name": "Titanic: The Experience",
+        "osm_id": 1540263840,
+        "tourism": "attraction",
+        "addr_state": "FL",
+        "addr_city": "Orlando",
+        "addr_street": "International Drive",
+        "addr_housenumber": "7324"
+      }
+    }
+  },
+  "id": 2458,
+  "type": "knn+distance"
+}

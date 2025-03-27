@@ -1,0 +1,66 @@
+{
+  "question": "Where can I find an attraction northeast of Science Hall East, Wayne, NJ, within a radius of 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography, 180000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "answers": [
+    {
+      "id": 22971,
+      "geometry": "POINT (-74.197392 40.946212)",
+      "poi_name": "wings castle",
+      "osm_id": 4986002322,
+      "tourism": "attraction",
+      "addr_state": "NY",
+      "addr_city": "Millbrook",
+      "addr_postcode": "12545",
+      "addr_street": "Bangall Road",
+      "addr_housenumber": "717"
+    },
+    {
+      "id": 23143,
+      "geometry": "POINT (-74.197392 40.946212)",
+      "poi_name": "Watchtower Educational Center",
+      "osm_id": 5049752024,
+      "amenity": "place_of_worship",
+      "tourism": "attraction",
+      "phone": "+1 (845) 306-1000",
+      "addr_state": "NY",
+      "addr_postcode": "12563",
+      "addr_street": "Watchtower Drive",
+      "addr_housenumber": "100"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Science Hall East, Wayne, NJ",
+      "geo_wkt": "POINT (-74.197392 40.946212)",
+      "poi": {
+        "id": 63022,
+        "geometry": "POINT (-74.197392 40.946212)",
+        "poi_name": "Science Hall East",
+        "osm_id": 5597728216,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
+      }
+    },
+    "[4]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 73,
+  "type": "range:direction+loc"
+}

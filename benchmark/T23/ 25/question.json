@@ -1,0 +1,43 @@
+{
+  "question": "What's the quantity of museums that can be found within a 130 kilometers distance from Oceans Behavioral Hospital Of Lake Charles, Lake Charles, LA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.222959 30.17646)',4326)::geography, 130000)\nAND tourism = 'museum';\n",
+  "answers": [
+    {
+      "count": 23
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "distance": 130000,
+      "text": "130 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oceans Behavioral Hospital Of Lake Charles, Lake Charles, LA",
+      "geo_wkt": "POINT (-93.222959 30.17646)",
+      "poi": {
+        "id": 182439,
+        "geometry": "POINT (-93.222959 30.17646)",
+        "poi_name": "Oceans Behavioral Hospital Of Lake Charles",
+        "osm_id": 10892152282,
+        "amenity": "hospital",
+        "website": "https://oceanshealthcare.com/ohc-location/lake-charles",
+        "phone": "+1 337 474 7581",
+        "healthcare": "hospital",
+        "addr_state": "LA",
+        "addr_city": "Lake Charles",
+        "addr_postcode": "70607",
+        "addr_street": "West McNeese Street",
+        "addr_housenumber": "302"
+      }
+    }
+  },
+  "id": 2224,
+  "type": "range+count"
+}

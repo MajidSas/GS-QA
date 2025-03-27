@@ -1,0 +1,57 @@
+{
+  "question": "Could you help me find the location of an emergency hospital, preferably within a 160 kilometers radius of Ottawa University, Queen Creek, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.635286 33.251186)',4326)::geography, 160000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "answers": [
+    {
+      "id": 182792,
+      "geometry": "POINT (-112.420658 33.637727)",
+      "poi_name": "Abrazo Surprise Hospital",
+      "osm_id": 10904418627,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Abrazo Health",
+      "website": "https://www.abrazohealth.com/locations/detail/abrazo-surprise-hospital",
+      "phone": "+1-623-244-2400",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85374",
+      "addr_street": "West Bell Road",
+      "addr_housenumber": "16815"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Ottawa University, Queen Creek, AZ",
+      "geo_wkt": "POINT (-111.635286 33.251186)",
+      "poi": {
+        "id": 186937,
+        "geometry": "POINT (-111.635286 33.251186)",
+        "poi_name": "Ottawa University",
+        "osm_id": 7958040581,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Queen Creek",
+        "addr_postcode": "85142",
+        "addr_street": "South Ellsworth Road",
+        "addr_housenumber": "21740"
+      }
+    }
+  },
+  "id": 443,
+  "type": "range:non_spat_filter+loc"
+}

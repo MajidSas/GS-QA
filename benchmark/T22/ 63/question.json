@@ -1,0 +1,43 @@
+{
+  "question": "What direction should I head in to reach the closest fast food restaurant from Tank Masters, Pennsburg, PA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.497341 40.398608)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 237293,
+      "geometry": "POINT (-75.509538 40.413024)",
+      "poi_name": "Domino's",
+      "osm_id": 5825393817,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "angle": 327.1103171788372
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Tank Masters, Pennsburg, PA",
+      "geo_wkt": "POINT (-75.497341 40.398608)",
+      "poi": {
+        "id": 12565,
+        "geometry": "POINT (-75.497341 40.398608)",
+        "poi_name": "Tank Masters",
+        "osm_id": 7329544147,
+        "tourism": "aquarium",
+        "phone": "+1 267-923-5015",
+        "addr_state": "PA",
+        "addr_city": "Pennsburg",
+        "addr_street": "Main Street",
+        "addr_housenumber": "359"
+      }
+    }
+  },
+  "id": 1462,
+  "type": "knn+angle"
+}

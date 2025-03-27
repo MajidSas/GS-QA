@@ -1,0 +1,43 @@
+{
+  "question": "Seeking the nearest caf\u00e9 from Riverside University Health System - Arlington Recovery Community, Riverside, CA, any recommendations?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.460655 33.920252)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 184373,
+      "geometry": "POINT (-117.460291 33.914782)",
+      "poi_name": "Toi Moi",
+      "osm_id": 7785680284,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Riverside University Health System - Arlington Recovery Community, Riverside, CA",
+      "geo_wkt": "POINT (-117.460655 33.920252)",
+      "poi": {
+        "id": 218721,
+        "geometry": "POINT (-117.460655 33.920252)",
+        "poi_name": "Riverside University Health System - Arlington Recovery Community",
+        "osm_id": 9291866091,
+        "amenity": "hospital",
+        "operator": "Riverside University Health System",
+        "healthcare": "hospital",
+        "addr_state": "CA",
+        "addr_city": "Riverside",
+        "addr_postcode": "92503",
+        "addr_street": "County Farm Road",
+        "addr_housenumber": "10001"
+      }
+    }
+  },
+  "id": 251,
+  "type": "knn+name"
+}

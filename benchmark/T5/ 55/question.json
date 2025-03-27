@@ -1,0 +1,47 @@
+{
+  "question": "Can you recommend the nearest university from Hurricane Valley Farm, Falmouth, ME?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.304594 43.787343)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 123177,
+      "geometry": "POINT (-70.798343 43.465235)",
+      "poi_name": "University of Maine Cooperative Extension in York County",
+      "osm_id": 6838986230,
+      "amenity": "university",
+      "website": "https://extension.umaine.edu/york/",
+      "phone": "+1-207.324.2814",
+      "addr_state": "ME",
+      "addr_city": "Springvale",
+      "addr_postcode": "04083",
+      "addr_street": "Oak Street",
+      "addr_housenumber": "15"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "university"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hurricane Valley Farm, Falmouth, ME",
+      "geo_wkt": "POINT (-70.304594 43.787343)",
+      "poi": {
+        "id": 266340,
+        "geometry": "POINT (-70.304594 43.787343)",
+        "poi_name": "Hurricane Valley Farm",
+        "osm_id": 7188370375,
+        "leisure": "garden",
+        "addr_state": "ME",
+        "addr_city": "Falmouth",
+        "addr_postcode": "04105",
+        "addr_street": "Gray Road",
+        "addr_housenumber": "459"
+      }
+    }
+  },
+  "id": 254,
+  "type": "knn+name"
+}

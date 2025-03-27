@@ -1,0 +1,67 @@
+{
+  "question": "Within a radius of 40 kilometers, which golf course can I find on the route towards Paul Lange Arboretum, Delavan, WI from Tilt Studio, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, ST_GeomFromText('POINT (-88.649647 42.638262)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'golf_course'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, 40000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 248310,
+      "geometry": "POINT (-88.934744 42.274783)",
+      "poi_name": "Hickory Knolls Golf Range & Mini Putt",
+      "osm_id": 3958954184,
+      "leisure": "golf_course",
+      "phone": "+1-815-332-5460",
+      "addr_state": "IL",
+      "addr_city": "Rockford",
+      "addr_postcode": "61108",
+      "addr_street": "North State Street",
+      "addr_housenumber": "291",
+      "value": 31.290678124102257
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "distance": 40000,
+      "text": "40 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Tilt Studio, IL",
+      "geo_wkt": "POINT (-88.973072 42.24581)",
+      "poi": {
+        "id": 5126,
+        "geometry": "POINT (-88.973072 42.24581)",
+        "poi_name": "Tilt Studio",
+        "osm_id": 9768506456,
+        "tourism": "theme_park",
+        "addr_state": "IL"
+      }
+    },
+    "[4]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Paul Lange Arboretum, Delavan, WI",
+      "geo_wkt": "POINT (-88.649647 42.638262)",
+      "poi": {
+        "id": 248877,
+        "geometry": "POINT (-88.649647 42.638262)",
+        "poi_name": "Paul Lange Arboretum",
+        "osm_id": 4896106861,
+        "leisure": "garden",
+        "website": "http://ci.delavan.wi.us/departments/parks-recreation/city-parks/#paul",
+        "phone": "+1-262-728-5585",
+        "addr_state": "WI",
+        "addr_city": "Delavan",
+        "addr_postcode": "53115",
+        "addr_street": "North Terrace Street",
+        "addr_housenumber": "515"
+      }
+    },
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf_course"
+    }
+  },
+  "id": 1642,
+  "type": "range:towards+name"
+}

@@ -1,0 +1,106 @@
+{
+  "question": "Which direction leads to a park from Myers Memorial Arena, TX within a span of 70 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-99.742342 32.483135)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-99.742342 32.483135)',4326)::geography, 70000)\nAND leisure = 'park';\n",
+  "answers": [
+    {
+      "id": 252409,
+      "geometry": "POINT (-100.244817 32.034582)",
+      "poi_name": "Fort Chadbourne",
+      "osm_id": 356846708,
+      "leisure": "park",
+      "angle": 223.7217877599269
+    },
+    {
+      "id": 251742,
+      "geometry": "POINT (-99.608698 33.04233)",
+      "poi_name": "Lake Stamford Park",
+      "osm_id": 356709650,
+      "leisure": "park",
+      "angle": 11.380206277307304
+    },
+    {
+      "id": 251784,
+      "geometry": "POINT (-99.59842 33.07094)",
+      "poi_name": "Scott Memorial Park",
+      "osm_id": 356723785,
+      "leisure": "park",
+      "angle": 11.6475585783638
+    },
+    {
+      "id": 252266,
+      "geometry": "POINT (-99.691186 32.433703)",
+      "poi_name": "P E Shotwell Center",
+      "osm_id": 356845130,
+      "leisure": "park",
+      "angle": 138.72264521930776
+    },
+    {
+      "id": 251699,
+      "geometry": "POINT (-99.80176 32.885667)",
+      "poi_name": "Buie Park",
+      "osm_id": 356701111,
+      "leisure": "park",
+      "angle": 352.90061020689956
+    },
+    {
+      "id": 252354,
+      "geometry": "POINT (-99.710737 32.47395)",
+      "poi_name": "A E 'Poly' and Zieta Wells Field",
+      "osm_id": 356845932,
+      "leisure": "park",
+      "wikidata": "Q34805214",
+      "angle": 108.91501165150687
+    },
+    {
+      "id": 252372,
+      "geometry": "POINT (-99.819038 32.616319)",
+      "poi_name": "Hawley Little League Park",
+      "osm_id": 356846123,
+      "leisure": "park",
+      "angle": 334.02059196845795
+    },
+    {
+      "id": 252575,
+      "geometry": "POINT (-100.292046 32.431788)",
+      "poi_name": "Lake Sweetwater Municipal Park",
+      "osm_id": 356849030,
+      "leisure": "park",
+      "angle": 263.8604540635925
+    },
+    {
+      "id": 252880,
+      "geometry": "POINT (-99.223688 32.929834)",
+      "poi_name": "Fort Griffin State Historical Park",
+      "osm_id": 356852127,
+      "leisure": "park",
+      "angle": 44.32972243495378
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "park"
+    },
+    "[2]": {
+      "distance": 70000,
+      "text": "70 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Myers Memorial Arena, TX",
+      "geo_wkt": "POINT (-99.742342 32.483135)",
+      "poi": {
+        "id": 265393,
+        "geometry": "POINT (-99.742342 32.483135)",
+        "poi_name": "Myers Memorial Arena",
+        "osm_id": 368165257,
+        "leisure": "stadium",
+        "addr_state": "TX"
+      }
+    }
+  },
+  "id": 1076,
+  "type": "range+angle"
+}

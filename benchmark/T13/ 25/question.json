@@ -1,0 +1,45 @@
+{
+  "question": "Where can I find a nature reserve within 160 kilometers from North Marion High School Football Stadium, FL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.13926 29.340807)',4326)::geography, 160000)\nAND leisure = 'nature_reserve';\n",
+  "answers": [
+    {
+      "id": 266081,
+      "geometry": "POINT (-81.859164 30.079715)",
+      "poi_name": "Southern Property Preservation",
+      "osm_id": 10577992723,
+      "leisure": "nature_reserve",
+      "addr_state": "FL",
+      "addr_city": "Middleburg",
+      "addr_postcode": "32068",
+      "addr_street": "Lee Drive South",
+      "addr_housenumber": "175"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 160000,
+      "text": "160 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Marion High School Football Stadium, FL",
+      "geo_wkt": "POINT (-82.13926 29.340807)",
+      "poi": {
+        "id": 265373,
+        "geometry": "POINT (-82.13926 29.340807)",
+        "poi_name": "North Marion High School Football Stadium",
+        "osm_id": 367826898,
+        "leisure": "stadium",
+        "addr_state": "FL"
+      }
+    }
+  },
+  "id": 2024,
+  "type": "range+loc"
+}

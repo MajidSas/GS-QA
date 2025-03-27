@@ -1,0 +1,49 @@
+{
+  "question": "Seeking suggestions for the nearest theme park in relation to Loxahatchee Slough Natural Area, Jupiter, FL.",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.19366 26.857865)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 27036,
+      "geometry": "POINT (-80.303867 27.301988)",
+      "poi_name": "Urban Air Adventure Park",
+      "osm_id": 7656494335,
+      "tourism": "theme_park",
+      "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+      "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+      "phone": "+1-772-408-9349",
+      "addr_state": "FL",
+      "addr_city": "Port Saint Lucie",
+      "addr_postcode": "34952",
+      "addr_street": "S US Highway 1",
+      "addr_housenumber": "9020"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "theme park"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Loxahatchee Slough Natural Area, Jupiter, FL",
+      "geo_wkt": "POINT (-80.19366 26.857865)",
+      "poi": {
+        "id": 245998,
+        "geometry": "POINT (-80.19366 26.857865)",
+        "poi_name": "Loxahatchee Slough Natural Area",
+        "osm_id": 5411289604,
+        "leisure": "nature_reserve",
+        "phone": "(561) 233-2400",
+        "addr_state": "FL",
+        "addr_city": "Jupiter",
+        "addr_postcode": "33478",
+        "addr_street": "West Indiantown Road",
+        "addr_housenumber": "9060"
+      }
+    }
+  },
+  "id": 235,
+  "type": "knn+name"
+}

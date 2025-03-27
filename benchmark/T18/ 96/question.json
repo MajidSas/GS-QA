@@ -1,0 +1,52 @@
+{
+  "question": "Where is the closest emergency hospital situated from Ritter Park Rose Garden, Huntington, WV?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 63663,
+      "geometry": "POINT (-82.750314 37.578856)",
+      "poi_name": "Saint Joseph Martin",
+      "osm_id": 5626554788,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "KentuckyOne Health",
+      "website": "https://www.kentuckyonehealth.org/martin",
+      "phone": "+1 606 285 6400",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Martin",
+      "addr_postcode": "41649",
+      "addr_street": "Main Street",
+      "addr_housenumber": "11203"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Ritter Park Rose Garden, Huntington, WV",
+      "geo_wkt": "POINT (-82.440699 38.406448)",
+      "poi": {
+        "id": 248616,
+        "geometry": "POINT (-82.440699 38.406448)",
+        "poi_name": "Ritter Park Rose Garden",
+        "osm_id": 4683706042,
+        "leisure": "garden",
+        "addr_state": "WV",
+        "addr_city": "Huntington",
+        "addr_postcode": "25701",
+        "addr_street": "McCoy Road",
+        "addr_housenumber": "1501"
+      }
+    }
+  },
+  "id": 395,
+  "type": "knn:non_spat_filter+loc"
+}

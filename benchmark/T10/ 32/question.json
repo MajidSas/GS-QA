@@ -1,0 +1,74 @@
+{
+  "question": "What is the closest fast food from Community Stroke And Rehabilitation Center, Crown Point, IN towards National Museum of Puerto Rican Arts & Culture, Chicago, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography, ST_GeomFromText('POINT (-87.703187 41.902311)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 132605,
+      "geometry": "POINT (-87.345934 41.471676)",
+      "poi_name": "Steak 'n Shake",
+      "osm_id": 9959071466,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "IN",
+      "addr_city": "Merrillville",
+      "addr_postcode": "46410",
+      "addr_street": "West 81st Avenue",
+      "value": 329.7196129571156
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Community Stroke And Rehabilitation Center, Crown Point, IN",
+      "geo_wkt": "POINT (-87.33391 41.430406)",
+      "poi": {
+        "id": 182103,
+        "geometry": "POINT (-87.33391 41.430406)",
+        "poi_name": "Community Stroke And Rehabilitation Center",
+        "osm_id": 10876837568,
+        "amenity": "hospital",
+        "website": "https://www.comhs.org/about-us/community-stroke-and-rehabilitation-center",
+        "phone": "+1 219 836 1600",
+        "healthcare": "rehabilitation",
+        "addr_state": "IN",
+        "addr_city": "Crown Point",
+        "addr_postcode": "46307",
+        "addr_street": "Broadway Avenue",
+        "addr_housenumber": "10215"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "National Museum of Puerto Rican Arts & Culture, Chicago, IL",
+      "geo_wkt": "POINT (-87.703187 41.902311)",
+      "poi": {
+        "id": 8926,
+        "geometry": "POINT (-87.703187 41.902311)",
+        "poi_name": "National Museum of Puerto Rican Arts & Culture",
+        "osm_id": 3575515095,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 10:00-17:00; Sa 10:00-14:00",
+        "website": "https://nmprac.org/",
+        "phone": "+1-773-486-8345",
+        "museum": "art",
+        "wikidata": "Q15228725",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60622",
+        "addr_street": "West Division Street",
+        "addr_housenumber": "3015"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 131,
+  "type": "knn:towards+name"
+}

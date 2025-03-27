@@ -1,0 +1,47 @@
+{
+  "question": "Which direction should I take to get to the nearest caf\u00e9 from Bellevue University, Santa Fe, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.974343 35.653894)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.974343 35.653894)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 207149,
+      "geometry": "POINT (-105.97184 35.657191)",
+      "poi_name": "Mizu Boba Tea Spot",
+      "osm_id": 7238437423,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea",
+      "opening_hours": "Mo-Su 11:00-18:00",
+      "phone": "+1-505-690-7081",
+      "addr_city": "Santa Fe",
+      "addr_street": "Saint Michaels Drive",
+      "addr_housenumber": "1700",
+      "angle": 31.7785878486351
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Bellevue University, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.974343 35.653894)",
+      "poi": {
+        "id": 127804,
+        "geometry": "POINT (-105.974343 35.653894)",
+        "poi_name": "Bellevue University",
+        "osm_id": 8095198425,
+        "amenity": "university",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87505",
+        "addr_street": "Siringo Road",
+        "addr_housenumber": "1950"
+      }
+    }
+  },
+  "id": 1499,
+  "type": "knn+angle"
+}

@@ -1,0 +1,41 @@
+{
+  "question": "What's the bearing to the nearest viewpoint from Hellsgate Farms, Astoria, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23051,
+      "geometry": "POINT (-73.955797 40.749636)",
+      "poi_name": "view point",
+      "osm_id": 5016404326,
+      "tourism": "viewpoint",
+      "angle": 225.71415639611732
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
+      "poi": {
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
+      }
+    }
+  },
+  "id": 1408,
+  "type": "knn+angle"
+}

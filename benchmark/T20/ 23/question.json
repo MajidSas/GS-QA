@@ -1,0 +1,75 @@
+{
+  "question": "Where's the closest fast food restaurant in the direction of Popcorn Park Animal Refuge, Forked River, NJ from New York Institute of Technology, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 112276,
+      "geometry": "POINT (-73.98328 40.767656)",
+      "poi_name": "Subway",
+      "osm_id": 3785189226,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "07:00-22:00",
+      "operator": "Subway",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "delivery": "no",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10019",
+      "addr_street": "West 58th Street",
+      "addr_housenumber": "130",
+      "value": 197.1380518933509
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "poi": {
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
+      "geo_wkt": "POINT (-74.327266 39.910289)",
+      "poi": {
+        "id": 20004,
+        "geometry": "POINT (-74.327266 39.910289)",
+        "poi_name": "Popcorn Park Animal Refuge",
+        "osm_id": 7810633955,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-17:00",
+        "operator": "Associated Humane Societies",
+        "website": "https://ahscares.org/popcorn-park/",
+        "phone": "(609) 693-1900",
+        "addr_state": "NJ",
+        "addr_city": "Forked River",
+        "addr_postcode": "08731",
+        "addr_street": "Humane Way",
+        "addr_housenumber": "1"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "fast_food"
+    }
+  },
+  "id": 1322,
+  "type": "knn:towards+loc"
+}

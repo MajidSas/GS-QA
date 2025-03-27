@@ -1,0 +1,79 @@
+{
+  "question": "Within a radius of 90 kilometers, where can I find  a attraction on the path leading to Center for Spatial Planning Analytics and Visualization, Atlanta, GA from Hendersons Arena, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.5221 33.6101)',4326)::geography, ST_GeomFromText('POINT (-84.38942 33.775794)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.5221 33.6101)',4326)::geography, 90000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.5221 33.6101)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "answers": [
+    {
+      "id": 14018,
+      "geometry": "POINT (-84.394391 33.757629)",
+      "poi_name": "Inside CNN Studio Tour",
+      "osm_id": 4213402236,
+      "tourism": "attraction",
+      "addr_state": "GA",
+      "addr_city": "Atlanta",
+      "addr_street": "Marietta Street Northwest",
+      "addr_housenumber": "190",
+      "value": 33.759710294440524
+    },
+    {
+      "id": 25504,
+      "geometry": "POINT (-84.279432 34.379173)",
+      "poi_name": "Gibbs Gardens",
+      "osm_id": 4519799389,
+      "tourism": "attraction",
+      "website": "https://www.gibbsgardens.com/",
+      "phone": "+1 770-893-1881",
+      "addr_state": "GA",
+      "addr_postcode": "30107",
+      "addr_street": "Gibbs Drive",
+      "addr_housenumber": "1987",
+      "value": 33.759710294440524
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Hendersons Arena, GA",
+      "geo_wkt": "POINT (-84.5221 33.6101)",
+      "poi": {
+        "id": 265382,
+        "geometry": "POINT (-84.5221 33.6101)",
+        "poi_name": "Hendersons Arena",
+        "osm_id": 367915659,
+        "leisure": "stadium",
+        "addr_state": "GA"
+      }
+    },
+    "[4]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Center for Spatial Planning Analytics and Visualization, Atlanta, GA",
+      "geo_wkt": "POINT (-84.38942 33.775794)",
+      "poi": {
+        "id": 237739,
+        "geometry": "POINT (-84.38942 33.775794)",
+        "poi_name": "Center for Spatial Planning Analytics and Visualization",
+        "osm_id": 5846621785,
+        "amenity": "university",
+        "wheelchair": "limited",
+        "operator": "Mboka",
+        "website": "https://cspav.gatech.edu/",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_street": "Spring Street Northwest",
+        "addr_housenumber": "760"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 1252,
+  "type": "range:towards+loc"
+}

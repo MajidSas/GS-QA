@@ -1,0 +1,49 @@
+{
+  "question": "Do you know where the closest golf course from Niagara Amusement Park & Splash World, Grand Island, NY is located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247719,
+      "geometry": "POINT (-79.849038 42.21104)",
+      "poi_name": "The Clubhouse Indoor Golf",
+      "osm_id": 8188142743,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "North East",
+      "addr_postcode": "16428",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "10722"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "poi": {
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
+      }
+    }
+  },
+  "id": 1895,
+  "type": "knn+loc"
+}

@@ -1,0 +1,56 @@
+{
+  "question": "Within a radius of 90 kilometers, what beach resort can I find to the north of Urban Air Adventure Park, Port Saint Lucie, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography, 90000)\nAND leisure = 'beach_resort'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "answers": [
+    {
+      "id": 248000,
+      "geometry": "POINT (-80.303867 27.301988)",
+      "poi_name": "Orchid Island Beach Club",
+      "osm_id": 6231201516,
+      "leisure": "beach_resort",
+      "addr_state": "FL",
+      "addr_city": "Orchid",
+      "addr_postcode": "32963",
+      "addr_street": "Beachside Drive",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
+      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "poi": {
+        "id": 27036,
+        "geometry": "POINT (-80.303867 27.301988)",
+        "poi_name": "Urban Air Adventure Park",
+        "osm_id": 7656494335,
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
+        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
+        "phone": "+1-772-408-9349",
+        "addr_state": "FL",
+        "addr_city": "Port Saint Lucie",
+        "addr_postcode": "34952",
+        "addr_street": "S US Highway 1",
+        "addr_housenumber": "9020"
+      }
+    },
+    "[4]": {
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+    }
+  },
+  "id": 2642,
+  "type": "range:direction+name"
+}

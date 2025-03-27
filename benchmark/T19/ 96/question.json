@@ -1,0 +1,45 @@
+{
+  "question": "Where's the closest gallery positioned towards the northeast of Women for Abilene Christian University Museum, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-99.711755 32.465958)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23739,
+      "geometry": "POINT (-99.711755 32.465958)",
+      "poi_name": "The Branded bear",
+      "osm_id": 5292454853,
+      "tourism": "gallery",
+      "addr_state": "OK",
+      "addr_city": "Medicine Park",
+      "addr_postcode": "73557",
+      "addr_street": "East Lake Drive",
+      "addr_housenumber": "148"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "gallery"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Women for Abilene Christian University Museum, TX",
+      "geo_wkt": "POINT (-99.711755 32.465958)",
+      "poi": {
+        "id": 18012,
+        "geometry": "POINT (-99.711755 32.465958)",
+        "poi_name": "Women for Abilene Christian University Museum",
+        "osm_id": 368165082,
+        "tourism": "museum",
+        "addr_state": "TX"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1195,
+  "type": "knn:direction+loc"
+}

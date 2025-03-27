@@ -1,0 +1,50 @@
+{
+  "question": "When was the nearest stadium from the View Lounge, San Francisco, CA first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 263708,
+      "geometry": "POINT (-122.45388 37.776558)",
+      "poi_name": "Negoesco Stadium",
+      "osm_id": 358857211,
+      "leisure": "stadium",
+      "wikidata": "Q6987402",
+      "multihop_answer": "September 17, 1982",
+      "multihop_attribute": "Opened",
+      "multihop_long_answer": "Negoesco Stadium Opened: September 17, 1982"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "stadium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "poi": {
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
+      }
+    }
+  },
+  "id": 966,
+  "type": "knn+name+multihop1"
+}

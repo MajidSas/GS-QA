@@ -1,0 +1,43 @@
+{
+  "question": "Could you tell me how many viewpoints are present within a 170 kilometers radius from Embassy Suites St. Louis - Downtown, Saint Louis, MO?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.190263 38.630697)',4326)::geography, 170000)\nAND tourism = 'viewpoint';\n",
+  "answers": [
+    {
+      "count": 26
+    }
+  ],
+  "answer_type": "count",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
+    },
+    "[2]": {
+      "distance": 170000,
+      "text": "170 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Embassy Suites St. Louis - Downtown, Saint Louis, MO",
+      "geo_wkt": "POINT (-90.190263 38.630697)",
+      "poi": {
+        "id": 19262,
+        "geometry": "POINT (-90.190263 38.630697)",
+        "poi_name": "Embassy Suites St. Louis - Downtown",
+        "osm_id": 2594905076,
+        "tourism": "hotel",
+        "website": "https://embassysuites3.hilton.com/en/hotels/missouri/embassy-suites-st-louis-downtown-STLWAES/index.html",
+        "phone": "1-314-269-5900",
+        "official_name": "Embassy Suites by Hilton",
+        "addr_state": "MO",
+        "addr_city": "Saint Louis",
+        "addr_postcode": "63101",
+        "addr_street": "North 7th Street",
+        "addr_housenumber": "610"
+      }
+    }
+  },
+  "id": 2281,
+  "type": "range+count"
+}

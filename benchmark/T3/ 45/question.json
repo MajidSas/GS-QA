@@ -1,0 +1,53 @@
+{
+  "question": "Which hotel is available when moving in the direction of west from Bastion Studios, Erie, PA within 120 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography, 120000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "answers": [
+    {
+      "id": 15706,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Gilded Eagle Inn",
+      "osm_id": 9463348839,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16505",
+      "addr_street": "Sycamore Road",
+      "addr_housenumber": "3630"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "hotel"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
+      "poi": {
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
+      }
+    },
+    "[4]": {
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+    }
+  },
+  "id": 2644,
+  "type": "range:direction+name"
+}

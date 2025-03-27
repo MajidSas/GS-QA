@@ -1,0 +1,60 @@
+{
+  "question": "Where can I find a zoo east of Cal, Sr.'s Yard, Aberdeen, MD, within a radius of 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 180000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "answers": [
+    {
+      "id": 20004,
+      "geometry": "POINT (-76.186327 39.533089)",
+      "poi_name": "Popcorn Park Animal Refuge",
+      "osm_id": 7810633955,
+      "tourism": "zoo",
+      "fee": "yes",
+      "opening_hours": "Mo-Su 11:00-17:00",
+      "operator": "Associated Humane Societies",
+      "website": "https://ahscares.org/popcorn-park/",
+      "phone": "(609) 693-1900",
+      "addr_state": "NJ",
+      "addr_city": "Forked River",
+      "addr_postcode": "08731",
+      "addr_street": "Humane Way",
+      "addr_housenumber": "1"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "zoo"
+    },
+    "[2]": {
+      "distance": 180000,
+      "text": "180 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "poi": {
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
+      }
+    },
+    "[4]": {
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+    }
+  },
+  "id": 65,
+  "type": "range:direction+loc"
+}

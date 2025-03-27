@@ -1,0 +1,43 @@
+{
+  "question": "What's the distance to the nearest caf\u00e9 from Chinatown Plaza, Las Vegas, NV?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-115.196692 36.12566)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-115.196692 36.12566)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 135367,
+      "geometry": "POINT (-115.196034 36.125437)",
+      "poi_name": "Gong Cha",
+      "osm_id": 11513107426,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea",
+      "takeaway": "yes",
+      "distance": 64.22767149
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Chinatown Plaza, Las Vegas, NV",
+      "geo_wkt": "POINT (-115.196692 36.12566)",
+      "poi": {
+        "id": 14425,
+        "geometry": "POINT (-115.196692 36.12566)",
+        "poi_name": "Chinatown Plaza",
+        "osm_id": 4634408491,
+        "tourism": "attraction",
+        "addr_state": "NV",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "89102",
+        "addr_street": "Spring Mountain Road",
+        "addr_housenumber": "4255"
+      }
+    }
+  },
+  "id": 2403,
+  "type": "knn+distance"
+}

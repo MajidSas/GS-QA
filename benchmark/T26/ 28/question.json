@@ -1,0 +1,50 @@
+{
+  "question": "What's the proximity of the closest hospital from Richardson County Military History Museum, Falls City, NE?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-95.602416 40.062146)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.602416 40.062146)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182527,
+      "geometry": "POINT (-96.617445 40.769221)",
+      "poi_name": "Advanced Medical Imaging Surgery Center",
+      "osm_id": 10894774747,
+      "amenity": "hospital",
+      "website": "https://amimaging.com/surgery-center",
+      "healthcare": "hospital",
+      "addr_state": "NE",
+      "addr_city": "Lincoln",
+      "addr_postcode": "68506",
+      "addr_street": "Pioneers Boulevard",
+      "addr_housenumber": "7555",
+      "distance": 116559.04453694
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Richardson County Military History Museum, Falls City, NE",
+      "geo_wkt": "POINT (-95.602416 40.062146)",
+      "poi": {
+        "id": 16753,
+        "geometry": "POINT (-95.602416 40.062146)",
+        "poi_name": "Richardson County Military History Museum",
+        "osm_id": 366492329,
+        "tourism": "museum",
+        "website": "http://www.rootsweb.ancestry.com/~nericchs/",
+        "museum": "local",
+        "addr_state": "NE",
+        "addr_city": "Falls City",
+        "addr_postcode": "68355",
+        "addr_street": "East 17th Street",
+        "addr_housenumber": "107"
+      }
+    }
+  },
+  "id": 2427,
+  "type": "knn+distance"
+}

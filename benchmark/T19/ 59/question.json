@@ -1,0 +1,51 @@
+{
+  "question": "Where is the nearest beach resort in the northeast direction of Museum of Illusions, Washington, DC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.024586 38.899984)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 265570,
+      "geometry": "POINT (-77.024586 38.899984)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "beach resort"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Museum of Illusions, Washington, DC",
+      "geo_wkt": "POINT (-77.024586 38.899984)",
+      "poi": {
+        "id": 21459,
+        "geometry": "POINT (-77.024586 38.899984)",
+        "poi_name": "Museum of Illusions",
+        "osm_id": 10270423476,
+        "tourism": "museum",
+        "website": "https://moiwashington.com",
+        "phone": "+1 202-993-5992",
+        "addr_state": "DC",
+        "addr_city": "Washington",
+        "addr_postcode": "20001",
+        "addr_street": "H Street Northwest",
+        "addr_housenumber": "927"
+      }
+    },
+    "[3]": {
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+    }
+  },
+  "id": 1158,
+  "type": "knn:direction+loc"
+}

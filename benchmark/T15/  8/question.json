@@ -1,0 +1,66 @@
+{
+  "question": "Where can I find a nature reserve located within 150 kilometers in the direction of southeast from Pocono Go-Karts and Play Park, East Stroudsburg, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography, 150000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "answers": [
+    {
+      "id": 267301,
+      "geometry": "POINT (-75.108007 41.052123)",
+      "poi_name": "Stransky Nature Trails",
+      "osm_id": 5810940582,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "173"
+    },
+    {
+      "id": 267302,
+      "geometry": "POINT (-75.108007 41.052123)",
+      "poi_name": "Dealaman Nature Trail and Pond",
+      "osm_id": 5811042630,
+      "leisure": "nature_reserve",
+      "addr_state": "NJ",
+      "addr_city": "Warren Township",
+      "addr_postcode": "07059",
+      "addr_street": "Mount Horeb Road",
+      "addr_housenumber": "182"
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Pocono Go-Karts and Play Park, East Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.108007 41.052123)",
+      "poi": {
+        "id": 26207,
+        "geometry": "POINT (-75.108007 41.052123)",
+        "poi_name": "Pocono Go-Karts and Play Park",
+        "osm_id": 5809688278,
+        "tourism": "theme_park",
+        "website": "http://poconogokarts.com/",
+        "addr_state": "PA",
+        "addr_city": "East Stroudsburg",
+        "addr_postcode": "18302",
+        "addr_street": "Milford Road",
+        "addr_housenumber": "5021"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+    }
+  },
+  "id": 7,
+  "type": "range:direction+loc"
+}

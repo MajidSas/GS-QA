@@ -1,0 +1,63 @@
+{
+  "question": "Where's the nearest caf\u00e9 heading towards Camas Boutique Hotel, Camas, WA from Latourette Park, OR?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography, ST_GeomFromText('POINT (-122.404091 45.586093)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 178284,
+      "geometry": "POINT (-122.387929 45.519233)",
+      "poi_name": "Stark Street Espresso Bar",
+      "osm_id": 10719655554,
+      "amenity": "cafe",
+      "addr_state": "OR",
+      "addr_city": "Troutdale",
+      "addr_postcode": "97060",
+      "addr_street": "Southeast Stark Street",
+      "addr_housenumber": "26729",
+      "value": 324.94729060340165
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Latourette Park, OR",
+      "geo_wkt": "POINT (-122.253977 45.435954)",
+      "poi": {
+        "id": 254285,
+        "geometry": "POINT (-122.253977 45.435954)",
+        "poi_name": "Latourette Park",
+        "osm_id": 357348737,
+        "leisure": "park",
+        "addr_state": "OR"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Camas Boutique Hotel, Camas, WA",
+      "geo_wkt": "POINT (-122.404091 45.586093)",
+      "poi": {
+        "id": 18912,
+        "geometry": "POINT (-122.404091 45.586093)",
+        "poi_name": "Camas Boutique Hotel",
+        "osm_id": 2447372810,
+        "tourism": "hotel",
+        "website": "https://www.camasboutiquehotel.com/",
+        "internet_access": "wlan",
+        "phone": "+1-360-834-5722",
+        "addr_state": "WA",
+        "addr_city": "Camas",
+        "addr_postcode": "98607",
+        "addr_street": "Northeast 4th Avenue",
+        "addr_housenumber": "405"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "cafe"
+    }
+  },
+  "id": 1359,
+  "type": "knn:towards+loc"
+}

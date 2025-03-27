@@ -1,0 +1,60 @@
+{
+  "question": "Which restaurant is closest towards Rattlesnake Bomber Base Museum, TX from Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography, ST_GeomFromText('POINT (-103.12767 31.542435)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 182975,
+      "geometry": "POINT (-102.38934 31.842491)",
+      "poi_name": "Brunch & Munch Eatery & Creperie",
+      "osm_id": 10913597948,
+      "amenity": "restaurant",
+      "opening_hours": "Su 10:00-13:00; We-Sa 08:00-13:00",
+      "website": "https://www.brunchandmuncheatery.com/",
+      "phone": "+1-432-552-8777",
+      "addr_state": "TX",
+      "addr_city": "Odessa",
+      "addr_postcode": "79763",
+      "addr_street": "North County Road West",
+      "addr_housenumber": "818",
+      "value": 245.04383443318633
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX",
+      "geo_wkt": "POINT (-102.376579 31.844)",
+      "poi": {
+        "id": 150549,
+        "geometry": "POINT (-102.376579 31.844)",
+        "poi_name": "Texas Tech University Health Sciences Center at the Permian Basin",
+        "osm_id": 4059065537,
+        "amenity": "university",
+        "addr_state": "TX",
+        "addr_city": "Odessa"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Rattlesnake Bomber Base Museum, TX",
+      "geo_wkt": "POINT (-103.12767 31.542435)",
+      "poi": {
+        "id": 18018,
+        "geometry": "POINT (-103.12767 31.542435)",
+        "poi_name": "Rattlesnake Bomber Base Museum",
+        "osm_id": 368165090,
+        "tourism": "museum",
+        "addr_state": "TX"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 156,
+  "type": "knn:towards+name"
+}

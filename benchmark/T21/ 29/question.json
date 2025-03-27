@@ -1,0 +1,67 @@
+{
+  "question": "Which path points towards a golf course from Aquatic Zoo Tropical Fish, Thousand Oaks, CA within a distance of 110 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, 110000)\nAND leisure = 'golf_course';\n",
+  "answers": [
+    {
+      "id": 248344,
+      "geometry": "POINT (-118.884746 34.132116)",
+      "poi_name": "Sherwood Country Club",
+      "osm_id": 4022885165,
+      "leisure": "golf_course",
+      "wikidata": "Q14683961",
+      "angle": 222.49768881714067
+    },
+    {
+      "id": 246495,
+      "geometry": "POINT (-117.891377 33.989592)",
+      "poi_name": "Rowland Heights Golf Center",
+      "osm_id": 9778215998,
+      "leisure": "golf_course",
+      "opening_hours": "08:00-22:00",
+      "angle": 102.78452939404364
+    },
+    {
+      "id": 265998,
+      "geometry": "POINT (-118.73402 34.313758)",
+      "poi_name": "Lost Canyons Golf Course",
+      "osm_id": 1576233524,
+      "leisure": "golf_course",
+      "wikidata": "Q6683889",
+      "angle": 31.9507574183025
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "golf course"
+    },
+    "[2]": {
+      "distance": 110000,
+      "text": "110 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
+      "geo_wkt": "POINT (-118.840161 34.172588)",
+      "poi": {
+        "id": 5259,
+        "geometry": "POINT (-118.840161 34.172588)",
+        "poi_name": "Aquatic Zoo Tropical Fish",
+        "osm_id": 9819470337,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "operator": "Ken Kay Khzam",
+        "shop": "pet",
+        "addr_state": "CA",
+        "addr_city": "Thousand Oaks",
+        "addr_postcode": "91362",
+        "addr_street": "East Thousand Oaks Boulevard",
+        "addr_housenumber": "2655"
+      }
+    }
+  },
+  "id": 1028,
+  "type": "range+angle"
+}

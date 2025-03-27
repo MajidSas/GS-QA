@@ -1,0 +1,43 @@
+{
+  "question": "Which direction leads to the nearest hospital situated from Hamlet Hotel, Bellingham, WA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.47922 48.748069)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.47922 48.748069)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 99726,
+      "geometry": "POINT (-122.212541 47.976643)",
+      "poi_name": "The Everett Clinic",
+      "osm_id": 6562979688,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "angle": 166.9273303102278
+    }
+  ],
+  "answer_type": "angle",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hamlet Hotel, Bellingham, WA",
+      "geo_wkt": "POINT (-122.47922 48.748069)",
+      "poi": {
+        "id": 26359,
+        "geometry": "POINT (-122.47922 48.748069)",
+        "poi_name": "Hamlet Hotel",
+        "osm_id": 5862322343,
+        "tourism": "hotel",
+        "internet_access": "wlan",
+        "addr_state": "WA",
+        "addr_city": "Bellingham",
+        "addr_postcode": "98225",
+        "addr_street": "Railroad Avenue",
+        "addr_housenumber": "1202"
+      }
+    }
+  },
+  "id": 1406,
+  "type": "knn+angle"
+}

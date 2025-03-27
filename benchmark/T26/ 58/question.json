@@ -1,0 +1,42 @@
+{
+  "question": "What's the distance to the closest nature reserve in reference to Hotel Indigo, Baltimore, MD?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.616719 39.295205)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.616719 39.295205)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 247219,
+      "geometry": "POINT (-76.644819 39.325664)",
+      "poi_name": "African Journey",
+      "osm_id": 3800902412,
+      "leisure": "nature_reserve",
+      "operator": "Maryland Zoo",
+      "distance": 4160.43125966
+    }
+  ],
+  "answer_type": "distance",
+  "question_entities": {
+    "[1]": {
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hotel Indigo, Baltimore, MD",
+      "geo_wkt": "POINT (-76.616719 39.295205)",
+      "poi": {
+        "id": 1257,
+        "geometry": "POINT (-76.616719 39.295205)",
+        "poi_name": "Hotel Indigo",
+        "osm_id": 2918406739,
+        "tourism": "hotel",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21201",
+        "addr_street": "West Franklin Street",
+        "addr_housenumber": "30"
+      }
+    }
+  },
+  "id": 2457,
+  "type": "knn+distance"
+}

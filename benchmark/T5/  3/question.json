@@ -1,0 +1,44 @@
+{
+  "question": "What's the closest museum nearby Hilton Garden Inn, San Diego, CA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.077229 33.025612)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 23711,
+      "geometry": "POINT (-117.037111 32.969591)",
+      "poi_name": "Poway Heritage Museum",
+      "osm_id": 5282924757,
+      "tourism": "museum",
+      "opening_hours": "Sa 10:00-14:00; Su 10:45-14:00",
+      "website": "https://powayhistoricalsociety.com/"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "museum"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Hilton Garden Inn, San Diego, CA",
+      "geo_wkt": "POINT (-117.077229 33.025612)",
+      "poi": {
+        "id": 18696,
+        "geometry": "POINT (-117.077229 33.025612)",
+        "poi_name": "Hilton Garden Inn",
+        "osm_id": 2383305491,
+        "tourism": "hotel",
+        "website": "https://hiltongardeninn3.hilton.com/en/hotels/california/hilton-garden-inn-san-diego-rancho-bernardo-SANBEGI/index.html",
+        "phone": "858-676-1660",
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92128",
+        "addr_street": "Bernardo Center Drive",
+        "addr_housenumber": "17240"
+      }
+    }
+  },
+  "id": 202,
+  "type": "knn+name"
+}

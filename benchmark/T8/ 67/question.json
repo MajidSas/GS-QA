@@ -1,0 +1,45 @@
+{
+  "question": "Any recommendations for the closest restaurant from the museum that was built in 1891 in Ventura, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 147478,
+      "geometry": "POINT (-119.246088 34.266914)",
+      "poi_name": "Poke Bar",
+      "osm_id": 7535846729,
+      "amenity": "restaurant",
+      "cuisine": "asian"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Dudley House, Ventura, CA",
+      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "poi": {
+        "id": 1032,
+        "geometry": "POINT (-119.24024 34.277629)",
+        "poi_name": "Dudley House",
+        "osm_id": 2800250595,
+        "tourism": "museum",
+        "operator": "San Buenaventura Heritage",
+        "website": "https://dudleyhouse.org/",
+        "phone": "+1 (805) 644-3286",
+        "wikidata": "Q14681880",
+        "addr_state": "CA",
+        "addr_city": "Ventura",
+        "addr_postcode": "93003",
+        "addr_street": "North Ashwood Avenue",
+        "addr_housenumber": "197"
+      }
+    }
+  },
+  "id": 2766,
+  "type": "knn+name+multihop2"
+}

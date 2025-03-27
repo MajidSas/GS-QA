@@ -1,0 +1,47 @@
+{
+  "question": "What's the closest takeout restaurant from Kennedy Space Center Visitor Complex (Visitor Entrance), Merritt Island, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND takeaway ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.681882 28.51536)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 33056,
+      "geometry": "POINT (-80.669676 28.605884)",
+      "poi_name": "Moon Rock Caf\u00e9",
+      "osm_id": 2649853156,
+      "amenity": "restaurant",
+      "cuisine": "burger;sandwich",
+      "operator": "Kennedy Space Center Visitor Complex",
+      "takeaway": "yes",
+      "delivery": "no"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "takeout restaurant",
+      "poi_filter_sql": "takeaway ILIKE '%yes%'"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Kennedy Space Center Visitor Complex (Visitor Entrance), Merritt Island, FL",
+      "geo_wkt": "POINT (-80.681882 28.51536)",
+      "poi": {
+        "id": 7711,
+        "geometry": "POINT (-80.681882 28.51536)",
+        "poi_name": "Kennedy Space Center Visitor Complex (Visitor Entrance)",
+        "osm_id": 6376164127,
+        "description": "Visitor's entrance to the Visitor Center as of Dec 2018.",
+        "tourism": "attraction",
+        "addr_state": "FL",
+        "addr_city": "Merritt Island",
+        "addr_postcode": "32953",
+        "addr_street": "Space Commerce Way",
+        "addr_housenumber": "9500"
+      }
+    }
+  },
+  "id": 684,
+  "type": "knn:non_spat_filter+name"
+}

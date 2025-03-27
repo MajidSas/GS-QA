@@ -1,0 +1,43 @@
+{
+  "question": "What's the closest aquarium nearby Central Florida Zoo & Botanical Gardens, Sanford, FL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.314867 28.825462)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 2314,
+      "geometry": "POINT (-81.46861 28.44259)",
+      "poi_name": "SEA LIFE Orlando Aquarium",
+      "osm_id": 3386281670,
+      "tourism": "aquarium",
+      "website": "https://www.visitsealife.com/orlando/",
+      "wikidata": "Q111537228"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium"
+    },
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Central Florida Zoo & Botanical Gardens, Sanford, FL",
+      "geo_wkt": "POINT (-81.314867 28.825462)",
+      "poi": {
+        "id": 9137,
+        "geometry": "POINT (-81.314867 28.825462)",
+        "poi_name": "Central Florida Zoo & Botanical Gardens",
+        "osm_id": 3683164539,
+        "tourism": "zoo",
+        "fee": "yes",
+        "addr_state": "FL",
+        "addr_city": "Sanford",
+        "addr_postcode": "32771",
+        "addr_street": "W Seminole Blvd",
+        "addr_housenumber": "3755"
+      }
+    }
+  },
+  "id": 211,
+  "type": "knn+name"
+}

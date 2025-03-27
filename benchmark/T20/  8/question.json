@@ -1,0 +1,67 @@
+{
+  "question": "Where's the closest restaurant located en route to Joe Garagiola, University City, MO from Lindenwood University, Belleville, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.01096 38.523086)',4326)::geography, ST_GeomFromText('POINT (-90.302869 38.655663)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.01096 38.523086)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.01096 38.523086)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 138290,
+      "geometry": "POINT (-90.15441 38.612042)",
+      "poi_name": "Sandy's Bar B Q",
+      "osm_id": 6139746047,
+      "amenity": "restaurant",
+      "addr_state": "IL",
+      "addr_city": "East Saint Louis",
+      "addr_postcode": "62207",
+      "addr_street": "South 15th Street",
+      "addr_housenumber": "327",
+      "value": 300.14768781747074
+    }
+  ],
+  "answer_type": "loc",
+  "question_entities": {
+    "[2]": {
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Lindenwood University, Belleville, IL",
+      "geo_wkt": "POINT (-90.01096 38.523086)",
+      "poi": {
+        "id": 121774,
+        "geometry": "POINT (-90.01096 38.523086)",
+        "poi_name": "Lindenwood University",
+        "osm_id": 6779561972,
+        "amenity": "university",
+        "website": "https://www.lindenwood.edu/belleville/",
+        "addr_state": "IL",
+        "addr_city": "Belleville",
+        "addr_postcode": "62226",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "2600"
+      }
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Joe Garagiola, University City, MO",
+      "geo_wkt": "POINT (-90.302869 38.655663)",
+      "poi": {
+        "id": 1860,
+        "geometry": "POINT (-90.302869 38.655663)",
+        "poi_name": "Joe Garagiola",
+        "osm_id": 3188977602,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "website": "https://www.stlouiswalkoffame.org/inductees/joe-garagiola.html",
+        "addr_state": "MO",
+        "addr_city": "University City",
+        "addr_postcode": "63130",
+        "addr_street": "Delmar Boulevard",
+        "addr_housenumber": "6328"
+      }
+    },
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant"
+    }
+  },
+  "id": 1307,
+  "type": "knn:towards+loc"
+}

@@ -1,0 +1,55 @@
+{
+  "question": "Within a radius of 90 kilometers, what hospital can I find located in the southwest of Smokestack Pottery, Fort Collins, CO?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-105.071107 40.587891)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.071107 40.587891)',4326)::geography, 90000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "answers": [
+    {
+      "id": 149538,
+      "geometry": "POINT (-105.071107 40.587891)",
+      "poi_name": "Hearing Rehab Center",
+      "osm_id": 4015035835,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "CO",
+      "addr_city": "Fort Collins",
+      "addr_postcode": "80526",
+      "addr_street": "Centre Avenue",
+      "addr_housenumber": "1030"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "hospital"
+    },
+    "[2]": {
+      "distance": 90000,
+      "text": "90 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Smokestack Pottery, Fort Collins, CO",
+      "geo_wkt": "POINT (-105.071107 40.587891)",
+      "poi": {
+        "id": 3327,
+        "geometry": "POINT (-105.071107 40.587891)",
+        "poi_name": "Smokestack Pottery",
+        "osm_id": 5353580148,
+        "tourism": "gallery",
+        "addr_state": "CO",
+        "addr_city": "Fort Collins",
+        "addr_postcode": "80524",
+        "addr_street": "East Lincoln Avenue",
+        "addr_housenumber": "119"
+      }
+    },
+    "[4]": {
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+    }
+  },
+  "id": 2651,
+  "type": "range:direction+name"
+}

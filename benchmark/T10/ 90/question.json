@@ -1,0 +1,59 @@
+{
+  "question": "What is the nearest attraction as you progress towards Coronado State Monument, Bernalillo, NM from ABQ BioPark (Aquarium), Albuquerque, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, ST_GeomFromText('POINT (-106.557419 35.32967)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 16517,
+      "geometry": "POINT (-106.606591 35.237832)",
+      "poi_name": "Alehandro Gonzales House Historic Site",
+      "osm_id": 366377553,
+      "tourism": "attraction",
+      "addr_state": "NM",
+      "value": 22.845737535232296
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[2]": {
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "poi": {
+        "id": 6226,
+        "geometry": "POINT (-106.678998 35.093235)",
+        "poi_name": "ABQ BioPark (Aquarium)",
+        "osm_id": 1788029735,
+        "tourism": "aquarium",
+        "wikidata": "Q4712807",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
+      }
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Coronado State Monument, Bernalillo, NM",
+      "geo_wkt": "POINT (-106.557419 35.32967)",
+      "poi": {
+        "id": 256342,
+        "geometry": "POINT (-106.557419 35.32967)",
+        "poi_name": "Coronado State Monument",
+        "osm_id": 357621817,
+        "leisure": "park",
+        "wikidata": "Q5172163",
+        "addr_state": "NM",
+        "addr_city": "Bernalillo",
+        "addr_postcode": "87004",
+        "addr_street": "Kuaua Road",
+        "addr_housenumber": "485"
+      }
+    },
+    "[1]": {
+      "main_category": "tourism",
+      "sub_category": "attraction"
+    }
+  },
+  "id": 189,
+  "type": "knn:towards+name"
+}

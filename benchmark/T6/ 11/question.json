@@ -1,0 +1,49 @@
+{
+  "question": "What's the nearest chinese restaurant available from Mentor Civic Arena, Mentor, OH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chinese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
+  "answers": [
+    {
+      "id": 89553,
+      "geometry": "POINT (-81.359265 41.709344)",
+      "poi_name": "New China Buffet",
+      "osm_id": 8851516801,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "OH",
+      "addr_city": "Mentor-on-the-Lake",
+      "addr_postcode": "44060",
+      "addr_street": "Andrews Road",
+      "addr_housenumber": "5945"
+    }
+  ],
+  "answer_type": "name",
+  "question_entities": {
+    "[1]": {
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "chinese restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%chinese%'"
+    },
+    "[2]": {
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Mentor Civic Arena, Mentor, OH",
+      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "poi": {
+        "id": 246704,
+        "geometry": "POINT (-81.332139 41.698458)",
+        "poi_name": "Mentor Civic Arena",
+        "osm_id": 8842654476,
+        "leisure": "stadium",
+        "operator": "City of Mentor",
+        "addr_state": "OH",
+        "addr_city": "Mentor",
+        "addr_postcode": "44060",
+        "addr_street": "Munson Road",
+        "addr_housenumber": "8600"
+      }
+    }
+  },
+  "id": 610,
+  "type": "knn:non_spat_filter+name"
+}
