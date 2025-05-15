@@ -28,6 +28,7 @@ Our results show that existing solutions have very low accuracy, which warrants 
 - Python 3.8+
 - PostgreSQL with PostGIS extension enabled
 - Dependencies listed in `requirements.txt`
+- Ollama 0.6.1 with LLAMA 3.2 (ID: a80c4f17acd5)
 
 ## Installation
 
@@ -51,9 +52,9 @@ Our results show that existing solutions have very low accuracy, which warrants 
      ```
    - Create a database and configure connection parameters in the config file
 
-4. Install Ollama and OpenAI API token
+4. Install Ollama and get OpenAI API token
 
-Ollama is only required for evaluating the LLAMA based baseline.
+Ollama is only required for evaluating the baselines: https://ollama.com
 
 OpenAI API is required to evaluate GPT4o.
 
@@ -181,10 +182,8 @@ The other baselines are in the files `./baselines/baselines_text2sql.ipynb` and 
 
 ## Citation
 
-If you use this benchmark in your research, please cite:
-
 ```
-[Citation information for your paper]
+[Paper under review will be added later]
 ```
 
 
