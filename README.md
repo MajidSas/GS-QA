@@ -1,6 +1,4 @@
-# GeoQA Benchmark
-
-## A benchmark for evaluating LLMs on geospatial question answering
+# GS-QA: A Benchmark for Geospatial Question Answering
 
 ### Abstract
 
