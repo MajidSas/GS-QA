@@ -158,9 +158,7 @@ Finally, the notebook `./generator/question_selector.ipynb` is used to filter th
 
 ### Baselines and evaluation
 
-The folder `./baselines/` contains multiple notebooks to run and evaluate the baselines.
-
-`./baselines/baselines.ipynb` contains the script to evaluate the baseline with out RAG or Text2SQL. In the first line, you can select the LLM to evaluate. For LLAMA, makes sure OLLAMA is installed and LLAMA is downloaded and running refer to https://ollama.com . You can also easily use any LLM supported by LLAMA in this case. For GPT, make sure you have a valid API token. As you can see in the second cell, the script can be easily modified to use any LLM supported by LangChain.
+The folder `./baselines/` contains multiple scripts to run and evaluate the baselines. See `./baselines/run_baselines.sh` for usage. The baselines require OLLAMA to be setup and also OpenAI and Anthropic API keys to evaluate their models. 
 
 The questions can be read using the following code:
 ```python
@@ -175,8 +173,6 @@ for path in files:
 ```
 
 Running the remainder of the script will generate two files one for full text evaluation and one for parsed evaluation. The file `./baselines/evaluate.py` contains the evaluation functions that we proposed.
-
-The other baselines are in the files `./baselines/baselines_text2sql.ipynb` and `./baselines/baselines_rag.ipynb`. They can be used similar to the first one. The file `./baselines/baselines_shuffled.ipynb` provides the random answers. Finally, the file `./baselines/baselines_summary.ipynb` generates the tables that we provided in the paper.
 
 ## Citation
 
