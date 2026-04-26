@@ -1,45 +1,59 @@
 {
-  "question": "Could you locate a university within a 170 kilometers radius of Glen Oak City Park, OR?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.090642 44.016791)',4326)::geography, 170000)\nAND amenity = 'university';\n",
+  "question": "Can you show me where a zoo are within 110 kilometers from English Street Community Garden, New Haven, CT?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, 110000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "id": 223704,
-      "geometry": "POINT (-122.747463 45.427886)",
-      "poi_name": "Portland Seminary",
-      "osm_id": 11061306203,
-      "amenity": "university",
-      "operator": "George Fox University",
-      "website": "https://www.georgefox.edu/seminary/",
-      "phone": "+1-503-554-6150",
-      "addr_state": "OR",
-      "addr_city": "Tigard",
-      "addr_postcode": "97223",
-      "addr_street": "Southwest 68th Avenue",
-      "addr_housenumber": "12753"
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo"
+    },
+    {
+      "id": 6973,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Glen Oak City Park, OR",
-      "geo_wkt": "POINT (-123.090642 44.016791)",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
       "poi": {
-        "id": 254252,
-        "geometry": "POINT (-123.090642 44.016791)",
-        "poi_name": "Glen Oak City Park",
-        "osm_id": 357346002,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
       }
     }
   },

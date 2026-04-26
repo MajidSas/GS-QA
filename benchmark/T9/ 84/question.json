@@ -1,48 +1,44 @@
 {
-  "question": "What's the closest golf course towards the west of Hole N'' the Rock, Moab, UT?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-109.454349 38.390826)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which park is nearest in the north direction from Horrigan Hall, Louisville, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-85.70426 38.218629)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246381,
-      "geometry": "POINT (-109.454349 38.390826)",
-      "poi_name": "Snow Canyon Country Club",
-      "osm_id": 11408666953,
-      "leisure": "golf_course",
-      "addr_state": "UT",
-      "addr_city": "St.George",
-      "addr_postcode": "84770",
-      "addr_street": "Entrada Trail",
-      "addr_housenumber": "2537"
+      "id": 266563,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Cherokee Park",
+      "osm_id": 5269187526,
+      "leisure": "park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Hole N'' The Rock, Moab, UT",
-      "geo_wkt": "POINT (-109.454349 38.390826)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Horrigan Hall, Louisville, KY",
+      "geo_wkt": "POINT (-85.70426 38.218629)",
       "poi": {
-        "id": 1455,
-        "geometry": "POINT (-109.454349 38.390826)",
-        "poi_name": "Hole N'' The Rock",
-        "osm_id": 2991185281,
-        "tourism": "attraction",
-        "website": "https://www.theholeintherock.com/",
-        "addr_state": "UT",
-        "addr_city": "Moab",
-        "addr_street": "US-191"
+        "id": 48688,
+        "geometry": "POINT (-85.70426 38.218629)",
+        "poi_name": "Horrigan Hall",
+        "osm_id": 3395956265,
+        "amenity": "university",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40205",
+        "addr_street": "Bellarmine Boulevard",
+        "addr_housenumber": "2021"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2583,
+  "id": 1283,
   "type": "knn:direction+name"
 }

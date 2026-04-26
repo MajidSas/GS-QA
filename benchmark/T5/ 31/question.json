@@ -1,42 +1,47 @@
 {
-  "question": "What's the closest zoo nearby Edgebrook Woods, IL?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.765024 41.993433)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant nearby Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16137,
-      "geometry": "POINT (-87.911048 42.278444)",
-      "poi_name": "Lambs Farm Petting Zoo and Amusement Park",
-      "osm_id": 354282642,
-      "tourism": "zoo",
-      "fee": "yes",
-      "zoo": "petting_zoo",
-      "wikidata": "Q6481575"
+      "id": 215289,
+      "geometry": "POINT (-98.505264 34.727068)",
+      "poi_name": "Healthy Hippy",
+      "osm_id": 5294464742,
+      "amenity": "restaurant",
+      "addr_state": "OK",
+      "addr_city": "Medicine Park",
+      "addr_postcode": "73557",
+      "addr_street": "State Hihway 49",
+      "addr_housenumber": "18314"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Edgebrook Woods, IL",
-      "geo_wkt": "POINT (-87.765024 41.993433)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
       "poi": {
-        "id": 265409,
-        "geometry": "POINT (-87.765024 41.993433)",
-        "poi_name": "Edgebrook Woods",
-        "osm_id": 369059632,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/places/locations/edgebrook-woods/",
-        "addr_state": "IL"
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 230,
+  "id": 1030,
   "type": "knn+name"
 }

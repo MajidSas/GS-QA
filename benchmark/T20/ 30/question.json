@@ -1,63 +1,68 @@
 {
-  "question": "Where's the closest fast food restaurant on the path leading to Memory Garden, Baltimore, MD from the River Inn, Washington, DC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.053622 38.901408)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant along the travel direction toward Rose Art Museum, Waltham, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, ST_GeomFromText('POINT (-71.262505 42.365638)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 43192,
-      "geometry": "POINT (-77.049528 38.905108)",
-      "poi_name": "Sweetgreen",
-      "osm_id": 3099875496,
+      "id": 136737,
+      "geometry": "POINT (-71.444333 41.816093)",
+      "poi_name": "McDonald's",
+      "osm_id": 11599388512,
       "amenity": "fast_food",
-      "cuisine": "salad",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ri/providence/50-plainfield-st/39864.html",
+      "phone": "+1 401-563-8317",
       "takeaway": "yes",
-      "outdoor_seating": "yes",
-      "addr_state": "DC",
-      "addr_city": "Washington",
-      "addr_postcode": "20037",
-      "addr_street": "M Street Northwest",
-      "addr_housenumber": "2238",
-      "value": 38.92250373427801
+      "drive_through": "yes",
+      "addr_state": "RI",
+      "addr_city": "Providence County",
+      "addr_postcode": "02909",
+      "addr_street": "Plainfield Street",
+      "addr_housenumber": "50",
+      "value": 15.02802430389439
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "The River Inn, Washington, DC",
-      "geo_wkt": "POINT (-77.053622 38.901408)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
       "poi": {
-        "id": 5425,
-        "geometry": "POINT (-77.053622 38.901408)",
-        "poi_name": "The River Inn",
-        "osm_id": 759570079,
-        "tourism": "hotel",
-        "website": "https://www.theriverinn.com/",
-        "phone": "+1 202-337-7600",
-        "addr_state": "DC",
-        "addr_city": "Washington",
-        "addr_postcode": "20037",
-        "addr_street": "25th Street Northwest",
-        "addr_housenumber": "924"
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Baltimore, MD",
-      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Rose Art Museum, Waltham, MA",
+      "geo_wkt": "POINT (-71.262505 42.365638)",
       "poi": {
-        "id": 245708,
-        "geometry": "POINT (-76.638575 39.300016)",
-        "poi_name": "Memory Garden",
-        "osm_id": 3432403574,
-        "leisure": "garden",
-        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
-        "addr_state": "MD",
-        "addr_city": "Baltimore",
-        "addr_postcode": "21217",
-        "addr_street": "North Carey Street",
-        "addr_housenumber": "929"
+        "id": 2603,
+        "geometry": "POINT (-71.262505 42.365638)",
+        "poi_name": "Rose Art Museum",
+        "osm_id": 530711258,
+        "tourism": "museum",
+        "website": "http://www.brandeis.edu/rose/",
+        "phone": "+1-781-736-2028",
+        "wikidata": "Q7367636",
+        "addr_state": "MA",
+        "addr_city": "Waltham",
+        "addr_postcode": "02453-2728",
+        "addr_street": "South Street",
+        "addr_housenumber": "415"
       }
     },
     "[1]": {
@@ -65,6 +70,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 1329,
+  "id": 1529,
   "type": "knn:towards+loc"
 }

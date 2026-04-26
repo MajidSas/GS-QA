@@ -1,43 +1,43 @@
 {
-  "question": "Can you recommend the nearest attraction from the university that has Tiger as its mascot in Denmark, SC?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which theme park near the university established in the year 1972 in Houston, TX do you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.403152 29.702991)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 11111,
-      "geometry": "POINT (-81.378132 33.259767)",
-      "poi_name": "Bell UH-1 Iroquois",
-      "osm_id": 9861240908,
-      "historic": "memorial",
-      "description": "helicopter",
-      "tourism": "attraction"
+      "id": 24262,
+      "geometry": "POINT (-95.307208 29.919251)",
+      "poi_name": "Houston Grand Prix",
+      "osm_id": 10984671719,
+      "tourism": "theme_park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "display_name": "The University of Texas Health Science Center, Houston, TX",
+      "geo_wkt": "POINT (-95.403152 29.702991)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
+        "id": 167414,
+        "geometry": "POINT (-95.403152 29.702991)",
+        "poi_name": "The University of Texas Health Science Center",
+        "osm_id": 356865589,
         "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "website": "https://www.uth.edu",
+        "phone": "+1-713-500-4472",
+        "wikidata": "Q7896431",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Fannin Street",
+        "addr_housenumber": "7000"
       }
     }
   },
-  "id": 2777,
-  "type": "knn+name+multihop2"
+  "id": 977,
+  "type": "knn+name+multi_source2"
 }

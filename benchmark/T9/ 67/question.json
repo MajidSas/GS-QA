@@ -1,53 +1,57 @@
 {
-  "question": "Which university is closest in the northwest direction of Bresnan Arena, Mankato, MN?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest gallery located in the north direction starting from Meerkerk Gardens, Greenbank, WA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.56177 48.081101)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 113854,
-      "geometry": "POINT (-93.995655 44.145616)",
-      "poi_name": "Shannon Point Marine Center",
-      "osm_id": 3850931477,
-      "amenity": "university",
-      "operator": "Western Washington University",
-      "website": "https://www.wwu.edu/spmc",
-      "phone": "1-360-650-7400",
-      "wikidata": "Q284777",
-      "addr_city": "Anacortes",
-      "addr_postcode": "98221",
-      "addr_street": "Shannon Point Road",
-      "addr_housenumber": "1900"
+      "id": 9699,
+      "geometry": "POINT (-122.56177 48.081101)",
+      "poi_name": "Fire Of The Heart Galley",
+      "osm_id": 8942743159,
+      "description": "Fire Of The Heart Gallery showing the vibrant artwork of Becca Heavrin.",
+      "tourism": "gallery",
+      "opening_hours": "We-Sa 11:00-16:00; PH off",
+      "operator": "Becca Heavrin",
+      "website": "https://fireoftheheartgallery.com",
+      "addr_state": "WA",
+      "addr_city": "Greenbank",
+      "addr_postcode": "98253",
+      "addr_street": "Wonn Rd",
+      "addr_housenumber": "765"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Bresnan Arena, Mankato, MN",
-      "geo_wkt": "POINT (-93.995655 44.145616)",
+      "sub_category": "garden",
+      "display_name": "Meerkerk Gardens, Greenbank, WA",
+      "geo_wkt": "POINT (-122.56177 48.081101)",
       "poi": {
-        "id": 266082,
-        "geometry": "POINT (-93.995655 44.145616)",
-        "poi_name": "Bresnan Arena",
-        "osm_id": 10582238330,
-        "leisure": "stadium",
-        "sport": "basketball;volleyball;wrestling",
-        "addr_state": "MN",
-        "addr_city": "Mankato",
-        "addr_postcode": "56001",
-        "addr_street": "Warren Street",
-        "addr_housenumber": "1651"
+        "id": 245401,
+        "geometry": "POINT (-122.56177 48.081101)",
+        "poi_name": "Meerkerk Gardens",
+        "osm_id": 2871224413,
+        "leisure": "garden",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-16:00",
+        "website": "https://www.meerkerkgardens.org/",
+        "wikidata": "Q6807694",
+        "addr_state": "WA",
+        "addr_city": "Greenbank",
+        "addr_postcode": "98253",
+        "addr_street": "Meerkerk Lane",
+        "addr_housenumber": "3531"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2566,
+  "id": 1266,
   "type": "knn:direction+name"
 }

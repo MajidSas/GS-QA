@@ -1,44 +1,49 @@
 {
-  "question": "What's the heading to the closest nature reserve from Pine Hill Health Center, Pine Hill, NM?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-108.417054 34.89023)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.417054 34.89023)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the orientation from the Plaza at the Shops by HTA, Hoonah, AK toward the nearest zoo?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-135.442626 58.106949)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-135.442626 58.106949)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246737,
-      "geometry": "POINT (-106.662721 35.069278)",
-      "poi_name": "Trailhead",
-      "osm_id": 2108343265,
-      "leisure": "nature_reserve",
-      "angle": 82.42900782811805
+      "id": 13940,
+      "geometry": "POINT (-136.031682 59.44478)",
+      "poi_name": "The Kroschel Wildlife Center",
+      "osm_id": 4194954120,
+      "tourism": "zoo",
+      "website": "https://www.kroschelfilms.com/",
+      "phone": "+1-907-767-5464",
+      "addr_state": "AK",
+      "addr_city": "Haines",
+      "addr_postcode": "99827",
+      "addr_street": "Mosquito Lake Road",
+      "addr_housenumber": "1.8 mile",
+      "angle": 347.37151555741167
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Pine Hill Health Center, Pine Hill, NM",
-      "geo_wkt": "POINT (-108.417054 34.89023)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "The Plaza at The Shops by HTA, Hoonah, AK",
+      "geo_wkt": "POINT (-135.442626 58.106949)",
       "poi": {
-        "id": 237870,
-        "geometry": "POINT (-108.417054 34.89023)",
-        "poi_name": "Pine Hill Health Center",
-        "osm_id": 5851791408,
-        "amenity": "hospital",
-        "operator": "Ramah Navajo Sch. Brd. Inc.",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "NM",
-        "addr_city": "Pine Hill",
-        "addr_postcode": "87357",
-        "addr_street": "Indian Service Rt 140",
-        "addr_housenumber": "7"
+        "id": 2997,
+        "geometry": "POINT (-135.442626 58.106949)",
+        "poi_name": "The Plaza at The Shops by HTA",
+        "osm_id": 10122768618,
+        "tourism": "attraction",
+        "operator": "Hoonah Travel Adventures LLC",
+        "addr_state": "AK",
+        "addr_city": "Hoonah",
+        "addr_postcode": "99829",
+        "addr_street": "Harbor Drive",
+        "addr_housenumber": "335"
       }
     }
   },
-  "id": 1465,
+  "id": 565,
   "type": "knn+angle"
 }

@@ -1,44 +1,47 @@
 {
-  "question": "Where's the nearest university from S. 15th St. Community Garden, Philadelphia, PA located?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you direct me to the closest gallery from Troll Bridge, Portland, OR?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.848267 45.647307)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 57741,
-      "geometry": "POINT (-75.192951 39.952747)",
-      "poi_name": "Jaffe",
-      "osm_id": 5349684421,
-      "amenity": "university",
-      "wheelchair": "yes",
-      "addr_city": "Philadelphia",
-      "addr_postcode": "19104",
-      "addr_street": "Woodland Walk",
-      "addr_housenumber": "3405"
+      "id": 23981,
+      "geometry": "POINT (-122.671041 45.628898)",
+      "poi_name": "Art at the Cave",
+      "osm_id": 9236125660,
+      "tourism": "gallery",
+      "website": "https://artatthecave.com",
+      "phone": "+1-360-314-6506",
+      "addr_state": "WA",
+      "addr_city": "Vancouver",
+      "addr_postcode": "98660",
+      "addr_street": "East Evergreen Boulevard",
+      "addr_housenumber": "108"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Troll Bridge, Portland, OR",
+      "geo_wkt": "POINT (-122.848267 45.647307)",
       "poi": {
-        "id": 247115,
-        "geometry": "POINT (-75.169239 39.933457)",
-        "poi_name": "S. 15th St. Community Garden",
-        "osm_id": 3559344406,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_street": "S. 15th St.",
-        "addr_housenumber": "1329"
+        "id": 567,
+        "geometry": "POINT (-122.848267 45.647307)",
+        "poi_name": "Troll Bridge",
+        "osm_id": 8447034730,
+        "tourism": "attraction",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97231",
+        "addr_street": "Northwest McNamee Road",
+        "addr_housenumber": "16498"
       }
     }
   },
-  "id": 1817,
+  "id": 717,
   "type": "knn+loc"
 }

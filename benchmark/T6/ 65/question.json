@@ -1,48 +1,54 @@
 {
-  "question": "What's the nearest railway museum situated from Turtle Lake County Park, Shoreview, MN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.129528 45.09252)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest belgian restaurant from Wenatchee Valley Museum and Cultural Center, Wenatchee, WA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%belgian%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16972,
-      "geometry": "POINT (-94.641421 43.97326)",
-      "poi_name": "Round House Railroad Club",
-      "osm_id": 367068284,
-      "tourism": "museum",
-      "website": "http://roundhouseinc.org/",
-      "museum": "railway",
-      "addr_state": "MN",
-      "addr_city": "St. James",
-      "addr_postcode": "56081",
-      "addr_street": "Tiell Drive",
-      "addr_housenumber": "112"
+      "id": 90069,
+      "geometry": "POINT (-122.480148 48.751986)",
+      "poi_name": "The Mount Bakery Caf\u00e9",
+      "osm_id": 1976701507,
+      "amenity": "restaurant",
+      "cuisine": "belgian;crepe",
+      "website": "http://www.mountbakery.com/",
+      "phone": "+1 360-715-2195",
+      "outdoor_seating": "yes",
+      "wikidata": "Q7752465",
+      "addr_state": "WA",
+      "addr_city": "Bellingham",
+      "addr_postcode": "98225",
+      "addr_street": "West Champion Street",
+      "addr_housenumber": "308C"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "railway museum",
-      "poi_filter_sql": "museum = 'railway'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "belgian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%belgian%'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Turtle Lake County Park, Shoreview, MN",
-      "geo_wkt": "POINT (-93.129528 45.09252)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Wenatchee Valley Museum and Cultural Center, Wenatchee, WA",
+      "geo_wkt": "POINT (-120.310936 47.42248)",
       "poi": {
-        "id": 247257,
-        "geometry": "POINT (-93.129528 45.09252)",
-        "poi_name": "Turtle Lake County Park",
-        "osm_id": 3886991285,
-        "leisure": "park",
-        "addr_state": "MN",
-        "addr_city": "Shoreview",
-        "addr_street": "Hodgson Road",
-        "addr_housenumber": "4979"
+        "id": 4,
+        "geometry": "POINT (-120.310936 47.42248)",
+        "poi_name": "Wenatchee Valley Museum and Cultural Center",
+        "osm_id": 403501655,
+        "tourism": "museum",
+        "opening_hours": "Tu-Su 10:00-16:00",
+        "website": "https://www.wenatcheevalleymuseum.org/",
+        "addr_state": "WA",
+        "addr_city": "Wenatchee",
+        "addr_postcode": "98801",
+        "addr_street": "S. Mission St.",
+        "addr_housenumber": "127"
       }
     }
   },
-  "id": 664,
+  "id": 1464,
   "type": "knn:non_spat_filter+name"
 }

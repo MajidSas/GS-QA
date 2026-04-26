@@ -1,46 +1,45 @@
 {
-  "question": "Looking for the closest hospital in relation to the Grove, Washington, DC, any insights where it is?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.022498 38.877195)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest theme park in the area around Hairpin Turn, Clarksburg, MA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167751,
-      "geometry": "POINT (-76.9954 38.8923)",
-      "poi_name": "The Specialty Hospital of Washington",
-      "osm_id": 358961249,
-      "amenity": "hospital",
-      "historic": "yes",
-      "healthcare": "hospital",
-      "addr_state": "DC",
-      "addr_city": "Washington",
-      "addr_postcode": "20002",
-      "addr_street": "Constitution Avenue Northeast",
-      "addr_housenumber": "700"
+      "id": 11952,
+      "geometry": "POINT (-72.468092 41.986478)",
+      "poi_name": "Sonny's Place",
+      "osm_id": 6106925340,
+      "tourism": "theme_park",
+      "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+      "website": "https://sonnysplace.com/",
+      "phone": "+1 860 763-5454",
+      "addr_state": "CT",
+      "addr_city": "Somers",
+      "addr_postcode": "06071",
+      "addr_street": "Main Street",
+      "addr_housenumber": "349"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "The Grove, Washington, DC",
-      "geo_wkt": "POINT (-77.022498 38.877195)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
       "poi": {
-        "id": 247771,
-        "geometry": "POINT (-77.022498 38.877195)",
-        "poi_name": "The Grove",
-        "osm_id": 9901947050,
-        "leisure": "park",
-        "addr_state": "DC",
-        "addr_city": "Washington",
-        "addr_postcode": "20024",
-        "addr_street": "Wharf Street Southwest"
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
       }
     }
   },
-  "id": 1847,
+  "id": 747,
   "type": "knn+loc"
 }

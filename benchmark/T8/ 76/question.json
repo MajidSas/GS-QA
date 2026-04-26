@@ -1,47 +1,49 @@
 {
-  "question": "What's the nearest fast food restaurant near the university established in the year 1969 in Chicago, IL?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which zoo is the closest one near the university with the former name Denmark Industrial School for African Americans in Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 80943,
-      "geometry": "POINT (-87.640918 41.879564)",
-      "poi_name": "Jimmy John's",
-      "osm_id": 1591485484,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes",
-      "drive_through": "no",
-      "official_name": "Jimmy John's Gourmet Sandwiches"
+      "id": 25121,
+      "geometry": "POINT (-80.279256 32.557517)",
+      "poi_name": "Edisto Island Serpentarium",
+      "osm_id": 4406997323,
+      "tourism": "zoo",
+      "opening_hours": "Th-Sa 10:00-16:00",
+      "website": "https://edistoserpentarium.com",
+      "phone": "1- (843) 869-1171",
+      "addr_state": "SC",
+      "addr_city": "Edisto Island",
+      "addr_postcode": "29438",
+      "addr_street": "Highway 174",
+      "addr_housenumber": "1374"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "IIT Stuart School of Business, Chicago, IL",
-      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 81297,
-        "geometry": "POINT (-87.642109 41.879101)",
-        "poi_name": "IIT Stuart School of Business",
-        "osm_id": 1619741019,
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
         "amenity": "university",
-        "operator": "Illinois Institute of Technology",
-        "website": "https://www.iit.edu/stuart",
-        "wikidata": "Q5971402",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60661",
-        "addr_street": "West Adams Street",
-        "addr_housenumber": "565"
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2775,
-  "type": "knn+name+multihop2"
+  "id": 975,
+  "type": "knn+name+multi_source2"
 }

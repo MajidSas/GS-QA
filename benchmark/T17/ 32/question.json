@@ -1,46 +1,51 @@
 {
-  "question": "Could you tell me the location of the closest park relative to Shoe Repair Display, West Palm Beach, FL?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.188452 26.685127)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you point me to where the nearest hospital is from Ulrich Wildlife Preserve, Morton, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247154,
-      "geometry": "POINT (-80.237777 26.668585)",
-      "poi_name": "Berkshire Park",
-      "osm_id": 3660933209,
-      "leisure": "park",
-      "addr_state": "FL",
-      "addr_city": "Wellington",
-      "addr_postcode": "33414",
-      "addr_street": "Old Country Road S",
-      "addr_housenumber": "12181"
+      "id": 63365,
+      "geometry": "POINT (-89.416974 40.418512)",
+      "poi_name": "Hopedale Medical Complex",
+      "osm_id": 5612743006,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.hopedalemc.com/",
+      "phone": "+1 309 449 3321",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hopedale",
+      "addr_postcode": "61747",
+      "addr_street": "Tremont Street",
+      "addr_housenumber": "107"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Shoe Repair Display, West Palm Beach, FL",
-      "geo_wkt": "POINT (-80.188452 26.685127)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
+      "geo_wkt": "POINT (-89.490228 40.649994)",
       "poi": {
-        "id": 3441,
-        "geometry": "POINT (-80.188452 26.685127)",
-        "poi_name": "Shoe Repair Display",
-        "osm_id": 5413361163,
-        "tourism": "museum",
-        "operator": "South Florida Fairgrounds",
-        "addr_state": "FL",
-        "addr_city": "West Palm Beach",
-        "addr_postcode": "33411",
-        "addr_street": "Southern Blvd",
-        "addr_housenumber": "9067"
+        "id": 246437,
+        "geometry": "POINT (-89.490228 40.649994)",
+        "poi_name": "Ulrich Wildlife Preserve",
+        "osm_id": 9654359178,
+        "leisure": "nature_reserve",
+        "opening_hours": "dawn-dusk",
+        "operator": "Morton Park District",
+        "addr_state": "IL",
+        "addr_city": "Morton",
+        "addr_postcode": "61550",
+        "addr_street": "Turtle Creek Trail",
+        "addr_housenumber": "100"
       }
     }
   },
-  "id": 1831,
+  "id": 731,
   "type": "knn+loc"
 }

@@ -1,36 +1,41 @@
 {
-  "question": "Within a 40 kilometers radius from JB Rodeo Arena, TX, how many museums are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.375836 30.914074)',4326)::geography, 40000)\nAND tourism = 'museum';\n",
+  "question": "What\u2019s the count of viewpoints within 140 kilometers of the reference point Aquarium Outfitters Carolina, Wake Forest, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography, 140000)\nAND tourism = 'viewpoint';\n",
   "answers": [
     {
-      "count": 6
+      "count": 11
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "JB Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.375836 30.914074)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
       "poi": {
-        "id": 265395,
-        "geometry": "POINT (-97.375836 30.914074)",
-        "poi_name": "JB Rodeo Arena",
-        "osm_id": 368165372,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
       }
     }
   },
-  "id": 2223,
+  "id": 1823,
   "type": "range+count"
 }

@@ -1,55 +1,48 @@
 {
-  "question": "How far is the nearest restaurant situated from Discovery Depot at Nature's Art Village, Montville, CT?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the closest garden from DoubleTree by Hilton Hotel, Bedford, MA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 109031,
-      "geometry": "POINT (-72.222426 41.431796)",
-      "poi_name": "Cobalt Cafe at Nature's Art Village",
-      "osm_id": 3646701863,
-      "amenity": "restaurant",
-      "cuisine": "sandwich",
-      "opening_hours": "10:00-17:00",
-      "website": "http://www.naturesartvillage.com",
-      "capacity": "100",
-      "phone": "860-443-4367",
-      "takeaway": "yes",
-      "delivery": "no",
-      "addr_state": "CT",
-      "addr_city": "Montville",
-      "addr_postcode": "06370",
-      "addr_street": "Hartford-New London Turnpike",
-      "addr_housenumber": "1650",
-      "distance": 22.33927451
+      "id": 246496,
+      "geometry": "POINT (-71.346223 42.447411)",
+      "poi_name": "Planted Canoe",
+      "osm_id": 9780944398,
+      "leisure": "garden",
+      "fee": "no",
+      "operator": "Concord-Carlisle Regional High School",
+      "distance": 11322.13787082
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 9052,
-        "geometry": "POINT (-72.222213 41.431675)",
-        "poi_name": "Discovery Depot at Nature's Art Village",
-        "osm_id": 3646715046,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-17:00 \"seasonal\"",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     }
   },
-  "id": 2492,
+  "id": 692,
   "type": "knn+distance"
 }

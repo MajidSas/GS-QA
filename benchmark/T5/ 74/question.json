@@ -1,47 +1,51 @@
 {
-  "question": "Seeking the nearest aquarium from the View Lounge, San Francisco, CA, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant nearby Sherwood Forest Faire, McDade, TX is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18181,
-      "geometry": "POINT (-122.465976 37.769485)",
-      "poi_name": "Steinhart Aquarium",
-      "osm_id": 368173914,
-      "tourism": "aquarium",
-      "addr_state": "CA"
+      "id": 223149,
+      "geometry": "POINT (-97.327659 30.106185)",
+      "poi_name": "Bassano",
+      "osm_id": 11047466217,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "wheelchair": "yes",
+      "opening_hours": "Tu-Su 11:00-21:00",
+      "website": "https://bassanoitalianrestaurant.com",
+      "phone": "+1-512-321-3393",
+      "addr_state": "TX",
+      "addr_city": "Bastrop",
+      "addr_postcode": "78602",
+      "addr_street": "Chestnut Street",
+      "addr_housenumber": "57"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The View Lounge, San Francisco, CA",
-      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
       "poi": {
-        "id": 5810,
-        "geometry": "POINT (-122.404326 37.785414)",
-        "poi_name": "The View Lounge",
-        "osm_id": 1612808193,
-        "amenity": "bar",
-        "description": "39th floor bar with city views; enter through hotel",
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Su 16:00-24:00",
-        "operator": "Marriott",
-        "website": "https://www.sfmarquis.com/theview",
-        "phone": "+1 415-896-1600",
-        "addr_state": "CA",
-        "addr_city": "San Francisco",
-        "addr_postcode": "94103",
-        "addr_street": "4th Street",
-        "addr_housenumber": "55"
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
       }
     }
   },
-  "id": 273,
+  "id": 1073,
   "type": "knn+name"
 }

@@ -1,42 +1,44 @@
 {
-  "question": "Which way leads to the nearest nature reserve from Rainmaker Splash Pad, Ketchum, ID?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-114.370718 43.681753)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-114.370718 43.681753)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the direction of travel to reach the nearest hospital from the Rio Grande Gorge Visitor Center, Pilar, NM?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.789562 36.267727)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.789562 36.267727)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247796,
-      "geometry": "POINT (-111.594229 41.45208)",
-      "poi_name": "Cinnamon Creek WMA",
-      "osm_id": 9938302241,
-      "leisure": "nature_reserve",
-      "operator": "Utah DWR",
-      "angle": 136.42496191802113
+      "id": 97446,
+      "geometry": "POINT (-105.94592 35.658984)",
+      "poi_name": "Emergency Room",
+      "osm_id": 6479397749,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "angle": 191.84061946278058
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Rainmaker Splash Pad, Ketchum, ID",
-      "geo_wkt": "POINT (-114.370718 43.681753)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Rio Grande Gorge Visitor Center, Pilar, NM",
+      "geo_wkt": "POINT (-105.789562 36.267727)",
       "poi": {
-        "id": 246963,
-        "geometry": "POINT (-114.370718 43.681753)",
-        "poi_name": "Rainmaker Splash Pad",
-        "osm_id": 6670614199,
-        "leisure": "park",
-        "addr_state": "ID",
-        "addr_city": "Ketchum",
-        "addr_postcode": "83340",
-        "addr_street": "3rd Avenue",
-        "addr_housenumber": "900"
+        "id": 3660,
+        "geometry": "POINT (-105.789562 36.267727)",
+        "poi_name": "Rio Grande Gorge Visitor Center",
+        "osm_id": 5525853935,
+        "tourism": "attraction",
+        "operator": "BLM",
+        "addr_state": "NM",
+        "addr_city": "Pilar",
+        "addr_postcode": "87571",
+        "addr_street": "NM-68",
+        "addr_housenumber": "2873"
       }
     }
   },
-  "id": 1479,
+  "id": 579,
   "type": "knn+angle"
 }

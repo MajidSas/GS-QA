@@ -1,65 +1,62 @@
 {
-  "question": "Which museum is closest when moving towards Obie Knutson Park, Windom, MN from Getting's Garden, Sanborn, IA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography, ST_GeomFromText('POINT (-95.054538 43.838174)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest attraction you\u2019d reach going toward Aquarium Depot, Miami, FL from Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography, ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16973,
-      "geometry": "POINT (-94.919002 43.934732)",
-      "poi_name": "Heritage Village Museum",
-      "osm_id": 367068289,
-      "tourism": "museum",
-      "website": "https://www.heritagevillagemountainlake.com/",
-      "addr_state": "MN",
-      "value": 38.69911098414574
+      "id": 3080,
+      "geometry": "POINT (-80.163589 25.773842)",
+      "poi_name": "Royal Caribbean Port",
+      "osm_id": 10162408017,
+      "tourism": "attraction",
+      "value": 245.54894494188548
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Getting's Garden, Sanborn, IA",
-      "geo_wkt": "POINT (-95.724521 43.234748)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL",
+      "geo_wkt": "POINT (-80.132523 25.790419)",
       "poi": {
-        "id": 266116,
-        "geometry": "POINT (-95.724521 43.234748)",
-        "poi_name": "Getting's Garden",
-        "osm_id": 10686198179,
-        "leisure": "garden",
-        "opening_hours": "Su off",
-        "website": "https://www.gettingsgarden.com/",
-        "shop": "farm",
-        "addr_state": "IA",
-        "addr_city": "Sanborn",
-        "addr_postcode": "51248",
-        "addr_street": "Pierce Avenue",
-        "addr_housenumber": "2861"
+        "id": 53329,
+        "geometry": "POINT (-80.132523 25.790419)",
+        "poi_name": "Miami Beach Urban Studios (FIU MBUS)",
+        "osm_id": 10075871652,
+        "amenity": "university",
+        "operator": "Florida International University",
+        "website": "https://carta.fiu.edu/mbus/",
+        "addr_state": "FL",
+        "addr_city": "Miami Beach",
+        "addr_postcode": "33139",
+        "addr_street": "Lincoln Road",
+        "addr_housenumber": "420"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Obie Knutson Park, Windom, MN",
-      "geo_wkt": "POINT (-95.054538 43.838174)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Depot, Miami, FL",
+      "geo_wkt": "POINT (-80.386248 25.685662)",
       "poi": {
-        "id": 248141,
-        "geometry": "POINT (-95.054538 43.838174)",
-        "poi_name": "Obie Knutson Park",
-        "osm_id": 7278723645,
-        "leisure": "park",
-        "toilets": "yes",
-        "addr_state": "MN",
-        "addr_city": "Windom",
-        "addr_postcode": "56101",
-        "addr_street": "outh Shore Dr",
-        "addr_housenumber": "608 S"
+        "id": 26765,
+        "geometry": "POINT (-80.386248 25.685662)",
+        "poi_name": "Aquarium Depot",
+        "osm_id": 6035376680,
+        "tourism": "aquarium",
+        "phone": "+13055963373",
+        "addr_state": "FL",
+        "addr_city": "Miami",
+        "addr_postcode": "33186",
+        "addr_street": "Southwest 88th Street",
+        "addr_housenumber": "11762"
       }
     },
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "attraction"
     }
   },
-  "id": 103,
+  "id": 1603,
   "type": "knn:towards+name"
 }

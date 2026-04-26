@@ -1,46 +1,42 @@
 {
-  "question": "Seeking suggestions for the nearest museum in relation to the stadium that can hold 20000 spectators in Ogden, UT.",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which viewpoint near the stadium that can hold 4559 spectators in Bowling Green, KY do you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-86.441176 36.996563)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16667,
-      "geometry": "POINT (-111.970759 41.226451)",
-      "poi_name": "Treehouse Childrens Museum",
-      "osm_id": 366386029,
-      "tourism": "museum",
-      "website": "https://www.treehousemuseum.org/",
-      "addr_city": "Ogden",
-      "addr_postcode": "84401",
-      "addr_street": "22nd Street",
-      "addr_housenumber": "347"
+      "id": 5561,
+      "geometry": "POINT (-86.106904 37.187164)",
+      "poi_name": "Sunset Point",
+      "osm_id": 810883250,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "viewpoint"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Pioneer Stadium, Ogden, UT",
-      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "display_name": "Bowling Green Ballpark, Bowling Green, KY",
+      "geo_wkt": "POINT (-86.441176 36.996563)",
       "poi": {
-        "id": 266188,
-        "geometry": "POINT (-111.96187 41.237122)",
-        "poi_name": "Pioneer Stadium",
-        "osm_id": 598066080,
+        "id": 267102,
+        "geometry": "POINT (-86.441176 36.996563)",
+        "poi_name": "Bowling Green Ballpark",
+        "osm_id": 4514482625,
         "leisure": "stadium",
-        "sport": "equestrian",
-        "wikidata": "Q7079951",
-        "addr_state": "UT",
-        "addr_city": "Ogden",
-        "addr_street": "17th Street",
-        "addr_housenumber": "668"
+        "sport": "baseball",
+        "wikidata": "Q4951144",
+        "addr_state": "KY",
+        "addr_city": "Bowling Green",
+        "addr_postcode": "42101",
+        "addr_street": "East 8th Avenue",
+        "addr_housenumber": "300"
       }
     }
   },
-  "id": 2779,
-  "type": "knn+name+multihop2"
+  "id": 979,
+  "type": "knn+name+multi_source2"
 }

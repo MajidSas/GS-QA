@@ -1,39 +1,42 @@
 {
-  "question": "Could you tell me the number of stadia located within a 110 kilometers radius from Canal Park, Nanticoke, PA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.016846 41.221006)',4326)::geography, 110000)\nAND leisure = 'stadium';\n",
+  "question": "What\u2019s the total count of viewpoints within 130 kilometers of Hickory Grove Riverfront, Cary, IL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, 130000)\nAND tourism = 'viewpoint';\n",
   "answers": [
     {
-      "count": 1
+      "count": 59
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 130000,
+      "text": "130 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Canal Park, Nanticoke, PA",
-      "geo_wkt": "POINT (-76.016846 41.221006)",
+      "sub_category": "nature reserve",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
       "poi": {
-        "id": 266463,
-        "geometry": "POINT (-76.016846 41.221006)",
-        "poi_name": "Canal Park",
-        "osm_id": 5118604069,
-        "leisure": "park",
-        "addr_state": "PA",
-        "addr_city": "Nanticoke",
-        "addr_postcode": "18634",
-        "addr_street": "Canal Street"
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
       }
     }
   },
-  "id": 2245,
+  "id": 1845,
   "type": "range+count"
 }

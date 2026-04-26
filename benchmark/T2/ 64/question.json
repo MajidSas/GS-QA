@@ -1,22 +1,20 @@
 {
-  "question": "Could you help me find an emergency hospital, preferably within a 20 kilometers radius of Center for Drug Delivery and Nanomedicine, Omaha, NE?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography, 20000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Would you be able to locate a emergency hospital not farther than 50 kilometers from World's Largest Egg, Winlock, WA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.937891 46.493327)',4326)::geography, 50000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 147577,
-      "geometry": "POINT (-95.977982 41.256489)",
-      "poi_name": "Nebraska Medicine emergency Services at Nebraska Medical Center",
-      "osm_id": 7546124076,
+      "id": 30858,
+      "geometry": "POINT (-122.941384 46.64061)",
+      "poi_name": "Capital Oncology",
+      "osm_id": 8389138771,
       "amenity": "hospital",
-      "website": "https://nebraskamed.com/",
-      "phone": "+1-402-559-6637",
       "healthcare": "hospital",
       "emergency": "yes",
-      "addr_state": "NE",
-      "addr_city": "Omaha",
-      "addr_postcode": "68105",
-      "addr_street": "Dewey Avenue",
-      "addr_housenumber": "4350"
+      "addr_state": "WA",
+      "addr_city": "Chehalis",
+      "addr_postcode": "98532",
+      "addr_street": "Bishop Road",
+      "addr_housenumber": "1201"
     }
   ],
   "answer_type": "name",
@@ -28,28 +26,29 @@
       "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Center for Drug Delivery and Nanomedicine, Omaha, NE",
-      "geo_wkt": "POINT (-95.980829 41.255456)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "World's Largest Egg, Winlock, WA",
+      "geo_wkt": "POINT (-122.937891 46.493327)",
       "poi": {
-        "id": 147575,
-        "geometry": "POINT (-95.980829 41.255456)",
-        "poi_name": "Center for Drug Delivery and Nanomedicine",
-        "osm_id": 7546124073,
-        "amenity": "university",
-        "website": "cddn.unmc.edu",
-        "phone": "+1-402-559-9330",
-        "addr_state": "NE",
-        "addr_city": "Omaha",
-        "addr_postcode": "68198"
+        "id": 2147,
+        "geometry": "POINT (-122.937891 46.493327)",
+        "poi_name": "World's Largest Egg",
+        "osm_id": 3280903215,
+        "tourism": "attraction",
+        "operator": "City of Winlock",
+        "addr_state": "WA",
+        "addr_city": "Winlock",
+        "addr_postcode": "98596",
+        "addr_street": "Northwest Kerron Street",
+        "addr_housenumber": "520"
       }
     }
   },
-  "id": 563,
+  "id": 2563,
   "type": "range:non_spat_filter+name"
 }

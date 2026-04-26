@@ -1,47 +1,50 @@
 {
-  "question": "Where can I find the nearest garden relative to Providence St. Joseph Hospital Eureka, Eureka, CA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-124.142219 40.784072)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you tell me where the nearest park from UIS Greenhouse, Springfield, IL is located?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266946,
-      "geometry": "POINT (-124.203982 40.700941)",
-      "poi_name": "Humboldt Botanical Garden",
-      "osm_id": 11161511489,
-      "leisure": "garden",
-      "website": "https://www.hbgf.org/",
-      "addr_state": "CA",
-      "addr_city": "Eureka",
-      "addr_postcode": "95503",
-      "addr_street": "Tompkins Hill Road",
-      "addr_housenumber": "7707"
+      "id": 245581,
+      "geometry": "POINT (-89.596694 39.696998)",
+      "poi_name": "Lincoln Memorial Garden & Nature Center",
+      "osm_id": 3178289161,
+      "leisure": "park",
+      "website": "https://lincolnmemorialgarden.org/",
+      "phone": "+1-217-529-1111",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62712",
+      "addr_street": "East Lake Shore Drive",
+      "addr_housenumber": "2301"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Providence St. Joseph Hospital Eureka, Eureka, CA",
-      "geo_wkt": "POINT (-124.142219 40.784072)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
       "poi": {
-        "id": 226510,
-        "geometry": "POINT (-124.142219 40.784072)",
-        "poi_name": "Providence St. Joseph Hospital Eureka",
-        "osm_id": 11162267113,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "CA",
-        "addr_city": "Eureka",
-        "addr_postcode": "95501",
-        "addr_street": "Dolbeer Street",
-        "addr_housenumber": "2700"
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 1822,
+  "id": 722,
   "type": "knn+loc"
 }

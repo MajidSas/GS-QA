@@ -1,71 +1,58 @@
 {
-  "question": "Could you assist me in locating an emergency hospital within a 120 kilometers radius originating from Magnetic Originals, Minneapolis, MN?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.297652 44.948093)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Can you help me identify a belgian restaurant within 90 kilometers from Action Behavior Centers - ABA therapy for Autism, Mansfield, TX?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.179759 32.580912)',4326)::geography, 90000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%belgian%';\n",
   "answers": [
     {
-      "id": 96431,
-      "geometry": "POINT (-93.238254 44.967745)",
-      "poi_name": "M Health West Bank Emergency Department",
-      "osm_id": 6433194754,
-      "amenity": "hospital",
-      "operator": "M Health Fairview",
-      "website": "https://www.mhealth.org/care/overarching-care/emergency-services-adult",
-      "phone": "+1 612 273 8383",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "MN",
-      "addr_city": "Minneapolis",
-      "addr_postcode": "55454",
-      "addr_street": "South 6th Street",
-      "addr_housenumber": "2312"
-    },
-    {
-      "id": 205596,
-      "geometry": "POINT (-93.369978 45.183406)",
-      "poi_name": "Mercy Hospital Emergency Department",
-      "osm_id": 7175471467,
-      "amenity": "hospital",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "MN",
-      "addr_city": "Coon Rapids",
-      "addr_postcode": "55433",
-      "addr_street": "Coon Rapids Boulevard Northwest",
-      "addr_housenumber": "4050"
+      "id": 68647,
+      "geometry": "POINT (-96.770017 32.814969)",
+      "poi_name": "Belgian Bites",
+      "osm_id": 11279134006,
+      "amenity": "restaurant",
+      "cuisine": "belgian",
+      "website": "https://meyboombar.com/",
+      "phone": "+1-214-838-8298",
+      "addr_state": "TX",
+      "addr_city": "Dallas",
+      "addr_postcode": "75206",
+      "addr_street": "Greenville Avenue",
+      "addr_housenumber": "2100"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "belgian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%belgian%'"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Magnetic Originals, Minneapolis, MN",
-      "geo_wkt": "POINT (-93.297652 44.948093)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, Mansfield, TX",
+      "geo_wkt": "POINT (-97.179759 32.580912)",
       "poi": {
-        "id": 3286,
-        "geometry": "POINT (-93.297652 44.948093)",
-        "poi_name": "Magnetic Originals",
-        "osm_id": 5338231281,
-        "tourism": "gallery",
-        "website": "https://www.magnetdude.com",
-        "addr_state": "MN",
-        "addr_city": "Minneapolis",
-        "addr_postcode": "55408",
-        "addr_street": "Hennepin Avenue South",
-        "addr_housenumber": "3001"
+        "id": 54794,
+        "geometry": "POINT (-97.179759 32.580912)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10156267621,
+        "amenity": "hospital",
+        "description": "Services:Center-based Autism Therapy (ABA Therapy), Assessment, Autism Diagnostic Observation Schedule Assessment (ADOS Assessment), ABC at Home (Home-based Therapy)",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-mansfield-owens-court-tx/",
+        "phone": "682-224-7600",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Mansfield",
+        "addr_postcode": "76063",
+        "addr_street": "Owen Court",
+        "addr_housenumber": "1805"
       }
     }
   },
-  "id": 411,
+  "id": 2411,
   "type": "range:non_spat_filter+loc"
 }

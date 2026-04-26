@@ -1,65 +1,72 @@
 {
-  "question": "Which hotel is closest along the route to Lovely Bride, Scottsdale, AZ from the Potted Plant Inc., Scottsdale, AZ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, ST_GeomFromText('POINT (-111.927183 33.49292)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum comes up first when traveling toward the George Washington University - Arlington Education Center, Arlington, VA from Mays Chapel Medical Care Center, Lutherville, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography, ST_GeomFromText('POINT (-77.115914 38.881333)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13416,
-      "geometry": "POINT (-111.918023 33.621787)",
-      "poi_name": "BEST WESTERN PLUS Scottsdale Thunderbird Suites",
-      "osm_id": 4095415192,
-      "tourism": "hotel",
-      "addr_state": "AZ",
-      "addr_city": "Scottsdale",
-      "addr_postcode": "85260",
-      "addr_street": "East Butherus Drive",
-      "addr_housenumber": "7515",
-      "value": 182.23387540016418
+      "id": 13923,
+      "geometry": "POINT (-76.855215 39.222417)",
+      "poi_name": "Howard County Center of African American Culture",
+      "osm_id": 4187856285,
+      "tourism": "museum",
+      "website": "https://hccaac.org/",
+      "phone": "+1 410 715 1921",
+      "addr_state": "MD",
+      "addr_city": "Columbia",
+      "addr_postcode": "21044",
+      "addr_street": "Vantage Point Road",
+      "addr_housenumber": "5434",
+      "value": 211.52741246525218
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
-      "geo_wkt": "POINT (-111.920729 33.631545)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mays Chapel Medical Care Center, Lutherville, MD",
+      "geo_wkt": "POINT (-76.663402 39.458755)",
       "poi": {
-        "id": 247645,
-        "geometry": "POINT (-111.920729 33.631545)",
-        "poi_name": "The Potted Plant Inc.",
-        "osm_id": 8008054008,
-        "leisure": "garden",
-        "addr_state": "AZ",
-        "addr_city": "Scottsdale",
-        "addr_postcode": "85260",
-        "addr_street": "North Dial Boulevard",
-        "addr_housenumber": "16055"
+        "id": 41532,
+        "geometry": "POINT (-76.663402 39.458755)",
+        "poi_name": "Mays Chapel Medical Care Center",
+        "osm_id": 3019370509,
+        "amenity": "hospital",
+        "operator": "Lifebridge Health",
+        "website": "https://www.lifebridgehealth.org/Main/MaysChapelMedicalCareCenters.aspx",
+        "addr_state": "MD",
+        "addr_city": "Lutherville",
+        "addr_postcode": "21093",
+        "addr_street": "Tullamore Road",
+        "addr_housenumber": "12221"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Lovely Bride, Scottsdale, AZ",
-      "geo_wkt": "POINT (-111.927183 33.49292)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The George Washington University - Arlington Education Center, Arlington, VA",
+      "geo_wkt": "POINT (-77.115914 38.881333)",
       "poi": {
-        "id": 23406,
-        "geometry": "POINT (-111.927183 33.49292)",
-        "poi_name": "Lovely Bride",
-        "osm_id": 5173662907,
-        "tourism": "attraction",
-        "shop": "clothes",
-        "addr_state": "AZ",
-        "addr_city": "Scottsdale",
-        "addr_postcode": "85251",
-        "addr_street": "East Main Street",
-        "addr_housenumber": "7155"
+        "id": 138847,
+        "geometry": "POINT (-77.115914 38.881333)",
+        "poi_name": "The George Washington University - Arlington Education Center",
+        "osm_id": 6171696809,
+        "amenity": "university",
+        "operator": "The George Washington University",
+        "website": "https://www.cps.gwu.edu/locations",
+        "internet_access": "yes",
+        "phone": "+1-703-248-6200",
+        "addr_state": "VA",
+        "addr_city": "Arlington",
+        "addr_postcode": "22203",
+        "addr_street": "North Glebe Road",
+        "addr_housenumber": "950"
       }
     },
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "museum"
     }
   },
-  "id": 110,
+  "id": 1610,
   "type": "knn:towards+name"
 }

@@ -1,71 +1,72 @@
 {
-  "question": "Where is the closest restaurant from Longfellow Arboretum, Portland, ME towards Blue Ocean Discovery Center, Hampton, NH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hotel forward of Popcorn Park Animal Refuge, Forked River, NJ in the direction of Salus University, Elkins Park, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography, ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205529,
-      "geometry": "POINT (-70.282024 43.669716)",
-      "poi_name": "Mister Bagel",
-      "osm_id": 7171975975,
-      "amenity": "restaurant",
-      "cuisine": "bagel;coffee_shop;breakfast;sandwich",
-      "website": "https://www.misterbagelforestave.com/",
-      "phone": "+1 (207) 775-0718",
-      "addr_state": "ME",
-      "addr_city": "Portland",
-      "addr_postcode": "04101",
-      "addr_street": "Forest Avenue",
-      "addr_housenumber": "599",
-      "value": 207.3118928776434
+      "id": 13829,
+      "geometry": "POINT (-74.948041 39.916172)",
+      "poi_name": "Hyatt House Mt. Laurel",
+      "osm_id": 4151014248,
+      "tourism": "hotel",
+      "addr_state": "NJ",
+      "addr_city": "Mount Laurel",
+      "addr_postcode": "08054",
+      "addr_street": "Crawford Place",
+      "addr_housenumber": "3000",
+      "value": 286.1705104481486
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Longfellow Arboretum, Portland, ME",
-      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
+      "geo_wkt": "POINT (-74.327266 39.910289)",
       "poi": {
-        "id": 265852,
-        "geometry": "POINT (-70.269893 43.680714)",
-        "poi_name": "Longfellow Arboretum",
-        "osm_id": 7922996124,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "fee": "no",
-        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
-        "addr_state": "ME",
-        "addr_city": "Portland",
-        "addr_street": "Baxter Boulevard",
-        "addr_housenumber": "755"
+        "id": 20004,
+        "geometry": "POINT (-74.327266 39.910289)",
+        "poi_name": "Popcorn Park Animal Refuge",
+        "osm_id": 7810633955,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-17:00",
+        "operator": "Associated Humane Societies",
+        "website": "https://ahscares.org/popcorn-park/",
+        "phone": "(609) 693-1900",
+        "addr_state": "NJ",
+        "addr_city": "Forked River",
+        "addr_postcode": "08731",
+        "addr_street": "Humane Way",
+        "addr_housenumber": "1"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
-      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
       "poi": {
-        "id": 4389,
-        "geometry": "POINT (-70.810543 42.909869)",
-        "poi_name": "Blue Ocean Discovery Center",
-        "osm_id": 11244479725,
-        "tourism": "aquarium",
-        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
-        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
-        "addr_state": "NH",
-        "addr_city": "Hampton",
-        "addr_postcode": "03842",
-        "addr_street": "Ocean Boulevard",
-        "addr_housenumber": "180"
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1375,
+  "id": 1575,
   "type": "knn:towards+loc"
 }

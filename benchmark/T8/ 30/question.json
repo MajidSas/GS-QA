@@ -1,40 +1,44 @@
 {
-  "question": "What's the nearest hotel from the university established in the year 1911 in Memphis, TN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which stadium is nearest from the museum that was built in 1830 in Arlington, MA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13748,
-      "geometry": "POINT (-90.05208 35.155596)",
-      "poi_name": "Big Cypress Lodge",
-      "osm_id": 4142466444,
-      "tourism": "hotel",
-      "wikidata": "Q111394212"
+      "id": 259649,
+      "geometry": "POINT (-71.040395 42.400998)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 358260110,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
-      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 30527,
-        "geometry": "POINT (-90.031353 35.139317)",
-        "poi_name": "The University of Tennessee Health Science Center",
-        "osm_id": 8364364991,
-        "amenity": "university",
-        "wikidata": "Q7896420",
-        "addr_state": "TN",
-        "addr_city": "Memphis",
-        "addr_postcode": "38163"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     }
   },
-  "id": 2729,
-  "type": "knn+name+multihop2"
+  "id": 929,
+  "type": "knn+name+multi_source2"
 }

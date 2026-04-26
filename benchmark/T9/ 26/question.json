@@ -1,40 +1,45 @@
 {
-  "question": "What's the nearest nature reserve located in the northeast of University Gallery, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.380398 41.21048)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest aquarium situated towards the southeast of the Plaza at the Shops by HTA, Hoonah, AK?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-135.442626 58.106949)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246680,
-      "geometry": "POINT (-79.380398 41.21048)",
-      "poi_name": "Four Mile Creek Nature Preserve",
-      "osm_id": 8818657932,
-      "leisure": "nature_reserve"
+      "id": 19176,
+      "geometry": "POINT (-135.442626 58.106949)",
+      "poi_name": "Idaho Aquarium",
+      "osm_id": 2545925983,
+      "tourism": "aquarium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "University Gallery, PA",
-      "geo_wkt": "POINT (-79.380398 41.21048)",
+      "sub_category": "attraction",
+      "display_name": "The Plaza at The Shops by HTA, Hoonah, AK",
+      "geo_wkt": "POINT (-135.442626 58.106949)",
       "poi": {
-        "id": 17722,
-        "geometry": "POINT (-79.380398 41.21048)",
-        "poi_name": "University Gallery",
-        "osm_id": 367959551,
-        "tourism": "gallery",
-        "addr_state": "PA"
+        "id": 2997,
+        "geometry": "POINT (-135.442626 58.106949)",
+        "poi_name": "The Plaza at The Shops by HTA",
+        "osm_id": 10122768618,
+        "tourism": "attraction",
+        "operator": "Hoonah Travel Adventures LLC",
+        "addr_state": "AK",
+        "addr_city": "Hoonah",
+        "addr_postcode": "99829",
+        "addr_street": "Harbor Drive",
+        "addr_housenumber": "335"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2525,
+  "id": 1225,
   "type": "knn:direction+name"
 }

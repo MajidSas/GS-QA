@@ -1,63 +1,65 @@
 {
-  "question": "Where's the nearest attraction heading towards Residence Inn by Marriott Chicago Deerfield, Deerfield, IL from Tilt Studio, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, ST_GeomFromText('POINT (-87.840986 42.156931)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery located between English Street Community Garden, New Haven, CT and Nautical Mile, Freeport, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, ST_GeomFromText('POINT (-73.581962 40.634243)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 4910,
-      "geometry": "POINT (-88.577658 42.273191)",
-      "poi_name": "Cody's Farm and Orchard",
-      "osm_id": 9678058418,
-      "tourism": "attraction",
-      "website": "https://www.codysfarm.com/",
-      "phone": "+1-815-568-7976",
-      "addr_state": "IL",
-      "addr_city": "Marengo",
-      "addr_postcode": "60152",
-      "addr_street": "River Road",
-      "addr_housenumber": "19502",
-      "value": 95.64708403754312
+      "id": 8714,
+      "geometry": "POINT (-73.057136 41.224873)",
+      "poi_name": "Gilded Lily",
+      "osm_id": 8638767243,
+      "tourism": "gallery",
+      "addr_state": "CT",
+      "addr_city": "Milford",
+      "addr_postcode": "06460",
+      "addr_street": "River Street",
+      "addr_housenumber": "99-101",
+      "value": 217.5178121222816
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Tilt Studio, IL",
-      "geo_wkt": "POINT (-88.973072 42.24581)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
       "poi": {
-        "id": 5126,
-        "geometry": "POINT (-88.973072 42.24581)",
-        "poi_name": "Tilt Studio",
-        "osm_id": 9768506456,
-        "tourism": "theme_park",
-        "addr_state": "IL"
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Residence Inn by Marriott Chicago Deerfield, Deerfield, IL",
-      "geo_wkt": "POINT (-87.840986 42.156931)",
+      "sub_category": "attraction",
+      "display_name": "Nautical Mile, Freeport, NY",
+      "geo_wkt": "POINT (-73.581962 40.634243)",
       "poi": {
-        "id": 24065,
-        "geometry": "POINT (-87.840986 42.156931)",
-        "poi_name": "Residence Inn by Marriott Chicago Deerfield",
-        "osm_id": 9289177051,
-        "tourism": "hotel",
-        "official_name": "Residence Inn by Marriott",
-        "addr_state": "IL",
-        "addr_city": "Deerfield",
-        "addr_postcode": "60015",
-        "addr_street": "Lake Cook Road",
-        "addr_housenumber": "530"
+        "id": 8419,
+        "geometry": "POINT (-73.581962 40.634243)",
+        "poi_name": "Nautical Mile",
+        "osm_id": 6689855285,
+        "tourism": "attraction",
+        "operator": "Village of Freeport",
+        "addr_state": "NY",
+        "addr_city": "Freeport",
+        "addr_street": "Woodcleft Avenue"
       }
     },
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "gallery"
     }
   },
-  "id": 1385,
+  "id": 1585,
   "type": "knn:towards+loc"
 }

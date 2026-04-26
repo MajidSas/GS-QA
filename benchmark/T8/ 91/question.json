@@ -1,44 +1,51 @@
 {
-  "question": "Looking for the closest garden in relation to the university established in the year 1975 in Houston, TX, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant near the museum that was built in 1830 in Arlington, MA would you suggest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248510,
-      "geometry": "POINT (-95.390656 29.719714)",
-      "poi_name": "O. Jack Mitchell Garden",
-      "osm_id": 4287062624,
-      "leisure": "garden",
-      "website": "https://www.hermannpark.org/place/37/"
+      "id": 27605,
+      "geometry": "POINT (-71.152105 42.415236)",
+      "poi_name": "Punjab",
+      "osm_id": 439211373,
+      "amenity": "restaurant",
+      "cuisine": "indian",
+      "opening_hours": "Mo-Su 11:00-22:00",
+      "addr_state": "MA",
+      "addr_city": "Arlington",
+      "addr_postcode": "02474",
+      "addr_street": "Massachusetts Avenue",
+      "addr_housenumber": "485"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "George R. Brown School of Engineering, Houston, TX",
-      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 30759,
-        "geometry": "POINT (-95.398757 29.720135)",
-        "poi_name": "George R. Brown School of Engineering",
-        "osm_id": 8379958482,
-        "amenity": "university",
-        "website": "https://engineering.rice.edu/",
-        "phone": "+1-713-348-4955",
-        "wikidata": "Q5543612",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77005",
-        "addr_street": "Main Street",
-        "addr_housenumber": "6100"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     }
   },
-  "id": 2790,
-  "type": "knn+name+multihop2"
+  "id": 990,
+  "type": "knn+name+multi_source2"
 }

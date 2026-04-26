@@ -1,50 +1,47 @@
 {
-  "question": "How distant is the closest fast food restaurant from the reference location Snug Harbor Resort, Friday Harbor, WA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-123.168191 48.570227)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-123.168191 48.570227)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest hospital with respect to Cannon Beach Hotel, Cannon Beach, OR?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-123.962077 45.889862)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-123.962077 45.889862)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 101208,
-      "geometry": "POINT (-123.016685 48.534162)",
-      "poi_name": "The Bait Shop",
-      "osm_id": 6615232419,
-      "amenity": "fast_food",
-      "cuisine": "fish_and_chips",
-      "drive_through": "no",
+      "id": 205578,
+      "geometry": "POINT (-122.916631 46.175156)",
+      "poi_name": "Beacon Hill Rehabilitation",
+      "osm_id": 7173862497,
+      "amenity": "hospital",
+      "healthcare": "hospital",
       "addr_state": "WA",
-      "addr_city": "Friday Harbor",
-      "addr_street": "Spring Street",
-      "addr_housenumber": "175",
-      "distance": 11882.2353648
+      "addr_city": "Longview",
+      "addr_postcode": "98632",
+      "addr_street": "Old Beacon Hill Drive",
+      "addr_housenumber": "128",
+      "distance": 86925.8622796
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Snug Harbor Resort, Friday Harbor, WA",
-      "geo_wkt": "POINT (-123.168191 48.570227)",
+      "display_name": "Cannon Beach Hotel, Cannon Beach, OR",
+      "geo_wkt": "POINT (-123.962077 45.889862)",
       "poi": {
-        "id": 4785,
-        "geometry": "POINT (-123.168191 48.570227)",
-        "poi_name": "Snug Harbor Resort",
-        "osm_id": 9616351378,
+        "id": 1309,
+        "geometry": "POINT (-123.962077 45.889862)",
+        "poi_name": "Cannon Beach Hotel",
+        "osm_id": 2933695026,
         "tourism": "hotel",
-        "website": "https://www.snugresort.com/",
-        "internet_access": "wlan",
-        "phone": "+1 (360) 378-4762",
-        "addr_state": "WA",
-        "addr_city": "Friday Harbor",
-        "addr_postcode": "98250",
-        "addr_street": "Mitchell Bay Road",
-        "addr_housenumber": "1997"
+        "addr_state": "OR",
+        "addr_city": "Cannon Beach",
+        "addr_postcode": "97110",
+        "addr_street": "South Hemlock Street",
+        "addr_housenumber": "1116"
       }
     }
   },
-  "id": 2474,
+  "id": 674,
   "type": "knn+distance"
 }

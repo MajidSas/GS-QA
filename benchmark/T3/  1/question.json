@@ -1,61 +1,611 @@
 {
-  "question": "Which attraction is located to the west of the University of Tennessee Health Science Center, Memphis, TN, within a radius of 40 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography, 40000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Which park are situated within 80 kilometers following the southwest direction from DoubleTree by Hilton Hotel, Bedford, MA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, 80000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 21179,
-      "geometry": "POINT (-90.031353 35.139317)",
-      "poi_name": "Gibson Guitar Factory Tour",
-      "osm_id": 1433022627,
-      "tourism": "attraction"
+      "id": 248663,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Emerald Hills",
+      "osm_id": 4726744269,
+      "leisure": "park"
     },
     {
-      "id": 323,
-      "geometry": "POINT (-90.031353 35.139317)",
-      "poi_name": "Sidewalk of Stars at the Orpheum",
-      "osm_id": 8319593787,
-      "tourism": "attraction"
+      "id": 245745,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Skull Rock Lock Trailhead",
+      "osm_id": 3506884730,
+      "leisure": "park"
     },
     {
-      "id": 3596,
-      "geometry": "POINT (-90.031353 35.139317)",
-      "poi_name": "Memphis Riverboats",
-      "osm_id": 5483818129,
-      "tourism": "attraction"
+      "id": 245746,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Central (Stanley) Woolen Mill District Park",
+      "osm_id": 3507933657,
+      "leisure": "park"
+    },
+    {
+      "id": 245954,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Teeter Totter",
+      "osm_id": 5360982635,
+      "leisure": "park"
+    },
+    {
+      "id": 246021,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Tricentennial Park",
+      "osm_id": 5468502997,
+      "leisure": "park",
+      "tourism": "picnic_table",
+      "wheelchair": "yes"
+    },
+    {
+      "id": 246112,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Spag's Memorial Park",
+      "osm_id": 5579521399,
+      "leisure": "park"
+    },
+    {
+      "id": 248525,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Ye Olde Commons",
+      "osm_id": 4633921014,
+      "leisure": "park"
+    },
+    {
+      "id": 248664,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Zettek Overlook",
+      "osm_id": 4726744270,
+      "leisure": "park",
+      "description": "The highest point in Hopkinton"
+    },
+    {
+      "id": 248718,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "saxonville",
+      "osm_id": 4733240579,
+      "leisure": "park"
+    },
+    {
+      "id": 253793,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "John H Chafee Blackstone River Valley National Heritage Corridor",
+      "osm_id": 357267950,
+      "leisure": "park"
+    },
+    {
+      "id": 259657,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Minute Man Monument",
+      "osm_id": 358260243,
+      "leisure": "park",
+      "historic": "monument"
+    },
+    {
+      "id": 259679,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Stoddard Park",
+      "osm_id": 358262380,
+      "leisure": "park"
+    },
+    {
+      "id": 259682,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Dodge Park",
+      "osm_id": 358263078,
+      "leisure": "park"
+    },
+    {
+      "id": 259683,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Burncoat Park",
+      "osm_id": 358263082,
+      "leisure": "park"
+    },
+    {
+      "id": 259684,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Greenwood Park",
+      "osm_id": 358263096,
+      "leisure": "park"
+    },
+    {
+      "id": 259685,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Blithewood Ave Playground",
+      "osm_id": 358263098,
+      "leisure": "park"
+    },
+    {
+      "id": 259686,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Crompton Park",
+      "osm_id": 358263107,
+      "leisure": "park"
+    },
+    {
+      "id": 259713,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Columbus Park",
+      "osm_id": 358265287,
+      "leisure": "park"
+    },
+    {
+      "id": 259714,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Cookson Field",
+      "osm_id": 358265323,
+      "leisure": "park"
+    },
+    {
+      "id": 259715,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Gaskin Field",
+      "osm_id": 358265327,
+      "leisure": "park"
+    },
+    {
+      "id": 259716,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Mernill Pond State Reservation",
+      "osm_id": 358265331,
+      "leisure": "park"
+    },
+    {
+      "id": 259789,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Berry Acres Conservation Area",
+      "osm_id": 358277386,
+      "leisure": "park"
+    },
+    {
+      "id": 259820,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Irving Square Historic District",
+      "osm_id": 358278025,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 259823,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Korean Veterans Field",
+      "osm_id": 358278100,
+      "leisure": "park",
+      "wikidata": "Q49511965"
+    },
+    {
+      "id": 259841,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Reardon Park",
+      "osm_id": 358278461,
+      "leisure": "park",
+      "wikidata": "Q49548531"
+    },
+    {
+      "id": 259844,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Simpson Playground",
+      "osm_id": 358278646,
+      "leisure": "park"
+    },
+    {
+      "id": 259857,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Willard Common",
+      "osm_id": 358278890,
+      "leisure": "park",
+      "wikidata": "Q49580894"
+    },
+    {
+      "id": 259858,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Williams Street Field",
+      "osm_id": 358278913,
+      "leisure": "park",
+      "wikidata": "Q49581259"
+    },
+    {
+      "id": 259861,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Woodfield Playground",
+      "osm_id": 358278935,
+      "leisure": "park",
+      "wikidata": "Q49582654"
+    },
+    {
+      "id": 260021,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Bailey-Prouty Playground",
+      "osm_id": 358282174,
+      "leisure": "park"
+    },
+    {
+      "id": 260024,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Beacon Pakr",
+      "osm_id": 358282212,
+      "leisure": "park"
+    },
+    {
+      "id": 260025,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Beaver Street Historic District",
+      "osm_id": 358282213,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q4878177"
+    },
+    {
+      "id": 260026,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Bennett Field",
+      "osm_id": 358282218,
+      "leisure": "park"
+    },
+    {
+      "id": 260029,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Boyce Street Park",
+      "osm_id": 358282251,
+      "leisure": "park"
+    },
+    {
+      "id": 260030,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Brookfield Common Historic District",
+      "osm_id": 358282254,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260031,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Burncoat Street Playground",
+      "osm_id": 358282263,
+      "leisure": "park"
+    },
+    {
+      "id": 260033,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Central Woolen Mills District",
+      "osm_id": 358282281,
+      "leisure": "park"
+    },
+    {
+      "id": 260036,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Elm Hill Farm Historic District",
+      "osm_id": 358282368,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260037,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Fay Street Historic District",
+      "osm_id": 358282406,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q5438938"
+    },
+    {
+      "id": 260038,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Freegrace Marble Farm Historic District",
+      "osm_id": 358282473,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260044,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Hayward Field",
+      "osm_id": 358282517,
+      "leisure": "park"
+    },
+    {
+      "id": 260047,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Huguenot Monument",
+      "osm_id": 358282537,
+      "leisure": "park"
+    },
+    {
+      "id": 260049,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Jordan Pond Beach",
+      "osm_id": 358282552,
+      "leisure": "park"
+    },
+    {
+      "id": 260050,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Kendrick Field",
+      "osm_id": 358282557,
+      "leisure": "park"
+    },
+    {
+      "id": 260052,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Lincoln Estate-Elm Park Historic District",
+      "osm_id": 358282578,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q6550661"
+    },
+    {
+      "id": 260053,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Linwood Historic District",
+      "osm_id": 358282579,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260054,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Lower Pleasant Street District",
+      "osm_id": 358282586,
+      "leisure": "park",
+      "wikidata": "Q6693704"
+    },
+    {
+      "id": 260056,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Mall Common",
+      "osm_id": 358282597,
+      "leisure": "park"
+    },
+    {
+      "id": 260057,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Massachusetts Avenue Historic District",
+      "osm_id": 358282606,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q6784191"
+    },
+    {
+      "id": 260058,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Memorial Beach Park",
+      "osm_id": 358282615,
+      "leisure": "park"
+    },
+    {
+      "id": 260060,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Moose Hill Wildlife Management Area",
+      "osm_id": 358282644,
+      "leisure": "park"
+    },
+    {
+      "id": 260061,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Northside Village Historic District",
+      "osm_id": 358282671,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260062,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Oakland Heights Playground",
+      "osm_id": 358282678,
+      "leisure": "park"
+    },
+    {
+      "id": 260064,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Prospect Heights Historic District",
+      "osm_id": 358282748,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260065,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Providence Street Historic District",
+      "osm_id": 358282750,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q7252484"
+    },
+    {
+      "id": 260066,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Rockdale Common Housing District",
+      "osm_id": 358282761,
+      "leisure": "park"
+    },
+    {
+      "id": 260067,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Rogersons Village Historic District",
+      "osm_id": 358282765,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260068,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Shrewsbury Historic District",
+      "osm_id": 358282906,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260069,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Spencer Town Center Historic District",
+      "osm_id": 358282929,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260074,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Uxbridge Common District",
+      "osm_id": 358283002,
+      "leisure": "park"
+    },
+    {
+      "id": 260076,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Vernon Hill Playground",
+      "osm_id": 358283008,
+      "leisure": "park"
+    },
+    {
+      "id": 266032,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Scandinavian Athletic Club / SAC Park",
+      "osm_id": 10297373902,
+      "leisure": "park",
+      "operator": "Scandinavian Athletic Club",
+      "phone": "(508) 757-3948",
+      "addr_state": "MA",
+      "addr_city": "Shrewsbury",
+      "addr_postcode": "01545",
+      "addr_street": "Lake Street",
+      "addr_housenumber": "438"
+    },
+    {
+      "id": 267396,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Howe State Park",
+      "osm_id": 5960559245,
+      "leisure": "park",
+      "tourism": "picnic_site"
+    },
+    {
+      "id": 259795,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Burbank Circle Playground",
+      "osm_id": 358277433,
+      "leisure": "park"
+    },
+    {
+      "id": 259801,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Concord Square Historic District",
+      "osm_id": 358277571,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 259802,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Costanza Park",
+      "osm_id": 358277582,
+      "leisure": "park",
+      "wikidata": "Q49480304"
+    },
+    {
+      "id": 259807,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Elm Brook Conservation Area",
+      "osm_id": 358277685,
+      "leisure": "park",
+      "wikidata": "Q49486613"
+    },
+    {
+      "id": 259810,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Framingham Centre Common Historic District",
+      "osm_id": 358277838,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 259811,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Frank G Feeley Park",
+      "osm_id": 358277846,
+      "leisure": "park",
+      "wikidata": "Q49491293"
+    },
+    {
+      "id": 259883,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Sudbury Center Historic District",
+      "osm_id": 358279465,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 259884,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Sudbury Dam Historic District",
+      "osm_id": 358279467,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260079,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "West Main Street Historic District",
+      "osm_id": 358283043,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 260081,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Wheelockville District",
+      "osm_id": 358283054,
+      "leisure": "park"
+    },
+    {
+      "id": 260082,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Whitinsville Historic District",
+      "osm_id": 358283055,
+      "leisure": "park",
+      "historic": "district"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
-      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 30527,
-        "geometry": "POINT (-90.031353 35.139317)",
-        "poi_name": "The University of Tennessee Health Science Center",
-        "osm_id": 8364364991,
-        "amenity": "university",
-        "wikidata": "Q7896420",
-        "addr_state": "TN",
-        "addr_city": "Memphis",
-        "addr_postcode": "38163"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2600,
+  "id": 2300,
   "type": "range:direction+name"
 }

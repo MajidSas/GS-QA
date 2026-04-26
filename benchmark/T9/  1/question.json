@@ -1,43 +1,49 @@
 {
-  "question": "What is the closest park positioned towards the west of Golden Gate Bridge Lookout, Sausalito, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the closest attraction east of House of Air, San Francisco, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 261967,
-      "geometry": "POINT (-122.486003 37.82872)",
-      "poi_name": "Agate Beach County Park",
-      "osm_id": 358760664,
-      "leisure": "park",
-      "wikidata": "Q49471937"
+      "id": 22674,
+      "geometry": "POINT (-122.468617 37.804932)",
+      "poi_name": "Cable Car Turntable (Hyde & Beach)",
+      "osm_id": 7212382894,
+      "tourism": "attraction",
+      "operator": "San Francisco Municipal Railway"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
-      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "sub_category": "theme park",
+      "display_name": "House of Air, San Francisco, CA",
+      "geo_wkt": "POINT (-122.468617 37.804932)",
       "poi": {
-        "id": 20450,
-        "geometry": "POINT (-122.486003 37.82872)",
-        "poi_name": "Golden Gate Bridge Lookout",
-        "osm_id": 1183476394,
-        "tourism": "viewpoint",
+        "id": 14569,
+        "geometry": "POINT (-122.468617 37.804932)",
+        "poi_name": "House of Air",
+        "osm_id": 4659836677,
+        "tourism": "theme_park",
+        "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+        "website": "https://www.houseofair.com/",
+        "phone": "+1 (415) 345-9675",
+        "wikidata": "Q5914641",
         "addr_state": "CA",
-        "addr_city": "Sausalito",
-        "addr_street": "Conzelman Road"
+        "addr_city": "San Francisco",
+        "addr_postcode": "94129",
+        "addr_street": "Mason Street",
+        "addr_housenumber": "926"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2500,
+  "id": 1200,
   "type": "knn:direction+name"
 }

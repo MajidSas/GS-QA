@@ -1,41 +1,42 @@
 {
-  "question": "Could you inform me about the number of golf courses within 160 kilometers from WSU Cooperative Extension Energy Program, Olympia, WA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.892715 47.040954)',4326)::geography, 160000)\nAND leisure = 'golf_course';\n",
+  "question": "How many caf\u00e9s are located within 150 kilometers from Fresno Chaffee Zoo, Fresno, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-119.823195 36.752149)',4326)::geography, 150000)\nAND amenity = 'cafe';\n",
   "answers": [
     {
-      "count": 8
+      "count": 140
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "WSU Cooperative Extension Energy Program, Olympia, WA",
-      "geo_wkt": "POINT (-122.892715 47.040954)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Fresno Chaffee Zoo, Fresno, CA",
+      "geo_wkt": "POINT (-119.823195 36.752149)",
       "poi": {
-        "id": 236382,
-        "geometry": "POINT (-122.892715 47.040954)",
-        "poi_name": "WSU Cooperative Extension Energy Program",
-        "osm_id": 5791448552,
-        "amenity": "university",
-        "website": "https://energy.wsu.edu/",
-        "addr_state": "WA",
-        "addr_city": "Olympia",
-        "addr_postcode": "98501",
-        "addr_street": "Plum Street SE",
-        "addr_housenumber": "905"
+        "id": 25258,
+        "geometry": "POINT (-119.823195 36.752149)",
+        "poi_name": "Fresno Chaffee Zoo",
+        "osm_id": 4433364107,
+        "tourism": "zoo",
+        "website": "https://www.fresnochaffeezoo.org/",
+        "wikidata": "Q5503166",
+        "addr_state": "CA",
+        "addr_city": "Fresno",
+        "addr_postcode": "93728",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "894"
       }
     }
   },
-  "id": 2279,
+  "id": 1879,
   "type": "range+count"
 }

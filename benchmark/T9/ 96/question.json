@@ -1,49 +1,51 @@
 {
-  "question": "Which fast food restaurant is nearest in the northeast direction from Zero Whiskey Tactical Arms, Austin, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which zoo is nearest when considering the west direction of Barrett, the Honors College at ASU, Tempe, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.927437 33.415436)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 192895,
-      "geometry": "POINT (-97.715155 30.344507)",
-      "poi_name": "Jack in the Box",
-      "osm_id": 1484203979,
-      "amenity": "fast_food",
-      "wheelchair": "yes"
+      "id": 24034,
+      "geometry": "POINT (-111.927437 33.415436)",
+      "poi_name": "Sugarplum Zoo",
+      "osm_id": 9270599265,
+      "tourism": "zoo",
+      "fee": "yes",
+      "opening_hours": "Mo-Sa 08:00-18:00",
+      "addr_state": "CA",
+      "addr_city": "Temecula",
+      "addr_postcode": "92591",
+      "addr_street": "Berenda Rd",
+      "addr_housenumber": "39695"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Zero Whiskey Tactical Arms, Austin, TX",
-      "geo_wkt": "POINT (-97.715155 30.344507)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Barrett, the Honors College at ASU, Tempe, AZ",
+      "geo_wkt": "POINT (-111.927437 33.415436)",
       "poi": {
-        "id": 24505,
-        "geometry": "POINT (-97.715155 30.344507)",
-        "poi_name": "Zero Whiskey Tactical Arms",
-        "osm_id": 11086117116,
-        "tourism": "viewpoint",
-        "opening_hours": "Tu-Sa 10:00-18:00",
-        "website": "https://zerowhiskeytacticalarms.com/",
-        "shop": "weapons",
-        "phone": "+1-346-320-9030",
-        "addr_state": "TX",
-        "addr_city": "Austin",
-        "addr_postcode": "78757",
-        "addr_street": "North Lamar Boulevard",
-        "addr_housenumber": "7600"
+        "id": 50011,
+        "geometry": "POINT (-111.927437 33.415436)",
+        "poi_name": "Barrett, the Honors College at ASU",
+        "osm_id": 3460939942,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Tempe",
+        "addr_postcode": "85281",
+        "addr_street": "East Lemon Mall",
+        "addr_housenumber": "751"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2595,
+  "id": 1295,
   "type": "knn:direction+name"
 }

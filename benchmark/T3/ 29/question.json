@@ -1,52 +1,53 @@
 {
-  "question": "Which university can I find northeast of Legoland Discovery Center Chicago, Schaumburg, IL, within a radius of 130 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography, 130000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "What stadium are present inside a 120 kilometers boundary toward the west of DoubleTree by Hilton Hotel, Bedford, MA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, 120000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 126527,
-      "geometry": "POINT (-88.034026 42.039672)",
-      "poi_name": "Lake Forest College",
-      "osm_id": 7007316793,
-      "amenity": "university",
-      "wikidata": "Q6475861"
+      "id": 265367,
+      "geometry": "POINT (-71.236261 42.508756)",
+      "poi_name": "Grinnel Arena",
+      "osm_id": 367781389,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Legoland Discovery Center Chicago, Schaumburg, IL",
-      "geo_wkt": "POINT (-88.034026 42.039672)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 21492,
-        "geometry": "POINT (-88.034026 42.039672)",
-        "poi_name": "Legoland Discovery Center Chicago",
-        "osm_id": 10285659853,
-        "tourism": "theme_park",
-        "operator": "Merlin Entertainments",
-        "website": "https://www.legolanddiscoverycenter.com/chicago/",
-        "wikidata": "Q20711319",
-        "addr_state": "IL",
-        "addr_city": "Schaumburg",
-        "addr_postcode": "60173",
-        "addr_street": "North Martingale Road",
-        "addr_housenumber": "601"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2628,
+  "id": 2328,
   "type": "range:direction+name"
 }

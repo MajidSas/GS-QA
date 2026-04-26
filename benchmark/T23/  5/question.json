@@ -1,38 +1,41 @@
 {
-  "question": "How many attractions can be found within a 120 kilometers radius from Golden Gate Bridge Lookout, Sausalito, CA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, 120000)\nAND tourism = 'attraction';\n",
+  "question": "How many caf\u00e9s are within 60 kilometers of School of Cosmetology, Somerset, KY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography, 60000)\nAND amenity = 'cafe';\n",
   "answers": [
     {
-      "count": 404
+      "count": 3
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
-      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
       "poi": {
-        "id": 20450,
-        "geometry": "POINT (-122.486003 37.82872)",
-        "poi_name": "Golden Gate Bridge Lookout",
-        "osm_id": 1183476394,
-        "tourism": "viewpoint",
-        "addr_state": "CA",
-        "addr_city": "Sausalito",
-        "addr_street": "Conzelman Road"
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
       }
     }
   },
-  "id": 2204,
+  "id": 1804,
   "type": "range+count"
 }

@@ -1,40 +1,43 @@
 {
-  "question": "Could you tell me the number of aquaria located within a 60 kilometers radius from Southern Property Preservation, Middleburg, FL?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.859164 30.079715)',4326)::geography, 60000)\nAND tourism = 'aquarium';\n",
+  "question": "What\u2019s the count of museums within 120 kilometers of the reference point Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography, 120000)\nAND tourism = 'museum';\n",
   "answers": [
     {
-      "count": 1
+      "count": 38
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Southern Property Preservation, Middleburg, FL",
-      "geo_wkt": "POINT (-81.859164 30.079715)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 266081,
-        "geometry": "POINT (-81.859164 30.079715)",
-        "poi_name": "Southern Property Preservation",
-        "osm_id": 10577992723,
-        "leisure": "nature_reserve",
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
         "addr_state": "FL",
-        "addr_city": "Middleburg",
-        "addr_postcode": "32068",
-        "addr_street": "Lee Drive South",
-        "addr_housenumber": "175"
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     }
   },
-  "id": 2257,
+  "id": 1857,
   "type": "range+count"
 }

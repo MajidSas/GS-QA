@@ -1,56 +1,114 @@
 {
-  "question": "Where can I find a stadium located within 170 kilometers in the direction of north from MTSU Student Services and Admissions Center, Murfreesboro, TN?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.359252 35.847932)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.359252 35.847932)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a museum within 140 kilometers from Ghostprint Gallery, Richmond, VA on the east side?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.444173 37.547223)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.444173 37.547223)',4326)::geography, 140000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 267102,
-      "geometry": "POINT (-86.359252 35.847932)",
-      "poi_name": "Bowling Green Ballpark",
-      "osm_id": 4514482625,
-      "leisure": "stadium",
-      "sport": "baseball",
-      "wikidata": "Q4951144",
-      "addr_state": "KY",
-      "addr_city": "Bowling Green",
-      "addr_postcode": "42101",
-      "addr_street": "East 8th Avenue",
-      "addr_housenumber": "300"
+      "id": 10928,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Mary Ball Washington Museum & Library",
+      "osm_id": 8150181646,
+      "tourism": "museum",
+      "website": "https://lancastervahistory.org/",
+      "museum": "history",
+      "wikidata": "Q6779000",
+      "addr_state": "VA",
+      "addr_city": "Lancaster",
+      "addr_postcode": "22503",
+      "addr_street": "Mary Ball Road",
+      "addr_housenumber": "8346"
+    },
+    {
+      "id": 10968,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Bel Air Mansion And Guest House",
+      "osm_id": 8178004537,
+      "tourism": "museum",
+      "operator": "Virginia Department of Conservation and Recreation",
+      "museum": "history"
+    },
+    {
+      "id": 17751,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Grand Lodge of Virginia Library and Museum",
+      "osm_id": 367996531,
+      "tourism": "museum",
+      "website": "https://grandlodgeofvirginia.org/library/",
+      "addr_state": "VA"
+    },
+    {
+      "id": 19917,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Mathews Historical Museum",
+      "osm_id": 10946089449,
+      "tourism": "museum",
+      "website": "http://mathewsvamuseum.org/",
+      "museum": "local",
+      "addr_state": "VA",
+      "addr_city": "Mathews",
+      "addr_postcode": "23109",
+      "addr_street": "Main Street",
+      "addr_housenumber": "198"
+    },
+    {
+      "id": 21561,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Reedville Fishermen's Museum",
+      "osm_id": 10538360579,
+      "tourism": "museum",
+      "website": "https://rfmuseum.org/",
+      "addr_state": "VA",
+      "addr_city": "Reedville",
+      "addr_postcode": "22539",
+      "addr_street": "Main Street",
+      "addr_housenumber": "504"
+    },
+    {
+      "id": 26060,
+      "geometry": "POINT (-77.444173 37.547223)",
+      "poi_name": "Historical Society of West Point",
+      "osm_id": 5776928903,
+      "tourism": "museum",
+      "website": "https://hswpva.org/",
+      "phone": "+1 804 506 3134",
+      "addr_street": "Main Street",
+      "addr_housenumber": "709"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "MTSU Student Services and Admissions Center, Murfreesboro, TN",
-      "geo_wkt": "POINT (-86.359252 35.847932)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Ghostprint Gallery, Richmond, VA",
+      "geo_wkt": "POINT (-77.444173 37.547223)",
       "poi": {
-        "id": 125319,
-        "geometry": "POINT (-86.359252 35.847932)",
-        "poi_name": "MTSU Student Services and Admissions Center",
-        "osm_id": 6955109243,
-        "amenity": "university",
-        "internet_access": "wlan",
-        "addr_state": "TN",
-        "addr_city": "Murfreesboro",
-        "addr_postcode": "37132-0001",
-        "addr_street": "Blue Raider Drive",
-        "addr_housenumber": "1860"
+        "id": 2204,
+        "geometry": "POINT (-77.444173 37.547223)",
+        "poi_name": "Ghostprint Gallery",
+        "osm_id": 3328148226,
+        "tourism": "gallery",
+        "opening_hours": "We-Sa 12:00-17:00",
+        "website": "https://www.ghostprintgallery.com/",
+        "phone": "+1 804-344-1557",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_street": "West Broad Street",
+        "addr_housenumber": "220"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 18,
+  "id": 2218,
   "type": "range:direction+loc"
 }

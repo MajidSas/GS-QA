@@ -1,45 +1,52 @@
 {
-  "question": "When was the the nearest hotel from Phoenix Urban Research Laboratory, Phoenix, AZ built?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.074127 33.451201)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest hospital from Eddy Lookout Tower, Sanderson, FL first opened?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18979,
-      "geometry": "POINT (-112.074206 33.450529)",
-      "poi_name": "Hotel San Carlos",
-      "osm_id": 2470073524,
-      "tourism": "hotel",
-      "wikidata": "Q5911942",
-      "multihop_answer": "1928",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "Hotel San Carlos Built: 1928"
+      "id": 168203,
+      "geometry": "POINT (-82.35821 29.98852)",
+      "poi_name": "Florida Corrections Medical Center",
+      "osm_id": 367822245,
+      "amenity": "hospital",
+      "website": "http://www.dc.state.fl.us/facilities/region2/209.html",
+      "phone": "+1 386 496 6000",
+      "emergency": "no",
+      "wikidata": "Q28446527",
+      "addr_state": "FL",
+      "addr_city": "Lake Butler",
+      "addr_postcode": "32054",
+      "addr_street": "South CR 231",
+      "addr_housenumber": "7765",
+      "multi_source_answer": "1968",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Florida Corrections Medical Center Opened: 1968"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Phoenix Urban Research Laboratory, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.074127 33.451201)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Eddy Lookout Tower, Sanderson, FL",
+      "geo_wkt": "POINT (-82.34337 30.543305)",
       "poi": {
-        "id": 85478,
-        "geometry": "POINT (-112.074127 33.451201)",
-        "poi_name": "Phoenix Urban Research Laboratory",
-        "osm_id": 1870876317,
-        "amenity": "university",
-        "phone": "+1-480-727-9890",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85004",
-        "addr_street": "North Central Avenue",
-        "addr_housenumber": "234"
+        "id": 8681,
+        "geometry": "POINT (-82.34337 30.543305)",
+        "poi_name": "Eddy Lookout Tower",
+        "osm_id": 8618634369,
+        "tourism": "viewpoint",
+        "addr_state": "FL",
+        "addr_city": "Sanderson",
+        "addr_postcode": "32087",
+        "addr_street": "State Road 2",
+        "addr_housenumber": "18568"
       }
     }
   },
-  "id": 905,
-  "type": "knn+name+multihop1"
+  "id": 805,
+  "type": "knn+name+multi_source1"
 }

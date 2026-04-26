@@ -1,48 +1,50 @@
 {
-  "question": "What's the closest attraction to the west of Zero Whiskey Tactical Arms, Austin, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.715155 30.344507)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which hospital is nearest when considering the southeast direction of Memory Garden, Baltimore, MD?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21095,
-      "geometry": "POINT (-97.715155 30.344507)",
-      "poi_name": "Artificial Chimney",
-      "osm_id": 1398646495,
-      "tourism": "attraction"
+      "id": 181083,
+      "geometry": "POINT (-76.638575 39.300016)",
+      "poi_name": "A H C Behavioral Health And Wellness Services - Es",
+      "osm_id": 10832109898,
+      "amenity": "hospital",
+      "phone": "+1 410 221 0288",
+      "addr_city": "Cambridge",
+      "addr_postcode": "21613",
+      "addr_street": "Fieldcrest Drive",
+      "addr_housenumber": "821"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Zero Whiskey Tactical Arms, Austin, TX",
-      "geo_wkt": "POINT (-97.715155 30.344507)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
       "poi": {
-        "id": 24505,
-        "geometry": "POINT (-97.715155 30.344507)",
-        "poi_name": "Zero Whiskey Tactical Arms",
-        "osm_id": 11086117116,
-        "tourism": "viewpoint",
-        "opening_hours": "Tu-Sa 10:00-18:00",
-        "website": "https://zerowhiskeytacticalarms.com/",
-        "shop": "weapons",
-        "phone": "+1-346-320-9030",
-        "addr_state": "TX",
-        "addr_city": "Austin",
-        "addr_postcode": "78757",
-        "addr_street": "North Lamar Boulevard",
-        "addr_housenumber": "7600"
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2592,
+  "id": 1292,
   "type": "knn:direction+name"
 }

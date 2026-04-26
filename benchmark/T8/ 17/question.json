@@ -1,43 +1,41 @@
 {
-  "question": "Looking for the closest theme park in relation to the university established in the year 1975 in Houston, TX, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest hotel around the location of the stadium that was built in 1936 in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24262,
-      "geometry": "POINT (-95.307208 29.919251)",
-      "poi_name": "Houston Grand Prix",
-      "osm_id": 10984671719,
-      "tourism": "theme_park"
+      "id": 14646,
+      "geometry": "POINT (-91.499733 44.811681)",
+      "poi_name": "The Lismore Hotel Eau Claire - a DoubleTree by Hilton Hotel",
+      "osm_id": 4678355902,
+      "tourism": "hotel"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "theme park"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "George R. Brown School of Engineering, Houston, TX",
-      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
       "poi": {
-        "id": 30759,
-        "geometry": "POINT (-95.398757 29.720135)",
-        "poi_name": "George R. Brown School of Engineering",
-        "osm_id": 8379958482,
-        "amenity": "university",
-        "website": "https://engineering.rice.edu/",
-        "phone": "+1-713-348-4955",
-        "wikidata": "Q5543612",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77005",
-        "addr_street": "Main Street",
-        "addr_housenumber": "6100"
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
       }
     }
   },
-  "id": 2716,
-  "type": "knn+name+multihop2"
+  "id": 916,
+  "type": "knn+name+multi_source2"
 }

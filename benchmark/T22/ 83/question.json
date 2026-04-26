@@ -1,43 +1,48 @@
 {
-  "question": "Which way leads to the nearest restaurant from Carolina Beach Inn, Carolina Beach, NC?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In which direction lies the nearest golf course from City Suites Hotel, Chicago, IL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 89663,
-      "geometry": "POINT (-77.894345 34.034623)",
-      "poi_name": "Olde Salty",
-      "osm_id": 8855195539,
-      "amenity": "restaurant",
-      "angle": 147.95008565049514
+      "id": 245846,
+      "geometry": "POINT (-87.670605 41.920519)",
+      "poi_name": "The Green",
+      "osm_id": 10186016485,
+      "leisure": "golf_course",
+      "description": "This is an indoor golf driving range simulator and entertainment center.",
+      "website": "https://www.golfthegreen.com",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60614",
+      "addr_street": "North Elston Avenue",
+      "addr_housenumber": "2133",
+      "angle": 214.51707225913668
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Carolina Beach Inn, Carolina Beach, NC",
-      "geo_wkt": "POINT (-77.89455 34.034896)",
+      "display_name": "City Suites Hotel, Chicago, IL",
+      "geo_wkt": "POINT (-87.65288 41.939769)",
       "poi": {
-        "id": 25826,
-        "geometry": "POINT (-77.89455 34.034896)",
-        "poi_name": "Carolina Beach Inn",
-        "osm_id": 4616135786,
+        "id": 74,
+        "geometry": "POINT (-87.65288 41.939769)",
+        "poi_name": "City Suites Hotel",
+        "osm_id": 424212348,
         "tourism": "hotel",
-        "website": "https://carolinabeachinn.com/",
-        "phone": "+1-910-622-8393",
-        "addr_state": "NC",
-        "addr_city": "Carolina Beach",
-        "addr_postcode": "28428",
-        "addr_street": "Harper Avenue",
-        "addr_housenumber": "205"
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60657",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "933"
       }
     }
   },
-  "id": 1482,
+  "id": 582,
   "type": "knn+angle"
 }

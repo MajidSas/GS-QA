@@ -1,40 +1,59 @@
 {
-  "question": "Where can I find a gallery located in the north of Point Lookout, PA, within a radius of 170 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, 170000)\nAND tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a museum located within a 120 kilometers radius to the north of Broadbent Arena, Louisville, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, 120000)\nAND tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 17722,
-      "geometry": "POINT (-79.663483 39.854147)",
-      "poi_name": "University Gallery",
-      "osm_id": 367959551,
-      "tourism": "gallery",
-      "addr_state": "PA"
+      "id": 2474,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Vintage Fire Museum",
+      "osm_id": 3467939029,
+      "tourism": "museum",
+      "opening_hours": "Fr,Sa,Su unknown; Mo-Th closed",
+      "website": "https://www.vintagefiremuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Spring Street"
+    },
+    {
+      "id": 2475,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Clark County Museum",
+      "osm_id": 3467940971,
+      "tourism": "museum",
+      "website": "https://www.clarkcountyinmuseum.org/",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Point Lookout, PA",
-      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
       "poi": {
-        "id": 15562,
-        "geometry": "POINT (-79.663483 39.854147)",
-        "poi_name": "Point Lookout",
-        "osm_id": 4939274603,
-        "tourism": "viewpoint",
-        "addr_state": "PA",
-        "addr_street": "Scenic Overlook",
-        "addr_housenumber": "1"
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
       }
     },
     "[4]": {
@@ -42,6 +61,6 @@
       "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 34,
+  "id": 2234,
   "type": "range:direction+loc"
 }

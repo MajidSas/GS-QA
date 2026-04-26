@@ -1,70 +1,67 @@
 {
-  "question": "What is the closest caf\u00e9 from Caldwell Woods, Chicago, IL towards Expo 72, Chicago, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest hotel between Hebrew Senior Care, West Hartford, CT and University of New Haven New London Campus, New London, CT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.729549 41.802734)',4326)::geography, ST_GeomFromText('POINT (-72.092202 41.327524)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.729549 41.802734)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.729549 41.802734)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 142547,
-      "geometry": "POINT (-87.766304 41.983808)",
-      "poi_name": "Yellow Rose Cafe",
-      "osm_id": 6317078369,
-      "amenity": "cafe",
-      "phone": "+1-773-631-2297",
-      "outdoor_seating": "yes",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60630",
-      "addr_street": "North Elston Avenue",
-      "addr_housenumber": "5640",
-      "value": 133.13693790302187
+      "id": 21403,
+      "geometry": "POINT (-72.679346 41.767719)",
+      "poi_name": "Homewood Suites",
+      "osm_id": 1558248272,
+      "tourism": "hotel",
+      "official_name": "Homewood Suites by Hilton",
+      "value": 134.5807561623395
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Caldwell Woods, Chicago, IL",
-      "geo_wkt": "POINT (-87.786491 41.997567)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Hebrew Senior Care, West Hartford, CT",
+      "geo_wkt": "POINT (-72.729549 41.802734)",
       "poi": {
-        "id": 245668,
-        "geometry": "POINT (-87.786491 41.997567)",
-        "poi_name": "Caldwell Woods",
-        "osm_id": 3358252547,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60646"
+        "id": 63311,
+        "geometry": "POINT (-72.729549 41.802734)",
+        "poi_name": "Hebrew Senior Care",
+        "osm_id": 5610228229,
+        "amenity": "hospital",
+        "website": "http://www.hebrewhealthcare.org/",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CT",
+        "addr_city": "West Hartford",
+        "addr_postcode": "06117",
+        "addr_street": "Abrahms Boulevard",
+        "addr_housenumber": "1"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Expo 72, Chicago, IL",
-      "geo_wkt": "POINT (-87.625356 41.88463)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of New Haven New London Campus, New London, CT",
+      "geo_wkt": "POINT (-72.092202 41.327524)",
       "poi": {
-        "id": 12085,
-        "geometry": "POINT (-87.625356 41.88463)",
-        "poi_name": "Expo 72",
-        "osm_id": 6179056467,
-        "tourism": "gallery",
-        "fee": "no",
-        "opening_hours": "24/7",
-        "operator": "Chicago Department of Cultural Affairs and Special Events (DCASE)",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60601",
-        "addr_street": "East Randolph Street",
-        "addr_housenumber": "72"
+        "id": 167779,
+        "geometry": "POINT (-72.092202 41.327524)",
+        "poi_name": "University of New Haven New London Campus",
+        "osm_id": 359280782,
+        "amenity": "university",
+        "description": "The University of New Haven New London Campus has been serving the needs of business people and nearby residents for more than four decades.",
+        "operator": "University of New Haven",
+        "website": "https://www.newhaven.edu/about/campus-locations/new-london.php",
+        "phone": "+1 203 932 7440",
+        "addr_state": "CT",
+        "addr_city": "New London",
+        "addr_postcode": "06320",
+        "addr_street": "Pequot Avenue",
+        "addr_housenumber": "469"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 117,
+  "id": 1617,
   "type": "knn:towards+name"
 }

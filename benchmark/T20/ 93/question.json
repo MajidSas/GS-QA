@@ -1,64 +1,68 @@
 {
-  "question": "Where's the closest fast food restaurant on the route to Maryvale Baseball Park, Phoenix, AZ from Faith Arena, Surprise, AZ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant you hit on the way to Green rooftop garden at design building, Amherst, MA from Sonny's Place, Somers, CT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography, ST_GeomFromText('POINT (-72.523498 42.388204)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 196714,
-      "geometry": "POINT (-112.359989 33.610924)",
-      "poi_name": "Subway",
-      "osm_id": 10593102174,
+      "id": 76669,
+      "geometry": "POINT (-72.517773 42.13675)",
+      "poi_name": "McDonald's",
+      "osm_id": 9786867366,
       "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "opening_hours": "Su-Th 09:00-22:00; Fr-Sa 09:00-23:00",
-      "website": "https://restaurants.subway.com/united-states/az/surprise/13954-w-waddell-rd",
-      "phone": "+1-623-975-6175",
+      "cuisine": "burger",
+      "opening_hours": "Mo-Th 05:00-01:00; Fr 05:00-04:00; Sa 24/7; Su 04:00-01:00",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ma/springfield/809-boston-rd/592.html",
+      "internet_access": "wlan",
+      "phone": "+1 413-783-2328",
       "takeaway": "yes",
-      "drive_through": "no",
-      "addr_state": "AZ",
-      "addr_city": "Surprise",
-      "addr_postcode": "85379",
-      "addr_street": "West Waddell Road",
-      "addr_housenumber": "13954",
-      "value": 129.83440608229324
+      "drive_through": "yes",
+      "addr_state": "MA",
+      "addr_city": "Springfield",
+      "addr_postcode": "01119",
+      "addr_street": "Boston Road",
+      "addr_housenumber": "809",
+      "value": 354.16222950442454
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Faith Arena, Surprise, AZ",
-      "geo_wkt": "POINT (-112.371855 33.62819)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
       "poi": {
-        "id": 265626,
-        "geometry": "POINT (-112.371855 33.62819)",
-        "poi_name": "Faith Arena",
-        "osm_id": 10762941402,
-        "leisure": "stadium",
-        "addr_state": "AZ",
-        "addr_city": "Surprise",
-        "addr_postcode": "85374",
-        "addr_street": "West Tierra Buena Lane",
-        "addr_housenumber": "14470"
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
       }
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "display_name": "Green rooftop garden at design building, Amherst, MA",
+      "geo_wkt": "POINT (-72.523498 42.388204)",
       "poi": {
-        "id": 245566,
-        "geometry": "POINT (-112.173653 33.489497)",
-        "poi_name": "Maryvale Baseball Park",
-        "osm_id": 3136386495,
+        "id": 247082,
+        "geometry": "POINT (-72.523498 42.388204)",
+        "poi_name": "Green rooftop garden at design building",
+        "osm_id": 8697461152,
         "leisure": "park",
-        "wikidata": "Q6781782",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85031",
-        "addr_street": "North 51st Avenue",
-        "addr_housenumber": "3600"
+        "operator": "UMass Amherst",
+        "addr_state": "MA",
+        "addr_city": "Amherst",
+        "addr_postcode": "01003",
+        "addr_street": "North Pleasant Street",
+        "addr_housenumber": "551"
       }
     },
     "[1]": {
@@ -66,6 +70,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 1392,
+  "id": 1592,
   "type": "knn:towards+loc"
 }

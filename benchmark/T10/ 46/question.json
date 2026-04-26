@@ -1,74 +1,64 @@
 {
-  "question": "What's the closest restaurant in the direction of Safari West, Sant Rosa, CA from the View Lounge, San Francisco, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.695392 38.557332)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest fast food encountered heading toward Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio from Latvian Cultural Garden, Cleveland, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, ST_GeomFromText('POINT (-80.844899 41.715412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 210207,
-      "geometry": "POINT (-122.404441 37.785663)",
-      "poi_name": "Delarosa",
-      "osm_id": 5085031722,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "wheelchair": "yes",
-      "outdoor_seating": "patio",
-      "addr_postcode": "94103",
-      "addr_street": "Yerba Buena Lane",
-      "addr_housenumber": "37",
-      "value": 343.51293904457236
+      "id": 89103,
+      "geometry": "POINT (-81.582194 41.530741)",
+      "poi_name": "Rally's",
+      "osm_id": 8825635932,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "addr_state": "OH",
+      "addr_city": "East Cleveland",
+      "addr_postcode": "44112",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "14421",
+      "value": 71.86021211601947
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The View Lounge, San Francisco, CA",
-      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
       "poi": {
-        "id": 5810,
-        "geometry": "POINT (-122.404326 37.785414)",
-        "poi_name": "The View Lounge",
-        "osm_id": 1612808193,
-        "amenity": "bar",
-        "description": "39th floor bar with city views; enter through hotel",
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Su 16:00-24:00",
-        "operator": "Marriott",
-        "website": "https://www.sfmarquis.com/theview",
-        "phone": "+1 415-896-1600",
-        "addr_state": "CA",
-        "addr_city": "San Francisco",
-        "addr_postcode": "94103",
-        "addr_street": "4th Street",
-        "addr_housenumber": "55"
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Safari West, Sant Rosa, CA",
-      "geo_wkt": "POINT (-122.695392 38.557332)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio",
+      "geo_wkt": "POINT (-80.844899 41.715412)",
       "poi": {
-        "id": 14066,
-        "geometry": "POINT (-122.695392 38.557332)",
-        "poi_name": "Safari West",
-        "osm_id": 4217522083,
-        "tourism": "zoo",
-        "website": "https://www.safariwest.com/",
-        "phone": "(800) 616-2695",
-        "wikidata": "Q7398400",
-        "addr_state": "CA",
-        "addr_city": "Sant Rosa",
-        "addr_postcode": "95404",
-        "addr_street": "Porter Creek Road",
-        "addr_housenumber": "3115"
+        "id": 246522,
+        "geometry": "POINT (-80.844899 41.715412)",
+        "poi_name": "Eagleville Road WRGT Trailhead and Parking",
+        "osm_id": 9804147199,
+        "leisure": "park",
+        "operator": "Western Reserve Greenway Trail",
+        "addr_state": "Ohio",
+        "addr_city": "Jefferson"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 145,
+  "id": 1645,
   "type": "knn:towards+name"
 }

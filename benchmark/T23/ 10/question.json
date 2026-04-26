@@ -1,42 +1,40 @@
 {
-  "question": "What's the quantity of golf courses that can be found within a 100 kilometers distance from Saint Alphonsus Medical Center - Nampa, Nampa, ID?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-116.517177 43.597494)',4326)::geography, 100000)\nAND leisure = 'golf_course';\n",
+  "question": "How many zoos exist within 150 kilometers of the location Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 150000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "count": 1
+      "count": 3
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Saint Alphonsus Medical Center - Nampa, Nampa, ID",
-      "geo_wkt": "POINT (-116.517177 43.597494)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
       "poi": {
-        "id": 141407,
-        "geometry": "POINT (-116.517177 43.597494)",
-        "poi_name": "Saint Alphonsus Medical Center - Nampa",
-        "osm_id": 6283888336,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "ID",
-        "addr_city": "Nampa",
-        "addr_postcode": "83687",
-        "addr_street": "East Flamingo Avenue",
-        "addr_housenumber": "4300"
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
       }
     }
   },
-  "id": 2209,
+  "id": 1809,
   "type": "range+count"
 }

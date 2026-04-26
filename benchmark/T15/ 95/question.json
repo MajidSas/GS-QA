@@ -1,56 +1,5716 @@
 {
-  "question": "Within a radius of 170 kilometers, where can I find a zoo towards the north of Wernick Farm Reserve, Dartmouth, MA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.04755 41.690084)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.04755 41.690084)',4326)::geography, 170000)\nAND tourism = 'zoo'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a park found within a 190 kilometers limit in the southwest direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, 190000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 10743,
-      "geometry": "POINT (-71.04755 41.690084)",
-      "poi_name": "Joppa Hill Farm",
-      "osm_id": 8014170407,
-      "tourism": "zoo",
-      "zoo": "petting_zoo",
-      "addr_state": "NH",
-      "addr_city": "Bedford",
-      "addr_postcode": "03110"
+      "id": 255567,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cochran Park",
+      "osm_id": 357554497,
+      "leisure": "park"
+    },
+    {
+      "id": 255569,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Coes Neck Park",
+      "osm_id": 357554516,
+      "leisure": "park"
+    },
+    {
+      "id": 245121,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Campus Plaza",
+      "osm_id": 8265113845,
+      "leisure": "park"
+    },
+    {
+      "id": 245126,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Oakland Lake Wildflower Meadow",
+      "osm_id": 8268676606,
+      "leisure": "park"
+    },
+    {
+      "id": 245137,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Belvedere Plaza",
+      "osm_id": 8282447642,
+      "leisure": "park",
+      "operator": "Battery Park City Authority",
+      "website": "https://bpca.ny.gov/place/belvedere-plaza/"
+    },
+    {
+      "id": 245187,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Muskrat Cove",
+      "osm_id": 8382419431,
+      "leisure": "park",
+      "operator": "NYC Parks"
+    },
+    {
+      "id": 245227,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "The Adventure Park at Long Island",
+      "osm_id": 8447539257,
+      "leisure": "park"
+    },
+    {
+      "id": 245460,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Griiggstown Native Grassland Preserve",
+      "osm_id": 2929480742,
+      "leisure": "park"
+    },
+    {
+      "id": 245563,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sourland Mountain Preserve",
+      "osm_id": 3131356310,
+      "leisure": "park"
+    },
+    {
+      "id": 245564,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sourland Mountain Preserve",
+      "osm_id": 3131356311,
+      "leisure": "park"
+    },
+    {
+      "id": 245571,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Goldenrod Campground",
+      "osm_id": 3150694851,
+      "leisure": "park",
+      "tourism": "camp_site",
+      "operator": "National Park Service"
+    },
+    {
+      "id": 245572,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tamarack Campground",
+      "osm_id": 3150694852,
+      "leisure": "park",
+      "tourism": "camp_site",
+      "operator": "National Park Service"
+    },
+    {
+      "id": 245623,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Neguntatogue Park",
+      "osm_id": 3238911665,
+      "leisure": "park"
+    },
+    {
+      "id": 245718,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "North Forty Natural Area",
+      "osm_id": 3452820819,
+      "leisure": "park"
+    },
+    {
+      "id": 245842,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jennings Skate Park",
+      "osm_id": 10172565171,
+      "leisure": "park",
+      "opening_hours": "24/7"
+    },
+    {
+      "id": 245844,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Anything for Princess!",
+      "osm_id": 10177477027,
+      "leisure": "park",
+      "addr_state": "NJ",
+      "addr_city": "Sewaren",
+      "addr_postcode": "07077",
+      "addr_street": "Cathrin Street",
+      "addr_housenumber": "42"
+    },
+    {
+      "id": 245993,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Plainedge Park",
+      "osm_id": 5406227416,
+      "leisure": "park"
+    },
+    {
+      "id": 245996,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Floods Hill",
+      "osm_id": 5409113412,
+      "leisure": "park"
+    },
+    {
+      "id": 246025,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tappen Beach Park",
+      "osm_id": 5471778688,
+      "leisure": "park"
+    },
+    {
+      "id": 246097,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Forest City Park",
+      "osm_id": 5570488659,
+      "leisure": "park"
+    },
+    {
+      "id": 246111,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Franklin Park",
+      "osm_id": 5578932956,
+      "leisure": "park"
+    },
+    {
+      "id": 246147,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Montgomery Arboretum",
+      "osm_id": 5620243224,
+      "leisure": "park"
+    },
+    {
+      "id": 246153,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Grover Cleveland Park Sign",
+      "osm_id": 5633472333,
+      "leisure": "park"
+    },
+    {
+      "id": 246156,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Essex Industrial Park",
+      "osm_id": 5635417746,
+      "leisure": "park"
+    },
+    {
+      "id": 246157,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mansfield Park",
+      "osm_id": 5635575509,
+      "leisure": "park"
+    },
+    {
+      "id": 246180,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Crane Park",
+      "osm_id": 5654525788,
+      "leisure": "park"
+    },
+    {
+      "id": 246194,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Twin Lakes Preserve",
+      "osm_id": 5674106208,
+      "leisure": "park"
+    },
+    {
+      "id": 246380,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "CArlstadt Community Garden",
+      "osm_id": 11404345191,
+      "leisure": "park"
+    },
+    {
+      "id": 246416,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Harbor Shoreline Park",
+      "osm_id": 9606105634,
+      "leisure": "park",
+      "operator": "Town of North Hempstead"
+    },
+    {
+      "id": 246450,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pier 57 Rooftop Park",
+      "osm_id": 9680980728,
+      "leisure": "park",
+      "opening_hours": "Mo-Su 07:00-22:00",
+      "operator": "Hudson River Park Trust",
+      "website": "https://www.pier57nyc.com/",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10011",
+      "addr_street": "11th Avenue",
+      "addr_housenumber": "25"
+    },
+    {
+      "id": 246452,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rooftop Farm",
+      "osm_id": 9681109101,
+      "leisure": "park"
+    },
+    {
+      "id": 246493,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Veterans Park",
+      "osm_id": 9772379631,
+      "leisure": "park",
+      "wikidata": "Q49574833"
+    },
+    {
+      "id": 246565,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tara Park",
+      "osm_id": 779863210,
+      "leisure": "park",
+      "addr_street": "Ellis Pky"
+    },
+    {
+      "id": 246620,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Oracle Playground",
+      "osm_id": 1907659362,
+      "leisure": "park",
+      "wikidata": "Q34852804"
+    },
+    {
+      "id": 246746,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "John St. Soccer Park",
+      "osm_id": 2143223472,
+      "leisure": "park",
+      "addr_city": "Carteret",
+      "addr_postcode": "07008"
+    },
+    {
+      "id": 246976,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bamboo Brook Outdoor Education Center",
+      "osm_id": 8479218045,
+      "leisure": "park",
+      "operator": "Morris County"
+    },
+    {
+      "id": 246977,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Willowwood Arboretum",
+      "osm_id": 8479218046,
+      "leisure": "park",
+      "operator": "Morris County"
+    },
+    {
+      "id": 247041,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kings Point Park",
+      "osm_id": 8603718432,
+      "leisure": "park"
+    },
+    {
+      "id": 247121,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Country Lane Park",
+      "osm_id": 3572598493,
+      "leisure": "park"
+    },
+    {
+      "id": 247282,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Butler Road Natural Area",
+      "osm_id": 8898434723,
+      "leisure": "park"
+    },
+    {
+      "id": 247290,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Henry W. Johanson Green",
+      "osm_id": 8915055492,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247291,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Miriam Benzell Green",
+      "osm_id": 8915055493,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247292,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Flower Hill Women's Club Green",
+      "osm_id": 8915091244,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247293,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sunset Hill Green",
+      "osm_id": 8915091245,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247298,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Walter Uhl Green",
+      "osm_id": 8917093914,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247299,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Nelson Olmsted Green",
+      "osm_id": 8917093915,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247300,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Old Farm Green",
+      "osm_id": 8917093916,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247301,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Romola Bowditch Green",
+      "osm_id": 8917101046,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247302,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "D'Oench Green",
+      "osm_id": 8917101047,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247303,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Charles Bagley Wright Green",
+      "osm_id": 8917101048,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247304,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Milton Hopkins Green",
+      "osm_id": 8917149117,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247305,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Old School Green",
+      "osm_id": 8917149662,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247306,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Howard Fein Green",
+      "osm_id": 8917149663,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247307,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Warren Moss Green",
+      "osm_id": 8917149664,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247308,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "George Bryant Green",
+      "osm_id": 8917149665,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247317,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Guggenheim Green",
+      "osm_id": 8920187519,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247323,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hewlett House Green",
+      "osm_id": 8923381485,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247421,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wurz St/Michael Cacciutullo Park",
+      "osm_id": 9077609982,
+      "leisure": "park"
+    },
+    {
+      "id": 247422,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Winnie La Park",
+      "osm_id": 9077609996,
+      "leisure": "park"
+    },
+    {
+      "id": 247502,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Avalon Terrace Park",
+      "osm_id": 6704210374,
+      "leisure": "park"
+    },
+    {
+      "id": 247572,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bond's Dock",
+      "osm_id": 6875690378,
+      "leisure": "park",
+      "addr_state": "CT",
+      "addr_city": "Stratford",
+      "addr_postcode": "06615",
+      "addr_street": "Selby's Pond Road",
+      "addr_housenumber": "600"
+    },
+    {
+      "id": 247600,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Seven Seas Sports Courts",
+      "osm_id": 6960818854,
+      "leisure": "park"
+    },
+    {
+      "id": 247611,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Deborah Woods South",
+      "osm_id": 6985844856,
+      "leisure": "park",
+      "addr_state": "NJ",
+      "addr_city": "Howell Township",
+      "addr_street": "Deborah Lane"
+    },
+    {
+      "id": 247667,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kissena Meditation Garden",
+      "osm_id": 8063071942,
+      "leisure": "park"
+    },
+    {
+      "id": 247674,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Flower Hill Village Park",
+      "osm_id": 8082696499,
+      "leisure": "park",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 247839,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kowsky Plaza",
+      "osm_id": 11457630561,
+      "leisure": "park"
+    },
+    {
+      "id": 247954,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Twin Point Recreation Area",
+      "osm_id": 6133636179,
+      "leisure": "park"
+    },
+    {
+      "id": 247960,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Maywood Pool",
+      "osm_id": 6140738109,
+      "leisure": "park"
+    },
+    {
+      "id": 248005,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Chicago Park",
+      "osm_id": 6248123962,
+      "leisure": "park",
+      "operator": "Bay Shore Township"
+    },
+    {
+      "id": 248039,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "River Edge Bird Sanctuary and Nature Trail",
+      "osm_id": 6297828722,
+      "leisure": "park",
+      "opening_hours": "Mo-Su 09:00-18:00",
+      "addr_state": "NJ",
+      "addr_city": "River Edge",
+      "addr_postcode": "07661",
+      "addr_street": "Eastbrook Drive"
+    },
+    {
+      "id": 248157,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jay walk",
+      "osm_id": 7332034043,
+      "leisure": "park",
+      "opening_hours": "Mo-Su 08:00-22:00",
+      "operator": "John Jay college",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10019",
+      "addr_street": "West 59th Street",
+      "addr_housenumber": "524"
+    },
+    {
+      "id": 248266,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wynmor Park",
+      "osm_id": 7565059932,
+      "leisure": "park",
+      "description": " Built in 1926.  0.89 Acres.  One Har-Tru tennis court and a small open field. ",
+      "addr_state": "NY",
+      "addr_city": "Scarsdale",
+      "addr_postcode": "10583",
+      "addr_street": "Secor Road",
+      "addr_housenumber": "18"
+    },
+    {
+      "id": 248267,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Scarsdale American Legion Post 52 Memorial Garden",
+      "osm_id": 7568161045,
+      "leisure": "park",
+      "website": "https://www.scarsdale.com/Facilities/Facility/Details/Memorial-Garden-37",
+      "addr_state": "NY",
+      "addr_city": "Scarsdale",
+      "addr_postcode": "10583",
+      "addr_street": "Mamaroneck Road",
+      "addr_housenumber": "311"
+    },
+    {
+      "id": 248313,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "The Point",
+      "osm_id": 3967308978,
+      "leisure": "park"
+    },
+    {
+      "id": 248356,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Anthony F. Veteran Park",
+      "osm_id": 4048886387,
+      "leisure": "park"
+    },
+    {
+      "id": 248367,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sourlands Ecosystem Preserve",
+      "osm_id": 4061758582,
+      "leisure": "park"
+    },
+    {
+      "id": 248368,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Otto's Farm Park",
+      "osm_id": 4061935148,
+      "leisure": "park"
+    },
+    {
+      "id": 248370,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Six Mile Run",
+      "osm_id": 4065437808,
+      "leisure": "park"
+    },
+    {
+      "id": 248371,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Six Mile Run",
+      "osm_id": 4065464348,
+      "leisure": "park"
+    },
+    {
+      "id": 248372,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Delaware & Raritan Canal State Park",
+      "osm_id": 4066044895,
+      "leisure": "park"
+    },
+    {
+      "id": 248373,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Delaware & Raritan Canal State Park",
+      "osm_id": 4066044904,
+      "leisure": "park"
+    },
+    {
+      "id": 248375,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bunker Hill Natural Area",
+      "osm_id": 4066151787,
+      "leisure": "park"
+    },
+    {
+      "id": 248376,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Franklin Park Natural Area",
+      "osm_id": 4066151789,
+      "leisure": "park"
+    },
+    {
+      "id": 248432,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Moore Park",
+      "osm_id": 4124700929,
+      "leisure": "park"
+    },
+    {
+      "id": 248433,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Closter Nature Center",
+      "osm_id": 4124704677,
+      "leisure": "park"
+    },
+    {
+      "id": 248470,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jay Heritage Center",
+      "osm_id": 4196086062,
+      "leisure": "park",
+      "description": "National Historic Landmark home of John Jay. Historic Site and Park. Member Site of New York State's Path Through History, Hudson River Valley National Heritage Area and Westchester County African American Heritage Trail. Hours Wed. thru Fri. 10am - 4pm ",
+      "addr_state": "NY",
+      "addr_city": "Rye",
+      "addr_postcode": "10580",
+      "addr_street": "Boston Post Road",
+      "addr_housenumber": "210"
+    },
+    {
+      "id": 248529,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Druss park",
+      "osm_id": 4635963125,
+      "leisure": "park"
+    },
+    {
+      "id": 248530,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ralph Field",
+      "osm_id": 4635968180,
+      "leisure": "park"
+    },
+    {
+      "id": 248531,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Manor park",
+      "osm_id": 4635975732,
+      "leisure": "park"
+    },
+    {
+      "id": 248562,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Forest Park",
+      "osm_id": 4638624958,
+      "leisure": "park"
+    },
+    {
+      "id": 248651,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "The Park at East Hills",
+      "osm_id": 4724758047,
+      "leisure": "park",
+      "operator": "Incorporated Village of East Hills"
+    },
+    {
+      "id": 248948,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "The Spur",
+      "osm_id": 9421123768,
+      "leisure": "park"
+    },
+    {
+      "id": 248949,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Marshlands Conservancy",
+      "osm_id": 9421347629,
+      "leisure": "park",
+      "opening_hours": "dawn-dusk",
+      "operator": "Westchester County Parks"
+    },
+    {
+      "id": 249007,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Desmond Gallagher Green",
+      "osm_id": 9573738775,
+      "leisure": "park",
+      "description": "A small, passive park occupying the park strips in the middle of Ridge Drive West. Named for a late resident and war hero who resided down the block.",
+      "operator": "Incorporated Village of Flower Hill"
+    },
+    {
+      "id": 249021,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Thompson Park",
+      "osm_id": 287467385,
+      "leisure": "park"
+    },
+    {
+      "id": 255509,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "John D. Caemmerer Park",
+      "osm_id": 357544377,
+      "leisure": "park",
+      "wikidata": "Q34802286"
+    },
+    {
+      "id": 255511,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Allenwood Park",
+      "osm_id": 357544702,
+      "leisure": "park"
+    },
+    {
+      "id": 255516,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Baker Field",
+      "osm_id": 357545993,
+      "leisure": "park",
+      "wikidata": "Q34804359"
+    },
+    {
+      "id": 255526,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Belmont Park",
+      "osm_id": 357548065,
+      "leisure": "park",
+      "wikidata": "Q34806807"
+    },
+    {
+      "id": 255530,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Birchwood Park",
+      "osm_id": 357549049,
+      "leisure": "park"
+    },
+    {
+      "id": 255535,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brush Park",
+      "osm_id": 357551112,
+      "leisure": "park"
+    },
+    {
+      "id": 255536,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Burr-Winkle Park",
+      "osm_id": 357551688,
+      "leisure": "park"
+    },
+    {
+      "id": 255538,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Campbell Park",
+      "osm_id": 357552159,
+      "leisure": "park"
+    },
+    {
+      "id": 255540,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cantiague Park",
+      "osm_id": 357552319,
+      "leisure": "park"
+    },
+    {
+      "id": 255543,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Charles J. Fuschillo Park",
+      "osm_id": 357552399,
+      "leisure": "park",
+      "wikidata": "Q34814327"
+    },
+    {
+      "id": 255548,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Causeway Park",
+      "osm_id": 357552729,
+      "leisure": "park",
+      "wikidata": "Q34815225"
+    },
+    {
+      "id": 255575,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wicks Park",
+      "osm_id": 357554894,
+      "leisure": "park"
+    },
+    {
+      "id": 255587,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cow Meadow Preserve",
+      "osm_id": 357555511,
+      "leisure": "park",
+      "wikidata": "Q34820281"
+    },
+    {
+      "id": 255589,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Crab Meadow Park",
+      "osm_id": 357555551,
+      "leisure": "park",
+      "wikidata": "Q34820455"
+    },
+    {
+      "id": 255600,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cutter Mill Park",
+      "osm_id": 357556054,
+      "leisure": "park"
+    },
+    {
+      "id": 255605,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dix Hills Park",
+      "osm_id": 357556770,
+      "leisure": "park"
+    },
+    {
+      "id": 255613,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eisenhower Memorial Park",
+      "osm_id": 357558000,
+      "leisure": "park",
+      "wikidata": "Q34828110"
+    },
+    {
+      "id": 255617,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Elwood Park",
+      "osm_id": 357558349,
+      "leisure": "park"
+    },
+    {
+      "id": 255627,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Firemens Memorial Field",
+      "osm_id": 357559655,
+      "leisure": "park"
+    },
+    {
+      "id": 255643,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Geiger Memorial Park",
+      "osm_id": 357561054,
+      "leisure": "park"
+    },
+    {
+      "id": 255652,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Great Kills Park",
+      "osm_id": 357562455,
+      "leisure": "park"
+    },
+    {
+      "id": 255653,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Great Neck Estates Park",
+      "osm_id": 357562459,
+      "leisure": "park"
+    },
+    {
+      "id": 255654,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gunther Field",
+      "osm_id": 357563050,
+      "leisure": "park"
+    },
+    {
+      "id": 255655,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Halls Pond Park",
+      "osm_id": 357563307,
+      "leisure": "park",
+      "operator": "Town of Hempstead"
+    },
+    {
+      "id": 255664,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hemlock Playground",
+      "osm_id": 357564130,
+      "leisure": "park"
+    },
+    {
+      "id": 255665,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Harbor Park",
+      "osm_id": 357564143,
+      "leisure": "park"
+    },
+    {
+      "id": 255666,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Town Park of Point Lookout",
+      "osm_id": 357564153,
+      "leisure": "park",
+      "wikidata": "Q49499821"
+    },
+    {
+      "id": 255668,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Henry Street Park",
+      "osm_id": 357564208,
+      "leisure": "park"
+    },
+    {
+      "id": 255672,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hutchinson Field",
+      "osm_id": 357565940,
+      "leisure": "park"
+    },
+    {
+      "id": 255685,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Roger Fay Pool Park",
+      "osm_id": 357567736,
+      "leisure": "park",
+      "wikidata": "Q34840147"
+    },
+    {
+      "id": 255752,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lister Park",
+      "osm_id": 357569146,
+      "leisure": "park",
+      "phone": "1 (516) 678-9238"
+    },
+    {
+      "id": 255755,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Clinton J Matin Park",
+      "osm_id": 357570662,
+      "leisure": "park",
+      "wikidata": "Q34846903"
+    },
+    {
+      "id": 255756,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Massapequa Preserve",
+      "osm_id": 357570751,
+      "leisure": "park",
+      "website": "http://massapequapreserve.com/"
+    },
+    {
+      "id": 255758,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ramirez Playground",
+      "osm_id": 357570943,
+      "leisure": "park",
+      "wikidata": "Q49547878"
+    },
+    {
+      "id": 255759,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Field",
+      "osm_id": 357571146,
+      "leisure": "park"
+    },
+    {
+      "id": 255762,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Merrick Golf Course",
+      "osm_id": 357571314,
+      "leisure": "park"
+    },
+    {
+      "id": 255776,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Morgan Memorial Park",
+      "osm_id": 357572065,
+      "leisure": "park"
+    },
+    {
+      "id": 255782,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "New Springville Park",
+      "osm_id": 357573219,
+      "leisure": "park",
+      "wikidata": "Q49531247"
+    },
+    {
+      "id": 255783,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Newbridge Road Park",
+      "osm_id": 357573314,
+      "leisure": "park"
+    },
+    {
+      "id": 255791,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Northeast Park",
+      "osm_id": 357574428,
+      "leisure": "park"
+    },
+    {
+      "id": 255798,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pelton Oval",
+      "osm_id": 357576550,
+      "leisure": "park"
+    },
+    {
+      "id": 255800,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Phelps Lane Memorial Park",
+      "osm_id": 357576763,
+      "leisure": "park",
+      "wikidata": "Q49542043"
+    },
+    {
+      "id": 255801,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pine Acres Park",
+      "osm_id": 357576941,
+      "leisure": "park"
+    },
+    {
+      "id": 255813,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ronek Park",
+      "osm_id": 357582764,
+      "leisure": "park",
+      "wikidata": "Q34858552"
+    },
+    {
+      "id": 255814,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Reverend Arthur Mackey Park",
+      "osm_id": 357582787,
+      "leisure": "park",
+      "wikidata": "Q34858645"
+    },
+    {
+      "id": 255815,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Roslyn Road Park",
+      "osm_id": 357582903,
+      "leisure": "park"
+    },
+    {
+      "id": 255830,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sprain Ridge Park",
+      "osm_id": 357590671,
+      "leisure": "park"
+    },
+    {
+      "id": 255836,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sutherland Park",
+      "osm_id": 357591958,
+      "leisure": "park"
+    },
+    {
+      "id": 255840,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tackapausha Preserve",
+      "osm_id": 357592175,
+      "leisure": "park"
+    },
+    {
+      "id": 255846,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tobay Beach Bird and Game Sanctuary",
+      "osm_id": 357593005,
+      "leisure": "park",
+      "wikidata": "Q49570947"
+    },
+    {
+      "id": 255847,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tobay Beach Park",
+      "osm_id": 357593008,
+      "leisure": "park"
+    },
+    {
+      "id": 255851,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Trevor Park",
+      "osm_id": 357593347,
+      "leisure": "park",
+      "tourism": "attraction"
+    },
+    {
+      "id": 255852,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tullamore Playground",
+      "osm_id": 357593550,
+      "leisure": "park"
+    },
+    {
+      "id": 255855,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Uniondale Park",
+      "osm_id": 357594098,
+      "leisure": "park"
+    },
+    {
+      "id": 255858,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Valmont Village Park",
+      "osm_id": 357594283,
+      "leisure": "park"
+    },
+    {
+      "id": 255861,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Victory Field",
+      "osm_id": 357594521,
+      "leisure": "park",
+      "wikidata": "Q49575019"
+    },
+    {
+      "id": 255863,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saddle RockVillage Park",
+      "osm_id": 357594564,
+      "leisure": "park"
+    },
+    {
+      "id": 255865,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Walker Park",
+      "osm_id": 357594732,
+      "leisure": "park"
+    },
+    {
+      "id": 255867,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wantagh County Park",
+      "osm_id": 357594908,
+      "leisure": "park"
+    },
+    {
+      "id": 255869,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Weld Park",
+      "osm_id": 357595491,
+      "leisure": "park"
+    },
+    {
+      "id": 255871,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bay Park",
+      "osm_id": 357595825,
+      "leisure": "park"
+    },
+    {
+      "id": 255887,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Whitman Hollow Park",
+      "osm_id": 357597205,
+      "leisure": "park",
+      "wikidata": "Q34869614"
+    },
+    {
+      "id": 255891,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Willsons Woods Park",
+      "osm_id": 357597478,
+      "leisure": "park",
+      "wikidata": "Q8022497"
+    },
+    {
+      "id": 255894,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wyngate Park",
+      "osm_id": 357598016,
+      "leisure": "park"
+    },
+    {
+      "id": 255899,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Camman's Pond County Park",
+      "osm_id": 357598577,
+      "leisure": "park",
+      "wikidata": "Q34813664"
+    },
+    {
+      "id": 255916,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rice Memorial Stadium",
+      "osm_id": 357599530,
+      "leisure": "park"
+    },
+    {
+      "id": 255929,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Harbor Island Park",
+      "osm_id": 357604658,
+      "leisure": "park"
+    },
+    {
+      "id": 255930,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Manursing Island Park",
+      "osm_id": 357604694,
+      "leisure": "park"
+    },
+    {
+      "id": 255931,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saxon Woods Park",
+      "osm_id": 357604759,
+      "leisure": "park"
+    },
+    {
+      "id": 255944,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "H F Redmond Junior Memorial Park",
+      "osm_id": 357607545,
+      "leisure": "park"
+    },
+    {
+      "id": 255945,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Meadow Park",
+      "osm_id": 357607564,
+      "leisure": "park",
+      "wikidata": "Q34848458"
+    },
+    {
+      "id": 255947,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lower Forecourt",
+      "osm_id": 357607736,
+      "leisure": "park",
+      "wikidata": "Q49519855"
+    },
+    {
+      "id": 255948,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Upper Forecourt",
+      "osm_id": 357607739,
+      "leisure": "park",
+      "wikidata": "Q34867453"
+    },
+    {
+      "id": 255949,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "South Street Seaport Historic District",
+      "osm_id": 357607904,
+      "leisure": "park",
+      "historic": "maritime",
+      "wikidata": "Q8561180"
+    },
+    {
+      "id": 255950,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pumphouse Park",
+      "osm_id": 357608159,
+      "leisure": "park",
+      "wikidata": "Q49546842"
+    },
+    {
+      "id": 255953,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kinsley Park",
+      "osm_id": 357608766,
+      "leisure": "park"
+    },
+    {
+      "id": 255955,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Maura Lawn",
+      "osm_id": 357609053,
+      "leisure": "park",
+      "wikidata": "Q34847604"
+    },
+    {
+      "id": 255956,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Charlton Garden",
+      "osm_id": 357609309,
+      "leisure": "park",
+      "wikidata": "Q34816574"
+    },
+    {
+      "id": 255957,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Longfellow Gardens",
+      "osm_id": 357609349,
+      "leisure": "park",
+      "wikidata": "Q49519067"
+    },
+    {
+      "id": 255958,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "September 11 Memorial Park",
+      "osm_id": 357609372,
+      "leisure": "park"
+    },
+    {
+      "id": 255959,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rice Oval",
+      "osm_id": 357609375,
+      "leisure": "park",
+      "wikidata": "Q34856684"
+    },
+    {
+      "id": 255960,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mazzella Field",
+      "osm_id": 357609379,
+      "leisure": "park"
+    },
+    {
+      "id": 255961,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Andrews Court",
+      "osm_id": 357609382,
+      "leisure": "park"
+    },
+    {
+      "id": 255963,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Abendroth Park",
+      "osm_id": 357609389,
+      "leisure": "park"
+    },
+    {
+      "id": 255964,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Andrus Park",
+      "osm_id": 357609392,
+      "leisure": "park"
+    },
+    {
+      "id": 255968,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Beechmont Oval",
+      "osm_id": 357609405,
+      "leisure": "park",
+      "wikidata": "Q34806404"
+    },
+    {
+      "id": 255971,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Columbus Park",
+      "osm_id": 357609419,
+      "leisure": "park"
+    },
+    {
+      "id": 255972,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Columbus Park",
+      "osm_id": 357609422,
+      "leisure": "park"
+    },
+    {
+      "id": 255973,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Coyne Park",
+      "osm_id": 357609425,
+      "leisure": "park"
+    },
+    {
+      "id": 255976,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Edgewood Park",
+      "osm_id": 357609443,
+      "leisure": "park"
+    },
+    {
+      "id": 255978,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Florence Street Park",
+      "osm_id": 357609450,
+      "leisure": "park"
+    },
+    {
+      "id": 255979,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fay Park",
+      "osm_id": 357609453,
+      "leisure": "park"
+    },
+    {
+      "id": 255983,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "George Field Park",
+      "osm_id": 357609594,
+      "leisure": "park"
+    },
+    {
+      "id": 255984,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenburgh Nature Center",
+      "osm_id": 357609597,
+      "leisure": "park"
+    },
+    {
+      "id": 255988,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Henning Park",
+      "osm_id": 357609612,
+      "leisure": "park"
+    },
+    {
+      "id": 255989,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hunt Woods Park",
+      "osm_id": 357609616,
+      "leisure": "park"
+    },
+    {
+      "id": 255998,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Monument Park",
+      "osm_id": 357609669,
+      "leisure": "park"
+    },
+    {
+      "id": 256004,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Richter Park",
+      "osm_id": 357609703,
+      "leisure": "park"
+    },
+    {
+      "id": 256006,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rye Town Park",
+      "osm_id": 357609718,
+      "leisure": "park"
+    },
+    {
+      "id": 256007,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sunnybrook Park",
+      "osm_id": 357609725,
+      "leisure": "park"
+    },
+    {
+      "id": 256008,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sycamore Park",
+      "osm_id": 357609728,
+      "leisure": "park"
+    },
+    {
+      "id": 256009,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tibbets Park",
+      "osm_id": 357609733,
+      "leisure": "park"
+    },
+    {
+      "id": 256012,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Uniontown Playground",
+      "osm_id": 357609743,
+      "leisure": "park"
+    },
+    {
+      "id": 256013,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Street Park",
+      "osm_id": 357609753,
+      "leisure": "park"
+    },
+    {
+      "id": 256015,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Westwood Park",
+      "osm_id": 357609760,
+      "leisure": "park"
+    },
+    {
+      "id": 256017,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hillside Park Playground",
+      "osm_id": 357609888,
+      "leisure": "park"
+    },
+    {
+      "id": 256018,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Parkway Field",
+      "osm_id": 357610363,
+      "leisure": "park"
+    },
+    {
+      "id": 256019,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Aiello Park",
+      "osm_id": 357610370,
+      "leisure": "park",
+      "wikidata": "Q34802187"
+    },
+    {
+      "id": 256020,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Five Islands Park",
+      "osm_id": 357610376,
+      "leisure": "park"
+    },
+    {
+      "id": 256021,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Huguenot Park",
+      "osm_id": 357610384,
+      "leisure": "park",
+      "wikidata": "Q34836844"
+    },
+    {
+      "id": 256022,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Stephenson Park",
+      "osm_id": 357610390,
+      "leisure": "park"
+    },
+    {
+      "id": 256027,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Chatham Square",
+      "osm_id": 357610563,
+      "leisure": "park",
+      "wikidata": "Q34816834",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10038"
+    },
+    {
+      "id": 256049,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "George Farkas Square",
+      "osm_id": 357611232,
+      "leisure": "park",
+      "wikidata": "Q49493387"
+    },
+    {
+      "id": 256189,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Westchester Square",
+      "osm_id": 357612527,
+      "leisure": "park"
+    },
+    {
+      "id": 256203,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Zimmerman Memorial Playground",
+      "osm_id": 357612599,
+      "leisure": "park",
+      "wikidata": "Q49583990"
+    },
+    {
+      "id": 256207,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Schneider-Sampson Park",
+      "osm_id": 357612619,
+      "leisure": "park",
+      "wikidata": "Q49558526"
+    },
+    {
+      "id": 256250,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Edwards Parade",
+      "osm_id": 357614562,
+      "leisure": "park",
+      "wikidata": "Q34827923"
+    },
+    {
+      "id": 256251,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jack Coffey Field",
+      "osm_id": 357614565,
+      "leisure": "park",
+      "wikidata": "Q49505990"
+    },
+    {
+      "id": 256252,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Queen's Court",
+      "osm_id": 357614570,
+      "leisure": "park",
+      "wikidata": "Q49547227"
+    },
+    {
+      "id": 256253,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Practice Field",
+      "osm_id": 357614573,
+      "leisure": "park",
+      "wikidata": "Q49566394"
+    },
+    {
+      "id": 256254,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hickox Field",
+      "osm_id": 357614605,
+      "leisure": "park",
+      "wikidata": "Q49500725"
+    },
+    {
+      "id": 256255,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Stecklow Gardens",
+      "osm_id": 357614611,
+      "leisure": "park",
+      "wikidata": "Q49566055"
+    },
+    {
+      "id": 256256,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Battle Row Campground",
+      "osm_id": 357614648,
+      "leisure": "park"
+    },
+    {
+      "id": 256257,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bar Beach Town Park",
+      "osm_id": 357614651,
+      "leisure": "park",
+      "wikidata": "Q34804596"
+    },
+    {
+      "id": 256258,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brookside Preserve",
+      "osm_id": 357614661,
+      "leisure": "park",
+      "wikidata": "Q34811350"
+    },
+    {
+      "id": 256259,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brookville Nature Park",
+      "osm_id": 357614665,
+      "leisure": "park"
+    },
+    {
+      "id": 256260,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Centennial Park",
+      "osm_id": 357614671,
+      "leisure": "park",
+      "wikidata": "Q34815619"
+    },
+    {
+      "id": 256261,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Christopher Morley County Park",
+      "osm_id": 357614677,
+      "leisure": "park",
+      "wikidata": "Q34817621"
+    },
+    {
+      "id": 256262,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Creek Park",
+      "osm_id": 357614680,
+      "leisure": "park"
+    },
+    {
+      "id": 256263,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ellsworth W. Allen Park",
+      "osm_id": 357614687,
+      "leisure": "park"
+    },
+    {
+      "id": 256264,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fox Hollow Preserve",
+      "osm_id": 357614694,
+      "leisure": "park",
+      "wikidata": "Q34831406"
+    },
+    {
+      "id": 256265,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Plains Preserve",
+      "osm_id": 357614697,
+      "leisure": "park"
+    },
+    {
+      "id": 256266,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hoffman Center Nature Preserve",
+      "osm_id": 357614706,
+      "leisure": "park",
+      "wikidata": "Q34835281"
+    },
+    {
+      "id": 256267,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lido Boulevard Park",
+      "osm_id": 357614717,
+      "leisure": "park",
+      "wikidata": "Q34842579"
+    },
+    {
+      "id": 256268,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lido West Town Park",
+      "osm_id": 357614722,
+      "leisure": "park"
+    },
+    {
+      "id": 256269,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Manetto Hills Park",
+      "osm_id": 357614731,
+      "leisure": "park"
+    },
+    {
+      "id": 256270,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Manorhaven Beach Town Park",
+      "osm_id": 357614734,
+      "leisure": "park"
+    },
+    {
+      "id": 256271,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Martin Reid Town Park",
+      "osm_id": 357614737,
+      "leisure": "park"
+    },
+    {
+      "id": 256272,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Meroke Preserve",
+      "osm_id": 357614740,
+      "leisure": "park"
+    },
+    {
+      "id": 256273,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mill Neck Preserve",
+      "osm_id": 357614744,
+      "leisure": "park",
+      "wikidata": "Q34850947"
+    },
+    {
+      "id": 256275,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Muttontown Preserve",
+      "osm_id": 357614747,
+      "leisure": "park"
+    },
+    {
+      "id": 256276,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Plainview - Old Bethpage Community Park",
+      "osm_id": 357614753,
+      "leisure": "park"
+    },
+    {
+      "id": 256278,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Strathmore Park",
+      "osm_id": 357614767,
+      "leisure": "park"
+    },
+    {
+      "id": 256280,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Stillwell Woods Park",
+      "osm_id": 357614783,
+      "leisure": "park"
+    },
+    {
+      "id": 256281,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tiffany Creek Preserve",
+      "osm_id": 357614798,
+      "leisure": "park",
+      "wikidata": "Q49570715"
+    },
+    {
+      "id": 256282,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Whitney Pond Park",
+      "osm_id": 357614809,
+      "leisure": "park"
+    },
+    {
+      "id": 256285,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Berkeley Jackson County Park",
+      "osm_id": 357615278,
+      "leisure": "park",
+      "wikidata": "Q34807269"
+    },
+    {
+      "id": 256286,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Callahan's Beach Park",
+      "osm_id": 357615298,
+      "leisure": "park"
+    },
+    {
+      "id": 256288,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gaynor Park",
+      "osm_id": 357615339,
+      "leisure": "park"
+    },
+    {
+      "id": 256289,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Venetian Shores Park",
+      "osm_id": 357615342,
+      "leisure": "park",
+      "wikidata": "Q49495805"
+    },
+    {
+      "id": 256291,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenlawn Park",
+      "osm_id": 357615345,
+      "leisure": "park"
+    },
+    {
+      "id": 256292,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Hills Nature Preserve",
+      "osm_id": 357615347,
+      "leisure": "park",
+      "wikidata": "Q49496898"
+    },
+    {
+      "id": 256293,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hoyt Farm Town Park",
+      "osm_id": 357615352,
+      "leisure": "park",
+      "wikidata": "Q34836262"
+    },
+    {
+      "id": 256295,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Indian Island County Park",
+      "osm_id": 357615380,
+      "leisure": "park",
+      "wikidata": "Q34837702"
+    },
+    {
+      "id": 256296,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Koster Park",
+      "osm_id": 357615396,
+      "leisure": "park"
+    },
+    {
+      "id": 256297,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Schubert's Beach Town Park",
+      "osm_id": 357615408,
+      "leisure": "park",
+      "wikidata": "Q49517930"
+    },
+    {
+      "id": 256298,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Little Plains Park",
+      "osm_id": 357615411,
+      "leisure": "park"
+    },
+    {
+      "id": 256299,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Long Beach Town Park",
+      "osm_id": 357615418,
+      "leisure": "park"
+    },
+    {
+      "id": 256300,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Manor Plains Nature Park",
+      "osm_id": 357615423,
+      "leisure": "park"
+    },
+    {
+      "id": 256301,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Peter A. Nelson Park",
+      "osm_id": 357615442,
+      "leisure": "park",
+      "wikidata": "Q49534503"
+    },
+    {
+      "id": 256302,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Olson Memorial Town Park",
+      "osm_id": 357615447,
+      "leisure": "park"
+    },
+    {
+      "id": 256303,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Otsego Park",
+      "osm_id": 357615451,
+      "leisure": "park"
+    },
+    {
+      "id": 256308,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Strathmore Park",
+      "osm_id": 357615525,
+      "leisure": "park",
+      "wikidata": "Q34863780"
+    },
+    {
+      "id": 256309,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Hills County Park",
+      "osm_id": 357615535,
+      "leisure": "park"
+    },
+    {
+      "id": 256310,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Meadow Wetlands Reserve",
+      "osm_id": 357615540,
+      "leisure": "park"
+    },
+    {
+      "id": 256314,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Neguntatogue Park",
+      "osm_id": 357615735,
+      "leisure": "park",
+      "wikidata": "Q49530789"
+    },
+    {
+      "id": 256315,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Babylon Marsh State Tidal Wetlands",
+      "osm_id": 357615746,
+      "leisure": "park",
+      "wikidata": "Q34804210"
+    },
+    {
+      "id": 256316,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Petteanger Island State Tidal Wetlands",
+      "osm_id": 357615752,
+      "leisure": "park",
+      "wikidata": "Q49541891"
+    },
+    {
+      "id": 256317,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Depot Park",
+      "osm_id": 357615758,
+      "leisure": "park",
+      "wikidata": "Q49482857"
+    },
+    {
+      "id": 256320,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Seventieth Street Playground",
+      "osm_id": 357616290,
+      "leisure": "park",
+      "wikidata": "Q49559944"
+    },
+    {
+      "id": 256321,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lawrence A Wein Stadium",
+      "osm_id": 357616388,
+      "leisure": "park"
+    },
+    {
+      "id": 256322,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "William T Davis Wildlife Refuge",
+      "osm_id": 357616753,
+      "leisure": "park"
+    },
+    {
+      "id": 256323,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rose and Crown Monument",
+      "osm_id": 357616769,
+      "leisure": "park",
+      "wikidata": "Q34858777"
+    },
+    {
+      "id": 256324,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Clearview Park",
+      "osm_id": 357618392,
+      "leisure": "park",
+      "wikidata": "Q34818321"
+    },
+    {
+      "id": 256325,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dubos Point Wildlife Sanctuary",
+      "osm_id": 357618399,
+      "leisure": "park"
+    },
+    {
+      "id": 256326,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Roy Wilkins Southern Queens Park",
+      "osm_id": 357618425,
+      "leisure": "park"
+    },
+    {
+      "id": 256327,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Udall's Cove Park",
+      "osm_id": 357618428,
+      "leisure": "park",
+      "wikidata": "Q49572999"
+    },
+    {
+      "id": 256328,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Campbell Plaza",
+      "osm_id": 357618458,
+      "leisure": "park",
+      "wikidata": "Q34813752"
+    },
+    {
+      "id": 256329,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cooperman Plaza",
+      "osm_id": 357618462,
+      "leisure": "park",
+      "wikidata": "Q34819746"
+    },
+    {
+      "id": 256330,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kaufman Garden",
+      "osm_id": 357618465,
+      "leisure": "park",
+      "wikidata": "Q34839923"
+    },
+    {
+      "id": 256332,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Theodore Roosevelt Birthplace National Historic Site",
+      "osm_id": 357620387,
+      "leisure": "park",
+      "wikidata": "Q904191"
+    },
+    {
+      "id": 256347,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sonia Road Park",
+      "osm_id": 357621976,
+      "leisure": "park",
+      "wikidata": "Q49563056"
+    },
+    {
+      "id": 256349,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Verleye Avenue Park",
+      "osm_id": 357622101,
+      "leisure": "park"
+    },
+    {
+      "id": 256369,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Captain Oakley Junior Square",
+      "osm_id": 357623538,
+      "leisure": "park",
+      "wikidata": "Q34814191"
+    },
+    {
+      "id": 256371,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "McNally Plaza",
+      "osm_id": 357624604,
+      "leisure": "park",
+      "wikidata": "Q34848347"
+    },
+    {
+      "id": 256382,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Trust Triangle",
+      "osm_id": 357628366,
+      "leisure": "park",
+      "wikidata": "Q49572256"
+    },
+    {
+      "id": 256383,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Monsignor Crawford Field",
+      "osm_id": 357628393,
+      "leisure": "park",
+      "wikidata": "Q49527667"
+    },
+    {
+      "id": 256386,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Blydenburgh Park Historic District",
+      "osm_id": 357628547,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 256387,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Benjamin's Memorial Beach",
+      "osm_id": 357628587,
+      "leisure": "park"
+    },
+    {
+      "id": 256389,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Flushing Greens",
+      "osm_id": 357628647,
+      "leisure": "park",
+      "wikidata": "Q49490028"
+    },
+    {
+      "id": 256390,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Triangle Park",
+      "osm_id": 357629555,
+      "leisure": "park",
+      "description": "Cpl Kevin Kolm Memorial Park also known as Triangle Park.",
+      "wikidata": "Q49571980"
+    },
+    {
+      "id": 256396,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brust Park",
+      "osm_id": 357632925,
+      "leisure": "park",
+      "wikidata": "Q34811653"
+    },
+    {
+      "id": 256397,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Conrad Grauer Field",
+      "osm_id": 357632929,
+      "leisure": "park",
+      "wikidata": "Q34819621"
+    },
+    {
+      "id": 256398,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Phyllis Post Goodman Park",
+      "osm_id": 357632950,
+      "leisure": "park",
+      "wikidata": "Q49542187"
+    },
+    {
+      "id": 256399,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sid Augarten Field",
+      "osm_id": 357632979,
+      "leisure": "park",
+      "wikidata": "Q34861331"
+    },
+    {
+      "id": 256400,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cedar Creek County Park",
+      "osm_id": 357633013,
+      "leisure": "park"
+    },
+    {
+      "id": 256401,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Howie Vogts Field",
+      "osm_id": 357633024,
+      "leisure": "park",
+      "wikidata": "Q34836148"
+    },
+    {
+      "id": 256402,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Vinmont Veteran Park",
+      "osm_id": 357633384,
+      "leisure": "park",
+      "wikidata": "Q49575602"
+    },
+    {
+      "id": 256403,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Allerton Playground",
+      "osm_id": 357633387,
+      "leisure": "park",
+      "wikidata": "Q34802448"
+    },
+    {
+      "id": 256404,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Black Rock Playground",
+      "osm_id": 357633395,
+      "leisure": "park",
+      "wikidata": "Q34808666"
+    },
+    {
+      "id": 256405,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bruckner Playground",
+      "osm_id": 357633401,
+      "leisure": "park",
+      "operator": "New York City Department of Parks and Recreation",
+      "wikidata": "Q34811635"
+    },
+    {
+      "id": 256406,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bufano Playground",
+      "osm_id": 357633404,
+      "leisure": "park",
+      "wikidata": "Q34812257"
+    },
+    {
+      "id": 256407,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Magenta Playground",
+      "osm_id": 357633442,
+      "leisure": "park",
+      "wikidata": "Q49520707"
+    },
+    {
+      "id": 256408,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Matthews-Muliner Playground",
+      "osm_id": 357633444,
+      "leisure": "park",
+      "wikidata": "Q34847529"
+    },
+    {
+      "id": 256411,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Parker Playground",
+      "osm_id": 357633897,
+      "leisure": "park",
+      "wikidata": "Q49539493"
+    },
+    {
+      "id": 256412,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Parkside Playground",
+      "osm_id": 357633899,
+      "leisure": "park",
+      "wikidata": "Q49539576"
+    },
+    {
+      "id": 256413,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Samuel H Young Park",
+      "osm_id": 357633910,
+      "leisure": "park"
+    },
+    {
+      "id": 256414,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Space-Time Playground",
+      "osm_id": 357633913,
+      "leisure": "park",
+      "wikidata": "Q34862847"
+    },
+    {
+      "id": 256415,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Susan Caserta Playground",
+      "osm_id": 357633918,
+      "leisure": "park"
+    },
+    {
+      "id": 256416,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Agnes Haywood Playground",
+      "osm_id": 357633936,
+      "leisure": "park",
+      "wikidata": "Q34802170"
+    },
+    {
+      "id": 256417,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Edenwald Playground",
+      "osm_id": 357633939,
+      "leisure": "park",
+      "wikidata": "Q34827664"
+    },
+    {
+      "id": 256418,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rienzi Playground",
+      "osm_id": 357633942,
+      "leisure": "park",
+      "wikidata": "Q34857147"
+    },
+    {
+      "id": 256419,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wakefield Playground",
+      "osm_id": 357633948,
+      "leisure": "park",
+      "wikidata": "Q49576296"
+    },
+    {
+      "id": 256420,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Corporal Irwin Fischer Park",
+      "osm_id": 357633971,
+      "leisure": "park",
+      "wikidata": "Q34819996"
+    },
+    {
+      "id": 256421,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Merriam Playground",
+      "osm_id": 357633977,
+      "leisure": "park",
+      "wikidata": "Q34849305"
+    },
+    {
+      "id": 256422,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ogden Plimpton Playground",
+      "osm_id": 357633982,
+      "leisure": "park",
+      "wikidata": "Q49534754"
+    },
+    {
+      "id": 256423,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sedgwick Playground",
+      "osm_id": 357633993,
+      "leisure": "park",
+      "wikidata": "Q49559376"
+    },
+    {
+      "id": 256426,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Garden of Life",
+      "osm_id": 357634901,
+      "leisure": "park",
+      "wikidata": "Q49492803"
+    },
+    {
+      "id": 256427,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "El Batey De Dona Provi",
+      "osm_id": 357634920,
+      "leisure": "park",
+      "wikidata": "Q34828134"
+    },
+    {
+      "id": 256428,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Stop And Go Playground",
+      "osm_id": 357634925,
+      "leisure": "park",
+      "wikidata": "Q34863715"
+    },
+    {
+      "id": 256429,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fairmount Playground",
+      "osm_id": 357634931,
+      "leisure": "park",
+      "wikidata": "Q34829396"
+    },
+    {
+      "id": 256430,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Admiral Farragut Playground",
+      "osm_id": 357634934,
+      "leisure": "park",
+      "wikidata": "Q34802133"
+    },
+    {
+      "id": 256431,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Volky Flower Garden",
+      "osm_id": 357634959,
+      "leisure": "park",
+      "wikidata": "Q49575877"
+    },
+    {
+      "id": 256432,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mosholu Playground",
+      "osm_id": 357634994,
+      "leisure": "park",
+      "wikidata": "Q49528704"
+    },
+    {
+      "id": 256433,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Riverbend Playground",
+      "osm_id": 357635002,
+      "leisure": "park",
+      "wikidata": "Q34857524"
+    },
+    {
+      "id": 256458,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gowanus Greenway",
+      "osm_id": 357635482,
+      "leisure": "park",
+      "wikidata": "Q49494884"
+    },
+    {
+      "id": 256434,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fordham Landing Playground",
+      "osm_id": 357635009,
+      "leisure": "park",
+      "wikidata": "Q34830176"
+    },
+    {
+      "id": 256459,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Playground Three Forty",
+      "osm_id": 357635513,
+      "leisure": "park",
+      "wikidata": "Q49543875"
+    },
+    {
+      "id": 256460,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wilson Playground",
+      "osm_id": 357635549,
+      "leisure": "park",
+      "wikidata": "Q49581814"
+    },
+    {
+      "id": 256461,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "J Playground",
+      "osm_id": 357635553,
+      "leisure": "park"
+    },
+    {
+      "id": 256462,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sledge Playground",
+      "osm_id": 357635556,
+      "leisure": "park",
+      "wikidata": "Q49562384"
+    },
+    {
+      "id": 256463,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Remsen Playground",
+      "osm_id": 357635559,
+      "leisure": "park",
+      "wikidata": "Q34856347"
+    },
+    {
+      "id": 256464,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Glenwood Playground",
+      "osm_id": 357635564,
+      "leisure": "park",
+      "wikidata": "Q49494234"
+    },
+    {
+      "id": 256465,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "One Hundred Percent Playground",
+      "osm_id": 357635577,
+      "leisure": "park",
+      "wikidata": "Q34851952"
+    },
+    {
+      "id": 256435,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Beanstalk Playground",
+      "osm_id": 357635038,
+      "leisure": "park",
+      "wikidata": "Q34805463"
+    },
+    {
+      "id": 256466,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jerome Playground",
+      "osm_id": 357635589,
+      "leisure": "park",
+      "wikidata": "Q49507551"
+    },
+    {
+      "id": 256467,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Elton Playground",
+      "osm_id": 357635592,
+      "leisure": "park",
+      "wikidata": "Q34828732"
+    },
+    {
+      "id": 256436,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Padre Plaza",
+      "osm_id": 357635059,
+      "leisure": "park",
+      "wikidata": "Q34853783"
+    },
+    {
+      "id": 256468,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Linwood Playground",
+      "osm_id": 357635595,
+      "leisure": "park",
+      "wikidata": "Q34843990"
+    },
+    {
+      "id": 256437,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Millbrook Park",
+      "osm_id": 357635062,
+      "leisure": "park",
+      "wikidata": "Q34851017"
+    },
+    {
+      "id": 256469,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Transitional Living Community Sculpture Garden",
+      "osm_id": 357635607,
+      "leisure": "park",
+      "wikidata": "Q49571728"
+    },
+    {
+      "id": 256470,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fish Playground",
+      "osm_id": 357635669,
+      "leisure": "park",
+      "wikidata": "Q49489534"
+    },
+    {
+      "id": 256438,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "United We Stand Garden",
+      "osm_id": 357635065,
+      "leisure": "park",
+      "wikidata": "Q49573290"
+    },
+    {
+      "id": 256471,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saratoga Ballfields",
+      "osm_id": 357635677,
+      "leisure": "park",
+      "wikidata": "Q49557917"
+    },
+    {
+      "id": 256439,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saint Luke's Park",
+      "osm_id": 357635068,
+      "leisure": "park",
+      "wikidata": "Q49555993"
+    },
+    {
+      "id": 256472,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Howard Playground",
+      "osm_id": 357635688,
+      "leisure": "park",
+      "wikidata": "Q34836041"
+    },
+    {
+      "id": 256473,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Public School 125 Playground",
+      "osm_id": 357635704,
+      "leisure": "park",
+      "wikidata": "Q49546555"
+    },
+    {
+      "id": 256440,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fountain of Youth Playground",
+      "osm_id": 357635076,
+      "leisure": "park",
+      "wikidata": "Q34831057"
+    },
+    {
+      "id": 256474,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Doctor Richard Greene Playground",
+      "osm_id": 357635707,
+      "leisure": "park"
+    },
+    {
+      "id": 256529,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Beach Channel Playground",
+      "osm_id": 357640377,
+      "leisure": "park",
+      "wikidata": "Q34805432"
+    },
+    {
+      "id": 256441,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Abigail Playground",
+      "osm_id": 357635090,
+      "leisure": "park",
+      "wikidata": "Q34802003"
+    },
+    {
+      "id": 256530,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bayside Playground",
+      "osm_id": 357640382,
+      "leisure": "park",
+      "wikidata": "Q34805393"
+    },
+    {
+      "id": 256531,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Seaside Playground",
+      "osm_id": 357640385,
+      "leisure": "park",
+      "wikidata": "Q49559223"
+    },
+    {
+      "id": 256532,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gwirtzman Triangle",
+      "osm_id": 357640393,
+      "leisure": "park",
+      "wikidata": "Q49496889"
+    },
+    {
+      "id": 256533,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Playground 80",
+      "osm_id": 357640403,
+      "leisure": "park",
+      "wikidata": "Q49543850"
+    },
+    {
+      "id": 256534,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hillside Park",
+      "osm_id": 357640540,
+      "leisure": "park",
+      "wikidata": "Q49501711"
+    },
+    {
+      "id": 256535,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bellerose Playground",
+      "osm_id": 357640543,
+      "leisure": "park",
+      "wikidata": "Q34806716"
+    },
+    {
+      "id": 256536,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Ballfield",
+      "osm_id": 357640570,
+      "leisure": "park"
+    },
+    {
+      "id": 256475,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brownsville I Ura Park",
+      "osm_id": 357635710,
+      "leisure": "park",
+      "wikidata": "Q34811599"
+    },
+    {
+      "id": 256483,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gethsemane Garden",
+      "osm_id": 357637121,
+      "leisure": "park",
+      "wikidata": "Q49493599"
+    },
+    {
+      "id": 256484,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Osborn Playground",
+      "osm_id": 357637123,
+      "leisure": "park",
+      "wikidata": "Q22061046"
+    },
+    {
+      "id": 256537,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Laurelton Playground",
+      "osm_id": 357640791,
+      "leisure": "park"
+    },
+    {
+      "id": 256442,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jardin Criollo",
+      "osm_id": 357635098,
+      "leisure": "park",
+      "wikidata": "Q49506828"
+    },
+    {
+      "id": 256538,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hook Creek Ballfield",
+      "osm_id": 357640794,
+      "leisure": "park",
+      "wikidata": "Q49502800"
+    },
+    {
+      "id": 256539,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Veterans Square",
+      "osm_id": 357640798,
+      "leisure": "park",
+      "wikidata": "Q49574887"
+    },
+    {
+      "id": 256485,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Georgia Avenue Garden",
+      "osm_id": 357637130,
+      "leisure": "park",
+      "wikidata": "Q49493528"
+    },
+    {
+      "id": 256486,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Duke Park",
+      "osm_id": 357637138,
+      "leisure": "park",
+      "wikidata": "Q49484435"
+    },
+    {
+      "id": 256487,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pigeon Plaza",
+      "osm_id": 357637211,
+      "leisure": "park",
+      "wikidata": "Q49542555"
+    },
+    {
+      "id": 256443,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eagle Slope",
+      "osm_id": 357635109,
+      "leisure": "park"
+    },
+    {
+      "id": 256541,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jacob Riis Playground",
+      "osm_id": 357640911,
+      "leisure": "park",
+      "wikidata": "Q49506359"
+    },
+    {
+      "id": 256542,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Equity Park",
+      "osm_id": 357640915,
+      "leisure": "park",
+      "wikidata": "Q34829044"
+    },
+    {
+      "id": 256488,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Decatur Playground",
+      "osm_id": 357637227,
+      "leisure": "park",
+      "wikidata": "Q34825808"
+    },
+    {
+      "id": 256489,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "El-Shabazz Playground",
+      "osm_id": 357637236,
+      "leisure": "park",
+      "wikidata": "Q34828171"
+    },
+    {
+      "id": 256543,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "London Planetree Park",
+      "osm_id": 357640918,
+      "leisure": "park",
+      "wikidata": "Q49518804"
+    },
+    {
+      "id": 256544,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Proctor-Hopson Circle",
+      "osm_id": 357640969,
+      "leisure": "park",
+      "wikidata": "Q23092015"
+    },
+    {
+      "id": 256545,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ashmead Mall",
+      "osm_id": 357640972,
+      "leisure": "park",
+      "wikidata": "Q34803478"
+    },
+    {
+      "id": 256490,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Evergreen Playground",
+      "osm_id": 357637258,
+      "leisure": "park",
+      "wikidata": "Q34829271"
+    },
+    {
+      "id": 256491,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Garden Playground",
+      "osm_id": 357637266,
+      "leisure": "park",
+      "wikidata": "Q49492810"
+    },
+    {
+      "id": 256492,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sumner Playground",
+      "osm_id": 357637268,
+      "leisure": "park",
+      "wikidata": "Q49567353"
+    },
+    {
+      "id": 256493,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lafayette Playground",
+      "osm_id": 357637277,
+      "leisure": "park",
+      "wikidata": "Q49512759"
+    },
+    {
+      "id": 256494,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kosciuszko Street Garden",
+      "osm_id": 357637287,
+      "leisure": "park",
+      "opening_hours": "Mo-Su 09:00-21:00"
+    },
+    {
+      "id": 256495,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Albert Lysander Parham Playground",
+      "osm_id": 357637348,
+      "leisure": "park",
+      "wikidata": "Q34802263"
+    },
+    {
+      "id": 256444,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Willis Playground",
+      "osm_id": 357635111,
+      "leisure": "park",
+      "wikidata": "Q49581335"
+    },
+    {
+      "id": 256497,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Banneker Playground",
+      "osm_id": 357638262,
+      "leisure": "park",
+      "wikidata": "Q34804560"
+    },
+    {
+      "id": 256445,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mott Haven Playground",
+      "osm_id": 357635114,
+      "leisure": "park",
+      "wikidata": "Q49528782"
+    },
+    {
+      "id": 256498,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hattie Carthan Garden",
+      "osm_id": 357638265,
+      "leisure": "park",
+      "website": "https://www.hattiecarthancommunitymarket.com/",
+      "wikidata": "Q34834582"
+    },
+    {
+      "id": 256499,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bartlett Playground",
+      "osm_id": 357638273,
+      "leisure": "park",
+      "opening_hours": "Mo-Su 06:00-21:00",
+      "wikidata": "Q34805064"
+    },
+    {
+      "id": 256446,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Captain Rivera Playground",
+      "osm_id": 357635137,
+      "leisure": "park",
+      "wikidata": "Q34814217"
+    },
+    {
+      "id": 256500,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eugenio Maria De Hostos Playground",
+      "osm_id": 357638276,
+      "leisure": "park",
+      "wikidata": "Q34829182"
+    },
+    {
+      "id": 256447,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Summit Avenue Park",
+      "osm_id": 357635248,
+      "leisure": "park",
+      "wikidata": "Q34864329"
+    },
+    {
+      "id": 256501,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lentol Triangle",
+      "osm_id": 357638323,
+      "leisure": "park",
+      "wikidata": "Q49515913"
+    },
+    {
+      "id": 256448,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hunts Point Playground",
+      "osm_id": 357635259,
+      "leisure": "park",
+      "wikidata": "Q34837372"
+    },
+    {
+      "id": 256503,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lanett Playground",
+      "osm_id": 357638598,
+      "leisure": "park",
+      "wikidata": "Q34840651"
+    },
+    {
+      "id": 256449,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Barretto Park",
+      "osm_id": 357635263,
+      "leisure": "park",
+      "wikidata": "Q34804944"
+    },
+    {
+      "id": 256504,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Admiral Park",
+      "osm_id": 357638604,
+      "leisure": "park",
+      "wikidata": "Q34802143"
+    },
+    {
+      "id": 256450,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hoe Garden",
+      "osm_id": 357635271,
+      "leisure": "park",
+      "wikidata": "Q34835266"
+    },
+    {
+      "id": 256451,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tiffany Playground",
+      "osm_id": 357635284,
+      "leisure": "park",
+      "wikidata": "Q49570724"
+    },
+    {
+      "id": 256452,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Colgate Close Park",
+      "osm_id": 357635292,
+      "leisure": "park",
+      "wikidata": "Q34819114"
+    },
+    {
+      "id": 256509,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sy Seplowe Playground",
+      "osm_id": 357639538,
+      "leisure": "park",
+      "wikidata": "Q49568538"
+    },
+    {
+      "id": 256510,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Benigno Aquino Triangle",
+      "osm_id": 357639573,
+      "leisure": "park",
+      "website": "https://www.nycgovparks.org/parks/benigno-aquino-triangle/",
+      "wikidata": "Q34806906"
+    },
+    {
+      "id": 256511,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Locust Manor Playground",
+      "osm_id": 357639582,
+      "leisure": "park",
+      "wikidata": "Q49518592"
+    },
+    {
+      "id": 256512,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Nautilus Playground",
+      "osm_id": 357639585,
+      "leisure": "park",
+      "wikidata": "Q49530587"
+    },
+    {
+      "id": 256513,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Loring Field",
+      "osm_id": 357639595,
+      "leisure": "park",
+      "wikidata": "Q49519310"
+    },
+    {
+      "id": 256453,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Garrison Park",
+      "osm_id": 357635295,
+      "leisure": "park",
+      "wikidata": "Q49492962"
+    },
+    {
+      "id": 256514,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sutter Green",
+      "osm_id": 357639615,
+      "leisure": "park"
+    },
+    {
+      "id": 256515,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Harold Schneiderman Playground",
+      "osm_id": 357639618,
+      "leisure": "park",
+      "wikidata": "Q34833673"
+    },
+    {
+      "id": 256586,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Toyota Children's Learning Garden",
+      "osm_id": 357644856,
+      "leisure": "park"
+    },
+    {
+      "id": 256454,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bronx River Park",
+      "osm_id": 357635322,
+      "leisure": "park",
+      "wikidata": "Q34811180"
+    },
+    {
+      "id": 256517,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pink Playground",
+      "osm_id": 357639810,
+      "leisure": "park",
+      "wikidata": "Q49543100"
+    },
+    {
+      "id": 256455,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Reverend Polite Playground",
+      "osm_id": 357635334,
+      "leisure": "park",
+      "wikidata": "Q34856538"
+    },
+    {
+      "id": 256518,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Woodruff Playground",
+      "osm_id": 357639813,
+      "leisure": "park",
+      "wikidata": "Q49582942"
+    },
+    {
+      "id": 256519,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Belmont Playground",
+      "osm_id": 357639818,
+      "leisure": "park",
+      "operator": "New York City Department of Parks and Recreation",
+      "website": "https://www.nycgovparks.org/parks/belmont-playground_brooklyn",
+      "addr_street": "Belmont Avenue"
+    },
+    {
+      "id": 256456,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rocks And Roots Park",
+      "osm_id": 357635353,
+      "leisure": "park",
+      "wikidata": "Q34858249"
+    },
+    {
+      "id": 256520,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Junior High School 231 Playground",
+      "osm_id": 357639840,
+      "leisure": "park",
+      "wikidata": "Q34839551"
+    },
+    {
+      "id": 256457,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sam Leggio Triangle",
+      "osm_id": 357635460,
+      "leisure": "park",
+      "wikidata": "Q49556685"
+    },
+    {
+      "id": 256521,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "North Green",
+      "osm_id": 357639844,
+      "leisure": "park",
+      "wikidata": "Q49532459"
+    },
+    {
+      "id": 256522,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "South Extension Sports Complex",
+      "osm_id": 357639852,
+      "leisure": "park",
+      "wikidata": "Q34862156"
+    },
+    {
+      "id": 256644,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sidney Hillman Playground",
+      "osm_id": 357650228,
+      "leisure": "park",
+      "wikidata": "Q34861357"
+    },
+    {
+      "id": 256523,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Police Officer Edward Byrne Park",
+      "osm_id": 357639870,
+      "leisure": "park",
+      "wikidata": "Q49544697"
+    },
+    {
+      "id": 256524,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gene Gray Playground",
+      "osm_id": 357639878,
+      "leisure": "park",
+      "wikidata": "Q49493174"
+    },
+    {
+      "id": 256745,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Morristown National Historical Park",
+      "osm_id": 357725945,
+      "leisure": "park"
+    },
+    {
+      "id": 256746,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Morrow Park",
+      "osm_id": 357725953,
+      "leisure": "park",
+      "wikidata": "Q49528584"
+    },
+    {
+      "id": 256747,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mortimer L Schiff Boy Scout Reservation",
+      "osm_id": 357725966,
+      "leisure": "park",
+      "wikidata": "Q49528614"
+    },
+    {
+      "id": 256751,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "New Jersey Wildlife and Game Refuge",
+      "osm_id": 357726434,
+      "leisure": "park"
+    },
+    {
+      "id": 256752,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Niles Park",
+      "osm_id": 357726530,
+      "leisure": "park",
+      "wikidata": "Q49531689"
+    },
+    {
+      "id": 256753,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Nomahegan Park",
+      "osm_id": 357726550,
+      "leisure": "park",
+      "wikidata": "Q49531924"
+    },
+    {
+      "id": 256754,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Orange Oval",
+      "osm_id": 357726823,
+      "leisure": "park",
+      "wikidata": "Q34852949"
+    },
+    {
+      "id": 256755,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Orange Park",
+      "osm_id": 357726827,
+      "leisure": "park",
+      "wikidata": "Q34852962"
+    },
+    {
+      "id": 256757,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pearl Brook Park",
+      "osm_id": 357727147,
+      "leisure": "park",
+      "wikidata": "Q34854748"
+    },
+    {
+      "id": 256761,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pulaski Park",
+      "osm_id": 357727695,
+      "leisure": "park",
+      "wikidata": "Q49546777"
+    },
+    {
+      "id": 256763,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Riggin Memorial Field",
+      "osm_id": 357727907,
+      "leisure": "park",
+      "wikidata": "Q34857158"
+    },
+    {
+      "id": 256764,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rippel Field",
+      "osm_id": 357727924,
+      "leisure": "park",
+      "wikidata": "Q34857344"
+    },
+    {
+      "id": 256766,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Roosevelt Common",
+      "osm_id": 357728004,
+      "leisure": "park",
+      "wikidata": "Q34858578"
+    },
+    {
+      "id": 256776,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Farley Road Park",
+      "osm_id": 357729955,
+      "leisure": "park",
+      "wikidata": "Q49558848"
+    },
+    {
+      "id": 256777,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Second Ward Park",
+      "osm_id": 357729984,
+      "leisure": "park",
+      "wikidata": "Q49559353"
+    },
+    {
+      "id": 256779,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Summit Field",
+      "osm_id": 357730228,
+      "leisure": "park",
+      "wikidata": "Q49562383"
+    },
+    {
+      "id": 256780,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "South Mountain Reservation",
+      "osm_id": 357730328,
+      "leisure": "park"
+    },
+    {
+      "id": 256679,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Maxine Postal Memorial Park",
+      "osm_id": 357651524,
+      "leisure": "park",
+      "wikidata": "Q34847726"
+    },
+    {
+      "id": 256681,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Corell Park",
+      "osm_id": 357653779,
+      "leisure": "park"
+    },
+    {
+      "id": 256685,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Windward Beach Park",
+      "osm_id": 357716870,
+      "leisure": "park",
+      "wikidata": "Q34869867"
+    },
+    {
+      "id": 256686,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Carasaljo Park",
+      "osm_id": 357716970,
+      "leisure": "park"
+    },
+    {
+      "id": 256687,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Riverwood Park",
+      "osm_id": 357717000,
+      "leisure": "park",
+      "wikidata": "Q49551728"
+    },
+    {
+      "id": 256692,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Argonne Park",
+      "osm_id": 357718038,
+      "leisure": "park",
+      "wikidata": "Q34809248"
+    },
+    {
+      "id": 256694,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Baird Field",
+      "osm_id": 357718224,
+      "leisure": "park",
+      "wikidata": "Q34814482"
+    },
+    {
+      "id": 256697,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Belleville Park",
+      "osm_id": 357718490,
+      "leisure": "park",
+      "wikidata": "Q34826621"
+    },
+    {
+      "id": 256699,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Biertuempful Park",
+      "osm_id": 357718711,
+      "leisure": "park",
+      "wikidata": "Q34827911"
+    },
+    {
+      "id": 256701,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brookdale Park",
+      "osm_id": 357718988,
+      "leisure": "park"
+    },
+    {
+      "id": 256703,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cameron Park",
+      "osm_id": 357719289,
+      "leisure": "park",
+      "wikidata": "Q34912417"
+    },
+    {
+      "id": 256705,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Central Park",
+      "osm_id": 357719603,
+      "leisure": "park"
+    },
+    {
+      "id": 256709,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Columbus Park",
+      "osm_id": 357720108,
+      "leisure": "park",
+      "wikidata": "Q49479408"
+    },
+    {
+      "id": 256710,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Coolidge Park",
+      "osm_id": 357720204,
+      "leisure": "park",
+      "wikidata": "Q34855759"
+    },
+    {
+      "id": 256712,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Crystal Lake Park",
+      "osm_id": 357720440,
+      "leisure": "park",
+      "wikidata": "Q34862327"
+    },
+    {
+      "id": 256713,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Echo Lake Park",
+      "osm_id": 357721116,
+      "leisure": "park",
+      "wikidata": "Q34873012"
+    },
+    {
+      "id": 256715,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Elizabeth River Parkway",
+      "osm_id": 357721236,
+      "leisure": "park",
+      "wikidata": "Q34873471"
+    },
+    {
+      "id": 256716,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Essex Avenue Park",
+      "osm_id": 357721389,
+      "leisure": "park",
+      "wikidata": "Q49487444"
+    },
+    {
+      "id": 256784,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sunnyside Park",
+      "osm_id": 357730628,
+      "leisure": "park",
+      "wikidata": "Q49567627"
+    },
+    {
+      "id": 256786,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tamaques Reservation",
+      "osm_id": 357730730,
+      "leisure": "park",
+      "wikidata": "Q49569024"
+    },
+    {
+      "id": 256787,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tremley Park",
+      "osm_id": 357730955,
+      "leisure": "park",
+      "wikidata": "Q49571838"
+    },
+    {
+      "id": 256793,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wakelee Field",
+      "osm_id": 357731387,
+      "leisure": "park",
+      "wikidata": "Q49576302"
+    },
+    {
+      "id": 256645,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Little Flower Playground",
+      "osm_id": 357650246,
+      "leisure": "park",
+      "wikidata": "Q34844676"
+    },
+    {
+      "id": 256794,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Watchung Reservation",
+      "osm_id": 357731643,
+      "leisure": "park",
+      "wikidata": "Q7973199"
+    },
+    {
+      "id": 256719,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fourth Ward Park",
+      "osm_id": 357721949,
+      "leisure": "park"
+    },
+    {
+      "id": 256646,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Yu Suen Garden",
+      "osm_id": 357650317,
+      "leisure": "park",
+      "wikidata": "Q49583807"
+    },
+    {
+      "id": 256720,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Friberger Park",
+      "osm_id": 357722159,
+      "leisure": "park"
+    },
+    {
+      "id": 256796,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Williams Field",
+      "osm_id": 357731902,
+      "leisure": "park",
+      "wikidata": "Q49581189"
+    },
+    {
+      "id": 256651,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bleecker Playground",
+      "osm_id": 357650406,
+      "leisure": "park",
+      "wikidata": "Q34808932"
+    },
+    {
+      "id": 256798,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wilson Park",
+      "osm_id": 357731925,
+      "leisure": "park",
+      "wikidata": "Q49581769"
+    },
+    {
+      "id": 256800,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Woodman Field",
+      "osm_id": 357732041,
+      "leisure": "park",
+      "wikidata": "Q49582884"
+    },
+    {
+      "id": 256722,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Green Brook Park",
+      "osm_id": 357722633,
+      "leisure": "park"
+    },
+    {
+      "id": 256723,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Grove Park",
+      "osm_id": 357722787,
+      "leisure": "park",
+      "wikidata": "Q49496602"
+    },
+    {
+      "id": 256724,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Grover Cleveland Park",
+      "osm_id": 357722802,
+      "leisure": "park",
+      "wikidata": "Q5611533"
+    },
+    {
+      "id": 256725,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hawthorne Park",
+      "osm_id": 357723042,
+      "leisure": "park",
+      "wikidata": "Q34835048"
+    },
+    {
+      "id": 256726,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hayes Park",
+      "osm_id": 357723052,
+      "leisure": "park",
+      "wikidata": "Q34835163"
+    },
+    {
+      "id": 256727,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Henshaw Playground",
+      "osm_id": 357723128,
+      "leisure": "park",
+      "wikidata": "Q49500097"
+    },
+    {
+      "id": 256731,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Irwin Playground",
+      "osm_id": 357723945,
+      "leisure": "park",
+      "wikidata": "Q34838152"
+    },
+    {
+      "id": 256801,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Yantacaw Brook Park",
+      "osm_id": 357732085,
+      "leisure": "park"
+    },
+    {
+      "id": 256803,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lindbergh Field",
+      "osm_id": 357732179,
+      "leisure": "park",
+      "wikidata": "Q34843644"
+    },
+    {
+      "id": 256804,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Navesink Park",
+      "osm_id": 357732467,
+      "leisure": "park",
+      "wikidata": "Q49530619"
+    },
+    {
+      "id": 256652,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "McCarthy Square",
+      "osm_id": 357650409,
+      "leisure": "park",
+      "wikidata": "Q49523257"
+    },
+    {
+      "id": 256732,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Johnson Park",
+      "osm_id": 357724168,
+      "leisure": "park"
+    },
+    {
+      "id": 256734,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kawameeh Park",
+      "osm_id": 357724255,
+      "leisure": "park",
+      "wikidata": "Q34839938"
+    },
+    {
+      "id": 256653,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Little Red Square",
+      "osm_id": 357650430,
+      "leisure": "park"
+    },
+    {
+      "id": 256809,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Vannest State Wildlife Management Area",
+      "osm_id": 357732594,
+      "leisure": "park",
+      "wikidata": "Q49574194"
+    },
+    {
+      "id": 256654,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Donnellan Square",
+      "osm_id": 357650517,
+      "leisure": "park",
+      "wikidata": "Q49483730"
+    },
+    {
+      "id": 256810,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Turkey Swamp Wildlife Management Area",
+      "osm_id": 357732597,
+      "leisure": "park",
+      "wikidata": "Q34866923"
+    },
+    {
+      "id": 256736,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kingsland Park",
+      "osm_id": 357724359,
+      "leisure": "park",
+      "wikidata": "Q49511026"
+    },
+    {
+      "id": 256655,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Collyer Brothers Park",
+      "osm_id": 357650567,
+      "leisure": "park",
+      "wikidata": "Q34819228"
+    },
+    {
+      "id": 256656,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Annunciation Park",
+      "osm_id": 357650587,
+      "leisure": "park",
+      "wikidata": "Q34803333"
+    },
+    {
+      "id": 256657,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sheltering Arms Park",
+      "osm_id": 357650590,
+      "leisure": "park",
+      "wikidata": "Q34860563"
+    },
+    {
+      "id": 256741,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Maplecrest Park",
+      "osm_id": 357725384,
+      "leisure": "park",
+      "wikidata": "Q49521492"
+    },
+    {
+      "id": 256658,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Morningside Playground",
+      "osm_id": 357650660,
+      "leisure": "park",
+      "wikidata": "Q49528468"
+    },
+    {
+      "id": 256659,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bloomingdale Playground",
+      "osm_id": 357650675,
+      "leisure": "park",
+      "wikidata": "Q34809181"
+    },
+    {
+      "id": 256743,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Field Park",
+      "osm_id": 357725583,
+      "leisure": "park",
+      "wikidata": "Q34848722"
+    },
+    {
+      "id": 256878,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Overpeck Marine Park",
+      "osm_id": 357733435,
+      "leisure": "park",
+      "wikidata": "Q49536649"
+    },
+    {
+      "id": 256879,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Columbus Park",
+      "osm_id": 357733438,
+      "leisure": "park",
+      "wikidata": "Q49479403"
+    },
+    {
+      "id": 256880,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "North Branch Park",
+      "osm_id": 357733501,
+      "leisure": "park",
+      "wikidata": "Q49532240"
+    },
+    {
+      "id": 256660,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sol Bloom Playground",
+      "osm_id": 357650686,
+      "leisure": "park",
+      "wikidata": "Q49562898"
+    },
+    {
+      "id": 256661,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saint Gregory's Park",
+      "osm_id": 357650690,
+      "leisure": "park",
+      "wikidata": "Q49555754"
+    },
+    {
+      "id": 256662,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eightyninth Street Playground",
+      "osm_id": 357650693,
+      "leisure": "park",
+      "wikidata": "Q34828085"
+    },
+    {
+      "id": 256663,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Oasis Garden",
+      "osm_id": 357650718,
+      "leisure": "park",
+      "wikidata": "Q49534533"
+    },
+    {
+      "id": 256664,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Metro North Community Gardens",
+      "osm_id": 357650754,
+      "leisure": "park",
+      "operator": "Metro",
+      "wikidata": "Q34849450"
+    },
+    {
+      "id": 256665,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cherry Tree Park",
+      "osm_id": 357650768,
+      "leisure": "park",
+      "wikidata": "Q34817302"
+    },
+    {
+      "id": 256668,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Whitney Polo Field",
+      "osm_id": 357650859,
+      "leisure": "park",
+      "wikidata": "Q34869666"
+    },
+    {
+      "id": 256899,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Holmdel County Park",
+      "osm_id": 357736347,
+      "leisure": "park",
+      "wikidata": "Q34835567"
+    },
+    {
+      "id": 256900,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Deep Cut County Park",
+      "osm_id": 357736394,
+      "leisure": "park",
+      "wikidata": "Q34864474"
+    },
+    {
+      "id": 256943,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Thompson County Park",
+      "osm_id": 357737003,
+      "leisure": "park",
+      "wikidata": "Q34865290"
+    },
+    {
+      "id": 256901,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tatum County Park",
+      "osm_id": 357736398,
+      "leisure": "park",
+      "wikidata": "Q49569236"
+    },
+    {
+      "id": 256906,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Howell County Park",
+      "osm_id": 357736455,
+      "leisure": "park",
+      "wikidata": "Q34836101"
+    },
+    {
+      "id": 256831,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Prospertown Lake Wildlife Management Area",
+      "osm_id": 357732694,
+      "leisure": "park",
+      "wikidata": "Q49546481"
+    },
+    {
+      "id": 256832,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Colliers Mills Wildlife Management Area",
+      "osm_id": 357732701,
+      "leisure": "park"
+    },
+    {
+      "id": 256833,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Clinton Wildlife Management Area",
+      "osm_id": 357732704,
+      "leisure": "park",
+      "wikidata": "Q34855305"
+    },
+    {
+      "id": 256944,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dorbrook County Park",
+      "osm_id": 357737013,
+      "leisure": "park",
+      "wikidata": "Q49483802"
+    },
+    {
+      "id": 256835,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Capoolong Wildlife Management Area",
+      "osm_id": 357732711,
+      "leisure": "park",
+      "wikidata": "Q34847381"
+    },
+    {
+      "id": 256836,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Butterfly Bogs Wildlife Management Area",
+      "osm_id": 357732715,
+      "leisure": "park",
+      "wikidata": "Q34844417"
+    },
+    {
+      "id": 256952,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Avenel Park",
+      "osm_id": 357737576,
+      "leisure": "park",
+      "wikidata": "Q34812449"
+    },
+    {
+      "id": 256840,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Assunpink Wildlife Management Area",
+      "osm_id": 357732728,
+      "leisure": "park",
+      "wikidata": "Q34810922"
+    },
+    {
+      "id": 256843,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Round Valley State Recreation Area",
+      "osm_id": 357732738,
+      "leisure": "park",
+      "wikidata": "Q34859085"
+    },
+    {
+      "id": 256913,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Passaic River County Park",
+      "osm_id": 357736490,
+      "leisure": "park",
+      "wikidata": "Q49540071"
+    },
+    {
+      "id": 256914,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Passaic River County Reservation",
+      "osm_id": 357736494,
+      "leisure": "park",
+      "wikidata": "Q49540073"
+    },
+    {
+      "id": 256917,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lenape Park",
+      "osm_id": 357736533,
+      "leisure": "park"
+    },
+    {
+      "id": 256918,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hidden Valley Park",
+      "osm_id": 357736537,
+      "leisure": "park",
+      "wikidata": "Q49500843"
+    },
+    {
+      "id": 256919,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "White Oak Ridge Park",
+      "osm_id": 357736544,
+      "leisure": "park",
+      "wikidata": "Q34869405"
+    },
+    {
+      "id": 256920,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fox Hill Reserve",
+      "osm_id": 357736547,
+      "leisure": "park",
+      "wikidata": "Q34878945"
+    },
+    {
+      "id": 256921,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Meadowland Park",
+      "osm_id": 357736554,
+      "leisure": "park",
+      "wikidata": "Q34848474"
+    },
+    {
+      "id": 256953,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bicentennial Park",
+      "osm_id": 357737586,
+      "leisure": "park",
+      "wikidata": "Q34827611"
+    },
+    {
+      "id": 256923,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sourland Mountain County Preserve",
+      "osm_id": 357736612,
+      "leisure": "park"
+    },
+    {
+      "id": 256954,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bissett's Recreation Area",
+      "osm_id": 357737590,
+      "leisure": "park",
+      "wikidata": "Q34899870"
+    },
+    {
+      "id": 256924,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Delaware and Raritan State Park",
+      "osm_id": 357736644,
+      "leisure": "park",
+      "wikidata": "Q5253440"
+    },
+    {
+      "id": 256955,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brunswick Acres Park",
+      "osm_id": 357737593,
+      "leisure": "park",
+      "wikidata": "Q34839483"
+    },
+    {
+      "id": 256927,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ambrose Doty County Park",
+      "osm_id": 357736744,
+      "leisure": "park",
+      "wikidata": "Q34807015"
+    },
+    {
+      "id": 256956,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Central Avenue Park",
+      "osm_id": 357737600,
+      "leisure": "park",
+      "wikidata": "Q34918104"
+    },
+    {
+      "id": 256929,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Spring Lake County Park",
+      "osm_id": 357736747,
+      "leisure": "park",
+      "wikidata": "Q49564702"
+    },
+    {
+      "id": 256957,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Charles Day Park",
+      "osm_id": 357737603,
+      "leisure": "park",
+      "wikidata": "Q34921145"
+    },
+    {
+      "id": 256853,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Delaware and Raritan Canal State Park",
+      "osm_id": 357732929,
+      "leisure": "park",
+      "wikidata": "Q34865925"
+    },
+    {
+      "id": 256958,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cliff Road Park",
+      "osm_id": 357737607,
+      "leisure": "park",
+      "wikidata": "Q34854861"
+    },
+    {
+      "id": 256854,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "West Essex Park",
+      "osm_id": 357732953,
+      "leisure": "park",
+      "wikidata": "Q49578636"
+    },
+    {
+      "id": 256959,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cooper Avenue Playground",
+      "osm_id": 357737617,
+      "leisure": "park",
+      "wikidata": "Q34856549"
+    },
+    {
+      "id": 256855,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Francisco Park",
+      "osm_id": 357732962,
+      "leisure": "park"
+    },
+    {
+      "id": 256856,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Original Overpeck County Park",
+      "osm_id": 357732981,
+      "leisure": "park",
+      "wikidata": "Q14705833"
+    },
+    {
+      "id": 256859,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rahway Avenue Park",
+      "osm_id": 357733084,
+      "leisure": "park",
+      "wikidata": "Q49547586"
+    },
+    {
+      "id": 256860,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Merrill Park",
+      "osm_id": 357733088,
+      "leisure": "park",
+      "wikidata": "Q34849387"
+    },
+    {
+      "id": 256861,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Boynton Park",
+      "osm_id": 357733097,
+      "leisure": "park",
+      "wikidata": "Q34835384"
+    },
+    {
+      "id": 256934,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brookdale County Park",
+      "osm_id": 357736803,
+      "leisure": "park",
+      "wikidata": "Q34907564"
+    },
+    {
+      "id": 256935,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Alonzo F Bonsal Wildlife Preserve",
+      "osm_id": 357736810,
+      "leisure": "park",
+      "wikidata": "Q34806495"
+    },
+    {
+      "id": 256936,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pigeon Swamp State Park and Forest",
+      "osm_id": 357736839,
+      "leisure": "park"
+    },
+    {
+      "id": 256937,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ireland Brook County Park",
+      "osm_id": 357736849,
+      "leisure": "park",
+      "wikidata": "Q34838001"
+    },
+    {
+      "id": 256862,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brophy Field",
+      "osm_id": 357733118,
+      "leisure": "park",
+      "wikidata": "Q34838529"
+    },
+    {
+      "id": 256960,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dalton Park",
+      "osm_id": 357737626,
+      "leisure": "park",
+      "wikidata": "Q34863674"
+    },
+    {
+      "id": 256942,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Baysholm County Conservation Area",
+      "osm_id": 357736966,
+      "leisure": "park",
+      "wikidata": "Q34820998"
+    },
+    {
+      "id": 256961,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sondek Park",
+      "osm_id": 357737629,
+      "leisure": "park",
+      "opening_hours": "Mo-Su sunrise-sunset",
+      "wikidata": "Q34871877",
+      "addr_state": "NJ",
+      "addr_city": "Monmouth Junction",
+      "addr_street": "New Road",
+      "addr_housenumber": "493"
+    },
+    {
+      "id": 256962,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hidden Lake Park",
+      "osm_id": 357737636,
+      "leisure": "park",
+      "wikidata": "Q49500771"
+    },
+    {
+      "id": 257010,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bicentennial Park",
+      "osm_id": 357739117,
+      "leisure": "park",
+      "wikidata": "Q34827622"
+    },
+    {
+      "id": 256867,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Windsor Park",
+      "osm_id": 357733179,
+      "leisure": "park",
+      "wikidata": "Q34869841"
+    },
+    {
+      "id": 256868,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Terhune Park",
+      "osm_id": 357733209,
+      "leisure": "park",
+      "wikidata": "Q34864409"
+    },
+    {
+      "id": 256963,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jamesburg County Park Conservation Area",
+      "osm_id": 357737639,
+      "leisure": "park",
+      "wikidata": "Q49506707"
+    },
+    {
+      "id": 256869,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Herrick Park",
+      "osm_id": 357733212,
+      "leisure": "park",
+      "wikidata": "Q49500492"
+    },
+    {
+      "id": 257011,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bodman Park",
+      "osm_id": 357739127,
+      "leisure": "park",
+      "wikidata": "Q34833010"
+    },
+    {
+      "id": 257012,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dorsett Park",
+      "osm_id": 357739134,
+      "leisure": "park",
+      "wikidata": "Q49483878"
+    },
+    {
+      "id": 256964,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lakeridge Recreation Area",
+      "osm_id": 357737652,
+      "leisure": "park"
+    },
+    {
+      "id": 257013,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fisherman Cove Conservation Area",
+      "osm_id": 357739141,
+      "leisure": "park",
+      "wikidata": "Q49489589"
+    },
+    {
+      "id": 256870,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Telegraph Hill Park",
+      "osm_id": 357733266,
+      "leisure": "park",
+      "wikidata": "Q49569476"
+    },
+    {
+      "id": 256871,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lincroft Park",
+      "osm_id": 357733275,
+      "leisure": "park",
+      "wikidata": "Q34843595"
+    },
+    {
+      "id": 256872,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Seaton-Hackney Farm Park",
+      "osm_id": 357733307,
+      "leisure": "park",
+      "wikidata": "Q49559244"
+    },
+    {
+      "id": 256873,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Foote Park",
+      "osm_id": 357733311,
+      "leisure": "park",
+      "wikidata": "Q49490163"
+    },
+    {
+      "id": 256874,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Caldwell Playground",
+      "osm_id": 357733322,
+      "leisure": "park",
+      "wikidata": "Q34911750"
+    },
+    {
+      "id": 256875,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Walnut Park",
+      "osm_id": 357733417,
+      "leisure": "park",
+      "wikidata": "Q49576525"
+    },
+    {
+      "id": 256876,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rutherford Park",
+      "osm_id": 357733424,
+      "leisure": "park",
+      "wikidata": "Q34859409"
+    },
+    {
+      "id": 257015,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Michael J. Tighe Park",
+      "osm_id": 357739174,
+      "leisure": "park",
+      "wikidata": "Q34842152"
+    },
+    {
+      "id": 257017,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Normandy Park",
+      "osm_id": 357739185,
+      "leisure": "park"
+    },
+    {
+      "id": 257018,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Oak Green Park",
+      "osm_id": 357739188,
+      "leisure": "park",
+      "wikidata": "Q49533918"
+    },
+    {
+      "id": 257020,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Poricy Park",
+      "osm_id": 357739201,
+      "leisure": "park"
+    },
+    {
+      "id": 257022,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Stevenson Park",
+      "osm_id": 357739207,
+      "leisure": "park",
+      "wikidata": "Q49566324"
+    },
+    {
+      "id": 256877,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pulaski Park",
+      "osm_id": 357733431,
+      "leisure": "park",
+      "wikidata": "Q49546772"
+    },
+    {
+      "id": 256965,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Luke Park",
+      "osm_id": 357737656,
+      "leisure": "park",
+      "wikidata": "Q49520124"
+    },
+    {
+      "id": 257023,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Weltz Park",
+      "osm_id": 357739226,
+      "leisure": "park",
+      "wikidata": "Q49578337"
+    },
+    {
+      "id": 256966,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 357737660,
+      "leisure": "park"
+    },
+    {
+      "id": 257028,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Monmouth Battlefield State Park",
+      "osm_id": 357739518,
+      "leisure": "park"
+    },
+    {
+      "id": 256967,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mountainview Park",
+      "osm_id": 357737666,
+      "leisure": "park",
+      "wikidata": "Q49529381"
+    },
+    {
+      "id": 256968,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "North Brunswick Township Park",
+      "osm_id": 357737670,
+      "leisure": "park",
+      "wikidata": "Q49532268"
+    },
+    {
+      "id": 256969,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Old Bridge Waterfront Park",
+      "osm_id": 357737673,
+      "leisure": "park",
+      "wikidata": "Q49534909"
+    },
+    {
+      "id": 257091,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Reasoner Park",
+      "osm_id": 357741487,
+      "leisure": "park",
+      "wikidata": "Q34855828"
+    },
+    {
+      "id": 256970,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pacer's Field",
+      "osm_id": 357737676,
+      "leisure": "park",
+      "wikidata": "Q34853690"
+    },
+    {
+      "id": 257038,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Swimming River Natural Area",
+      "osm_id": 357739869,
+      "leisure": "park",
+      "wikidata": "Q49568516"
+    },
+    {
+      "id": 257039,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Turkey Swamp Park",
+      "osm_id": 357739873,
+      "leisure": "park",
+      "wikidata": "Q34866898"
+    },
+    {
+      "id": 257096,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Black Brook Park",
+      "osm_id": 357741661,
+      "leisure": "park"
+    },
+    {
+      "id": 256971,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Plainsboro Park",
+      "osm_id": 357737683,
+      "leisure": "park",
+      "wikidata": "Q49543762"
+    },
+    {
+      "id": 257097,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Central Park",
+      "osm_id": 357741666,
+      "leisure": "park",
+      "wikidata": "Q34919277"
+    },
+    {
+      "id": 257100,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Heritage Park",
+      "osm_id": 357741682,
+      "leisure": "park",
+      "wikidata": "Q49500316"
+    },
+    {
+      "id": 257040,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Forman Park",
+      "osm_id": 357739878,
+      "leisure": "park",
+      "wikidata": "Q34877335"
+    },
+    {
+      "id": 257048,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Cassville Crossroads Historic District",
+      "osm_id": 357740420,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q34850324"
+    },
+    {
+      "id": 256972,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Reichler Park",
+      "osm_id": 357737690,
+      "leisure": "park",
+      "wikidata": "Q34856255"
+    },
+    {
+      "id": 256973,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rutgers Ecological Preserve",
+      "osm_id": 357737693,
+      "leisure": "park"
+    },
+    {
+      "id": 257109,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Willowwood Arboretum",
+      "osm_id": 357741739,
+      "leisure": "park",
+      "wikidata": "Q8022455"
+    },
+    {
+      "id": 256974,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sadowski Park",
+      "osm_id": 357737697,
+      "leisure": "park",
+      "wikidata": "Q34859584"
+    },
+    {
+      "id": 256976,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Victor Crowell Park",
+      "osm_id": 357737713,
+      "leisure": "park",
+      "wikidata": "Q49574952"
+    },
+    {
+      "id": 257053,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gil Putnam Memorial Park",
+      "osm_id": 357740453,
+      "leisure": "park",
+      "wikidata": "Q34881283"
+    },
+    {
+      "id": 257054,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "John F Johnson Junior Memorial Park",
+      "osm_id": 357740462,
+      "leisure": "park",
+      "wikidata": "Q49508090"
+    },
+    {
+      "id": 256977,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Walnut Park",
+      "osm_id": 357737719,
+      "leisure": "park",
+      "wikidata": "Q34868479"
+    },
+    {
+      "id": 257056,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Patriots County Park",
+      "osm_id": 357740467,
+      "leisure": "park",
+      "wikidata": "Q49540198"
+    },
+    {
+      "id": 256979,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bay View Park",
+      "osm_id": 357738019,
+      "leisure": "park"
+    },
+    {
+      "id": 257058,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Shakespeare Garden",
+      "osm_id": 357740504,
+      "leisure": "park",
+      "wikidata": "Q34859884"
+    },
+    {
+      "id": 256980,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "MacWilliams Stadium",
+      "osm_id": 357738022,
+      "leisure": "park"
+    },
+    {
+      "id": 257059,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "McManus Field",
+      "osm_id": 357740509,
+      "leisure": "park",
+      "wikidata": "Q34848287"
+    },
+    {
+      "id": 256988,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Thompson Park",
+      "osm_id": 357738376,
+      "leisure": "park",
+      "wikidata": "Q34865330"
+    },
+    {
+      "id": 257128,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Addice Park",
+      "osm_id": 357742265,
+      "leisure": "park",
+      "wikidata": "Q34804256"
+    },
+    {
+      "id": 257131,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Flatrock Nature Center",
+      "osm_id": 357742864,
+      "leisure": "park",
+      "website": "https://www.flatrockbrook.org/",
+      "wikidata": "Q5457790"
+    },
+    {
+      "id": 257132,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Churchill Nature Preserve",
+      "osm_id": 357742866,
+      "leisure": "park",
+      "wikidata": "Q34926039"
+    },
+    {
+      "id": 257000,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Princeton Battle Monument",
+      "osm_id": 357738838,
+      "leisure": "park"
+    },
+    {
+      "id": 257133,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dean Park",
+      "osm_id": 357742868,
+      "leisure": "park",
+      "wikidata": "Q49482336"
+    },
+    {
+      "id": 257134,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Davis Johnson Gardens",
+      "osm_id": 357742871,
+      "leisure": "park",
+      "wikidata": "Q49482105"
+    },
+    {
+      "id": 257135,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tenafly Nature Center",
+      "osm_id": 357742876,
+      "leisure": "park"
+    },
+    {
+      "id": 257137,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 357742920,
+      "leisure": "park",
+      "wikidata": "Q34897344"
+    },
+    {
+      "id": 257138,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tokoloka Park",
+      "osm_id": 357742931,
+      "leisure": "park",
+      "wikidata": "Q49571026"
+    },
+    {
+      "id": 257139,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Westview Place Park",
+      "osm_id": 357743119,
+      "leisure": "park",
+      "wikidata": "Q49579574"
+    },
+    {
+      "id": 257140,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brandes Field Playground",
+      "osm_id": 357743389,
+      "leisure": "park",
+      "wikidata": "Q34904958"
+    },
+    {
+      "id": 257141,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Forest Road Park",
+      "osm_id": 357743521,
+      "leisure": "park",
+      "wikidata": "Q34877237"
+    },
+    {
+      "id": 257142,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Green Forest Park",
+      "osm_id": 357743523,
+      "leisure": "park",
+      "wikidata": "Q49495732"
+    },
+    {
+      "id": 257143,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lions Municipal Park",
+      "osm_id": 357743526,
+      "leisure": "park",
+      "wikidata": "Q34844021"
+    },
+    {
+      "id": 257144,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Milton Campbell Field",
+      "osm_id": 357743530,
+      "leisure": "park",
+      "wikidata": "Q34851344"
+    },
+    {
+      "id": 257145,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Paul Korlesky Park",
+      "osm_id": 357743785,
+      "leisure": "park",
+      "wikidata": "Q34854464"
+    },
+    {
+      "id": 257146,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Walker Park",
+      "osm_id": 357743790,
+      "leisure": "park",
+      "wikidata": "Q34868203"
+    },
+    {
+      "id": 257147,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "O'Brien Park",
+      "osm_id": 357743792,
+      "leisure": "park",
+      "wikidata": "Q49533774"
+    },
+    {
+      "id": 257148,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bacheller Avenue Park",
+      "osm_id": 357743801,
+      "leisure": "park",
+      "wikidata": "Q34813019"
+    },
+    {
+      "id": 257149,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Howard Field",
+      "osm_id": 357743818,
+      "leisure": "park",
+      "wikidata": "Q34836027"
+    },
+    {
+      "id": 257150,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Roosevelt Field",
+      "osm_id": 357743825,
+      "leisure": "park",
+      "wikidata": "Q34858617"
+    },
+    {
+      "id": 257151,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Saint Peters Park",
+      "osm_id": 357744432,
+      "leisure": "park",
+      "wikidata": "Q49556267"
+    },
+    {
+      "id": 257152,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Brookside Park",
+      "osm_id": 357744453,
+      "leisure": "park",
+      "wikidata": "Q34838342"
+    },
+    {
+      "id": 257153,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Father Glotzbach Park",
+      "osm_id": 357744457,
+      "leisure": "park",
+      "wikidata": "Q49488583"
+    },
+    {
+      "id": 257154,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Flora Louden Park",
+      "osm_id": 357744459,
+      "leisure": "park",
+      "wikidata": "Q34876321"
+    },
+    {
+      "id": 257155,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Park",
+      "osm_id": 357744467,
+      "leisure": "park",
+      "wikidata": "Q34848798"
+    },
+    {
+      "id": 257002,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bayshore Waterfront County Park",
+      "osm_id": 357738896,
+      "leisure": "park",
+      "wikidata": "Q34821011"
+    },
+    {
+      "id": 257156,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pulaski Park",
+      "osm_id": 357744471,
+      "leisure": "park",
+      "wikidata": "Q49546773"
+    },
+    {
+      "id": 257157,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ashland Stadium",
+      "osm_id": 357744481,
+      "leisure": "park"
+    },
+    {
+      "id": 257158,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Garden State Chancellor Park",
+      "osm_id": 357744893,
+      "leisure": "park",
+      "wikidata": "Q34879906"
+    },
+    {
+      "id": 257159,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sanford Park",
+      "osm_id": 357745137,
+      "leisure": "park",
+      "wikidata": "Q49557578"
+    },
+    {
+      "id": 257160,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Leonard J Buck Gardens",
+      "osm_id": 357746148,
+      "leisure": "park"
+    },
+    {
+      "id": 257161,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Olcott Square",
+      "osm_id": 357746152,
+      "leisure": "park",
+      "wikidata": "Q49534878"
+    },
+    {
+      "id": 257162,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Quail Brook Park",
+      "osm_id": 357746155,
+      "leisure": "park",
+      "wikidata": "Q49547068"
+    },
+    {
+      "id": 257003,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hartshorne Woods County Park",
+      "osm_id": 357738902,
+      "leisure": "park",
+      "wikidata": "Q5675287"
+    },
+    {
+      "id": 257163,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Schmidt Park",
+      "osm_id": 357746157,
+      "leisure": "park",
+      "wikidata": "Q49558479"
+    },
+    {
+      "id": 257164,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Warrenbrook Park",
+      "osm_id": 357746159,
+      "leisure": "park",
+      "wikidata": "Q49576861"
+    },
+    {
+      "id": 257004,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Huber Woods County Park",
+      "osm_id": 357738909,
+      "leisure": "park",
+      "wikidata": "Q34836370"
+    },
+    {
+      "id": 257005,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lenape Woods Greenway Municipally Open Space",
+      "osm_id": 357738913,
+      "leisure": "park",
+      "wikidata": "Q49515877"
+    },
+    {
+      "id": 257166,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Etra Park",
+      "osm_id": 357746337,
+      "leisure": "park",
+      "wikidata": "Q34874131"
+    },
+    {
+      "id": 257007,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Navesink River State Wildlife Management Area",
+      "osm_id": 357738924,
+      "leisure": "park",
+      "wikidata": "Q49530622"
+    },
+    {
+      "id": 265218,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Mathewson Playground",
+      "osm_id": 359281895,
+      "leisure": "park",
+      "wikidata": "Q31817981"
+    },
+    {
+      "id": 257168,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Princeton Metro Park",
+      "osm_id": 357746342,
+      "leisure": "park",
+      "wikidata": "Q49546200"
+    },
+    {
+      "id": 257169,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hudson River Waterfront Walkway",
+      "osm_id": 357746462,
+      "leisure": "park",
+      "wikidata": "Q5928870"
+    },
+    {
+      "id": 257170,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greene Terrace Playground",
+      "osm_id": 357746611,
+      "leisure": "park",
+      "wikidata": "Q49495974"
+    },
+    {
+      "id": 257171,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Montgomery Park",
+      "osm_id": 357746615,
+      "leisure": "park",
+      "wikidata": "Q49527845"
+    },
+    {
+      "id": 257172,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Parkway Playground",
+      "osm_id": 357746617,
+      "leisure": "park",
+      "wikidata": "Q49539635"
+    },
+    {
+      "id": 257173,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Shadyside Park",
+      "osm_id": 357746706,
+      "leisure": "park",
+      "wikidata": "Q49560225"
+    },
+    {
+      "id": 257174,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Camp Evans Historic District",
+      "osm_id": 357746857,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q34813676"
+    },
+    {
+      "id": 257175,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Soldiers Memorial Field",
+      "osm_id": 357747415,
+      "leisure": "park",
+      "wikidata": "Q49562971"
+    },
+    {
+      "id": 257176,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Metro Homes Field",
+      "osm_id": 357747417,
+      "leisure": "park",
+      "wikidata": "Q34849434"
+    },
+    {
+      "id": 257177,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Field",
+      "osm_id": 357748196,
+      "leisure": "park",
+      "wikidata": "Q34848643"
+    },
+    {
+      "id": 257178,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "George W Hodgins Stadium",
+      "osm_id": 357748240,
+      "leisure": "park"
+    },
+    {
+      "id": 257189,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Marquand Park",
+      "osm_id": 357748778,
+      "leisure": "park",
+      "wikidata": "Q6772482"
+    },
+    {
+      "id": 265086,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Long Brook Park",
+      "osm_id": 359265547,
+      "leisure": "park",
+      "wikidata": "Q31817661"
+    },
+    {
+      "id": 265095,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Svihra Park",
+      "osm_id": 359270165,
+      "leisure": "park",
+      "wikidata": "Q31823725"
+    },
+    {
+      "id": 265261,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Ken Strong Stadium",
+      "osm_id": 359285033,
+      "leisure": "park"
+    },
+    {
+      "id": 265267,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Alumni Field",
+      "osm_id": 359285184,
+      "leisure": "park",
+      "wikidata": "Q31814577"
+    },
+    {
+      "id": 265268,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Atlantic Square",
+      "osm_id": 359285199,
+      "leisure": "park",
+      "wikidata": "Q31814639"
+    },
+    {
+      "id": 265269,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Bush-Holley Historic Site and Visitor Center",
+      "osm_id": 359285383,
+      "leisure": "park",
+      "wikidata": "Q31815083"
+    },
+    {
+      "id": 265270,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Campion Field",
+      "osm_id": 359285409,
+      "leisure": "park",
+      "wikidata": "Q31815122"
+    },
+    {
+      "id": 265272,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Compo-Owenoke Historic District",
+      "osm_id": 359285576,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 265280,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eastside Park",
+      "osm_id": 359285739,
+      "leisure": "park",
+      "wikidata": "Q31815843"
+    },
+    {
+      "id": 265281,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fairfield Village Green",
+      "osm_id": 359285783,
+      "leisure": "park"
+    },
+    {
+      "id": 265283,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Gault Park",
+      "osm_id": 359285920,
+      "leisure": "park",
+      "wikidata": "Q31816209"
+    },
+    {
+      "id": 265284,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Grass Island Park",
+      "osm_id": 359285971,
+      "leisure": "park",
+      "wikidata": "Q31816332"
+    },
+    {
+      "id": 265285,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenfield Hill Historic District",
+      "osm_id": 359285979,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q5603969"
+    },
+    {
+      "id": 265286,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenwich Avenue Historic District",
+      "osm_id": 359285994,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 265287,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenwich Common",
+      "osm_id": 359285998,
+      "leisure": "park",
+      "wikidata": "Q31816403"
+    },
+    {
+      "id": 265288,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenwich Municipal Center Historic District",
+      "osm_id": 359286004,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 265289,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Havemeyer Fields",
+      "osm_id": 359286022,
+      "leisure": "park",
+      "wikidata": "Q31816554"
+    },
+    {
+      "id": 265291,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Imperial Park",
+      "osm_id": 359286156,
+      "leisure": "park",
+      "wikidata": "Q31816874"
+    },
+    {
+      "id": 265292,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Jennings Garden",
+      "osm_id": 359286179,
+      "leisure": "park",
+      "wikidata": "Q31817029"
+    },
+    {
+      "id": 265297,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Park Square",
+      "osm_id": 359286677,
+      "leisure": "park",
+      "wikidata": "Q31819575"
+    },
+    {
+      "id": 265298,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pecks Mill Pond Park",
+      "osm_id": 359286688,
+      "leisure": "park",
+      "wikidata": "Q31819726"
+    },
+    {
+      "id": 265302,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Shoreline Star Greyhound Park and Entertainment Complex",
+      "osm_id": 359287189,
+      "leisure": "park",
+      "wikidata": "Q31822930"
+    },
+    {
+      "id": 265305,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sterling Park",
+      "osm_id": 359287267,
+      "leisure": "park",
+      "wikidata": "Q31823701"
+    },
+    {
+      "id": 265306,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Strickland Road Historic District",
+      "osm_id": 359287293,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q7623597"
+    },
+    {
+      "id": 265307,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Tokeneke Park",
+      "osm_id": 359287347,
+      "leisure": "park",
+      "wikidata": "Q31823749"
+    },
+    {
+      "id": 265308,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "University Field",
+      "osm_id": 359287436,
+      "leisure": "park",
+      "wikidata": "Q31823805"
+    },
+    {
+      "id": 265309,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Varsity Field",
+      "osm_id": 359287455,
+      "leisure": "park",
+      "wikidata": "Q31823813"
+    },
+    {
+      "id": 265310,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Waterside Park",
+      "osm_id": 359287485,
+      "leisure": "park",
+      "wikidata": "Q31823917"
+    },
+    {
+      "id": 265420,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Eastern White Pine",
+      "osm_id": 2259029888,
+      "leisure": "park"
+    },
+    {
+      "id": 265225,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Nike Site Park",
+      "osm_id": 359282136,
+      "leisure": "park",
+      "wikidata": "Q31818573"
+    },
+    {
+      "id": 265313,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "YMCA Park",
+      "osm_id": 359287570,
+      "leisure": "park",
+      "wikidata": "Q31824009"
+    },
+    {
+      "id": 265314,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pemberwick Park",
+      "osm_id": 359287626,
+      "leisure": "park"
+    },
+    {
+      "id": 265233,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Robert Hutchins Parkette",
+      "osm_id": 359282502,
+      "leisure": "park",
+      "wikidata": "Q31821772"
+    },
+    {
+      "id": 265448,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Fruit Street Sitting Area",
+      "osm_id": 2322328275,
+      "leisure": "park",
+      "wikidata": "Q116204804"
+    },
+    {
+      "id": 265241,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Welchs Point Park",
+      "osm_id": 359283446,
+      "leisure": "park",
+      "wikidata": "Q31823927"
+    },
+    {
+      "id": 265242,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Baldwin Marsh Wildlife Area",
+      "osm_id": 359283711,
+      "leisure": "park",
+      "wikidata": "Q31814666"
+    },
+    {
+      "id": 265248,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Davenport Playground",
+      "osm_id": 359284450,
+      "leisure": "park",
+      "wikidata": "Q31815613"
+    },
+    {
+      "id": 265613,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Apolline's Garden",
+      "osm_id": 10757533390,
+      "leisure": "park",
+      "operator": "NYC DOT",
+      "addr_street": "Gates Avenue Plaza"
+    },
+    {
+      "id": 266208,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Steppingstone Park",
+      "osm_id": 7029012620,
+      "leisure": "park"
+    },
+    {
+      "id": 266102,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "City Island Park",
+      "osm_id": 10647002700,
+      "leisure": "park",
+      "opening_hours": "24/7",
+      "operator": "New York City Department of Parks and Recreation"
+    },
+    {
+      "id": 265655,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pool",
+      "osm_id": 10793727603,
+      "leisure": "park"
+    },
+    {
+      "id": 265656,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Playground #1",
+      "osm_id": 10793727604,
+      "leisure": "park"
+    },
+    {
+      "id": 265657,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pool House",
+      "osm_id": 10793749305,
+      "leisure": "park"
+    },
+    {
+      "id": 265918,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Oceanside Park",
+      "osm_id": 1195725680,
+      "leisure": "park"
+    },
+    {
+      "id": 265919,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Sherman Creek",
+      "osm_id": 1203709404,
+      "leisure": "park",
+      "tourism": "picnic_site"
+    },
+    {
+      "id": 266532,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Great Oak Park",
+      "osm_id": 5262276181,
+      "leisure": "park",
+      "addr_state": "NJ",
+      "addr_city": "East Brunswick",
+      "addr_postcode": "08816",
+      "addr_street": "Rues Lane",
+      "addr_housenumber": "260"
+    },
+    {
+      "id": 266377,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kiely Plaza",
+      "osm_id": 7237447535,
+      "leisure": "park"
+    },
+    {
+      "id": 266378,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Klapper Circle",
+      "osm_id": 7237462028,
+      "leisure": "park"
+    },
+    {
+      "id": 266379,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Rathaus Lawn",
+      "osm_id": 7237462029,
+      "leisure": "park"
+    },
+    {
+      "id": 266301,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Riggs Park",
+      "osm_id": 7154169212,
+      "leisure": "park",
+      "tourism": "theme_park"
+    },
+    {
+      "id": 266420,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Arya Spiritual Center Ground",
+      "osm_id": 5012518435,
+      "leisure": "park",
+      "addr_street": "133 Street",
+      "addr_housenumber": "104-20"
+    },
+    {
+      "id": 266441,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Joe Stala Park",
+      "osm_id": 5062893639,
+      "leisure": "park"
+    },
+    {
+      "id": 266468,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Dodge Field",
+      "osm_id": 5133150169,
+      "leisure": "park"
+    },
+    {
+      "id": 266470,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Hempstead Bench Spread",
+      "osm_id": 5136622788,
+      "leisure": "park"
+    },
+    {
+      "id": 266536,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Greenlawn Memeorial Park",
+      "osm_id": 5264009507,
+      "leisure": "park"
+    },
+    {
+      "id": 266537,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Welcome To East NOrtport Sign",
+      "osm_id": 5264009508,
+      "leisure": "park"
+    },
+    {
+      "id": 266974,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Soldiers Park",
+      "osm_id": 11186708739,
+      "leisure": "park"
+    },
+    {
+      "id": 266592,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Presser Park (Webb Field)",
+      "osm_id": 5296584895,
+      "leisure": "park"
+    },
+    {
+      "id": 266595,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Watsessing Park",
+      "osm_id": 5300131691,
+      "leisure": "park"
+    },
+    {
+      "id": 266845,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Big Brook Preserve",
+      "osm_id": 11035041158,
+      "leisure": "park"
+    },
+    {
+      "id": 267019,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Edison Recreation Center",
+      "osm_id": 4331231251,
+      "leisure": "park",
+      "wikidata": "Q49485845"
+    },
+    {
+      "id": 267583,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Claypit Creek Park",
+      "osm_id": 7724753329,
+      "leisure": "park"
+    },
+    {
+      "id": 267313,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Wilson Park",
+      "osm_id": 5832797796,
+      "leisure": "park"
+    },
+    {
+      "id": 267314,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Joseph B. Hellman Overlook",
+      "osm_id": 5833677120,
+      "leisure": "park"
+    },
+    {
+      "id": 267326,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Zion Park",
+      "osm_id": 5860937196,
+      "leisure": "park"
+    },
+    {
+      "id": 267509,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Kennedy Memorial Park",
+      "osm_id": 7610558232,
+      "leisure": "park"
+    },
+    {
+      "id": 267514,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Memorial Field Park",
+      "osm_id": 7616972554,
+      "leisure": "park",
+      "operator": "Douglas Manor Association",
+      "addr_state": "NY",
+      "addr_city": "Douglaston",
+      "addr_postcode": "11363",
+      "addr_street": "Marinette Street",
+      "addr_housenumber": "30-01"
+    },
+    {
+      "id": 267110,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Pond Park Gazebo",
+      "osm_id": 4538759464,
+      "leisure": "park"
+    },
+    {
+      "id": 267206,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Babylon Town Hall Annex Parking",
+      "osm_id": 5744212953,
+      "leisure": "park"
+    },
+    {
+      "id": 267207,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Babylon Parks and Recreation",
+      "osm_id": 5744212956,
+      "leisure": "park"
+    },
+    {
+      "id": 267208,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Phelps Lane Park",
+      "osm_id": 5744212958,
+      "leisure": "park"
+    },
+    {
+      "id": 267262,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Anthony Sanchez Memorial Park",
+      "osm_id": 5780869830,
+      "leisure": "park"
+    },
+    {
+      "id": 267404,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Lindbergh Field",
+      "osm_id": 5973407801,
+      "leisure": "park"
+    },
+    {
+      "id": 16216,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Trevor Park",
+      "osm_id": 357593347,
+      "leisure": "park",
+      "tourism": "attraction"
+    },
+    {
+      "id": 22552,
+      "geometry": "POINT (-72.896423 41.316453)",
+      "poi_name": "Riggs Park",
+      "osm_id": 7154169212,
+      "leisure": "park",
+      "tourism": "theme_park"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wernick Farm Reserve, Dartmouth, MA",
-      "geo_wkt": "POINT (-71.04755 41.690084)",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
       "poi": {
-        "id": 246662,
-        "geometry": "POINT (-71.04755 41.690084)",
-        "poi_name": "Wernick Farm Reserve",
-        "osm_id": 8790035380,
-        "leisure": "nature_reserve",
-        "description": "Wernick Farm is a 62\u00ad-acre jewel with a variety of habitats that connect the present to the agricultural past of this unique property. DNRT purchased the farm in 2014 from Reva Newfield and her four children, who wanted to preserve it for all to enjoy. Th",
-        "opening_hours": "Mo-Su 06:00-18:00",
-        "operator": "Dartmouth Natural Resources Trust",
-        "website": "https://dnrt.org/wernickfarm/",
-        "addr_state": "MA",
-        "addr_city": "Dartmouth",
-        "addr_postcode": "02747",
-        "addr_street": "North Albro Avenue",
-        "addr_housenumber": "1"
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 94,
+  "id": 2294,
   "type": "range:direction+loc"
 }

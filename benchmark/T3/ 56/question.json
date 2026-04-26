@@ -1,55 +1,64 @@
 {
-  "question": "Within a radius of 170 kilometers, what beach resort can I find located in the direction of east from Children's Cultural Center of Native America, New York, NY?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, 170000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "What gallery can be found within 130 kilometers along the southwest direction from Caldwell Woods, Chicago, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, 130000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 247506,
-      "geometry": "POINT (-73.944872 40.832146)",
-      "poi_name": "Quantuck Beach Club",
-      "osm_id": 6712661219,
-      "leisure": "beach_resort",
-      "website": "http://quantuckbeachclub.com/"
+      "id": 23255,
+      "geometry": "POINT (-87.786491 41.997567)",
+      "poi_name": "3rd Floor Gallery",
+      "osm_id": 5084832374,
+      "tourism": "gallery",
+      "website": "http://www.3rdfloorgallery.com"
+    },
+    {
+      "id": 21489,
+      "geometry": "POINT (-87.786491 41.997567)",
+      "poi_name": "Illinois State Museum-Lockport Gallery",
+      "osm_id": 10284056341,
+      "tourism": "gallery",
+      "operator": "Illinois State Museum",
+      "website": "https://illinoisstatemuseum.org/content/welcome-ism-lockport-gallery",
+      "addr_state": "IL",
+      "addr_city": "Lockport",
+      "addr_postcode": "60441",
+      "addr_street": "West 10th Street",
+      "addr_housenumber": "201"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 130000,
+      "text": "130 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Children's Cultural Center of Native America, New York, NY",
-      "geo_wkt": "POINT (-73.944872 40.832146)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Caldwell Woods, Chicago, IL",
+      "geo_wkt": "POINT (-87.786491 41.997567)",
       "poi": {
-        "id": 979,
-        "geometry": "POINT (-73.944872 40.832146)",
-        "poi_name": "Children's Cultural Center of Native America",
-        "osm_id": 2768275469,
-        "tourism": "museum",
-        "fee": "yes",
-        "opening_hours": "Mo-Fr 10:30-13:00",
-        "operator": "Nitchen Inc.",
-        "website": "https://www.cccona.org/",
-        "phone": "+1-917-902-6628",
-        "museum": "children",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10032",
-        "addr_street": "West 155th Street",
-        "addr_housenumber": "550"
+        "id": 245668,
+        "geometry": "POINT (-87.786491 41.997567)",
+        "poi_name": "Caldwell Woods",
+        "osm_id": 3358252547,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60646"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2655,
+  "id": 2355,
   "type": "range:direction+name"
 }

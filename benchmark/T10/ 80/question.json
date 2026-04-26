@@ -1,63 +1,63 @@
 {
-  "question": "What's the nearest caf\u00e9 on the way to the Laffer Gallery, Schuylerville, NY from St. Charles Hotel, Hudson, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography, ST_GeomFromText('POINT (-73.581479 43.099102)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.782453 42.247259)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant as you travel from Funkmeyer New Reality Garden, Los Angeles, CA toward Warner Bros. Transportation Museum, Burbank, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, ST_GeomFromText('POINT (-118.340304 34.14642)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 77717,
-      "geometry": "POINT (-73.682821 42.522674)",
-      "poi_name": "Coffee Bean Cafe",
-      "osm_id": 709064592,
-      "amenity": "cafe",
-      "value": 9.807857534595968
+      "id": 209206,
+      "geometry": "POINT (-118.364786 34.056751)",
+      "poi_name": "Meals by Genet",
+      "osm_id": 5027582621,
+      "amenity": "restaurant",
+      "value": 11.736976388664651
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "St. Charles Hotel, Hudson, NY",
-      "geo_wkt": "POINT (-73.782453 42.247259)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
       "poi": {
-        "id": 2093,
-        "geometry": "POINT (-73.782453 42.247259)",
-        "poi_name": "St. Charles Hotel",
-        "osm_id": 3258145463,
-        "tourism": "hotel",
-        "website": "https://www.stcharleshotel.com/",
-        "internet_access": "yes",
-        "phone": "(518) 822-9900",
-        "addr_state": "NY",
-        "addr_city": "Hudson",
-        "addr_postcode": "12534",
-        "addr_street": "Park Place",
-        "addr_housenumber": "16-18"
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "The Laffer Gallery, Schuylerville, NY",
-      "geo_wkt": "POINT (-73.581479 43.099102)",
+      "sub_category": "museum",
+      "display_name": "Warner Bros. Transportation Museum, Burbank, CA",
+      "geo_wkt": "POINT (-118.340304 34.14642)",
       "poi": {
-        "id": 22469,
-        "geometry": "POINT (-73.581479 43.099102)",
-        "poi_name": "The Laffer Gallery",
-        "osm_id": 7093026359,
-        "tourism": "gallery",
-        "website": "https://thelaffergallery.com",
-        "addr_state": "NY",
-        "addr_city": "Schuylerville",
-        "addr_postcode": "12871",
-        "addr_street": "Broad Street",
-        "addr_housenumber": "96"
+        "id": 14805,
+        "geometry": "POINT (-118.340304 34.14642)",
+        "poi_name": "Warner Bros. Transportation Museum",
+        "osm_id": 4726390624,
+        "description": "Warner Bros. houses some amazing film vehicles including a Batmobile, the Ford from Harry Potter and the Mach 5.",
+        "tourism": "museum",
+        "operator": "Warner Bros",
+        "addr_state": "CA",
+        "addr_city": "Burbank",
+        "addr_postcode": "91522",
+        "addr_street": "Warner Boulevard",
+        "addr_housenumber": "4000"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "restaurant"
     }
   },
-  "id": 179,
+  "id": 1679,
   "type": "knn:towards+name"
 }

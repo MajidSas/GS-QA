@@ -1,55 +1,53 @@
 {
-  "question": "Where is the closest hospital positioned towards the southeast of the Escape Game Chicago, Chicago, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.626591 41.893408)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest museum relative to the east of John Natsoulas Gallery, Davis, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167647,
-      "geometry": "POINT (-87.626591 41.893408)",
-      "poi_name": "Regional Mental Health Center - Strawhun Center",
-      "osm_id": 358677260,
-      "amenity": "hospital",
-      "operator": "Regional Mental Health Center",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "wikidata": "Q87932094",
-      "addr_state": "IN",
-      "addr_city": "Merrillville",
-      "addr_postcode": "46410",
-      "addr_street": "Taft Street",
-      "addr_housenumber": "8555"
+      "id": 18309,
+      "geometry": "POINT (-121.740978 38.54212)",
+      "poi_name": "Crocker Art Museum",
+      "osm_id": 368174612,
+      "tourism": "museum",
+      "wheelchair": "limited",
+      "website": "www.crockerartmuseum.org",
+      "phone": "(916) 808-7000",
+      "wikidata": "Q3003161",
+      "addr_state": "CA",
+      "addr_city": "sacramento",
+      "addr_postcode": "95814",
+      "addr_street": "O Street",
+      "addr_housenumber": "216"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "The Escape Game Chicago, Chicago, IL",
-      "geo_wkt": "POINT (-87.626591 41.893408)",
+      "sub_category": "gallery",
+      "display_name": "John Natsoulas Gallery, Davis, CA",
+      "geo_wkt": "POINT (-121.740978 38.54212)",
       "poi": {
-        "id": 11047,
-        "geometry": "POINT (-87.626591 41.893408)",
-        "poi_name": "The Escape Game Chicago",
-        "osm_id": 9832986504,
-        "description": "The Escape Game Chicago is America\u2019s premier provider of uniquely premium escape rooms. Our adventures bring epic stories to life in a one-of-a-kind hands on experience. You might escape. You will have fun!",
-        "tourism": "attraction",
-        "operator": "Escape Room",
-        "website": "https://theescapegame.com/chicago/",
-        "phone": "+1-312-453-7753",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60611",
-        "addr_street": "E Ontario St",
-        "addr_housenumber": "42"
+        "id": 1952,
+        "geometry": "POINT (-121.740978 38.54212)",
+        "poi_name": "John Natsoulas Gallery",
+        "osm_id": 3226037808,
+        "tourism": "gallery",
+        "opening_hours": "07:00-19:00",
+        "internet_access": "yes",
+        "addr_state": "CA",
+        "addr_city": "Davis",
+        "addr_postcode": "95616",
+        "addr_street": "1st Street",
+        "addr_housenumber": "521"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1110,

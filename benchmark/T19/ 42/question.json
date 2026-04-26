@@ -1,44 +1,45 @@
 {
-  "question": "Where's the closest hotel towards the north of Nanticoke Lenni-Lenape, Bridgeton, NJ?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.235559 39.42905)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest garden relative to the north of Appalachian Wireless Arena, Pikeville, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 8507,
-      "geometry": "POINT (-75.235559 39.42905)",
-      "poi_name": "Airport Waterfront Inn",
-      "osm_id": 8514591754,
-      "tourism": "hotel",
-      "website": "http://www.airportwaterfrontinn.us",
-      "addr_state": "PA",
-      "addr_city": "Essington",
-      "addr_postcode": "19029",
-      "addr_street": "Taylor Avenue",
-      "addr_housenumber": "103"
+      "id": 248616,
+      "geometry": "POINT (-82.517286 37.477755)",
+      "poi_name": "Ritter Park Rose Garden",
+      "osm_id": 4683706042,
+      "leisure": "garden",
+      "addr_state": "WV",
+      "addr_city": "Huntington",
+      "addr_postcode": "25701",
+      "addr_street": "McCoy Road",
+      "addr_housenumber": "1501"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Nanticoke Lenni-Lenape, Bridgeton, NJ",
-      "geo_wkt": "POINT (-75.235559 39.42905)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
+      "geo_wkt": "POINT (-82.517286 37.477755)",
       "poi": {
-        "id": 12464,
-        "geometry": "POINT (-75.235559 39.42905)",
-        "poi_name": "Nanticoke Lenni-Lenape",
-        "osm_id": 7255929320,
-        "tourism": "museum",
-        "website": "https://nanticoke-lenape.info/",
-        "addr_state": "NJ",
-        "addr_city": "Bridgeton",
-        "addr_postcode": "08302",
-        "addr_street": "Commerce Street East",
-        "addr_housenumber": "18"
+        "id": 246594,
+        "geometry": "POINT (-82.517286 37.477755)",
+        "poi_name": "Appalachian Wireless Arena",
+        "osm_id": 1736849627,
+        "leisure": "stadium",
+        "building": "yes",
+        "sport": "basketball",
+        "phone": "+1 606 444 5500",
+        "addr_state": "KY",
+        "addr_city": "Pikeville",
+        "addr_postcode": "41501",
+        "addr_street": "Main Street",
+        "addr_housenumber": "126"
       }
     },
     "[3]": {

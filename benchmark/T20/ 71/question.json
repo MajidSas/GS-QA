@@ -1,65 +1,65 @@
 {
-  "question": "Where's the closest restaurant on the path leading to William Paterson University School of Continuing and Professional Education, Wayne, NJ from Speert Green, Wayne, NJ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.222565 40.967502)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum lying along the route toward ClipArt Gallery, East Boston, MA from Blue Ocean Discovery Center, Hampton, NH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography, ST_GeomFromText('POINT (-71.042225 42.367672)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 219075,
-      "geometry": "POINT (-74.199549 40.946324)",
-      "poi_name": "Wayne Dining Hall",
-      "osm_id": 9314851681,
-      "amenity": "restaurant",
-      "cuisine": "cafeteria",
-      "addr_state": "NJ",
-      "addr_city": "Wayne",
-      "addr_postcode": "07470",
-      "addr_street": "Pompton Road",
-      "addr_housenumber": "300",
-      "value": 321.8249547361837
+      "id": 17356,
+      "geometry": "POINT (-70.779346 42.632682)",
+      "poi_name": "Essex Historical Society and Shipbuilding Museum",
+      "osm_id": 367781150,
+      "tourism": "museum",
+      "website": "https://www.essexshipbuilding.org/",
+      "addr_state": "MA",
+      "value": 197.58833820873082
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Speert Green, Wayne, NJ",
-      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
       "poi": {
-        "id": 266681,
-        "geometry": "POINT (-74.198768 40.944562)",
-        "poi_name": "Speert Green",
-        "osm_id": 9317008519,
-        "leisure": "garden",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "William Paterson University School of Continuing and Professional Education, Wayne, NJ",
-      "geo_wkt": "POINT (-74.222565 40.967502)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "ClipArt Gallery, East Boston, MA",
+      "geo_wkt": "POINT (-71.042225 42.367672)",
       "poi": {
-        "id": 63247,
-        "geometry": "POINT (-74.222565 40.967502)",
-        "poi_name": "William Paterson University School of Continuing and Professional Education",
-        "osm_id": 5605978386,
-        "amenity": "university",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Valley Road",
-        "addr_housenumber": "1600"
+        "id": 24305,
+        "geometry": "POINT (-71.042225 42.367672)",
+        "poi_name": "ClipArt Gallery",
+        "osm_id": 10997676044,
+        "tourism": "gallery",
+        "opening_hours": "Sa 12:00-16:00",
+        "operator": "Slip65",
+        "addr_state": "MA",
+        "addr_city": "East Boston",
+        "addr_postcode": "02128",
+        "addr_street": "Lewis Street",
+        "addr_housenumber": "65"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1370,
+  "id": 1570,
   "type": "knn:towards+loc"
 }

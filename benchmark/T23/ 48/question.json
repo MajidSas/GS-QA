@@ -1,46 +1,41 @@
 {
-  "question": "Within a 130 kilometers distance from AdventHealth Orlando Emergency Room, Orlando, FL, how many zoos are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.36921 28.573543)',4326)::geography, 130000)\nAND tourism = 'zoo';\n",
+  "question": "What\u2019s the total number of caf\u00e9s inside a 20 kilometers radius from Scienceworks, Ashland, OR?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.688672 42.193359)',4326)::geography, 20000)\nAND amenity = 'cafe';\n",
   "answers": [
     {
-      "count": 8
+      "count": 25
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 20000,
+      "text": "20 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "AdventHealth Orlando Emergency Room, Orlando, FL",
-      "geo_wkt": "POINT (-81.36921 28.573543)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Scienceworks, Ashland, OR",
+      "geo_wkt": "POINT (-122.688672 42.193359)",
       "poi": {
-        "id": 137081,
-        "geometry": "POINT (-81.36921 28.573543)",
-        "poi_name": "AdventHealth Orlando Emergency Room",
-        "osm_id": 6085146755,
-        "amenity": "hospital",
-        "opening_hours": "24/7",
-        "operator": "AdventHealth",
-        "website": "https://adventhealth.com",
-        "phone": "+1-407-303-1940",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "FL",
-        "addr_city": "Orlando",
-        "addr_postcode": "32803",
-        "addr_street": "East Rollins Street",
-        "addr_housenumber": "601"
+        "id": 1168,
+        "geometry": "POINT (-122.688672 42.193359)",
+        "poi_name": "Scienceworks",
+        "osm_id": 2879092854,
+        "tourism": "attraction",
+        "website": "https://www.scienceworksmuseum.org/",
+        "addr_state": "OR",
+        "addr_city": "Ashland",
+        "addr_postcode": "97520",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "1500"
       }
     }
   },
-  "id": 2247,
+  "id": 1847,
   "type": "range+count"
 }

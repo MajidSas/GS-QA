@@ -1,44 +1,46 @@
 {
-  "question": "Which caf\u00e9 is nearest in the northwest direction from Sauk Trail Woods, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which attraction is the closest to the southwest of Treetop Zoofari Zip line and Adventure Park, Moseley, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.766318 37.38252)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 243416,
-      "geometry": "POINT (-87.649076 41.489705)",
-      "poi_name": "Starbucks",
-      "osm_id": 7645974261,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee"
+      "id": 2471,
+      "geometry": "POINT (-77.766318 37.38252)",
+      "poi_name": "Token Machine",
+      "osm_id": 3466974080,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Sauk Trail Woods, IL",
-      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "sub_category": "park",
+      "display_name": "Treetop Zoofari Zip line and Adventure Park, Moseley, VA",
+      "geo_wkt": "POINT (-77.766318 37.38252)",
       "poi": {
-        "id": 265408,
-        "geometry": "POINT (-87.649076 41.489705)",
-        "poi_name": "Sauk Trail Woods",
-        "osm_id": 369059365,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 245352,
+        "geometry": "POINT (-77.766318 37.38252)",
+        "poi_name": "Treetop Zoofari Zip line and Adventure Park",
+        "osm_id": 2786859306,
+        "leisure": "park",
+        "website": "https://treetopzoofari.com/",
+        "phone": "+1 804-739-5666",
+        "addr_state": "VA",
+        "addr_city": "Moseley",
+        "addr_postcode": "23120",
+        "addr_street": "Beaver Bridge Road",
+        "addr_housenumber": "8300"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2520,
+  "id": 1220,
   "type": "knn:direction+name"
 }

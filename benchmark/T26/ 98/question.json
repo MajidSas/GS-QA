@@ -1,41 +1,44 @@
 {
-  "question": "How distant is the closest attraction in relation to S. 15th St. Community Garden, Philadelphia, PA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest stadium away from the Cabell Gallery, Lexington, VA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.442099 37.785277)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.442099 37.785277)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13899,
-      "geometry": "POINT (-75.157835 39.939009)",
-      "poi_name": "Italian market",
-      "osm_id": 4175144392,
-      "tourism": "attraction",
-      "addr_street": "Christian Street",
-      "distance": 1153.28829917
+      "id": 265386,
+      "geometry": "POINT (-79.350197 37.74151)",
+      "poi_name": "Knight Sports Arena",
+      "osm_id": 367997526,
+      "leisure": "stadium",
+      "addr_state": "VA",
+      "distance": 9443.16391406
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "The Cabell Gallery, Lexington, VA",
+      "geo_wkt": "POINT (-79.442099 37.785277)",
       "poi": {
-        "id": 247115,
-        "geometry": "POINT (-75.169239 39.933457)",
-        "poi_name": "S. 15th St. Community Garden",
-        "osm_id": 3559344406,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_street": "S. 15th St.",
-        "addr_housenumber": "1329"
+        "id": 1784,
+        "geometry": "POINT (-79.442099 37.785277)",
+        "poi_name": "The Cabell Gallery",
+        "osm_id": 3154144661,
+        "tourism": "gallery",
+        "website": "https://www.cabellgallery.com/",
+        "phone": "+1-540-461-8488",
+        "addr_state": "VA",
+        "addr_city": "Lexington",
+        "addr_postcode": "24450",
+        "addr_street": "West Washington Street",
+        "addr_housenumber": "5"
       }
     }
   },
-  "id": 2497,
+  "id": 697,
   "type": "knn+distance"
 }

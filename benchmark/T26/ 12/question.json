@@ -1,45 +1,43 @@
 {
-  "question": "What's the distance to the closest university with respect to Neil Carey Arena, IL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest stadium located from Buck Creek Trout Farm, Marion, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.150746 35.748391)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.150746 35.748391)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 110104,
-      "geometry": "POINT (-87.719202 41.592582)",
-      "poi_name": "South Suburban College Oak Forest Center",
-      "osm_id": 3687805176,
-      "amenity": "university",
-      "operator": "South Suburban College",
-      "addr_state": "IL",
-      "addr_city": "Oak Forest",
-      "addr_postcode": "60452",
-      "addr_street": "KIlbourn Avenue",
-      "addr_housenumber": "16333",
-      "distance": 30279.45150197
+      "id": 266010,
+      "geometry": "POINT (-80.899824 35.236652)",
+      "poi_name": "Dave Harris Stadium",
+      "osm_id": 10276477614,
+      "leisure": "stadium",
+      "operator": "Charlotte-Mecklenburg Schools",
+      "sport": "american_football;football;athletics",
+      "distance": 126912.783641
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Neil Carey Arena, IL",
-      "geo_wkt": "POINT (-88.082005 41.605308)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Buck Creek Trout Farm, Marion, NC",
+      "geo_wkt": "POINT (-82.150746 35.748391)",
       "poi": {
-        "id": 265389,
-        "geometry": "POINT (-88.082005 41.605308)",
-        "poi_name": "Neil Carey Arena",
-        "osm_id": 368073990,
-        "leisure": "stadium",
-        "operator": "Lewis University",
-        "sport": "basketball;volleyball",
-        "addr_state": "IL"
+        "id": 4141,
+        "geometry": "POINT (-82.150746 35.748391)",
+        "poi_name": "Buck Creek Trout Farm",
+        "osm_id": 5693714858,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Marion",
+        "addr_postcode": "28752",
+        "addr_street": "Rainbow Trout Drive",
+        "addr_housenumber": "74"
       }
     }
   },
-  "id": 2411,
+  "id": 611,
   "type": "knn+distance"
 }

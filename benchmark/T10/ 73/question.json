@@ -1,65 +1,65 @@
 {
-  "question": "Which restaurant is nearest as you move towards Boston Harbor Hotel, Boston, MA from Drive By Projects, Watertown, MA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography, ST_GeomFromText('POINT (-71.050316 42.35666)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.181915 42.367852)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant is nearest along the route connecting Oak Grove Football Stadium, Bessemer, AL to UAB Freestanding ER, Gardendale, AL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography, ST_GeomFromText('POINT (-86.819206 33.648997)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 34347,
-      "geometry": "POINT (-71.160364 42.370164)",
-      "poi_name": "Fordee's",
-      "osm_id": 2699063566,
+      "id": 72550,
+      "geometry": "POINT (-87.030465 33.508507)",
+      "poi_name": "Allstar Diner",
+      "osm_id": 11432986727,
       "amenity": "restaurant",
-      "cuisine": "international",
-      "website": "http://www.myfordees.com",
-      "addr_city": "Watertown",
-      "addr_street": "Mount Auburn Street",
-      "addr_housenumber": "555",
-      "value": 96.4975672109162
+      "opening_hours": "Mo-Sa 07:00-20:00",
+      "website": "www.facebook.com/allstardiner/",
+      "phone": "205-491-4181",
+      "addr_state": "AL",
+      "addr_city": "Sylvan Springs",
+      "addr_postcode": "35118",
+      "addr_street": "Birmingport Road",
+      "addr_housenumber": "5700",
+      "value": 57.38099599467164
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Drive By Projects, Watertown, MA",
-      "geo_wkt": "POINT (-71.181915 42.367852)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
       "poi": {
-        "id": 24015,
-        "geometry": "POINT (-71.181915 42.367852)",
-        "poi_name": "Drive By Projects",
-        "osm_id": 9249399944,
-        "tourism": "gallery",
-        "website": "https://drive-byprojects.com/",
-        "phone": "+1 617 835 8255",
-        "addr_state": "MA",
-        "addr_city": "Watertown",
-        "addr_postcode": "02472",
-        "addr_street": "Spring Street",
-        "addr_housenumber": "81"
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Boston Harbor Hotel, Boston, MA",
-      "geo_wkt": "POINT (-71.050316 42.35666)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UAB Freestanding ER, Gardendale, AL",
+      "geo_wkt": "POINT (-86.819206 33.648997)",
       "poi": {
-        "id": 20966,
-        "geometry": "POINT (-71.050316 42.35666)",
-        "poi_name": "Boston Harbor Hotel",
-        "osm_id": 1325873780,
-        "tourism": "hotel",
-        "wheelchair": "yes",
+        "id": 185510,
+        "geometry": "POINT (-86.819206 33.648997)",
+        "poi_name": "UAB Freestanding ER",
+        "osm_id": 7860493314,
+        "amenity": "hospital",
         "opening_hours": "24/7",
-        "website": "https://www.bostonharborhotel.com/",
-        "internet_access": "wlan",
-        "phone": "+1 617 439 7000",
-        "wikidata": "Q4947928",
-        "addr_state": "MA",
-        "addr_city": "Boston",
-        "addr_postcode": "02110",
-        "addr_street": "Rowes Wharf",
-        "addr_housenumber": "70"
+        "website": "https://www.uabmedicine.org/gardendale-fed",
+        "phone": "+1-205-263-0952",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "AL",
+        "addr_city": "Gardendale",
+        "addr_postcode": "35071",
+        "addr_street": "Rocket Way",
+        "addr_housenumber": "960"
       }
     },
     "[1]": {
@@ -67,6 +67,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 172,
+  "id": 1672,
   "type": "knn:towards+name"
 }

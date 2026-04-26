@@ -1,53 +1,102 @@
 {
-  "question": "What's the distance to a beach resort from UCF Lake Nona Medical Center, Orlando, FL within 190 kilometers?",
-  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-81.28563 28.367409)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.28563 28.367409)',4326)::geography, 190000)\nAND leisure = 'beach_resort';\n",
+  "question": "What\u2019s the proximity of an attraction to Glenhill Farmhouse, Erie, PA within a 110 kilometers range?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 110000)\nAND tourism = 'attraction';\n",
   "answers": [
     {
-      "id": 248000,
-      "geometry": "POINT (-80.4022 27.773371)",
-      "poi_name": "Orchid Island Beach Club",
-      "osm_id": 6231201516,
-      "leisure": "beach_resort",
-      "addr_state": "FL",
-      "addr_city": "Orchid",
-      "addr_postcode": "32963",
-      "addr_street": "Beachside Drive",
-      "addr_housenumber": "1",
-      "distance": 108971.14267672
+      "id": 11369,
+      "geometry": "POINT (-79.350187 41.807911)",
+      "poi_name": "Boulder Ridge Stables",
+      "osm_id": 9951338017,
+      "tourism": "attraction",
+      "addr_housenumber": "1727",
+      "distance": 63018.23513124
+    },
+    {
+      "id": 24836,
+      "geometry": "POINT (-79.487608 42.073067)",
+      "poi_name": "Panama Rocks",
+      "osm_id": 4340479888,
+      "tourism": "attraction",
+      "opening_hours": "10:00-17:00",
+      "distance": 41526.39199092
+    },
+    {
+      "id": 19938,
+      "geometry": "POINT (-79.392843 41.675234)",
+      "poi_name": "Tidioute Overlook",
+      "osm_id": 7771460443,
+      "tourism": "attraction",
+      "addr_state": "PA",
+      "addr_city": "Tidioute",
+      "addr_postcode": "16351",
+      "addr_street": "Bimber Run Road",
+      "distance": 69658.96877157
+    },
+    {
+      "id": 20617,
+      "geometry": "POINT (-79.33697 42.453378)",
+      "poi_name": "Lake Shore Savings Clock Tower",
+      "osm_id": 1203993222,
+      "tourism": "attraction",
+      "distance": 65124.76900668
+    },
+    {
+      "id": 21278,
+      "geometry": "POINT (-80.090842 42.138299)",
+      "poi_name": "Victorian Princess",
+      "osm_id": 1465867011,
+      "tourism": "attraction",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16507",
+      "distance": 8944.82144995
+    },
+    {
+      "id": 26835,
+      "geometry": "POINT (-80.081842 42.120204)",
+      "poi_name": "Graffiti Wall",
+      "osm_id": 7571687786,
+      "tourism": "attraction",
+      "operator": "City of Erie",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16501",
+      "addr_street": "Peach Street",
+      "addr_housenumber": "1401",
+      "distance": 7947.34419739
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "UCF Lake Nona Medical Center, Orlando, FL",
-      "geo_wkt": "POINT (-81.28563 28.367409)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
       "poi": {
-        "id": 181401,
-        "geometry": "POINT (-81.28563 28.367409)",
-        "poi_name": "UCF Lake Nona Medical Center",
-        "osm_id": 10844797703,
-        "amenity": "hospital",
-        "website": "https://ucflakenonamedicalcenter.com",
-        "phone": "+1 407 302 7392",
-        "healthcare": "hospital",
-        "addr_state": "FL",
-        "addr_city": "Orlando",
-        "addr_postcode": "32827",
-        "addr_street": "Lake Nona Boulevard",
-        "addr_housenumber": "6700"
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
       }
     }
   },
-  "id": 799,
+  "id": 1999,
   "type": "range+distance"
 }

@@ -1,40 +1,41 @@
 {
-  "question": "How many gardens are situated within a 180 kilometers distance from Alter Space, San Francisco, CA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.410832 37.777056)',4326)::geography, 180000)\nAND leisure = 'garden';\n",
+  "question": "What\u2019s the number of golf courses within 130 kilometers from Kenan House, Wilmington, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.927013 34.237558)',4326)::geography, 130000)\nAND leisure = 'golf_course';\n",
   "answers": [
     {
-      "count": 105
+      "count": 5
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 130000,
+      "text": "130 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Alter Space, San Francisco, CA",
-      "geo_wkt": "POINT (-122.410832 37.777056)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Kenan House, Wilmington, NC",
+      "geo_wkt": "POINT (-77.927013 34.237558)",
       "poi": {
-        "id": 25002,
-        "geometry": "POINT (-122.410832 37.777056)",
-        "poi_name": "Alter Space",
-        "osm_id": 4370393289,
-        "tourism": "gallery",
-        "addr_state": "CA",
-        "addr_city": "San Francisco",
-        "addr_postcode": "94127",
-        "addr_street": "Howard Street",
-        "addr_housenumber": "1158"
+        "id": 64870,
+        "geometry": "POINT (-77.927013 34.237558)",
+        "poi_name": "Kenan House",
+        "osm_id": 5675848019,
+        "amenity": "university",
+        "operator": "University of North Carolina Wilmington",
+        "addr_state": "NC",
+        "addr_city": "Wilmington",
+        "addr_postcode": "28403",
+        "addr_street": "Market Street",
+        "addr_housenumber": "1705"
       }
     }
   },
-  "id": 2242,
+  "id": 1842,
   "type": "range+count"
 }

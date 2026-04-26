@@ -1,44 +1,42 @@
 {
-  "question": "When was the nearest nature reserve from O'Rena, Rochester, MI established?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest park from Strawberry Hill, San Francisco, CA hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 254783,
-      "geometry": "POINT (-83.321873 41.686158)",
-      "poi_name": "Cedar Point National Wildlife Refuge",
-      "osm_id": 357390848,
-      "leisure": "nature_reserve",
-      "wikidata": "Q5056837",
-      "multihop_answer": "1964",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Cedar Point National Wildlife Refuge Established: 1964"
+      "id": 263710,
+      "geometry": "POINT (-122.448056 37.776944)",
+      "poi_name": "Benedetti Diamond",
+      "osm_id": 358857215,
+      "leisure": "park",
+      "wikidata": "Q49474355",
+      "multi_source_answer": "2000",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "Benedetti Diamond Capacity: 2000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "O'Rena, Rochester, MI",
-      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 267317,
-        "geometry": "POINT (-83.213305 42.674149)",
-        "poi_name": "O'Rena",
-        "osm_id": 5842381796,
-        "leisure": "stadium",
-        "addr_state": "MI",
-        "addr_city": "Rochester",
-        "addr_postcode": "48309-4482",
-        "addr_street": "Pioneer Drive",
-        "addr_housenumber": "569"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     }
   },
-  "id": 930,
-  "type": "knn+name+multihop1"
+  "id": 830,
+  "type": "knn+name+multi_source1"
 }

@@ -1,49 +1,52 @@
 {
-  "question": "What's the closest museum to the southeast of Clifford Woods, Farmington, ME?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.139414 44.674384)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which fast food restaurant is nearest in the northwest direction from Acadia Cliffs Wildlife Area, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.845367 39.320973)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12811,
-      "geometry": "POINT (-70.139414 44.674384)",
-      "poi_name": "Oakland historical artifacts & photo museum",
-      "osm_id": 7566907154,
-      "tourism": "museum",
-      "addr_state": "ME",
-      "addr_city": "Oakland",
-      "addr_postcode": "04963",
-      "addr_street": "Railroad Avenue",
-      "addr_housenumber": "7"
+      "id": 73840,
+      "geometry": "POINT (-81.845367 39.320973)",
+      "poi_name": "Subway",
+      "osm_id": 9656605953,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Su 09:00-20:00",
+      "website": "https://restaurants.subway.com/united-states/oh/logan/12910-state-rte-664",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "outdoor_seating": "no",
+      "addr_state": "OH",
+      "addr_city": "Logan",
+      "addr_postcode": "43138",
+      "addr_street": "SR 664",
+      "addr_housenumber": "12910"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Clifford Woods, Farmington, ME",
-      "geo_wkt": "POINT (-70.139414 44.674384)",
+      "sub_category": "nature reserve",
+      "display_name": "Acadia Cliffs Wildlife Area, OH",
+      "geo_wkt": "POINT (-81.845367 39.320973)",
       "poi": {
-        "id": 248262,
-        "geometry": "POINT (-70.139414 44.674384)",
-        "poi_name": "Clifford Woods",
-        "osm_id": 7564193702,
-        "leisure": "park",
-        "addr_state": "ME",
-        "addr_city": "Farmington",
-        "addr_postcode": "04938",
-        "addr_street": "Perham Street",
-        "addr_housenumber": "214"
+        "id": 247766,
+        "geometry": "POINT (-81.845367 39.320973)",
+        "poi_name": "Acadia Cliffs Wildlife Area",
+        "osm_id": 9892480783,
+        "leisure": "nature_reserve",
+        "addr_state": "OH"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2553,
+  "id": 1253,
   "type": "knn:direction+name"
 }

@@ -1,40 +1,43 @@
 {
-  "question": "What's the nearest viewpoint near Camp R. Allen Williams, Carlsbad, TX?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-100.654189 31.601899)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve is closest to where Camp Acagisca, Mays Landing, NJ is?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.765235 39.489349)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25598,
-      "geometry": "POINT (-99.583556 29.827483)",
-      "poi_name": "Birds Eye View",
-      "osm_id": 4551138913,
-      "tourism": "viewpoint"
+      "id": 267495,
+      "geometry": "POINT (-74.653083 39.364156)",
+      "poi_name": "Juice Island",
+      "osm_id": 7599269555,
+      "leisure": "nature_reserve",
+      "addr_city": "Egg Harbor Township"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Camp R. Allen Williams, Carlsbad, TX",
-      "geo_wkt": "POINT (-100.654189 31.601899)",
+      "display_name": "Camp Acagisca, Mays Landing, NJ",
+      "geo_wkt": "POINT (-74.765235 39.489349)",
       "poi": {
-        "id": 248500,
-        "geometry": "POINT (-100.654189 31.601899)",
-        "poi_name": "Camp R. Allen Williams",
-        "osm_id": 4247850790,
+        "id": 247390,
+        "geometry": "POINT (-74.765235 39.489349)",
+        "poi_name": "Camp Acagisca",
+        "osm_id": 9014223739,
         "leisure": "park",
-        "addr_state": "TX",
-        "addr_city": "Carlsbad",
-        "addr_postcode": "76934",
-        "addr_street": "US Highway 87 North",
-        "addr_housenumber": "10950"
+        "opening_hours": "sunrise-sunset",
+        "operator": "Atlantic County",
+        "addr_state": "NJ",
+        "addr_city": "Mays Landing",
+        "addr_postcode": "08330",
+        "addr_street": "Weymouth Rd",
+        "addr_housenumber": "6755"
       }
     }
   },
-  "id": 272,
+  "id": 1072,
   "type": "knn+name"
 }

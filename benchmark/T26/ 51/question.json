@@ -1,44 +1,46 @@
 {
-  "question": "How far away is the nearest beach resort from Ferry Street Farm, New Haven, CT?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.89683 41.31639)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from City of Farmington Museum, Farmington, UT to the nearest gallery?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247506,
-      "geometry": "POINT (-72.619587 40.800436)",
-      "poi_name": "Quantuck Beach Club",
-      "osm_id": 6712661219,
-      "leisure": "beach_resort",
-      "website": "http://quantuckbeachclub.com/",
-      "distance": 61857.34907631
+      "id": 21097,
+      "geometry": "POINT (-111.866902 40.77606)",
+      "poi_name": "Lost Acorn",
+      "osm_id": 1399429818,
+      "tourism": "gallery",
+      "opening_hours": "Tu-Th 11:00-14:00; Fr-Sa 14:00-23:00",
+      "website": "https://bio.site/lostacorn",
+      "phone": "801.810.5549",
+      "distance": 22975.56842142
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Ferry Street Farm, New Haven, CT",
-      "geo_wkt": "POINT (-72.89683 41.31639)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "City of Farmington Museum, Farmington, UT",
+      "geo_wkt": "POINT (-111.887141 40.98238)",
       "poi": {
-        "id": 246385,
-        "geometry": "POINT (-72.89683 41.31639)",
-        "poi_name": "Ferry Street Farm",
-        "osm_id": 11413367607,
-        "leisure": "garden",
-        "operator": "Gather New Haven",
-        "website": "http://www.gathernewhaven.org/",
-        "addr_state": "CT",
-        "addr_city": "New Haven",
-        "addr_postcode": "06513",
-        "addr_street": "Ferry Street",
-        "addr_housenumber": "613"
+        "id": 963,
+        "geometry": "POINT (-111.887141 40.98238)",
+        "poi_name": "City of Farmington Museum",
+        "osm_id": 2750936682,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://artsandmuseums.utah.gov/utah-museums-directory/listing/farmington-historical-museum__trashed/",
+        "addr_state": "UT",
+        "addr_city": "Farmington",
+        "addr_postcode": "84025",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "110"
       }
     }
   },
-  "id": 2450,
+  "id": 650,
   "type": "knn+distance"
 }

@@ -1,47 +1,44 @@
 {
-  "question": "When was the the nearest hospital from Stratton Fire Tower, Stratton, Vermont built?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest zoo from Daubenspeck Nature Reserve, Indianapolis, IN opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167369,
-      "geometry": "POINT (-72.562619 42.859373)",
-      "poi_name": "Brattleboro Retreat",
-      "osm_id": 356557575,
-      "amenity": "hospital",
-      "website": "https://www.brattlebororetreat.org/",
-      "phone": "+1 802 257 7785",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "wikidata": "Q4958128",
-      "multihop_answer": "1834",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "Brattleboro Retreat Built: 1834"
+      "id": 7362,
+      "geometry": "POINT (-86.870493 40.412953)",
+      "poi_name": "Columbian Park Zoo",
+      "osm_id": 2104726331,
+      "tourism": "zoo",
+      "wikidata": "Q5149943",
+      "multi_source_answer": "1908[2]",
+      "multi_source_attribute": "Date opened",
+      "multi_source_long_answer": "Columbian Park Zoo Date opened: 1908[2]"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Stratton Fire Tower, Stratton, Vermont",
-      "geo_wkt": "POINT (-72.924966 43.086214)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Daubenspeck Nature Reserve, Indianapolis, IN",
+      "geo_wkt": "POINT (-86.185252 39.917104)",
       "poi": {
-        "id": 16156,
-        "geometry": "POINT (-72.924966 43.086214)",
-        "poi_name": "Stratton Fire Tower",
-        "osm_id": 356555377,
-        "tourism": "viewpoint",
-        "addr_state": "Vermont",
-        "addr_city": "Stratton",
-        "addr_street": "Maintenance Road",
-        "addr_housenumber": "2148"
+        "id": 245905,
+        "geometry": "POINT (-86.185252 39.917104)",
+        "poi_name": "Daubenspeck Nature Reserve",
+        "osm_id": 10258441478,
+        "leisure": "nature_reserve",
+        "addr_state": "IN",
+        "addr_city": "Indianapolis",
+        "addr_postcode": "46260",
+        "addr_street": "Ditch Road",
+        "addr_housenumber": "8900"
       }
     }
   },
-  "id": 943,
-  "type": "knn+name+multihop1"
+  "id": 843,
+  "type": "knn+name+multi_source1"
 }

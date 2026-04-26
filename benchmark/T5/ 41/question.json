@@ -1,45 +1,46 @@
 {
-  "question": "Seeking the nearest caf\u00e9 from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hospital is closest to where Troll Bridge, Portland, OR is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.848267 45.647307)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 193328,
-      "geometry": "POINT (-119.689941 34.41254)",
-      "poi_name": "State Street Cafe",
-      "osm_id": 1521699547,
-      "amenity": "cafe",
-      "addr_street": "State Street",
-      "addr_housenumber": "29"
+      "id": 205578,
+      "geometry": "POINT (-122.916631 46.175156)",
+      "poi_name": "Beacon Hill Rehabilitation",
+      "osm_id": 7173862497,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "WA",
+      "addr_city": "Longview",
+      "addr_postcode": "98632",
+      "addr_street": "Old Beacon Hill Drive",
+      "addr_housenumber": "128"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
-      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "sub_category": "attraction",
+      "display_name": "Troll Bridge, Portland, OR",
+      "geo_wkt": "POINT (-122.848267 45.647307)",
       "poi": {
-        "id": 18273,
-        "geometry": "POINT (-119.685686 34.410426)",
-        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
-        "osm_id": 368174545,
-        "tourism": "aquarium",
-        "operator": "Santa Barbara Museum of Natural History",
-        "website": "https://www.sbnature.org/twsc/2.html",
-        "wikidata": "Q3542641",
-        "addr_state": "CA",
-        "addr_city": "Santa Barbara",
-        "addr_postcode": "93101",
-        "addr_street": "Stearns Wharf",
-        "addr_housenumber": "211"
+        "id": 567,
+        "geometry": "POINT (-122.848267 45.647307)",
+        "poi_name": "Troll Bridge",
+        "osm_id": 8447034730,
+        "tourism": "attraction",
+        "addr_state": "OR",
+        "addr_city": "Portland",
+        "addr_postcode": "97231",
+        "addr_street": "Northwest McNamee Road",
+        "addr_housenumber": "16498"
       }
     }
   },
-  "id": 240,
+  "id": 1040,
   "type": "knn+name"
 }

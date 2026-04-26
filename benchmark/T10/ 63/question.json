@@ -1,58 +1,65 @@
 {
-  "question": "Which restaurant is nearest towards Memory Garden, Mequon, WI from Lincoln Park Zoo, Manitowoc, WI?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest gallery on the way from Wildlife West Nature Park, Edgewood, NM toward City of Santa Fe Firefighters Museum, Santa Fe, NM?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography, ST_GeomFromText('POINT (-105.971491 35.6661)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 198878,
-      "geometry": "POINT (-87.657247 44.093315)",
-      "poi_name": "Animal's Pizza",
-      "osm_id": 923857415,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "phone": "920-652-9801",
-      "value": 194.82920265882743
+      "id": 5107,
+      "geometry": "POINT (-106.153592 35.404976)",
+      "poi_name": "Kevin Schaffer Photography",
+      "osm_id": 9755743323,
+      "tourism": "gallery",
+      "value": 17.581241817092565
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
-      "geo_wkt": "POINT (-87.649084 44.11068)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wildlife West Nature Park, Edgewood, NM",
+      "geo_wkt": "POINT (-106.202309 35.071827)",
       "poi": {
-        "id": 2509,
-        "geometry": "POINT (-87.649084 44.11068)",
-        "poi_name": "Lincoln Park Zoo",
-        "osm_id": 3491296260,
-        "tourism": "zoo",
-        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
-        "phone": "920-683-4685",
-        "wikidata": "Q3241309",
-        "addr_state": "WI",
-        "addr_city": "Manitowoc"
+        "id": 246820,
+        "geometry": "POINT (-106.202309 35.071827)",
+        "poi_name": "Wildlife West Nature Park",
+        "osm_id": 6471544426,
+        "leisure": "nature_reserve",
+        "opening_hours": "10:00-18:00",
+        "operator": "New Mexico Wildlife Association",
+        "website": "https://wildlifewest.org/",
+        "phone": "+1 505 281-7655",
+        "addr_state": "NM",
+        "addr_city": "Edgewood",
+        "addr_postcode": "87015",
+        "addr_street": "North Frontage Road",
+        "addr_housenumber": "87"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Mequon, WI",
-      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "City of Santa Fe Firefighters Museum, Santa Fe, NM",
+      "geo_wkt": "POINT (-105.971491 35.6661)",
       "poi": {
-        "id": 245940,
-        "geometry": "POINT (-87.959122 43.254358)",
-        "poi_name": "Memory Garden",
-        "osm_id": 5345442455,
-        "leisure": "garden",
-        "addr_state": "WI",
-        "addr_city": "Mequon"
+        "id": 8307,
+        "geometry": "POINT (-105.971491 35.6661)",
+        "poi_name": "City of Santa Fe Firefighters Museum",
+        "osm_id": 6615398270,
+        "tourism": "museum",
+        "operator": "City of Santa Fe",
+        "museum": "fire",
+        "addr_state": "NM",
+        "addr_city": "Santa Fe",
+        "addr_postcode": "87505",
+        "addr_street": "Cerrillos Road",
+        "addr_housenumber": "1751"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 162,
+  "id": 1662,
   "type": "knn:towards+name"
 }

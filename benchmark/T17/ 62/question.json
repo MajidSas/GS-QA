@@ -1,50 +1,49 @@
 {
-  "question": "Where can I find the nearest gallery relative to University of Illinois Extension - Cook County Office, Chicago, IL?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.596087 41.735108)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest hospital in the area around Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12389,
-      "geometry": "POINT (-87.614815 41.809548)",
-      "poi_name": "Gallery Guichard",
-      "osm_id": 6332297187,
-      "tourism": "gallery",
-      "website": "https://www.galleryguichard.com",
-      "phone": "+1-(773) 791-7003",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60615",
-      "addr_street": "East 47th Street",
-      "addr_housenumber": "436"
+      "id": 183208,
+      "geometry": "POINT (-98.547766 29.402768)",
+      "poi_name": "Baptist Neighborhood Hospital Kelly",
+      "osm_id": 10917049935,
+      "amenity": "hospital",
+      "website": "https://www.baptisthealthsystem.com/locations/detail/baptist-emergency-hospital---kelly",
+      "healthcare": "hospital",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78237",
+      "addr_street": "Cupples Road",
+      "addr_housenumber": "806"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "University of Illinois Extension - Cook County Office, Chicago, IL",
-      "geo_wkt": "POINT (-87.596087 41.735108)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
       "poi": {
-        "id": 180860,
-        "geometry": "POINT (-87.596087 41.735108)",
-        "poi_name": "University of Illinois Extension - Cook County Office",
-        "osm_id": 10822457190,
-        "amenity": "university",
-        "operator": "University of Illinois",
-        "website": "https://extension.illinois.edu/cook",
-        "phone": "+1 773 768 7779",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60619",
-        "addr_street": "South Greenwood Avenue",
-        "addr_housenumber": "8751"
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
       }
     }
   },
-  "id": 1861,
+  "id": 761,
   "type": "knn+loc"
 }

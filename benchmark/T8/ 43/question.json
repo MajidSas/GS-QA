@@ -1,38 +1,48 @@
 {
-  "question": "Could you tell me the closest restaurant relative to the stadium that can hold 14500 spectators in Wichita Falls, TX?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which garden closest to the stadium that was constructed in Construction in Eau Claire, WI is available?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 143957,
-      "geometry": "POINT (-98.544323 33.872376)",
-      "poi_name": "Wasabi",
-      "osm_id": 6356947109,
-      "amenity": "restaurant"
+      "id": 248857,
+      "geometry": "POINT (-93.234364 44.913029)",
+      "poi_name": "Nokomis Naturescape Garden",
+      "osm_id": 4865581364,
+      "leisure": "garden",
+      "website": "https://www.facebook.com/NokomisNaturescape/?fref=ts",
+      "phone": "+1 612 727 3562",
+      "addr_state": "MN",
+      "addr_city": "Minneapolis",
+      "addr_postcode": "55417",
+      "addr_street": "East Lake Nokomis Parkway",
+      "addr_housenumber": "5000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Memorial Stadium, Wichita Falls, TX",
-      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
       "poi": {
-        "id": 252230,
-        "geometry": "POINT (-98.582518 33.854202)",
-        "poi_name": "Memorial Stadium",
-        "osm_id": 356844791,
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
         "leisure": "stadium",
-        "wikidata": "Q6815531",
-        "addr_state": "TX",
-        "addr_city": "Wichita Falls"
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
       }
     }
   },
-  "id": 2742,
-  "type": "knn+name+multihop2"
+  "id": 942,
+  "type": "knn+name+multi_source2"
 }

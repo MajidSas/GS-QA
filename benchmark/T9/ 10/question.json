@@ -1,42 +1,38 @@
 {
-  "question": "Which viewpoint is nearest in the south direction from Jaine Cottage, Woodinville, WA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.141413 47.731718)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest attraction positioned towards the south of Latvian Cultural Garden, Cleveland, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23009,
-      "geometry": "POINT (-122.141413 47.731718)",
-      "poi_name": "Overlook",
-      "osm_id": 4996247887,
-      "tourism": "viewpoint"
+      "id": 11904,
+      "geometry": "POINT (-81.626843 41.526119)",
+      "poi_name": "Jaite Mill Historic District",
+      "osm_id": 6080047867,
+      "historic": "district",
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Jaine Cottage, Woodinville, WA",
-      "geo_wkt": "POINT (-122.141413 47.731718)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
       "poi": {
-        "id": 25426,
-        "geometry": "POINT (-122.141413 47.731718)",
-        "poi_name": "Jaine Cottage",
-        "osm_id": 4491062193,
-        "tourism": "attraction",
-        "opening_hours": "Th-Su 12:00-19:00",
-        "website": "https://jaine.co/",
-        "shop": "wine",
-        "internet_access": "wlan",
-        "phone": "+1-425-487-9810",
-        "addr_state": "WA",
-        "addr_city": "Woodinville",
-        "addr_postcode": "98072",
-        "addr_street": "Woodinville Redmond Road Northeast",
-        "addr_housenumber": "14421"
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
       }
     },
     "[3]": {
@@ -44,6 +40,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2509,
+  "id": 1209,
   "type": "knn:direction+name"
 }

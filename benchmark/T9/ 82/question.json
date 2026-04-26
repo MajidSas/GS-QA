@@ -1,49 +1,49 @@
 {
-  "question": "What's the nearest viewpoint located in the southeast of Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the closest university positioned towards the south of Lake Plantaganet Southeast Public Access - MN DNR, Bemidji, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.909183 47.36769)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 10852,
-      "geometry": "POINT (-78.658874 38.840265)",
-      "poi_name": "Duncan Knob Overlook",
-      "osm_id": 8088614568,
-      "tourism": "viewpoint"
+      "id": 28456,
+      "geometry": "POINT (-94.909183 47.36769)",
+      "poi_name": "St Johns University",
+      "osm_id": 483758004,
+      "amenity": "university",
+      "wheelchair": "limited",
+      "website": "https://www.csbsju.edu/",
+      "wikidata": "Q5146820"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA",
-      "geo_wkt": "POINT (-78.658874 38.840265)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lake Plantaganet Southeast Public Access - MN DNR, Bemidji, MN",
+      "geo_wkt": "POINT (-94.909183 47.36769)",
       "poi": {
-        "id": 9965,
-        "geometry": "POINT (-78.658874 38.840265)",
-        "poi_name": "Heavenly Heart Farm & Mini Petting Zoo",
-        "osm_id": 9081274336,
-        "description": "Traveling petting zoo, open on location for special events or by appointment. Contact via email or phone for details.",
-        "tourism": "zoo",
-        "fee": "yes",
-        "website": "https://www.heavenlyheartfarmandminipettingzoo.com/",
-        "phone": "+1 540 984 3925",
-        "zoo": "petting_zoo",
-        "addr_state": "VA",
-        "addr_city": "Edinburg",
-        "addr_postcode": "22824",
-        "addr_street": "Swover Creek Road",
-        "addr_housenumber": "3795"
+        "id": 245443,
+        "geometry": "POINT (-94.909183 47.36769)",
+        "poi_name": "Lake Plantaganet Southeast Public Access - MN DNR",
+        "osm_id": 2916223849,
+        "leisure": "park",
+        "description": "Landing Type: Trailer Launch\nNumber of Launches: 1\nLaunch Surface: Concrete\nNumber of Vehicle/Trailer Stalls: 15",
+        "operator": "Plantagenet Boat Launches",
+        "addr_state": "MN",
+        "addr_city": "Bemidji",
+        "addr_postcode": "56601",
+        "addr_street": "County Road 9",
+        "addr_housenumber": "21888"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2581,
+  "id": 1281,
   "type": "knn:direction+name"
 }

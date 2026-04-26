@@ -1,45 +1,55 @@
 {
-  "question": "What is the motto of the nearest university from Pioneer Stadium, Ogden, UT?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest museum from TECHealth | ER Staffing, EMR & ER Partnerships, Chandler, AZ established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.895475 33.319248)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 166740,
-      "geometry": "POINT (-112.011577 41.232867)",
-      "poi_name": "Stevens-Henager College",
-      "osm_id": 310631403,
-      "amenity": "university",
-      "wikidata": "Q7615552",
-      "multihop_answer": "Educating professionals since 1891",
-      "multihop_attribute": "Motto",
-      "multihop_long_answer": "Stevens-Henager College Motto: Educating professionals since 1891"
+      "id": 6779,
+      "geometry": "POINT (-111.836381 33.270072)",
+      "poi_name": "Arizona Railway Museum",
+      "osm_id": 1969314430,
+      "tourism": "museum",
+      "opening_hours": "Sa-Su 12:00-16:00",
+      "website": "http://www.azrymuseum.org/",
+      "museum": "railway",
+      "wikidata": "Q4791377",
+      "addr_state": "AZ",
+      "addr_city": "Chandler",
+      "addr_postcode": "85286",
+      "addr_street": "East Ryan Road",
+      "addr_housenumber": "330",
+      "multi_source_answer": "1983",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Arizona Railway Museum Established: 1983"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Pioneer Stadium, Ogden, UT",
-      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "TECHealth | ER Staffing, EMR & ER Partnerships, Chandler, AZ",
+      "geo_wkt": "POINT (-111.895475 33.319248)",
       "poi": {
-        "id": 266188,
-        "geometry": "POINT (-111.96187 41.237122)",
-        "poi_name": "Pioneer Stadium",
-        "osm_id": 598066080,
-        "leisure": "stadium",
-        "sport": "equestrian",
-        "wikidata": "Q7079951",
-        "addr_state": "UT",
-        "addr_city": "Ogden",
-        "addr_street": "17th Street",
-        "addr_housenumber": "668"
+        "id": 56387,
+        "geometry": "POINT (-111.895475 33.319248)",
+        "poi_name": "TECHealth | ER Staffing, EMR & ER Partnerships",
+        "osm_id": 10234854147,
+        "amenity": "hospital",
+        "website": "https://tec.health",
+        "phone": "(877) 336-6898",
+        "healthcare": "hospital",
+        "addr_state": "AZ",
+        "addr_city": "Chandler",
+        "addr_postcode": "85226",
+        "addr_street": "West Ray Road",
+        "addr_housenumber": "2727"
       }
     }
   },
-  "id": 942,
-  "type": "knn+name+multihop1"
+  "id": 842,
+  "type": "knn+name+multi_source1"
 }

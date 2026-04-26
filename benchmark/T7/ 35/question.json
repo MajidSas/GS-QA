@@ -1,56 +1,57 @@
 {
-  "question": "When was the nearest nature reserve from Malibu Jack's, Springfield, IL established?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the name of the university that is affiliated with the closest hospital from English Street Community Garden, New Haven, CT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267118,
-      "geometry": "POINT (-89.61996 39.802443)",
-      "poi_name": "Margery Adams Wildlife Sanctuary",
-      "osm_id": 4567499757,
-      "leisure": "nature_reserve",
-      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
-      "phone": "+1-217-544-5781",
-      "wikidata": "Q4680461",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62703",
-      "addr_street": "Clear Lake Avenue",
-      "addr_housenumber": "2315",
-      "multihop_answer": "1983",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Margery Adams Wildlife Sanctuary Established: 1983"
+      "id": 167781,
+      "geometry": "POINT (-72.936331 41.304241)",
+      "poi_name": "Yale New Haven Children's Hospital",
+      "osm_id": 359283462,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Yale New Haven Health",
+      "website": "https://www.ynhh.org/childrens-hospital.aspx",
+      "phone": "+1 203 688 4242",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q91153398",
+      "addr_state": "CT",
+      "addr_city": "New Haven",
+      "addr_postcode": "06510",
+      "addr_street": "Park Street",
+      "addr_housenumber": "1",
+      "multi_source_answer": "Yale School of Medicine",
+      "multi_source_attribute": "Affiliated university",
+      "multi_source_long_answer": "Yale New Haven Children's Hospital Affiliated university: Yale School of Medicine"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
       "poi": {
-        "id": 4386,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
       }
     }
   },
-  "id": 934,
-  "type": "knn+name+multihop1"
+  "id": 834,
+  "type": "knn+name+multi_source1"
 }

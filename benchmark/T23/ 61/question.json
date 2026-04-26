@@ -1,36 +1,47 @@
 {
-  "question": "What's the quantity of attractions that can be found within a 130 kilometers distance from Bonner Arnold Coliseum, MS?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography, 130000)\nAND tourism = 'attraction';\n",
+  "question": "What\u2019s the count of aquaria within 60 kilometers of the reference point 3 Palms Zoo & Education Center, Townsend, DE?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, 60000)\nAND tourism = 'aquarium';\n",
   "answers": [
     {
-      "count": 5
+      "count": 2
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "aquarium"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Bonner Arnold Coliseum, MS",
-      "geo_wkt": "POINT (-88.56394 34.66815)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
+      "geo_wkt": "POINT (-75.695391 39.329473)",
       "poi": {
-        "id": 265364,
-        "geometry": "POINT (-88.56394 34.66815)",
-        "poi_name": "Bonner Arnold Coliseum",
-        "osm_id": 367134883,
-        "leisure": "stadium",
-        "addr_state": "MS"
+        "id": 9742,
+        "geometry": "POINT (-75.695391 39.329473)",
+        "poi_name": "3 Palms Zoo & Education Center",
+        "osm_id": 8969296347,
+        "tourism": "zoo",
+        "wheelchair": "limited",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-15:00",
+        "operator": "3 Palms Zoo LLC",
+        "website": "https://3palmszoo.org",
+        "phone": "+1 302-504-6500",
+        "zoo": "petting_zoo",
+        "addr_state": "DE",
+        "addr_city": "Townsend",
+        "addr_postcode": "19734",
+        "addr_street": "Vandyke Greenspring Road",
+        "addr_housenumber": "1060"
       }
     }
   },
-  "id": 2260,
+  "id": 1860,
   "type": "range+count"
 }

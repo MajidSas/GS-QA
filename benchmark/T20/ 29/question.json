@@ -1,68 +1,62 @@
 {
-  "question": "Where's the closest fast food restaurant on the route to Hyatt Place, Amherst, NY from Niagara Amusement Park & Splash World, Grand Island, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, ST_GeomFromText('POINT (-78.769607 42.960826)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant encountered when moving toward Virginia B Ball Center for Creative Inquiry, Muncie, IN from Daubenspeck Nature Reserve, Indianapolis, IN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, ST_GeomFromText('POINT (-85.426059 40.197552)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 83919,
-      "geometry": "POINT (-78.964658 43.024314)",
+      "id": 162429,
+      "geometry": "POINT (-86.146705 39.941364)",
       "poi_name": "Subway",
-      "osm_id": 1770769552,
+      "osm_id": 4931095177,
       "amenity": "fast_food",
       "cuisine": "sandwich",
-      "operator": "Doctor's Associates",
       "takeaway": "yes",
-      "drive_through": "no",
-      "addr_state": "NY",
-      "addr_city": "Grand Island",
-      "addr_postcode": "14072",
-      "addr_street": "Grand Island Boulevard",
-      "addr_housenumber": "2287",
-      "value": 112.76315084782675
+      "addr_state": "IN",
+      "addr_city": "Indianapolis",
+      "addr_postcode": "46280",
+      "addr_street": "College Avenue North",
+      "addr_housenumber": "10599",
+      "value": 64.08113719957308
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
-      "geo_wkt": "POINT (-78.975759 43.024544)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Daubenspeck Nature Reserve, Indianapolis, IN",
+      "geo_wkt": "POINT (-86.185252 39.917104)",
       "poi": {
-        "id": 354,
-        "geometry": "POINT (-78.975759 43.024544)",
-        "poi_name": "Niagara Amusement Park & Splash World",
-        "osm_id": 8331045218,
-        "tourism": "theme_park",
-        "information": "board",
-        "wheelchair": "yes",
-        "operator": "IB Parks & Entertainment",
-        "website": "https://niagaraamusementpark.com/",
-        "addr_state": "NY",
-        "addr_city": "Grand Island",
-        "addr_postcode": "14072",
-        "addr_street": "Grand Island Boulevard",
-        "addr_housenumber": "2400"
+        "id": 245905,
+        "geometry": "POINT (-86.185252 39.917104)",
+        "poi_name": "Daubenspeck Nature Reserve",
+        "osm_id": 10258441478,
+        "leisure": "nature_reserve",
+        "addr_state": "IN",
+        "addr_city": "Indianapolis",
+        "addr_postcode": "46260",
+        "addr_street": "Ditch Road",
+        "addr_housenumber": "8900"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hyatt Place, Amherst, NY",
-      "geo_wkt": "POINT (-78.769607 42.960826)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Virginia B Ball Center for Creative Inquiry, Muncie, IN",
+      "geo_wkt": "POINT (-85.426059 40.197552)",
       "poi": {
-        "id": 22642,
-        "geometry": "POINT (-78.769607 42.960826)",
-        "poi_name": "Hyatt Place",
-        "osm_id": 7191333605,
-        "tourism": "hotel",
-        "website": "https://www.hyatt.com/en-US/hotel/new-york/hyatt-place-buffalo-amherst/bufza?src=corp_lclb_gmb_seo_nam_bufza",
-        "internet_access": "wlan",
-        "phone": "+1-716-839-4040",
-        "addr_state": "NY",
-        "addr_city": "Amherst",
-        "addr_postcode": "14226",
-        "addr_street": "Main Street",
-        "addr_housenumber": "5020"
+        "id": 144604,
+        "geometry": "POINT (-85.426059 40.197552)",
+        "poi_name": "Virginia B Ball Center for Creative Inquiry",
+        "osm_id": 7277052440,
+        "amenity": "university",
+        "operator": "Ball State University",
+        "website": "https://www.bsu.edu/academics/centersandinstitutes/virginiaballcenter",
+        "phone": "+1-765-287-0117",
+        "addr_state": "IN",
+        "addr_city": "Muncie",
+        "addr_postcode": "47304",
+        "addr_street": "West University Avenue",
+        "addr_housenumber": "3401"
       }
     },
     "[1]": {
@@ -70,6 +64,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 1328,
+  "id": 1528,
   "type": "knn:towards+loc"
 }

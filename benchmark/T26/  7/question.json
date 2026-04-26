@@ -1,45 +1,43 @@
 {
-  "question": "What's the distance between Turner Lodge, OK and the nearest gallery?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.308628 33.927323)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.308628 33.927323)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance to the closest garden starting from Wenatchee Valley Museum and Cultural Center, Wenatchee, WA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9839,
-      "geometry": "POINT (-96.808157 33.150696)",
-      "poi_name": "thegallery8680",
-      "osm_id": 9018466206,
-      "tourism": "gallery",
-      "opening_hours": "\"By appointment\"",
-      "operator": "Robyn Feehan",
-      "website": "https://www.thegallery8680.com",
-      "addr_state": "TX",
-      "addr_city": "Frisco",
-      "addr_postcode": "75034",
-      "addr_street": "Main Street",
-      "addr_housenumber": "8680",
-      "distance": 97880.55269186
+      "id": 266382,
+      "geometry": "POINT (-121.699086 47.152953)",
+      "poi_name": "Jean Caithness Greenlees Grove",
+      "osm_id": 4948213725,
+      "leisure": "garden",
+      "distance": 109199.01879862
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Turner Lodge, OK",
-      "geo_wkt": "POINT (-97.308628 33.927323)",
+      "sub_category": "museum",
+      "display_name": "Wenatchee Valley Museum and Cultural Center, Wenatchee, WA",
+      "geo_wkt": "POINT (-120.310936 47.42248)",
       "poi": {
-        "id": 16917,
-        "geometry": "POINT (-97.308628 33.927323)",
-        "poi_name": "Turner Lodge",
-        "osm_id": 367013408,
-        "tourism": "hotel",
-        "addr_state": "OK"
+        "id": 4,
+        "geometry": "POINT (-120.310936 47.42248)",
+        "poi_name": "Wenatchee Valley Museum and Cultural Center",
+        "osm_id": 403501655,
+        "tourism": "museum",
+        "opening_hours": "Tu-Su 10:00-16:00",
+        "website": "https://www.wenatcheevalleymuseum.org/",
+        "addr_state": "WA",
+        "addr_city": "Wenatchee",
+        "addr_postcode": "98801",
+        "addr_street": "S. Mission St.",
+        "addr_housenumber": "127"
       }
     }
   },
-  "id": 2406,
+  "id": 606,
   "type": "knn+distance"
 }

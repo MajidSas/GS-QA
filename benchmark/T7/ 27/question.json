@@ -1,42 +1,47 @@
 {
-  "question": "Can you tell me about a former name of the nearest park from Strawberry Hill, San Francisco, CA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest zoo from Main Street Art, Girard, PA opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 263710,
-      "geometry": "POINT (-122.448056 37.776944)",
-      "poi_name": "Benedetti Diamond",
-      "osm_id": 358857215,
-      "leisure": "park",
-      "wikidata": "Q49474355",
-      "multihop_answer": "Max Ulrich Field (1953-1980)",
-      "multihop_attribute": "Former names",
-      "multihop_long_answer": "Benedetti Diamond Former names: Max Ulrich Field (1953-1980)"
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000",
+      "multi_source_answer": "January 21, 2012",
+      "multi_source_attribute": "Date opened",
+      "multi_source_long_answer": "Greater Cleveland Aquarium Date opened: January 21, 2012"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Strawberry Hill, San Francisco, CA",
-      "geo_wkt": "POINT (-122.475512 37.768668)",
+      "sub_category": "gallery",
+      "display_name": "Main Street Art, Girard, PA",
+      "geo_wkt": "POINT (-80.318615 42.000159)",
       "poi": {
-        "id": 6747,
-        "geometry": "POINT (-122.475512 37.768668)",
-        "poi_name": "Strawberry Hill",
-        "osm_id": 1948074360,
-        "tourism": "viewpoint",
-        "internet_access": "no",
-        "addr_state": "CA",
-        "addr_city": "San Francisco"
+        "id": 253,
+        "geometry": "POINT (-80.318615 42.000159)",
+        "poi_name": "Main Street Art",
+        "osm_id": 8262672118,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Girard",
+        "addr_postcode": "16417",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "138"
       }
     }
   },
-  "id": 926,
-  "type": "knn+name+multihop1"
+  "id": 826,
+  "type": "knn+name+multi_source1"
 }

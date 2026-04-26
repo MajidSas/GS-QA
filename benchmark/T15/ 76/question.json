@@ -1,42 +1,16 @@
 {
-  "question": "Where can I find a golf course positioned towards the northeast of Stonehedge Gardens, Tamaqua, PA, within a radius of 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography, 100000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "Where are a golf course located no farther than 190 kilometers toward the east of School of Cosmetology, Somerset, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography, 190000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 246812,
-      "geometry": "POINT (-75.942183 40.761418)",
-      "poi_name": "Great Bear Golf Club",
-      "osm_id": 6466631565,
+      "id": 245621,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Crooked Creek Pro Shop",
+      "osm_id": 3231740356,
       "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "East Stroudsburg",
-      "addr_postcode": "18302",
-      "addr_street": "Great Bear Court",
-      "addr_housenumber": "1"
-    },
-    {
-      "id": 246819,
-      "geometry": "POINT (-75.942183 40.761418)",
-      "poi_name": "Country Club of the Poconos Municipal Golf Course",
-      "osm_id": 6471208669,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "East Stroudsburg",
-      "addr_postcode": "18302",
-      "addr_street": "Big Ridge Drive",
-      "addr_housenumber": "1445"
-    },
-    {
-      "id": 246826,
-      "geometry": "POINT (-75.942183 40.761418)",
-      "poi_name": "Pinecrest Lake Golf Club",
-      "osm_id": 6480941365,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Pocono Pines",
-      "addr_postcode": "18350",
-      "addr_street": "Pinecrest Drive",
-      "addr_housenumber": "679"
+      "addr_state": "KY",
+      "addr_city": "London",
+      "addr_postcode": "40744"
     }
   ],
   "answer_type": "loc",
@@ -46,32 +20,33 @@
       "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Stonehedge Gardens, Tamaqua, PA",
-      "geo_wkt": "POINT (-75.942183 40.761418)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
       "poi": {
-        "id": 267309,
-        "geometry": "POINT (-75.942183 40.761418)",
-        "poi_name": "Stonehedge Gardens",
-        "osm_id": 5823460252,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Tamaqua",
-        "addr_postcode": "18252",
-        "addr_street": "Dairy Road",
-        "addr_housenumber": "51"
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 75,
+  "id": 2275,
   "type": "range:direction+loc"
 }

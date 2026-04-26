@@ -1,20 +1,22 @@
 {
-  "question": "What is the name of the university that is affiliated with the closest hospital from Mount Washington Boat Terminal, Wolfeboro, NH?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the the nearest hospital from DoubleTree by Hilton Hotel, Bedford, MA built?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182426,
-      "geometry": "POINT (-70.344122 43.653476)",
-      "poi_name": "Spring Harbor Hospital",
-      "osm_id": 10892095081,
+      "id": 188947,
+      "geometry": "POINT (-71.21808 42.606947)",
+      "poi_name": "Tewksbury Hospital",
+      "osm_id": 257489501,
       "amenity": "hospital",
-      "website": "https://www.mainehealth.org/spring-harbor-hospital",
-      "phone": "+1 207 761 2200",
-      "healthcare": "hospital",
-      "wikidata": "Q48976488",
-      "multihop_answer": "Maine Behavioral Health, MaineHealth",
-      "multihop_attribute": "Affiliated university",
-      "multihop_long_answer": "Spring Harbor Hospital Affiliated university: Maine Behavioral Health, MaineHealth"
+      "emergency": "no",
+      "wikidata": "Q7707206",
+      "addr_state": "MA",
+      "addr_city": "Tewksbury",
+      "addr_street": "East Street",
+      "addr_housenumber": "365",
+      "multi_source_answer": "1854",
+      "multi_source_attribute": "Built",
+      "multi_source_long_answer": "Tewksbury Hospital Built: 1854"
     }
   ],
   "answer_type": "name",
@@ -25,22 +27,28 @@
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
-      "geo_wkt": "POINT (-71.21302 43.583693)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 943,
-        "geometry": "POINT (-71.21302 43.583693)",
-        "poi_name": "Mount Washington Boat Terminal",
-        "osm_id": 2730505188,
-        "tourism": "attraction",
-        "addr_state": "NH",
-        "addr_city": "Wolfeboro",
-        "addr_postcode": "03894",
-        "addr_street": "North Main Street"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     }
   },
-  "id": 939,
-  "type": "knn+name+multihop1"
+  "id": 839,
+  "type": "knn+name+multi_source1"
 }

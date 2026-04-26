@@ -1,52 +1,51 @@
 {
-  "question": "Where is the closest fast food restaurant positioned towards the east of Dobson Splash Pad, Dobson, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.72397 36.394984)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest restaurant heading southeast from Epic Strides, Plano, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-96.773886 33.056774)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205168,
-      "geometry": "POINT (-80.72397 36.394984)",
-      "poi_name": "Bojangles'",
-      "osm_id": 7159204146,
-      "amenity": "fast_food",
-      "cuisine": "chicken",
-      "phone": "+13363562238",
-      "takeaway": "yes",
-      "official_name": "Bojangles' Famous Chicken 'n Biscuits",
-      "addr_state": "NC",
-      "addr_city": "Dobson",
-      "addr_postcode": "27017",
-      "addr_street": "East Atkins Street",
-      "addr_housenumber": "402"
+      "id": 28988,
+      "geometry": "POINT (-96.773886 33.056774)",
+      "poi_name": "Wing Daddy's Sauce House",
+      "osm_id": 8272124555,
+      "amenity": "restaurant",
+      "cuisine": "wings",
+      "addr_state": "TX",
+      "addr_city": "Plano",
+      "addr_postcode": "75075",
+      "addr_street": "West Parker Road",
+      "addr_housenumber": "3115"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Dobson Splash Pad, Dobson, NC",
-      "geo_wkt": "POINT (-80.72397 36.394984)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Epic Strides, Plano, TX",
+      "geo_wkt": "POINT (-96.773886 33.056774)",
       "poi": {
-        "id": 266133,
-        "geometry": "POINT (-80.72397 36.394984)",
-        "poi_name": "Dobson Splash Pad",
-        "osm_id": 10706892392,
-        "leisure": "park",
-        "phone": "+13363568962",
-        "addr_state": "NC",
-        "addr_city": "Dobson",
-        "addr_postcode": "27017",
-        "addr_street": "South Crutchfield Street",
-        "addr_housenumber": "110"
+        "id": 75100,
+        "geometry": "POINT (-96.773886 33.056774)",
+        "poi_name": "Epic Strides",
+        "osm_id": 9710971199,
+        "amenity": "hospital",
+        "website": "https://epicstrides.net/",
+        "phone": "(972) 596-0035",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Plano",
+        "addr_postcode": "75024",
+        "addr_street": "West Spring Creek Parkway",
+        "addr_housenumber": "4105"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1189,

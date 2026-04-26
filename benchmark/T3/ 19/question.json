@@ -1,65 +1,50 @@
 {
-  "question": "What park is located within 70 kilometers in the northeast direction of Ulrich Wildlife Preserve, Morton, IL?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, 70000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "What zoo are within 100 kilometers in the eastward direction of Residence Inn, Los Angeles, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.265659 34.045984)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.265659 34.045984)',4326)::geography, 100000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 249616,
-      "geometry": "POINT (-89.490228 40.649994)",
-      "poi_name": "American Legion Park",
-      "osm_id": 354178848,
-      "leisure": "park"
-    },
-    {
-      "id": 250036,
-      "geometry": "POINT (-89.490228 40.649994)",
-      "poi_name": "Mount Palatine Cemetery Prairie Nature Preserve",
-      "osm_id": 354251747,
-      "leisure": "park",
-      "wikidata": "Q49529037"
-    },
-    {
-      "id": 249710,
-      "geometry": "POINT (-89.490228 40.649994)",
-      "poi_name": "Artesian Park",
-      "osm_id": 354205635,
-      "leisure": "park"
+      "id": 3430,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "giraffe",
+      "osm_id": 5406866159,
+      "tourism": "zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
-      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.265659 34.045984)",
       "poi": {
-        "id": 246437,
-        "geometry": "POINT (-89.490228 40.649994)",
-        "poi_name": "Ulrich Wildlife Preserve",
-        "osm_id": 9654359178,
-        "leisure": "nature_reserve",
-        "opening_hours": "dawn-dusk",
-        "operator": "Morton Park District",
-        "addr_state": "IL",
-        "addr_city": "Morton",
-        "addr_postcode": "61550",
-        "addr_street": "Turtle Creek Trail",
-        "addr_housenumber": "100"
+        "id": 427,
+        "geometry": "POINT (-118.265659 34.045984)",
+        "poi_name": "Residence Inn",
+        "osm_id": 8369844542,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "internet_access": "wlan",
+        "official_name": "Residence Inn by Marriott",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_street": "West Olympic Boulevard",
+        "addr_housenumber": "901"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2618,
+  "id": 2318,
   "type": "range:direction+name"
 }

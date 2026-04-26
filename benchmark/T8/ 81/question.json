@@ -1,43 +1,43 @@
 {
-  "question": "What's the closest gallery in proximity to the hospital that has pediatric emergency department in Bronx, NY?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which stadium near the zoo that was opened on 1929 in Fresno, CA would you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.823195 36.752149)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25529,
-      "geometry": "POINT (-73.879071 40.866929)",
-      "poi_name": "Ross Gallery and Lecture Hall",
-      "osm_id": 4530503871,
-      "tourism": "gallery"
+      "id": 245098,
+      "geometry": "POINT (-121.752878 36.584936)",
+      "poi_name": "WeatherTech Raceway Laguna Seca",
+      "osm_id": 444949878,
+      "leisure": "stadium",
+      "sport": "motor"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
-      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Fresno Chaffee Zoo, Fresno, CA",
+      "geo_wkt": "POINT (-119.823195 36.752149)",
       "poi": {
-        "id": 37381,
-        "geometry": "POINT (-73.878898 40.880372)",
-        "poi_name": "Children's Hospital at Montefiore",
-        "osm_id": 2810045562,
-        "amenity": "hospital",
-        "operator": "Montefiore Medical Center",
-        "healthcare": "hospital",
-        "wikidata": "Q30279893",
-        "addr_state": "NY",
-        "addr_city": "Bronx",
-        "addr_postcode": "10467",
-        "addr_street": "Bainbridge Avenue",
-        "addr_housenumber": "3415"
+        "id": 25258,
+        "geometry": "POINT (-119.823195 36.752149)",
+        "poi_name": "Fresno Chaffee Zoo",
+        "osm_id": 4433364107,
+        "tourism": "zoo",
+        "website": "https://www.fresnochaffeezoo.org/",
+        "wikidata": "Q5503166",
+        "addr_state": "CA",
+        "addr_city": "Fresno",
+        "addr_postcode": "93728",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "894"
       }
     }
   },
-  "id": 2780,
-  "type": "knn+name+multihop2"
+  "id": 980,
+  "type": "knn+name+multi_source2"
 }

@@ -1,51 +1,48 @@
 {
-  "question": "What is the name of the architect that designed the closest museum from Outdoor Biological Research Facility, Vestal, NY?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest zoo from Aquarium Outfitters Carolina, Wake Forest, NC opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21037,
-      "geometry": "POINT (-75.927883 42.101678)",
-      "poi_name": "The Bundy Museum of History and Art",
-      "osm_id": 1353960759,
-      "tourism": "museum",
-      "fee": "yes",
-      "opening_hours": "Tu-Sa 11:00-17:00",
-      "website": "https://www.bundymuseum.org/",
-      "phone": "+1 607 772-9179",
-      "wikidata": "Q22060942",
-      "addr_city": "Binghamton",
-      "addr_street": "Main Street",
-      "addr_housenumber": "127-129",
-      "multihop_answer": "Elfred Hull Bartoo",
-      "multihop_attribute": "Architect",
-      "multihop_long_answer": "The Bundy Museum of History and Art Architect: Elfred Hull Bartoo"
+      "id": 21981,
+      "geometry": "POINT (-79.114316 35.710947)",
+      "poi_name": "Carolina Tiger Rescue",
+      "osm_id": 947443188,
+      "tourism": "zoo",
+      "wheelchair": "yes",
+      "opening_hours": "\"by appointment only\"",
+      "website": "https://carolinatigerrescue.org/",
+      "wikidata": "Q5044904",
+      "multi_source_answer": "1973 (Official)[1]",
+      "multi_source_attribute": "Date opened",
+      "multi_source_long_answer": "Carolina Tiger Rescue Date opened: 1973 (Official)[1]"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
-      "geo_wkt": "POINT (-75.978456 42.082185)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
       "poi": {
-        "id": 246670,
-        "geometry": "POINT (-75.978456 42.082185)",
-        "poi_name": "Outdoor Biological Research Facility",
-        "osm_id": 8793514697,
-        "leisure": "garden",
-        "addr_state": "NY",
-        "addr_city": "Vestal",
-        "addr_postcode": "13850",
-        "addr_street": "Bunn Hill Road",
-        "addr_housenumber": "906"
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
       }
     }
   },
-  "id": 941,
-  "type": "knn+name+multihop1"
+  "id": 841,
+  "type": "knn+name+multi_source1"
 }

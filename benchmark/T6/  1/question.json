@@ -1,53 +1,52 @@
 {
-  "question": "What's the nearest emergency hospital available from Appalachian Wireless Arena, Pikeville, KY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest local museum near where Action Behavior Centers - ABA therapy for Autism, Hutto, TX is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.563599 30.533115)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167625,
-      "geometry": "POINT (-82.747126 37.456676)",
-      "poi_name": "McDowell ARH Hospital",
-      "osm_id": 358610357,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Appalachian Regional Healthcare",
-      "website": "https://www.arh.org/locations/mcdowell.aspx",
-      "phone": "+1 606 377 3400",
-      "emergency": "yes",
-      "addr_city": "McDowell",
-      "addr_postcode": "41647",
-      "addr_street": "Route 122"
+      "id": 17984,
+      "geometry": "POINT (-96.772755 29.702178)",
+      "poi_name": "The Heritage Society Museum of Weimar",
+      "osm_id": 368165030,
+      "tourism": "museum",
+      "operator": "The Heritage Society of Weimar",
+      "phone": "+1 (979) 725-8203",
+      "museum": "local",
+      "addr_state": "TX",
+      "addr_city": "Weimar",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "125"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
-      "geo_wkt": "POINT (-82.517286 37.477755)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, Hutto, TX",
+      "geo_wkt": "POINT (-97.563599 30.533115)",
       "poi": {
-        "id": 246594,
-        "geometry": "POINT (-82.517286 37.477755)",
-        "poi_name": "Appalachian Wireless Arena",
-        "osm_id": 1736849627,
-        "leisure": "stadium",
-        "building": "yes",
-        "sport": "basketball",
-        "phone": "+1 606 444 5500",
-        "addr_state": "KY",
-        "addr_city": "Pikeville",
-        "addr_postcode": "41501",
-        "addr_street": "Main Street",
-        "addr_housenumber": "126"
+        "id": 53027,
+        "geometry": "POINT (-97.563599 30.533115)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10061693691,
+        "amenity": "hospital",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-hutto-tx/",
+        "phone": "512-879-4100",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Hutto",
+        "addr_postcode": "78634",
+        "addr_street": "Chris Kelley Boulevard",
+        "addr_housenumber": "485"
       }
     }
   },
-  "id": 600,
+  "id": 1400,
   "type": "knn:non_spat_filter+name"
 }

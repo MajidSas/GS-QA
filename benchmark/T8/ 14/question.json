@@ -1,55 +1,43 @@
 {
-  "question": "Looking for the closest hospital in relation to the university established in the year 1969 in Chicago, IL, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which attraction is closest to the university established in the year 1975 in Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 214643,
-      "geometry": "POINT (-87.732089 41.72357)",
-      "poi_name": "Advocate Children's Hospital",
-      "osm_id": 5276572197,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Advocate Aurora Health",
-      "website": "https://www.advocatechildrenshospital.com/",
-      "phone": "+1 708 684 8000",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q30254234",
-      "addr_state": "IL",
-      "addr_city": "Oak Lawn",
-      "addr_postcode": "60453",
-      "addr_street": "West 95th Street",
-      "addr_housenumber": "4440"
+      "id": 26364,
+      "geometry": "POINT (-95.399292 29.718885)",
+      "poi_name": "Frog Wall",
+      "osm_id": 5863731255,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "IIT Stuart School of Business, Chicago, IL",
-      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
       "poi": {
-        "id": 81297,
-        "geometry": "POINT (-87.642109 41.879101)",
-        "poi_name": "IIT Stuart School of Business",
-        "osm_id": 1619741019,
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
         "amenity": "university",
-        "operator": "Illinois Institute of Technology",
-        "website": "https://www.iit.edu/stuart",
-        "wikidata": "Q5971402",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60661",
-        "addr_street": "West Adams Street",
-        "addr_housenumber": "565"
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
       }
     }
   },
-  "id": 2713,
-  "type": "knn+name+multihop2"
+  "id": 913,
+  "type": "knn+name+multi_source2"
 }

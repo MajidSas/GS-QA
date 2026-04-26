@@ -1,38 +1,51 @@
 {
-  "question": "Where's the nearest park from Silver Point Interpretive Overlook, OR located?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant positioned near Dixon Springs State Park, Golconda, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.667551 37.382932)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 253935,
-      "geometry": "POINT (-123.865529 45.902851)",
-      "poi_name": "C Z Picnic Ground",
-      "osm_id": 357297457,
-      "leisure": "park",
-      "addr_state": "OR"
+      "id": 68019,
+      "geometry": "POINT (-88.882884 37.416077)",
+      "poi_name": "Vienna Diner",
+      "osm_id": 11256846252,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "opening_hours": "Su-Tu 07:00-15:00; We-Sa 07:00-20:00",
+      "website": "https://viennadiner.com",
+      "phone": "+1-618-658-2300",
+      "addr_state": "IL",
+      "addr_city": "Vienna",
+      "addr_postcode": "62995",
+      "addr_street": "East Vine Street",
+      "addr_housenumber": "511"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Silver Point Interpretive Overlook, OR",
-      "geo_wkt": "POINT (-123.962654 45.855581)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dixon Springs State Park, Golconda, IL",
+      "geo_wkt": "POINT (-88.667551 37.382932)",
       "poi": {
-        "id": 21991,
-        "geometry": "POINT (-123.962654 45.855581)",
-        "poi_name": "Silver Point Interpretive Overlook",
-        "osm_id": 954793454,
-        "tourism": "viewpoint",
-        "addr_state": "OR",
-        "addr_street": "Oregon Coast Highway"
+        "id": 249423,
+        "geometry": "POINT (-88.667551 37.382932)",
+        "poi_name": "Dixon Springs State Park",
+        "osm_id": 354102194,
+        "leisure": "nature_reserve",
+        "website": "https://www.dnr.illinois.gov/Parks/Pages/DixonSprings.aspx",
+        "phone": "+1-618-949-3394",
+        "addr_state": "IL",
+        "addr_city": "Golconda",
+        "addr_postcode": "62938",
+        "addr_street": "IL 146",
+        "addr_housenumber": "982"
       }
     }
   },
-  "id": 1842,
+  "id": 742,
   "type": "knn+loc"
 }

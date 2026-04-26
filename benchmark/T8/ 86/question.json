@@ -1,44 +1,43 @@
 {
-  "question": "What's the closest attraction in proximity to the museum that was built in 1830 in Arlington, MA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest stadium near the hospital affiliated with Albert Einstein College of Medicine in Bronx, NY?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5277,
-      "geometry": "POINT (-71.156228 42.417385)",
-      "poi_name": "Central Street Historical District",
-      "osm_id": 36303521,
-      "tourism": "attraction"
+      "id": 265596,
+      "geometry": "POINT (-73.686422 41.014447)",
+      "poi_name": "Crawford Park",
+      "osm_id": 10732702283,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
-      "geo_wkt": "POINT (-71.15241 42.415769)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 148,
-        "geometry": "POINT (-71.15241 42.415769)",
-        "poi_name": "Cyrus Dallin Art Museum",
-        "osm_id": 456710478,
-        "tourism": "museum",
-        "fee": "donation",
-        "opening_hours": "Sa,Su 12:00-16:00",
-        "website": "https://dallin.org/",
-        "wikidata": "Q74035008",
-        "addr_state": "MA",
-        "addr_city": "Arlington",
-        "addr_postcode": "02476",
-        "addr_street": "Massachusetts Avenue",
-        "addr_housenumber": "611"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     }
   },
-  "id": 2785,
-  "type": "knn+name+multihop2"
+  "id": 985,
+  "type": "knn+name+multi_source2"
 }

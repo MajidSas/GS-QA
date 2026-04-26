@@ -1,41 +1,40 @@
 {
-  "question": "Within a 130 kilometers radius from Scienceworks, Ashland, OR, how many fast food restaurants are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.688672 42.193359)',4326)::geography, 130000)\nAND amenity = 'fast_food';\n",
+  "question": "How many restaurants are present within 160 kilometers of Northwest Nazarene University, Idaho Falls, ID?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.051353 43.483539)',4326)::geography, 160000)\nAND amenity = 'restaurant';\n",
   "answers": [
     {
-      "count": 113
+      "count": 240
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Scienceworks, Ashland, OR",
-      "geo_wkt": "POINT (-122.688672 42.193359)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Northwest Nazarene University, Idaho Falls, ID",
+      "geo_wkt": "POINT (-112.051353 43.483539)",
       "poi": {
-        "id": 1168,
-        "geometry": "POINT (-122.688672 42.193359)",
-        "poi_name": "Scienceworks",
-        "osm_id": 2879092854,
-        "tourism": "attraction",
-        "website": "https://www.scienceworksmuseum.org/",
-        "addr_state": "OR",
-        "addr_city": "Ashland",
-        "addr_postcode": "97520",
-        "addr_street": "East Main Street",
-        "addr_housenumber": "1500"
+        "id": 76377,
+        "geometry": "POINT (-112.051353 43.483539)",
+        "poi_name": "Northwest Nazarene University",
+        "osm_id": 9774123453,
+        "amenity": "university",
+        "internet_access": "wlan",
+        "addr_state": "ID",
+        "addr_city": "Idaho Falls",
+        "addr_street": "Pier View Drive",
+        "addr_housenumber": "901"
       }
     }
   },
-  "id": 2230,
+  "id": 1830,
   "type": "range+count"
 }

@@ -1,46 +1,52 @@
 {
-  "question": "Where's the closest garden located in the direction of southwest from Hampton Inn & Suites Manistee Waterfront, Manistee, MI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.342881 44.245906)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest hotel that lies northeast of Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245940,
-      "geometry": "POINT (-86.342881 44.245906)",
-      "poi_name": "Memory Garden",
-      "osm_id": 5345442455,
-      "leisure": "garden",
-      "addr_state": "WI",
-      "addr_city": "Mequon"
+      "id": 5051,
+      "geometry": "POINT (-80.069796 26.669305)",
+      "poi_name": "Kenny's Tipperary Inn",
+      "osm_id": 9739286110,
+      "tourism": "hotel",
+      "website": "https://www.thetipperaryinn.com",
+      "phone": "631-668-2010",
+      "addr_state": "NY",
+      "addr_city": "Montauk",
+      "addr_postcode": "11954",
+      "addr_street": "West Lake Drive",
+      "addr_housenumber": "432"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hampton Inn & Suites Manistee Waterfront, Manistee, MI",
-      "geo_wkt": "POINT (-86.342881 44.245906)",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 24548,
-        "geometry": "POINT (-86.342881 44.245906)",
-        "poi_name": "Hampton Inn & Suites Manistee Waterfront",
-        "osm_id": 11108777768,
-        "tourism": "hotel",
-        "building": "yes",
-        "official_name": "Hampton Inn & Suites by Hilton",
-        "addr_state": "MI",
-        "addr_city": "Manistee",
-        "addr_postcode": "49660",
-        "addr_street": "South Lakeshore Drive",
-        "addr_housenumber": "101"
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
   "id": 1100,

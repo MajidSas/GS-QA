@@ -1,52 +1,48 @@
 {
-  "question": "In what direction can I find a zoo from South Park Rail Como Project, Como, CO within 140 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.891193 39.315983)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.891193 39.315983)',4326)::geography, 140000)\nAND tourism = 'zoo';\n",
+  "question": "What\u2019s the directional course from Maple Lawn Manor, Hydro, OK to a hotel within 60 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.578202 35.553141)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.578202 35.553141)',4326)::geography, 60000)\nAND tourism = 'hotel';\n",
   "answers": [
     {
-      "id": 5788,
-      "geometry": "POINT (-105.129607 39.976701)",
-      "poi_name": "My Nature Lab",
-      "osm_id": 1588879863,
-      "tourism": "zoo",
-      "opening_hours": "We-Fr 09:00-17:00; Sa,Su 10:00-16:00",
-      "website": "https://www.mynaturelab.org/",
-      "zoo": "reptile",
-      "angle": 41.46164546461697
+      "id": 2344,
+      "geometry": "POINT (-98.985899 35.500614)",
+      "poi_name": "Ramada",
+      "osm_id": 3407241012,
+      "tourism": "hotel",
+      "angle": 261.1620513650005
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "South Park Rail Como Project, Como, CO",
-      "geo_wkt": "POINT (-105.891193 39.315983)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Maple Lawn Manor, Hydro, OK",
+      "geo_wkt": "POINT (-98.578202 35.553141)",
       "poi": {
-        "id": 11165,
-        "geometry": "POINT (-105.891193 39.315983)",
-        "poi_name": "South Park Rail Como Project",
-        "osm_id": 9873236408,
-        "tourism": "museum",
-        "opening_hours": "Mo-Su \"by appointment\"",
-        "operator": "South Park Rail Society",
-        "website": "https://www.southparkrailsociety.org/the-roundhouse",
-        "museum": "history",
-        "addr_state": "CO",
-        "addr_city": "Como",
-        "addr_postcode": "80432",
-        "addr_street": "County Road 33",
-        "addr_housenumber": "990"
+        "id": 50469,
+        "geometry": "POINT (-98.578202 35.553141)",
+        "poi_name": "Maple Lawn Manor",
+        "osm_id": 3486852144,
+        "amenity": "hospital",
+        "phone": "+1 (405) 663-2455",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "OK",
+        "addr_city": "Hydro",
+        "addr_postcode": "73048",
+        "addr_street": "North Arapaho Avenue",
+        "addr_housenumber": "800"
       }
     }
   },
-  "id": 1010,
+  "id": 1710,
   "type": "range+angle"
 }

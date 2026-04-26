@@ -1,43 +1,48 @@
 {
-  "question": "Where's the nearest stadium from SeaQuest, Lynchburg, VA located?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Do you know where I can find the nearest zoo from Dyken Pond Environmental Education Center, Cropseyville, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265386,
-      "geometry": "POINT (-79.350197 37.74151)",
-      "poi_name": "Knight Sports Arena",
-      "osm_id": 367997526,
-      "leisure": "stadium",
-      "addr_state": "VA"
+      "id": 18982,
+      "geometry": "POINT (-74.221224 43.055227)",
+      "poi_name": "Adirondack Animal Land",
+      "osm_id": 2471668960,
+      "tourism": "zoo",
+      "website": "http://www.adirondackanimalland.com/",
+      "phone": "(518) 883-5748",
+      "addr_city": "Gloversville",
+      "addr_postcode": "12078",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "3554"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "SeaQuest, Lynchburg, VA",
-      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dyken Pond Environmental Education Center, Cropseyville, NY",
+      "geo_wkt": "POINT (-73.434447 42.723028)",
       "poi": {
-        "id": 10602,
-        "geometry": "POINT (-79.178489 37.365024)",
-        "poi_name": "SeaQuest",
-        "osm_id": 6937652614,
-        "tourism": "aquarium",
-        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
-        "website": "https://visitseaquest.com/lynchburg/",
-        "addr_state": "VA",
-        "addr_city": "Lynchburg",
-        "addr_postcode": "24502",
-        "addr_street": "Candlers Mountain Road",
-        "addr_housenumber": "3405"
+        "id": 248520,
+        "geometry": "POINT (-73.434447 42.723028)",
+        "poi_name": "Dyken Pond Environmental Education Center",
+        "osm_id": 4298976883,
+        "leisure": "nature_reserve",
+        "website": "https://www.dykenpond.org/",
+        "phone": "+1-518-658-2055",
+        "addr_state": "NY",
+        "addr_city": "Cropseyville",
+        "addr_postcode": "12052",
+        "addr_street": "Dyken Pond Road",
+        "addr_housenumber": "475"
       }
     }
   },
-  "id": 1888,
+  "id": 788,
   "type": "knn+loc"
 }

@@ -1,49 +1,51 @@
 {
-  "question": "Which gallery is nearest in the east direction from Four Seasons O'ahu at Ko Olina, Kapolei, HI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-158.125741 21.339296)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve is closest in the west direction of Michael E. Debakey Center, Houston, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.395949 29.711427)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7778,
-      "geometry": "POINT (-158.125741 21.339296)",
-      "poi_name": "Lik",
-      "osm_id": 6395685331,
-      "tourism": "gallery"
+      "id": 246012,
+      "geometry": "POINT (-95.395949 29.711427)",
+      "poi_name": "James C. Curry Nature Center",
+      "osm_id": 5449527323,
+      "leisure": "nature_reserve",
+      "operator": "Comal County",
+      "addr_state": "TX",
+      "addr_city": "Canyon Lake",
+      "addr_postcode": "78133",
+      "addr_street": "Skyline Drive",
+      "addr_housenumber": "1889"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Four Seasons O'ahu at Ko Olina, Kapolei, HI",
-      "geo_wkt": "POINT (-158.125741 21.339296)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Michael E. Debakey Center, Houston, TX",
+      "geo_wkt": "POINT (-95.395949 29.711427)",
       "poi": {
-        "id": 14405,
-        "geometry": "POINT (-158.125741 21.339296)",
-        "poi_name": "Four Seasons O'ahu at Ko Olina",
-        "osm_id": 4298836144,
-        "tourism": "hotel",
-        "wheelchair": "yes",
-        "website": "https://www.fourseasons.com/oahu/",
-        "internet_access": "yes",
-        "phone": "+1 808-679-0079",
-        "wikidata": "Q102318865",
-        "addr_state": "HI",
-        "addr_city": "Kapolei",
-        "addr_postcode": "96707",
-        "addr_street": "Olani Street",
-        "addr_housenumber": "92-1001"
+        "id": 154844,
+        "geometry": "POINT (-95.395949 29.711427)",
+        "poi_name": "Michael E. Debakey Center",
+        "osm_id": 4259049650,
+        "amenity": "university",
+        "operator": "Baylor College of Medicine",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Baylor Plaza",
+        "addr_housenumber": "1"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2575,
+  "id": 1275,
   "type": "knn:direction+name"
 }

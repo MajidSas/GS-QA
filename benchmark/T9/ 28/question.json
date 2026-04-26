@@ -1,51 +1,50 @@
 {
-  "question": "Which restaurant is closest when moving towards the west of Southern National Motorsport Park, Lucama, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which park is nearest in the southeast direction from Spence and Becky Wilson Baptist Children's Hospital, Memphis, TN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.854958 35.128142)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205121,
-      "geometry": "POINT (-78.060871 35.61119)",
-      "poi_name": "Stormin Norman's Barbeque",
-      "osm_id": 7157909415,
-      "amenity": "restaurant",
-      "addr_state": "NC",
-      "addr_city": "Kenly",
-      "addr_postcode": "27542",
-      "addr_street": "South Church Street",
-      "addr_housenumber": "404"
+      "id": 253056,
+      "geometry": "POINT (-89.854958 35.128142)",
+      "poi_name": "Riverdale Park",
+      "osm_id": 356879770,
+      "leisure": "park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Southern National Motorsport Park, Lucama, NC",
-      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Spence and Becky Wilson Baptist Children's Hospital, Memphis, TN",
+      "geo_wkt": "POINT (-89.854958 35.128142)",
       "poi": {
-        "id": 248769,
-        "geometry": "POINT (-78.060871 35.61119)",
-        "poi_name": "Southern National Motorsport Park",
-        "osm_id": 4773889332,
-        "leisure": "stadium",
-        "sport": "motor",
-        "wikidata": "Q7570163",
-        "addr_state": "NC",
-        "addr_city": "Lucama",
-        "addr_postcode": "27851",
-        "addr_street": "Newsome Mill Road",
-        "addr_housenumber": "8071"
+        "id": 60438,
+        "geometry": "POINT (-89.854958 35.128142)",
+        "poi_name": "Spence and Becky Wilson Baptist Children's Hospital",
+        "osm_id": 5464768674,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "Baptist Memorial Health Care Corporation",
+        "website": "https://www.baptistonline.org/locations/childrens",
+        "phone": "+1 901 227 7337",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38120",
+        "addr_street": "Humphreys Boulevard",
+        "addr_housenumber": "6225"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2527,
+  "id": 1227,
   "type": "knn:direction+name"
 }

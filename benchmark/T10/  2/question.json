@@ -1,66 +1,67 @@
 {
-  "question": "Which museum is closest on the way to Ridge Gallery, Spartanburg, SC from Strayer University, Charlotte, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography, ST_GeomFromText('POINT (-81.93016 34.950173)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food is nearest along the route connecting Meadow Museum, Benson, NC to Smithfield Community Park, Smithfield, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.457419 35.320622)',4326)::geography, ST_GeomFromText('POINT (-78.32926 35.528601)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.457419 35.320622)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.457419 35.320622)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16189,
-      "geometry": "POINT (-81.648558 35.067802)",
-      "poi_name": "Cherokee County Museum",
-      "osm_id": 357121440,
-      "description": "Cherokee County History and Arts Museum",
-      "tourism": "museum",
-      "operator": "Cherokee County",
-      "addr_state": "SC",
-      "addr_city": "Gaffney",
-      "addr_postcode": "29340",
-      "addr_street": "College Drive",
-      "addr_housenumber": "301",
-      "value": 257.35095380227784
+      "id": 30764,
+      "geometry": "POINT (-78.434372 35.368342)",
+      "poi_name": "Backroads Pizza",
+      "osm_id": 8380229336,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "phone": "+19199022013",
+      "addr_state": "NC",
+      "addr_city": "Four Oaks",
+      "addr_postcode": "27524",
+      "addr_street": "NC-96 South",
+      "addr_housenumber": "5713",
+      "value": 26.728558229938276
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Strayer University, Charlotte, NC",
-      "geo_wkt": "POINT (-80.930371 35.139039)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Meadow Museum, Benson, NC",
+      "geo_wkt": "POINT (-78.457419 35.320622)",
       "poi": {
-        "id": 71121,
-        "geometry": "POINT (-80.930371 35.139039)",
-        "poi_name": "Strayer University",
-        "osm_id": 11382339319,
-        "amenity": "university",
+        "id": 455,
+        "geometry": "POINT (-78.457419 35.320622)",
+        "poi_name": "Meadow Museum",
+        "osm_id": 8380269313,
+        "tourism": "museum",
+        "website": "https://www.johnstoncountync.org/listing/meadow-museum/2436/",
+        "phone": "+19193985342",
         "addr_state": "NC",
-        "addr_city": "Charlotte",
-        "addr_postcode": "28273",
-        "addr_street": "North Kings Parade Boulevard",
-        "addr_housenumber": "9101"
+        "addr_city": "Benson",
+        "addr_postcode": "27504",
+        "addr_street": "NC-50 South",
+        "addr_housenumber": "7296"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Ridge Gallery, Spartanburg, SC",
-      "geo_wkt": "POINT (-81.93016 34.950173)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Smithfield Community Park, Smithfield, NC",
+      "geo_wkt": "POINT (-78.32926 35.528601)",
       "poi": {
-        "id": 11757,
-        "geometry": "POINT (-81.93016 34.950173)",
-        "poi_name": "Ridge Gallery",
-        "osm_id": 11525667800,
-        "tourism": "gallery",
-        "addr_state": "SC",
-        "addr_city": "Spartanburg",
-        "addr_postcode": "29306",
-        "addr_street": "East Main Street",
-        "addr_housenumber": "146"
+        "id": 247650,
+        "geometry": "POINT (-78.32926 35.528601)",
+        "poi_name": "Smithfield Community Park",
+        "osm_id": 8022117641,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Smithfield",
+        "addr_postcode": "27577",
+        "addr_street": "East Booker Dairy Road"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "fast_food"
     }
   },
-  "id": 101,
+  "id": 1601,
   "type": "knn:towards+name"
 }

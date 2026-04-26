@@ -1,41 +1,43 @@
 {
-  "question": "How many parks are available within 110 kilometers from GrandStay Hotel & Suites Tea / Sioux Falls, Tea, SD?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.824107 43.460519)',4326)::geography, 110000)\nAND leisure = 'park';\n",
+  "question": "How many stadia are situated within a 10 kilometers range of Maple Lawn Manor, Hydro, OK?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.578202 35.553141)',4326)::geography, 10000)\nAND leisure = 'stadium';\n",
   "answers": [
     {
-      "count": 65
+      "count": 1
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "park"
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 10000,
+      "text": "10 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "GrandStay Hotel & Suites Tea / Sioux Falls, Tea, SD",
-      "geo_wkt": "POINT (-96.824107 43.460519)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Maple Lawn Manor, Hydro, OK",
+      "geo_wkt": "POINT (-98.578202 35.553141)",
       "poi": {
-        "id": 14594,
-        "geometry": "POINT (-96.824107 43.460519)",
-        "poi_name": "GrandStay Hotel & Suites Tea / Sioux Falls",
-        "osm_id": 4664973459,
-        "tourism": "hotel",
-        "internet_access": "yes",
-        "addr_state": "SD",
-        "addr_city": "Tea",
-        "addr_postcode": "57064",
-        "addr_street": "Gateway Lane",
-        "addr_housenumber": "830"
+        "id": 50469,
+        "geometry": "POINT (-98.578202 35.553141)",
+        "poi_name": "Maple Lawn Manor",
+        "osm_id": 3486852144,
+        "amenity": "hospital",
+        "phone": "+1 (405) 663-2455",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "OK",
+        "addr_city": "Hydro",
+        "addr_postcode": "73048",
+        "addr_street": "North Arapaho Avenue",
+        "addr_housenumber": "800"
       }
     }
   },
-  "id": 2254,
+  "id": 1854,
   "type": "range+count"
 }

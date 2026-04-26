@@ -1,49 +1,52 @@
 {
-  "question": "What's the closest hotel located in the north direction starting from Assurance Health Toledo, Sylvania, OH?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.722064 41.689749)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest restaurant positioned towards the southeast of Elyria Arts Council, Elyria, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21255,
-      "geometry": "POINT (-83.722064 41.689749)",
-      "poi_name": "University Inn",
-      "osm_id": 1451357412,
-      "tourism": "hotel",
-      "addr_street": "East Stadium Boulevard",
-      "addr_housenumber": "2424"
+      "id": 117228,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Golden Bowl",
+      "osm_id": 8983873302,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Chestnut Commons Drive",
+      "addr_housenumber": "649"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Assurance Health Toledo, Sylvania, OH",
-      "geo_wkt": "POINT (-83.722064 41.689749)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
       "poi": {
-        "id": 182744,
-        "geometry": "POINT (-83.722064 41.689749)",
-        "poi_name": "Assurance Health Toledo",
-        "osm_id": 10903812923,
-        "amenity": "hospital",
-        "website": "http://assurancehealthsystem.com/locations/toledo-oh",
-        "phone": "+1 219 510 3776",
-        "healthcare": "hospital",
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
         "addr_state": "OH",
-        "addr_city": "Sylvania",
-        "addr_postcode": "43560",
-        "addr_street": "King Road",
-        "addr_housenumber": "4040"
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2549,
+  "id": 1249,
   "type": "knn:direction+name"
 }

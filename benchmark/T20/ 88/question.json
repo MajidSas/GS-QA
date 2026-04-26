@@ -1,70 +1,68 @@
 {
-  "question": "Where is the closest restaurant in the direction of Gary Lapelusa Landscaping LLC, Bayonne, NJ from Archer Hotel, Florham Park, NJ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.426974 40.779888)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel as you travel in the direction of Russ Berrie Institute for Professional Sales, Wayne, NJ from Hellsgate Farms, Astoria, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, ST_GeomFromText('POINT (-74.222716 40.96713)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 43006,
-      "geometry": "POINT (-74.382307 40.740514)",
-      "poi_name": "A Taste of Asia",
-      "osm_id": 3091939329,
-      "amenity": "restaurant",
-      "cuisine": "asian",
-      "addr_city": "Chatham",
-      "addr_postcode": "07928",
-      "addr_street": "Main Street",
-      "addr_housenumber": "245",
-      "value": 116.75397718476852
+      "id": 14388,
+      "geometry": "POINT (-73.946123 40.780242)",
+      "poi_name": "Courtyard by Marriott",
+      "osm_id": 4294989329,
+      "tourism": "hotel",
+      "website": "https://www.marriott.com/hotels/travel/nycmh-courtyard-new-york-manhattan-upper-east-side/",
+      "internet_access": "wlan",
+      "phone": "+1 212-410-6777",
+      "official_name": "Courtyard by Marriott",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10128",
+      "addr_street": "East 92nd Street",
+      "addr_housenumber": "410",
+      "value": 311.86308361440746
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Archer Hotel, Florham Park, NJ",
-      "geo_wkt": "POINT (-74.426974 40.779888)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 10627,
-        "geometry": "POINT (-74.426974 40.779888)",
-        "poi_name": "Archer Hotel",
-        "osm_id": 6953084786,
-        "tourism": "hotel",
-        "wheelchair": "yes",
-        "website": "https://archerhotel.com/florham-park",
-        "internet_access": "wlan",
-        "phone": "+1-862-286-7000",
-        "addr_state": "NJ",
-        "addr_city": "Florham Park",
-        "addr_postcode": "07932",
-        "addr_street": "Park Avenue",
-        "addr_housenumber": "130"
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
-      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Russ Berrie Institute for Professional Sales, Wayne, NJ",
+      "geo_wkt": "POINT (-74.222716 40.96713)",
       "poi": {
-        "id": 246948,
-        "geometry": "POINT (-74.122011 40.662412)",
-        "poi_name": "Gary Lapelusa Landscaping LLC",
-        "osm_id": 6627360488,
-        "leisure": "garden",
-        "website": "http://garylapelusalanscaping.com",
-        "phone": "+1-201-823-1868",
+        "id": 63245,
+        "geometry": "POINT (-74.222716 40.96713)",
+        "poi_name": "Russ Berrie Institute for Professional Sales",
+        "osm_id": 5605978384,
+        "amenity": "university",
         "addr_state": "NJ",
-        "addr_city": "Bayonne",
-        "addr_postcode": "07002",
-        "addr_street": "W 19th St",
-        "addr_housenumber": "41"
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "1600"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1387,
+  "id": 1587,
   "type": "knn:towards+loc"
 }

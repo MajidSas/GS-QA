@@ -1,41 +1,43 @@
 {
-  "question": "How many hospitals are situated within a 190 kilometers distance from River Deck, Edgewater, MD?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, 190000)\nAND amenity = 'hospital';\n",
+  "question": "What\u2019s the total number of beach resorts within a 150 kilometers distance from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, 150000)\nAND leisure = 'beach_resort';\n",
   "answers": [
     {
-      "count": 56
+      "count": 2
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
-        "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
       }
     }
   },
-  "id": 2219,
+  "id": 1819,
   "type": "range+count"
 }

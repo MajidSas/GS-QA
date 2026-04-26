@@ -1,65 +1,72 @@
 {
-  "question": "What's the nearest restaurant heading towards Sculpture Plaza, Mountain View, CA from the View Lounge, San Francisco, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.078458 37.420875)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food between George R. Brown School of Engineering, Houston, TX and PS Med Spa, Houston, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography, ST_GeomFromText('POINT (-95.153183 29.584063)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 164218,
-      "geometry": "POINT (-122.403464 37.784526)",
-      "poi_name": "Bonchon Chicken",
-      "osm_id": 9456812856,
-      "amenity": "restaurant",
-      "cuisine": "chicken;korean;sushi",
-      "website": "https://order.bonchon.com/web/3882",
-      "value": 144.4797210377348
+      "id": 110354,
+      "geometry": "POINT (-95.364614 29.701618)",
+      "poi_name": "Papa John's",
+      "osm_id": 3699245916,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes",
+      "addr_state": "TX",
+      "addr_city": "Houston",
+      "addr_street": "Old Spanish Trail",
+      "addr_housenumber": "3602",
+      "value": 122.32880535413202
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The View Lounge, San Francisco, CA",
-      "geo_wkt": "POINT (-122.404326 37.785414)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
       "poi": {
-        "id": 5810,
-        "geometry": "POINT (-122.404326 37.785414)",
-        "poi_name": "The View Lounge",
-        "osm_id": 1612808193,
-        "amenity": "bar",
-        "description": "39th floor bar with city views; enter through hotel",
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Su 16:00-24:00",
-        "operator": "Marriott",
-        "website": "https://www.sfmarquis.com/theview",
-        "phone": "+1 415-896-1600",
-        "addr_state": "CA",
-        "addr_city": "San Francisco",
-        "addr_postcode": "94103",
-        "addr_street": "4th Street",
-        "addr_housenumber": "55"
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Sculpture Plaza, Mountain View, CA",
-      "geo_wkt": "POINT (-122.078458 37.420875)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "PS Med Spa, Houston, TX",
+      "geo_wkt": "POINT (-95.153183 29.584063)",
       "poi": {
-        "id": 247592,
-        "geometry": "POINT (-122.078458 37.420875)",
-        "poi_name": "Sculpture Plaza",
-        "osm_id": 6943795235,
-        "leisure": "park",
-        "addr_state": "CA",
-        "addr_city": "Mountain View",
-        "addr_postcode": "94043"
+        "id": 198411,
+        "geometry": "POINT (-95.153183 29.584063)",
+        "poi_name": "PS Med Spa",
+        "osm_id": 10703363170,
+        "amenity": "hospital",
+        "opening_hours": "Mo-Th 08:00-17:00, Fr 09:00-15:00",
+        "website": "https://www.psmedspa.com",
+        "phone": "281-819-1147",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77062",
+        "addr_street": "Aesthetic Circle",
+        "addr_housenumber": "14018"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 127,
+  "id": 1627,
   "type": "knn:towards+name"
 }

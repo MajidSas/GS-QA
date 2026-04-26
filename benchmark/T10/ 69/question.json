@@ -1,65 +1,71 @@
 {
-  "question": "Which caf\u00e9 is nearest towards Funkmeyer New Reality Garden, Los Angeles, CA from Monrovia Canyon Park, Monrovia, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food is closest on the corridor from Elyria Arts Council, Elyria, OH to Akron Children's Hospital NICU at Summa, Akron, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, ST_GeomFromText('POINT (-81.50133 41.080742)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 93426,
-      "geometry": "POINT (-118.031252 34.144806)",
-      "poi_name": "Goldstein's Bagel Bakery",
-      "osm_id": 2164851854,
-      "amenity": "cafe",
-      "addr_city": "Arcadia",
-      "addr_postcode": "91006",
-      "addr_street": "Santa Anita Avenue",
-      "addr_housenumber": "412",
-      "value": 246.65315790568357
+      "id": 117226,
+      "geometry": "POINT (-82.067737 41.347679)",
+      "poi_name": "Charleys Philly Steaks",
+      "osm_id": 8983873284,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "OH",
+      "addr_city": "Elyria",
+      "addr_postcode": "44035",
+      "addr_street": "Chestnut Commons Drive",
+      "addr_housenumber": "620",
+      "value": 121.9571529489266
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Monrovia Canyon Park, Monrovia, CA",
-      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
       "poi": {
-        "id": 262527,
-        "geometry": "POINT (-117.988399 34.176394)",
-        "poi_name": "Monrovia Canyon Park",
-        "osm_id": 358789318,
-        "leisure": "nature_reserve",
-        "addr_state": "CA",
-        "addr_city": "Monrovia",
-        "addr_postcode": "91016",
-        "addr_street": "N. Canyon Boulevard",
-        "addr_housenumber": "1200"
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Akron Children's Hospital NICU at Summa, Akron, OH",
+      "geo_wkt": "POINT (-81.50133 41.080742)",
       "poi": {
-        "id": 247152,
-        "geometry": "POINT (-118.366951 34.039786)",
-        "poi_name": "Funkmeyer New Reality Garden",
-        "osm_id": 3659354357,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "operator": "Otis and Jenny Funkmeyer",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90016",
-        "addr_street": "South Spaulding Avenue",
-        "addr_housenumber": "2033"
+        "id": 75823,
+        "geometry": "POINT (-81.50133 41.080742)",
+        "poi_name": "Akron Children's Hospital NICU at Summa",
+        "osm_id": 9749113787,
+        "amenity": "hospital",
+        "operator": "Akron Children's Hospital",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "OH",
+        "addr_city": "Akron",
+        "addr_postcode": "44304",
+        "addr_street": "North Forge Street",
+        "addr_housenumber": "141"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "fast_food"
     }
   },
-  "id": 168,
+  "id": 1668,
   "type": "knn:towards+name"
 }

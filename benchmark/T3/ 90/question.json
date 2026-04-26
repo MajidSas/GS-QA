@@ -1,50 +1,58 @@
 {
-  "question": "Which beach resort is available within 190 kilometers in the southwest direction of Acushnet Sawmill, Acushnet, MA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography, 190000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "What viewpoint are located within 90 kilometers range in the direction of north from Mercyhealth Hospital and Physician Clinic, Crystal Lake, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.285376 42.216938)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.285376 42.216938)',4326)::geography, 90000)\nAND tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 247506,
-      "geometry": "POINT (-70.919597 41.683778)",
-      "poi_name": "Quantuck Beach Club",
-      "osm_id": 6712661219,
-      "leisure": "beach_resort",
-      "website": "http://quantuckbeachclub.com/"
+      "id": 1360,
+      "geometry": "POINT (-88.285376 42.216938)",
+      "poi_name": "Black Tern Marsh Viewing Platform Form",
+      "osm_id": 2955339733,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 1361,
+      "geometry": "POINT (-88.285376 42.216938)",
+      "poi_name": "Wetland Scenic View",
+      "osm_id": 2955339738,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Acushnet Sawmill, Acushnet, MA",
-      "geo_wkt": "POINT (-70.919597 41.683778)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mercyhealth Hospital and Physician Clinic, Crystal Lake, IL",
+      "geo_wkt": "POINT (-88.285376 42.216938)",
       "poi": {
-        "id": 245596,
-        "geometry": "POINT (-70.919597 41.683778)",
-        "poi_name": "Acushnet Sawmill",
-        "osm_id": 3197476151,
-        "leisure": "park",
-        "website": "https://www.savebuzzardsbay.org/",
-        "addr_state": "MA",
-        "addr_city": "Acushnet",
-        "addr_postcode": "02743",
-        "addr_street": "Mill Road",
-        "addr_housenumber": "38"
+        "id": 67613,
+        "geometry": "POINT (-88.285376 42.216938)",
+        "poi_name": "Mercyhealth Hospital and Physician Clinic",
+        "osm_id": 11242669956,
+        "amenity": "hospital",
+        "phone": "+1-779-220-5500",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "IL",
+        "addr_city": "Crystal Lake",
+        "addr_postcode": "60014",
+        "addr_street": "S IL31",
+        "addr_housenumber": "875"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2689,
+  "id": 2389,
   "type": "range:direction+name"
 }

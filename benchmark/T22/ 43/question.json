@@ -1,43 +1,41 @@
 {
-  "question": "What's the orientation towards the closest viewpoint from Sea Life Aquarium, San Antonio, TX?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction should I travel to get to the closest hotel from Sand Dunes Frontier, Florence, OR?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16030,
-      "geometry": "POINT (-98.734244 29.565358)",
-      "poi_name": "Chula Vista",
-      "osm_id": 313254787,
-      "tourism": "viewpoint",
-      "angle": 303.0824798784384
+      "id": 6657,
+      "geometry": "POINT (-124.094653 44.351419)",
+      "poi_name": "Holiday Market and Hotel",
+      "osm_id": 1910969295,
+      "tourism": "hotel",
+      "angle": 1.5804201318480866
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Sea Life Aquarium, San Antonio, TX",
-      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "sub_category": "theme park",
+      "display_name": "Sand Dunes Frontier, Florence, OR",
+      "geo_wkt": "POINT (-124.111464 43.914209)",
       "poi": {
-        "id": 3121,
-        "geometry": "POINT (-98.485816 29.424103)",
-        "poi_name": "Sea Life Aquarium",
-        "osm_id": 10184935041,
-        "tourism": "aquarium",
-        "website": "https://www.visitsealife.com/san-antonio/",
-        "wikidata": "Q664334",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78205",
-        "addr_street": "East Commerce Street",
-        "addr_housenumber": "849"
+        "id": 25873,
+        "geometry": "POINT (-124.111464 43.914209)",
+        "poi_name": "Sand Dunes Frontier",
+        "osm_id": 4630148745,
+        "tourism": "theme_park",
+        "addr_state": "OR",
+        "addr_city": "Florence",
+        "addr_postcode": "97439",
+        "addr_street": "Oregon Coast Highway",
+        "addr_housenumber": "83960"
       }
     }
   },
-  "id": 1442,
+  "id": 542,
   "type": "knn+angle"
 }

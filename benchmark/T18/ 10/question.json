@@ -1,55 +1,53 @@
 {
-  "question": "Where is the closest emergency hospital situated from University of Maine Cooperative Extension in York County, Springvale, ME?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.798343 43.465235)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest restaurant with outdoor seating around Myrtle Beach Safari Wild Encounters Tour, SC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.971427 33.696456)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167594,
-      "geometry": "POINT (-69.890184 43.906327)",
-      "poi_name": "Mid Coast Hospital",
-      "osm_id": 358229036,
-      "amenity": "hospital",
-      "wheelchair": "yes",
-      "website": "https://www.midcoasthealth.com/",
-      "phone": "+1-207-373-6000",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q6840946",
-      "addr_state": "ME",
-      "addr_city": "Brunswick",
-      "addr_postcode": "04011",
-      "addr_street": "Medical Center Drive",
-      "addr_housenumber": "123"
+      "id": 61862,
+      "geometry": "POINT (-78.818015 33.747122)",
+      "poi_name": "Lombardo's Italian Restaurant",
+      "osm_id": 5539523771,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "website": "http://lombardositalianrestaurant.com",
+      "phone": "+1843-497-6699",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "SC",
+      "addr_city": "Myrtle Beach",
+      "addr_postcode": "29572",
+      "addr_street": "N Kings Hwy",
+      "addr_housenumber": "7604"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with outdoor seating",
+      "poi_filter_sql": "outdoor_seating ILIKE '%yes%'"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "University of Maine Cooperative Extension in York County, Springvale, ME",
-      "geo_wkt": "POINT (-70.798343 43.465235)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Myrtle Beach Safari Wild Encounters Tour, SC",
+      "geo_wkt": "POINT (-78.971427 33.696456)",
       "poi": {
-        "id": 123177,
-        "geometry": "POINT (-70.798343 43.465235)",
-        "poi_name": "University of Maine Cooperative Extension in York County",
-        "osm_id": 6838986230,
-        "amenity": "university",
-        "website": "https://extension.umaine.edu/york/",
-        "phone": "+1-207.324.2814",
-        "addr_state": "ME",
-        "addr_city": "Springvale",
-        "addr_postcode": "04083",
-        "addr_street": "Oak Street",
-        "addr_housenumber": "15"
+        "id": 10262,
+        "geometry": "POINT (-78.971427 33.696456)",
+        "poi_name": "Myrtle Beach Safari Wild Encounters Tour",
+        "osm_id": 6762935375,
+        "tourism": "zoo",
+        "website": "https://myrtlebeachsafari.com",
+        "phone": "+1 843-361-4552",
+        "addr_state": "SC",
+        "addr_postcode": "29588",
+        "addr_street": "Folly Ranch Lane"
       }
     }
   },
-  "id": 309,
+  "id": 1309,
   "type": "knn:non_spat_filter+loc"
 }

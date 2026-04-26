@@ -1,59 +1,66 @@
 {
-  "question": "Which museum is closest when moving towards Speert Green, Wayne, NJ from Costa's Family Fun Park, Hawley, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography, ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.123004 41.425411)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant as you travel from Steinhart Aquarium, CA toward DoubleTree by Hilton Hotel Campbell - Pruneyard Plaza, Campbell, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, ST_GeomFromText('POINT (-121.933495 37.289373)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9705,
-      "geometry": "POINT (-74.880242 41.158788)",
-      "poi_name": "Rosenkrans House and Museum",
-      "osm_id": 8947629718,
-      "tourism": "museum",
-      "value": 124.2492421393884
+      "id": 55016,
+      "geometry": "POINT (-122.463617 37.764288)",
+      "poi_name": "Loving Hut",
+      "osm_id": 10167729989,
+      "amenity": "restaurant",
+      "cuisine": "international;asian",
+      "wheelchair": "yes",
+      "opening_hours": "11:00-21:00",
+      "phone": "+1 415 731-1957",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94122",
+      "addr_street": "Irving Street",
+      "addr_housenumber": "524",
+      "value": 138.38430764446642
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Costa's Family Fun Park, Hawley, PA",
-      "geo_wkt": "POINT (-75.123004 41.425411)",
+      "sub_category": "aquarium",
+      "display_name": "Steinhart Aquarium, CA",
+      "geo_wkt": "POINT (-122.465976 37.769485)",
       "poi": {
-        "id": 20096,
-        "geometry": "POINT (-75.123004 41.425411)",
-        "poi_name": "Costa's Family Fun Park",
-        "osm_id": 7863514314,
-        "tourism": "attraction",
-        "addr_state": "PA",
-        "addr_city": "Hawley",
-        "addr_postcode": "18428",
-        "addr_street": "US-6",
-        "addr_housenumber": "2111"
+        "id": 18181,
+        "geometry": "POINT (-122.465976 37.769485)",
+        "poi_name": "Steinhart Aquarium",
+        "osm_id": 368173914,
+        "tourism": "aquarium",
+        "addr_state": "CA"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Speert Green, Wayne, NJ",
-      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel Campbell - Pruneyard Plaza, Campbell, CA",
+      "geo_wkt": "POINT (-121.933495 37.289373)",
       "poi": {
-        "id": 266681,
-        "geometry": "POINT (-74.198768 40.944562)",
-        "poi_name": "Speert Green",
-        "osm_id": 9317008519,
-        "leisure": "garden",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 6040,
+        "geometry": "POINT (-121.933495 37.289373)",
+        "poi_name": "DoubleTree by Hilton Hotel Campbell - Pruneyard Plaza",
+        "osm_id": 1722564680,
+        "tourism": "hotel",
+        "operator": "Fremont Hotel Operating Co, LLC",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "CA",
+        "addr_city": "Campbell",
+        "addr_postcode": "95008-2310",
+        "addr_street": "South Bascom Avenue",
+        "addr_housenumber": "1995"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 119,
+  "id": 1619,
   "type": "knn:towards+name"
 }

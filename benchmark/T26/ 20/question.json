@@ -1,54 +1,52 @@
 {
-  "question": "What's the distance to the closest zoo with respect to Farmingdale State College (SUNY), Farmingdale, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.427778 40.752778)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.427778 40.752778)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest hospital from the reference point Lightner Museum, Saint Augustine, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.313697 29.89064)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.313697 29.89064)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 6973,
-      "geometry": "POINT (-73.210029 40.824517)",
-      "poi_name": "Sloth Encounters",
-      "osm_id": 8791898433,
-      "tourism": "zoo",
-      "opening_hours": "Sa-Su 11:00-19:00",
-      "website": "https://www.slothencounters.com/",
-      "phone": "+1-631-257-5683",
-      "zoo": "petting_zoo",
-      "addr_state": "NY",
-      "addr_city": "Hauppauge",
-      "addr_postcode": "11788",
-      "addr_street": "Veterans Memorial Highway",
-      "addr_housenumber": "551",
-      "distance": 20031.12502145
+      "id": 186228,
+      "geometry": "POINT (-81.532178 30.058105)",
+      "poi_name": "Ascension Medical Group",
+      "osm_id": 7920972468,
+      "amenity": "hospital",
+      "operator": "Ascension",
+      "healthcare": "hospital",
+      "addr_state": "FL",
+      "addr_city": "St. Johns",
+      "addr_postcode": "32251",
+      "addr_street": "CR 210",
+      "addr_housenumber": "2851",
+      "distance": 28093.19957547
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Farmingdale State College (SUNY), Farmingdale, NY",
-      "geo_wkt": "POINT (-73.427778 40.752778)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lightner Museum, Saint Augustine, FL",
+      "geo_wkt": "POINT (-81.313697 29.89064)",
       "poi": {
-        "id": 167509,
-        "geometry": "POINT (-73.427778 40.752778)",
-        "poi_name": "Farmingdale State College (SUNY)",
-        "osm_id": 357615813,
-        "amenity": "university",
-        "operator": "State of New York",
-        "website": "https://www.farmingdale.edu/",
-        "phone": "631-420-2000",
-        "official_name": "Farmingdale State College (SUNY)",
-        "addr_state": "NY",
-        "addr_city": "Farmingdale",
-        "addr_postcode": "11735-1021",
-        "addr_street": "Broad Hollow Road",
-        "addr_housenumber": "2350"
+        "id": 2363,
+        "geometry": "POINT (-81.313697 29.89064)",
+        "poi_name": "Lightner Museum",
+        "osm_id": 3414396690,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "yes",
+        "opening_hours": "09:00-17:00; PH off",
+        "wikidata": "Q6546396",
+        "addr_state": "FL",
+        "addr_city": "Saint Augustine",
+        "addr_postcode": "32084",
+        "addr_street": "King Street",
+        "addr_housenumber": "75"
       }
     }
   },
-  "id": 2419,
+  "id": 619,
   "type": "knn+distance"
 }

@@ -1,25 +1,43 @@
 {
-  "question": "Within a radius of 180 kilometers, where can I find a university situated towards the east of the Root Acupuncture, Lakewood, CO?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography, 180000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Where can I find a stadium in the north direction of Action Behavior Centers - ABA therapy for Autism, Hutto, TX, limited to 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-97.563599 30.533115)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.563599 30.533115)',4326)::geography, 180000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 70277,
-      "geometry": "POINT (-105.15605 39.682803)",
-      "poi_name": "ECPI University Denver",
-      "osm_id": 11356406020,
-      "amenity": "university",
-      "addr_state": "CO",
-      "addr_city": "Centennial",
-      "addr_postcode": "80111",
-      "addr_street": "South Kenton Street",
-      "addr_housenumber": "6675"
+      "id": 252227,
+      "geometry": "POINT (-97.563599 30.533115)",
+      "poi_name": "Waco Independent School District Stadium",
+      "osm_id": 356844768,
+      "leisure": "stadium"
+    },
+    {
+      "id": 252292,
+      "geometry": "POINT (-97.563599 30.533115)",
+      "poi_name": "Getterman Stadium",
+      "osm_id": 356845386,
+      "leisure": "stadium"
+    },
+    {
+      "id": 265394,
+      "geometry": "POINT (-97.563599 30.533115)",
+      "poi_name": "Five Wells Roping Rodeo Arena",
+      "osm_id": 368165371,
+      "leisure": "stadium",
+      "addr_state": "TX"
+    },
+    {
+      "id": 265396,
+      "geometry": "POINT (-97.563599 30.533115)",
+      "poi_name": "Tablerocks Goodnight Amphitheater",
+      "osm_id": 368165373,
+      "leisure": "stadium",
+      "addr_state": "TX"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "distance": 180000,
@@ -28,31 +46,29 @@
     "[3]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "The Root Acupuncture, Lakewood, CO",
-      "geo_wkt": "POINT (-105.15605 39.682803)",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, Hutto, TX",
+      "geo_wkt": "POINT (-97.563599 30.533115)",
       "poi": {
-        "id": 56785,
-        "geometry": "POINT (-105.15605 39.682803)",
-        "poi_name": "The Root Acupuncture",
-        "osm_id": 10248312278,
+        "id": 53027,
+        "geometry": "POINT (-97.563599 30.533115)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10061693691,
         "amenity": "hospital",
-        "description": "The Root Acupuncture has successfully used acupuncture and Chinese Medicine to treat a wide range of conditions, but specializes in musculo-skeletal pain, digestive disorders, auto-immune conditions, sleep disorders, and stress management. We use a wide r",
-        "operator": "Erik Johnson",
-        "website": "https://therootacupuncture.com/",
-        "phone": "+1-303-500-5075",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-hutto-tx/",
+        "phone": "512-879-4100",
         "healthcare": "hospital",
-        "addr_state": "CO",
-        "addr_city": "Lakewood",
-        "addr_postcode": "80228",
-        "addr_street": "West Jewell Avenue",
-        "addr_housenumber": "13701"
+        "addr_state": "TX",
+        "addr_city": "Hutto",
+        "addr_postcode": "78634",
+        "addr_street": "Chris Kelley Boulevard",
+        "addr_housenumber": "485"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 44,
+  "id": 2244,
   "type": "range:direction+loc"
 }

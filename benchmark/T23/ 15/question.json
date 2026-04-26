@@ -1,42 +1,45 @@
 {
-  "question": "What is the count of zoos within 70 kilometers from turtle studios, Newton, MA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.19682 42.364928)',4326)::geography, 70000)\nAND tourism = 'zoo';\n",
+  "question": "What\u2019s the total number of hotels within a 120 kilometers distance from Minnesota Military Museum, Little Falls, MN?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.347011 46.080882)',4326)::geography, 120000)\nAND tourism = 'hotel';\n",
   "answers": [
     {
-      "count": 2
+      "count": 9
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "turtle studios, Newton, MA",
-      "geo_wkt": "POINT (-71.19682 42.364928)",
+      "sub_category": "museum",
+      "display_name": "Minnesota Military Museum, Little Falls, MN",
+      "geo_wkt": "POINT (-94.347011 46.080882)",
       "poi": {
-        "id": 24016,
-        "geometry": "POINT (-71.19682 42.364928)",
-        "poi_name": "turtle studios",
-        "osm_id": 9249399945,
-        "tourism": "gallery",
-        "website": "https://www.turtlestudios.org/",
-        "phone": "+1 617 244 2865",
-        "addr_state": "MA",
-        "addr_city": "Newton",
-        "addr_postcode": "02458",
-        "addr_street": "California Street",
-        "addr_housenumber": "213"
+        "id": 7464,
+        "geometry": "POINT (-94.347011 46.080882)",
+        "poi_name": "Minnesota Military Museum",
+        "osm_id": 2174523606,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "fee": "yes",
+        "website": "https://www.mnmilitarymuseum.org/",
+        "phone": "+1 320 616 6050",
+        "museum": "military",
+        "addr_state": "MN",
+        "addr_city": "Little Falls",
+        "addr_postcode": "56345",
+        "addr_street": "Highway 115",
+        "addr_housenumber": "15000"
       }
     }
   },
-  "id": 2214,
+  "id": 1814,
   "type": "range+count"
 }

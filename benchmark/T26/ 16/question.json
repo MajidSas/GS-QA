@@ -1,48 +1,50 @@
 {
-  "question": "What's the separation to the closest gallery from Al Capone's House, Chicago, IL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.618785 41.762502)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.618785 41.762502)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between Shop One, Rochester, NY and the closest available garden?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12389,
-      "geometry": "POINT (-87.614815 41.809548)",
-      "poi_name": "Gallery Guichard",
-      "osm_id": 6332297187,
-      "tourism": "gallery",
-      "website": "https://www.galleryguichard.com",
-      "phone": "+1-(773) 791-7003",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60615",
-      "addr_street": "East 47th Street",
-      "addr_housenumber": "436",
-      "distance": 5235.75984327
+      "id": 266127,
+      "geometry": "POINT (-77.608048 43.131375)",
+      "poi_name": "Poet's Garden",
+      "osm_id": 10693801343,
+      "leisure": "garden",
+      "historic": "memorial",
+      "description": "Historic garden established in 1916 to honor William Shakespeare on the 300th anniversary of his death",
+      "fee": "no",
+      "operator": "Highland Park",
+      "website": "https://www.highlandparkconservancy.org/poets-garden",
+      "distance": 7996.27002795
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "attraction",
-      "display_name": "Al Capone's House, Chicago, IL",
-      "geo_wkt": "POINT (-87.618785 41.762502)",
+      "display_name": "Shop One, Rochester, NY",
+      "geo_wkt": "POINT (-77.680465 43.08274)",
       "poi": {
-        "id": 9739,
-        "geometry": "POINT (-87.618785 41.762502)",
-        "poi_name": "Al Capone's House",
-        "osm_id": 8968009470,
+        "id": 1083,
+        "geometry": "POINT (-77.680465 43.08274)",
+        "poi_name": "Shop One",
+        "osm_id": 2825443717,
         "tourism": "attraction",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60619",
-        "addr_street": "South Prairie Avenue",
-        "addr_housenumber": "7244"
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "website": "http://www.shopone.rit.edu",
+        "shop": "gift",
+        "phone": "585-475-2335",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14623",
+        "addr_street": "Reynolds Drive",
+        "addr_housenumber": "6000"
       }
     }
   },
-  "id": 2415,
+  "id": 615,
   "type": "knn+distance"
 }

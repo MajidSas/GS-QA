@@ -1,46 +1,45 @@
 {
-  "question": "What's the proximity of the nearest viewpoint relative to Bronx Museum of the Arts, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.919947 40.831091)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.919947 40.831091)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from CHI Memorial Hospital, Fort Oglethorpe, GA to the nearest zoo?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-85.263699 34.947252)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.263699 34.947252)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3309,
-      "geometry": "POINT (-73.939702 40.834839)",
-      "poi_name": "Sylvan Terrace",
-      "osm_id": 5347662822,
-      "tourism": "viewpoint",
-      "wikidata": "Q7660670",
-      "distance": 1717.49253351
+      "id": 19342,
+      "geometry": "POINT (-86.255582 35.220295)",
+      "poi_name": "Wild Bird Viewing",
+      "osm_id": 10728663428,
+      "tourism": "zoo",
+      "zoo": "wildlife_park",
+      "distance": 95391.63312251
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Bronx Museum of the Arts, NY",
-      "geo_wkt": "POINT (-73.919947 40.831091)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "CHI Memorial Hospital, Fort Oglethorpe, GA",
+      "geo_wkt": "POINT (-85.263699 34.947252)",
       "poi": {
-        "id": 17796,
-        "geometry": "POINT (-73.919947 40.831091)",
-        "poi_name": "Bronx Museum of the Arts",
-        "osm_id": 368061518,
-        "tourism": "museum",
-        "wheelchair": "yes",
-        "fee": "no",
-        "opening_hours": "We-Su 13:00-18:00",
-        "website": "https://bronxmuseum.org/",
-        "wikidata": "Q4974195",
-        "addr_state": "NY",
-        "addr_postcode": "10456",
-        "addr_street": "Grand Concourse",
-        "addr_housenumber": "1040"
+        "id": 56631,
+        "geometry": "POINT (-85.263699 34.947252)",
+        "poi_name": "CHI Memorial Hospital",
+        "osm_id": 10245316896,
+        "amenity": "hospital",
+        "operator": "Catholic Health Initiatives",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "GA",
+        "addr_city": "Fort Oglethorpe",
+        "addr_postcode": "30742",
+        "addr_street": "Gross Crescent",
+        "addr_housenumber": "100"
       }
     }
   },
-  "id": 2459,
+  "id": 659,
   "type": "knn+distance"
 }

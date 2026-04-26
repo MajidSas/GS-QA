@@ -1,22 +1,20 @@
 {
-  "question": "Where can I find the closest chinese restaurant from O'Rena, Rochester, MI?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chinese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest organic restaurant close by Seven Springs, Colton, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%organic%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.86086 44.579744)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 107863,
-      "geometry": "POINT (-83.171479 42.635439)",
-      "poi_name": "Pearl's Express",
-      "osm_id": 3582144905,
+      "id": 90115,
+      "geometry": "POINT (-71.115618 42.350734)",
+      "poi_name": "Life Alive",
+      "osm_id": 1978317372,
       "amenity": "restaurant",
-      "cuisine": "chinese",
-      "capacity": "20",
-      "phone": "+1-248-852-3566",
-      "takeaway": "yes",
-      "addr_state": "MI",
-      "addr_city": "Rochester Hills",
-      "addr_postcode": "48309",
-      "addr_street": "West Auburn Road",
-      "addr_housenumber": "2028"
+      "cuisine": "organic",
+      "opening_hours": "Mo-Su 07:30-21:00",
+      "addr_state": "MA",
+      "addr_city": "Boston",
+      "addr_postcode": "02215",
+      "addr_street": "Commonwealth Avenue",
+      "addr_housenumber": "888"
     }
   ],
   "answer_type": "loc",
@@ -24,28 +22,30 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "chinese restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%chinese%'"
+      "poi_filter_desc": "organic restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%organic%'"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "O'Rena, Rochester, MI",
-      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "sub_category": "park",
+      "display_name": "Seven Springs, Colton, NY",
+      "geo_wkt": "POINT (-74.86086 44.579744)",
       "poi": {
-        "id": 267317,
-        "geometry": "POINT (-83.213305 42.674149)",
-        "poi_name": "O'Rena",
-        "osm_id": 5842381796,
-        "leisure": "stadium",
-        "addr_state": "MI",
-        "addr_city": "Rochester",
-        "addr_postcode": "48309-4482",
-        "addr_street": "Pioneer Drive",
-        "addr_housenumber": "569"
+        "id": 247721,
+        "geometry": "POINT (-74.86086 44.579744)",
+        "poi_name": "Seven Springs",
+        "osm_id": 8188867715,
+        "leisure": "park",
+        "description": "Access is only allowed for current students and staff of Clarkson University. Trails permit activities such as Mountain Biking, Skiing, Sledding, X-C Skiing, Camping, and Fishing. Clarkson ROTC holds training exercises using blanks.",
+        "operator": "Clarkson University",
+        "addr_state": "NY",
+        "addr_city": "Colton",
+        "addr_postcode": "13625",
+        "addr_street": "Crowley Road",
+        "addr_housenumber": "144"
       }
     }
   },
-  "id": 385,
+  "id": 1385,
   "type": "knn:non_spat_filter+loc"
 }

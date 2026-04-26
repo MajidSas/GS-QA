@@ -1,52 +1,43 @@
 {
-  "question": "Which caf\u00e9 is the closest to the south of Caldwell Woods, Chicago, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the nearest fast food restaurant located in the west of Dayton Historic Depot, WA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-117.980043 46.320886)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 141483,
-      "geometry": "POINT (-87.786491 41.997567)",
-      "poi_name": "Eli\u2019s Cheesecake",
-      "osm_id": 6286450674,
-      "amenity": "cafe",
-      "website": "https://elicheesecake.com/",
-      "phone": "+1-773-736-3417",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60634",
-      "addr_street": "West Forest Preserve Drive",
-      "addr_housenumber": "6701"
+      "id": 237174,
+      "geometry": "POINT (-117.980043 46.320886)",
+      "poi_name": "Subway",
+      "osm_id": 5821458312,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Caldwell Woods, Chicago, IL",
-      "geo_wkt": "POINT (-87.786491 41.997567)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Dayton Historic Depot, WA",
+      "geo_wkt": "POINT (-117.980043 46.320886)",
       "poi": {
-        "id": 245668,
-        "geometry": "POINT (-87.786491 41.997567)",
-        "poi_name": "Caldwell Woods",
-        "osm_id": 3358252547,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60646"
+        "id": 16403,
+        "geometry": "POINT (-117.980043 46.320886)",
+        "poi_name": "Dayton Historic Depot",
+        "osm_id": 366030375,
+        "historic": "yes",
+        "tourism": "viewpoint",
+        "addr_state": "WA"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2589,
+  "id": 1289,
   "type": "knn:direction+name"
 }

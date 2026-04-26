@@ -1,63 +1,56 @@
 {
-  "question": "Which garden is closest when moving towards the northwest of Procter Farm Preserve, Wendell, NC within 150 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography, 150000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Which stadium fall within 170 kilometers when moving northeast from Harrison Benwell Conservation Area, Wonder Lake, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.332956 42.384311)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.332956 42.384311)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 248532,
-      "geometry": "POINT (-78.390009 35.831172)",
-      "poi_name": "Seven Oaks Gardens",
-      "osm_id": 4635983399,
-      "leisure": "garden"
-    },
-    {
-      "id": 265821,
-      "geometry": "POINT (-78.390009 35.831172)",
-      "poi_name": "Wild Hearts Garden & Park",
-      "osm_id": 7851174303,
-      "leisure": "garden"
-    },
-    {
-      "id": 267494,
-      "geometry": "POINT (-78.390009 35.831172)",
-      "poi_name": "Hub Farm",
-      "osm_id": 7596621471,
-      "leisure": "garden",
-      "website": "https://www.thehubfarm.org/"
+      "id": 266349,
+      "geometry": "POINT (-88.332956 42.384311)",
+      "poi_name": "Team 1732 Thunderdome",
+      "osm_id": 7209590118,
+      "leisure": "stadium",
+      "operator": "Hilltopper Robotics Team 1732",
+      "addr_state": "WI",
+      "addr_city": "Milwaukee",
+      "addr_postcode": "53233",
+      "addr_street": "West Michigan Street",
+      "addr_housenumber": "2203"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Procter Farm Preserve, Wendell, NC",
-      "geo_wkt": "POINT (-78.390009 35.831172)",
+      "sub_category": "park",
+      "display_name": "Harrison Benwell Conservation Area, Wonder Lake, IL",
+      "geo_wkt": "POINT (-88.332956 42.384311)",
       "poi": {
-        "id": 247665,
-        "geometry": "POINT (-78.390009 35.831172)",
-        "poi_name": "Procter Farm Preserve",
-        "osm_id": 8057386012,
-        "leisure": "nature_reserve",
-        "addr_state": "NC",
-        "addr_city": "Wendell",
-        "addr_postcode": "27591",
-        "addr_street": "Doc Procter Road",
-        "addr_housenumber": "7201"
+        "id": 249741,
+        "geometry": "POINT (-88.332956 42.384311)",
+        "poi_name": "Harrison Benwell Conservation Area",
+        "osm_id": 354209705,
+        "leisure": "park",
+        "description": "Closed until Aug 2016.",
+        "opening_hours": "sunrise-sunset",
+        "website": "http://www.mccdistrict.org/rccms/index.php/harrison-benwell/",
+        "addr_state": "IL",
+        "addr_city": "Wonder Lake",
+        "addr_street": "McCullom Lake Road",
+        "addr_housenumber": "7055"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2683,
+  "id": 2383,
   "type": "range:direction+name"
 }

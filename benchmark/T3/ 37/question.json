@@ -1,67 +1,81 @@
 {
-  "question": "Which hospital can I find north of African American Cultural Garden, Cleveland, OH, within a radius of 190 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography, 190000)\nAND amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Which golf course are present northeast of Bresnan Arena, Mankato, MN and within 130 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography, 130000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 221932,
-      "geometry": "POINT (-81.629472 41.530044)",
-      "poi_name": "Lake Huron Medical Center",
-      "osm_id": 10997796678,
-      "amenity": "hospital",
-      "healthcare": "hospital",
-      "addr_state": "MI",
-      "addr_city": "Port Huron",
-      "addr_postcode": "48060",
-      "addr_street": "Electric Avenue",
-      "addr_housenumber": "2601"
+      "id": 246978,
+      "geometry": "POINT (-93.995655 44.145616)",
+      "poi_name": "Parker's Lake Golf Center",
+      "osm_id": 8483245141,
+      "leisure": "golf_course",
+      "website": "https://www.threeriversparks.org/location/parkers-lake-golf-center",
+      "addr_state": "MN",
+      "addr_city": "Plymouth",
+      "addr_postcode": "55447",
+      "addr_street": "Vicksburg Lane North",
+      "addr_housenumber": "1050"
     },
     {
-      "id": 221948,
-      "geometry": "POINT (-81.629472 41.530044)",
-      "poi_name": "McLaren Port Huron Hospital",
-      "osm_id": 10998386954,
-      "amenity": "hospital",
-      "healthcare": "hospital",
-      "addr_state": "MI",
-      "addr_city": "Port Huron",
-      "addr_postcode": "48060",
-      "addr_street": "Pine Grove Avenue",
-      "addr_housenumber": "1221"
+      "id": 248094,
+      "geometry": "POINT (-93.995655 44.145616)",
+      "poi_name": "The Town & Country Club",
+      "osm_id": 6336581321,
+      "leisure": "golf_course",
+      "website": "https://www.tcc-club.com",
+      "phone": "+1 651 646 7121",
+      "addr_state": "MN",
+      "addr_city": "Saint Paul",
+      "addr_postcode": "55104",
+      "addr_street": "North Mississippi River Boulevard",
+      "addr_housenumber": "300"
+    },
+    {
+      "id": 248401,
+      "geometry": "POINT (-93.995655 44.145616)",
+      "poi_name": "The Wilds",
+      "osm_id": 4094834634,
+      "leisure": "golf_course",
+      "addr_state": "MN",
+      "addr_city": "Prior Lake",
+      "addr_postcode": "55372",
+      "addr_street": "Wilds Ridge",
+      "addr_housenumber": "3151"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 130000,
+      "text": "130 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "African American Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.629472 41.530044)",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
       "poi": {
-        "id": 247006,
-        "geometry": "POINT (-81.629472 41.530044)",
-        "poi_name": "African American Cultural Garden",
-        "osm_id": 8567373858,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "890"
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2636,
+  "id": 2336,
   "type": "range:direction+name"
 }

@@ -1,46 +1,43 @@
 {
-  "question": "How far is the nearest theme park from the location Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest nature reserve away from Ghostprint Gallery, Richmond, VA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.444173 37.547223)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.444173 37.547223)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7732,
-      "geometry": "POINT (-98.39639 29.503891)",
-      "poi_name": "Amazing Air",
-      "osm_id": 6382562047,
-      "tourism": "theme_park",
-      "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
-      "website": "https://amazingairsa.com/",
-      "phone": "+1-210-946-9800",
-      "addr_state": "TX",
-      "addr_city": "San Antonio",
-      "addr_postcode": "78218",
-      "addr_street": "North Interstate Highway 35",
-      "addr_housenumber": "7702",
-      "distance": 461220.52658393
+      "id": 245982,
+      "geometry": "POINT (-77.403345 38.222277)",
+      "poi_name": "Alexander Berger Memorial Sanctuary",
+      "osm_id": 5387793525,
+      "leisure": "nature_reserve",
+      "distance": 75013.14435256
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX",
-      "geo_wkt": "POINT (-102.376579 31.844)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Ghostprint Gallery, Richmond, VA",
+      "geo_wkt": "POINT (-77.444173 37.547223)",
       "poi": {
-        "id": 150549,
-        "geometry": "POINT (-102.376579 31.844)",
-        "poi_name": "Texas Tech University Health Sciences Center at the Permian Basin",
-        "osm_id": 4059065537,
-        "amenity": "university",
-        "addr_state": "TX",
-        "addr_city": "Odessa"
+        "id": 2204,
+        "geometry": "POINT (-77.444173 37.547223)",
+        "poi_name": "Ghostprint Gallery",
+        "osm_id": 3328148226,
+        "tourism": "gallery",
+        "opening_hours": "We-Sa 12:00-17:00",
+        "website": "https://www.ghostprintgallery.com/",
+        "phone": "+1 804-344-1557",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_street": "West Broad Street",
+        "addr_housenumber": "220"
       }
     }
   },
-  "id": 2413,
+  "id": 613,
   "type": "knn+distance"
 }

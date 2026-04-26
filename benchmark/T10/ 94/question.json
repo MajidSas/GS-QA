@@ -1,70 +1,71 @@
 {
-  "question": "Which fast food is nearest as you move towards Urban Arts Gallery, Salt Lake City, UT from Brookfield Park, West Valley City, UT?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography, ST_GeomFromText('POINT (-111.904248 40.766692)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.04708 40.681306)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest caf\u00e9 you\u2019d reach going toward Glensheen - Historic Congdon Estate, Duluth, MN from Bagley Nature Area viewing platform, Duluth, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, ST_GeomFromText('POINT (-92.051721 46.815157)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 159664,
-      "geometry": "POINT (-112.026427 40.698732)",
-      "poi_name": "Little Caesars",
-      "osm_id": 4801956496,
-      "amenity": "fast_food",
-      "cuisine": "pizza",
-      "website": "https://littlecaesars.com/en-us/store/719/",
+      "id": 125392,
+      "geometry": "POINT (-92.077759 46.817284)",
+      "poi_name": "Starbucks",
+      "osm_id": 6959293354,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
       "takeaway": "yes",
-      "drive_through": "no",
-      "addr_state": "UT",
-      "addr_city": "West Valley City",
-      "addr_postcode": "84120",
-      "addr_street": "5600 West",
-      "addr_housenumber": "3380 S",
-      "value": 51.79433721462184
+      "drive_through": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "MN",
+      "addr_city": "Duluth",
+      "addr_postcode": "55803",
+      "addr_street": "Woodland Avenue",
+      "addr_housenumber": "1002",
+      "value": 105.21431319715091
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Brookfield Park, West Valley City, UT",
-      "geo_wkt": "POINT (-112.04708 40.681306)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bagley Nature Area viewing platform, Duluth, MN",
+      "geo_wkt": "POINT (-92.08933 46.822185)",
       "poi": {
-        "id": 247071,
-        "geometry": "POINT (-112.04708 40.681306)",
-        "poi_name": "Brookfield Park",
-        "osm_id": 8669040154,
-        "leisure": "park",
-        "addr_state": "UT",
-        "addr_city": "West Valley City",
-        "addr_postcode": "84128",
-        "addr_street": "4100 South"
+        "id": 16041,
+        "geometry": "POINT (-92.08933 46.822185)",
+        "poi_name": "Bagley Nature Area viewing platform",
+        "osm_id": 316372272,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "addr_state": "MN",
+        "addr_city": "Duluth",
+        "addr_postcode": "55812",
+        "addr_street": "Junction Avenue",
+        "addr_housenumber": "1325"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Urban Arts Gallery, Salt Lake City, UT",
-      "geo_wkt": "POINT (-111.904248 40.766692)",
+      "sub_category": "museum",
+      "display_name": "Glensheen - Historic Congdon Estate, Duluth, MN",
+      "geo_wkt": "POINT (-92.051721 46.815157)",
       "poi": {
-        "id": 24125,
-        "geometry": "POINT (-111.904248 40.766692)",
-        "poi_name": "Urban Arts Gallery",
-        "osm_id": 9335676387,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su 12:00-21:00",
-        "website": "https://www.urbanartsgallery.org/",
-        "phone": "+1-801-230-0820",
-        "addr_state": "UT",
-        "addr_city": "Salt Lake City",
-        "addr_postcode": "84101",
-        "addr_street": "Rio Grande Street",
-        "addr_housenumber": "116 S"
+        "id": 14711,
+        "geometry": "POINT (-92.051721 46.815157)",
+        "poi_name": "Glensheen - Historic Congdon Estate",
+        "osm_id": 4691963258,
+        "tourism": "museum",
+        "website": "https://glensheen.org/",
+        "wikidata": "Q5569329",
+        "addr_state": "MN",
+        "addr_city": "Duluth",
+        "addr_street": "London Rd",
+        "addr_housenumber": "3300"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 193,
+  "id": 1693,
   "type": "knn:towards+name"
 }

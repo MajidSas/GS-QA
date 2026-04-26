@@ -1,47 +1,50 @@
 {
-  "question": "What's the proximity of the nearest aquarium relative to River Deck, Edgewater, MD?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance separating Stratton Fire Tower, Stratton, Vermont from the closest attraction?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1512,
-      "geometry": "POINT (-76.48474 39.339761)",
-      "poi_name": "Go Fish",
-      "osm_id": 3026471881,
-      "tourism": "aquarium",
-      "addr_state": "MD",
-      "addr_city": "Rosedale",
-      "addr_postcode": "21237",
-      "addr_street": "Philadelphia Road",
-      "addr_housenumber": "8767 G",
-      "distance": 44445.39808543
+      "id": 18815,
+      "geometry": "POINT (-72.772253 43.201538)",
+      "poi_name": "Magic Mountain Ski Area",
+      "osm_id": 2414103762,
+      "leisure": "sports_centre",
+      "tourism": "attraction",
+      "sport": "skiing;disc_golf",
+      "website": "https://magicmtn.com/",
+      "phone": "+1 802-824-5645",
+      "wikidata": "Q6730788",
+      "addr_state": "VT",
+      "addr_city": "Londonderry",
+      "addr_postcode": "05148",
+      "addr_street": "Magic Mountain Access Road",
+      "addr_housenumber": "495",
+      "distance": 17846.15344488
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "display_name": "Stratton Fire Tower, Stratton, Vermont",
+      "geo_wkt": "POINT (-72.924966 43.086214)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
+        "id": 16156,
+        "geometry": "POINT (-72.924966 43.086214)",
+        "poi_name": "Stratton Fire Tower",
+        "osm_id": 356555377,
         "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "addr_state": "Vermont",
+        "addr_city": "Stratton",
+        "addr_street": "Maintenance Road",
+        "addr_housenumber": "2148"
       }
     }
   },
-  "id": 2470,
+  "id": 670,
   "type": "knn+distance"
 }

@@ -1,16 +1,16 @@
 {
-  "question": "Within 170 kilometers from Tiger Creek Wildlife Refuge, Tyler, TX, how many universities are available?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.264008 32.522834)',4326)::geography, 170000)\nAND amenity = 'university';\n",
+  "question": "How many galleries are there within 170 kilometers of the point Island Adventures, Islamorada, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.649651 24.907638)',4326)::geography, 170000)\nAND tourism = 'gallery';\n",
   "answers": [
     {
-      "count": 1
+      "count": 19
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
       "distance": 170000,
@@ -18,23 +18,25 @@
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Tiger Creek Wildlife Refuge, Tyler, TX",
-      "geo_wkt": "POINT (-95.264008 32.522834)",
+      "sub_category": "attraction",
+      "display_name": "Island Adventures, Islamorada, FL",
+      "geo_wkt": "POINT (-80.649651 24.907638)",
       "poi": {
-        "id": 9557,
-        "geometry": "POINT (-95.264008 32.522834)",
-        "poi_name": "Tiger Creek Wildlife Refuge",
-        "osm_id": 3883238421,
-        "tourism": "zoo",
-        "website": "http://www.tigercreek.org/",
-        "addr_state": "TX",
-        "addr_city": "Tyler",
-        "addr_postcode": "75706",
-        "addr_street": "Werner Lane"
+        "id": 4291,
+        "geometry": "POINT (-80.649651 24.907638)",
+        "poi_name": "Island Adventures",
+        "osm_id": 11207387368,
+        "description": "Discover Islamorada like never before with Island Adventures! Our trip offer a variety of activities including snorkeling, sightseeing, sandbar, bar hopping, and dolphin watching. With expert captains, personalized itineraries, and a commitment to excepti",
+        "tourism": "attraction",
+        "website": "https://goislandadventures.com",
+        "addr_state": "FL",
+        "addr_city": "Islamorada",
+        "addr_postcode": "33036",
+        "addr_street": "Overseas Hwy",
+        "addr_housenumber": "80500"
       }
     }
   },
-  "id": 2269,
+  "id": 1869,
   "type": "range+count"
 }

@@ -1,40 +1,46 @@
 {
-  "question": "How far is the nearest garden situated from Altadena Lodge, CA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.088402 34.172521)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.088402 34.172521)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest aquarium located from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247346,
-      "geometry": "POINT (-118.065922 34.162684)",
-      "poi_name": "Vinny's Mini-World",
-      "osm_id": 8975865494,
-      "leisure": "garden",
-      "description": "This is a mini-world created by Vinny",
-      "fee": "no",
-      "operator": "Vinny",
-      "distance": 2342.39680566
+      "id": 25545,
+      "geometry": "POINT (-118.496003 34.010345)",
+      "poi_name": "Santa M\u00f3nica Pier Aquarium",
+      "osm_id": 4538240692,
+      "tourism": "aquarium",
+      "addr_postcode": "90401",
+      "addr_street": "Ocean Front Walk",
+      "addr_housenumber": "1600",
+      "distance": 21033.80198288
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Altadena Lodge, CA",
-      "geo_wkt": "POINT (-118.088402 34.172521)",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
       "poi": {
-        "id": 18175,
-        "geometry": "POINT (-118.088402 34.172521)",
-        "poi_name": "Altadena Lodge",
-        "osm_id": 368173868,
-        "tourism": "hotel",
-        "addr_state": "CA"
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
       }
     }
   },
-  "id": 2431,
+  "id": 631,
   "type": "knn+distance"
 }

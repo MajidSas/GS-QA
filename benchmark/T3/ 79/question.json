@@ -1,49 +1,142 @@
 {
-  "question": "Which attraction is available in the northwest direction of Sherwood Forest Faire, McDade, TX within 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, 100000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Which nature reserve are located inside a 170 kilometers radius toward the east of the Coachlight Inn Motel, Oconto Falls, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography, 170000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 3537,
-      "geometry": "POINT (-97.166138 30.231527)",
-      "poi_name": "Old Town Salado",
-      "osm_id": 5453761823,
-      "tourism": "attraction"
+      "id": 250677,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Moonlight Bay Bedrock Beach State Natural Area",
+      "osm_id": 354533093,
+      "leisure": "nature_reserve",
+      "website": "https://dnr.wi.gov/topic/Lands/naturalareas/index.asp?SNA=233"
+    },
+    {
+      "id": 248113,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Three Springs Nature Preserve",
+      "osm_id": 6346555098,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/harold-c-wilson-three-springs-nature-preserve/",
+      "addr_state": "WI",
+      "addr_city": "Sister Bay",
+      "addr_postcode": "54234",
+      "addr_street": "Three Springs Road",
+      "addr_housenumber": "10442"
+    },
+    {
+      "id": 248115,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Heins Creek Nature Preserve",
+      "osm_id": 6346574701,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/heins-creek-nature-preserve/",
+      "addr_state": "WI",
+      "addr_city": "Baileys Harbor",
+      "addr_postcode": "54202",
+      "addr_street": "State Highway 57",
+      "addr_housenumber": "7112"
+    },
+    {
+      "id": 248116,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Lautenbach Woods Nature Preserve",
+      "osm_id": 6346595860,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/lautenbach-woods-nature-preserve/",
+      "addr_state": "WI",
+      "addr_city": "Egg Harbor",
+      "addr_postcode": "54209",
+      "addr_street": "County Road G",
+      "addr_housenumber": "6749"
+    },
+    {
+      "id": 248117,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Oak Road Nature Preserve",
+      "osm_id": 6346595861,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/oak-road-nature-preserve/",
+      "addr_state": "WI",
+      "addr_city": "Egg Harbor",
+      "addr_postcode": "54209",
+      "addr_street": "Oak Road",
+      "addr_housenumber": "6391"
+    },
+    {
+      "id": 248118,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Bay Shore Blufflands Nature Preserve",
+      "osm_id": 6346595862,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/bay-shore-blufflands-nature-preserve_2/",
+      "addr_state": "WI",
+      "addr_city": "Sturgeon Bay",
+      "addr_postcode": "54235",
+      "addr_street": "Reynolds Road",
+      "addr_housenumber": "5519"
+    },
+    {
+      "id": 248119,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Sturgeon Bay Ship Canal Nature Preserve",
+      "osm_id": 6346609600,
+      "leisure": "nature_reserve",
+      "operator": "Door County Land Trust",
+      "website": "https://www.doorcountylandtrust.org/sturgeon-bay-ship-canal-nature-preserve/",
+      "addr_state": "WI",
+      "addr_city": "Sturgeon Bay",
+      "addr_postcode": "54235",
+      "addr_street": "Lake Lane",
+      "addr_housenumber": "5340"
+    },
+    {
+      "id": 250482,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Bloch Oxbow & Pines Primeval State Natural Area",
+      "osm_id": 354531367,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Sherwood Forest Faire, McDade, TX",
-      "geo_wkt": "POINT (-97.166138 30.231527)",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
       "poi": {
-        "id": 1735,
-        "geometry": "POINT (-97.166138 30.231527)",
-        "poi_name": "Sherwood Forest Faire",
-        "osm_id": 3129085781,
-        "tourism": "theme_park",
-        "website": "https://www.sherwoodforestfaire.com/",
-        "addr_state": "TX",
-        "addr_city": "McDade",
-        "addr_postcode": "78650",
-        "addr_street": "Old Highway 20",
-        "addr_housenumber": "1883"
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2678,
+  "id": 2378,
   "type": "range:direction+name"
 }

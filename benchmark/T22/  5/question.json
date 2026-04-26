@@ -1,44 +1,42 @@
 {
-  "question": "In what direction can I find the closest theme park situated from Leonard Slatkin, University City, MO?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.302665 38.655645)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.302665 38.655645)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In what direction is the closest nature reserve relative to Alta Vista Gardens, Vista, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.219371 33.210166)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.219371 33.210166)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 2504,
-      "geometry": "POINT (-90.331071 37.635858)",
-      "poi_name": "Huck's Cove",
-      "osm_id": 3487755259,
-      "tourism": "theme_park",
-      "operator": "Boy Scouts of America",
-      "angle": 181.26896935808304
+      "id": 262395,
+      "geometry": "POINT (-117.279566 33.010517)",
+      "poi_name": "Cardiff State Beach",
+      "osm_id": 358781575,
+      "leisure": "nature_reserve",
+      "angle": 194.25422785706272
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Leonard Slatkin, University City, MO",
-      "geo_wkt": "POINT (-90.302665 38.655645)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Alta Vista Gardens, Vista, CA",
+      "geo_wkt": "POINT (-117.219371 33.210166)",
       "poi": {
-        "id": 1865,
-        "geometry": "POINT (-90.302665 38.655645)",
-        "poi_name": "Leonard Slatkin",
-        "osm_id": 3189018461,
-        "historic": "memorial",
-        "tourism": "attraction",
-        "website": "https://www.stlouiswalkoffame.org/inductees/leonard-slatkin.html",
-        "addr_state": "MO",
-        "addr_city": "University City",
-        "addr_postcode": "63130",
-        "addr_street": "Delmar Boulevard",
-        "addr_housenumber": "6318"
+        "id": 266183,
+        "geometry": "POINT (-117.219371 33.210166)",
+        "poi_name": "Alta Vista Gardens",
+        "osm_id": 597177626,
+        "leisure": "garden",
+        "wikidata": "Q4736012",
+        "addr_state": "CA",
+        "addr_city": "Vista",
+        "addr_postcode": "92084",
+        "addr_street": "Vale Terrace Drive",
+        "addr_housenumber": "1270"
       }
     }
   },
-  "id": 1404,
+  "id": 504,
   "type": "knn+angle"
 }

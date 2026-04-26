@@ -1,46 +1,44 @@
 {
-  "question": "What's the closest zoo in proximity to the stadium that was constructed in 1936 in Eau Claire, WI?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest golf course by the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24277,
-      "geometry": "POINT (-92.597456 45.398346)",
-      "poi_name": "Fawn Doe Rosa Wildlife Educational Park",
-      "osm_id": 10991229073,
-      "tourism": "zoo",
-      "website": "https://www.fawndoerosa.com/",
-      "phone": "7154833772",
-      "zoo": "wildlife_park",
-      "addr_street": "US Hwy 8",
-      "addr_housenumber": "2131"
+      "id": 246266,
+      "geometry": "POINT (-74.794137 40.200347)",
+      "poi_name": "Double Eagle Chip and Put",
+      "osm_id": 11226099749,
+      "leisure": "golf_course",
+      "operator": "Double Eagle"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Carson Park Stadium, Eau Claire, WI",
-      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
       "poi": {
-        "id": 247238,
-        "geometry": "POINT (-91.520118 44.808189)",
-        "poi_name": "Carson Park Stadium",
-        "osm_id": 3843182571,
-        "leisure": "stadium",
-        "sport": "american_football",
-        "wikidata": "Q16028032",
-        "addr_state": "WI",
-        "addr_city": "Eau Claire",
-        "addr_postcode": "54703",
-        "addr_street": "Carson Park Drive"
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
+        "amenity": "university",
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
       }
     }
   },
-  "id": 2768,
-  "type": "knn+name+multihop2"
+  "id": 968,
+  "type": "knn+name+multi_source2"
 }

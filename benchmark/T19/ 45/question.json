@@ -1,20 +1,22 @@
 {
-  "question": "Where is the closest fast food restaurant in the north direction starting from Tablerocks Goodnight Amphitheater, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant going north from City Suites Hotel, Chicago, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 203329,
-      "geometry": "POINT (-97.532231 30.940462)",
-      "poi_name": "Subway",
-      "osm_id": 7078547578,
+      "id": 65426,
+      "geometry": "POINT (-87.65288 41.939769)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 5695558677,
       "amenity": "fast_food",
       "cuisine": "sandwich",
       "takeaway": "yes",
-      "addr_state": "TX",
-      "addr_city": "Salado",
-      "addr_postcode": "76571",
-      "addr_street": "North Main Street",
-      "addr_housenumber": "882"
+      "drive_through": "no",
+      "official_name": "Jimmy John's Gourmet Sandwiches",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60657",
+      "addr_street": "North Clark Street",
+      "addr_housenumber": "3328"
     }
   ],
   "answer_type": "loc",
@@ -24,17 +26,21 @@
       "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Tablerocks Goodnight Amphitheater, TX",
-      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "City Suites Hotel, Chicago, IL",
+      "geo_wkt": "POINT (-87.65288 41.939769)",
       "poi": {
-        "id": 265396,
-        "geometry": "POINT (-97.532231 30.940462)",
-        "poi_name": "Tablerocks Goodnight Amphitheater",
-        "osm_id": 368165373,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 74,
+        "geometry": "POINT (-87.65288 41.939769)",
+        "poi_name": "City Suites Hotel",
+        "osm_id": 424212348,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60657",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "933"
       }
     },
     "[3]": {

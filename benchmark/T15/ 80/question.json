@@ -1,79 +1,216 @@
 {
-  "question": "Where can I find an attraction to the south of Gary Lapelusa Landscaping LLC, Bayonne, NJ within 80 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, 80000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where are a caf\u00e9 situated within 70 kilometers when moving north from Rockford Career College, Rockford, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.027608 42.25571)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.027608 42.25571)',4326)::geography, 70000)\nAND amenity = 'cafe'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 3270,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "Jurassic Park",
-      "osm_id": 5327546602,
-      "tourism": "attraction",
-      "website": "https://www.dnainfo.com/new-york/20120606/todt-hill/dinosaurs-dragons-transform-staten-island-home-into-fantasy-world",
-      "addr_state": "NY",
-      "addr_city": "Staten Island",
-      "addr_postcode": "10304",
-      "addr_street": "Todt Hill Road",
-      "addr_housenumber": "724"
+      "id": 211989,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Campus Caf\u00e9",
+      "osm_id": 5181669642,
+      "amenity": "cafe"
     },
     {
-      "id": 22224,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "The Dancing Crab",
-      "osm_id": 608975109,
-      "tourism": "attraction",
-      "shop": "department_store",
-      "addr_city": "Normandy Beach",
-      "addr_postcode": "08739",
-      "addr_street": "559 State Route 35"
+      "id": 222615,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Starbucks",
+      "osm_id": 11027130255,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "IL",
+      "addr_city": "Loves Park",
+      "addr_postcode": "61111",
+      "addr_street": "East Riverside Boulevard"
     },
     {
-      "id": 22225,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "Coastal Living LLC\u200e",
-      "osm_id": 608975837,
-      "tourism": "attraction",
-      "shop": "department_store",
-      "phone": "(732) 292-1866\u200e",
-      "addr_state": "NJ",
-      "addr_city": "Brielle",
-      "addr_street": "605 Higgins Avenue"
+      "id": 229548,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "The Sweet Spot Cafe",
+      "osm_id": 4386326899,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Th, Fr, Sa-Su 06:00-21:00, 06:00-19:00, 07:00-19:00",
+      "phone": "+1-262-473-5080",
+      "addr_postcode": "53190",
+      "addr_street": "West Whitewater Street",
+      "addr_housenumber": "226"
+    },
+    {
+      "id": 229554,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "The Depot Cafe",
+      "osm_id": 4386354492,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;american",
+      "opening_hours": "Mo-Th,Sa 05:00-15:00; Fr 05:00-20:00",
+      "phone": "+1-608-884-4405",
+      "addr_postcode": "53534",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "20"
+    },
+    {
+      "id": 229851,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Mocha Moment",
+      "osm_id": 4402952295,
+      "amenity": "cafe"
+    },
+    {
+      "id": 138222,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Hamilton's Cafe",
+      "osm_id": 6137786537,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop;pizza;cafeteria",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "Pleasant Street",
+      "addr_housenumber": "850"
+    },
+    {
+      "id": 42345,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Coffee at Dawn",
+      "osm_id": 3056688250,
+      "amenity": "cafe"
+    },
+    {
+      "id": 66760,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "BaristaCats Caf\u00e9",
+      "osm_id": 11209563427,
+      "amenity": "cafe",
+      "website": "https://baristacatscafe.com/",
+      "addr_state": "WI",
+      "addr_city": "Whitewater",
+      "addr_postcode": "53190",
+      "addr_street": "West Center Street",
+      "addr_housenumber": "135"
+    },
+    {
+      "id": 138243,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Starbucks",
+      "osm_id": 6139038082,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 05:00-20:30",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "Branigan Road",
+      "addr_housenumber": "2600"
+    },
+    {
+      "id": 138251,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Flying Pig",
+      "osm_id": 6139223558,
+      "amenity": "cafe",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "East Grand Avenue",
+      "addr_housenumber": "431"
+    },
+    {
+      "id": 138253,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "The Root Cellar at The Castle",
+      "osm_id": 6139223560,
+      "amenity": "cafe",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "Prospect Street",
+      "addr_housenumber": "501"
+    },
+    {
+      "id": 144653,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Starbucks",
+      "osm_id": 7278796258,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 138254,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Bagels & More",
+      "osm_id": 6139223561,
+      "amenity": "cafe",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "State Street",
+      "addr_housenumber": "324"
+    },
+    {
+      "id": 172847,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Pat's Cafe",
+      "osm_id": 2417243730,
+      "amenity": "cafe",
+      "phone": "+1 815-877-8228",
+      "addr_postcode": "61111",
+      "addr_street": "Forest Hills Road",
+      "addr_housenumber": "8202"
+    },
+    {
+      "id": 184917,
+      "geometry": "POINT (-89.027608 42.25571)",
+      "poi_name": "Meg's Daily Grind",
+      "osm_id": 7820889113,
+      "amenity": "cafe",
+      "cuisine": "coffe",
+      "wheelchair": "yes",
+      "takeaway": "yes",
+      "addr_state": "IL",
+      "addr_city": "Rockford",
+      "addr_postcode": "61107",
+      "addr_street": "Guilford Road",
+      "addr_housenumber": "1141"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
-      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Rockford Career College, Rockford, IL",
+      "geo_wkt": "POINT (-89.027608 42.25571)",
       "poi": {
-        "id": 246948,
-        "geometry": "POINT (-74.122011 40.662412)",
-        "poi_name": "Gary Lapelusa Landscaping LLC",
-        "osm_id": 6627360488,
-        "leisure": "garden",
-        "website": "http://garylapelusalanscaping.com",
-        "phone": "+1-201-823-1868",
-        "addr_state": "NJ",
-        "addr_city": "Bayonne",
-        "addr_postcode": "07002",
-        "addr_street": "W 19th St",
-        "addr_housenumber": "41"
+        "id": 30721,
+        "geometry": "POINT (-89.027608 42.25571)",
+        "poi_name": "Rockford Career College",
+        "osm_id": 8378810046,
+        "amenity": "university",
+        "wheelchair": "yes",
+        "addr_state": "IL",
+        "addr_city": "Rockford",
+        "addr_postcode": "61108",
+        "addr_street": "South Alpine Road",
+        "addr_housenumber": "1130"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 79,
+  "id": 2279,
   "type": "range:direction+loc"
 }

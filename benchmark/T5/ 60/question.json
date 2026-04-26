@@ -1,43 +1,42 @@
 {
-  "question": "Could you tell me the closest restaurant relative to Zao Island, Valparaiso, IN?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.067399 41.458418)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest nature reserve in proximity to Capital Oncology, Chehalis, WA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.941384 46.64061)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 227993,
-      "geometry": "POINT (-87.065088 41.457325)",
-      "poi_name": "PePe's",
-      "osm_id": 4326351273,
-      "amenity": "restaurant",
-      "cuisine": "mexican"
+      "id": 246340,
+      "geometry": "POINT (-122.422746 47.127996)",
+      "poi_name": "Clover Creek Reserve",
+      "osm_id": 11329929855,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Zao Island, Valparaiso, IN",
-      "geo_wkt": "POINT (-87.067399 41.458418)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Capital Oncology, Chehalis, WA",
+      "geo_wkt": "POINT (-122.941384 46.64061)",
       "poi": {
-        "id": 22695,
-        "geometry": "POINT (-87.067399 41.458418)",
-        "poi_name": "Zao Island",
-        "osm_id": 7217435771,
-        "tourism": "theme_park",
-        "website": "https://zaoisland.net/",
-        "phone": "+1-219-462-1194",
-        "addr_state": "IN",
-        "addr_city": "Valparaiso",
-        "addr_postcode": "46385",
-        "addr_street": "Horse Prairie Avenue",
-        "addr_housenumber": "1050"
+        "id": 30858,
+        "geometry": "POINT (-122.941384 46.64061)",
+        "poi_name": "Capital Oncology",
+        "osm_id": 8389138771,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "WA",
+        "addr_city": "Chehalis",
+        "addr_postcode": "98532",
+        "addr_street": "Bishop Road",
+        "addr_housenumber": "1201"
       }
     }
   },
-  "id": 259,
+  "id": 1059,
   "type": "knn+name"
 }

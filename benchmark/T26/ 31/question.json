@@ -1,43 +1,45 @@
 {
-  "question": "How distant is the closest garden from the reference location Nature and Wildlife Discovery Center: River Campus, Pueblo, CO?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-104.677049 38.270312)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest university relative to where Sonny's Place, Somers, CT is?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245508,
-      "geometry": "POINT (-104.857005 38.840078)",
-      "poi_name": "The Secret Garden",
-      "osm_id": 2994498649,
-      "leisure": "garden",
-      "distance": 65164.04749418
+      "id": 156038,
+      "geometry": "POINT (-72.635583 42.204016)",
+      "poi_name": "CAE",
+      "osm_id": 4638112932,
+      "amenity": "university",
+      "operator": "NA",
+      "distance": 27853.94300809
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Nature and Wildlife Discovery Center: River Campus, Pueblo, CO",
-      "geo_wkt": "POINT (-104.677049 38.270312)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
       "poi": {
-        "id": 265545,
-        "geometry": "POINT (-104.677049 38.270312)",
-        "poi_name": "Nature and Wildlife Discovery Center: River Campus",
-        "osm_id": 2506706989,
-        "leisure": "nature_reserve",
-        "website": "https://www.hikeandlearn.org",
-        "phone": "+1-719-549-2414",
-        "addr_state": "CO",
-        "addr_city": "Pueblo",
-        "addr_postcode": "81003",
-        "addr_street": "Nature Center Road",
-        "addr_housenumber": "5200"
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
       }
     }
   },
-  "id": 2430,
+  "id": 630,
   "type": "knn+distance"
 }

@@ -1,60 +1,1449 @@
 {
-  "question": "Where can I find a hospital positioned within 60 kilometers towards the northeast of Hall Christmas Tree Farm, Glen Gardner, NJ?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.923734 40.717256)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.923734 40.717256)',4326)::geography, 60000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "Where can I find a restaurant within 160 kilometers toward the west of Lincoln Park Zoo, Manitowoc, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, 160000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 222206,
-      "geometry": "POINT (-74.923734 40.717256)",
-      "poi_name": "True Life Care Center",
-      "osm_id": 11009629478,
-      "amenity": "hospital",
-      "description": "Our team at True Life Care is dedicated to helping you take control of your mental health through a personalized healing approach and compassionate care.",
-      "opening_hours": "Mo-Fr 08:30-17:30",
-      "website": "https://truelifecarementalhealth.com",
-      "phone": "+1-973-490-4563",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "NJ",
-      "addr_city": "Morris Plains",
-      "addr_postcode": "07950",
-      "addr_street": "NJ-10",
-      "addr_housenumber": "3000"
+      "id": 200850,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Planeview Family Restaurant",
+      "osm_id": 599170194,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 204726,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Rendezvous",
+      "osm_id": 7140598564,
+      "amenity": "restaurant",
+      "opening_hours": "Tu-Th 11:00-19:30+; Fr, Sa 11:00-20:30+; Su, Mo off",
+      "website": "http://www.rendezvouspaddleandsports.com/",
+      "phone": "+1-608-297-2444",
+      "addr_state": "WI",
+      "addr_city": "Montello",
+      "addr_postcode": "53949",
+      "addr_street": "State Highway 22",
+      "addr_housenumber": "201"
+    },
+    {
+      "id": 204741,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Cafe Hilltop",
+      "osm_id": 7141528092,
+      "amenity": "restaurant",
+      "opening_hours": "06:00-14:00",
+      "phone": "+1-608-297-2020",
+      "addr_state": "WI",
+      "addr_city": "Montello",
+      "addr_postcode": "53949",
+      "addr_street": "Church Street",
+      "addr_housenumber": "125"
+    },
+    {
+      "id": 205505,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Wissota Chophouse",
+      "osm_id": 7170903234,
+      "amenity": "restaurant",
+      "cuisine": "steak_house"
+    },
+    {
+      "id": 205783,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Buffalo Wild Wings",
+      "osm_id": 7179914203,
+      "amenity": "restaurant",
+      "cuisine": "wings",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "East Calumet Street",
+      "addr_housenumber": "3201"
+    },
+    {
+      "id": 205822,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "MACS (Macaroni and Cheese Shop)",
+      "osm_id": 7182831508,
+      "amenity": "restaurant",
+      "cuisine": "fast_casual;pasta",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "East Calumet Street",
+      "addr_housenumber": "W3192"
+    },
+    {
+      "id": 205823,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Big Pot & Grill",
+      "osm_id": 7182831516,
+      "amenity": "restaurant",
+      "cuisine": "vietnamese;cajun;fusion",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "East Calumet Street",
+      "addr_housenumber": "W3192"
+    },
+    {
+      "id": 205824,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Freshii",
+      "osm_id": 7182831565,
+      "amenity": "restaurant",
+      "cuisine": "salad",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "Eisenhower Drive",
+      "addr_housenumber": "N162"
+    },
+    {
+      "id": 205825,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Island Sushi",
+      "osm_id": 7182831570,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "Eisenhower Drive",
+      "addr_housenumber": "N162"
+    },
+    {
+      "id": 205897,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "China Gate",
+      "osm_id": 7186833442,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "WI",
+      "addr_city": "Kimberly",
+      "addr_street": "East Maes Avenue",
+      "addr_housenumber": "874"
+    },
+    {
+      "id": 206211,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "China 1",
+      "osm_id": 7201292805,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 213929,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Fox Cities Eatery",
+      "osm_id": 5262170620,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no"
+    },
+    {
+      "id": 215024,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Jones Dairy Farm Culinary Theatre",
+      "osm_id": 5285114994,
+      "amenity": "restaurant",
+      "takeaway": "no",
+      "outdoor_seating": "no",
+      "delivery": "no"
+    },
+    {
+      "id": 215497,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Rocky Rococo",
+      "osm_id": 5300772976,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 10:30-21:00; Fr-Sa 10:30-22:00",
+      "website": "https://rockyrococo.com/oshkosh-wi-westowne-avenue",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "WI",
+      "addr_city": "Oshkosh",
+      "addr_postcode": "54904",
+      "addr_street": "Westowne Avenue",
+      "addr_housenumber": "2295"
+    },
+    {
+      "id": 215971,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Noodles & Company",
+      "osm_id": 5319481450,
+      "amenity": "restaurant",
+      "cuisine": "pasta"
+    },
+    {
+      "id": 216894,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "1212 Sports Bar",
+      "osm_id": 9193532321,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 217560,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Emmett's Bar & Grill",
+      "osm_id": 9231068517,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 217561,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Lindo Michoacan",
+      "osm_id": 9231068518,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 218254,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Toppers Pizza",
+      "osm_id": 9270323208,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 217886,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "El Azteca Mexican Restaurant",
+      "osm_id": 9247274984,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 217887,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Sai Ram",
+      "osm_id": 9247274986,
+      "amenity": "restaurant",
+      "cuisine": "indian"
+    },
+    {
+      "id": 236907,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Holidays Pub & Grill",
+      "osm_id": 5811031487,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 218407,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Backyard Grille",
+      "osm_id": 9278023505,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 220181,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Stone Arch Tied House",
+      "osm_id": 9363958930,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 228053,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Lakefly Cafe",
+      "osm_id": 4328369871,
+      "amenity": "restaurant",
+      "cuisine": "fast_food"
+    },
+    {
+      "id": 229109,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 4367052428,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 234046,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Stone Arch Brew Pub",
+      "osm_id": 4600268376,
+      "amenity": "restaurant",
+      "cuisine": "pizza;burger;sandwich;pub",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54915",
+      "addr_street": "South Olde Oneida Street",
+      "addr_housenumber": "1004"
+    },
+    {
+      "id": 235480,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mama Mai's Noodles",
+      "osm_id": 5757324138,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 236280,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Buffalo Wild Wings",
+      "osm_id": 5788290842,
+      "amenity": "restaurant",
+      "cuisine": "wings"
+    },
+    {
+      "id": 236281,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Matsu Ya Sushi",
+      "osm_id": 5788291721,
+      "amenity": "restaurant",
+      "cuisine": "sushi"
+    },
+    {
+      "id": 236287,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "El Mezcal",
+      "osm_id": 5788327046,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 236288,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Chef Chu's",
+      "osm_id": 5788327048,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 226155,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Ong\u2019s Kitchen",
+      "osm_id": 11149329321,
+      "amenity": "restaurant",
+      "cuisine": "asian"
+    },
+    {
+      "id": 232858,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Little Corporal",
+      "osm_id": 4545664386,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 233418,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "West Gate Tap & Grill.",
+      "osm_id": 4572620376,
+      "amenity": "restaurant",
+      "website": "http://westgatetapandgrill.com",
+      "phone": "+1 920-748-7400",
+      "addr_state": "WI",
+      "addr_city": "Ripon",
+      "addr_postcode": "54971",
+      "addr_street": "West Fond du Lac Street",
+      "addr_housenumber": "1300"
+    },
+    {
+      "id": 236974,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Revv Nutrition",
+      "osm_id": 5813725176,
+      "amenity": "restaurant",
+      "cuisine": "health_food",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "West Ridgeview Drive"
+    },
+    {
+      "id": 236908,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Stuc's Pizza",
+      "osm_id": 5811031488,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "takeaway": "yes"
+    },
+    {
+      "id": 240453,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Wooden Nickel Sports Bar & Grill",
+      "osm_id": 5977948651,
+      "amenity": "restaurant",
+      "website": "https://woodennickelsportsbar.com/",
+      "phone": "+1 920-735-0661",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "E College Ave",
+      "addr_housenumber": "217"
+    },
+    {
+      "id": 237005,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Well Drive-In",
+      "osm_id": 5815565952,
+      "amenity": "restaurant",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "705"
+    },
+    {
+      "id": 237006,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Haase's Supper Club",
+      "osm_id": 5815575878,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "County Road D",
+      "addr_housenumber": "9497"
+    },
+    {
+      "id": 237016,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Woodeye's Bar and Grill",
+      "osm_id": 5815802149,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "70o"
+    },
+    {
+      "id": 237017,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Jackie's Parkside",
+      "osm_id": 5815802150,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "630"
+    },
+    {
+      "id": 237018,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Fin N Feather",
+      "osm_id": 5815802458,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "22"
+    },
+    {
+      "id": 239902,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Polito's Pizza",
+      "osm_id": 5941704600,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "WI",
+      "addr_city": "Oshkosh",
+      "addr_postcode": "54901",
+      "addr_street": "High Avenue",
+      "addr_housenumber": "543"
+    },
+    {
+      "id": 237039,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Village Pub",
+      "osm_id": 5816390434,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "delivery": "no",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "235"
+    },
+    {
+      "id": 237040,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Jake's Pizza",
+      "osm_id": 5816390574,
+      "amenity": "restaurant",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "WI",
+      "addr_city": "Winneconne",
+      "addr_postcode": "54986",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "115"
+    },
+    {
+      "id": 237241,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Park Ridge Cafe",
+      "osm_id": 5824474539,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 240675,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Tulum Mexican Restaurant and Grill",
+      "osm_id": 5983997051,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "WI",
+      "addr_city": "Plover",
+      "addr_postcode": "54467",
+      "addr_street": "Village Park Drive",
+      "addr_housenumber": "3066"
+    },
+    {
+      "id": 240676,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "A-Soshel",
+      "osm_id": 5983997052,
+      "amenity": "restaurant",
+      "website": "http://www.a-soshel.com/"
+    },
+    {
+      "id": 33474,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Toppers Pizza",
+      "osm_id": 2669093652,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_postcode": "54901",
+      "addr_street": "Wisconsin Street",
+      "addr_housenumber": "220"
+    },
+    {
+      "id": 240677,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mikey's",
+      "osm_id": 5983997056,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "website": "https://www.mikeysplover.com/",
+      "phone": "+1 (715) 544-0157",
+      "addr_state": "WI",
+      "addr_city": "Plover",
+      "addr_postcode": "54467",
+      "addr_street": "Village Park Drive",
+      "addr_housenumber": "3018"
+    },
+    {
+      "id": 240678,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Bamboo House",
+      "osm_id": 5983997057,
+      "amenity": "restaurant",
+      "cuisine": "asian",
+      "official_name": "Bamboo House - Asian Bistro, Sushi, & Grill"
+    },
+    {
+      "id": 240681,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Samoan's Happy Wok",
+      "osm_id": 5983997372,
+      "amenity": "restaurant",
+      "opening_hours": "Tu-Su 11:00-21:00"
+    },
+    {
+      "id": 39942,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Josef's Gyros Kabob",
+      "osm_id": 2951707165,
+      "amenity": "restaurant",
+      "website": "http://www.gyros-kabob.com/",
+      "phone": "+1-920-830-9355",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "Soldiers Square",
+      "addr_housenumber": "118"
+    },
+    {
+      "id": 33876,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Bauer Dining Room",
+      "osm_id": 2685565415,
+      "amenity": "restaurant",
+      "capacity": "540",
+      "takeaway": "no"
+    },
+    {
+      "id": 33877,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Tower Dining Room",
+      "osm_id": 2685565416,
+      "amenity": "restaurant",
+      "capacity": "96",
+      "takeaway": "no"
+    },
+    {
+      "id": 33878,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mitchell Dining Room",
+      "osm_id": 2685565417,
+      "amenity": "restaurant",
+      "capacity": "84",
+      "takeaway": "no"
+    },
+    {
+      "id": 33879,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Ollie's Place Internet Cafe",
+      "osm_id": 2685565418,
+      "amenity": "restaurant",
+      "takeaway": "no"
+    },
+    {
+      "id": 34345,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "South of the borders",
+      "osm_id": 2699056991,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 40285,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Las Brasas",
+      "osm_id": 2965197454,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 50568,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pizza Garden",
+      "osm_id": 3491334174,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 41190,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pagoni's Pizza",
+      "osm_id": 3005930530,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
+      "website": "https://www.pagonispizza.com/",
+      "phone": "+1-920-759-9400",
+      "addr_city": "Kaukauna",
+      "addr_postcode": "54130",
+      "addr_street": "Crooks Avenue",
+      "addr_housenumber": "2480"
+    },
+    {
+      "id": 51984,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Tabbert's",
+      "osm_id": 566820837,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 51704,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Sal's Pizza",
+      "osm_id": 553329334,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "W college Ave",
+      "addr_housenumber": "411"
+    },
+    {
+      "id": 51781,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Hungry Bull",
+      "osm_id": 559997100,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 56066,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "T's Diner / Ice Cream Shop",
+      "osm_id": 10223393718,
+      "amenity": "restaurant",
+      "cuisine": "american;ice_cream;soup",
+      "opening_hours": "Mo closed, Tu-Su 07:00-14:00",
+      "website": "https://tsdiner-icecreamshop.com",
+      "phone": "920-853-3225",
+      "addr_state": "WI",
+      "addr_city": "Hilbert",
+      "addr_postcode": "54129",
+      "addr_street": "N6403 State Hwy 57"
+    },
+    {
+      "id": 53956,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Akame Sushi",
+      "osm_id": 10109572052,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "website": "https://akamesushi888.com/"
+    },
+    {
+      "id": 59349,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "LAWLSS Coffee",
+      "osm_id": 5421067013,
+      "amenity": "restaurant",
+      "cuisine": "coffee_shop"
+    },
+    {
+      "id": 57537,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 5339482750,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 57538,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "El Azteca Grill & Cantina",
+      "osm_id": 5339482805,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 58414,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Denny's",
+      "osm_id": 5373920259,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 58415,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "HuHot",
+      "osm_id": 5373920261,
+      "amenity": "restaurant",
+      "cuisine": "mongolian_grill",
+      "website": "https://www.huhot.com/location/appleton-wi/",
+      "takeaway": "no",
+      "official_name": "HuHot Mongolian Grill",
+      "outdoor_seating": "no",
+      "delivery": "no"
+    },
+    {
+      "id": 63367,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "China Buffet",
+      "osm_id": 5612886402,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 61492,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Vietnamese Cuisine Appleton - Tony Nguyen",
+      "osm_id": 5520335921,
+      "amenity": "restaurant",
+      "cuisine": "vietnamese",
+      "website": "https://vietnamesecuisineappleton.com/",
+      "addr_city": "Appleton",
+      "addr_street": "North Casaloma Drive",
+      "addr_housenumber": "555"
+    },
+    {
+      "id": 63077,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Luigi's Pizza of Appleton",
+      "osm_id": 5599379557,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Tu-Fr 11:00-13:30,15:30-21:00; Sa 11:00-21:00; Su 12:00-20:00",
+      "capacity": "56",
+      "phone": "+1-920-997-0001",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54913",
+      "addr_street": "East Edgewood Drive",
+      "addr_housenumber": "1835"
+    },
+    {
+      "id": 62628,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Victoria's italian Cuisine",
+      "osm_id": 5579151382,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "W College Ave",
+      "addr_housenumber": "503"
+    },
+    {
+      "id": 62629,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Toppers Pizza",
+      "osm_id": 5579164121,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "E College Ave",
+      "addr_housenumber": "109"
+    },
+    {
+      "id": 62635,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pappa's Cafe",
+      "osm_id": 5579321932,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_city": "Neenah",
+      "addr_postcode": "54956",
+      "addr_street": "S Commercial St",
+      "addr_housenumber": "1360"
+    },
+    {
+      "id": 64136,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Milwaukee Burger Company",
+      "osm_id": 5640890443,
+      "amenity": "restaurant",
+      "cuisine": "burger;american"
+    },
+    {
+      "id": 64020,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Rocky Rococo",
+      "osm_id": 5638408172,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 69635,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Thai Ginger Bistro",
+      "osm_id": 11321836653,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54914",
+      "addr_street": "West College Avenue",
+      "addr_housenumber": "1619"
+    },
+    {
+      "id": 66625,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Cheese House American Diner",
+      "osm_id": 11201420495,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 72904,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Waupaca Woods Restaurant",
+      "osm_id": 11455829070,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 71015,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Panda",
+      "osm_id": 11379678610,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 72907,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Simpson\u2019s",
+      "osm_id": 11455855670,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 79618,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "China Garden",
+      "osm_id": 818613076,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "takeaway": "yes"
+    },
+    {
+      "id": 74276,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Holidays Pub & Grill",
+      "osm_id": 9673097807,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 94705,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Vince Lombardi's Steak House",
+      "osm_id": 6374020610,
+      "amenity": "restaurant",
+      "cuisine": "steak_house",
+      "outdoor_seating": "no"
+    },
+    {
+      "id": 80182,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Hong Kong Buffet",
+      "osm_id": 859961169,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_city": "Neenah",
+      "addr_postcode": "54956",
+      "addr_street": "W Wisconsin Ave",
+      "addr_housenumber": "145"
+    },
+    {
+      "id": 80183,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Zacatecas Mexican Restaurant",
+      "osm_id": 859961181,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 88875,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Min Du Buffet",
+      "osm_id": 8805744745,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 90027,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mr Brews Taphouse",
+      "osm_id": 8878255309,
+      "amenity": "restaurant",
+      "cuisine": "burger",
+      "building": "apartments",
+      "website": "https://plover.mrbrewstaphouse.com/",
+      "outdoor_seating": "yes",
+      "addr_state": "WI",
+      "addr_city": "Plover",
+      "addr_postcode": "54467"
+    },
+    {
+      "id": 79776,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Ground Round",
+      "osm_id": 827126747,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 115116,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "SAP",
+      "osm_id": 3911562822,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 103770,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Fringe",
+      "osm_id": 8522756052,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 110486,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Hunan 1",
+      "osm_id": 3705942115,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "East College Avenue",
+      "addr_housenumber": "220"
+    },
+    {
+      "id": 110488,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Garden View",
+      "osm_id": 3705942117,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54911",
+      "addr_street": "East College Avenue",
+      "addr_housenumber": "215"
+    },
+    {
+      "id": 111066,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Sharkz",
+      "osm_id": 3729909545,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 117329,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Bowl Ninety-One",
+      "osm_id": 8988333110,
+      "amenity": "restaurant",
+      "cuisine": "pasta"
+    },
+    {
+      "id": 117332,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Home Burger Bar",
+      "osm_id": 8988573535,
+      "amenity": "restaurant",
+      "cuisine": "burger"
+    },
+    {
+      "id": 118960,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Queso Fresco",
+      "osm_id": 9074021222,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 118610,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Jexi\u2019s Restaurant",
+      "osm_id": 9054821279,
+      "amenity": "restaurant",
+      "cuisine": "mexican;american"
+    },
+    {
+      "id": 118611,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Latinos Express",
+      "osm_id": 9054821289,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 118625,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Uptown Snail",
+      "osm_id": 9056373573,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 118690,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Meade Street Bistro",
+      "osm_id": 9061196615,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 117325,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "King Taco",
+      "osm_id": 8988333083,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 117326,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Katsu-Ya of Japan",
+      "osm_id": 8988333098,
+      "amenity": "restaurant",
+      "cuisine": "japanese"
+    },
+    {
+      "id": 118961,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Savor World Buffet",
+      "osm_id": 9074021223,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 127803,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mr Brews Taphouse",
+      "osm_id": 8095126102,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 119194,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "River Tyme Bistro",
+      "osm_id": 9088031498,
+      "amenity": "restaurant",
+      "website": "https://rivertymebistro.com/"
+    },
+    {
+      "id": 127733,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Cozzy Kitchen",
+      "osm_id": 8089845917,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "opening_hours": "Tu-Su 11:30-21:00",
+      "addr_street": "North Walnut Street",
+      "addr_housenumber": "111"
+    },
+    {
+      "id": 120928,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "El Azteca",
+      "osm_id": 6734037784,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 127535,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Ground Round at River's Edge",
+      "osm_id": 8071796450,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 133983,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Tipsy Taco",
+      "osm_id": 10021941017,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 133900,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Too-Dars Diner",
+      "osm_id": 10014429304,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 137320,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Rodeo Mexican",
+      "osm_id": 6093937954,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "WI",
+      "addr_city": "Greenville",
+      "addr_postcode": "54942",
+      "addr_street": "Greenville Drive",
+      "addr_housenumber": "W6482"
+    },
+    {
+      "id": 138294,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Commons",
+      "osm_id": 6139794992,
+      "amenity": "restaurant",
+      "operator": "Ripon College"
+    },
+    {
+      "id": 140870,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Loose Wheel Supper Club",
+      "osm_id": 6264656873,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 138913,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pizza King",
+      "osm_id": 6173964940,
+      "amenity": "restaurant",
+      "website": "https://pizzakingappleton.com/",
+      "phone": "+1 920 731 3234",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_postcode": "54915",
+      "addr_street": "East Calumet Street",
+      "addr_housenumber": "1717"
+    },
+    {
+      "id": 147969,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Chili's",
+      "osm_id": 3921110670,
+      "amenity": "restaurant",
+      "cuisine": "tex-mex",
+      "official_name": "Chili's Grill & Bar",
+      "addr_state": "WI",
+      "addr_city": "Plover",
+      "addr_postcode": "54467",
+      "addr_street": "Crossroads Drive",
+      "addr_housenumber": "165"
+    },
+    {
+      "id": 152576,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Shivers",
+      "osm_id": 4149686508,
+      "amenity": "restaurant",
+      "cuisine": "ice_cream",
+      "addr_city": "Iola",
+      "addr_postcode": "54945",
+      "addr_street": "E State St",
+      "addr_housenumber": "195"
+    },
+    {
+      "id": 149984,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "J K's Lounge & Restaurant",
+      "osm_id": 4037211344,
+      "amenity": "restaurant",
+      "addr_state": "WI",
+      "addr_city": "Weyauwega",
+      "addr_postcode": "54983",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "128"
+    },
+    {
+      "id": 158972,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Carmella's Italian Bistro",
+      "osm_id": 4771652026,
+      "amenity": "restaurant",
+      "cuisine": "italian"
+    },
+    {
+      "id": 158977,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Rocky Rococo",
+      "osm_id": 4771734426,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 167809,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Hot Dog Charlie's Encased Meat Emporium",
+      "osm_id": 361009089,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "wheelchair": "no",
+      "opening_hours": "Tu-Sa 11:00-19:00",
+      "takeaway": "yes",
+      "addr_state": "WI",
+      "addr_city": "Oshkosh",
+      "addr_postcode": "54901",
+      "addr_street": "Church Avenue",
+      "addr_housenumber": "9"
+    },
+    {
+      "id": 165406,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Camelot Bar and Grill",
+      "osm_id": 9533437985,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 163378,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Pizza Ranch",
+      "osm_id": 9414181376,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 163479,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Johann's Bar and Grill",
+      "osm_id": 9421059622,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 164437,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Mara\u2019s Brazilian Cuisine",
+      "osm_id": 9471841484,
+      "amenity": "restaurant",
+      "cuisine": "brazilian"
+    },
+    {
+      "id": 167810,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Ruby Owl",
+      "osm_id": 361011836,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 167811,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Manila",
+      "osm_id": 361111043,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 174734,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Noodles & Company",
+      "osm_id": 2494640041,
+      "amenity": "restaurant",
+      "cuisine": "pasta",
+      "drive_through": "no",
+      "addr_state": "WI",
+      "addr_city": "Appleton",
+      "addr_street": "East Calumet Street",
+      "addr_housenumber": "3719"
+    },
+    {
+      "id": 174584,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "The Wheelhouse Restaurant",
+      "osm_id": 2491290381,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 174585,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Scoops Ice Cream",
+      "osm_id": 2491290392,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 176866,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Knuth Brewing Company",
+      "osm_id": 2568702072,
+      "amenity": "restaurant",
+      "cuisine": "pizza;sandwich",
+      "website": "https://knuthbrewingcompany.com/",
+      "phone": "+1 920 748-5188",
+      "addr_city": "Ripon",
+      "addr_postcode": "54971",
+      "addr_street": "Watson Street",
+      "addr_housenumber": "221"
+    },
+    {
+      "id": 175628,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "China Star",
+      "osm_id": 2528288960,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "website": "http://menashachinastar.com/",
+      "phone": "+1-920-731-3088",
+      "addr_city": "Menasha",
+      "addr_postcode": "54952",
+      "addr_street": "Appleton Road",
+      "addr_housenumber": "1770"
+    },
+    {
+      "id": 177131,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Kristina's Family Cafe",
+      "osm_id": 2574827288,
+      "amenity": "restaurant",
+      "cuisine": "american;albanian",
+      "phone": "+1 (920) 748-5890",
+      "addr_city": "Ripon",
+      "addr_postcode": "54971",
+      "addr_street": "Watson Street",
+      "addr_housenumber": "317"
+    },
+    {
+      "id": 177176,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "J's BBQ",
+      "osm_id": 2576315339,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "website": "http://www.jsbbqripon.com/",
+      "phone": "+1 920-748-2232",
+      "takeaway": "yes",
+      "addr_state": "WI",
+      "addr_city": "Ripon",
+      "addr_postcode": "54971",
+      "addr_street": "West Fond du Lac Street",
+      "addr_housenumber": "1216B"
+    },
+    {
+      "id": 186507,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Bent Rail BrewPub",
+      "osm_id": 7932842329,
+      "amenity": "restaurant",
+      "website": "http://www.bentrailbrewpub.com/",
+      "phone": "608-296-5272",
+      "addr_state": "WI",
+      "addr_city": "Westfield",
+      "addr_postcode": "53964",
+      "addr_street": "North Pioneer Park Road",
+      "addr_housenumber": "122A"
+    },
+    {
+      "id": 186472,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Sushi Lover",
+      "osm_id": 7931325897,
+      "amenity": "restaurant",
+      "cuisine": "sushi"
+    },
+    {
+      "id": 188916,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Vitale's Italian Cuisine",
+      "osm_id": 250391991,
+      "amenity": "restaurant",
+      "description": "http://www.vitalesrestaurant.net/"
+    },
+    {
+      "id": 190542,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "Third Street Diner",
+      "osm_id": 1302224546,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 190543,
+      "geometry": "POINT (-87.649084 44.11068)",
+      "poi_name": "VFW",
+      "osm_id": 1302229351,
+      "amenity": "restaurant",
+      "wheelchair": "no"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Hall Christmas Tree Farm, Glen Gardner, NJ",
-      "geo_wkt": "POINT (-74.923734 40.717256)",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
       "poi": {
-        "id": 3218,
-        "geometry": "POINT (-74.923734 40.717256)",
-        "poi_name": "Hall Christmas Tree Farm",
-        "osm_id": 10240300715,
-        "tourism": "attraction",
-        "phone": "+1 908 537 2056",
-        "addr_state": "NJ",
-        "addr_city": "Glen Gardner",
-        "addr_postcode": "08826",
-        "addr_street": "Red Mill Road",
-        "addr_housenumber": "53"
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 69,
+  "id": 2269,
   "type": "range:direction+loc"
 }

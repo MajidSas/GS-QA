@@ -1,44 +1,49 @@
 {
-  "question": "Where is the nearest zoo situated towards the northwest of Dub Day Arena, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.952353 31.220703)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 toward the east side starting from J P Riddle Stadium, Fayetteville, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1846,
-      "geometry": "POINT (-101.952353 31.220703)",
-      "poi_name": "Out of Africa Wildlife Park",
-      "osm_id": 3181394247,
-      "tourism": "zoo",
-      "opening_hours": "09:30-17:00",
-      "addr_state": "AZ",
-      "addr_city": "Camp Verde",
-      "addr_postcode": "86322",
-      "addr_street": "State Route 260",
-      "addr_housenumber": "3505"
+      "id": 179779,
+      "geometry": "POINT (-78.909681 35.008472)",
+      "poi_name": "The Coffee Co.",
+      "osm_id": 10778689985,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "+19104300665",
+      "addr_state": "NC",
+      "addr_city": "Richlands",
+      "addr_postcode": "28574",
+      "addr_street": "Richlands Highway",
+      "addr_housenumber": "8700"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Dub Day Arena, TX",
-      "geo_wkt": "POINT (-101.952353 31.220703)",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
       "poi": {
-        "id": 265392,
-        "geometry": "POINT (-101.952353 31.220703)",
-        "poi_name": "Dub Day Arena",
-        "osm_id": 368165254,
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
         "leisure": "stadium",
-        "addr_state": "TX"
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1183,

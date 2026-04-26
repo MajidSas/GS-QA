@@ -1,41 +1,43 @@
 {
-  "question": "Any suggestions for the nearest caf\u00e9 from the university that has Tiger as its mascot in Denmark, SC?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest viewpoint by the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 185769,
-      "geometry": "POINT (-81.365429 33.242696)",
-      "poi_name": "Common Grounds Coffee House Cafe",
-      "osm_id": 7882512473,
-      "amenity": "cafe"
+      "id": 24524,
+      "geometry": "POINT (-75.195761 40.025491)",
+      "poi_name": "Lover's Leap",
+      "osm_id": 11097466305,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
         "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
       }
     }
   },
-  "id": 2752,
-  "type": "knn+name+multihop2"
+  "id": 952,
+  "type": "knn+name+multi_source2"
 }

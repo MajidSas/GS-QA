@@ -1,47 +1,48 @@
 {
-  "question": "Could you tell me the closest beach resort relative to the stadium that was constructed in 1936 in Eau Claire, WI?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hospital nearby the park that was constructed in Construction in Phoenix, AZ is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245281,
-      "geometry": "POINT (-91.491978 46.302048)",
-      "poi_name": "Traut's Resort LLC",
-      "osm_id": 2669382020,
-      "leisure": "beach_resort",
-      "phone": "1-715-795-2529",
-      "addr_state": "WI",
-      "addr_city": "Solon Springs",
-      "addr_postcode": "54873",
-      "addr_street": "Twin Bay Road",
-      "addr_housenumber": "3855"
+      "id": 167784,
+      "geometry": "POINT (-112.09927 33.517203)",
+      "poi_name": "North Phoenix Heart Center",
+      "osm_id": 359292620,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85015",
+      "addr_street": "North 19th Avenue",
+      "addr_housenumber": "5501"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Carson Park Stadium, Eau Claire, WI",
-      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 247238,
-        "geometry": "POINT (-91.520118 44.808189)",
-        "poi_name": "Carson Park Stadium",
-        "osm_id": 3843182571,
-        "leisure": "stadium",
-        "sport": "american_football",
-        "wikidata": "Q16028032",
-        "addr_state": "WI",
-        "addr_city": "Eau Claire",
-        "addr_postcode": "54703",
-        "addr_street": "Carson Park Drive"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 2758,
-  "type": "knn+name+multihop2"
+  "id": 958,
+  "type": "knn+name+multi_source2"
 }

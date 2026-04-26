@@ -1,51 +1,42 @@
 {
-  "question": "What's the closest fast food restaurant nearby the museum that was built in 1830 in Arlington, MA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which attraction near the stadium with the former name Southern National Speedway in Lucama, NC would you suggest?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 28084,
-      "geometry": "POINT (-71.154556 42.41608)",
-      "poi_name": "Domino's",
-      "osm_id": 464796364,
-      "amenity": "fast_food",
-      "cuisine": "pizza",
-      "takeaway": "yes",
-      "addr_state": "MA",
-      "addr_city": "Arlington",
-      "addr_postcode": "02476",
-      "addr_street": "Massachusetts Avenue",
-      "addr_housenumber": "671"
+      "id": 21792,
+      "geometry": "POINT (-78.054324 35.659242)",
+      "poi_name": "Whirligig",
+      "osm_id": 10679183142,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
-      "geo_wkt": "POINT (-71.15241 42.415769)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
       "poi": {
-        "id": 148,
-        "geometry": "POINT (-71.15241 42.415769)",
-        "poi_name": "Cyrus Dallin Art Museum",
-        "osm_id": 456710478,
-        "tourism": "museum",
-        "fee": "donation",
-        "opening_hours": "Sa,Su 12:00-16:00",
-        "website": "https://dallin.org/",
-        "wikidata": "Q74035008",
-        "addr_state": "MA",
-        "addr_city": "Arlington",
-        "addr_postcode": "02476",
-        "addr_street": "Massachusetts Avenue",
-        "addr_housenumber": "611"
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
+        "leisure": "stadium",
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
       }
     }
   },
-  "id": 2718,
-  "type": "knn+name+multihop2"
+  "id": 918,
+  "type": "knn+name+multi_source2"
 }

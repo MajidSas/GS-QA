@@ -1,45 +1,53 @@
 {
-  "question": "Do you know where the nearest nature reserve is from Sapphire Center Artist Gallery, Lincoln City, OR?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-124.01624 44.9294)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest caf\u00e9 in the vicinity of the Rockwell Museum, Corning, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.052842 42.142599)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 254075,
-      "geometry": "POINT (-123.980114 45.05094)",
-      "poi_name": "Cascade Head Scenic Research Area",
-      "osm_id": 357321729,
-      "leisure": "nature_reserve",
-      "operator": "United States Forest Service",
-      "website": "https://www.fs.usda.gov/recarea/siuslaw/recarea/?recid=42717",
-      "addr_state": "OR"
+      "id": 45781,
+      "geometry": "POINT (-77.057703 42.14407)",
+      "poi_name": "Soul Full Cup",
+      "osm_id": 3229478671,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Th 07:00-17:00; Fr 07:00-18:00; Sa 08:00-18:00; Su 08:00-17:00",
+      "website": "https://www.soulfullcup.com/",
+      "internet_access": "wlan",
+      "phone": "607-936-9030",
+      "addr_state": "NY",
+      "addr_city": "Corning",
+      "addr_postcode": "14830",
+      "addr_street": "West Market Street",
+      "addr_housenumber": "81"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Sapphire Center Artist Gallery, Lincoln City, OR",
-      "geo_wkt": "POINT (-124.01624 44.9294)",
+      "sub_category": "museum",
+      "display_name": "The Rockwell Museum, Corning, NY",
+      "geo_wkt": "POINT (-77.052842 42.142599)",
       "poi": {
-        "id": 24533,
-        "geometry": "POINT (-124.01624 44.9294)",
-        "poi_name": "Sapphire Center Artist Gallery",
-        "osm_id": 11101057676,
-        "tourism": "gallery",
-        "website": "https://sapphirecenter.net",
-        "phone": "+1 541 992 4443",
-        "addr_state": "OR",
-        "addr_city": "Lincoln City",
-        "addr_postcode": "97367",
-        "addr_street": "Southeast Highway 101",
-        "addr_housenumber": "4844"
+        "id": 2658,
+        "geometry": "POINT (-77.052842 42.142599)",
+        "poi_name": "The Rockwell Museum",
+        "osm_id": 540491582,
+        "tourism": "museum",
+        "website": "https://rockwellmuseum.org/",
+        "phone": "+1-607-937-5386",
+        "wikidata": "Q18157765",
+        "addr_state": "NY",
+        "addr_city": "Corning",
+        "addr_postcode": "14830",
+        "addr_street": "Cedar Street",
+        "addr_housenumber": "111"
       }
     }
   },
-  "id": 1830,
+  "id": 730,
   "type": "knn+loc"
 }

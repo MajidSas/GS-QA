@@ -1,13 +1,15 @@
 {
-  "question": "What's the closest park nearby the museum designed by the architect Shaw, Selwyn in Ventura, CA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest park by the university established in the year 1969 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 263587,
-      "geometry": "POINT (-119.234276 34.268614)",
-      "poi_name": "Camino Real Park",
-      "osm_id": 358847006,
-      "leisure": "park"
+      "id": 249848,
+      "geometry": "POINT (-87.620747 41.856471)",
+      "poi_name": "Prairie Avenue Historic District",
+      "osm_id": 354224775,
+      "leisure": "park",
+      "historic": "district",
+      "wikidata": "Q49545721"
     }
   ],
   "answer_type": "name",
@@ -17,28 +19,27 @@
       "sub_category": "park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Dudley House, Ventura, CA",
-      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
       "poi": {
-        "id": 1032,
-        "geometry": "POINT (-119.24024 34.277629)",
-        "poi_name": "Dudley House",
-        "osm_id": 2800250595,
-        "tourism": "museum",
-        "operator": "San Buenaventura Heritage",
-        "website": "https://dudleyhouse.org/",
-        "phone": "+1 (805) 644-3286",
-        "wikidata": "Q14681880",
-        "addr_state": "CA",
-        "addr_city": "Ventura",
-        "addr_postcode": "93003",
-        "addr_street": "North Ashwood Avenue",
-        "addr_housenumber": "197"
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
       }
     }
   },
-  "id": 2783,
-  "type": "knn+name+multihop2"
+  "id": 983,
+  "type": "knn+name+multi_source2"
 }

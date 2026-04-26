@@ -1,40 +1,43 @@
 {
-  "question": "Which direction points towards the nearest golf course from Fisher Woods, IL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In what direction is the closest gallery relative to African American Cultural Garden, Cleveland, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245220,
-      "geometry": "POINT (-87.863055 42.025956)",
-      "poi_name": "Oakton Driving Range",
-      "osm_id": 8441804122,
-      "leisure": "golf_course",
-      "operator": "Park Ridge Park District",
-      "website": "https://www.prparks.org/facilities/oakton-driving-range",
-      "angle": 41.823595718114014
+      "id": 3614,
+      "geometry": "POINT (-81.679713 41.500971)",
+      "poi_name": "Bonfoey Gallery",
+      "osm_id": 5497146455,
+      "tourism": "gallery",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 09:00-17:00; Sa 09:00-13:00",
+      "angle": 232.42406583326914
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Fisher Woods, IL",
-      "geo_wkt": "POINT (-87.964233 41.941696)",
+      "sub_category": "garden",
+      "display_name": "African American Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.629472 41.530044)",
       "poi": {
-        "id": 265405,
-        "geometry": "POINT (-87.964233 41.941696)",
-        "poi_name": "Fisher Woods",
-        "osm_id": 369051083,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of DuPage County",
-        "addr_state": "IL"
+        "id": 247006,
+        "geometry": "POINT (-81.629472 41.530044)",
+        "poi_name": "African American Cultural Garden",
+        "osm_id": 8567373858,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "890"
       }
     }
   },
-  "id": 1425,
+  "id": 525,
   "type": "knn+angle"
 }

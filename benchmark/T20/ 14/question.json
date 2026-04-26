@@ -1,69 +1,69 @@
 {
-  "question": "Where is the nearest caf\u00e9 as you progress towards Anderson Park, Hometown, IL from Gabis Arboretum at Purdue Northwest, Valparaiso, IN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography, ST_GeomFromText('POINT (-87.730972 41.727764)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.149569 41.444803)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest gallery aligned with the route to Chicago Behavioral Hospital, Des Plaines, IL from Holiday Inn & Suites Joliet Southwest, Joliet, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.170817 41.495612)',4326)::geography, ST_GeomFromText('POINT (-87.879034 42.043438)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.170817 41.495612)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.170817 41.495612)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 226744,
-      "geometry": "POINT (-87.338275 41.47301)",
-      "poi_name": "The Region Cat Caf\u00e9",
-      "osm_id": 11167177504,
-      "amenity": "cafe",
-      "website": "https://theregioncatcafe.com/",
-      "addr_state": "IN",
-      "addr_city": "Merrillville",
-      "addr_postcode": "46410",
-      "addr_street": "West 80th Place",
-      "addr_housenumber": "281",
-      "value": 303.14577402477477
+      "id": 21489,
+      "geometry": "POINT (-88.059116 41.588431)",
+      "poi_name": "Illinois State Museum-Lockport Gallery",
+      "osm_id": 10284056341,
+      "tourism": "gallery",
+      "operator": "Illinois State Museum",
+      "website": "https://illinoisstatemuseum.org/content/welcome-ism-lockport-gallery",
+      "addr_state": "IL",
+      "addr_city": "Lockport",
+      "addr_postcode": "60441",
+      "addr_street": "West 10th Street",
+      "addr_housenumber": "201",
+      "value": 21.641747807704828
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Gabis Arboretum at Purdue Northwest, Valparaiso, IN",
-      "geo_wkt": "POINT (-87.149569 41.444803)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn & Suites Joliet Southwest, Joliet, IL",
+      "geo_wkt": "POINT (-88.170817 41.495612)",
       "poi": {
-        "id": 266246,
-        "geometry": "POINT (-87.149569 41.444803)",
-        "poi_name": "Gabis Arboretum at Purdue Northwest",
-        "osm_id": 7086478117,
-        "leisure": "nature_reserve",
-        "opening_hours": "Mo-Su 08:00-sunset",
-        "website": "https://www.pnw.edu/gabis-arboretum/",
-        "phone": "+1 219 462 0025",
-        "addr_state": "IN",
-        "addr_city": "Valparaiso",
-        "addr_postcode": "46385",
-        "addr_street": "West 100 North",
-        "addr_housenumber": "450"
+        "id": 353,
+        "geometry": "POINT (-88.170817 41.495612)",
+        "poi_name": "Holiday Inn & Suites Joliet Southwest",
+        "osm_id": 8329832132,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Joliet",
+        "addr_postcode": "60431",
+        "addr_street": "Rock Creek Boulevard",
+        "addr_housenumber": "1471"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Anderson Park, Hometown, IL",
-      "geo_wkt": "POINT (-87.730972 41.727764)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Chicago Behavioral Hospital, Des Plaines, IL",
+      "geo_wkt": "POINT (-87.879034 42.043438)",
       "poi": {
-        "id": 249602,
-        "geometry": "POINT (-87.730972 41.727764)",
-        "poi_name": "Anderson Park",
-        "osm_id": 354176524,
-        "leisure": "park",
-        "operator": "Hometown Park District",
+        "id": 182004,
+        "geometry": "POINT (-87.879034 42.043438)",
+        "poi_name": "Chicago Behavioral Hospital",
+        "osm_id": 10874634231,
+        "amenity": "hospital",
+        "website": "https://chicagobehavioralhospital.com",
+        "phone": "+1 847 768 5430",
+        "healthcare": "hospital",
         "addr_state": "IL",
-        "addr_city": "Hometown",
-        "addr_postcode": "60456",
-        "addr_street": "Southwest Highway",
-        "addr_housenumber": "4401"
+        "addr_city": "Des Plaines",
+        "addr_postcode": "60016",
+        "addr_street": "Wilson Lane",
+        "addr_housenumber": "555"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1313,
+  "id": 1513,
   "type": "knn:towards+loc"
 }

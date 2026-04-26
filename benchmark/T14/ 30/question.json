@@ -1,57 +1,54 @@
 {
-  "question": "In search of an emergency hospital and ideally located within 80 kilometers from Midtown Club, Summerville, sc. Can you find one for me?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.123973 33.078456)',4326)::geography, 80000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Are there a coffee shop situated within 180 kilometers of LSU AgCenter, Natchitoches, LA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.087882 31.761636)',4326)::geography, 180000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%coffee_shop%';\n",
   "answers": [
     {
-      "id": 167445,
-      "geometry": "POINT (-79.947202 32.784183)",
-      "poi_name": "MUSC Health Medical Center",
-      "osm_id": 357124935,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Medical University of South Carolina Health",
-      "website": "https://www.muschealth.org/",
-      "phone": "+1 843 792 1414",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q6719089",
-      "addr_city": "Charleston",
-      "addr_postcode": "29425",
-      "addr_street": "Ashley Avenue",
-      "addr_housenumber": "171"
+      "id": 103422,
+      "geometry": "POINT (-92.664332 30.24256)",
+      "poi_name": "Bourbon Street Cafe",
+      "osm_id": 8501250600,
+      "amenity": "restaurant",
+      "cuisine": "regional;burger;coffee_shop;sandwich",
+      "opening_hours": "Mo-Su 06:00-22:30",
+      "phone": "337-616-9327",
+      "addr_state": "LA",
+      "addr_city": "Jennings",
+      "addr_postcode": "70546",
+      "addr_street": "Elton Road",
+      "addr_housenumber": "1823"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "coffee shop",
+      "poi_filter_sql": "cuisine ILIKE '%coffee_shop%'"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Midtown Club, Summerville, sc",
-      "geo_wkt": "POINT (-80.123973 33.078456)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "LSU AgCenter, Natchitoches, LA",
+      "geo_wkt": "POINT (-93.087882 31.761636)",
       "poi": {
-        "id": 266843,
-        "geometry": "POINT (-80.123973 33.078456)",
-        "poi_name": "Midtown Club",
-        "osm_id": 11030489893,
-        "leisure": "park",
-        "addr_state": "sc",
-        "addr_city": "Summerville",
-        "addr_postcode": "29486",
-        "addr_street": "Midtown Ave",
-        "addr_housenumber": "165"
+        "id": 91532,
+        "geometry": "POINT (-93.087882 31.761636)",
+        "poi_name": "LSU AgCenter",
+        "osm_id": 2071876406,
+        "amenity": "university",
+        "addr_state": "LA",
+        "addr_city": "Natchitoches",
+        "addr_postcode": "71457",
+        "addr_street": "2nd Street",
+        "addr_housenumber": "624"
       }
     }
   },
-  "id": 429,
+  "id": 2429,
   "type": "range:non_spat_filter+loc"
 }

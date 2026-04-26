@@ -1,55 +1,90 @@
 {
-  "question": "I need assistance in locating a burger place within 30 kilometers from Smoky Mountain Alpine Coaster, Pigeon Forge, TN. Can you help me out?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%burger%';\n",
+  "question": "Are there an emergency hospital situated within 170 kilometers of Bowditch Middle School Auditorium, Foster City, CA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 74028,
-      "geometry": "POINT (-83.517162 35.712332)",
-      "poi_name": "Johnny Rockets",
-      "osm_id": 9662022288,
-      "amenity": "restaurant",
-      "cuisine": "burger",
-      "phone": "+18654305844",
-      "addr_state": "TN",
-      "addr_city": "Gatlinburg",
-      "addr_postcode": "37738",
-      "addr_street": "Parkway",
-      "addr_housenumber": "735"
+      "id": 236727,
+      "geometry": "POINT (-122.255023 37.479511)",
+      "poi_name": "Sequoia Hospital",
+      "osm_id": 5805243057,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Dignity Health",
+      "website": "https://www.dignityhealth.org/bayarea/locations/sequoia",
+      "phone": "+1 650 369 5811",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7452546",
+      "addr_state": "CA",
+      "addr_city": "Redwood City",
+      "addr_postcode": "94062",
+      "addr_street": "Alameda de las Pulgas",
+      "addr_housenumber": "170"
+    },
+    {
+      "id": 31400,
+      "geometry": "POINT (-122.442708 37.782214)",
+      "poi_name": "Hospital",
+      "osm_id": 8421830159,
+      "amenity": "hospital",
+      "operator": "Kaiser Permanente",
+      "website": "https://thrive.kaiserpermanente.org/care-near-you/northern-california/sanfrancisco/locations/hospital-2/",
+      "phone": "415-833-2000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_street": "Geary Boulevard",
+      "addr_housenumber": "2425"
+    },
+    {
+      "id": 62192,
+      "geometry": "POINT (-122.389664 37.764772)",
+      "poi_name": "UCSF Benioff Children's Hospital San Francisco",
+      "osm_id": 5555408498,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.ucsfbenioffchildrens.org/",
+      "phone": "+1 415 353 1664",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q17031376",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94158",
+      "addr_street": "4th Street",
+      "addr_housenumber": "1975"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "burger place",
-      "poi_filter_sql": "cuisine ILIKE '%burger%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "distance": 30000,
-      "text": "30 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
+      "geo_wkt": "POINT (-122.248613 37.559053)",
       "poi": {
-        "id": 13057,
-        "geometry": "POINT (-83.596543 35.793397)",
-        "poi_name": "Smoky Mountain Alpine Coaster",
-        "osm_id": 4035710749,
-        "tourism": "theme_park",
-        "website": "http://www.smokymountainalpinecoaster.com/",
-        "wikidata": "Q29831450",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Wears Valley Road",
-        "addr_housenumber": "867"
+        "id": 246975,
+        "geometry": "POINT (-122.248613 37.559053)",
+        "poi_name": "Bowditch Middle School Auditorium",
+        "osm_id": 8468035653,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball",
+        "addr_state": "CA",
+        "addr_city": "Foster City",
+        "addr_postcode": "94404",
+        "addr_street": "Tarpon Street",
+        "addr_housenumber": "1450"
       }
     }
   },
-  "id": 444,
+  "id": 2444,
   "type": "range:non_spat_filter+loc"
 }

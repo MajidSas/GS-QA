@@ -1,57 +1,69 @@
 {
-  "question": "What's the closest restaurant on the path leading to Sinister Sidney, Sidney, IA from Borup Coliseum, NE?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography, ST_GeomFromText('POINT (-95.635706 40.748182)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-96.15696 41.548605)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is closest forward of Tilt Studio, IL when heading toward Little White School Museum, Oswego, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, ST_GeomFromText('POINT (-88.348843 41.682608)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 67243,
-      "geometry": "POINT (-96.026607 41.455257)",
-      "poi_name": "The Rustic",
-      "osm_id": 11229953516,
-      "amenity": "restaurant",
-      "value": 153.6194411990489
+      "id": 226097,
+      "geometry": "POINT (-88.697233 42.097736)",
+      "poi_name": "OPENDOOR COFFEE",
+      "osm_id": 11148649409,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 08:00-16:00",
+      "website": "https://opendoorgenoa.com/",
+      "internet_access": "wlan",
+      "phone": "+17797713503",
+      "drive_through": "yes",
+      "outdoor_seating": "yes",
+      "toilets": "yes",
+      "addr_state": "il",
+      "addr_city": "genoa",
+      "addr_postcode": "60135",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "502",
+      "value": 140.19322193996595
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Borup Coliseum, NE",
-      "geo_wkt": "POINT (-96.15696 41.548605)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Tilt Studio, IL",
+      "geo_wkt": "POINT (-88.973072 42.24581)",
       "poi": {
-        "id": 265352,
-        "geometry": "POINT (-96.15696 41.548605)",
-        "poi_name": "Borup Coliseum",
-        "osm_id": 366492197,
-        "leisure": "stadium",
-        "addr_state": "NE"
+        "id": 5126,
+        "geometry": "POINT (-88.973072 42.24581)",
+        "poi_name": "Tilt Studio",
+        "osm_id": 9768506456,
+        "tourism": "theme_park",
+        "addr_state": "IL"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Sinister Sidney, Sidney, IA",
-      "geo_wkt": "POINT (-95.635706 40.748182)",
+      "sub_category": "museum",
+      "display_name": "Little White School Museum, Oswego, IL",
+      "geo_wkt": "POINT (-88.348843 41.682608)",
       "poi": {
-        "id": 12190,
-        "geometry": "POINT (-95.635706 40.748182)",
-        "poi_name": "Sinister Sidney",
-        "osm_id": 6239206983,
-        "description": "Seasonal Haunted Attraction",
-        "tourism": "attraction",
-        "operator": "Sinister Sidney LLC",
-        "addr_state": "IA",
-        "addr_city": "Sidney",
-        "addr_postcode": "51652",
-        "addr_street": "Filmore Street",
-        "addr_housenumber": "1308"
+        "id": 9636,
+        "geometry": "POINT (-88.348843 41.682608)",
+        "poi_name": "Little White School Museum",
+        "osm_id": 8898839293,
+        "tourism": "museum",
+        "website": "https://littlewhiteschoolmuseum.org/",
+        "addr_state": "IL",
+        "addr_city": "Oswego",
+        "addr_postcode": "60543",
+        "addr_street": "Polk Street",
+        "addr_housenumber": "72"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 126,
+  "id": 1626,
   "type": "knn:towards+name"
 }

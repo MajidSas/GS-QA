@@ -1,44 +1,51 @@
 {
-  "question": "Can you recommend the nearest stadium from the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest museum in the area of the university with the former name Denmark Industrial School for African Americans in Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265384,
-      "geometry": "POINT (-75.355533 39.902444)",
-      "poi_name": "Arthur Hoyt Scott Amphitheature",
-      "osm_id": 367975510,
-      "leisure": "stadium",
-      "addr_state": "PA"
+      "id": 27103,
+      "geometry": "POINT (-81.272583 33.354738)",
+      "poi_name": "Blackville Heritage Museum",
+      "osm_id": 7697797627,
+      "tourism": "museum",
+      "opening_hours": "Tu 14:00-16:00 or by appointment",
+      "operator": "Blackville Area Historical Society",
+      "website": "https://www.bcvm.org/blackville/museum/index.htm",
+      "phone": "+1 803 284 3267;+1 803 284 2525;+1 803 300 1578",
+      "museum": "history",
+      "addr_state": "SC",
+      "addr_city": "Blackville",
+      "addr_postcode": "29817",
+      "addr_street": "Main Street",
+      "addr_housenumber": "655"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Salus University, Elkins Park, PA",
-      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 39110,
-        "geometry": "POINT (-75.129394 40.086172)",
-        "poi_name": "Salus University",
-        "osm_id": 2903322114,
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
         "amenity": "university",
-        "website": "https://www.salus.edu/",
-        "phone": "+1-215-780-1400",
-        "wikidata": "Q7406311",
-        "addr_state": "PA",
-        "addr_city": "Elkins Park",
-        "addr_postcode": "19027",
-        "addr_street": "Old York Road",
-        "addr_housenumber": "8360"
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2701,
-  "type": "knn+name+multihop2"
+  "id": 901,
+  "type": "knn+name+multi_source2"
 }

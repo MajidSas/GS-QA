@@ -1,15 +1,58 @@
 {
-  "question": "Is there a chance you could find me an emergency hospital, preferably within 30 kilometers from Cal, Sr.'s Yard, Aberdeen, MD?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 30000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Would you be able to search for an emergency hospital within 150 kilometers of Voorhees College, Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography, 150000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 240413,
-      "geometry": "POINT (-76.346498 39.519421)",
-      "poi_name": "Upper Chesapeake Hospital",
-      "osm_id": 5973533451,
+      "id": 167445,
+      "geometry": "POINT (-79.947202 32.784183)",
+      "poi_name": "MUSC Health Medical Center",
+      "osm_id": 357124935,
       "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Medical University of South Carolina Health",
+      "website": "https://www.muschealth.org/",
+      "phone": "+1 843 792 1414",
       "healthcare": "hospital",
-      "emergency": "yes"
+      "emergency": "yes",
+      "wikidata": "Q6719089",
+      "addr_city": "Charleston",
+      "addr_postcode": "29425",
+      "addr_street": "Ashley Avenue",
+      "addr_housenumber": "171"
+    },
+    {
+      "id": 167673,
+      "geometry": "POINT (-81.934559 32.804329)",
+      "poi_name": "Jenkins County Hospital",
+      "osm_id": 358745066,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://jenkinsmedicalcenter.com/",
+      "phone": "+1 912 564 5290",
+      "emergency": "yes",
+      "addr_city": "Millen",
+      "addr_postcode": "30442",
+      "addr_street": "East Winthrope Avenue",
+      "addr_housenumber": "931"
+    },
+    {
+      "id": 167687,
+      "geometry": "POINT (-82.125856 33.430338)",
+      "poi_name": "Eisenhower Army Medical Center",
+      "osm_id": 358774235,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "http://eisenhower.amedd.army.mil/",
+      "phone": "+1 706 787 5811",
+      "official_name": "Dwight David Eisenhower Army Medical Center",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q5318131",
+      "addr_state": "GA",
+      "addr_city": "Fort Gordon",
+      "addr_postcode": "30905",
+      "addr_street": "Hospital Road",
+      "addr_housenumber": "300"
     }
   ],
   "answer_type": "name",
@@ -21,30 +64,29 @@
       "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "distance": 30000,
-      "text": "30 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 557,
+  "id": 2557,
   "type": "range:non_spat_filter+name"
 }

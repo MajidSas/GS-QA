@@ -1,45 +1,44 @@
 {
-  "question": "Within a 150 kilometers distance from Malibu Jack's, Springfield, IL, how many zoos are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, 150000)\nAND tourism = 'zoo';\n",
+  "question": "How many universities lie within 100 kilometers distance of Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.972351 33.529412)',4326)::geography, 100000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "count": 2
+      "count": 18
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "sub_category": "hotel",
+      "display_name": "Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ",
+      "geo_wkt": "POINT (-111.972351 33.529412)",
       "poi": {
-        "id": 67633,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 604,
+        "geometry": "POINT (-111.972351 33.529412)",
+        "poi_name": "Omni Scottsdale Resort & Spa at Montelucia",
+        "osm_id": 2621450221,
+        "tourism": "hotel",
+        "operator": "Omni Hotels & Resorts",
+        "website": "https://www.omnihotels.com/hotels/scottsdale-montelucia",
+        "internet_access": "yes",
+        "phone": "+14806273200",
+        "addr_state": "AZ",
+        "addr_city": "Paradise Valley",
+        "addr_postcode": "85253",
+        "addr_street": "East Lincoln Drive",
+        "addr_housenumber": "4949"
       }
     }
   },
-  "id": 2229,
+  "id": 1829,
   "type": "range+count"
 }

@@ -1,50 +1,53 @@
 {
-  "question": "Where is the closest beach resort southeast of Patron Gallery, Chicago, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.667963 41.896253)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest attraction along the southwest direction from SEA LIFE Minnesota Aquarium, Bloomington, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248000,
-      "geometry": "POINT (-87.667963 41.896253)",
-      "poi_name": "Orchid Island Beach Club",
-      "osm_id": 6231201516,
-      "leisure": "beach_resort",
-      "addr_state": "FL",
-      "addr_city": "Orchid",
-      "addr_postcode": "32963",
-      "addr_street": "Beachside Drive",
-      "addr_housenumber": "1"
+      "id": 8050,
+      "geometry": "POINT (-93.240076 44.854752)",
+      "poi_name": "King's Gate",
+      "osm_id": 6536536583,
+      "tourism": "attraction",
+      "addr_state": "MN",
+      "addr_city": "Shakopee",
+      "addr_postcode": "55379-8944",
+      "addr_street": "145th Street West",
+      "addr_housenumber": "3525"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Patron Gallery, Chicago, IL",
-      "geo_wkt": "POINT (-87.667963 41.896253)",
+      "sub_category": "aquarium",
+      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
+      "geo_wkt": "POINT (-93.240076 44.854752)",
       "poi": {
-        "id": 2892,
-        "geometry": "POINT (-87.667963 41.896253)",
-        "poi_name": "Patron Gallery",
-        "osm_id": 10067042360,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 11:00-18:00",
-        "website": "https://patrongallery.com/",
-        "phone": "+1 312-846-1500",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60622",
-        "addr_street": "West Chicago Avenue",
-        "addr_housenumber": "1612"
+        "id": 25908,
+        "geometry": "POINT (-93.240076 44.854752)",
+        "poi_name": "SEA LIFE Minnesota Aquarium",
+        "osm_id": 5739830095,
+        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+        "tourism": "aquarium",
+        "fee": "yes",
+        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+        "operator": "Merlin Entertainments'",
+        "website": "https://www.visitsealife.com/minnesota/",
+        "phone": "+1-952-883-0202",
+        "addr_state": "MN",
+        "addr_city": "Bloomington",
+        "addr_postcode": "55425",
+        "addr_street": "East Broadway",
+        "addr_housenumber": "120"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1154,

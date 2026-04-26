@@ -1,49 +1,47 @@
 {
-  "question": "What direction does one need to follow to reach the closest hotel from American Institute of Dental Assisting, Gilbert, AZ?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.688039 33.367907)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.688039 33.367907)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the direction of travel to reach the nearest restaurant from Science Hall East, Wayne, NJ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1545,
-      "geometry": "POINT (-111.893344 33.290073)",
-      "poi_name": "Courtyard Phoenix Chandler/Fashion Center",
-      "osm_id": 3050598110,
-      "tourism": "hotel",
-      "wheelchair": "yes",
-      "operator": "Marriott",
-      "official_name": "Courtyard by Marriott",
-      "addr_state": "AZ",
-      "addr_city": "Chandler",
-      "addr_postcode": "85286",
-      "addr_street": "South Price Road",
-      "addr_housenumber": "1100",
-      "angle": 245.75180631104058
+      "id": 219075,
+      "geometry": "POINT (-74.199549 40.946324)",
+      "poi_name": "Wayne Dining Hall",
+      "osm_id": 9314851681,
+      "amenity": "restaurant",
+      "cuisine": "cafeteria",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Pompton Road",
+      "addr_housenumber": "300",
+      "angle": 273.91090552300295
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "American Institute of Dental Assisting, Gilbert, AZ",
-      "geo_wkt": "POINT (-111.688039 33.367907)",
+      "display_name": "Science Hall East, Wayne, NJ",
+      "geo_wkt": "POINT (-74.197392 40.946212)",
       "poi": {
-        "id": 103945,
-        "geometry": "POINT (-111.688039 33.367907)",
-        "poi_name": "American Institute of Dental Assisting",
-        "osm_id": 8534336133,
+        "id": 63022,
+        "geometry": "POINT (-74.197392 40.946212)",
+        "poi_name": "Science Hall East",
+        "osm_id": 5597728216,
         "amenity": "university",
-        "addr_state": "AZ",
-        "addr_city": "Gilbert",
-        "addr_postcode": "85209",
-        "addr_street": "South Power Road",
-        "addr_housenumber": "2500"
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
       }
     }
   },
-  "id": 1436,
+  "id": 536,
   "type": "knn+angle"
 }

@@ -1,52 +1,46 @@
 {
-  "question": "What is the nickname of the closest university from Glenhill Farmhouse, Erie, PA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest attraction from Hungry Valley SVRA, Gorman, CA hold?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.871038 34.791936)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 133663,
-      "geometry": "POINT (-80.086729 42.128105)",
-      "poi_name": "Gannon University",
-      "osm_id": 10003127082,
-      "amenity": "university",
-      "operator": "Gannon University",
-      "wikidata": "Q5521430",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16541",
-      "addr_street": "University Square",
-      "addr_housenumber": "109",
-      "multihop_answer": "Golden Knights",
-      "multihop_attribute": "Nickname",
-      "multihop_long_answer": "Gannon University Nickname: Golden Knights"
+      "id": 20700,
+      "geometry": "POINT (-118.59855 34.428514)",
+      "poi_name": "Scream!",
+      "osm_id": 1223043009,
+      "tourism": "attraction",
+      "wikidata": "Q674382",
+      "multi_source_answer": "1,440 riders per hour",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "Scream! Capacity: 1,440 riders per hour"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Glenhill Farmhouse, Erie, PA",
-      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hungry Valley SVRA, Gorman, CA",
+      "geo_wkt": "POINT (-118.871038 34.791936)",
       "poi": {
-        "id": 241,
-        "geometry": "POINT (-79.985748 42.119196)",
-        "poi_name": "Glenhill Farmhouse",
-        "osm_id": 8255522795,
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Fr 08:00-17:00",
-        "operator": "Penn State Behrend",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16563",
-        "addr_street": "College Drive",
-        "addr_housenumber": "4701"
+        "id": 246478,
+        "geometry": "POINT (-118.871038 34.791936)",
+        "poi_name": "Hungry Valley SVRA",
+        "osm_id": 9733590976,
+        "leisure": "park",
+        "tourism": "camp_site",
+        "fee": "yes",
+        "operator": "California Department of Parks and Recreation",
+        "addr_state": "CA",
+        "addr_city": "Gorman",
+        "addr_postcode": "92343",
+        "addr_street": "Hungry Valley Road"
       }
     }
   },
-  "id": 910,
-  "type": "knn+name+multihop1"
+  "id": 810,
+  "type": "knn+name+multi_source1"
 }

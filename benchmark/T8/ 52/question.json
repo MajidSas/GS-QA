@@ -1,53 +1,43 @@
 {
-  "question": "What's the closest fast food restaurant nearby the university established in the year 1975 in Houston, TX?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which zoo is closest in relation to the hospital that has pediatric emergency department in Bronx, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 53933,
-      "geometry": "POINT (-95.390115 29.722254)",
-      "poi_name": "Periodic Table",
-      "osm_id": 10107277344,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "opening_hours": "Mo-Su 09:00-17:00",
-      "takeaway": "yes",
-      "drive_through": "no",
-      "delivery": "no",
-      "addr_state": "TX",
-      "addr_city": "Houston",
-      "addr_postcode": "77030",
-      "addr_street": "Hermann Park Drive",
-      "addr_housenumber": "5555"
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "George R. Brown School of Engineering, Houston, TX",
-      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 30759,
-        "geometry": "POINT (-95.398757 29.720135)",
-        "poi_name": "George R. Brown School of Engineering",
-        "osm_id": 8379958482,
-        "amenity": "university",
-        "website": "https://engineering.rice.edu/",
-        "phone": "+1-713-348-4955",
-        "wikidata": "Q5543612",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77005",
-        "addr_street": "Main Street",
-        "addr_housenumber": "6100"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     }
   },
-  "id": 2751,
-  "type": "knn+name+multihop2"
+  "id": 951,
+  "type": "knn+name+multi_source2"
 }

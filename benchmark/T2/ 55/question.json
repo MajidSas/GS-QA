@@ -1,66 +1,36 @@
 {
-  "question": "Would you be able to find me a thai restaurant located within 140 kilometers from Ice Arena, MN?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography, 140000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%thai%';\n",
+  "question": "Can you assist in locating a coffee shop within a 120 kilometers radius from Gabriel Manor Assisted Living Center, Clayton, NC?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.507621 35.627366)',4326)::geography, 120000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%coffee_shop%';\n",
   "answers": [
     {
-      "id": 82666,
-      "geometry": "POINT (-92.479883 44.028532)",
-      "poi_name": "Soriya Cuisine",
-      "osm_id": 1707802212,
+      "id": 177042,
+      "geometry": "POINT (-79.071412 35.910508)",
+      "poi_name": "Napoli",
+      "osm_id": 2572497394,
       "amenity": "restaurant",
-      "cuisine": "thai",
-      "addr_postcode": "55901",
-      "addr_street": "Civic Center Drive Northwest",
-      "addr_housenumber": "1123"
-    },
-    {
-      "id": 119274,
-      "geometry": "POINT (-92.4628 44.019835)",
-      "poi_name": "Mango Thai",
-      "osm_id": 9094659688,
-      "amenity": "restaurant",
-      "cuisine": "thai"
-    },
-    {
-      "id": 125340,
-      "geometry": "POINT (-91.239415 43.817665)",
-      "poi_name": "Hmong's Golden Egg Rolls",
-      "osm_id": 6956318322,
-      "amenity": "restaurant",
-      "cuisine": "thai"
-    },
-    {
-      "id": 214146,
-      "geometry": "POINT (-91.499921 44.8112)",
-      "poi_name": "Rice Palace",
-      "osm_id": 5266277643,
-      "amenity": "restaurant",
-      "cuisine": "thai",
-      "opening_hours": "Mo-Su 11:00-21:00",
+      "cuisine": "pizza;gelato;coffee_shop",
+      "description": "Order inside, pick up outside at the food truck.",
       "takeaway": "yes",
-      "outdoor_seating": "no",
+      "outdoor_seating": "yes",
       "delivery": "no",
-      "addr_state": "WI",
-      "addr_city": "Eau Claire",
-      "addr_postcode": "54701",
-      "addr_street": "South Barstow Street",
-      "addr_housenumber": "210"
+      "addr_state": "NC",
+      "addr_city": "Carrboro",
+      "addr_postcode": "27510",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "105"
     },
     {
-      "id": 235614,
-      "geometry": "POINT (-91.501252 44.814806)",
-      "poi_name": "Thai Orchid",
-      "osm_id": 5760847445,
+      "id": 207905,
+      "geometry": "POINT (-78.937363 35.043681)",
+      "poi_name": "Burney's Sweets & More",
+      "osm_id": 4966691453,
       "amenity": "restaurant",
-      "cuisine": "thai",
-      "takeaway": "yes",
-      "outdoor_seating": "no",
-      "delivery": "no",
-      "addr_state": "WI",
-      "addr_city": "Eau Claire",
-      "addr_postcode": "54703",
-      "addr_street": "North Barstow Street",
-      "addr_housenumber": "203"
+      "cuisine": "coffee_shop;bakery",
+      "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-14:00; Su closed",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_street": "Raeford Road",
+      "addr_housenumber": "3319-B"
     }
   ],
   "answer_type": "name",
@@ -68,28 +38,34 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "thai restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%thai%'"
+      "poi_filter_desc": "coffee shop",
+      "poi_filter_sql": "cuisine ILIKE '%coffee_shop%'"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Ice Arena, MN",
-      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Gabriel Manor Assisted Living Center, Clayton, NC",
+      "geo_wkt": "POINT (-78.507621 35.627366)",
       "poi": {
-        "id": 265357,
-        "geometry": "POINT (-91.694594 44.04413)",
-        "poi_name": "Ice Arena",
-        "osm_id": 367067698,
-        "leisure": "stadium",
-        "addr_state": "MN"
+        "id": 123169,
+        "geometry": "POINT (-78.507621 35.627366)",
+        "poi_name": "Gabriel Manor Assisted Living Center",
+        "osm_id": 6837996484,
+        "amenity": "hospital",
+        "phone": "(919) 359-3878",
+        "healthcare": "hospital",
+        "addr_state": "NC",
+        "addr_city": "Clayton",
+        "addr_postcode": "27520",
+        "addr_street": "Johnson Estate Rd",
+        "addr_housenumber": "84"
       }
     }
   },
-  "id": 554,
+  "id": 2554,
   "type": "range:non_spat_filter+name"
 }

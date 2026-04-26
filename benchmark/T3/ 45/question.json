@@ -1,53 +1,128 @@
 {
-  "question": "Which hotel is available when moving in the direction of west from Bastion Studios, Erie, PA within 120 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography, 120000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "What attraction are present inside a 120 kilometers boundary toward the northwest of Shechem Ministries, Lawrenceburg, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 120000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 15706,
-      "geometry": "POINT (-80.078195 42.115808)",
-      "poi_name": "Gilded Eagle Inn",
-      "osm_id": 9463348839,
-      "tourism": "hotel",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16505",
-      "addr_street": "Sycamore Road",
-      "addr_housenumber": "3630"
+      "id": 2423,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Jeffersonville Overlook",
+      "osm_id": 3443754881,
+      "tourism": "attraction",
+      "operator": "Jeffersonville",
+      "addr_state": "IN",
+      "addr_city": "Jeffersonville",
+      "addr_postcode": "47130",
+      "addr_street": "Spring Street"
+    },
+    {
+      "id": 20136,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Lovers Lane",
+      "osm_id": 7895779452,
+      "tourism": "attraction"
+    },
+    {
+      "id": 26156,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Escape Lou",
+      "osm_id": 5795892353,
+      "tourism": "attraction",
+      "website": "https://escapelou.com/",
+      "phone": "5027097533",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "2235"
+    },
+    {
+      "id": 26883,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Market Street line sign",
+      "osm_id": 7610560085,
+      "tourism": "attraction",
+      "addr_postcode": "40206",
+      "addr_street": "Frankfort Avenue"
+    },
+    {
+      "id": 26910,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Bingham Park",
+      "osm_id": 7619070088,
+      "tourism": "attraction",
+      "opening_hours": "Mo-Su 08:00-21:30",
+      "addr_postcode": "40206",
+      "addr_street": "Brownsboro Road"
+    },
+    {
+      "id": 27114,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Sign",
+      "osm_id": 7707855485,
+      "tourism": "attraction"
+    },
+    {
+      "id": 14556,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Preservation Station Caboose",
+      "osm_id": 4654827830,
+      "tourism": "attraction"
+    },
+    {
+      "id": 26275,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Jeptha Creed Distillery",
+      "osm_id": 5832472576,
+      "tourism": "attraction",
+      "website": "https://jepthacreed.com/",
+      "phone": "(502) 487-5007",
+      "addr_state": "KY",
+      "addr_city": "Shelbyville",
+      "addr_postcode": "40065",
+      "addr_street": "Gordon Lane",
+      "addr_housenumber": "500"
+    },
+    {
+      "id": 26809,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Party Center",
+      "osm_id": 6069212085,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "attraction"
     },
     "[2]": {
       "distance": 120000,
       "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Bastion Studios, Erie, PA",
-      "geo_wkt": "POINT (-80.078195 42.115808)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
       "poi": {
-        "id": 389,
-        "geometry": "POINT (-80.078195 42.115808)",
-        "poi_name": "Bastion Studios",
-        "osm_id": 8349970743,
-        "tourism": "gallery",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16502",
-        "addr_street": "Peach Street",
-        "addr_housenumber": "2016"
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2644,
+  "id": 2344,
   "type": "range:direction+name"
 }

@@ -1,49 +1,52 @@
 {
-  "question": "Where's the closest hotel positioned towards the northeast of Bittersweet Falls, Weybridge, VT?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery in the direction of northwest from Blue Ocean Discovery Center, Hampton, NH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 22667,
-      "geometry": "POINT (-73.217661 44.029954)",
-      "poi_name": "Inn at Baldwin Creek",
-      "osm_id": 7206932341,
-      "tourism": "hotel",
-      "website": "http://www.baldwincreek.net/",
-      "phone": "+1 802 453 2432",
-      "addr_state": "VT",
-      "addr_city": "Bristol",
-      "addr_postcode": "05443",
-      "addr_street": "North 116 Road",
-      "addr_housenumber": "1868"
+      "id": 7804,
+      "geometry": "POINT (-70.810543 42.909869)",
+      "poi_name": "Exeter Fine Crafts",
+      "osm_id": 6417865878,
+      "tourism": "gallery",
+      "opening_hours": "Mo-We 10:00-17:30; Th 10:00-19:00; Fr-Sa 10:00-17:30; Su 12:00-16:00",
+      "website": "https://www.exeterfinecrafts.com/",
+      "phone": "+1 (603) 778-8282",
+      "addr_state": "NH",
+      "addr_city": "Exeter",
+      "addr_postcode": "03833",
+      "addr_street": "Water Street",
+      "addr_housenumber": "61"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "gallery"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Bittersweet Falls, Weybridge, VT",
-      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
       "poi": {
-        "id": 25384,
-        "geometry": "POINT (-73.217661 44.029954)",
-        "poi_name": "Bittersweet Falls",
-        "osm_id": 4475236640,
-        "tourism": "viewpoint",
-        "addr_state": "VT",
-        "addr_city": "Weybridge",
-        "addr_postcode": "05753",
-        "addr_street": "Bittersweet Falls Road",
-        "addr_housenumber": "617"
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1173,

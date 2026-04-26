@@ -1,65 +1,66 @@
 {
-  "question": "Which restaurant is nearest as you move towards Strayer University, Charlotte, NC from Mountain Creek gold mine, New London, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 comes up first when traveling toward Lore Degenstein Art Gallery, Selinsgrove, PA from Shavers Creek Environmental Center, Petersburg, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography, ST_GeomFromText('POINT (-76.875791 40.797251)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 53547,
-      "geometry": "POINT (-80.42677 35.260127)",
-      "poi_name": "Sunrise Grill",
-      "osm_id": 10084865062,
-      "amenity": "restaurant",
-      "phone": "+17048888772",
-      "addr_state": "NC",
-      "addr_city": "Locust",
-      "addr_postcode": "28097",
-      "addr_street": "West Main Street",
-      "addr_housenumber": "118",
-      "value": 244.19772968088483
+      "id": 86554,
+      "geometry": "POINT (-76.986516 40.939095)",
+      "poi_name": "The Daily Grind",
+      "osm_id": 1937550028,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_postcode": "17844",
+      "addr_street": "Old Turnpike Road",
+      "addr_housenumber": "6404",
+      "value": 80.31196126072842
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Mountain Creek gold mine, New London, NC",
-      "geo_wkt": "POINT (-80.185301 35.43723)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
       "poi": {
-        "id": 3105,
-        "geometry": "POINT (-80.185301 35.43723)",
-        "poi_name": "Mountain Creek gold mine",
-        "osm_id": 10175978887,
+        "id": 245766,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
         "tourism": "attraction",
-        "addr_state": "NC",
-        "addr_city": "New London",
-        "addr_postcode": "28127",
-        "addr_street": "Gurley Road",
-        "addr_housenumber": "41801"
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Strayer University, Charlotte, NC",
-      "geo_wkt": "POINT (-80.930371 35.139039)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Lore Degenstein Art Gallery, Selinsgrove, PA",
+      "geo_wkt": "POINT (-76.875791 40.797251)",
       "poi": {
-        "id": 71121,
-        "geometry": "POINT (-80.930371 35.139039)",
-        "poi_name": "Strayer University",
-        "osm_id": 11382339319,
-        "amenity": "university",
-        "addr_state": "NC",
-        "addr_city": "Charlotte",
-        "addr_postcode": "28273",
-        "addr_street": "North Kings Parade Boulevard",
-        "addr_housenumber": "9101"
+        "id": 21835,
+        "geometry": "POINT (-76.875791 40.797251)",
+        "poi_name": "Lore Degenstein Art Gallery",
+        "osm_id": 10691377065,
+        "tourism": "gallery",
+        "shop": "art",
+        "addr_state": "PA",
+        "addr_city": "Selinsgrove",
+        "addr_postcode": "17870",
+        "addr_street": "Weber Way",
+        "addr_housenumber": "151"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 197,
+  "id": 1697,
   "type": "knn:towards+name"
 }

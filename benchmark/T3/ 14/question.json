@@ -1,50 +1,53 @@
 {
-  "question": "Within a radius of 70 kilometers, what university can I find to the southwest of Dyken Pond Environmental Education Center, Cropseyville, NY?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography, 70000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Which nature reserve can be found southwest of Woodstock Mural and Sculpture Garden, Woodstock, IL inside a 150 kilometers range?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.447936 42.316158)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.447936 42.316158)',4326)::geography, 150000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 189127,
-      "geometry": "POINT (-73.434447 42.723028)",
-      "poi_name": "University at Albany Health Sciences Campus",
-      "osm_id": 1214993632,
-      "amenity": "university",
-      "website": "https://sph.albany.edu",
-      "internet_access": "yes",
-      "addr_state": "NY",
-      "addr_city": "Rensselaer",
-      "addr_postcode": "12144",
-      "addr_street": "University Place",
-      "addr_housenumber": "1"
+      "id": 249466,
+      "geometry": "POINT (-88.447936 42.316158)",
+      "poi_name": "Matthiessen State Park",
+      "osm_id": 354123680,
+      "leisure": "nature_reserve",
+      "opening_hours": "08:00-21:00",
+      "website": "https://www.dnr.illinois.gov/Parks/Pages/Matthiessen.aspx",
+      "phone": "+1-815-667-4868",
+      "wikidata": "Q6791634"
+    },
+    {
+      "id": 250058,
+      "geometry": "POINT (-88.447936 42.316158)",
+      "poi_name": "White Pines Forest Nature Preserve",
+      "osm_id": 354252135,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Dyken Pond Environmental Education Center, Cropseyville, NY",
-      "geo_wkt": "POINT (-73.434447 42.723028)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Woodstock Mural and Sculpture Garden, Woodstock, IL",
+      "geo_wkt": "POINT (-88.447936 42.316158)",
       "poi": {
-        "id": 248520,
-        "geometry": "POINT (-73.434447 42.723028)",
-        "poi_name": "Dyken Pond Environmental Education Center",
-        "osm_id": 4298976883,
-        "leisure": "nature_reserve",
-        "website": "https://www.dykenpond.org/",
-        "phone": "+1-518-658-2055",
-        "addr_state": "NY",
-        "addr_city": "Cropseyville",
-        "addr_postcode": "12052",
-        "addr_street": "Dyken Pond Road",
-        "addr_housenumber": "475"
+        "id": 4199,
+        "geometry": "POINT (-88.447936 42.316158)",
+        "poi_name": "Woodstock Mural and Sculpture Garden",
+        "osm_id": 5714188624,
+        "tourism": "attraction",
+        "opening_hours": "24/7",
+        "addr_state": "IL",
+        "addr_city": "Woodstock",
+        "addr_postcode": "60098",
+        "addr_street": "Main Street",
+        "addr_housenumber": "223"
       }
     },
     "[4]": {
@@ -52,6 +55,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2613,
+  "id": 2313,
   "type": "range:direction+name"
 }

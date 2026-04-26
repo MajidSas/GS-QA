@@ -1,50 +1,49 @@
 {
-  "question": "Do you know where the closest caf\u00e9 from Memory Garden, Baltimore, MD is located?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest theme park located relative to Bastion Studios, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 232264,
-      "geometry": "POINT (-76.625599 39.308879)",
-      "poi_name": "Park Cafe & Coffee Bar",
-      "osm_id": 4515983706,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
-      "website": "https://parkcafecoffeebar.com/",
-      "internet_access": "yes",
-      "addr_state": "MD",
-      "addr_city": "Baltimore",
-      "addr_postcode": "21217",
-      "addr_street": "McMechen Street",
-      "addr_housenumber": "132"
+      "id": 354,
+      "geometry": "POINT (-78.975759 43.024544)",
+      "poi_name": "Niagara Amusement Park & Splash World",
+      "osm_id": 8331045218,
+      "tourism": "theme_park",
+      "information": "board",
+      "wheelchair": "yes",
+      "operator": "IB Parks & Entertainment",
+      "website": "https://niagaraamusementpark.com/",
+      "addr_state": "NY",
+      "addr_city": "Grand Island",
+      "addr_postcode": "14072",
+      "addr_street": "Grand Island Boulevard",
+      "addr_housenumber": "2400"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Baltimore, MD",
-      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
       "poi": {
-        "id": 245708,
-        "geometry": "POINT (-76.638575 39.300016)",
-        "poi_name": "Memory Garden",
-        "osm_id": 3432403574,
-        "leisure": "garden",
-        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
-        "addr_state": "MD",
-        "addr_city": "Baltimore",
-        "addr_postcode": "21217",
-        "addr_street": "North Carey Street",
-        "addr_housenumber": "929"
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
       }
     }
   },
-  "id": 1813,
+  "id": 713,
   "type": "knn+loc"
 }

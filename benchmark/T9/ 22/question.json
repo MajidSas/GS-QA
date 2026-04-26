@@ -1,13 +1,18 @@
 {
-  "question": "What is the closest hotel south of Jack C. Montgomery VA Medical Center, Muskogee, OK?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.414609 35.76517)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest hotel towards the north of the Denver Hospice, Denver, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1153,
-      "geometry": "POINT (-95.414609 35.76517)",
-      "poi_name": "Sportsman Inn and Suites",
-      "osm_id": 2869522848,
-      "tourism": "hotel"
+      "id": 21187,
+      "geometry": "POINT (-104.891985 39.719901)",
+      "poi_name": "Sunset Inn",
+      "osm_id": 1436029944,
+      "tourism": "hotel",
+      "addr_state": "WY",
+      "addr_city": "Laramie",
+      "addr_postcode": "82070",
+      "addr_street": "South 3rd Street",
+      "addr_housenumber": "1104"
     }
   ],
   "answer_type": "name",
@@ -19,29 +24,30 @@
     "[2]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Jack C. Montgomery VA Medical Center, Muskogee, OK",
-      "geo_wkt": "POINT (-95.414609 35.76517)",
+      "display_name": "The Denver Hospice, Denver, CO",
+      "geo_wkt": "POINT (-104.891985 39.719901)",
       "poi": {
-        "id": 204594,
-        "geometry": "POINT (-95.414609 35.76517)",
-        "poi_name": "Jack C. Montgomery VA Medical Center",
-        "osm_id": 7133183976,
+        "id": 37397,
+        "geometry": "POINT (-104.891985 39.719901)",
+        "poi_name": "The Denver Hospice",
+        "osm_id": 2810255127,
         "amenity": "hospital",
-        "operator": "Department of Veterans Affairs",
+        "website": "https://thedenverhospice.org/",
+        "phone": "+1-303-418-3000",
         "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "OK",
-        "addr_city": "Muskogee",
-        "addr_postcode": "74401",
-        "addr_street": "Honor Heights Drive",
-        "addr_housenumber": "1011"
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80230",
+        "addr_street": "East Lowry Boulevard",
+        "addr_housenumber": "8299"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2521,
+  "id": 1221,
   "type": "knn:direction+name"
 }

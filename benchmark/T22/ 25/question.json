@@ -1,37 +1,43 @@
 {
-  "question": "In which direction should I proceed to reach the closest viewpoint from Red Hill Lodge, GA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.271548 34.453435)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.271548 34.453435)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction points toward the closest stadium relative to Longfellow Arboretum, Portland, ME?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 15321,
-      "geometry": "POINT (-83.387745 34.676418)",
-      "poi_name": "Upper Falls view",
-      "osm_id": 4852866318,
-      "tourism": "viewpoint",
-      "angle": 336.7130220040695
+      "id": 259620,
+      "geometry": "POINT (-71.045057 42.761758)",
+      "poi_name": "Trinity Stadium",
+      "osm_id": 358258731,
+      "leisure": "stadium",
+      "angle": 211.93610238582056
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Red Hill Lodge, GA",
-      "geo_wkt": "POINT (-83.271548 34.453435)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Longfellow Arboretum, Portland, ME",
+      "geo_wkt": "POINT (-70.269893 43.680714)",
       "poi": {
-        "id": 17707,
-        "geometry": "POINT (-83.271548 34.453435)",
-        "poi_name": "Red Hill Lodge",
-        "osm_id": 367915635,
-        "tourism": "hotel",
-        "addr_state": "GA"
+        "id": 265852,
+        "geometry": "POINT (-70.269893 43.680714)",
+        "poi_name": "Longfellow Arboretum",
+        "osm_id": 7922996124,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
+        "addr_state": "ME",
+        "addr_city": "Portland",
+        "addr_street": "Baxter Boulevard",
+        "addr_housenumber": "755"
       }
     }
   },
-  "id": 1424,
+  "id": 524,
   "type": "knn+angle"
 }

@@ -1,49 +1,53 @@
 {
-  "question": "Do you know where the nearest caf\u00e9 is from Science Hall West, Wayne, NJ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.197766 40.946744)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest nature reserve near Malibu Jack's, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 36704,
-      "geometry": "POINT (-74.205047 40.944691)",
-      "poi_name": "Starbucks",
-      "osm_id": 2780529702,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "internet_access": "wlan",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "addr_state": "NJ",
-      "addr_city": "Wayne",
-      "addr_postcode": "07470",
-      "addr_street": "Paterson-Hamburg Turnpike",
-      "addr_housenumber": "183"
+      "id": 267118,
+      "geometry": "POINT (-89.61996 39.802443)",
+      "poi_name": "Margery Adams Wildlife Sanctuary",
+      "osm_id": 4567499757,
+      "leisure": "nature_reserve",
+      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+      "phone": "+1-217-544-5781",
+      "wikidata": "Q4680461",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Clear Lake Avenue",
+      "addr_housenumber": "2315"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Science Hall West, Wayne, NJ",
-      "geo_wkt": "POINT (-74.197766 40.946744)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
       "poi": {
-        "id": 63023,
-        "geometry": "POINT (-74.197766 40.946744)",
-        "poi_name": "Science Hall West",
-        "osm_id": 5597728217,
-        "amenity": "university",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
       }
     }
   },
-  "id": 1816,
+  "id": 716,
   "type": "knn+loc"
 }

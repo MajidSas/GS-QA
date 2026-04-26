@@ -1,46 +1,45 @@
 {
-  "question": "Which direction points towards the nearest restaurant from Ulrich Wildlife Preserve, Morton, IL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the directional bearing to the nearest garden from Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.972351 33.529412)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.972351 33.529412)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 173816,
-      "geometry": "POINT (-89.46995 40.620815)",
-      "poi_name": "Monical's",
-      "osm_id": 2456848131,
-      "amenity": "restaurant",
-      "cuisine": "italian;pizza",
-      "takeaway": "yes",
-      "delivery": "yes",
-      "angle": 152.0951438045475
+      "id": 246033,
+      "geometry": "POINT (-111.946366 33.462394)",
+      "poi_name": "Boulder Garden",
+      "osm_id": 5474816441,
+      "leisure": "garden",
+      "angle": 161.9961585205698
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
-      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ",
+      "geo_wkt": "POINT (-111.972351 33.529412)",
       "poi": {
-        "id": 246437,
-        "geometry": "POINT (-89.490228 40.649994)",
-        "poi_name": "Ulrich Wildlife Preserve",
-        "osm_id": 9654359178,
-        "leisure": "nature_reserve",
-        "opening_hours": "dawn-dusk",
-        "operator": "Morton Park District",
-        "addr_state": "IL",
-        "addr_city": "Morton",
-        "addr_postcode": "61550",
-        "addr_street": "Turtle Creek Trail",
-        "addr_housenumber": "100"
+        "id": 604,
+        "geometry": "POINT (-111.972351 33.529412)",
+        "poi_name": "Omni Scottsdale Resort & Spa at Montelucia",
+        "osm_id": 2621450221,
+        "tourism": "hotel",
+        "operator": "Omni Hotels & Resorts",
+        "website": "https://www.omnihotels.com/hotels/scottsdale-montelucia",
+        "internet_access": "yes",
+        "phone": "+14806273200",
+        "addr_state": "AZ",
+        "addr_city": "Paradise Valley",
+        "addr_postcode": "85253",
+        "addr_street": "East Lincoln Drive",
+        "addr_housenumber": "4949"
       }
     }
   },
-  "id": 1470,
+  "id": 570,
   "type": "knn+angle"
 }

@@ -1,19 +1,20 @@
 {
-  "question": "What's the nearest hot pot restaurant available from Haunted Washoe Club Museum, Virginia City, NV?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%hot_pot%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.650222 39.309319)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which italian restaurant near old MKT Depot, Council Grove, KS is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%italian%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-96.480186 38.661913)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 207319,
-      "geometry": "POINT (-121.973158 37.338798)",
-      "poi_name": "Taichi Pot Shabu Shabu",
-      "osm_id": 7248927990,
+      "id": 85761,
+      "geometry": "POINT (-96.573409 39.185527)",
+      "poi_name": "Nico's Little Italy",
+      "osm_id": 1892795820,
       "amenity": "restaurant",
-      "cuisine": "hot_pot",
-      "wheelchair": "yes",
-      "opening_hours": "Mo-Tu 17:30-22:00; We-Th 11:30-14:00,17:30-22:00; Fr 11:30-14:30,17:30-22:30; Sa 11:30-22:30; Su 11:30-21:30",
-      "outdoor_seating": "no",
-      "addr_street": "Homestead Road",
-      "addr_housenumber": "2640"
+      "cuisine": "italian",
+      "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+      "phone": "+1-785-775-1101",
+      "toilets": "yes",
+      "addr_city": "Manhattan",
+      "addr_street": "Moro Street",
+      "addr_housenumber": "1101"
     }
   ],
   "answer_type": "name",
@@ -21,31 +22,25 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "hot pot restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%hot_pot%'"
+      "poi_filter_desc": "italian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%italian%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Haunted Washoe Club Museum, Virginia City, NV",
-      "geo_wkt": "POINT (-119.650222 39.309319)",
+      "sub_category": "attraction",
+      "display_name": "old MKT Depot, Council Grove, KS",
+      "geo_wkt": "POINT (-96.480186 38.661913)",
       "poi": {
-        "id": 14183,
-        "geometry": "POINT (-119.650222 39.309319)",
-        "poi_name": "Haunted Washoe Club Museum",
-        "osm_id": 4243505100,
-        "tourism": "museum",
-        "fee": "yes",
-        "website": "https://www.thewashoeclubmuseum.com/",
-        "phone": "(775) 847-4467",
-        "addr_state": "NV",
-        "addr_city": "Virginia City",
-        "addr_postcode": "89440",
-        "addr_street": "C Street",
-        "addr_housenumber": "112"
+        "id": 673,
+        "geometry": "POINT (-96.480186 38.661913)",
+        "poi_name": "old MKT Depot",
+        "osm_id": 2634590970,
+        "tourism": "attraction",
+        "addr_state": "KS",
+        "addr_city": "Council Grove"
       }
     }
   },
-  "id": 698,
+  "id": 1498,
   "type": "knn:non_spat_filter+name"
 }

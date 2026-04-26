@@ -1,50 +1,45 @@
 {
-  "question": "Where's the closest stadium towards the west of Indian Hot Springs, Idaho Springs, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.512663 39.739082)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest fast food restaurant situated in the southeast direction relative to Joyce Gordon Gallery, Oakland, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.270127 37.80409)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266188,
-      "geometry": "POINT (-105.512663 39.739082)",
-      "poi_name": "Pioneer Stadium",
-      "osm_id": 598066080,
-      "leisure": "stadium",
-      "sport": "equestrian",
-      "wikidata": "Q7079951",
-      "addr_state": "UT",
-      "addr_city": "Ogden",
-      "addr_street": "17th Street",
-      "addr_housenumber": "668"
+      "id": 62413,
+      "geometry": "POINT (-122.270127 37.80409)",
+      "poi_name": "Panda Kitchen",
+      "osm_id": 5567592258,
+      "amenity": "fast_food",
+      "addr_state": "CA",
+      "addr_city": "Oakland",
+      "addr_street": "14th Street",
+      "addr_housenumber": "138"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Indian Hot Springs, Idaho Springs, CO",
-      "geo_wkt": "POINT (-105.512663 39.739082)",
+      "sub_category": "gallery",
+      "display_name": "Joyce Gordon Gallery, Oakland, CA",
+      "geo_wkt": "POINT (-122.270127 37.80409)",
       "poi": {
-        "id": 15892,
-        "geometry": "POINT (-105.512663 39.739082)",
-        "poi_name": "Indian Hot Springs",
-        "osm_id": 9588812190,
-        "amenity": "public_bath",
-        "tourism": "hotel",
-        "fee": "yes",
-        "addr_state": "CO",
-        "addr_city": "Idaho Springs",
-        "addr_postcode": "80452",
-        "addr_street": "Soda Creek Road",
-        "addr_housenumber": "302"
+        "id": 3665,
+        "geometry": "POINT (-122.270127 37.80409)",
+        "poi_name": "Joyce Gordon Gallery",
+        "osm_id": 5534711410,
+        "tourism": "gallery",
+        "addr_state": "CA",
+        "addr_city": "Oakland",
+        "addr_street": "14th Street",
+        "addr_housenumber": "406"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1147,

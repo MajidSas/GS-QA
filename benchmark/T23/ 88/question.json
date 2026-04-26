@@ -1,37 +1,41 @@
 {
-  "question": "What's the quantity of parks that can be found within a 120 kilometers distance from Hairpin Turn, Clarksburg, MA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, 120000)\nAND leisure = 'park';\n",
+  "question": "What\u2019s the total number of hospitals inside a 110 kilometers radius from Simon Breitbard, Menlo Park, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.184917 37.450942)',4326)::geography, 110000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "count": 502
+      "count": 15
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Hairpin Turn, Clarksburg, MA",
-      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "sub_category": "gallery",
+      "display_name": "Simon Breitbard, Menlo Park, CA",
+      "geo_wkt": "POINT (-122.184917 37.450942)",
       "poi": {
-        "id": 7303,
-        "geometry": "POINT (-73.062971 42.709369)",
-        "poi_name": "Hairpin Turn",
-        "osm_id": 2072400239,
-        "tourism": "viewpoint",
-        "addr_state": "MA",
-        "addr_city": "Clarksburg"
+        "id": 2712,
+        "geometry": "POINT (-122.184917 37.450942)",
+        "poi_name": "Simon Breitbard",
+        "osm_id": 559832679,
+        "description": "Fine art",
+        "tourism": "gallery",
+        "addr_state": "CA",
+        "addr_city": "Menlo Park",
+        "addr_postcode": "94025",
+        "addr_street": "Santa Cruz Avenue",
+        "addr_housenumber": "779"
       }
     }
   },
-  "id": 2287,
+  "id": 1887,
   "type": "range+count"
 }

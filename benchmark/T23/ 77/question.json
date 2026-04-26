@@ -1,40 +1,42 @@
 {
-  "question": "Could you provide me with the number of hospitals within a 30 kilometers radius from Frazier Hall, Louisville, KY?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.704846 38.220516)',4326)::geography, 30000)\nAND amenity = 'hospital';\n",
+  "question": "How many hotels can I find within 60 kilometers of Dyken Pond Environmental Education Center, Cropseyville, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.434447 42.723028)',4326)::geography, 60000)\nAND tourism = 'hotel';\n",
   "answers": [
     {
-      "count": 3
+      "count": 32
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 30000,
-      "text": "30 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Frazier Hall, Louisville, KY",
-      "geo_wkt": "POINT (-85.704846 38.220516)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dyken Pond Environmental Education Center, Cropseyville, NY",
+      "geo_wkt": "POINT (-73.434447 42.723028)",
       "poi": {
-        "id": 48691,
-        "geometry": "POINT (-85.704846 38.220516)",
-        "poi_name": "Frazier Hall",
-        "osm_id": 3395957143,
-        "amenity": "university",
-        "addr_state": "KY",
-        "addr_city": "Louisville",
-        "addr_postcode": "40205",
-        "addr_street": "Alumni Drive",
-        "addr_housenumber": "2050"
+        "id": 248520,
+        "geometry": "POINT (-73.434447 42.723028)",
+        "poi_name": "Dyken Pond Environmental Education Center",
+        "osm_id": 4298976883,
+        "leisure": "nature_reserve",
+        "website": "https://www.dykenpond.org/",
+        "phone": "+1-518-658-2055",
+        "addr_state": "NY",
+        "addr_city": "Cropseyville",
+        "addr_postcode": "12052",
+        "addr_street": "Dyken Pond Road",
+        "addr_housenumber": "475"
       }
     }
   },
-  "id": 2276,
+  "id": 1876,
   "type": "range+count"
 }

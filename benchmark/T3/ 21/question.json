@@ -1,71 +1,77 @@
 {
-  "question": "Which university is located to the west of Riverfront Stadium, Wichita, KS, within a radius of 90 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography, 90000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Which museum are available inside 170 kilometers when oriented toward the southeast of Strayer University, Charlotte, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.930371 35.139039)',4326)::geography, 170000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 62608,
-      "geometry": "POINT (-97.345485 37.681386)",
-      "poi_name": "Cheney High School",
-      "osm_id": 5578562286,
-      "amenity": "university"
+      "id": 17493,
+      "geometry": "POINT (-80.930371 35.139039)",
+      "poi_name": "Harllee Natural History Museum",
+      "osm_id": 367807786,
+      "tourism": "museum",
+      "addr_state": "SC"
     },
     {
-      "id": 62609,
-      "geometry": "POINT (-97.345485 37.681386)",
-      "poi_name": "Cheney High School",
-      "osm_id": 5578562287,
-      "amenity": "university"
+      "id": 23182,
+      "geometry": "POINT (-80.930371 35.139039)",
+      "poi_name": "South Carolina Cotton Museum",
+      "osm_id": 5060245851,
+      "tourism": "museum",
+      "opening_hours": "Mo-Sa 10:00-16:00",
+      "website": "http://www.sccotton.org",
+      "addr_housenumber": "121"
     },
     {
-      "id": 62610,
-      "geometry": "POINT (-97.345485 37.681386)",
-      "poi_name": "Cheney High School",
-      "osm_id": 5578562288,
-      "amenity": "university"
+      "id": 22356,
+      "geometry": "POINT (-80.930371 35.139039)",
+      "poi_name": "Hartsville Museum",
+      "osm_id": 672849134,
+      "tourism": "museum",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 10:00-14:00; Sa 10:00-14:00",
+      "website": "https://hartsvillemuseum.org/"
     },
     {
-      "id": 62611,
-      "geometry": "POINT (-97.345485 37.681386)",
-      "poi_name": "Cheney High School",
-      "osm_id": 5578562289,
-      "amenity": "university"
+      "id": 23183,
+      "geometry": "POINT (-80.930371 35.139039)",
+      "poi_name": "Lee County Veterans Museum",
+      "osm_id": 5060270595,
+      "tourism": "museum",
+      "website": "http://www.sccotton.org/20412.html"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Riverfront Stadium, Wichita, KS",
-      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Strayer University, Charlotte, NC",
+      "geo_wkt": "POINT (-80.930371 35.139039)",
       "poi": {
-        "id": 260589,
-        "geometry": "POINT (-97.345485 37.681386)",
-        "poi_name": "Riverfront Stadium",
-        "osm_id": 358627835,
-        "leisure": "stadium",
-        "website": "https://www.milb.com/wichita/ballpark",
-        "phone": "+1-316-221-8000",
-        "addr_state": "KS",
-        "addr_city": "Wichita",
-        "addr_postcode": "67213",
-        "addr_street": "South McLean Boulevard",
-        "addr_housenumber": "275"
+        "id": 71121,
+        "geometry": "POINT (-80.930371 35.139039)",
+        "poi_name": "Strayer University",
+        "osm_id": 11382339319,
+        "amenity": "university",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28273",
+        "addr_street": "North Kings Parade Boulevard",
+        "addr_housenumber": "9101"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2620,
+  "id": 2320,
   "type": "range:direction+name"
 }

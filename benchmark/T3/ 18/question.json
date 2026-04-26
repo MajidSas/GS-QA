@@ -1,93 +1,70 @@
 {
-  "question": "Which nature reserve is available in the direction of west from New York Institute of Technology, New York, NY, within a radius of 70 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 70000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "What museum can I find north of Basin Cove Overlook, Laurel Springs, NC, limited to 200 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.20012 36.39093)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.20012 36.39093)',4326)::geography, 200000)\nAND tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 246484,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Riverbend Marsh",
-      "osm_id": 9756176514,
-      "leisure": "nature_reserve"
+      "id": 688,
+      "geometry": "POINT (-81.20012 36.39093)",
+      "poi_name": "Wyoming County Historical Museum",
+      "osm_id": 2638858323,
+      "tourism": "museum",
+      "website": "https://wyomingcountymuseum.webs.com/",
+      "wikidata": "Q113484007",
+      "addr_state": "WV",
+      "addr_city": "Oceana"
     },
     {
-      "id": 267301,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Stransky Nature Trails",
-      "osm_id": 5810940582,
-      "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "173"
+      "id": 17517,
+      "geometry": "POINT (-81.20012 36.39093)",
+      "poi_name": "Youth Museum of Southwestern West Virginia",
+      "osm_id": 367808341,
+      "tourism": "museum",
+      "website": "https://beckley.org/youth-museum/",
+      "addr_state": "WV"
     },
     {
-      "id": 256857,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Great Swamp National Wildlife Refuge",
-      "osm_id": 357732986,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 266149,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Dickerson Mine Preserve",
-      "osm_id": 984448592,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 266299,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "John Sanford Farmland Preserve",
-      "osm_id": 7149210071,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 267302,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Dealaman Nature Trail and Pond",
-      "osm_id": 5811042630,
-      "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "182"
+      "id": 18898,
+      "geometry": "POINT (-81.20012 36.39093)",
+      "poi_name": "Beckley Exhibition Coal Mine",
+      "osm_id": 2441018134,
+      "tourism": "museum",
+      "website": "http://www.beckleymine.com",
+      "phone": "+1-304-256-1747",
+      "wikidata": "Q7185868"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 200000,
+      "text": "200 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "New York Institute of Technology, New York, NY",
-      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Basin Cove Overlook, Laurel Springs, NC",
+      "geo_wkt": "POINT (-81.20012 36.39093)",
       "poi": {
-        "id": 35073,
-        "geometry": "POINT (-73.983176 40.770074)",
-        "poi_name": "New York Institute of Technology",
-        "osm_id": 2710082455,
-        "amenity": "university",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10023",
-        "addr_street": "West 61st Street",
-        "addr_housenumber": "26"
+        "id": 390,
+        "geometry": "POINT (-81.20012 36.39093)",
+        "poi_name": "Basin Cove Overlook",
+        "osm_id": 8353843237,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Laurel Springs",
+        "addr_postcode": "28644",
+        "addr_street": "Blue Ridge Parkway"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2617,
+  "id": 2317,
   "type": "range:direction+name"
 }

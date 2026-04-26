@@ -1,51 +1,53 @@
 {
-  "question": "What is the nickname of the closest university from Money Museum, Chicago, IL?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.632568 41.87833)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest hospital from Hellsgate Farms, Astoria, NY first opened?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 45570,
-      "geometry": "POINT (-87.627217 41.876204)",
-      "poi_name": "Robert Morris University",
-      "osm_id": 3217035460,
-      "amenity": "university",
-      "building": "school",
-      "website": "https://robertmorris.edu/",
-      "wikidata": "Q7347822",
-      "multihop_answer": "Eagles",
-      "multihop_attribute": "Nickname",
-      "multihop_long_answer": "Robert Morris University Nickname: Eagles"
+      "id": 167473,
+      "geometry": "POINT (-73.942312 40.770414)",
+      "poi_name": "NYC Health + Hospitals/Coler",
+      "osm_id": 357554659,
+      "amenity": "hospital",
+      "operator": "NYC Health + Hospitals/",
+      "website": "https://www.nychealthandhospitals.org/coler/",
+      "phone": "+1 212 848 6000",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q5144596",
+      "addr_city": "Roosevelt Island",
+      "addr_postcode": "10044",
+      "addr_street": "Main Street",
+      "addr_housenumber": "900",
+      "multi_source_answer": "1939 (Welfare Hospital)[2] 1952 (Bird S. Coler Hospital)",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "NYC Health + Hospitals/Coler Opened: 1939 (Welfare Hospital)[2] 1952 (Bird S. Coler Hospital)"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Money Museum, Chicago, IL",
-      "geo_wkt": "POINT (-87.632568 41.87833)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 1419,
-        "geometry": "POINT (-87.632568 41.87833)",
-        "poi_name": "Money Museum",
-        "osm_id": 2979738790,
-        "tourism": "museum",
-        "fee": "no",
-        "opening_hours": "Mo-Fr 08:30-17:00",
-        "operator": "Federal Reserve Bank of Chicago",
-        "website": "https://www.chicagofed.org/education/money-museum/",
-        "wikidata": "Q965251",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60604",
-        "addr_street": "South LaSalle Street",
-        "addr_housenumber": "230"
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     }
   },
-  "id": 903,
-  "type": "knn+name+multihop1"
+  "id": 803,
+  "type": "knn+name+multi_source1"
 }

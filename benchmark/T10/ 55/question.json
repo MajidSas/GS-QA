@@ -1,58 +1,75 @@
 {
-  "question": "What's the closest restaurant on the route to Bayou Safari Wildlife Park, Alvin, TX from Track 21, Houston, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.647681 29.845137)',4326)::geography, ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.647681 29.845137)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.647681 29.845137)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is closest as you go from MAC 650 Gallery, Middletown, CT to Green rooftop garden at design building, Amherst, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography, ST_GeomFromText('POINT (-72.523498 42.388204)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 32867,
-      "geometry": "POINT (-95.601692 29.783279)",
-      "poi_name": "Hibachi Grill & Buffet",
-      "osm_id": 2639771133,
-      "amenity": "restaurant",
-      "value": 134.6405171828907
+      "id": 109791,
+      "geometry": "POINT (-72.602923 41.665928)",
+      "poi_name": "So G Coffee Roasters",
+      "osm_id": 3674230745,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 06:00-16:00; Sa 07:00-16:00; Su 07:00-16:00",
+      "website": "https://www.facebook.com/sogcoffee",
+      "internet_access": "wlan",
+      "phone": "+1 860-633-8500",
+      "outdoor_seating": "yes",
+      "delivery": "Su 09:00-14:00",
+      "addr_state": "CT",
+      "addr_city": "Glastonbury",
+      "addr_postcode": "06073",
+      "addr_street": "Main Street",
+      "addr_housenumber": "882",
+      "value": 6.603170568965198
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Track 21, Houston, TX",
-      "geo_wkt": "POINT (-95.647681 29.845137)",
+      "sub_category": "gallery",
+      "display_name": "MAC 650 Gallery, Middletown, CT",
+      "geo_wkt": "POINT (-72.652064 41.564871)",
       "poi": {
-        "id": 23532,
-        "geometry": "POINT (-95.647681 29.845137)",
-        "poi_name": "Track 21",
-        "osm_id": 5245875822,
-        "tourism": "theme_park",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_street": "North Highway 6",
-        "addr_housenumber": "4815"
+        "id": 1357,
+        "geometry": "POINT (-72.652064 41.564871)",
+        "poi_name": "MAC 650 Gallery",
+        "osm_id": 2954479201,
+        "tourism": "gallery",
+        "fee": "no",
+        "operator": "Middletown Artists' Cooperative",
+        "addr_state": "CT",
+        "addr_city": "Middletown",
+        "addr_postcode": "06457",
+        "addr_street": "Main Street",
+        "addr_housenumber": "650"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Bayou Safari Wildlife Park, Alvin, TX",
-      "geo_wkt": "POINT (-95.169372 29.43079)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Green rooftop garden at design building, Amherst, MA",
+      "geo_wkt": "POINT (-72.523498 42.388204)",
       "poi": {
-        "id": 11427,
-        "geometry": "POINT (-95.169372 29.43079)",
-        "poi_name": "Bayou Safari Wildlife Park",
-        "osm_id": 9966719427,
-        "tourism": "zoo",
-        "addr_state": "TX",
-        "addr_city": "Alvin",
-        "addr_postcode": "77511",
-        "addr_street": "FM 517",
-        "addr_housenumber": "5050"
+        "id": 247082,
+        "geometry": "POINT (-72.523498 42.388204)",
+        "poi_name": "Green rooftop garden at design building",
+        "osm_id": 8697461152,
+        "leisure": "park",
+        "operator": "UMass Amherst",
+        "addr_state": "MA",
+        "addr_city": "Amherst",
+        "addr_postcode": "01003",
+        "addr_street": "North Pleasant Street",
+        "addr_housenumber": "551"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 154,
+  "id": 1654,
   "type": "knn:towards+name"
 }

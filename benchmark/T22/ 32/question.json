@@ -1,37 +1,44 @@
 {
-  "question": "In which direction can I find the closest garden from Strome County Park, OR?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.972218 44.814077)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-123.972218 44.814077)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In what direction is the closest viewpoint relative to Watkins Community Museum of History, Lawrence, KS?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.236191 38.963991)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.236191 38.963991)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246941,
-      "geometry": "POINT (-123.369041 44.542167)",
-      "poi_name": "Pioneer Park Rock Garden",
-      "osm_id": 6620932831,
-      "leisure": "garden",
-      "angle": 122.07311077063977
+      "id": 9324,
+      "geometry": "POINT (-95.339532 38.933456)",
+      "poi_name": "Sanders Mound",
+      "osm_id": 3743032538,
+      "tourism": "viewpoint",
+      "angle": 249.30628897804914
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Strome County Park, OR",
-      "geo_wkt": "POINT (-123.972218 44.814077)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Watkins Community Museum of History, Lawrence, KS",
+      "geo_wkt": "POINT (-95.236191 38.963991)",
       "poi": {
-        "id": 254037,
-        "geometry": "POINT (-123.972218 44.814077)",
-        "poi_name": "Strome County Park",
-        "osm_id": 357319093,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 1142,
+        "geometry": "POINT (-95.236191 38.963991)",
+        "poi_name": "Watkins Community Museum of History",
+        "osm_id": 2863476938,
+        "tourism": "museum",
+        "opening_hours": "Tu-We 10:00-16:00;Th 10:00-20:00;Fr-Sa 10:00-16:00",
+        "website": "https://www.watkinsmuseum.org/",
+        "phone": "+1-785-841-4109",
+        "addr_state": "KS",
+        "addr_city": "Lawrence",
+        "addr_postcode": "66044",
+        "addr_street": "Massachusetts Street",
+        "addr_housenumber": "1047"
       }
     }
   },
-  "id": 1431,
+  "id": 531,
   "type": "knn+angle"
 }

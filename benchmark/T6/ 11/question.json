@@ -1,49 +1,50 @@
 {
-  "question": "What's the nearest chinese restaurant available from Mentor Civic Arena, Mentor, OH?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chinese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest local museum relative to Outdoor Biological Research Facility, Vestal, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 89553,
-      "geometry": "POINT (-81.359265 41.709344)",
-      "poi_name": "New China Buffet",
-      "osm_id": 8851516801,
-      "amenity": "restaurant",
-      "cuisine": "chinese",
-      "addr_state": "OH",
-      "addr_city": "Mentor-on-the-Lake",
-      "addr_postcode": "44060",
-      "addr_street": "Andrews Road",
-      "addr_housenumber": "5945"
+      "id": 12726,
+      "geometry": "POINT (-76.795371 42.910396)",
+      "poi_name": "It's A Wonderful Life Museum",
+      "osm_id": 7489965765,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 11:00-16:00",
+      "website": "https://www.wonderfullifemuseum.com",
+      "museum": "local",
+      "addr_state": "NY",
+      "addr_city": "Seneca Falls",
+      "addr_postcode": "13148",
+      "addr_street": "Fall Street",
+      "addr_housenumber": "32"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "chinese restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%chinese%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Mentor Civic Arena, Mentor, OH",
-      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "sub_category": "garden",
+      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
+      "geo_wkt": "POINT (-75.978456 42.082185)",
       "poi": {
-        "id": 246704,
-        "geometry": "POINT (-81.332139 41.698458)",
-        "poi_name": "Mentor Civic Arena",
-        "osm_id": 8842654476,
-        "leisure": "stadium",
-        "operator": "City of Mentor",
-        "addr_state": "OH",
-        "addr_city": "Mentor",
-        "addr_postcode": "44060",
-        "addr_street": "Munson Road",
-        "addr_housenumber": "8600"
+        "id": 246670,
+        "geometry": "POINT (-75.978456 42.082185)",
+        "poi_name": "Outdoor Biological Research Facility",
+        "osm_id": 8793514697,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Vestal",
+        "addr_postcode": "13850",
+        "addr_street": "Bunn Hill Road",
+        "addr_housenumber": "906"
       }
     }
   },
-  "id": 610,
+  "id": 1410,
   "type": "knn:non_spat_filter+name"
 }

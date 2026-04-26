@@ -1,61 +1,72 @@
 {
-  "question": "Where's the nearest park heading towards Gallery Calapooia, Albany, OR from Cascade Head Scenic Research Area, OR?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, ST_GeomFromText('POINT (-123.106986 44.63704)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-123.980114 45.05094)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel along the direction of travel from Cyrus Dallin Art Museum, Arlington, MA to Gallery 444, Provincetown, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography, ST_GeomFromText('POINT (-70.17985 42.055952)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 253840,
-      "geometry": "POINT (-123.468995 44.872061)",
-      "poi_name": "Gerlinger County Park",
-      "osm_id": 357280987,
-      "leisure": "park",
-      "addr_state": "OR",
-      "value": 123.36797034125385
+      "id": 11379,
+      "geometry": "POINT (-71.081789 42.402716)",
+      "poi_name": "Fairfield Boston Medford",
+      "osm_id": 9951889407,
+      "tourism": "hotel",
+      "website": "https://www.marriott.com/en-us/hotels/bosfo-fairfield-boston-medford",
+      "phone": "+1-339-707-0203",
+      "official_name": "Fairfield by Marriott",
+      "addr_state": "MA",
+      "addr_city": "Medford",
+      "addr_postcode": "02155",
+      "addr_street": "Station Landing",
+      "addr_housenumber": "85",
+      "value": 116.1393888017758
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Cascade Head Scenic Research Area, OR",
-      "geo_wkt": "POINT (-123.980114 45.05094)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 254075,
-        "geometry": "POINT (-123.980114 45.05094)",
-        "poi_name": "Cascade Head Scenic Research Area",
-        "osm_id": 357321729,
-        "leisure": "nature_reserve",
-        "operator": "United States Forest Service",
-        "website": "https://www.fs.usda.gov/recarea/siuslaw/recarea/?recid=42717",
-        "addr_state": "OR"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "gallery",
-      "display_name": "Gallery Calapooia, Albany, OR",
-      "geo_wkt": "POINT (-123.106986 44.63704)",
+      "display_name": "Gallery 444, Provincetown, MA",
+      "geo_wkt": "POINT (-70.17985 42.055952)",
       "poi": {
-        "id": 24312,
-        "geometry": "POINT (-123.106986 44.63704)",
-        "poi_name": "Gallery Calapooia",
-        "osm_id": 11000977185,
+        "id": 5479,
+        "geometry": "POINT (-70.17985 42.055952)",
+        "poi_name": "Gallery 444",
+        "osm_id": 764434471,
         "tourism": "gallery",
-        "opening_hours": "Tu-Sa 11:00-18:00",
-        "website": "https://www.gallerycalapooia.com/",
-        "phone": "+1 541 971 5701",
-        "addr_state": "OR",
-        "addr_city": "Albany",
-        "addr_postcode": "97321",
-        "addr_street": "1st Avenue West",
-        "addr_housenumber": "222"
+        "website": "https://www.gallery444ptown.com/",
+        "addr_state": "MA",
+        "addr_city": "Provincetown",
+        "addr_postcode": "02657",
+        "addr_street": "Commercial Street",
+        "addr_housenumber": "444"
       }
     },
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1345,
+  "id": 1545,
   "type": "knn:towards+loc"
 }

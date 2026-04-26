@@ -1,20 +1,22 @@
 {
-  "question": "Where is the closest hotel from Windy O'Connor, Charlotte, NC towards Balls Creek Campground, Catawba, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.832602 35.247631)',4326)::geography, ST_GeomFromText('POINT (-81.097893 35.629208)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.832602 35.247631)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.832602 35.247631)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest fast food restaurant as you travel in the direction of Asbury Barn Recreation Center, Erie, PA from Main Street Art, Girard, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, ST_GeomFromText('POINT (-80.174816 42.060037)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14825,
-      "geometry": "POINT (-80.873409 35.485123)",
-      "poi_name": "Days Inn Cornelius Lake Norman",
-      "osm_id": 4733149121,
-      "tourism": "hotel",
-      "internet_access": "wlan",
-      "phone": "17048929120",
-      "addr_state": "NC",
-      "addr_postcode": "28031",
-      "addr_street": "Holiday Lane",
-      "addr_housenumber": "19901",
-      "value": 330.43778564864766
+      "id": 28840,
+      "geometry": "POINT (-80.304514 42.008017)",
+      "poi_name": "Taco Bell",
+      "osm_id": 8262936954,
+      "amenity": "fast_food",
+      "cuisine": "tex-mex",
+      "website": "https://locations.tacobell.com/pa/girard/1017-e-main-street.html",
+      "takeaway": "yes",
+      "addr_state": "PA",
+      "addr_city": "Girard",
+      "addr_postcode": "16417",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "1017",
+      "value": 60.76804557415281
     }
   ],
   "answer_type": "loc",
@@ -22,50 +24,45 @@
     "[2]": {
       "main_category": "tourism",
       "sub_category": "gallery",
-      "display_name": "Windy O'Connor, Charlotte, NC",
-      "geo_wkt": "POINT (-80.832602 35.247631)",
+      "display_name": "Main Street Art, Girard, PA",
+      "geo_wkt": "POINT (-80.318615 42.000159)",
       "poi": {
-        "id": 22963,
-        "geometry": "POINT (-80.832602 35.247631)",
-        "poi_name": "Windy O'Connor",
-        "osm_id": 4981396253,
+        "id": 253,
+        "geometry": "POINT (-80.318615 42.000159)",
+        "poi_name": "Main Street Art",
+        "osm_id": 8262672118,
         "tourism": "gallery",
-        "website": "https://windyoconnor.com",
-        "addr_state": "NC",
-        "addr_city": "Charlotte",
-        "addr_postcode": "28206",
-        "addr_street": "Statesville Avenue",
-        "addr_housenumber": "1824"
+        "addr_state": "PA",
+        "addr_city": "Girard",
+        "addr_postcode": "16417",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "138"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Balls Creek Campground, Catawba, NC",
-      "geo_wkt": "POINT (-81.097893 35.629208)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Asbury Barn Recreation Center, Erie, PA",
+      "geo_wkt": "POINT (-80.174816 42.060037)",
       "poi": {
-        "id": 22161,
-        "geometry": "POINT (-81.097893 35.629208)",
-        "poi_name": "Balls Creek Campground",
-        "osm_id": 1041658729,
-        "tourism": "attraction",
-        "wheelchair": "yes",
-        "operator": "Balls Creek Campground",
-        "website": "https://www.ballscreekcampground.org/",
-        "phone": "(828) 465-2205",
-        "wikidata": "Q18148188",
-        "addr_state": "NC",
-        "addr_city": "Catawba",
-        "addr_postcode": "28609",
-        "addr_street": "Buffalo Shoals Road",
-        "addr_housenumber": "2090"
+        "id": 267513,
+        "geometry": "POINT (-80.174816 42.060037)",
+        "poi_name": "Asbury Barn Recreation Center",
+        "osm_id": 7616964775,
+        "leisure": "nature_reserve",
+        "operator": "Millcreek Township",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16506",
+        "addr_street": "Asbury Road",
+        "addr_housenumber": "4106"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "fast_food"
     }
   },
-  "id": 1315,
+  "id": 1515,
   "type": "knn:towards+loc"
 }

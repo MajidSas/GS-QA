@@ -1,68 +1,74 @@
 {
-  "question": "Where is the nearest fast food restaurant as you head towards Joppa Hill Farm, Bedford, NH from Cassidy Farm Conservation Land, Millis, MA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.362131 42.184482)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery you pass when going from DoubleTree by Hilton Hotel, Bedford, MA to Swan Boats, Boston, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, ST_GeomFromText('POINT (-71.069655 42.354037)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 125571,
-      "geometry": "POINT (-71.369006 42.239986)",
-      "poi_name": "Dunkin' Donuts",
-      "osm_id": 6965112020,
-      "amenity": "fast_food",
-      "cuisine": "donut;coffee_shop",
-      "takeaway": "yes",
-      "drive_through": "yes",
+      "id": 17320,
+      "geometry": "POINT (-71.118686 42.404466)",
+      "poi_name": "Remis Sculpture Gallery",
+      "osm_id": 367777312,
+      "tourism": "gallery",
       "addr_state": "MA",
-      "addr_city": "Sherborn",
-      "addr_postcode": "01770",
-      "addr_street": "South Main Street",
-      "addr_housenumber": "21",
-      "value": 348.12814394655084
+      "value": 141.36403039589604
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Cassidy Farm Conservation Land, Millis, MA",
-      "geo_wkt": "POINT (-71.362131 42.184482)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 246987,
-        "geometry": "POINT (-71.362131 42.184482)",
-        "poi_name": "Cassidy Farm Conservation Land",
-        "osm_id": 8514477080,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Millis Conservation Commission",
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
         "addr_state": "MA",
-        "addr_city": "Millis",
-        "addr_postcode": "02054",
-        "addr_street": "Exchange Street",
-        "addr_housenumber": "433"
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Joppa Hill Farm, Bedford, NH",
-      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "sub_category": "attraction",
+      "display_name": "Swan Boats, Boston, MA",
+      "geo_wkt": "POINT (-71.069655 42.354037)",
       "poi": {
-        "id": 10743,
-        "geometry": "POINT (-71.575992 42.931889)",
-        "poi_name": "Joppa Hill Farm",
-        "osm_id": 8014170407,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "NH",
-        "addr_city": "Bedford",
-        "addr_postcode": "03110"
+        "id": 13187,
+        "geometry": "POINT (-71.069655 42.354037)",
+        "poi_name": "Swan Boats",
+        "osm_id": 4074813888,
+        "amenity": "boat_rental",
+        "historic": "landmark",
+        "tourism": "attraction",
+        "wheelchair": "yes",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "operator": "The Paget Family",
+        "website": "https://swanboats.com/",
+        "phone": "+1-617-522-1966",
+        "wikidata": "Q7653422",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02116",
+        "addr_street": "Charles Street",
+        "addr_housenumber": "4"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1316,
+  "id": 1516,
   "type": "knn:towards+loc"
 }

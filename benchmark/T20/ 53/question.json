@@ -1,21 +1,23 @@
 {
-  "question": "Where is the closest restaurant from Irish Cultural Garden, Cleveland, OH towards Trumbull Art Gallery, Warren, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography, ST_GeomFromText('POINT (-80.817851 41.237025)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest gallery encountered when moving toward Anything for Princess!, Sewaren, NJ from Hellsgate Farms, Astoria, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, ST_GeomFromText('POINT (-74.25674 40.562373)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 185763,
-      "geometry": "POINT (-81.605348 41.50921)",
-      "poi_name": "Tacologist",
-      "osm_id": 7882243356,
-      "amenity": "restaurant",
-      "cuisine": "tacos",
-      "website": "https://tacologist.net",
-      "addr_state": "OH",
-      "addr_city": "Cleveland",
-      "addr_postcode": "44106",
-      "addr_street": "Euclid Avenue",
-      "addr_housenumber": "11409",
-      "value": 114.9634814557661
+      "id": 7785,
+      "geometry": "POINT (-73.948714 40.748971)",
+      "poi_name": "False Flag",
+      "osm_id": 6402875185,
+      "tourism": "gallery",
+      "opening_hours": "Th-Su 13:00-17:00",
+      "operator": "False Flag",
+      "website": "https://false-flag.org",
+      "phone": "(917) 994-0593",
+      "addr_state": "NY",
+      "addr_city": "Long Island City",
+      "addr_postcode": "11101",
+      "addr_street": "44th Road",
+      "addr_housenumber": "11-22",
+      "value": 230.42908123414324
     }
   ],
   "answer_type": "loc",
@@ -23,46 +25,44 @@
     "[2]": {
       "main_category": "leisure",
       "sub_category": "garden",
-      "display_name": "Irish Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 247028,
-        "geometry": "POINT (-81.621886 41.522378)",
-        "poi_name": "Irish Cultural Garden",
-        "osm_id": 8567373881,
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
         "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1201"
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Trumbull Art Gallery, Warren, OH",
-      "geo_wkt": "POINT (-80.817851 41.237025)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Anything for Princess!, Sewaren, NJ",
+      "geo_wkt": "POINT (-74.25674 40.562373)",
       "poi": {
-        "id": 9809,
-        "geometry": "POINT (-80.817851 41.237025)",
-        "poi_name": "Trumbull Art Gallery",
-        "osm_id": 9000022674,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 12:00-16:00 || \"by appointment\"",
-        "phone": "(=1-330) 395-4876",
-        "addr_state": "OH",
-        "addr_city": "Warren",
-        "addr_postcode": "44481",
-        "addr_street": "North Park Avenue",
-        "addr_housenumber": "158"
+        "id": 245844,
+        "geometry": "POINT (-74.25674 40.562373)",
+        "poi_name": "Anything for Princess!",
+        "osm_id": 10177477027,
+        "leisure": "park",
+        "addr_state": "NJ",
+        "addr_city": "Sewaren",
+        "addr_postcode": "07077",
+        "addr_street": "Cathrin Street",
+        "addr_housenumber": "42"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1352,
+  "id": 1552,
   "type": "knn:towards+loc"
 }

@@ -1,48 +1,42 @@
 {
-  "question": "Any recommendations for the closest university from the stadium that can hold 2856 spectators in Eau Claire, WI?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve near the stadium designed by the architect Davis Partnership Architects and Sink Combs Dethlefs in CO would you suggest?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 187290,
-      "geometry": "POINT (-92.72049 44.954815)",
-      "poi_name": "University of Wisconsin-River Falls Hudson Center",
-      "osm_id": 1050485267,
-      "amenity": "university",
-      "operator": "University of Wisconsin-River Falls",
-      "website": "https://www.uwrf.edu/HudsonCenter/",
-      "addr_state": "WI",
-      "addr_city": "Hudson",
-      "addr_postcode": "54016",
-      "addr_street": "Hanley Road",
-      "addr_housenumber": "2501"
+      "id": 266925,
+      "geometry": "POINT (-104.674157 39.63892)",
+      "poi_name": "Proghorn Nature Area",
+      "osm_id": 11135148290,
+      "leisure": "nature_reserve",
+      "addr_state": "CO",
+      "addr_city": "Aurora",
+      "addr_postcode": "80016",
+      "addr_street": "East Quincy Avenue",
+      "addr_housenumber": "27800"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Carson Park Stadium, Eau Claire, WI",
-      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
       "poi": {
-        "id": 247238,
-        "geometry": "POINT (-91.520118 44.808189)",
-        "poi_name": "Carson Park Stadium",
-        "osm_id": 3843182571,
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
         "leisure": "stadium",
-        "sport": "american_football",
-        "wikidata": "Q16028032",
-        "addr_state": "WI",
-        "addr_city": "Eau Claire",
-        "addr_postcode": "54703",
-        "addr_street": "Carson Park Drive"
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
       }
     }
   },
-  "id": 2787,
-  "type": "knn+name+multihop2"
+  "id": 987,
+  "type": "knn+name+multi_source2"
 }

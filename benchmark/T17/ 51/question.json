@@ -1,49 +1,53 @@
 {
-  "question": "Could you tell me the location of the closest museum relative to Top of the Rock, New York, NY?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest fast food restaurant nearby Spella Park, Algonquin, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.351252 42.161567)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 2728,
-      "geometry": "POINT (-73.983725 40.755739)",
-      "poi_name": "International Center of Photography",
-      "osm_id": 566445454,
-      "tourism": "museum",
-      "website": "https://www.icp.org/",
-      "wikidata": "Q636942",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_postcode": "10036",
-      "addr_street": "6th Avenue",
-      "addr_housenumber": "1133"
+      "id": 109767,
+      "geometry": "POINT (-88.336011 42.171218)",
+      "poi_name": "Jimmy John's",
+      "osm_id": 3673799466,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "11:00-20:00",
+      "website": "https://locations.jimmyjohns.com/il/algonquin/sandwiches-466.html",
+      "takeaway": "yes",
+      "official_name": "Jimmy John's Gourmet Sandwiches",
+      "addr_state": "IL",
+      "addr_city": "Algonquin",
+      "addr_postcode": "60102",
+      "addr_street": "South Randall Road",
+      "addr_housenumber": "440"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Top of the Rock, New York, NY",
-      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Spella Park, Algonquin, IL",
+      "geo_wkt": "POINT (-88.351252 42.161567)",
       "poi": {
-        "id": 26307,
-        "geometry": "POINT (-73.979395 40.759034)",
-        "poi_name": "Top of the Rock",
-        "osm_id": 5844051585,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://www.topoftherocknyc.com/",
-        "wikidata": "Q66722774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Rockefeller Plaza",
-        "addr_housenumber": "30"
+        "id": 245791,
+        "geometry": "POINT (-88.351252 42.161567)",
+        "poi_name": "Spella Park",
+        "osm_id": 10061767035,
+        "leisure": "park",
+        "opening_hours": "06:00-sunset",
+        "operator": "Village of Algonquin",
+        "website": "https://www.algonquin.org/egov/apps/locations/facilities.egov?view=detail&id=17",
+        "addr_state": "IL",
+        "addr_city": "Algonquin",
+        "addr_postcode": "60102",
+        "addr_street": "Harnish Drive",
+        "addr_housenumber": "2610"
       }
     }
   },
-  "id": 1850,
+  "id": 750,
   "type": "knn+loc"
 }

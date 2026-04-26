@@ -1,63 +1,69 @@
 {
-  "question": "What zoo is in the direction of east from Children's Cultural Center of Native America, New York, NY, within a radius of 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, 140000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Which hospital can be found northeast of Yellow River Game Ranch, Lilburn, GA inside a 150 kilometers range?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, 150000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 6973,
-      "geometry": "POINT (-73.944872 40.832146)",
-      "poi_name": "Sloth Encounters",
-      "osm_id": 8791898433,
-      "tourism": "zoo",
-      "opening_hours": "Sa-Su 11:00-19:00",
-      "website": "https://www.slothencounters.com/",
-      "phone": "+1-631-257-5683",
-      "zoo": "petting_zoo",
-      "addr_state": "NY",
-      "addr_city": "Hauppauge",
-      "addr_postcode": "11788",
-      "addr_street": "Veterans Memorial Highway",
-      "addr_housenumber": "551"
+      "id": 167681,
+      "geometry": "POINT (-84.087955 33.833501)",
+      "poi_name": "Stephens County Hospital",
+      "osm_id": 358760090,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://stephenscountyhospital.com/",
+      "phone": "+1 (706) 282-4200",
+      "emergency": "yes",
+      "addr_state": "GA",
+      "addr_city": "Toccoa",
+      "addr_postcode": "30577",
+      "addr_street": "Hospital Drive",
+      "addr_housenumber": "163"
+    },
+    {
+      "id": 243026,
+      "geometry": "POINT (-84.087955 33.833501)",
+      "poi_name": "St. Marys Sacred Heart Emergency Room",
+      "osm_id": 7618396662,
+      "amenity": "hospital",
+      "healthcare": "hospital"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Children's Cultural Center of Native America, New York, NY",
-      "geo_wkt": "POINT (-73.944872 40.832146)",
+      "sub_category": "zoo",
+      "display_name": "Yellow River Game Ranch, Lilburn, GA",
+      "geo_wkt": "POINT (-84.087955 33.833501)",
       "poi": {
-        "id": 979,
-        "geometry": "POINT (-73.944872 40.832146)",
-        "poi_name": "Children's Cultural Center of Native America",
-        "osm_id": 2768275469,
-        "tourism": "museum",
-        "fee": "yes",
-        "opening_hours": "Mo-Fr 10:30-13:00",
-        "operator": "Nitchen Inc.",
-        "website": "https://www.cccona.org/",
-        "phone": "+1-917-902-6628",
-        "museum": "children",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10032",
-        "addr_street": "West 155th Street",
-        "addr_housenumber": "550"
+        "id": 5592,
+        "geometry": "POINT (-84.087955 33.833501)",
+        "poi_name": "Yellow River Game Ranch",
+        "osm_id": 827126721,
+        "tourism": "zoo",
+        "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+        "website": "https://www.yellowrivergameranch.com/",
+        "phone": "+1 (770) 972-6643",
+        "zoo": "petting_zoo",
+        "addr_state": "GA",
+        "addr_city": "Lilburn",
+        "addr_postcode": "30047",
+        "addr_street": "US 78",
+        "addr_housenumber": "4525"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2653,
+  "id": 2353,
   "type": "range:direction+name"
 }

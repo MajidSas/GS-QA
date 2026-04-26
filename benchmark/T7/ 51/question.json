@@ -1,32 +1,30 @@
 {
-  "question": "What is the name of the architect that designed the closest museum from Bastion Studios, Erie, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the nickname of the closest university from Bastion Studios, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 20273,
-      "geometry": "POINT (-80.093623 42.126779)",
-      "poi_name": "Watson-Curtze Mansion",
-      "osm_id": 7977022499,
-      "tourism": "museum",
-      "operator": "Hagan History Center",
-      "website": "https://www.eriehistory.org/",
-      "museum": "history",
-      "wikidata": "Q7974795",
+      "id": 133663,
+      "geometry": "POINT (-80.086729 42.128105)",
+      "poi_name": "Gannon University",
+      "osm_id": 10003127082,
+      "amenity": "university",
+      "operator": "Gannon University",
+      "wikidata": "Q5521430",
       "addr_state": "PA",
       "addr_city": "Erie",
-      "addr_postcode": "16507",
-      "addr_street": "West 6th Street",
-      "addr_housenumber": "356",
-      "multihop_answer": "Green & Wicks",
-      "multihop_attribute": "Architect",
-      "multihop_long_answer": "Watson-Curtze Mansion Architect: Green & Wicks"
+      "addr_postcode": "16541",
+      "addr_street": "University Square",
+      "addr_housenumber": "109",
+      "multi_source_answer": "Golden Knights",
+      "multi_source_attribute": "Nickname",
+      "multi_source_long_answer": "Gannon University Nickname: Golden Knights"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
@@ -47,6 +45,6 @@
       }
     }
   },
-  "id": 950,
-  "type": "knn+name+multihop1"
+  "id": 850,
+  "type": "knn+name+multi_source1"
 }

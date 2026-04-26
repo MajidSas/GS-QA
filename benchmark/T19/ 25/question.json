@@ -1,51 +1,53 @@
 {
-  "question": "Where is the closest hospital positioned towards the east of Pennsylvania Mining Museum, Elysburg, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.506624 40.87938)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest zoo that lies north of MSU Poultry Research & Teaching Center, Lansing, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.471691 42.682206)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 115288,
-      "geometry": "POINT (-76.506624 40.87938)",
-      "poi_name": "Lehigh Valley Hospital - Carbon",
-      "osm_id": 8888300330,
-      "amenity": "hospital",
-      "operator": "Lehigh Valley Health Network",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "PA",
-      "addr_city": "Lehighton",
-      "addr_postcode": "18235",
-      "addr_street": "E Blakeslee BLVD DR",
-      "addr_housenumber": "2128"
+      "id": 19960,
+      "geometry": "POINT (-84.471691 42.682206)",
+      "poi_name": "Oswald's Bear Ranch",
+      "osm_id": 7782642256,
+      "tourism": "zoo",
+      "website": "https://www.oswaldsbearranch.com/",
+      "phone": "+1 906 293 3147",
+      "addr_state": "MI",
+      "addr_city": "Newberry",
+      "addr_postcode": "49868",
+      "addr_street": "County Road 407",
+      "addr_housenumber": "13814"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Pennsylvania Mining Museum, Elysburg, PA",
-      "geo_wkt": "POINT (-76.506624 40.87938)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "MSU Poultry Research & Teaching Center, Lansing, MI",
+      "geo_wkt": "POINT (-84.471691 42.682206)",
       "poi": {
-        "id": 9186,
-        "geometry": "POINT (-76.506624 40.87938)",
-        "poi_name": "Pennsylvania Mining Museum",
-        "osm_id": 3700461513,
-        "tourism": "museum",
-        "fee": "no",
-        "addr_state": "PA",
-        "addr_city": "Elysburg",
-        "addr_postcode": "17824",
-        "addr_street": "Knoebels Boulevard",
-        "addr_housenumber": "391"
+        "id": 77434,
+        "geometry": "POINT (-84.471691 42.682206)",
+        "poi_name": "MSU Poultry Research & Teaching Center",
+        "osm_id": 9822138005,
+        "amenity": "university",
+        "opening_hours": "Mo-Fr 07:30-16:00",
+        "operator": "Michigan State University",
+        "website": "http://www.ans.msu.edu/facilities/poultry_research_teaching_center",
+        "phone": "+1 517 355 0360",
+        "addr_state": "MI",
+        "addr_city": "Lansing",
+        "addr_postcode": "48910",
+        "addr_street": "East Jolly Road",
+        "addr_housenumber": "5252"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
   "id": 1124,

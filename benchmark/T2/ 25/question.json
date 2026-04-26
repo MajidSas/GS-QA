@@ -1,63 +1,80 @@
 {
-  "question": "Is there a chance you could find me a steak house, preferably within 60 kilometers from Chestatee Overlook, Dahlonega, GA?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography, 60000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%steak_house%';\n",
+  "question": "Can you look up an emergency hospital within 160 kilometers from Procter Farm Preserve, Wendell, NC?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography, 160000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 120040,
-      "geometry": "POINT (-83.967094 34.872163)",
-      "poi_name": "LongHorn Steakhouse",
-      "osm_id": 9136142035,
-      "amenity": "restaurant",
-      "cuisine": "steak_house"
+      "id": 100899,
+      "geometry": "POINT (-78.491815 34.653104)",
+      "poi_name": "Bladen Medical Associates",
+      "osm_id": 6604059257,
+      "amenity": "hospital",
+      "healthcare": "clinic",
+      "emergency": "yes",
+      "addr_state": "NC",
+      "addr_city": "White Lake",
+      "addr_street": "White Lake Drive",
+      "addr_housenumber": "273"
     },
     {
-      "id": 127457,
-      "geometry": "POINT (-84.044029 34.357238)",
-      "poi_name": "LongHorn Steakhouse",
-      "osm_id": 8066668788,
-      "amenity": "restaurant",
-      "cuisine": "steak_house",
-      "website": "https://longhornsteakhouse.com/",
-      "phone": "+1-706-265-2007",
-      "addr_postcode": "30534",
-      "addr_street": "Hwy 400 South",
-      "addr_housenumber": "795"
+      "id": 167557,
+      "geometry": "POINT (-78.703262 35.818116)",
+      "poi_name": "UNC REX Healthcare",
+      "osm_id": 357814276,
+      "amenity": "hospital",
+      "operator": "UNC Health Care",
+      "website": "http://www.rexhealth.com/",
+      "phone": "+1 919 784 3100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7319213",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27607",
+      "addr_street": "Lake Boone Trail",
+      "addr_housenumber": "4420"
+    },
+    {
+      "id": 181094,
+      "geometry": "POINT (-78.449446 36.330865)",
+      "poi_name": "Maria Parham Health",
+      "osm_id": 10832193337,
+      "amenity": "hospital",
+      "website": "https://www.mariaparham.com/",
+      "phone": "+1 252 436 1100",
+      "emergency": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "steak house",
-      "poi_filter_sql": "cuisine ILIKE '%steak_house%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Chestatee Overlook, Dahlonega, GA",
-      "geo_wkt": "POINT (-83.982699 34.665048)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Procter Farm Preserve, Wendell, NC",
+      "geo_wkt": "POINT (-78.390009 35.831172)",
       "poi": {
-        "id": 12945,
-        "geometry": "POINT (-83.982699 34.665048)",
-        "poi_name": "Chestatee Overlook",
-        "osm_id": 3980488412,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "opening_hours": "sunrise-sunset",
-        "operator": "United States Forest Service",
-        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
-        "addr_state": "GA",
-        "addr_city": "Dahlonega",
-        "addr_postcode": "30533",
-        "addr_street": "GA 60"
+        "id": 247665,
+        "geometry": "POINT (-78.390009 35.831172)",
+        "poi_name": "Procter Farm Preserve",
+        "osm_id": 8057386012,
+        "leisure": "nature_reserve",
+        "addr_state": "NC",
+        "addr_city": "Wendell",
+        "addr_postcode": "27591",
+        "addr_street": "Doc Procter Road",
+        "addr_housenumber": "7201"
       }
     }
   },
-  "id": 524,
+  "id": 2524,
   "type": "range:non_spat_filter+name"
 }

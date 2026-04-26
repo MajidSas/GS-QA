@@ -1,52 +1,40 @@
 {
-  "question": "What's the nearest aquarium from the university that has Victor E. Knight as its mascot in Erie, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.086729 42.128105)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve is closest in relation to the zoo that was opened on 1868 in Manitowoc, WI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 27034,
-      "geometry": "POINT (-83.296505 42.70361)",
-      "poi_name": "Sea Life Aquarium",
-      "osm_id": 7653305135,
-      "tourism": "aquarium",
-      "wheelchair": "yes",
-      "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-19:00; Su 11:00-18:00",
-      "website": "https://www.visitsealife.com/michigan/",
-      "phone": "+1 248-409-6001",
-      "toilets": "yes",
-      "addr_state": "MI",
-      "addr_city": "Auburn Hills",
-      "addr_postcode": "48326",
-      "addr_street": "Baldwin Road",
-      "addr_housenumber": "4316"
+      "id": 250480,
+      "geometry": "POINT (-87.512301 44.208885)",
+      "poi_name": "Wilderness Ridge State Natural Area",
+      "osm_id": 354531362,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Gannon University, Erie, PA",
-      "geo_wkt": "POINT (-80.086729 42.128105)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
       "poi": {
-        "id": 133663,
-        "geometry": "POINT (-80.086729 42.128105)",
-        "poi_name": "Gannon University",
-        "osm_id": 10003127082,
-        "amenity": "university",
-        "operator": "Gannon University",
-        "wikidata": "Q5521430",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16541",
-        "addr_street": "University Square",
-        "addr_housenumber": "109"
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
       }
     }
   },
-  "id": 2761,
-  "type": "knn+name+multihop2"
+  "id": 961,
+  "type": "knn+name+multi_source2"
 }

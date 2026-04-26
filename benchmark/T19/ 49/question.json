@@ -1,48 +1,52 @@
 {
-  "question": "Where's the nearest golf course located in the southwest of Georgia Veterans Education Center, Warner Robins, GA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.597294 32.601434)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel when moving toward the south from SeaQuest, Lynchburg, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247631,
-      "geometry": "POINT (-83.597294 32.601434)",
-      "poi_name": "Houston Lake Country Club",
-      "osm_id": 153999480,
-      "leisure": "golf_course",
-      "addr_state": "GA",
-      "addr_city": "Perry",
-      "addr_postcode": "31069",
-      "addr_street": "Champions Way",
-      "addr_housenumber": "100"
+      "id": 4493,
+      "geometry": "POINT (-79.178489 37.365024)",
+      "poi_name": "Sleep Inn Peace",
+      "osm_id": 11273503131,
+      "tourism": "hotel",
+      "website": "https://www.sleepinnpeace.com",
+      "internet_access": "wlan",
+      "phone": "+1-434-259-7575",
+      "addr_state": "VA",
+      "addr_city": "Altavista",
+      "addr_postcode": "24517",
+      "addr_street": "Main Street",
+      "addr_housenumber": "534"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Georgia Veterans Education Center, Warner Robins, GA",
-      "geo_wkt": "POINT (-83.597294 32.601434)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
       "poi": {
-        "id": 155741,
-        "geometry": "POINT (-83.597294 32.601434)",
-        "poi_name": "Georgia Veterans Education Center",
-        "osm_id": 4300023753,
-        "amenity": "university",
-        "website": "https://gavectr.org/",
-        "addr_state": "GA",
-        "addr_city": "Warner Robins",
-        "addr_postcode": "31093",
-        "addr_street": "Armed Forces Boulevard",
-        "addr_housenumber": "1001"
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
   "id": 1148,

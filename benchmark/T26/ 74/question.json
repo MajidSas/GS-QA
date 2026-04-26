@@ -1,45 +1,52 @@
 {
-  "question": "How distant is the closest caf\u00e9 from the point Petzel Gallery, New York, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.004233 40.749237)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.004233 40.749237)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the proximity distance of the closest theme park to West End Park, Queensbury, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 123394,
-      "geometry": "POINT (-74.00468 40.747315)",
-      "poi_name": "Juban",
-      "osm_id": 6852842985,
-      "amenity": "cafe",
-      "cuisine": "japanese",
-      "distance": 216.79729102
+      "id": 18855,
+      "geometry": "POINT (-74.967749 43.714598)",
+      "poi_name": "Enchanted Forest Water Safari",
+      "osm_id": 2424113484,
+      "leisure": "water_park",
+      "tourism": "theme_park",
+      "website": "https://www.watersafari.com/",
+      "phone": "(315) 369-6145",
+      "addr_state": "NY",
+      "addr_city": "Old Forge",
+      "addr_postcode": "13420",
+      "addr_street": "State Highway 28",
+      "addr_housenumber": "3183",
+      "distance": 113790.6440786
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Petzel Gallery, New York, NY",
-      "geo_wkt": "POINT (-74.004233 40.749237)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "West End Park, Queensbury, NY",
+      "geo_wkt": "POINT (-73.679735 43.302111)",
       "poi": {
-        "id": 19662,
-        "geometry": "POINT (-74.004233 40.749237)",
-        "poi_name": "Petzel Gallery",
-        "osm_id": 10859974152,
-        "tourism": "gallery",
-        "opening_hours": "tu-sa 10:00-18:00",
-        "website": "https://www.petzel.com",
-        "phone": "+1-212-680-9467",
+        "id": 245515,
+        "geometry": "POINT (-73.679735 43.302111)",
+        "poi_name": "West End Park",
+        "osm_id": 3009465102,
+        "leisure": "park",
+        "opening_hours": "Apr-Nov: sunrise-sunset",
+        "operator": "Town of QueensburyRecreation Department",
+        "website": "https://recreation.queensbury.net/parks/",
         "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10001",
-        "addr_street": "West 25th Street",
-        "addr_housenumber": "520"
+        "addr_city": "Queensbury",
+        "addr_postcode": "12804",
+        "addr_street": "Luzerne Road",
+        "addr_housenumber": "117"
       }
     }
   },
-  "id": 2473,
+  "id": 673,
   "type": "knn+distance"
 }

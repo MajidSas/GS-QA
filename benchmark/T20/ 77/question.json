@@ -1,69 +1,66 @@
 {
-  "question": "Where is the nearest caf\u00e9 as you progress towards Wellington Reservation, Wellington, OH from Mentor Civic Arena, Mentor, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hotel positioned on the way to Thunder Road Museum, Mt Airy, NC from Basin Cove Overlook, Laurel Springs, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.20012 36.39093)',4326)::geography, ST_GeomFromText('POINT (-80.708507 36.502824)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.20012 36.39093)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.20012 36.39093)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 106122,
-      "geometry": "POINT (-81.366879 41.65948)",
-      "poi_name": "Starbucks",
-      "osm_id": 8665711328,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "addr_state": "OH",
-      "addr_city": "Mentor",
-      "addr_postcode": "44060",
-      "addr_street": "Mentor Avenue",
-      "addr_housenumber": "7681",
-      "value": 231.14238284513158
+      "id": 10443,
+      "geometry": "POINT (-80.78382 36.39583)",
+      "poi_name": "Surry Inn",
+      "osm_id": 6848895173,
+      "tourism": "hotel",
+      "phone": "+13363663000",
+      "addr_state": "NC",
+      "addr_city": "Dobson",
+      "addr_postcode": "27017",
+      "addr_street": "Zephyr Road",
+      "addr_housenumber": "2340",
+      "value": 74.12049112199409
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Mentor Civic Arena, Mentor, OH",
-      "geo_wkt": "POINT (-81.332139 41.698458)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Basin Cove Overlook, Laurel Springs, NC",
+      "geo_wkt": "POINT (-81.20012 36.39093)",
       "poi": {
-        "id": 246704,
-        "geometry": "POINT (-81.332139 41.698458)",
-        "poi_name": "Mentor Civic Arena",
-        "osm_id": 8842654476,
-        "leisure": "stadium",
-        "operator": "City of Mentor",
-        "addr_state": "OH",
-        "addr_city": "Mentor",
-        "addr_postcode": "44060",
-        "addr_street": "Munson Road",
-        "addr_housenumber": "8600"
+        "id": 390,
+        "geometry": "POINT (-81.20012 36.39093)",
+        "poi_name": "Basin Cove Overlook",
+        "osm_id": 8353843237,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Laurel Springs",
+        "addr_postcode": "28644",
+        "addr_street": "Blue Ridge Parkway"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wellington Reservation, Wellington, OH",
-      "geo_wkt": "POINT (-82.231694 41.147108)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Thunder Road Museum, Mt Airy, NC",
+      "geo_wkt": "POINT (-80.708507 36.502824)",
       "poi": {
-        "id": 248135,
-        "geometry": "POINT (-82.231694 41.147108)",
-        "poi_name": "Wellington Reservation",
-        "osm_id": 7256911177,
-        "leisure": "nature_reserve",
-        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
-        "addr_state": "OH",
-        "addr_city": "Wellington",
-        "addr_postcode": "44090",
-        "addr_street": "Jones Road",
-        "addr_housenumber": "535"
+        "id": 262,
+        "geometry": "POINT (-80.708507 36.502824)",
+        "poi_name": "Thunder Road Museum",
+        "osm_id": 8267030439,
+        "tourism": "museum",
+        "website": "https://thunderdomecarmuseum.org/",
+        "phone": "+13367865127",
+        "addr_state": "NC",
+        "addr_city": "Mt Airy",
+        "addr_postcode": "27030",
+        "addr_street": "Fast Track Lane",
+        "addr_housenumber": "124"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1376,
+  "id": 1576,
   "type": "knn:towards+loc"
 }

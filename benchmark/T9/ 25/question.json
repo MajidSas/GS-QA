@@ -1,47 +1,47 @@
 {
-  "question": "Which restaurant is closest when moving in the north direction from Portland Seminary, Tigard, OR?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.747463 45.427886)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve is the nearest in the southwest direction of Childrens's Nature Center, Grand Junction, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 140623,
-      "geometry": "POINT (-122.747463 45.427886)",
-      "poi_name": "Six Corners",
-      "osm_id": 6254355183,
-      "amenity": "restaurant"
+      "id": 247911,
+      "geometry": "POINT (-108.603856 39.09253)",
+      "poi_name": "Warm Springs Natural Area",
+      "osm_id": 6070908832,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Portland Seminary, Tigard, OR",
-      "geo_wkt": "POINT (-122.747463 45.427886)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Childrens's Nature Center, Grand Junction, CO",
+      "geo_wkt": "POINT (-108.603856 39.09253)",
       "poi": {
-        "id": 223704,
-        "geometry": "POINT (-122.747463 45.427886)",
-        "poi_name": "Portland Seminary",
-        "osm_id": 11061306203,
-        "amenity": "university",
-        "operator": "George Fox University",
-        "website": "https://www.georgefox.edu/seminary/",
-        "phone": "+1-503-554-6150",
-        "addr_state": "OR",
-        "addr_city": "Tigard",
-        "addr_postcode": "97223",
-        "addr_street": "Southwest 68th Avenue",
-        "addr_housenumber": "12753"
+        "id": 8067,
+        "geometry": "POINT (-108.603856 39.09253)",
+        "poi_name": "Childrens's Nature Center",
+        "osm_id": 6546260867,
+        "description": "Zoo and aquarium great for children and exciting for all ages. Over 100 unique creatures and educational exhibits.",
+        "tourism": "zoo",
+        "opening_hours": "Su 12:00-16:00; Mo-Sa 10:00-16:00",
+        "phone": "+1-970-241-1000",
+        "addr_state": "CO",
+        "addr_city": "Grand Junction",
+        "addr_postcode": "81501",
+        "addr_street": "US 6 and 50",
+        "addr_housenumber": "2424"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2524,
+  "id": 1224,
   "type": "knn:direction+name"
 }

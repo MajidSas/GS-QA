@@ -1,45 +1,42 @@
 {
-  "question": "Seeking the nearest caf\u00e9 from the hospital that has pediatric emergency department in Bronx, NY, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which university is the closest one near the museum designed by the architect Marsh and Saxelbye, architects in Jacksonville, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.656807 30.337046)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 62327,
-      "geometry": "POINT (-73.879302 40.875087)",
-      "poi_name": "New Star Coffee Shop",
-      "osm_id": 5564035840,
-      "amenity": "cafe",
-      "addr_street": "Bainbridge Avenue",
-      "addr_housenumber": "3150"
+      "id": 140733,
+      "geometry": "POINT (-81.214463 29.670285)",
+      "poi_name": "Whitney Laboratory for Marine Bioscience",
+      "osm_id": 6258553118,
+      "amenity": "university"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
-      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Karpeles Manuscript Library, Jacksonville, FL",
+      "geo_wkt": "POINT (-81.656807 30.337046)",
       "poi": {
-        "id": 37381,
-        "geometry": "POINT (-73.878898 40.880372)",
-        "poi_name": "Children's Hospital at Montefiore",
-        "osm_id": 2810045562,
-        "amenity": "hospital",
-        "operator": "Montefiore Medical Center",
-        "healthcare": "hospital",
-        "wikidata": "Q30279893",
-        "addr_state": "NY",
-        "addr_city": "Bronx",
-        "addr_postcode": "10467",
-        "addr_street": "Bainbridge Avenue",
-        "addr_housenumber": "3415"
+        "id": 1648,
+        "geometry": "POINT (-81.656807 30.337046)",
+        "poi_name": "Karpeles Manuscript Library",
+        "osm_id": 3099855229,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 10:00-15:00; Sa 10:00-16:00",
+        "website": "https://karpeles.com/museums/jax.php",
+        "wikidata": "Q6373297",
+        "addr_state": "FL",
+        "addr_city": "Jacksonville",
+        "addr_postcode": "32206",
+        "addr_street": "West 1st Street"
       }
     }
   },
-  "id": 2714,
-  "type": "knn+name+multihop2"
+  "id": 914,
+  "type": "knn+name+multi_source2"
 }

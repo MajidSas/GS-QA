@@ -1,42 +1,43 @@
 {
-  "question": "Within a 130 kilometers distance from Kerri Art Studio and Gallery, Willimantic, CT, how many beach resorts are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.215196 41.712552)',4326)::geography, 130000)\nAND leisure = 'beach_resort';\n",
+  "question": "What\u2019s the total number of viewpoints within a 170 kilometers distance from the Dells Mill and Museum, Augusta, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 170000)\nAND tourism = 'viewpoint';\n",
   "answers": [
     {
-      "count": 1
+      "count": 103
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Kerri Art Studio and Gallery, Willimantic, CT",
-      "geo_wkt": "POINT (-72.215196 41.712552)",
+      "sub_category": "museum",
+      "display_name": "The Dells Mill and Museum, Augusta, WI",
+      "geo_wkt": "POINT (-91.148747 44.72554)",
       "poi": {
-        "id": 27121,
-        "geometry": "POINT (-72.215196 41.712552)",
-        "poi_name": "Kerri Art Studio and Gallery",
-        "osm_id": 7712318488,
-        "tourism": "gallery",
-        "website": "http://www.kerriquirk.com/",
-        "phone": "+1 (860) 456-8615",
-        "addr_state": "CT",
-        "addr_city": "Willimantic",
-        "addr_postcode": "06226",
-        "addr_street": "Main Street",
-        "addr_housenumber": "861"
+        "id": 540,
+        "geometry": "POINT (-91.148747 44.72554)",
+        "poi_name": "The Dells Mill and Museum",
+        "osm_id": 8435491750,
+        "tourism": "museum",
+        "opening_hours": "May-Oct 10:00-17:00",
+        "website": "https://dellsmill.com/",
+        "phone": "715-286-2714",
+        "addr_state": "WI",
+        "addr_city": "Augusta",
+        "addr_postcode": "54722",
+        "addr_street": "County Highway V",
+        "addr_housenumber": "E18855"
       }
     }
   },
-  "id": 2296,
+  "id": 1896,
   "type": "range+count"
 }

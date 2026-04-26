@@ -1,54 +1,56 @@
 {
-  "question": "What's the nearest emergency hospital available from Top of the Rock, New York, NY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant with a patio nearby Cardiovascular Institute of New England, Cranston, RI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%patio%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167513,
-      "geometry": "POINT (-74.000833 40.737778)",
-      "poi_name": "Lenox Health Greenwich Village",
-      "osm_id": 357620244,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Northwell Health",
-      "website": "https://www.northwell.edu/lenox-health-greenwich-village",
-      "phone": "+1 646 665 6000",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_city": "New York",
-      "addr_postcode": "10011",
-      "addr_street": "7th Avenue",
-      "addr_housenumber": "30"
+      "id": 169226,
+      "geometry": "POINT (-71.104027 42.314417)",
+      "poi_name": "The Haven",
+      "osm_id": 2295360691,
+      "amenity": "restaurant",
+      "cuisine": "scottish;burger;pizza;fish_and_chips",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-We 17:00-23:00; Th-Fr 17:00-00:00; Sa-Su 11:00-00:00",
+      "website": "https://thehavenjp.com/",
+      "outdoor_seating": "patio",
+      "delivery": "yes",
+      "addr_state": "MA",
+      "addr_city": "Jamaica Plain",
+      "addr_postcode": "02130",
+      "addr_street": "Amory Street",
+      "addr_housenumber": "284"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant with a patio",
+      "poi_filter_sql": "outdoor_seating ILIKE '%patio%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Top of the Rock, New York, NY",
-      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
       "poi": {
-        "id": 26307,
-        "geometry": "POINT (-73.979395 40.759034)",
-        "poi_name": "Top of the Rock",
-        "osm_id": 5844051585,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://www.topoftherocknyc.com/",
-        "wikidata": "Q66722774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Rockefeller Plaza",
-        "addr_housenumber": "30"
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
       }
     }
   },
-  "id": 641,
+  "id": 1441,
   "type": "knn:non_spat_filter+name"
 }

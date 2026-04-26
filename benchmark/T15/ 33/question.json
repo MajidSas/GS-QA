@@ -1,58 +1,184 @@
 {
-  "question": "Where can I find a nature reserve towards the southwest of Radcliffe Institute for Advanced Studies, MA within 60 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.122317 42.376159)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.122317 42.376159)',4326)::geography, 60000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a university within 70 kilometers toward the southwest of 70 Park Avenue Hotel, New York, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.979628 40.74986)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.979628 40.74986)',4326)::geography, 70000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 246987,
-      "geometry": "POINT (-71.122317 42.376159)",
-      "poi_name": "Cassidy Farm Conservation Land",
-      "osm_id": 8514477080,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Millis Conservation Commission",
-      "addr_state": "MA",
-      "addr_city": "Millis",
-      "addr_postcode": "02054",
-      "addr_street": "Exchange Street",
-      "addr_housenumber": "433"
+      "id": 228324,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "Stanford in New York Center",
+      "osm_id": 4338958231,
+      "amenity": "university",
+      "operator": "The Board of Trustees of the Leland Stanford Junior University",
+      "website": "https://undergrad.stanford.edu/stanford-in-new-york",
+      "phone": "(212) 768-2905",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10010",
+      "addr_street": "Broadway",
+      "addr_housenumber": "915"
     },
     {
-      "id": 246989,
-      "geometry": "POINT (-71.122317 42.376159)",
-      "poi_name": "Dewey Farm Conservation Land",
-      "osm_id": 8514570141,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Millis Conservation Commission",
-      "addr_state": "MA",
-      "addr_city": "Millis",
-      "addr_postcode": "02054",
-      "addr_street": "Orchard Street"
+      "id": 35095,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "Student Study Center",
+      "osm_id": 2710177862,
+      "amenity": "university",
+      "operator": "The New School",
+      "addr_city": "New York",
+      "addr_postcode": "10011",
+      "addr_street": "5th Avenue",
+      "addr_housenumber": "90"
+    },
+    {
+      "id": 35178,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "University of Phoenix",
+      "osm_id": 2712074758,
+      "amenity": "university"
+    },
+    {
+      "id": 80601,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "NYU Graduate School of Arts and Sciences",
+      "osm_id": 886430773,
+      "amenity": "university"
+    },
+    {
+      "id": 85574,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "NYU Philosophy Department",
+      "osm_id": 1882727600,
+      "amenity": "university"
+    },
+    {
+      "id": 158187,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "New York University School of Law",
+      "osm_id": 4738808806,
+      "amenity": "university",
+      "wheelchair": "yes",
+      "operator": "New York University",
+      "wikidata": "Q846173",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10012",
+      "addr_street": "Washington Square South",
+      "addr_housenumber": "40"
+    },
+    {
+      "id": 158346,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "Courant Institute of Mathematical Sciences",
+      "osm_id": 4743911217,
+      "amenity": "university",
+      "internet_access": "no",
+      "wikidata": "Q946028",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10012",
+      "addr_street": "Mercer Street",
+      "addr_housenumber": "251"
+    },
+    {
+      "id": 167486,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "Saint John's University Staten Island Campus",
+      "osm_id": 357574570,
+      "amenity": "university"
+    },
+    {
+      "id": 167539,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "University of Phoenix Jersey City Campus",
+      "osm_id": 357750415,
+      "amenity": "university"
+    },
+    {
+      "id": 168213,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "NYU Courant Institute of Mathematical Sciences",
+      "osm_id": 368055987,
+      "amenity": "university",
+      "internet_access": "wlan",
+      "phone": "+12129983315",
+      "wikidata": "Q946028",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_street": "Mercer Street",
+      "addr_housenumber": "251"
+    },
+    {
+      "id": 168461,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "The New School",
+      "osm_id": 2259028668,
+      "amenity": "university",
+      "addr_street": "East 16th Street",
+      "addr_housenumber": "6"
+    },
+    {
+      "id": 169334,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "NYU Silver School of Social Work",
+      "osm_id": 2297023428,
+      "amenity": "university",
+      "wikidata": "Q3339074",
+      "addr_postcode": "10003",
+      "addr_street": "Washington Square North",
+      "addr_housenumber": "1-3 Washington Square North"
+    },
+    {
+      "id": 173858,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "NYU Stern School of Business",
+      "osm_id": 2458230564,
+      "amenity": "university",
+      "operator": "New York University",
+      "wikidata": "Q770467"
+    },
+    {
+      "id": 192205,
+      "geometry": "POINT (-73.979628 40.74986)",
+      "poi_name": "Parsons School of Design",
+      "osm_id": 1427294706,
+      "amenity": "university",
+      "addr_postcode": "10011",
+      "addr_street": "5th Avenue",
+      "addr_housenumber": "66"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Radcliffe Institute for Advanced Studies, MA",
-      "geo_wkt": "POINT (-71.122317 42.376159)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "70 Park Avenue Hotel, New York, NY",
+      "geo_wkt": "POINT (-73.979628 40.74986)",
       "poi": {
-        "id": 70992,
-        "geometry": "POINT (-71.122317 42.376159)",
-        "poi_name": "Radcliffe Institute for Advanced Studies",
-        "osm_id": 11378728082,
-        "amenity": "university",
-        "wikidata": "Q7280030",
-        "addr_state": "MA"
+        "id": 861,
+        "geometry": "POINT (-73.979628 40.74986)",
+        "poi_name": "70 Park Avenue Hotel",
+        "osm_id": 2714855400,
+        "description": "70 Park Avenue Hotel is a hotel in New York. The hotel has free Wi-Fi, self parking, fitness center, e-concierge, comfort rooms, accommodation for dogs and business center.",
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "opening_hours": "24/7",
+        "operator": "Kimpton",
+        "internet_access": "yes",
+        "phone": "+1 212-973-2400",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10016",
+        "addr_street": "Park Avenue",
+        "addr_housenumber": "70"
       }
     },
     "[4]": {
@@ -60,6 +186,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 32,
+  "id": 2232,
   "type": "range:direction+loc"
 }

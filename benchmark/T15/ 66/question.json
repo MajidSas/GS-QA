@@ -1,53 +1,44 @@
 {
-  "question": "Where can I find a zoo east of Cal, Sr.'s Yard, Aberdeen, MD, within a radius of 180 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 180000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Where are a stadium positioned within 160 kilometers relative to Acushnet Sawmill, Acushnet, MA in the east direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography, 160000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 20004,
-      "geometry": "POINT (-76.186327 39.533089)",
-      "poi_name": "Popcorn Park Animal Refuge",
-      "osm_id": 7810633955,
-      "tourism": "zoo",
-      "fee": "yes",
-      "opening_hours": "Mo-Su 11:00-17:00",
-      "operator": "Associated Humane Societies",
-      "website": "https://ahscares.org/popcorn-park/",
-      "phone": "(609) 693-1900",
-      "addr_state": "NJ",
-      "addr_city": "Forked River",
-      "addr_postcode": "08731",
-      "addr_street": "Humane Way",
-      "addr_housenumber": "1"
+      "id": 265368,
+      "geometry": "POINT (-70.919597 41.683778)",
+      "poi_name": "Cape Cod Coliseum",
+      "osm_id": 367781392,
+      "leisure": "stadium",
+      "wikidata": "Q5034679",
+      "addr_state": "MA"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "sub_category": "park",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
+        "leisure": "park",
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
       }
     },
     "[4]": {
@@ -55,6 +46,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 65,
+  "id": 2265,
   "type": "range:direction+loc"
 }

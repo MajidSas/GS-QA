@@ -1,55 +1,223 @@
 {
-  "question": "Where can I find a stadium in the direction of northwest from Captain Mike's Fun Park, Bridgman, MI within 180 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography, 180000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Where are a caf\u00e9 located within a 30 kilometers radius to the south of Novant Health & Vascular Institute - Elizabeth (Cardio), Charlotte, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.826688 35.211546)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.826688 35.211546)',4326)::geography, 30000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 266349,
-      "geometry": "POINT (-86.576965 41.919871)",
-      "poi_name": "Team 1732 Thunderdome",
-      "osm_id": 7209590118,
-      "leisure": "stadium",
-      "operator": "Hilltopper Robotics Team 1732",
-      "addr_state": "WI",
-      "addr_city": "Milwaukee",
-      "addr_postcode": "53233",
-      "addr_street": "West Michigan Street",
-      "addr_housenumber": "2203"
+      "id": 210898,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 5127122853,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28277",
+      "addr_street": "Conlan Circle",
+      "addr_housenumber": "13855"
+    },
+    {
+      "id": 212295,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 5197994459,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 236476,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Cafe Moka",
+      "osm_id": 5794491272,
+      "amenity": "cafe"
+    },
+    {
+      "id": 47000,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Planet Smoothie",
+      "osm_id": 3302844771,
+      "amenity": "cafe"
+    },
+    {
+      "id": 47008,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 3302857079,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 47055,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "FABO Coffee Art Bar",
+      "osm_id": 3304497478,
+      "amenity": "cafe",
+      "website": "www.fabocafe.com",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28210",
+      "addr_street": "Park Road",
+      "addr_housenumber": "8428"
+    },
+    {
+      "id": 47083,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Yafa Market & Caf\u00e9",
+      "osm_id": 3304968068,
+      "amenity": "cafe"
+    },
+    {
+      "id": 47213,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Amelie's French Bakery and Cafe",
+      "osm_id": 3313321873,
+      "amenity": "cafe",
+      "cuisine": "french;coffee_shop;bakery;cake;dessert",
+      "website": "https://www.ameliesfrenchbakery.com/locations/carmel-commons",
+      "internet_access": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28226",
+      "addr_street": "Pineville-Matthews Road",
+      "addr_housenumber": "7715"
+    },
+    {
+      "id": 53282,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 10073397356,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 58204,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 5367346805,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 71862,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "The Beak",
+      "osm_id": 11403993629,
+      "amenity": "cafe"
+    },
+    {
+      "id": 127796,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 8094633897,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee"
+    },
+    {
+      "id": 146909,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 7487156251,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 07:00-22:00",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "NC",
+      "addr_city": "Charlotte",
+      "addr_postcode": "28226",
+      "addr_street": "Caramel Road",
+      "addr_housenumber": "4100"
+    },
+    {
+      "id": 157748,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Starbucks",
+      "osm_id": 4724152284,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 165664,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "Mugs",
+      "osm_id": 9550362664,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop"
+    },
+    {
+      "id": 152708,
+      "geometry": "POINT (-80.826688 35.211546)",
+      "poi_name": "CrossRidge Cafe",
+      "osm_id": 4155957901,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Th 07:30 -16:00; Fr 07:30 -19:00",
+      "website": "https://www.crossridgecafe.com/",
+      "internet_access": "wlan",
+      "phone": "+1 803 578 1812",
+      "addr_state": "SC",
+      "addr_city": "Indian Land",
+      "addr_postcode": "29707",
+      "addr_street": "Prayer Center Drive",
+      "addr_housenumber": "2001"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 30000,
+      "text": "30 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
-      "geo_wkt": "POINT (-86.576965 41.919871)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Novant Health & Vascular Institute - Elizabeth (Cardio), Charlotte, NC",
+      "geo_wkt": "POINT (-80.826688 35.211546)",
       "poi": {
-        "id": 4790,
-        "geometry": "POINT (-86.576965 41.919871)",
-        "poi_name": "Captain Mike's Fun Park",
-        "osm_id": 9625343406,
-        "tourism": "theme_park",
-        "website": "https://captainmikesamusementpark.com/",
-        "addr_state": "MI",
-        "addr_city": "Bridgman",
-        "addr_postcode": "49106",
-        "addr_street": "Red Arrow Highway",
-        "addr_housenumber": "10975"
+        "id": 54012,
+        "geometry": "POINT (-80.826688 35.211546)",
+        "poi_name": "Novant Health & Vascular Institute - Elizabeth (Cardio)",
+        "osm_id": 10111672439,
+        "amenity": "hospital",
+        "operator": "Novant Health",
+        "healthcare": "hospital",
+        "addr_state": "NC",
+        "addr_city": "Charlotte",
+        "addr_postcode": "28204",
+        "addr_street": "Queens Road",
+        "addr_housenumber": "125"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 25,
+  "id": 2225,
   "type": "range:direction+loc"
 }

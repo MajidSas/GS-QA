@@ -1,67 +1,71 @@
 {
-  "question": "Where's the closest restaurant on the path leading to Neil Carey Arena, IL from In the Game - Hollywood Park, Crestwood, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, ST_GeomFromText('POINT (-88.082005 41.605308)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery you\u2019d find going toward Senior Helpers, Largo, FL starting at Sarasota Art Museum, Sarasota, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography, ST_GeomFromText('POINT (-82.769703 27.919893)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 215346,
-      "geometry": "POINT (-87.850576 41.628111)",
-      "poi_name": "Cafe Gaston",
-      "osm_id": 5296330309,
-      "amenity": "restaurant",
-      "opening_hours": "Mo-Th 07:00-20:00; Fr-Sa 07:00-21:00; Su 07:30-15:00",
-      "website": "https://www.cafegaston.com/",
-      "phone": "+1-708-403-3663",
-      "addr_state": "IL",
-      "addr_city": "Orland Park",
-      "addr_postcode": "60462",
-      "addr_street": "John Humphrey Drive",
-      "addr_housenumber": "14438",
-      "value": 258.7391305669109
+      "id": 7631,
+      "geometry": "POINT (-82.632559 27.774758)",
+      "poi_name": "Ocean Blue Galleries",
+      "osm_id": 2223532538,
+      "tourism": "gallery",
+      "addr_state": "FL",
+      "addr_city": "Saint Petersburg",
+      "addr_postcode": "33701",
+      "addr_street": "Beach Drive Northeast",
+      "addr_housenumber": "284",
+      "value": 340.2189442180289
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "In the Game - Hollywood Park, Crestwood, IL",
-      "geo_wkt": "POINT (-87.747217 41.655827)",
+      "sub_category": "museum",
+      "display_name": "Sarasota Art Museum, Sarasota, FL",
+      "geo_wkt": "POINT (-82.529024 27.325641)",
       "poi": {
-        "id": 22694,
-        "geometry": "POINT (-87.747217 41.655827)",
-        "poi_name": "In the Game - Hollywood Park",
-        "osm_id": 7217378704,
-        "tourism": "theme_park",
-        "website": "https://crestwood.inthegame.net",
-        "phone": "+1 708 389 7275",
-        "addr_state": "IL",
-        "addr_city": "Crestwood",
-        "addr_postcode": "60445",
-        "addr_street": "Cal Sag Road",
-        "addr_housenumber": "5051"
+        "id": 235,
+        "geometry": "POINT (-82.529024 27.325641)",
+        "poi_name": "Sarasota Art Museum",
+        "osm_id": 8248296789,
+        "tourism": "museum",
+        "operator": "Ringling College of Art + Design",
+        "phone": "+1 (941) 309-4300",
+        "museum": "art",
+        "addr_state": "FL",
+        "addr_city": "Sarasota",
+        "addr_postcode": "34236",
+        "addr_street": "South Tamiami Trail",
+        "addr_housenumber": "1001"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Neil Carey Arena, IL",
-      "geo_wkt": "POINT (-88.082005 41.605308)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Senior Helpers, Largo, FL",
+      "geo_wkt": "POINT (-82.769703 27.919893)",
       "poi": {
-        "id": 265389,
-        "geometry": "POINT (-88.082005 41.605308)",
-        "poi_name": "Neil Carey Arena",
-        "osm_id": 368073990,
-        "leisure": "stadium",
-        "operator": "Lewis University",
-        "sport": "basketball;volleyball",
-        "addr_state": "IL"
+        "id": 68748,
+        "geometry": "POINT (-82.769703 27.919893)",
+        "poi_name": "Senior Helpers",
+        "osm_id": 11283147572,
+        "amenity": "hospital",
+        "description": "We offer tailored home care services ranging from companion care for seniors who need daily assistance to in-depth specialized care for those with Alzheimer's, Dementia, Parkinson's and other chronic diseases.",
+        "opening_hours": "24/7",
+        "operator": "Senior Helpers",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Largo",
+        "addr_postcode": "33771",
+        "addr_street": "Lake Avenue Northeast",
+        "addr_housenumber": "300"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1308,
+  "id": 1508,
   "type": "knn:towards+loc"
 }

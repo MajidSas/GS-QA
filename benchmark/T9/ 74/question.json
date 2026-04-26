@@ -1,35 +1,37 @@
 {
-  "question": "What is the nearest golf course towards the east of Point Lookout, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest restaurant in the east direction of Eddy Lookout Tower, Sanderson, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248518,
-      "geometry": "POINT (-79.663483 39.854147)",
-      "poi_name": "Fairways at Greencastle Greens",
-      "osm_id": 4298637876,
-      "leisure": "golf_course"
+      "id": 160145,
+      "geometry": "POINT (-82.34337 30.543305)",
+      "poi_name": "Track Bar & Grill",
+      "osm_id": 4823139912,
+      "amenity": "restaurant"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "viewpoint",
-      "display_name": "Point Lookout, PA",
-      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "display_name": "Eddy Lookout Tower, Sanderson, FL",
+      "geo_wkt": "POINT (-82.34337 30.543305)",
       "poi": {
-        "id": 15562,
-        "geometry": "POINT (-79.663483 39.854147)",
-        "poi_name": "Point Lookout",
-        "osm_id": 4939274603,
+        "id": 8681,
+        "geometry": "POINT (-82.34337 30.543305)",
+        "poi_name": "Eddy Lookout Tower",
+        "osm_id": 8618634369,
         "tourism": "viewpoint",
-        "addr_state": "PA",
-        "addr_street": "Scenic Overlook",
-        "addr_housenumber": "1"
+        "addr_state": "FL",
+        "addr_city": "Sanderson",
+        "addr_postcode": "32087",
+        "addr_street": "State Road 2",
+        "addr_housenumber": "18568"
       }
     },
     "[3]": {
@@ -37,6 +39,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2573,
+  "id": 1273,
   "type": "knn:direction+name"
 }

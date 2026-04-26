@@ -1,52 +1,50 @@
 {
-  "question": "Where's the closest caf\u00e9 located in the direction of northwest from Swain County Visitor Center and Heritage Museum, Bryson City, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.444823 35.427911)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest hospital heading southwest from Kelly Inn, Minot, ND?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.316102 48.206438)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 158991,
-      "geometry": "POINT (-83.444823 35.427911)",
-      "poi_name": "Everett Street Diner",
-      "osm_id": 4771898129,
-      "amenity": "cafe",
-      "cuisine": "cafe/diner",
-      "addr_state": "NC",
-      "addr_city": "Bryson City",
-      "addr_postcode": "28713",
-      "addr_street": "Everett Street",
-      "addr_housenumber": "126"
+      "id": 182851,
+      "geometry": "POINT (-101.316102 48.206438)",
+      "poi_name": "Canyon Hills Center",
+      "osm_id": 10906471374,
+      "amenity": "hospital",
+      "website": "https://lsssd.org/what-we-do/residential-services-for-children-youth/canyon-hills-spearfish.html",
+      "phone": "+1 605 559 3500",
+      "healthcare": "hospital",
+      "addr_state": "SD",
+      "addr_city": "Spearfish",
+      "addr_postcode": "57783",
+      "addr_street": "Windmill Drive",
+      "addr_housenumber": "2519"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Swain County Visitor Center and Heritage Museum, Bryson City, NC",
-      "geo_wkt": "POINT (-83.444823 35.427911)",
+      "sub_category": "hotel",
+      "display_name": "Kelly Inn, Minot, ND",
+      "geo_wkt": "POINT (-101.316102 48.206438)",
       "poi": {
-        "id": 6907,
-        "geometry": "POINT (-83.444823 35.427911)",
-        "poi_name": "Swain County Visitor Center and Heritage Museum",
-        "osm_id": 8757910286,
-        "tourism": "museum",
-        "opening_hours": "Mo-Sa 10:00-17:00",
-        "operator": "Swain County Tourism Development Authority",
-        "website": "https://www.swainheritagemuseum.com/",
-        "museum": "history",
-        "addr_state": "NC",
-        "addr_city": "Bryson City",
-        "addr_postcode": "28713",
-        "addr_street": "Everett Street",
-        "addr_housenumber": "2"
+        "id": 549,
+        "geometry": "POINT (-101.316102 48.206438)",
+        "poi_name": "Kelly Inn",
+        "osm_id": 8439703947,
+        "tourism": "hotel",
+        "addr_state": "ND",
+        "addr_city": "Minot",
+        "addr_postcode": "58701",
+        "addr_street": "26th Avenue Southwest",
+        "addr_housenumber": "1510"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1184,

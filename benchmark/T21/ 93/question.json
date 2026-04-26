@@ -1,59 +1,64 @@
 {
-  "question": "Which direction leads to a zoo situated from University Gallery, Yipsilanti, MI within 190 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.627624 42.251566)',4326)::geography, 190000)\nAND tourism = 'zoo';\n",
+  "question": "In what direction should I go to reach a golf course from Lonely Red Caboose, Wabash, IN within 180 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.820261 40.797115)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.820261 40.797115)',4326)::geography, 180000)\nAND leisure = 'golf_course';\n",
   "answers": [
     {
-      "id": 2809,
-      "geometry": "POINT (-83.253052 42.213884)",
-      "poi_name": "Taylor Petting Farm",
-      "osm_id": 10038021903,
-      "tourism": "zoo",
-      "zoo": "petting_zoo",
-      "angle": 97.58326252736582
+      "id": 245430,
+      "geometry": "POINT (-86.325607 39.856827)",
+      "poi_name": "Pines Course",
+      "osm_id": 2898730434,
+      "leisure": "golf_course",
+      "operator": "Eagle Creek Golf Club",
+      "angle": 202.52260368641072
     },
     {
-      "id": 5801,
-      "geometry": "POINT (-81.703823 41.496747)",
-      "poi_name": "Greater Cleveland Aquarium",
-      "osm_id": 1601169068,
-      "tourism": "zoo",
-      "website": "http://greaterclevelandaquarium.com/",
-      "wikidata": "Q5600498",
-      "addr_street": "Sycamore St",
-      "addr_housenumber": "2000",
-      "angle": 117.05352476345084
+      "id": 245431,
+      "geometry": "POINT (-86.318458 39.85566)",
+      "poi_name": "Sycamore Course",
+      "osm_id": 2898730435,
+      "leisure": "golf_course",
+      "operator": "Eagle Creek Golf Club",
+      "angle": 202.20995128304003
+    },
+    {
+      "id": 267094,
+      "geometry": "POINT (-86.395869 41.220212)",
+      "poi_name": "Culver Academies Golf Course",
+      "osm_id": 4490891388,
+      "leisure": "golf_course",
+      "angle": 314.32630908875797
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "University Gallery, Yipsilanti, MI",
-      "geo_wkt": "POINT (-83.627624 42.251566)",
+      "sub_category": "attraction",
+      "display_name": "Lonely Red Caboose, Wabash, IN",
+      "geo_wkt": "POINT (-85.820261 40.797115)",
       "poi": {
-        "id": 24563,
-        "geometry": "POINT (-83.627624 42.251566)",
-        "poi_name": "University Gallery",
-        "osm_id": 11112992349,
-        "tourism": "gallery",
-        "operator": "Eastern Michigan University",
-        "addr_state": "MI",
-        "addr_city": "Yipsilanti",
-        "addr_postcode": "48176",
-        "addr_street": "Oakwood Street",
-        "addr_housenumber": "900"
+        "id": 3314,
+        "geometry": "POINT (-85.820261 40.797115)",
+        "poi_name": "Lonely Red Caboose",
+        "osm_id": 5349359446,
+        "description": "The red caboose was last seen traveling the tracks during the early 1900's. Today this Caboose was saved by Judge Robert McCallen III and his father.  donated it to the Museum in 2013. ",
+        "tourism": "attraction",
+        "operator": "Wabash County Historical Museum",
+        "addr_state": "IN",
+        "addr_city": "Wabash",
+        "addr_street": "East Market Street",
+        "addr_housenumber": "36"
       }
     }
   },
-  "id": 1092,
+  "id": 1792,
   "type": "range+angle"
 }

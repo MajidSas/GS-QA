@@ -1,41 +1,43 @@
 {
-  "question": "In what direction is the nearest university located from W Nashville, Nashville, TN?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.785148 36.153431)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.785148 36.153431)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the heading toward the nearest zoo starting from Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.508333 34.72743)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167432,
-      "geometry": "POINT (-86.806711 36.168004)",
-      "poi_name": "Meharry School of Dentistry",
-      "osm_id": 356901447,
-      "amenity": "university",
-      "angle": 309.81455183868707
+      "id": 1405,
+      "geometry": "POINT (-95.728199 35.453468)",
+      "poi_name": "Barnyard Zoo",
+      "osm_id": 2972048542,
+      "tourism": "zoo",
+      "angle": 71.577654825989
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "W Nashville, Nashville, TN",
-      "geo_wkt": "POINT (-86.785148 36.153431)",
+      "sub_category": "aquarium",
+      "display_name": "Medicine Park Aquarium & Natural Sciences Center, Medicine Park, OK",
+      "geo_wkt": "POINT (-98.508333 34.72743)",
       "poi": {
-        "id": 23964,
-        "geometry": "POINT (-86.785148 36.153431)",
-        "poi_name": "W Nashville",
-        "osm_id": 9227626687,
-        "tourism": "hotel",
-        "addr_state": "TN",
-        "addr_city": "Nashville",
-        "addr_postcode": "37203",
-        "addr_street": "12th Avenue South",
-        "addr_housenumber": "300"
+        "id": 23653,
+        "geometry": "POINT (-98.508333 34.72743)",
+        "poi_name": "Medicine Park Aquarium & Natural Sciences Center",
+        "osm_id": 5264183693,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "website": "https://mpmns.org/",
+        "addr_state": "OK",
+        "addr_city": "Medicine Park",
+        "addr_postcode": "73557",
+        "addr_street": "Aquarium Drive",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 1417,
+  "id": 517,
   "type": "knn+angle"
 }

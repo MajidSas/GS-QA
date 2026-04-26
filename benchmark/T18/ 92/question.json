@@ -1,40 +1,59 @@
 {
-  "question": "Where is the nearest railway museum available from Tablerocks Goodnight Amphitheater, TX?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest falafel restaurant positioned close by Sugarplum Zoo, Temecula, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%falafel%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17918,
-      "geometry": "POINT (-96.285251 31.626281)",
-      "poi_name": "Burlington-Rock Island Railroad Museum",
-      "osm_id": 368164853,
-      "tourism": "museum",
-      "museum": "railway",
-      "addr_state": "TX"
+      "id": 220804,
+      "geometry": "POINT (-117.670823 33.554169)",
+      "poi_name": "Surfin' Souvlaki Authentic Greek Food",
+      "osm_id": 10958492700,
+      "amenity": "restaurant",
+      "cuisine": "greek;mediterranean;souvlaki;gyros;soup;salad;breakfast;burger;fries;falafel;pita",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Sa 09:00-21:00; Su 11:00-20:00",
+      "website": "https://surfin-souvlaki.com/",
+      "internet_access": "wlan",
+      "phone": "+1 949-365-0550",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "toilets": "yes",
+      "addr_state": "CA",
+      "addr_city": "Mission Viejo",
+      "addr_postcode": "92692",
+      "addr_street": "Marguerite Parkway",
+      "addr_housenumber": "28171"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "railway museum",
-      "poi_filter_sql": "museum = 'railway'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "falafel restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%falafel%'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Tablerocks Goodnight Amphitheater, TX",
-      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sugarplum Zoo, Temecula, CA",
+      "geo_wkt": "POINT (-117.055191 33.546915)",
       "poi": {
-        "id": 265396,
-        "geometry": "POINT (-97.532231 30.940462)",
-        "poi_name": "Tablerocks Goodnight Amphitheater",
-        "osm_id": 368165373,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 24034,
+        "geometry": "POINT (-117.055191 33.546915)",
+        "poi_name": "Sugarplum Zoo",
+        "osm_id": 9270599265,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-18:00",
+        "addr_state": "CA",
+        "addr_city": "Temecula",
+        "addr_postcode": "92591",
+        "addr_street": "Berenda Rd",
+        "addr_housenumber": "39695"
       }
     }
   },
-  "id": 391,
+  "id": 1391,
   "type": "knn:non_spat_filter+loc"
 }

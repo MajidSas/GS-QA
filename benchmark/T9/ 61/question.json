@@ -1,38 +1,45 @@
 {
-  "question": "What is the closest caf\u00e9 northeast of Strawberry Hill, San Francisco, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which university is closest in the northeast direction of Lucille Ball Childhood Home, Jamestown, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 162183,
-      "geometry": "POINT (-122.475512 37.768668)",
-      "poi_name": "De Young Caf\u00e9",
-      "osm_id": 4919829393,
-      "amenity": "cafe",
-      "wheelchair": "yes",
-      "opening_hours": "Tu-Su 09:30-16:30; Mo off",
-      "outdoor_seating": "yes"
+      "id": 167524,
+      "geometry": "POINT (-79.286417 42.102703)",
+      "poi_name": "State University of New York Upstate Medical University",
+      "osm_id": 357643676,
+      "amenity": "university",
+      "website": "https://www.upstate.edu/",
+      "phone": "+1 315 464 5540",
+      "wikidata": "Q3297997",
+      "addr_city": "Syracuse",
+      "addr_postcode": "13210",
+      "addr_street": "East Adams Street",
+      "addr_housenumber": "750"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Strawberry Hill, San Francisco, CA",
-      "geo_wkt": "POINT (-122.475512 37.768668)",
+      "sub_category": "museum",
+      "display_name": "Lucille Ball Childhood Home, Jamestown, NY",
+      "geo_wkt": "POINT (-79.286417 42.102703)",
       "poi": {
-        "id": 6747,
-        "geometry": "POINT (-122.475512 37.768668)",
-        "poi_name": "Strawberry Hill",
-        "osm_id": 1948074360,
-        "tourism": "viewpoint",
-        "internet_access": "no",
-        "addr_state": "CA",
-        "addr_city": "San Francisco"
+        "id": 373,
+        "geometry": "POINT (-79.286417 42.102703)",
+        "poi_name": "Lucille Ball Childhood Home",
+        "osm_id": 8342270492,
+        "tourism": "museum",
+        "website": "https://59lucylane.com/",
+        "addr_state": "NY",
+        "addr_city": "Jamestown",
+        "addr_postcode": "14701",
+        "addr_street": "Lucy Lane",
+        "addr_housenumber": "59"
       }
     },
     "[3]": {
@@ -40,6 +47,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2560,
+  "id": 1260,
   "type": "knn:direction+name"
 }

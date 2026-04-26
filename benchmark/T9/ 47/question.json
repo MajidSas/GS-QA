@@ -1,46 +1,48 @@
 {
-  "question": "What is the nearest attraction in the southeast direction of Port Murray Preserve, Mansfield Twp, NJ?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.918221 40.786454)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest park towards the northeast of Children's Hospital at Montefiore, Bronx, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7700,
-      "geometry": "POINT (-74.918221 40.786454)",
-      "poi_name": "Devil's Tree",
-      "osm_id": 6371085634,
-      "tourism": "attraction",
-      "wikidata": "Q16931099"
+      "id": 256418,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Rienzi Playground",
+      "osm_id": 357633942,
+      "leisure": "park",
+      "wikidata": "Q34857147"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Port Murray Preserve, Mansfield Twp, NJ",
-      "geo_wkt": "POINT (-74.918221 40.786454)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 247400,
-        "geometry": "POINT (-74.918221 40.786454)",
-        "poi_name": "Port Murray Preserve",
-        "osm_id": 9035607778,
-        "leisure": "park",
-        "operator": "County of Warren",
-        "addr_state": "NJ",
-        "addr_city": "Mansfield Twp",
-        "addr_postcode": "07865",
-        "addr_street": "Hoffman Road",
-        "addr_housenumber": "21"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2546,
+  "id": 1246,
   "type": "knn:direction+name"
 }

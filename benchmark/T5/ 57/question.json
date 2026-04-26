@@ -1,42 +1,52 @@
 {
-  "question": "What's the nearest university from Sugarplum Zoo, Temecula, CA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food restaurant in the vicinity of Luthy Botanical Garden, Peoria, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 150261,
-      "geometry": "POINT (-117.15999 33.128244)",
-      "poi_name": "CSUSM",
-      "osm_id": 4048122405,
-      "amenity": "university"
+      "id": 88342,
+      "geometry": "POINT (-89.582823 40.73131)",
+      "poi_name": "The Other Dawg",
+      "osm_id": 8779642215,
+      "amenity": "fast_food",
+      "cuisine": "hot_dog;american;ice_cream",
+      "opening_hours": "Mo-Sa 07:00-20:00; Su 07:00-18:00",
+      "phone": "+1 309-688-3644",
+      "drive_through": "yes",
+      "addr_state": "IL",
+      "addr_city": "Peoria Heights",
+      "addr_postcode": "61616",
+      "addr_street": "East War Memorial Drive",
+      "addr_housenumber": "712"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sugarplum Zoo, Temecula, CA",
-      "geo_wkt": "POINT (-117.055191 33.546915)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
       "poi": {
-        "id": 24034,
-        "geometry": "POINT (-117.055191 33.546915)",
-        "poi_name": "Sugarplum Zoo",
-        "osm_id": 9270599265,
-        "tourism": "zoo",
-        "fee": "yes",
-        "opening_hours": "Mo-Sa 08:00-18:00",
-        "addr_state": "CA",
-        "addr_city": "Temecula",
-        "addr_postcode": "92591",
-        "addr_street": "Berenda Rd",
-        "addr_housenumber": "39695"
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
       }
     }
   },
-  "id": 256,
+  "id": 1056,
   "type": "knn+name"
 }

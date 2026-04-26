@@ -1,48 +1,52 @@
 {
-  "question": "Where's the closest gallery positioned towards the south of Oak Grove Baseball Stadium, Bessemer, AL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest zoo lying in the east direction of CUNY School of Professional Studies, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23712,
-      "geometry": "POINT (-87.156908 33.467656)",
-      "poi_name": "Quayside Art Gallery",
-      "osm_id": 5283052163,
-      "tourism": "gallery",
-      "fee": "no",
-      "addr_state": "FL",
-      "addr_city": "Pensacola",
-      "addr_postcode": "32502",
-      "addr_street": "East Zarragossa Street",
-      "addr_housenumber": "17"
+      "id": 6973,
+      "geometry": "POINT (-73.990094 40.748387)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Oak Grove Baseball Stadium, Bessemer, AL",
-      "geo_wkt": "POINT (-87.156908 33.467656)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY School of Professional Studies, New York, NY",
+      "geo_wkt": "POINT (-73.990094 40.748387)",
       "poi": {
-        "id": 247942,
-        "geometry": "POINT (-87.156908 33.467656)",
-        "poi_name": "Oak Grove Baseball Stadium",
-        "osm_id": 6120962256,
-        "leisure": "stadium",
-        "addr_state": "AL",
-        "addr_city": "Bessemer",
-        "addr_postcode": "35023",
-        "addr_street": "Oak Grove Parkway",
-        "addr_housenumber": "9494"
+        "id": 34678,
+        "geometry": "POINT (-73.990094 40.748387)",
+        "poi_name": "CUNY School of Professional Studies",
+        "osm_id": 2703449228,
+        "amenity": "university",
+        "operator": "City University of New York",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 31st Street",
+        "addr_housenumber": "119"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1122,

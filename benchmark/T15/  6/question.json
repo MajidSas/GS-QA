@@ -1,50 +1,200 @@
 {
-  "question": "Within a radius of 130 kilometers, where can I find a garden situated towards the east of Lang Family House of Terror (Seasonal), Oregon, WI?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.379848 42.923673)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.379848 42.923673)',4326)::geography, 130000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Where can I find a fast food restaurant in the west direction of Lockheed A-12 Blackbird, San Diego, CA, limited to 70 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-117.153969 32.726821)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.153969 32.726821)',4326)::geography, 70000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 245940,
-      "geometry": "POINT (-89.379848 42.923673)",
-      "poi_name": "Memory Garden",
-      "osm_id": 5345442455,
-      "leisure": "garden",
-      "addr_state": "WI",
-      "addr_city": "Mequon"
+      "id": 164723,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Adalberto's Mexican Food",
+      "osm_id": 9497024743,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "website": "https://adalbertosmexicanrestaurant.com/",
+      "drive_through": "no",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92106",
+      "addr_street": "Rosecrans Street",
+      "addr_housenumber": "1868"
+    },
+    {
+      "id": 165577,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Northside Shack",
+      "osm_id": 9544086745,
+      "amenity": "fast_food",
+      "cuisine": "juice"
+    },
+    {
+      "id": 167143,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Subway",
+      "osm_id": 341443274,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 167951,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Eat Mexican Food",
+      "osm_id": 365356349,
+      "amenity": "fast_food",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 167955,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Subway Sandwiches",
+      "osm_id": 365356433,
+      "amenity": "fast_food",
+      "cuisine": "sandwich"
+    },
+    {
+      "id": 168063,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "McDonald's",
+      "osm_id": 365357185,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/ca/san-diego/1624-rosecrans-st/15396.html",
+      "takeaway": "yes"
+    },
+    {
+      "id": 205697,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Plant Power",
+      "osm_id": 7178291098,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "description": "Vegetarian & Vegan Fast Food. Stay or Pickup.",
+      "opening_hours": "Mo-Su 07:00-22:00",
+      "website": "https://www.plantpowerfastfood.com/find-us",
+      "phone": "+1 619-450-6845",
+      "addr_housenumber": "102"
+    },
+    {
+      "id": 235148,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Little Chef",
+      "osm_id": 5746413707,
+      "amenity": "fast_food",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 211358,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Pizzeria Alfredo",
+      "osm_id": 5154622522,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "https://www.alfredospizzasandiego.com/",
+      "phone": "+16192267827",
+      "addr_state": "CA",
+      "addr_city": "San Diego",
+      "addr_postcode": "92106",
+      "addr_street": "Canon Street",
+      "addr_housenumber": "3022"
+    },
+    {
+      "id": 34430,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Panera Bread",
+      "osm_id": 2699520041,
+      "amenity": "fast_food",
+      "cuisine": "sandwich;bakery",
+      "takeaway": "yes"
+    },
+    {
+      "id": 235379,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Liticker\u2019s",
+      "osm_id": 5753317994,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "takeaway": "yes",
+      "outdoor_seating": "yes"
+    },
+    {
+      "id": 27730,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Subway",
+      "osm_id": 444664316,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 141296,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Farmers Market (Wed and Sat)",
+      "osm_id": 6280338086,
+      "amenity": "fast_food"
+    },
+    {
+      "id": 95845,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Shake Shack",
+      "osm_id": 6413021572,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes"
+    },
+    {
+      "id": 114489,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Grab & Go Subs",
+      "osm_id": 3884047812,
+      "amenity": "fast_food"
+    },
+    {
+      "id": 123037,
+      "geometry": "POINT (-117.153969 32.726821)",
+      "poi_name": "Winchell's Donut House",
+      "osm_id": 6833037312,
+      "amenity": "fast_food",
+      "cuisine": "donut",
+      "opening_hours": "24/7",
+      "website": "https://www.winchells.com/",
+      "phone": "(619) 222-1653",
+      "takeaway": "yes",
+      "addr_street": "Rosecrans Street",
+      "addr_housenumber": "1501"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "attraction",
-      "display_name": "Lang Family House of Terror (Seasonal), Oregon, WI",
-      "geo_wkt": "POINT (-89.379848 42.923673)",
+      "display_name": "Lockheed A-12 Blackbird, San Diego, CA",
+      "geo_wkt": "POINT (-117.153969 32.726821)",
       "poi": {
-        "id": 1771,
-        "geometry": "POINT (-89.379848 42.923673)",
-        "poi_name": "Lang Family House of Terror (Seasonal)",
-        "osm_id": 3148604347,
+        "id": 840,
+        "geometry": "POINT (-117.153969 32.726821)",
+        "poi_name": "Lockheed A-12 Blackbird",
+        "osm_id": 2705359460,
         "tourism": "attraction",
-        "addr_state": "WI",
-        "addr_city": "Oregon",
-        "addr_postcode": "53575",
-        "addr_street": "Waterman Street",
-        "addr_housenumber": "290"
+        "addr_state": "CA",
+        "addr_city": "San Diego",
+        "addr_postcode": "92101",
+        "addr_street": "Pan American Plaza",
+        "addr_housenumber": "2080"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 5,
+  "id": 2205,
   "type": "range:direction+loc"
 }

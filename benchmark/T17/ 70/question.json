@@ -1,50 +1,47 @@
 {
-  "question": "Do you know where the nearest theme park is from Aquarium Depot, Miami, FL?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest golf course in the vicinity of Faith Arena, Surprise, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 8743,
-      "geometry": "POINT (-80.153423 26.191598)",
-      "poi_name": "Xtreme Action Park",
-      "osm_id": 8665236909,
-      "tourism": "theme_park",
-      "wheelchair": "yes",
-      "website": "https://xtremeactionpark.com",
-      "internet_access": "wlan",
-      "phone": "(954) 491-6265",
-      "addr_state": "FL",
-      "addr_city": "Fort Lauderdale",
-      "addr_postcode": "33309",
-      "addr_street": "Powerline Road",
-      "addr_housenumber": "5300"
+      "id": 265680,
+      "geometry": "POINT (-112.366859 33.642307)",
+      "poi_name": "Sun Village Golf Course",
+      "osm_id": 10823572142,
+      "leisure": "golf_course",
+      "operator": "Sun Village",
+      "website": "https://sunvillage.org/",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85374",
+      "addr_street": "North Sun Village Parkway",
+      "addr_housenumber": "17300"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquarium Depot, Miami, FL",
-      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Faith Arena, Surprise, AZ",
+      "geo_wkt": "POINT (-112.371855 33.62819)",
       "poi": {
-        "id": 26765,
-        "geometry": "POINT (-80.386248 25.685662)",
-        "poi_name": "Aquarium Depot",
-        "osm_id": 6035376680,
-        "tourism": "aquarium",
-        "phone": "+13055963373",
-        "addr_state": "FL",
-        "addr_city": "Miami",
-        "addr_postcode": "33186",
-        "addr_street": "Southwest 88th Street",
-        "addr_housenumber": "11762"
+        "id": 265626,
+        "geometry": "POINT (-112.371855 33.62819)",
+        "poi_name": "Faith Arena",
+        "osm_id": 10762941402,
+        "leisure": "stadium",
+        "addr_state": "AZ",
+        "addr_city": "Surprise",
+        "addr_postcode": "85374",
+        "addr_street": "West Tierra Buena Lane",
+        "addr_housenumber": "14470"
       }
     }
   },
-  "id": 1869,
+  "id": 769,
   "type": "knn+loc"
 }

@@ -1,55 +1,84 @@
 {
-  "question": "Which nature reserve is available within 70 kilometers in the northwest direction of New York Institute of Technology, New York, NY?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 70000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Which viewpoint lie within 40 kilometers along the southwest axis from Mission Hills Church Park, San Marcos, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography, 40000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 247765,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Janet Van Gelder Wildlife Sanctuary",
-      "osm_id": 9891613689,
-      "leisure": "nature_reserve"
+      "id": 12903,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "I Street Viewpoint",
+      "osm_id": 3949039495,
+      "tourism": "viewpoint"
     },
     {
-      "id": 267605,
-      "geometry": "POINT (-73.983176 40.770074)",
-      "poi_name": "Beacon Hill Bird Sanctuary",
-      "osm_id": 7747880527,
-      "leisure": "nature_reserve"
+      "id": 3493,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "San Marcos Creek Box Canyon Viewpoint",
+      "osm_id": 5434332323,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 8113,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "J Street Viewpoint",
+      "osm_id": 6568278014,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 12906,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "D Street Viewpoint",
+      "osm_id": 3951262667,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 20993,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "Overlook Tower",
+      "osm_id": 1334180177,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 14560,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "Tern Point",
+      "osm_id": 4656901782,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "New York Institute of Technology, New York, NY",
-      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mission Hills Church Park, San Marcos, CA",
+      "geo_wkt": "POINT (-117.148078 33.148133)",
       "poi": {
-        "id": 35073,
-        "geometry": "POINT (-73.983176 40.770074)",
-        "poi_name": "New York Institute of Technology",
-        "osm_id": 2710082455,
-        "amenity": "university",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10023",
-        "addr_street": "West 61st Street",
-        "addr_housenumber": "26"
+        "id": 246426,
+        "geometry": "POINT (-117.148078 33.148133)",
+        "poi_name": "Mission Hills Church Park",
+        "osm_id": 9632460029,
+        "leisure": "park",
+        "operator": "Mission Hills Church",
+        "addr_state": "CA",
+        "addr_city": "San Marcos",
+        "addr_postcode": "92069",
+        "addr_street": "E. Mission Hills Court",
+        "addr_housenumber": "400"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2673,
+  "id": 2373,
   "type": "range:direction+name"
 }

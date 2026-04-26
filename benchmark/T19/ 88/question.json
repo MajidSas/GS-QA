@@ -1,39 +1,47 @@
 {
-  "question": "Where is the closest restaurant positioned towards the east of Myers Memorial Arena, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-99.742342 32.483135)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hospital located east of Moltke Maize Maze, LLC, Rogers City, MI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.968943 45.435343)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 116711,
-      "geometry": "POINT (-99.742342 32.483135)",
-      "poi_name": "Jason's Deli",
-      "osm_id": 8955544310,
-      "amenity": "restaurant",
-      "cuisine": "sandwich",
-      "addr_state": "TX",
-      "addr_city": "Abilene",
-      "addr_postcode": "79601",
-      "addr_street": "Highway 351",
-      "addr_housenumber": "1772"
+      "id": 167516,
+      "geometry": "POINT (-83.968943 45.435343)",
+      "poi_name": "River Hospital",
+      "osm_id": 357632457,
+      "amenity": "hospital",
+      "website": "https://www.riverhospital.org/",
+      "phone": "315-482-2511",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NY",
+      "addr_city": "Alexandria Bay",
+      "addr_postcode": "13607",
+      "addr_street": "Fuller Street",
+      "addr_housenumber": "4"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Myers Memorial Arena, TX",
-      "geo_wkt": "POINT (-99.742342 32.483135)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Moltke Maize Maze, LLC, Rogers City, MI",
+      "geo_wkt": "POINT (-83.968943 45.435343)",
       "poi": {
-        "id": 265393,
-        "geometry": "POINT (-99.742342 32.483135)",
-        "poi_name": "Myers Memorial Arena",
-        "osm_id": 368165257,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 4348,
+        "geometry": "POINT (-83.968943 45.435343)",
+        "poi_name": "Moltke Maize Maze, LLC",
+        "osm_id": 11229132052,
+        "description": "Annual Fall attraction. Enjoy a fun-filled day finding your way through the maze to discover items to solve 3 puzzles. Maze location varies slightly each year, but is in close proximity to this point & viewable from Curtis Rd.",
+        "tourism": "attraction",
+        "addr_state": "MI",
+        "addr_city": "Rogers City",
+        "addr_postcode": "49779",
+        "addr_street": "North Curtis Road",
+        "addr_housenumber": "3567"
       }
     },
     "[3]": {

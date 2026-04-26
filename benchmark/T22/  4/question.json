@@ -1,48 +1,52 @@
 {
-  "question": "In which direction should I proceed to reach the closest gallery from Go Ape Treetop Adventure Course, Strongsville, OH?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction should I proceed in to reach the closest hospital from Oak Ridge Children's Museum, Oak Ridge, TN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9701,
-      "geometry": "POINT (-81.898988 41.419561)",
-      "poi_name": "Bottle & Bottega",
-      "osm_id": 8944836844,
-      "tourism": "gallery",
-      "addr_state": "OH",
-      "addr_city": "North Olmsted",
-      "addr_postcode": "44070",
-      "addr_street": "Brookpark Road",
-      "addr_housenumber": "25102",
-      "angle": 328.09373468166956
+      "id": 167410,
+      "geometry": "POINT (-84.243149 36.02587)",
+      "poi_name": "Ridgeview Behavioral Health Services",
+      "osm_id": 356847116,
+      "amenity": "hospital",
+      "website": "https://www.ridgeview.com/",
+      "phone": "+1 865 482 1076",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Oak Ridge",
+      "addr_postcode": "37830",
+      "addr_street": "West Tyrone Road",
+      "addr_housenumber": "240",
+      "angle": 83.3719385416268
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Go Ape Treetop Adventure Course, Strongsville, OH",
-      "geo_wkt": "POINT (-81.818381 41.322133)",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
       "poi": {
-        "id": 14029,
-        "geometry": "POINT (-81.818381 41.322133)",
-        "poi_name": "Go Ape Treetop Adventure Course",
-        "osm_id": 4214519779,
-        "tourism": "theme_park",
-        "operator": "Go Ape",
-        "website": "https://goape.com/zip-line/mill-stream-run-reservation",
-        "addr_state": "OH",
-        "addr_city": "Strongsville",
-        "addr_postcode": "44136",
-        "addr_street": "Valley Parkway",
-        "addr_housenumber": "16200"
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
       }
     }
   },
-  "id": 1403,
+  "id": 503,
   "type": "knn+angle"
 }

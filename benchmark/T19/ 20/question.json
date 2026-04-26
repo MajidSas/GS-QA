@@ -1,54 +1,54 @@
 {
-  "question": "Where is the nearest hotel situated towards the northwest of Elizabeth Hanna Nature Preserve South Entrance, Fremont, IN?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.822564 41.731218)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest gallery located toward the southeast of 3 Palms Zoo & Education Center, Townsend, DE?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12139,
-      "geometry": "POINT (-84.822564 41.731218)",
-      "poi_name": "Country Inn & Suites",
-      "osm_id": 6207983391,
-      "tourism": "hotel",
-      "wheelchair": "yes",
-      "website": "https://www.countryinns.com/grand-rapids-hotel-mi-49546/migreast",
-      "phone": "+1-616-942-7000",
-      "addr_state": "MI",
-      "addr_city": "Grand Rapids",
-      "addr_postcode": "49546",
-      "addr_street": "Deposit Drive Northeast",
-      "addr_housenumber": "3251"
+      "id": 19455,
+      "geometry": "POINT (-75.695391 39.329473)",
+      "poi_name": "Mispillion Art League",
+      "osm_id": 10764516103,
+      "tourism": "gallery",
+      "addr_state": "DE",
+      "addr_city": "Milford",
+      "addr_postcode": "19963",
+      "addr_street": "North Walnut Street",
+      "addr_housenumber": "5"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Elizabeth Hanna Nature Preserve South Entrance, Fremont, IN",
-      "geo_wkt": "POINT (-84.822564 41.731218)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
+      "geo_wkt": "POINT (-75.695391 39.329473)",
       "poi": {
-        "id": 246388,
-        "geometry": "POINT (-84.822564 41.731218)",
-        "poi_name": "Elizabeth Hanna Nature Preserve South Entrance",
-        "osm_id": 11423394519,
-        "leisure": "park",
-        "description": "Entrance to walking path.",
-        "opening_hours": "dawn-dusk",
-        "operator": "Clear Lake Township Land Conservancy",
-        "website": "https://clearlakeconservancy.org",
-        "addr_state": "IN",
-        "addr_city": "Fremont",
-        "addr_postcode": "46737",
-        "addr_street": "Outer Dr Clear Lake",
-        "addr_housenumber": "103"
+        "id": 9742,
+        "geometry": "POINT (-75.695391 39.329473)",
+        "poi_name": "3 Palms Zoo & Education Center",
+        "osm_id": 8969296347,
+        "tourism": "zoo",
+        "wheelchair": "limited",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-15:00",
+        "operator": "3 Palms Zoo LLC",
+        "website": "https://3palmszoo.org",
+        "phone": "+1 302-504-6500",
+        "zoo": "petting_zoo",
+        "addr_state": "DE",
+        "addr_city": "Townsend",
+        "addr_postcode": "19734",
+        "addr_street": "Vandyke Greenspring Road",
+        "addr_housenumber": "1060"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1119,

@@ -1,38 +1,46 @@
 {
-  "question": "Which viewpoint is the nearest in the northeast direction of Holiday Inn Express & Suites Mt Rushmore/Keystone, Keystone, SD?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-103.421023 43.893016)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which hospital is nearest when considering the northeast direction of Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21124,
-      "geometry": "POINT (-103.421023 43.893016)",
-      "poi_name": "Air Force Vista",
-      "osm_id": 1417168066,
-      "tourism": "viewpoint"
+      "id": 181829,
+      "geometry": "POINT (-119.685686 34.410426)",
+      "poi_name": "Bakersfield Behavioral Healthcare Hospital",
+      "osm_id": 10866397687,
+      "amenity": "hospital",
+      "phone": "+1 661 241 5506",
+      "healthcare": "hospital",
+      "addr_city": "Bakersfield",
+      "addr_postcode": "93309-6200",
+      "addr_street": "White Lane",
+      "addr_housenumber": "5201"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Holiday Inn Express & Suites Mt Rushmore/Keystone, Keystone, SD",
-      "geo_wkt": "POINT (-103.421023 43.893016)",
+      "sub_category": "aquarium",
+      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
+      "geo_wkt": "POINT (-119.685686 34.410426)",
       "poi": {
-        "id": 15483,
-        "geometry": "POINT (-103.421023 43.893016)",
-        "poi_name": "Holiday Inn Express & Suites Mt Rushmore/Keystone",
-        "osm_id": 4903697688,
-        "tourism": "hotel",
-        "operator": "Holiday Inn",
-        "addr_state": "SD",
-        "addr_city": "Keystone",
-        "addr_postcode": "57751",
-        "addr_street": "Swanzey Street",
-        "addr_housenumber": "321"
+        "id": 18273,
+        "geometry": "POINT (-119.685686 34.410426)",
+        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
+        "osm_id": 368174545,
+        "tourism": "aquarium",
+        "operator": "Santa Barbara Museum of Natural History",
+        "website": "https://www.sbnature.org/twsc/2.html",
+        "wikidata": "Q3542641",
+        "addr_state": "CA",
+        "addr_city": "Santa Barbara",
+        "addr_postcode": "93101",
+        "addr_street": "Stearns Wharf",
+        "addr_housenumber": "211"
       }
     },
     "[3]": {
@@ -40,6 +48,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2558,
+  "id": 1258,
   "type": "knn:direction+name"
 }

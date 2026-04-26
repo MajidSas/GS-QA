@@ -1,70 +1,144 @@
 {
-  "question": "Which hotel is available when moving in the direction of north from Vintage Fire Museum, Jeffersonville, IN within 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.743989 38.275954)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.743989 38.275954)',4326)::geography, 100000)\nAND tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Which park can be found within 120 kilometers toward the east of Illinois Central Depot, Bethany, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.739562 39.646085)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.739562 39.646085)',4326)::geography, 120000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 20355,
-      "geometry": "POINT (-85.743989 38.275954)",
-      "poi_name": "Hampton",
-      "osm_id": 1111726813,
-      "tourism": "hotel",
-      "website": "https://hamptoninn.hilton.com/en/hp/hotels/index.jhtml?ctyhocn=CLUSMHX",
-      "phone": "+1-812-523-2409",
-      "official_name": "Hampton by Hilton",
-      "addr_state": "IN",
-      "addr_city": "Seymour",
-      "addr_postcode": "47274",
-      "addr_street": "N Sandy Creek Dr",
-      "addr_housenumber": "247"
+      "id": 249671,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Moore Memorial Park",
+      "osm_id": 354195947,
+      "leisure": "park"
     },
     {
-      "id": 24439,
-      "geometry": "POINT (-85.743989 38.275954)",
-      "poi_name": "Hilton Garden Inn Jeffersonville Louisville North",
-      "osm_id": 11056001351,
-      "tourism": "hotel",
-      "website": "https://www.hilton.com/",
-      "addr_state": "IN",
-      "addr_city": "Jeffersonville",
-      "addr_postcode": "47130",
-      "addr_street": "Water Tower Rd",
-      "addr_housenumber": "4900"
+      "id": 249674,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Wimple Park",
+      "osm_id": 354197007,
+      "leisure": "park"
+    },
+    {
+      "id": 249715,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Mill Creek County Park",
+      "osm_id": 354206223,
+      "leisure": "park",
+      "wikidata": "Q49526312"
+    },
+    {
+      "id": 249834,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Helen Parkes Old Tower Park",
+      "osm_id": 354222841,
+      "leisure": "park"
+    },
+    {
+      "id": 261084,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Green Valley Public Fishing Area",
+      "osm_id": 358673457,
+      "leisure": "park"
+    },
+    {
+      "id": 260863,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Ernie Pyle Rest Park",
+      "osm_id": 358653525,
+      "leisure": "park"
+    },
+    {
+      "id": 261034,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Sportland Park",
+      "osm_id": 358668111,
+      "leisure": "park"
+    },
+    {
+      "id": 261041,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Sycamore Park",
+      "osm_id": 358668757,
+      "leisure": "park"
+    },
+    {
+      "id": 250094,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Rocky Branch Nature Preserve",
+      "osm_id": 354253821,
+      "leisure": "park",
+      "wikidata": "Q49552812"
+    },
+    {
+      "id": 250095,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Baber Woods Nature Preserve",
+      "osm_id": 354253827,
+      "leisure": "park",
+      "wikidata": "Q34812977"
+    },
+    {
+      "id": 250123,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Public Square",
+      "osm_id": 354275411,
+      "leisure": "park",
+      "wikidata": "Q49546583"
+    },
+    {
+      "id": 260961,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Miller Park",
+      "osm_id": 358660132,
+      "leisure": "park"
+    },
+    {
+      "id": 266499,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Soccer Field",
+      "osm_id": 5219987015,
+      "leisure": "park"
+    },
+    {
+      "id": 261063,
+      "geometry": "POINT (-88.739562 39.646085)",
+      "poi_name": "Four-H Club Fairgrounds",
+      "osm_id": 358671489,
+      "leisure": "park",
+      "wikidata": "Q49491040"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Vintage Fire Museum, Jeffersonville, IN",
-      "geo_wkt": "POINT (-85.743989 38.275954)",
+      "sub_category": "attraction",
+      "display_name": "Illinois Central Depot, Bethany, IL",
+      "geo_wkt": "POINT (-88.739562 39.646085)",
       "poi": {
-        "id": 2474,
-        "geometry": "POINT (-85.743989 38.275954)",
-        "poi_name": "Vintage Fire Museum",
-        "osm_id": 3467939029,
-        "tourism": "museum",
-        "opening_hours": "Fr,Sa,Su unknown; Mo-Th closed",
-        "website": "https://www.vintagefiremuseum.org/",
-        "addr_state": "IN",
-        "addr_city": "Jeffersonville",
-        "addr_postcode": "47130",
-        "addr_street": "Spring Street"
+        "id": 2390,
+        "geometry": "POINT (-88.739562 39.646085)",
+        "poi_name": "Illinois Central Depot",
+        "osm_id": 3422994411,
+        "tourism": "attraction",
+        "addr_state": "IL",
+        "addr_city": "Bethany",
+        "addr_postcode": "61914",
+        "addr_street": "North Washington Street",
+        "addr_housenumber": "320"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2604,
+  "id": 2304,
   "type": "range:direction+name"
 }

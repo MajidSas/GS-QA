@@ -1,67 +1,70 @@
 {
-  "question": "Where is the closest fast food restaurant from Falls Ridge Preserve, Elliston, VA towards Grogans Riverfront, Madison, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, ST_GeomFromText('POINT (-79.953344 36.384575)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant on the journey from University of the Rockies, Denver, CO toward Molly Brown Summer House, Denver, CO?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.996847 39.749178)',4326)::geography, ST_GeomFromText('POINT (-105.081101 39.668143)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.996847 39.749178)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-104.996847 39.749178)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 139559,
-      "geometry": "POINT (-79.953132 36.739636)",
-      "poi_name": "Hardee's",
-      "osm_id": 6204049646,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://locations.hardees.com/va/stanleytown/933-fairystone-park-hwy",
-      "takeaway": "yes",
-      "addr_state": "VA",
-      "addr_city": "Stanleytown",
-      "addr_postcode": "24168",
-      "addr_street": "Fairy Stone Park Highway",
-      "addr_housenumber": "933",
-      "value": 159.77373888882966
+      "id": 191776,
+      "geometry": "POINT (-104.997384 39.748664)",
+      "poi_name": "Crepes 'N Crepes",
+      "osm_id": 1393662038,
+      "amenity": "restaurant",
+      "cuisine": "french",
+      "opening_hours": "Mo 8:00-15:00; Tu-Th 8:00-20:00; Fr-Su 8:00-21:00",
+      "website": "https://www.crepencrepe.online/",
+      "phone": "+1-303-320-4184",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80206",
+      "addr_street": "Madison Street",
+      "addr_housenumber": "1222",
+      "value": 218.7932252932419
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Falls Ridge Preserve, Elliston, VA",
-      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "University of the Rockies, Denver, CO",
+      "geo_wkt": "POINT (-104.996847 39.749178)",
       "poi": {
-        "id": 266492,
-        "geometry": "POINT (-80.321578 37.193218)",
-        "poi_name": "Falls Ridge Preserve",
-        "osm_id": 5189591887,
-        "leisure": "nature_reserve",
-        "addr_state": "VA",
-        "addr_city": "Elliston",
-        "addr_postcode": "24087",
-        "addr_street": "Falls Ridge Rd"
+        "id": 57434,
+        "geometry": "POINT (-104.996847 39.749178)",
+        "poi_name": "University of the Rockies",
+        "osm_id": 5336796189,
+        "amenity": "university",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80202",
+        "addr_street": "16th Street Mall",
+        "addr_housenumber": "1201"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Grogans Riverfront, Madison, NC",
-      "geo_wkt": "POINT (-79.953344 36.384575)",
+      "sub_category": "museum",
+      "display_name": "Molly Brown Summer House, Denver, CO",
+      "geo_wkt": "POINT (-105.081101 39.668143)",
       "poi": {
-        "id": 19512,
-        "geometry": "POINT (-79.953344 36.384575)",
-        "poi_name": "Grogans Riverfront",
-        "osm_id": 10795131653,
-        "tourism": "hotel",
-        "phone": "+13369167070",
-        "addr_state": "NC",
-        "addr_city": "Madison",
-        "addr_postcode": "27025",
-        "addr_street": "NC-704",
-        "addr_housenumber": "4890"
+        "id": 3815,
+        "geometry": "POINT (-105.081101 39.668143)",
+        "poi_name": "Molly Brown Summer House",
+        "osm_id": 5608503565,
+        "tourism": "museum",
+        "website": "https://www.mollybrownsummerhouse.com/",
+        "wikidata": "Q4829106",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80227",
+        "addr_street": "West Yale Avenue",
+        "addr_housenumber": "7595"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1314,
+  "id": 1514,
   "type": "knn:towards+loc"
 }

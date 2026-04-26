@@ -1,80 +1,83 @@
 {
-  "question": "Is it possible for you to discover a history museum that is situated within 50 kilometers of Chicago Behavioral Hospital, Des Plaines, IL?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.879034 42.043438)',4326)::geography, 50000)\nAND tourism = 'museum'\nAND museum = 'history';\n",
+  "question": "Can you help me find a emergency hospital no more than 120 kilometers from Raynay Alpaca Farm, Ruffin, NC?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, 120000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 7838,
-      "geometry": "POINT (-87.640721 41.892756)",
-      "poi_name": "National Public Housing Museum",
-      "osm_id": 6431592713,
-      "tourism": "museum",
-      "website": "https://www.nphm.org/",
-      "museum": "history",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60654",
-      "addr_street": "North Kingsbury Street",
-      "addr_housenumber": "625"
+      "id": 72600,
+      "geometry": "POINT (-79.275156 37.120075)",
+      "poi_name": "Altavista Medical Center",
+      "osm_id": 11436052502,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Altavista",
+      "addr_postcode": "24517",
+      "addr_street": "7th Street",
+      "addr_housenumber": "1280"
     },
     {
-      "id": 9060,
-      "geometry": "POINT (-87.66105 41.899674)",
-      "poi_name": "Polish Museum of America",
-      "osm_id": 3652936567,
-      "tourism": "museum",
-      "website": "https://www.polishmuseumofamerica.org/",
-      "museum": "history",
-      "wikidata": "Q3394265",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60642",
-      "addr_street": "North Milwaukee Avenue",
-      "addr_housenumber": "984"
+      "id": 167557,
+      "geometry": "POINT (-78.703262 35.818116)",
+      "poi_name": "UNC REX Healthcare",
+      "osm_id": 357814276,
+      "amenity": "hospital",
+      "operator": "UNC Health Care",
+      "website": "http://www.rexhealth.com/",
+      "phone": "+1 919 784 3100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7319213",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27607",
+      "addr_street": "Lake Boone Trail",
+      "addr_housenumber": "4420"
     },
     {
-      "id": 24549,
-      "geometry": "POINT (-87.873414 41.822972)",
-      "poi_name": "La Grange Park Fire History Museum",
-      "osm_id": 11108815780,
-      "tourism": "museum",
-      "operator": "La Grange Park Fire History",
-      "museum": "history"
+      "id": 181094,
+      "geometry": "POINT (-78.449446 36.330865)",
+      "poi_name": "Maria Parham Health",
+      "osm_id": 10832193337,
+      "amenity": "hospital",
+      "website": "https://www.mariaparham.com/",
+      "phone": "+1 252 436 1100",
+      "emergency": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "history museum",
-      "poi_filter_sql": "museum = 'history'"
-    },
-    "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
-    },
-    "[3]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Chicago Behavioral Hospital, Des Plaines, IL",
-      "geo_wkt": "POINT (-87.879034 42.043438)",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 120000,
+      "text": "120 kilometers"
+    },
+    "[3]": {
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
+      "geo_wkt": "POINT (-79.503121 36.362766)",
       "poi": {
-        "id": 182004,
-        "geometry": "POINT (-87.879034 42.043438)",
-        "poi_name": "Chicago Behavioral Hospital",
-        "osm_id": 10874634231,
-        "amenity": "hospital",
-        "website": "https://chicagobehavioralhospital.com",
-        "phone": "+1 847 768 5430",
-        "healthcare": "hospital",
-        "addr_state": "IL",
-        "addr_city": "Des Plaines",
-        "addr_postcode": "60016",
-        "addr_street": "Wilson Lane",
-        "addr_housenumber": "555"
+        "id": 5116,
+        "geometry": "POINT (-79.503121 36.362766)",
+        "poi_name": "Raynay Alpaca Farm",
+        "osm_id": 9761648623,
+        "tourism": "zoo",
+        "phone": "+13369393645",
+        "zoo": "petting_zoo",
+        "addr_state": "NC",
+        "addr_city": "Ruffin",
+        "addr_postcode": "27326",
+        "addr_street": "Ashland Road",
+        "addr_housenumber": "1897"
       }
     }
   },
-  "id": 588,
+  "id": 2588,
   "type": "range:non_spat_filter+name"
 }

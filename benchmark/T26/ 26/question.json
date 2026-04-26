@@ -1,48 +1,46 @@
 {
-  "question": "How far is the nearest nature reserve situated from Tracy Medical Offices, Tracy, CA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-121.456856 37.75575)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.456856 37.75575)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between El Paso Children's Hospital, El Paso, TX and the nearest stadium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-106.433956 31.771455)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.433956 31.771455)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 262832,
-      "geometry": "POINT (-121.830234 38.02131)",
-      "poi_name": "Dow Wetlands Preserve",
-      "osm_id": 358821236,
-      "leisure": "nature_reserve",
-      "operator": "Dow",
-      "website": "https://corporate.dow.com/en-us/about/locations/pittsburg/wetlands",
-      "distance": 44131.13041006
+      "id": 245556,
+      "geometry": "POINT (-106.493266 31.758252)",
+      "poi_name": "El Paso Chihuas",
+      "osm_id": 3111858669,
+      "leisure": "stadium",
+      "distance": 5806.20590421
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Tracy Medical Offices, Tracy, CA",
-      "geo_wkt": "POINT (-121.456856 37.75575)",
+      "display_name": "El Paso Children's Hospital, El Paso, TX",
+      "geo_wkt": "POINT (-106.433956 31.771455)",
       "poi": {
-        "id": 177475,
-        "geometry": "POINT (-121.456856 37.75575)",
-        "poi_name": "Tracy Medical Offices",
-        "osm_id": 2589839882,
+        "id": 65538,
+        "geometry": "POINT (-106.433956 31.771455)",
+        "poi_name": "El Paso Children's Hospital",
+        "osm_id": 5700544350,
         "amenity": "hospital",
-        "operator": "Kaiser Permanente",
-        "website": "https://healthy.kaiserpermanente.org/northern-california/facilities/Tracy-Medical-Offices-100317",
-        "phone": "+1 209-839-3200",
+        "opening_hours": "24/7",
+        "website": "https://elpasochildrens.org/",
+        "phone": "+1-915-298-5444",
         "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "CA",
-        "addr_city": "Tracy",
-        "addr_postcode": "95377",
-        "addr_street": "West Grant Line Road",
-        "addr_housenumber": "2185"
+        "emergency": "yes",
+        "addr_state": "TX",
+        "addr_city": "El Paso",
+        "addr_postcode": "79905",
+        "addr_street": "Alameda Avenue",
+        "addr_housenumber": "4845"
       }
     }
   },
-  "id": 2425,
+  "id": 625,
   "type": "knn+distance"
 }

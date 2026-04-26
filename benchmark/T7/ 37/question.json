@@ -1,43 +1,44 @@
 {
-  "question": "When was the nearest zoo from the University of Tennessee Health Science Center, Memphis, TN opened?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the name of the architect that designed the closest hotel from Rogers Rock Campground Entrance, Hague, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.486638 43.793073)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18594,
-      "geometry": "POINT (-88.771354 34.289647)",
-      "poi_name": "Tupelo Buffalo Park",
-      "osm_id": 2348043777,
-      "tourism": "zoo",
-      "wikidata": "Q7853507",
-      "multihop_answer": "2001; 23\u00a0years ago[1]",
-      "multihop_attribute": "Date opened",
-      "multihop_long_answer": "Tupelo Buffalo Park Date opened: 2001; 23\u00a0years ago[1]"
+      "id": 7224,
+      "geometry": "POINT (-73.645652 43.555811)",
+      "poi_name": "Sagamore Hotel and Resort",
+      "osm_id": 2011753956,
+      "tourism": "hotel",
+      "wikidata": "Q7762027",
+      "multi_source_answer": "Multiple",
+      "multi_source_attribute": "Architect",
+      "multi_source_long_answer": "Sagamore Hotel and Resort Architect: Multiple"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
-      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Rogers Rock Campground Entrance, Hague, NY",
+      "geo_wkt": "POINT (-73.486638 43.793073)",
       "poi": {
-        "id": 30527,
-        "geometry": "POINT (-90.031353 35.139317)",
-        "poi_name": "The University of Tennessee Health Science Center",
-        "osm_id": 8364364991,
-        "amenity": "university",
-        "wikidata": "Q7896420",
-        "addr_state": "TN",
-        "addr_city": "Memphis",
-        "addr_postcode": "38163"
+        "id": 245228,
+        "geometry": "POINT (-73.486638 43.793073)",
+        "poi_name": "Rogers Rock Campground Entrance",
+        "osm_id": 8449930685,
+        "leisure": "park",
+        "addr_state": "NY",
+        "addr_city": "Hague",
+        "addr_postcode": "12836",
+        "addr_street": "Lake Shore Drive",
+        "addr_housenumber": "9894"
       }
     }
   },
-  "id": 936,
-  "type": "knn+name+multihop1"
+  "id": 836,
+  "type": "knn+name+multi_source1"
 }

@@ -1,50 +1,45 @@
 {
-  "question": "What's the closest railway museum located from American Hotel, Freehold, NJ?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.273309 40.260464)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which emergency hospital is nearest from Lander Trail, Afton, WY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-110.934459 42.731474)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 11398,
-      "geometry": "POINT (-72.795635 42.073879)",
-      "poi_name": "Pioneer Valley Live Steamers",
-      "osm_id": 9958134683,
-      "tourism": "museum",
-      "website": "https://www.pioneervalleylivesteamers.org/",
-      "museum": "railway",
-      "addr_street": "Hillside Road",
-      "addr_housenumber": "108"
+      "id": 105672,
+      "geometry": "POINT (-111.301058 45.26038)",
+      "poi_name": "Bozeman Health",
+      "osm_id": 8639089972,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "railway museum",
-      "poi_filter_sql": "museum = 'railway'"
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "American Hotel, Freehold, NJ",
-      "geo_wkt": "POINT (-74.273309 40.260464)",
+      "sub_category": "museum",
+      "display_name": "Lander Trail, Afton, WY",
+      "geo_wkt": "POINT (-110.934459 42.731474)",
       "poi": {
-        "id": 3116,
-        "geometry": "POINT (-74.273309 40.260464)",
-        "poi_name": "American Hotel",
-        "osm_id": 10183268806,
-        "tourism": "hotel",
-        "website": "https://www.americanhotelnj.com/",
-        "internet_access": "yes",
-        "phone": "7324313220",
-        "wikidata": "Q115206461",
-        "addr_state": "NJ",
-        "addr_city": "Freehold",
-        "addr_postcode": "07728",
-        "addr_street": "E Main Street",
-        "addr_housenumber": "18"
+        "id": 305,
+        "geometry": "POINT (-110.934459 42.731474)",
+        "poi_name": "Lander Trail",
+        "osm_id": 8299561130,
+        "tourism": "museum",
+        "phone": "+1-307-883-2174",
+        "addr_state": "WY",
+        "addr_city": "Afton",
+        "addr_postcode": "83110",
+        "addr_street": "West 1st Avenue",
+        "addr_housenumber": "138"
       }
     }
   },
-  "id": 661,
+  "id": 1461,
   "type": "knn:non_spat_filter+name"
 }

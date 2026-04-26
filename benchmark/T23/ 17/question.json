@@ -1,39 +1,42 @@
 {
-  "question": "What is the number of galleries located within 130 kilometers from Joppa Hill Farm, Bedford, NH?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography, 130000)\nAND tourism = 'gallery';\n",
+  "question": "What\u2019s the total number of hospitals within a 170 kilometers distance from Residence Inn, Los Angeles, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.265659 34.045984)',4326)::geography, 170000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "count": 71
+      "count": 64
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Joppa Hill Farm, Bedford, NH",
-      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.265659 34.045984)",
       "poi": {
-        "id": 10743,
-        "geometry": "POINT (-71.575992 42.931889)",
-        "poi_name": "Joppa Hill Farm",
-        "osm_id": 8014170407,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "NH",
-        "addr_city": "Bedford",
-        "addr_postcode": "03110"
+        "id": 427,
+        "geometry": "POINT (-118.265659 34.045984)",
+        "poi_name": "Residence Inn",
+        "osm_id": 8369844542,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "internet_access": "wlan",
+        "official_name": "Residence Inn by Marriott",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_street": "West Olympic Boulevard",
+        "addr_housenumber": "901"
       }
     }
   },
-  "id": 2216,
+  "id": 1816,
   "type": "range+count"
 }

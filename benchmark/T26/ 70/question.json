@@ -1,43 +1,49 @@
 {
-  "question": "How far away is the nearest aquarium positioned from Smoky Mountain Alpine Coaster, Pigeon Forge, TN?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance to the closest university starting from Carson Park Stadium, Eau Claire, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1488,
-      "geometry": "POINT (-80.724943 35.369446)",
-      "poi_name": "Sea Life Aquarium",
-      "osm_id": 3006070689,
-      "tourism": "aquarium",
-      "distance": 264481.07348929
+      "id": 187290,
+      "geometry": "POINT (-92.72049 44.954815)",
+      "poi_name": "University of Wisconsin-River Falls Hudson Center",
+      "osm_id": 1050485267,
+      "amenity": "university",
+      "operator": "University of Wisconsin-River Falls",
+      "website": "https://www.uwrf.edu/HudsonCenter/",
+      "addr_state": "WI",
+      "addr_city": "Hudson",
+      "addr_postcode": "54016",
+      "addr_street": "Hanley Road",
+      "addr_housenumber": "2501",
+      "distance": 96229.0323475
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
       "poi": {
-        "id": 13057,
-        "geometry": "POINT (-83.596543 35.793397)",
-        "poi_name": "Smoky Mountain Alpine Coaster",
-        "osm_id": 4035710749,
-        "tourism": "theme_park",
-        "website": "http://www.smokymountainalpinecoaster.com/",
-        "wikidata": "Q29831450",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Wears Valley Road",
-        "addr_housenumber": "867"
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
+        "leisure": "stadium",
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
       }
     }
   },
-  "id": 2469,
+  "id": 669,
   "type": "knn+distance"
 }

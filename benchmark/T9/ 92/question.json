@@ -1,47 +1,50 @@
 {
-  "question": "Which zoo is nearest in the west direction from Historic Trade: Book Binder, Williamsburg, VA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.697631 37.271544)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest restaurant towards the south of John D. Barrow Gallery, Skaneateles, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.427498 42.945946)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 20911,
-      "geometry": "POINT (-76.697631 37.271544)",
-      "poi_name": "grandview dog pens",
-      "osm_id": 1313291073,
-      "tourism": "zoo"
+      "id": 43734,
+      "geometry": "POINT (-76.427498 42.945946)",
+      "poi_name": "Mandana Inn",
+      "osm_id": 3128738736,
+      "amenity": "restaurant",
+      "addr_state": "NY",
+      "addr_city": "Skaneateles",
+      "addr_postcode": "13152",
+      "addr_street": "West Lake Road",
+      "addr_housenumber": "1937"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Historic Trade: Book Binder, Williamsburg, VA",
-      "geo_wkt": "POINT (-76.697631 37.271544)",
+      "sub_category": "gallery",
+      "display_name": "John D. Barrow Gallery, Skaneateles, NY",
+      "geo_wkt": "POINT (-76.427498 42.945946)",
       "poi": {
-        "id": 19083,
-        "geometry": "POINT (-76.697631 37.271544)",
-        "poi_name": "Historic Trade: Book Binder",
-        "osm_id": 2501701019,
-        "tourism": "attraction",
-        "wheelchair": "no",
-        "opening_hours": "Tu-Sa 09:00-17:00",
-        "operator": "Colonial Williamsburg Foundation",
-        "addr_state": "VA",
-        "addr_city": "Williamsburg",
-        "addr_postcode": "23185",
-        "addr_street": "East Duke of Gloucester Street",
-        "addr_housenumber": "303"
+        "id": 2144,
+        "geometry": "POINT (-76.427498 42.945946)",
+        "poi_name": "John D. Barrow Gallery",
+        "osm_id": 3278478500,
+        "tourism": "gallery",
+        "opening_hours": "Jan-Apr: Th,Fr 11:00-16:00; May: Th-Sa 11:00-16:00; May Mo[-1]-Sep Mo[1]: Mo-Fr 13:00-16:00, May Mo[-1]-Sep Mo[1]: Sa 11:00-16:00; Sep Mo[1]-Nov Th[4]: Th,Fr 11:00-16:00; Nov Th[4]-Dec 24: Th-Sa 13:00-16:00",
+        "addr_state": "NY",
+        "addr_city": "Skaneateles",
+        "addr_postcode": "13152",
+        "addr_street": "East Genesee Street",
+        "addr_housenumber": "49"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2591,
+  "id": 1291,
   "type": "knn:direction+name"
 }

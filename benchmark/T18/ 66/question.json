@@ -1,51 +1,51 @@
 {
-  "question": "Where can I find the closest children museum from Childrens's Nature Center, Grand Junction, CO?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'children'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest american restaurant close to Glenhill Farmhouse, Erie, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24499,
-      "geometry": "POINT (-106.982373 38.869898)",
-      "poi_name": "Trailhead Children's Museum",
-      "osm_id": 11081762464,
-      "tourism": "museum",
-      "website": "https://www.trailheadkids.org/",
-      "museum": "children",
-      "addr_state": "CO",
-      "addr_city": "Crested Butte",
-      "addr_street": "Elk Avenue",
-      "addr_housenumber": "501"
+      "id": 242823,
+      "geometry": "POINT (-80.008698 42.144244)",
+      "poi_name": "Applebee's",
+      "osm_id": 7600888677,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "official_name": "Applebee's Neighborhood Grill & Bar",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16510",
+      "addr_street": "Buffalo Road",
+      "addr_housenumber": "4002"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "children museum",
-      "poi_filter_sql": "museum = 'children'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "american restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%american%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Childrens's Nature Center, Grand Junction, CO",
-      "geo_wkt": "POINT (-108.603856 39.09253)",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
       "poi": {
-        "id": 8067,
-        "geometry": "POINT (-108.603856 39.09253)",
-        "poi_name": "Childrens's Nature Center",
-        "osm_id": 6546260867,
-        "description": "Zoo and aquarium great for children and exciting for all ages. Over 100 unique creatures and educational exhibits.",
-        "tourism": "zoo",
-        "opening_hours": "Su 12:00-16:00; Mo-Sa 10:00-16:00",
-        "phone": "+1-970-241-1000",
-        "addr_state": "CO",
-        "addr_city": "Grand Junction",
-        "addr_postcode": "81501",
-        "addr_street": "US 6 and 50",
-        "addr_housenumber": "2424"
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
       }
     }
   },
-  "id": 365,
+  "id": 1365,
   "type": "knn:non_spat_filter+loc"
 }

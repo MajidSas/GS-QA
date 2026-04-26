@@ -1,43 +1,57 @@
 {
-  "question": "Where's the closest gallery positioned towards the northeast of Women for Abilene Christian University Museum, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-99.711755 32.465958)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant going southwest from Meerkerk Gardens, Greenbank, WA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.56177 48.081101)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23739,
-      "geometry": "POINT (-99.711755 32.465958)",
-      "poi_name": "The Branded bear",
-      "osm_id": 5292454853,
-      "tourism": "gallery",
-      "addr_state": "OK",
-      "addr_city": "Medicine Park",
-      "addr_postcode": "73557",
-      "addr_street": "East Lake Drive",
-      "addr_housenumber": "148"
+      "id": 234926,
+      "geometry": "POINT (-122.56177 48.081101)",
+      "poi_name": "Papa Murphy's",
+      "osm_id": 5740082528,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "opening_hours": "Mo-Th 11:00-20:00, Fr-Sa 11:00-21:00, Su-11:00-20:00",
+      "phone": "+1-360-427-6400",
+      "takeaway": "only",
+      "drive_through": "no",
+      "official_name": "Papa Murphy's Take 'N' Bake Pizza",
+      "addr_state": "WA",
+      "addr_city": "Shelton",
+      "addr_postcode": "98584",
+      "addr_street": "East Wallace Kneeland Boulevard",
+      "addr_housenumber": "301"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Women for Abilene Christian University Museum, TX",
-      "geo_wkt": "POINT (-99.711755 32.465958)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Meerkerk Gardens, Greenbank, WA",
+      "geo_wkt": "POINT (-122.56177 48.081101)",
       "poi": {
-        "id": 18012,
-        "geometry": "POINT (-99.711755 32.465958)",
-        "poi_name": "Women for Abilene Christian University Museum",
-        "osm_id": 368165082,
-        "tourism": "museum",
-        "addr_state": "TX"
+        "id": 245401,
+        "geometry": "POINT (-122.56177 48.081101)",
+        "poi_name": "Meerkerk Gardens",
+        "osm_id": 2871224413,
+        "leisure": "garden",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 09:00-16:00",
+        "website": "https://www.meerkerkgardens.org/",
+        "wikidata": "Q6807694",
+        "addr_state": "WA",
+        "addr_city": "Greenbank",
+        "addr_postcode": "98253",
+        "addr_street": "Meerkerk Lane",
+        "addr_housenumber": "3531"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1195,

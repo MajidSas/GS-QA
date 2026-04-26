@@ -1,36 +1,40 @@
 {
-  "question": "In the vicinity of Five Wells Roping Rodeo Arena, TX, within 130 kilometers, how many parks are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, 130000)\nAND leisure = 'park';\n",
+  "question": "What\u2019s the total number of hospitals inside 170 kilometers of Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 170000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "count": 188
+      "count": 18
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Five Wells Roping Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "sub_category": "garden",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
       "poi": {
-        "id": 265394,
-        "geometry": "POINT (-97.402227 30.995182)",
-        "poi_name": "Five Wells Roping Rodeo Arena",
-        "osm_id": 368165371,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
       }
     }
   },
-  "id": 2233,
+  "id": 1833,
   "type": "range+count"
 }

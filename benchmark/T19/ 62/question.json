@@ -1,47 +1,50 @@
 {
-  "question": "Where is the closest university northwest of Longfellow Arboretum, Portland, ME?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.269893 43.680714)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest park positioned in the southeast direction of Bowling Green Ballpark, Bowling Green, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.441176 36.996563)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 208143,
-      "geometry": "POINT (-70.269893 43.680714)",
-      "poi_name": "University of Vermont",
-      "osm_id": 4975151894,
-      "amenity": "university",
-      "addr_city": "Newport",
-      "addr_street": "West Main Street",
-      "addr_housenumber": "316"
+      "id": 247542,
+      "geometry": "POINT (-86.441176 36.996563)",
+      "poi_name": "Winding Stairs Park",
+      "osm_id": 6818195129,
+      "leisure": "park",
+      "website": "https://winding-stairs.com/",
+      "addr_state": "TN",
+      "addr_city": "Lafayette",
+      "addr_postcode": "37083",
+      "addr_street": "Nature Trail Way",
+      "addr_housenumber": "655"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Longfellow Arboretum, Portland, ME",
-      "geo_wkt": "POINT (-70.269893 43.680714)",
+      "sub_category": "stadium",
+      "display_name": "Bowling Green Ballpark, Bowling Green, KY",
+      "geo_wkt": "POINT (-86.441176 36.996563)",
       "poi": {
-        "id": 265852,
-        "geometry": "POINT (-70.269893 43.680714)",
-        "poi_name": "Longfellow Arboretum",
-        "osm_id": 7922996124,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "fee": "no",
-        "website": "https://www.longfellowgardenclub.org/longfellow-arboretum",
-        "addr_state": "ME",
-        "addr_city": "Portland",
-        "addr_street": "Baxter Boulevard",
-        "addr_housenumber": "755"
+        "id": 267102,
+        "geometry": "POINT (-86.441176 36.996563)",
+        "poi_name": "Bowling Green Ballpark",
+        "osm_id": 4514482625,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "wikidata": "Q4951144",
+        "addr_state": "KY",
+        "addr_city": "Bowling Green",
+        "addr_postcode": "42101",
+        "addr_street": "East 8th Avenue",
+        "addr_housenumber": "300"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1161,

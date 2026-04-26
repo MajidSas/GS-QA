@@ -1,55 +1,82 @@
 {
-  "question": "Where can I find a garden to the northwest of Courtyard, Baltimore, MD within 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.599735 39.283445)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.599735 39.283445)',4326)::geography, 100000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Where can I find a hospital within 110 kilometers, oriented toward the south of the Coachlight Inn Motel, Oconto Falls, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography, 110000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 245708,
-      "geometry": "POINT (-76.599735 39.283445)",
-      "poi_name": "Memory Garden",
-      "osm_id": 3432403574,
-      "leisure": "garden",
-      "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
-      "addr_state": "MD",
-      "addr_city": "Baltimore",
-      "addr_postcode": "21217",
-      "addr_street": "North Carey Street",
-      "addr_housenumber": "929"
+      "id": 57799,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Children's Wisconsin-Fox Valley Hospital",
+      "osm_id": 5352023735,
+      "amenity": "hospital",
+      "operator": "Children's Hospital of Wisconsin",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WI",
+      "addr_city": "Neenah",
+      "addr_postcode": "54956",
+      "addr_street": "2nd Street",
+      "addr_housenumber": "130"
+    },
+    {
+      "id": 83762,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Aurora Health Center",
+      "osm_id": 1765365025,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no"
+    },
+    {
+      "id": 183254,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Willow Creek Behavioral Health",
+      "osm_id": 10920543776,
+      "amenity": "hospital",
+      "website": "https://willowcreekbh.com",
+      "phone": "+1 920 328 1220",
+      "healthcare": "hospital",
+      "addr_state": "WI",
+      "addr_city": "Green Bay",
+      "addr_postcode": "54311",
+      "addr_street": "Ontario Road",
+      "addr_housenumber": "1351"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Courtyard, Baltimore, MD",
-      "geo_wkt": "POINT (-76.599735 39.283445)",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
       "poi": {
-        "id": 2432,
-        "geometry": "POINT (-76.599735 39.283445)",
-        "poi_name": "Courtyard",
-        "osm_id": 3445777700,
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
         "tourism": "hotel",
-        "official_name": "Courtyard by Marriott",
-        "addr_state": "MD",
-        "addr_city": "Baltimore",
-        "addr_postcode": "21202",
-        "addr_street": "Aliceanna Street",
-        "addr_housenumber": "1000"
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 80,
+  "id": 2280,
   "type": "range:direction+loc"
 }

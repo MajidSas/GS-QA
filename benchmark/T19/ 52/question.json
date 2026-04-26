@@ -1,51 +1,56 @@
 {
-  "question": "Where's the closest hotel towards the southeast of Aloha Safari Park, Cameron, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hospital on the path going northwest from Hotel AKA Boston Common, Boston, MA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-71.060693 42.35733)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25665,
-      "geometry": "POINT (-79.113032 35.317294)",
-      "poi_name": "Country Inn & Suites",
-      "osm_id": 4573038660,
-      "tourism": "hotel",
-      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-fayetteville-fort-bragg-nc",
-      "phone": "+1-910-436-1900",
-      "addr_state": "NC",
-      "addr_city": "Spring Lake",
-      "addr_postcode": "28390",
-      "addr_street": "Brook Lane",
-      "addr_housenumber": "103"
+      "id": 188948,
+      "geometry": "POINT (-71.060693 42.35733)",
+      "poi_name": "Massachusetts Eye and Ear",
+      "osm_id": 257489564,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.masseyeandear.org/",
+      "phone": "+1 617 523 7900",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q6784269",
+      "addr_city": "Boston",
+      "addr_postcode": "02114",
+      "addr_street": "Charles Street",
+      "addr_housenumber": "243"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Aloha Safari Park, Cameron, NC",
-      "geo_wkt": "POINT (-79.113032 35.317294)",
+      "sub_category": "hotel",
+      "display_name": "Hotel AKA Boston Common, Boston, MA",
+      "geo_wkt": "POINT (-71.060693 42.35733)",
       "poi": {
-        "id": 18897,
-        "geometry": "POINT (-79.113032 35.317294)",
-        "poi_name": "Aloha Safari Park",
-        "osm_id": 2440275710,
-        "tourism": "zoo",
-        "operator": "Lee Crutchfield",
-        "website": "http://alohasafarizoo.org/",
-        "addr_state": "NC",
-        "addr_city": "Cameron",
-        "addr_postcode": "28348",
-        "addr_street": "Mini Lane",
-        "addr_housenumber": "159"
+        "id": 1481,
+        "geometry": "POINT (-71.060693 42.35733)",
+        "poi_name": "Hotel AKA Boston Common",
+        "osm_id": 3000733513,
+        "tourism": "hotel",
+        "opening_hours": "24/7",
+        "website": "https://www.stayaka.com/hotel-aka-boston-common",
+        "internet_access": "wlan",
+        "phone": "+1 617 772 5800",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02108",
+        "addr_street": "Tremont Street",
+        "addr_housenumber": "90"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1151,

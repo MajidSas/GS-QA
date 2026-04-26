@@ -1,139 +1,103 @@
 {
-  "question": "Within a radius of 160 kilometers, what caf\u00e9 can I find located in the east of Raynay Alpaca Farm, Ruffin, NC?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, 160000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "What gallery exist within a 180 kilometers distance north of Strawberry Hill, San Francisco, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, 180000)\nAND tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 89036,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "Flat River Cafe",
-      "osm_id": 8818581417,
-      "amenity": "cafe",
-      "opening_hours": "Tu-Sa 06:00-14:00",
-      "website": "https://hurdlemillsmarket.com/",
-      "internet_access": "wlan",
-      "phone": "3363648800",
-      "addr_state": "NC",
-      "addr_city": "Hurdle Mills",
-      "addr_postcode": "27541",
-      "addr_street": "Hurdle Mills Road",
-      "addr_housenumber": "9580"
+      "id": 19829,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "Corner Gallery",
+      "osm_id": 10901082384,
+      "tourism": "gallery"
     },
     {
-      "id": 145133,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "City Lunch Cafe",
-      "osm_id": 7317282833,
-      "amenity": "cafe",
-      "addr_state": "NC",
-      "addr_city": "Franklinton",
-      "addr_postcode": "27525",
-      "addr_street": "Main Street",
-      "addr_housenumber": "5"
+      "id": 223,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "Lori Austen Gallery",
+      "osm_id": 8244038063,
+      "tourism": "gallery",
+      "addr_street": "Farmers Lane",
+      "addr_housenumber": "725"
     },
     {
-      "id": 133602,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "Starbucks",
-      "osm_id": 10000480950,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "shop": "coffee",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee"
+      "id": 7973,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "The Corner Store Collective",
+      "osm_id": 6496551506,
+      "description": "Contemporary Art Gallery located in Downtown Santa Rosa. Monthly themed exhibitions feature artists from the Bay Area & around the world.",
+      "tourism": "gallery",
+      "opening_hours": "\"appointment only\"",
+      "phone": "+1-707-292-9580",
+      "addr_state": "CA",
+      "addr_city": "Santa Rosa",
+      "addr_street": "Ross Street",
+      "addr_housenumber": "575"
     },
     {
-      "id": 203545,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "The Honeybaked Ham",
-      "osm_id": 7092233604,
-      "amenity": "cafe"
+      "id": 8202,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "Calabi Gallery",
+      "osm_id": 6587850130,
+      "tourism": "gallery"
     },
     {
-      "id": 145132,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "Sugar Grinders Creamery and Bakery",
-      "osm_id": 7317282832,
-      "amenity": "cafe",
-      "addr_state": "NC",
-      "addr_city": "Franklinton",
-      "addr_postcode": "27525",
-      "addr_street": "Main Street",
-      "addr_housenumber": "2"
+      "id": 8029,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "J Gallery",
+      "osm_id": 6522450241,
+      "tourism": "gallery",
+      "opening_hours": "Tu-Sa 11:00-18:00; Su 12:00-17:00",
+      "website": "https://www.jgalleryfineart.com",
+      "phone": "+1-707-521-9093",
+      "addr_state": "CA",
+      "addr_city": "Santa Rosa",
+      "addr_postcode": "95404",
+      "addr_street": "D Street",
+      "addr_housenumber": "311"
     },
     {
-      "id": 194679,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "Corner Coffee Cafe",
-      "osm_id": 10280564334,
-      "amenity": "cafe",
-      "phone": "+12523160442",
-      "addr_state": "NC",
-      "addr_city": "Nashville",
-      "addr_postcode": "27856",
-      "addr_street": "West Washington Street",
-      "addr_housenumber": "201"
-    },
-    {
-      "id": 194969,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "Mason x Main",
-      "osm_id": 10290846431,
-      "amenity": "cafe",
-      "addr_state": "NC",
-      "addr_city": "Franklinton",
-      "addr_postcode": "27525",
-      "addr_street": "North Main Street",
-      "addr_housenumber": "2"
-    },
-    {
-      "id": 212991,
-      "geometry": "POINT (-79.503121 36.362766)",
-      "poi_name": "The Kitchen Table",
-      "osm_id": 5229488313,
-      "amenity": "cafe",
-      "cuisine": "breakfast;lunch",
-      "addr_state": "VA",
-      "addr_city": "Gasburg",
-      "addr_postcode": "23857",
-      "addr_street": "Gasburg Road",
-      "addr_housenumber": "4111"
+      "id": 24328,
+      "geometry": "POINT (-122.475512 37.768668)",
+      "poi_name": "Avenue 12 Gallery",
+      "osm_id": 11009374817,
+      "tourism": "gallery",
+      "wheelchair": "yes",
+      "website": "https://avenue12gallery.com",
+      "phone": "+1 415-750-9955",
+      "addr_street": "Lake Street",
+      "addr_housenumber": "1101"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
-      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 5116,
-        "geometry": "POINT (-79.503121 36.362766)",
-        "poi_name": "Raynay Alpaca Farm",
-        "osm_id": 9761648623,
-        "tourism": "zoo",
-        "phone": "+13369393645",
-        "zoo": "petting_zoo",
-        "addr_state": "NC",
-        "addr_city": "Ruffin",
-        "addr_postcode": "27326",
-        "addr_street": "Ashland Road",
-        "addr_housenumber": "1897"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2668,
+  "id": 2368,
   "type": "range:direction+name"
 }

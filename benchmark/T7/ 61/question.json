@@ -1,46 +1,47 @@
 {
-  "question": "When was the nearest university from Rollins Avenue Park, Capitol Heights, MD established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.902678 38.878173)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the volume of the largest tank at the nearest aquarium from Dripping Springs Natural Area, Las Cruces, NM?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.588462 32.334151)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 197377,
-      "geometry": "POINT (-77.01674 38.864768)",
-      "poi_name": "National Defense University",
-      "osm_id": 10646874299,
-      "amenity": "university",
-      "description": "The NDU has five colleges: College of Information and Cyberspace, College of International Security Affairs, Dwight D. Eisenhower School for National Security and Resource Strategy, Joint Forces Staff College, and National War College.",
-      "website": "https://www.ndu.edu/",
-      "wikidata": "Q1967074",
-      "multihop_answer": "1976",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "National Defense University Established: 1976"
+      "id": 6226,
+      "geometry": "POINT (-106.678998 35.093235)",
+      "poi_name": "ABQ BioPark (Aquarium)",
+      "osm_id": 1788029735,
+      "tourism": "aquarium",
+      "wikidata": "Q4712807",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque",
+      "multi_source_answer": "285,000 U.S. gallons (1,080,000\u00a0L)[1]",
+      "multi_source_attribute": "Volume of largest tank",
+      "multi_source_long_answer": "ABQ BioPark (Aquarium) Volume of largest tank: 285,000 U.S. gallons (1,080,000\u00a0L)[1]"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Rollins Avenue Park, Capitol Heights, MD",
-      "geo_wkt": "POINT (-76.902678 38.878173)",
+      "display_name": "Dripping Springs Natural Area, Las Cruces, NM",
+      "geo_wkt": "POINT (-106.588462 32.334151)",
       "poi": {
-        "id": 246239,
-        "geometry": "POINT (-76.902678 38.878173)",
-        "poi_name": "Rollins Avenue Park",
-        "osm_id": 11197779963,
+        "id": 248588,
+        "geometry": "POINT (-106.588462 32.334151)",
+        "poi_name": "Dripping Springs Natural Area",
+        "osm_id": 4652487331,
         "leisure": "park",
-        "addr_state": "MD",
-        "addr_city": "Capitol Heights",
-        "addr_postcode": "20743",
-        "addr_street": "Rollins Avenue",
-        "addr_housenumber": "711"
+        "tourism": "park",
+        "website": "https://www.blm.gov/nm/st/en/prog/recreation/las_cruces/dripping_springs.html",
+        "addr_state": "NM",
+        "addr_city": "Las Cruces",
+        "addr_street": "Dripping Springs Road",
+        "addr_housenumber": "15000"
       }
     }
   },
-  "id": 960,
-  "type": "knn+name+multihop1"
+  "id": 860,
+  "type": "knn+name+multi_source1"
 }

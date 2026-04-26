@@ -1,50 +1,43 @@
 {
-  "question": "What's the proximity of the nearest attraction relative to Doves Landing Park, Manassas, VA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.478209 38.687121)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.478209 38.687121)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from Cogswell University of Silicon Valley, San Jose, CA to the nearest nature reserve?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13972,
-      "geometry": "POINT (-77.503526 38.772114)",
-      "poi_name": "Autobahn Indoor Speedway",
-      "osm_id": 4205211289,
-      "leisure": "track",
-      "tourism": "attraction",
-      "opening_hours": "Mo-Th 11:00-22:00, Fr 11:00- 24:00, Sa 10:00-24:00, Su 10:00-20:00 || \"by arrangement\"",
-      "sport": "karting",
-      "website": "https://autobahnspeed.com/manassas/",
-      "phone": "+1 571 7622100",
-      "addr_state": "VA",
-      "addr_city": "Manassas",
-      "addr_street": "Sudley Road",
-      "addr_housenumber": "8300",
-      "distance": 9688.57397183
+      "id": 267497,
+      "geometry": "POINT (-121.881471 37.214754)",
+      "poi_name": "McAbee Entry",
+      "osm_id": 7600110978,
+      "leisure": "nature_reserve",
+      "opening_hours": "08:00-sunset",
+      "official_name": "Almaden Quicksilver County Park",
+      "distance": 22740.83199284
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Doves Landing Park, Manassas, VA",
-      "geo_wkt": "POINT (-77.478209 38.687121)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Cogswell University of Silicon Valley, San Jose, CA",
+      "geo_wkt": "POINT (-121.941 37.414064)",
       "poi": {
-        "id": 248871,
-        "geometry": "POINT (-77.478209 38.687121)",
-        "poi_name": "Doves Landing Park",
-        "osm_id": 4880577726,
-        "leisure": "park",
-        "addr_state": "VA",
-        "addr_city": "Manassas",
-        "addr_postcode": "20112",
-        "addr_street": "Doves Lane",
-        "addr_housenumber": "9305"
+        "id": 104359,
+        "geometry": "POINT (-121.941 37.414064)",
+        "poi_name": "Cogswell University of Silicon Valley",
+        "osm_id": 8566442104,
+        "amenity": "university",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_postcode": "95134",
+        "addr_street": "Baypointe Parkway",
+        "addr_housenumber": "191"
       }
     }
   },
-  "id": 2429,
+  "id": 629,
   "type": "knn+distance"
 }

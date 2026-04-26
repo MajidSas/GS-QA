@@ -1,42 +1,50 @@
 {
-  "question": "Any suggestions for the nearest attraction from the stadium that can hold 4500 spectators in Lucama, NC?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest caf\u00e9 relative to the park that can hold 10000 spectators in Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21792,
-      "geometry": "POINT (-78.054324 35.659242)",
-      "poi_name": "Whirligig",
-      "osm_id": 10679183142,
-      "tourism": "attraction"
+      "id": 194700,
+      "geometry": "POINT (-112.218394 33.47533)",
+      "poi_name": "Starbucks",
+      "osm_id": 10281498621,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "no",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85035",
+      "addr_street": "North 75th Avenue",
+      "addr_housenumber": "7409"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Southern National Motorsport Park, Lucama, NC",
-      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 248769,
-        "geometry": "POINT (-78.060871 35.61119)",
-        "poi_name": "Southern National Motorsport Park",
-        "osm_id": 4773889332,
-        "leisure": "stadium",
-        "sport": "motor",
-        "wikidata": "Q7570163",
-        "addr_state": "NC",
-        "addr_city": "Lucama",
-        "addr_postcode": "27851",
-        "addr_street": "Newsome Mill Road",
-        "addr_housenumber": "8071"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 2727,
-  "type": "knn+name+multihop2"
+  "id": 927,
+  "type": "knn+name+multi_source2"
 }

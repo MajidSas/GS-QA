@@ -1,45 +1,52 @@
 {
-  "question": "How distant is the closest gallery from the reference location Lytle Nature Preserve, Lockport, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest zoo from the reference point Southern National Motorsport Park, Lucama, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7000,
-      "geometry": "POINT (-78.685023 43.15849)",
-      "poi_name": "Kenan House Gallery",
-      "osm_id": 8807870933,
-      "tourism": "gallery",
-      "website": "http://kenancenter.org/gallery/",
-      "distance": 4158.88569357
+      "id": 12531,
+      "geometry": "POINT (-77.67449 35.786787)",
+      "poi_name": "It's A Zoo Life",
+      "osm_id": 7297084056,
+      "tourism": "zoo",
+      "fee": "yes",
+      "opening_hours": "Mo-Sa 08:00-17:00",
+      "phone": "(252) 266-7974",
+      "zoo": "petting_zoo",
+      "addr_state": "NC",
+      "addr_city": "Macclesville",
+      "addr_postcode": "27852",
+      "addr_street": "NC-42",
+      "addr_housenumber": "4313",
+      "distance": 40030.61595131
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Lytle Nature Preserve, Lockport, NY",
-      "geo_wkt": "POINT (-78.666286 43.193323)",
+      "sub_category": "stadium",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
       "poi": {
-        "id": 247569,
-        "geometry": "POINT (-78.666286 43.193323)",
-        "poi_name": "Lytle Nature Preserve",
-        "osm_id": 6868645749,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Town of Lockport",
-        "website": "https://www.elockport.com/department-parks-trails.php",
-        "addr_state": "NY",
-        "addr_city": "Lockport",
-        "addr_postcode": "14094",
-        "addr_street": "North Canal Road",
-        "addr_housenumber": "6637"
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
+        "leisure": "stadium",
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
       }
     }
   },
-  "id": 2404,
+  "id": 604,
   "type": "knn+distance"
 }

@@ -1,60 +1,70 @@
 {
-  "question": "Where is the nearest gallery as you progress towards Sand Dunes Frontier, Florence, OR from Jasper State Park, OR?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography, ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.90119 43.983182)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant encountered en route to Fred Crabtree Park, Herndon, VA from Rock of the Marne, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography, ST_GeomFromText('POINT (-77.359991 38.913126)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 4269,
-      "geometry": "POINT (-124.10617 43.966615)",
-      "poi_name": "The Laughing Crab Gallery & Tasting Room",
-      "osm_id": 11196553748,
-      "tourism": "gallery",
-      "addr_state": "OR",
-      "addr_city": "Florence",
-      "addr_postcode": "97439",
-      "addr_street": "Bay Street",
-      "addr_housenumber": "1341",
-      "value": 265.9099482169527
+      "id": 127023,
+      "geometry": "POINT (-77.085492 38.880907)",
+      "poi_name": "Paisano's Pizza",
+      "osm_id": 8019495042,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Su-Th 11:00-22:00, Fr-Sa 11:00-23:00",
+      "website": "https://www.paisanospizza.com/",
+      "phone": "+1 703-528-1000",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "VA",
+      "addr_city": "Arlington",
+      "addr_postcode": "22201",
+      "addr_street": "North Pershing Drive",
+      "addr_housenumber": "2201",
+      "value": 279.323029767084
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Jasper State Park, OR",
-      "geo_wkt": "POINT (-122.90119 43.983182)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Rock of the Marne, VA",
+      "geo_wkt": "POINT (-77.073797 38.876769)",
       "poi": {
-        "id": 254158,
-        "geometry": "POINT (-122.90119 43.983182)",
-        "poi_name": "Jasper State Park",
-        "osm_id": 357329621,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 139,
+        "geometry": "POINT (-77.073797 38.876769)",
+        "poi_name": "Rock of the Marne",
+        "osm_id": 453542780,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Sand Dunes Frontier, Florence, OR",
-      "geo_wkt": "POINT (-124.111464 43.914209)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Fred Crabtree Park, Herndon, VA",
+      "geo_wkt": "POINT (-77.359991 38.913126)",
       "poi": {
-        "id": 25873,
-        "geometry": "POINT (-124.111464 43.914209)",
-        "poi_name": "Sand Dunes Frontier",
-        "osm_id": 4630148745,
-        "tourism": "theme_park",
-        "addr_state": "OR",
-        "addr_city": "Florence",
-        "addr_postcode": "97439",
-        "addr_street": "Oregon Coast Highway",
-        "addr_housenumber": "83960"
+        "id": 247051,
+        "geometry": "POINT (-77.359991 38.913126)",
+        "poi_name": "Fred Crabtree Park",
+        "osm_id": 8632180273,
+        "leisure": "park",
+        "operator": "Fairfax County",
+        "website": "fairfaxcounty.gov",
+        "addr_state": "VA",
+        "addr_city": "Herndon",
+        "addr_postcode": "20171",
+        "addr_street": "Fox Mill Road",
+        "addr_housenumber": "2801"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 1311,
+  "id": 1511,
   "type": "knn:towards+loc"
 }

@@ -1,57 +1,96 @@
 {
-  "question": "Could you help me find the location of an emergency hospital, preferably within a 160 kilometers radius of Ottawa University, Queen Creek, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.635286 33.251186)',4326)::geography, 160000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Where can I find a Sushi restaurant that falls within 70 kilometers of Fred Savage Park - City of Augusta, Augusta, ME?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-69.760329 44.334678)',4326)::geography, 70000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%Sushi%';\n",
   "answers": [
     {
-      "id": 182792,
-      "geometry": "POINT (-112.420658 33.637727)",
-      "poi_name": "Abrazo Surprise Hospital",
-      "osm_id": 10904418627,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Abrazo Health",
-      "website": "https://www.abrazohealth.com/locations/detail/abrazo-surprise-hospital",
-      "phone": "+1-623-244-2400",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "AZ",
-      "addr_city": "Surprise",
-      "addr_postcode": "85374",
-      "addr_street": "West Bell Road",
-      "addr_housenumber": "16815"
+      "id": 34155,
+      "geometry": "POINT (-70.106678 43.855185)",
+      "poi_name": "Fuji Sakura",
+      "osm_id": 2696841867,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "opening_hours": "Su-Mo,We-Th 11:00-21:30; Fr-Sa 11:00-22:00; Tu off",
+      "website": "https://www1.beyondmenu.com/25326/freeport/fuji-sakura-freeport-04032.aspx?r=25326",
+      "addr_city": "Freeport",
+      "addr_postcode": "04032",
+      "addr_street": "Main Street",
+      "addr_housenumber": "23"
+    },
+    {
+      "id": 75084,
+      "geometry": "POINT (-69.651949 44.54019)",
+      "poi_name": "Bento Sushi",
+      "osm_id": 9710296012,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "website": "https://www.bentosushi.com/us/",
+      "addr_state": "ME",
+      "addr_city": "Waterville",
+      "addr_postcode": "04901",
+      "addr_street": "Jfk Plaza",
+      "addr_housenumber": "190"
+    },
+    {
+      "id": 75085,
+      "geometry": "POINT (-69.652516 44.539902)",
+      "poi_name": "Mirakuya Sushi & Steak House",
+      "osm_id": 9710296014,
+      "amenity": "restaurant",
+      "cuisine": "sushi;steak_house",
+      "opening_hours": "Mo-Th 11:00-14:30, 16:00-21:30, Fr-Sa 11:00-14:30, 16:00-22:00, Su 12:00-21:00",
+      "website": "http://mirakuyawaterville.com/",
+      "phone": "+12076160088",
+      "addr_state": "ME",
+      "addr_city": "Waterville",
+      "addr_postcode": "04901",
+      "addr_street": "Jfk Plaza",
+      "addr_housenumber": "150"
+    },
+    {
+      "id": 207806,
+      "geometry": "POINT (-69.965098 43.915882)",
+      "poi_name": "Watami",
+      "osm_id": 4961975621,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "addr_state": "ME",
+      "addr_city": "Brunswick",
+      "addr_postcode": "04011",
+      "addr_street": "Maine Street",
+      "addr_housenumber": "115"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "Sushi restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Sushi%'"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Ottawa University, Queen Creek, AZ",
-      "geo_wkt": "POINT (-111.635286 33.251186)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Fred Savage Park - City of Augusta, Augusta, ME",
+      "geo_wkt": "POINT (-69.760329 44.334678)",
       "poi": {
-        "id": 186937,
-        "geometry": "POINT (-111.635286 33.251186)",
-        "poi_name": "Ottawa University",
-        "osm_id": 7958040581,
-        "amenity": "university",
-        "addr_state": "AZ",
-        "addr_city": "Queen Creek",
-        "addr_postcode": "85142",
-        "addr_street": "South Ellsworth Road",
-        "addr_housenumber": "21740"
+        "id": 248258,
+        "geometry": "POINT (-69.760329 44.334678)",
+        "poi_name": "Fred Savage Park - City of Augusta",
+        "osm_id": 7563919110,
+        "leisure": "park",
+        "addr_state": "ME",
+        "addr_city": "Augusta",
+        "addr_postcode": "04330",
+        "addr_street": "Riverside Drive",
+        "addr_housenumber": "274"
       }
     }
   },
-  "id": 443,
+  "id": 2443,
   "type": "range:non_spat_filter+loc"
 }

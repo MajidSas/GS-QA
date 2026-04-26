@@ -1,48 +1,54 @@
 {
-  "question": "What's the course towards a garden from Black Hills Children's Home, Rapid City, SD within 160 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-103.377592 43.909219)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-103.377592 43.909219)',4326)::geography, 160000)\nAND leisure = 'garden';\n",
+  "question": "In what direction should I go to reach a hospital from SeaQuest, Lynchburg, VA within 40 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, 40000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "id": 248928,
-      "geometry": "POINT (-103.226621 44.086436)",
-      "poi_name": "Memorial Park Rose Gardens",
-      "osm_id": 4939470062,
-      "leisure": "garden",
-      "angle": 31.537674802463734
+      "id": 72600,
+      "geometry": "POINT (-79.275156 37.120075)",
+      "poi_name": "Altavista Medical Center",
+      "osm_id": 11436052502,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "VA",
+      "addr_city": "Altavista",
+      "addr_postcode": "24517",
+      "addr_street": "7th Street",
+      "addr_housenumber": "1280",
+      "angle": 197.54009124163034
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Black Hills Children's Home, Rapid City, SD",
-      "geo_wkt": "POINT (-103.377592 43.909219)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
       "poi": {
-        "id": 182856,
-        "geometry": "POINT (-103.377592 43.909219)",
-        "poi_name": "Black Hills Children's Home",
-        "osm_id": 10906756024,
-        "amenity": "hospital",
-        "website": "https://chssd.org/residential-treatment-and-education",
-        "phone": "+1 605 343 5422",
-        "healthcare": "hospital",
-        "addr_state": "SD",
-        "addr_city": "Rapid City",
-        "addr_postcode": "57702-7422",
-        "addr_street": "S. Rockerville Rd.",
-        "addr_housenumber": "24100"
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
       }
     }
   },
-  "id": 1017,
+  "id": 1717,
   "type": "range+angle"
 }

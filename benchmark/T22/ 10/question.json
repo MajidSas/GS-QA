@@ -1,45 +1,42 @@
 {
-  "question": "What is the direction towards the closest hotel from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In which direction lies the nearest garden from Voorhees College, Denmark, SC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1359,
-      "geometry": "POINT (-83.132333 40.079383)",
-      "poi_name": "Columbus Marriott Northwest",
-      "osm_id": 2955201364,
-      "tourism": "hotel",
-      "addr_state": "OH",
-      "addr_city": "Dublin",
-      "addr_postcode": "43017",
-      "addr_street": "Blazer Parkway",
-      "addr_housenumber": "5605",
-      "angle": 203.46166756161438
+      "id": 245343,
+      "geometry": "POINT (-80.871461 33.486997)",
+      "poi_name": "Sensory Garden",
+      "osm_id": 2773287169,
+      "leisure": "garden",
+      "angle": 49.90159715746582
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 1409,
+  "id": 509,
   "type": "knn+angle"
 }

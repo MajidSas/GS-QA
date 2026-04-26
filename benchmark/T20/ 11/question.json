@@ -1,70 +1,70 @@
 {
-  "question": "Where is the closest restaurant from Select Specialty Hospital - Boardman, Boardman, OH towards Summit Metro Parks Treaty Line Area, Akron, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography, ST_GeomFromText('POINT (-81.547162 41.127353)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.632972 41.005169)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest gallery in the direction from House of Air, San Francisco, CA to Chabot Space and Science Center, Oakland, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography, ST_GeomFromText('POINT (-122.180687 37.818463)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 69266,
-      "geometry": "POINT (-80.66194 41.004842)",
-      "poi_name": "Garden Kettle",
-      "osm_id": 11298739751,
-      "amenity": "restaurant",
-      "addr_state": "OH",
-      "addr_city": "Boardman",
-      "addr_postcode": "44512",
-      "addr_street": "Market Street",
-      "addr_housenumber": "8049",
-      "value": 280.3148781756787
+      "id": 2942,
+      "geometry": "POINT (-122.423189 37.806195)",
+      "poi_name": "Col Gallery",
+      "osm_id": 10087741500,
+      "tourism": "gallery",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94109",
+      "addr_street": "Beach Street",
+      "addr_housenumber": "887",
+      "value": 86.52180731183198
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Select Specialty Hospital - Boardman, Boardman, OH",
-      "geo_wkt": "POINT (-80.632972 41.005169)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "House of Air, San Francisco, CA",
+      "geo_wkt": "POINT (-122.468617 37.804932)",
       "poi": {
-        "id": 182772,
-        "geometry": "POINT (-80.632972 41.005169)",
-        "poi_name": "Select Specialty Hospital - Boardman",
-        "osm_id": 10904111646,
-        "amenity": "hospital",
-        "website": "https://www.selectspecialtyhospitals.com/locations-and-tours/oh/youngstown/boardman/",
-        "phone": "+1 330 726 5000",
-        "healthcare": "hospital",
-        "addr_state": "OH",
-        "addr_city": "Boardman",
-        "addr_postcode": "44512",
-        "addr_street": "South Avenue",
-        "addr_housenumber": "8049"
+        "id": 14569,
+        "geometry": "POINT (-122.468617 37.804932)",
+        "poi_name": "House of Air",
+        "osm_id": 4659836677,
+        "tourism": "theme_park",
+        "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+        "website": "https://www.houseofair.com/",
+        "phone": "+1 (415) 345-9675",
+        "wikidata": "Q5914641",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94129",
+        "addr_street": "Mason Street",
+        "addr_housenumber": "926"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Summit Metro Parks Treaty Line Area, Akron, OH",
-      "geo_wkt": "POINT (-81.547162 41.127353)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Chabot Space and Science Center, Oakland, CA",
+      "geo_wkt": "POINT (-122.180687 37.818463)",
       "poi": {
-        "id": 267403,
-        "geometry": "POINT (-81.547162 41.127353)",
-        "poi_name": "Summit Metro Parks Treaty Line Area",
-        "osm_id": 5972884372,
-        "leisure": "park",
-        "opening_hours": "Mo-Su 06:00-21:00",
-        "operator": "Summit Metro Parks",
-        "website": "https://www.summitmetroparks.org/sand-run-metro-park.aspx",
-        "addr_state": "OH",
-        "addr_city": "Akron",
-        "addr_postcode": "44313",
-        "addr_street": "Treaty Line Road",
-        "addr_housenumber": "995"
+        "id": 11623,
+        "geometry": "POINT (-122.180687 37.818463)",
+        "poi_name": "Chabot Space and Science Center",
+        "osm_id": 10028418263,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://chabotspace.org/",
+        "wikidata": "Q5066015",
+        "addr_state": "CA",
+        "addr_city": "Oakland",
+        "addr_street": "Skyline Boulevard",
+        "addr_housenumber": "10000"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1310,
+  "id": 1510,
   "type": "knn:towards+loc"
 }

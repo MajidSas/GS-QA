@@ -1,51 +1,45 @@
 {
-  "question": "Any suggestions for the nearest zoo from the stadium with the former name Southern National Speedway in Lucama, NC?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which gallery near the museum that was built in 1830 in Arlington, MA would you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12531,
-      "geometry": "POINT (-77.67449 35.786787)",
-      "poi_name": "It's A Zoo Life",
-      "osm_id": 7297084056,
-      "tourism": "zoo",
-      "fee": "yes",
-      "opening_hours": "Mo-Sa 08:00-17:00",
-      "phone": "(252) 266-7974",
-      "zoo": "petting_zoo",
-      "addr_state": "NC",
-      "addr_city": "Macclesville",
-      "addr_postcode": "27852",
-      "addr_street": "NC-42",
-      "addr_housenumber": "4313"
+      "id": 17320,
+      "geometry": "POINT (-71.118686 42.404466)",
+      "poi_name": "Remis Sculpture Gallery",
+      "osm_id": 367777312,
+      "tourism": "gallery",
+      "addr_state": "MA"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Southern National Motorsport Park, Lucama, NC",
-      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 248769,
-        "geometry": "POINT (-78.060871 35.61119)",
-        "poi_name": "Southern National Motorsport Park",
-        "osm_id": 4773889332,
-        "leisure": "stadium",
-        "sport": "motor",
-        "wikidata": "Q7570163",
-        "addr_state": "NC",
-        "addr_city": "Lucama",
-        "addr_postcode": "27851",
-        "addr_street": "Newsome Mill Road",
-        "addr_housenumber": "8071"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     }
   },
-  "id": 2794,
-  "type": "knn+name+multihop2"
+  "id": 994,
+  "type": "knn+name+multi_source2"
 }

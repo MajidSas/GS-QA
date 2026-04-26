@@ -1,44 +1,44 @@
 {
-  "question": "How distant is the closest hotel from the reference location Texas Military Forces Museum, Austin, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.761236 30.313729)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.761236 30.313729)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between Cox Science Center and Aquarium, West Palm Beach, FL and the closest available nature reserve?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7332,
-      "geometry": "POINT (-97.747027 30.272183)",
-      "poi_name": "Omni Hotel & Resorts",
-      "osm_id": 2090753307,
-      "tourism": "hotel",
-      "distance": 4804.27429641
+      "id": 246059,
+      "geometry": "POINT (-80.249765 26.578325)",
+      "poi_name": "Strazzulla Tract",
+      "osm_id": 5501872066,
+      "leisure": "nature_reserve",
+      "distance": 20562.2671742
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Texas Military Forces Museum, Austin, TX",
-      "geo_wkt": "POINT (-97.761236 30.313729)",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 18004,
-        "geometry": "POINT (-97.761236 30.313729)",
-        "poi_name": "Texas Military Forces Museum",
-        "osm_id": 368165061,
-        "tourism": "museum",
-        "website": "https://texasmilitaryforcesmuseum.org/",
-        "phone": "+1-512-782-5659",
-        "wikidata": "Q17156834",
-        "addr_state": "TX",
-        "addr_city": "Austin",
-        "addr_postcode": "78703",
-        "addr_street": "West 35th Street",
-        "addr_housenumber": "2200"
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     }
   },
-  "id": 2439,
+  "id": 639,
   "type": "knn+distance"
 }

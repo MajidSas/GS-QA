@@ -1,42 +1,50 @@
 {
-  "question": "How far is the nearest park from the location Brick City Park Stadium, FL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest gallery in relation to Kenan House, Wilmington, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.927013 34.237558)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.927013 34.237558)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266554,
-      "geometry": "POINT (-82.120171 29.171375)",
-      "poi_name": "Ritterhoff Park",
-      "osm_id": 5267890423,
-      "leisure": "park",
-      "addr_state": "FL",
-      "addr_city": "Ocala",
-      "addr_postcode": "34471",
-      "addr_street": "Southeast 17th Street",
-      "addr_housenumber": "1400",
-      "distance": 546.67409921
+      "id": 8391,
+      "geometry": "POINT (-77.947623 34.24316)",
+      "poi_name": "Wilma W. Daniels Gallery",
+      "osm_id": 6677030229,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Fr 12:00-17:00",
+      "operator": "Cape Fear Community College",
+      "website": "https://wilmadanielsgallery.com/",
+      "addr_state": "NC",
+      "addr_city": "Wilmington",
+      "addr_postcode": "28401",
+      "addr_street": "Hanover Street",
+      "addr_housenumber": "200",
+      "distance": 1997.7955158
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Brick City Park Stadium, FL",
-      "geo_wkt": "POINT (-82.121758 29.166644)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Kenan House, Wilmington, NC",
+      "geo_wkt": "POINT (-77.927013 34.237558)",
       "poi": {
-        "id": 265376,
-        "geometry": "POINT (-82.121758 29.166644)",
-        "poi_name": "Brick City Park Stadium",
-        "osm_id": 367826901,
-        "leisure": "stadium",
-        "addr_state": "FL"
+        "id": 64870,
+        "geometry": "POINT (-77.927013 34.237558)",
+        "poi_name": "Kenan House",
+        "osm_id": 5675848019,
+        "amenity": "university",
+        "operator": "University of North Carolina Wilmington",
+        "addr_state": "NC",
+        "addr_city": "Wilmington",
+        "addr_postcode": "28403",
+        "addr_street": "Market Street",
+        "addr_housenumber": "1705"
       }
     }
   },
-  "id": 2409,
+  "id": 609,
   "type": "knn+distance"
 }

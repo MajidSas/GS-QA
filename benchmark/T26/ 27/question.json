@@ -1,47 +1,46 @@
 {
-  "question": "What's the distance between Dignity Health Rehabilitation Hospital, Henderson, NV and the nearest caf\u00e9?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-115.117006 36.003071)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-115.117006 36.003071)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest gallery with respect to Freedom Lake Park, Pinellas Park, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 216062,
-      "geometry": "POINT (-115.127774 35.996681)",
-      "poi_name": "Starbucks",
-      "osm_id": 9152445929,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "distance": 1202.25795784
+      "id": 10631,
+      "geometry": "POINT (-82.646505 27.779083)",
+      "poi_name": "Mize Gallery",
+      "osm_id": 6958010668,
+      "tourism": "gallery",
+      "website": "http://www.chadmize.com/index.html",
+      "addr_state": "FL",
+      "addr_city": "Saint Petersburg",
+      "addr_postcode": "33701",
+      "addr_street": "Doctor Martin Luther King Junior Street North",
+      "addr_housenumber": "689",
+      "distance": 10510.27447507
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Dignity Health Rehabilitation Hospital, Henderson, NV",
-      "geo_wkt": "POINT (-115.117006 36.003071)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Freedom Lake Park, Pinellas Park, FL",
+      "geo_wkt": "POINT (-82.698397 27.861949)",
       "poi": {
-        "id": 182555,
-        "geometry": "POINT (-115.117006 36.003071)",
-        "poi_name": "Dignity Health Rehabilitation Hospital",
-        "osm_id": 10895050633,
-        "amenity": "hospital",
-        "website": "https://www.dignityhealthrehab.com",
-        "phone": "+1 725 726 2000",
-        "healthcare": "rehabilitation",
-        "addr_state": "NV",
-        "addr_city": "Henderson",
-        "addr_postcode": "89052",
-        "addr_street": "Siena Heights Drive",
-        "addr_housenumber": "2930"
+        "id": 246614,
+        "geometry": "POINT (-82.698397 27.861949)",
+        "poi_name": "Freedom Lake Park",
+        "osm_id": 1871938101,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Pinellas Park",
+        "addr_postcode": "33782",
+        "addr_street": "US 19"
       }
     }
   },
-  "id": 2426,
+  "id": 626,
   "type": "knn+distance"
 }

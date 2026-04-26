@@ -1,41 +1,46 @@
 {
-  "question": "Can you recommend the nearest aquarium from S. 15th St. Community Garden, Philadelphia, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.169239 39.933457)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant near Whitney Avenue Community Garden, Lexington, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7884,
-      "geometry": "POINT (-75.624216 39.738809)",
-      "poi_name": "William\u2019s Greenbank Aquarium",
-      "osm_id": 6448697240,
-      "tourism": "aquarium",
-      "addr_street": "Greenbank Road",
-      "addr_housenumber": "107"
+      "id": 33850,
+      "geometry": "POINT (-84.500657 38.053671)",
+      "poi_name": "Enoteca",
+      "osm_id": 2685253151,
+      "amenity": "restaurant",
+      "cuisine": "tapas",
+      "website": "https://www.facebook.com/enotecalexington?rf=394930457278286",
+      "addr_city": "Lexington",
+      "addr_postcode": "40508",
+      "addr_street": "Jefferson Street",
+      "addr_housenumber": "191"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "garden",
-      "display_name": "S. 15th St. Community Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.169239 39.933457)",
+      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.504606 38.061259)",
       "poi": {
-        "id": 247115,
-        "geometry": "POINT (-75.169239 39.933457)",
-        "poi_name": "S. 15th St. Community Garden",
-        "osm_id": 3559344406,
+        "id": 248350,
+        "geometry": "POINT (-84.504606 38.061259)",
+        "poi_name": "Whitney Avenue Community Garden",
+        "osm_id": 4045039017,
         "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_street": "S. 15th St.",
-        "addr_housenumber": "1329"
+        "operator": "Seedleaf",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "Whitney Avenue",
+        "addr_housenumber": "829"
       }
     }
   },
-  "id": 293,
+  "id": 1093,
   "type": "knn+name"
 }

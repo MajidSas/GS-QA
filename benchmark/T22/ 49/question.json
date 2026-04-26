@@ -1,44 +1,44 @@
 {
-  "question": "Which way should I take to get to the closest fast food restaurant from Eddy Lookout Tower, Sanderson, FL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way should I orient myself to reach the closest restaurant from Acushnet Sawmill, Acushnet, MA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 87986,
-      "geometry": "POINT (-82.107848 30.264447)",
-      "poi_name": "Dunkin' Donuts",
-      "osm_id": 8756549774,
-      "amenity": "fast_food",
-      "cuisine": "donut;coffee_shop",
-      "takeaway": "yes",
-      "drive_through": "yes",
-      "angle": 143.73256590637672
+      "id": 183941,
+      "geometry": "POINT (-70.927943 41.661479)",
+      "poi_name": "Elizabeth's",
+      "osm_id": 10951697105,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_housenumber": "1461",
+      "angle": 195.67811209481772
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Eddy Lookout Tower, Sanderson, FL",
-      "geo_wkt": "POINT (-82.34337 30.543305)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
       "poi": {
-        "id": 8681,
-        "geometry": "POINT (-82.34337 30.543305)",
-        "poi_name": "Eddy Lookout Tower",
-        "osm_id": 8618634369,
-        "tourism": "viewpoint",
-        "addr_state": "FL",
-        "addr_city": "Sanderson",
-        "addr_postcode": "32087",
-        "addr_street": "State Road 2",
-        "addr_housenumber": "18568"
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
+        "leisure": "park",
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
       }
     }
   },
-  "id": 1448,
+  "id": 548,
   "type": "knn+angle"
 }

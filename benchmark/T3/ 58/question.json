@@ -1,51 +1,53 @@
 {
-  "question": "Which university is located to the north of Pioneer Museum, Pleasant Grove, UT, within a radius of 70 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.738615 40.362989)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.738615 40.362989)',4326)::geography, 70000)\nAND amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "What golf course are present inside an 80 kilometers boundary toward the southeast of Susan Hambley Nature Center, Brunswick, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.816057 41.236319)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.816057 41.236319)',4326)::geography, 80000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 230559,
-      "geometry": "POINT (-111.738615 40.362989)",
-      "poi_name": "Neumont College",
-      "osm_id": 4431459466,
-      "amenity": "university",
-      "website": "https://www.neumont.edu/",
-      "wikidata": "Q7001981"
+      "id": 245826,
+      "geometry": "POINT (-81.816057 41.236319)",
+      "poi_name": "Cleveland Clinic-Akron General Challenge Golf Course",
+      "osm_id": 10135402772,
+      "leisure": "golf_course",
+      "addr_state": "OH",
+      "addr_city": "Akron",
+      "addr_postcode": "44312",
+      "addr_street": "Flickinger Road",
+      "addr_housenumber": "1596"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Pioneer Museum, Pleasant Grove, UT",
-      "geo_wkt": "POINT (-111.738615 40.362989)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Susan Hambley Nature Center, Brunswick, OH",
+      "geo_wkt": "POINT (-81.816057 41.236319)",
       "poi": {
-        "id": 724,
-        "geometry": "POINT (-111.738615 40.362989)",
-        "poi_name": "Pioneer Museum",
-        "osm_id": 2651012863,
-        "tourism": "museum",
-        "website": "https://www.plgrove.org/history/daughters-of-utah-pioneers/",
-        "museum": "history",
-        "addr_state": "UT",
-        "addr_city": "Pleasant Grove",
-        "addr_street": "South 100 East",
-        "addr_housenumber": "73"
+        "id": 267092,
+        "geometry": "POINT (-81.816057 41.236319)",
+        "poi_name": "Susan Hambley Nature Center",
+        "osm_id": 4487990781,
+        "leisure": "nature_reserve",
+        "addr_state": "OH",
+        "addr_city": "Brunswick",
+        "addr_postcode": "44212",
+        "addr_street": "Parschen Boulevard",
+        "addr_housenumber": "1473"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2657,
+  "id": 2357,
   "type": "range:direction+name"
 }

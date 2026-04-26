@@ -1,53 +1,49 @@
 {
-  "question": "Which museum is the closest to the west of CUNY School of Professional Studies, New York, NY?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest caf\u00e9 to the southwest of the Potted Plant Inc., Scottsdale, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24494,
-      "geometry": "POINT (-73.990094 40.748387)",
-      "poi_name": "National Academy of Design",
-      "osm_id": 11079626705,
-      "tourism": "museum",
-      "website": "https://nationalacademy.org/",
-      "phone": "+1-212-369-4880",
-      "museum": "art",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_postcode": "10001",
-      "addr_street": "West 26th Street",
-      "addr_housenumber": "519"
+      "id": 46126,
+      "geometry": "POINT (-111.920729 33.631545)",
+      "poi_name": "Starbucks",
+      "osm_id": 3247862312,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "CUNY School of Professional Studies, New York, NY",
-      "geo_wkt": "POINT (-73.990094 40.748387)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.920729 33.631545)",
       "poi": {
-        "id": 34678,
-        "geometry": "POINT (-73.990094 40.748387)",
-        "poi_name": "CUNY School of Professional Studies",
-        "osm_id": 2703449228,
-        "amenity": "university",
-        "operator": "City University of New York",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10001",
-        "addr_street": "West 31st Street",
-        "addr_housenumber": "119"
+        "id": 247645,
+        "geometry": "POINT (-111.920729 33.631545)",
+        "poi_name": "The Potted Plant Inc.",
+        "osm_id": 8008054008,
+        "leisure": "garden",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85260",
+        "addr_street": "North Dial Boulevard",
+        "addr_housenumber": "16055"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2530,
+  "id": 1230,
   "type": "knn:direction+name"
 }

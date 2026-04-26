@@ -1,85 +1,131 @@
 {
-  "question": "Which garden is available within 60 kilometers in the southeast direction of Elyria Arts Council, Elyria, OH?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography, 60000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "What caf\u00e9 lie within 10 kilometers relative to Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ in the southwest direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.972351 33.529412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.972351 33.529412)',4326)::geography, 10000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 265625,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Rock and Herb Garden",
-      "osm_id": 10762232807,
-      "leisure": "garden"
+      "id": 82177,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Starbucks",
+      "osm_id": 1686021868,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85016",
+      "addr_street": "East Thomas Road",
+      "addr_housenumber": "3141"
     },
     {
-      "id": 267405,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Japanese Garden",
-      "osm_id": 5977090076,
-      "leisure": "garden"
+      "id": 181105,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Provision",
+      "osm_id": 10832406671,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Su-Sa 06:30-19:00",
+      "website": "https://provisioncoffee.com/",
+      "phone": "+1-602-626-3866",
+      "outdoor_seating": "yes",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85018",
+      "addr_street": "North 32nd Street",
+      "addr_housenumber": "4501"
     },
     {
-      "id": 267408,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Dell",
-      "osm_id": 5977189801,
-      "leisure": "garden"
+      "id": 223441,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Hava Java",
+      "osm_id": 11053907492,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 05:30-18:00",
+      "website": "https://havajavacoffee.com/",
+      "phone": "+1-602-954-9080",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85016",
+      "addr_street": "East Camelback Road",
+      "addr_housenumber": "3166"
     },
     {
-      "id": 267409,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Elliptical Garden",
-      "osm_id": 5977189804,
-      "leisure": "garden"
+      "id": 196603,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Black Rifle Coffee Company",
+      "osm_id": 10587846620,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop"
     },
     {
-      "id": 267410,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Great Garden",
-      "osm_id": 5977189805,
-      "leisure": "garden"
+      "id": 223218,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Lola Coffee",
+      "osm_id": 11048712640,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 06:00-17:00; Sa-Su 07:00-16:00",
+      "website": "https://lolacoffeebarphx.com/",
+      "phone": "+1-602-252-2265",
+      "outdoor_seating": "no",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85018",
+      "addr_street": "East Indian School Road",
+      "addr_housenumber": "3950"
     },
     {
-      "id": 267411,
-      "geometry": "POINT (-82.105078 41.367311)",
-      "poi_name": "Great Meadow",
-      "osm_id": 5977189806,
-      "leisure": "garden"
+      "id": 240745,
+      "geometry": "POINT (-111.972351 33.529412)",
+      "poi_name": "Royal Coffee Bar",
+      "osm_id": 5986784066,
+      "amenity": "cafe",
+      "cuisine": "coffee;espresso;bakery",
+      "opening_hours": "Mo-Fr 07:00-18:00, Sa-Su 08:00-18:00",
+      "website": "https://royalcoffeebar.com/",
+      "internet_access": "yes",
+      "outdoor_seating": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 10000,
+      "text": "10 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Elyria Arts Council, Elyria, OH",
-      "geo_wkt": "POINT (-82.105078 41.367311)",
+      "sub_category": "hotel",
+      "display_name": "Omni Scottsdale Resort & Spa at Montelucia, Paradise Valley, AZ",
+      "geo_wkt": "POINT (-111.972351 33.529412)",
       "poi": {
-        "id": 456,
-        "geometry": "POINT (-82.105078 41.367311)",
-        "poi_name": "Elyria Arts Council",
-        "osm_id": 8381421204,
-        "tourism": "gallery",
-        "fee": "no",
-        "opening_hours": "We-Sa 11:00-15:00",
-        "addr_state": "OH",
-        "addr_city": "Elyria",
-        "addr_postcode": "44035",
-        "addr_street": "Broad Street",
-        "addr_housenumber": "336"
+        "id": 604,
+        "geometry": "POINT (-111.972351 33.529412)",
+        "poi_name": "Omni Scottsdale Resort & Spa at Montelucia",
+        "osm_id": 2621450221,
+        "tourism": "hotel",
+        "operator": "Omni Hotels & Resorts",
+        "website": "https://www.omnihotels.com/hotels/scottsdale-montelucia",
+        "internet_access": "yes",
+        "phone": "+14806273200",
+        "addr_state": "AZ",
+        "addr_city": "Paradise Valley",
+        "addr_postcode": "85253",
+        "addr_street": "East Lincoln Drive",
+        "addr_housenumber": "4949"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2694,
+  "id": 2394,
   "type": "range:direction+name"
 }

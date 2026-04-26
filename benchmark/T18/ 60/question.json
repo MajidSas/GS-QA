@@ -1,53 +1,50 @@
 {
-  "question": "Where can I find the nearest emergency hospital near Fresno Chaffee Zoo, Fresno, CA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.823195 36.752149)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest restaurant serving grilled cheese near Beloit Clinic, Beloit, WI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%grilled_cheese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.010008 42.550505)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 47313,
-      "geometry": "POINT (-119.666954 36.323862)",
-      "poi_name": "Adventist Health Hanford",
-      "osm_id": 3320792708,
-      "amenity": "hospital",
-      "operator": "Adventist Health",
-      "website": "https://www.adventisthealth.org/hanford",
-      "phone": "559-582-9000",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_city": "Hanford",
-      "addr_postcode": "93230",
-      "addr_street": "Mall Drive",
-      "addr_housenumber": "115"
+      "id": 44515,
+      "geometry": "POINT (-81.799118 41.485295)",
+      "poi_name": "Melt Bar & Grilled",
+      "osm_id": 3161680228,
+      "amenity": "restaurant",
+      "cuisine": "grilled_cheese",
+      "opening_hours": "Mo-Fr 11:00-22:00; Sa 10:00-22:00; Su 10:00-21:00",
+      "addr_city": "Lakewood",
+      "addr_postcode": "44107",
+      "addr_street": "Detroit Avenue",
+      "addr_housenumber": "14718"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant serving grilled cheese",
+      "poi_filter_sql": "cuisine ILIKE '%grilled_cheese%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Fresno Chaffee Zoo, Fresno, CA",
-      "geo_wkt": "POINT (-119.823195 36.752149)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Beloit Clinic, Beloit, WI",
+      "geo_wkt": "POINT (-89.010008 42.550505)",
       "poi": {
-        "id": 25258,
-        "geometry": "POINT (-119.823195 36.752149)",
-        "poi_name": "Fresno Chaffee Zoo",
-        "osm_id": 4433364107,
-        "tourism": "zoo",
-        "website": "https://www.fresnochaffeezoo.org/",
-        "wikidata": "Q5503166",
-        "addr_state": "CA",
-        "addr_city": "Fresno",
-        "addr_postcode": "93728",
-        "addr_street": "West Belmont Avenue",
-        "addr_housenumber": "894"
+        "id": 63331,
+        "geometry": "POINT (-89.010008 42.550505)",
+        "poi_name": "Beloit Clinic",
+        "osm_id": 5610650867,
+        "amenity": "hospital",
+        "operator": "Beloit Health",
+        "healthcare": "hospital",
+        "addr_state": "WI",
+        "addr_city": "Beloit",
+        "addr_postcode": "53511",
+        "addr_street": "Huebbe Parkway",
+        "addr_housenumber": "1905"
       }
     }
   },
-  "id": 359,
+  "id": 1359,
   "type": "knn:non_spat_filter+loc"
 }

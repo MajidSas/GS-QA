@@ -1,65 +1,67 @@
 {
-  "question": "Where's the closest caf\u00e9 located en route to Jackson M. Abbott Wetland Refuge, Fort Belvoir, VA from Go Fish, Rosedale, MD?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, ST_GeomFromText('POINT (-77.132526 38.727035)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum that comes up heading toward Chestatee Overlook, Dahlonega, GA from Yellow River Game Ranch, Lilburn, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 116035,
-      "geometry": "POINT (-76.548183 39.286906)",
-      "poi_name": "Starbucks",
-      "osm_id": 8925144534,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "addr_city": "Baltimore",
-      "addr_postcode": "21224",
-      "addr_street": "Bayview Boulevard",
-      "addr_housenumber": "507",
-      "value": 219.7122315427592
+      "id": 17704,
+      "geometry": "POINT (-84.0002 34.143)",
+      "poi_name": "Lanier Museum of Natural History",
+      "osm_id": 367915562,
+      "tourism": "museum",
+      "addr_state": "GA",
+      "value": 5.970828773215501
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Go Fish, Rosedale, MD",
-      "geo_wkt": "POINT (-76.48474 39.339761)",
+      "sub_category": "zoo",
+      "display_name": "Yellow River Game Ranch, Lilburn, GA",
+      "geo_wkt": "POINT (-84.087955 33.833501)",
       "poi": {
-        "id": 1512,
-        "geometry": "POINT (-76.48474 39.339761)",
-        "poi_name": "Go Fish",
-        "osm_id": 3026471881,
-        "tourism": "aquarium",
-        "addr_state": "MD",
-        "addr_city": "Rosedale",
-        "addr_postcode": "21237",
-        "addr_street": "Philadelphia Road",
-        "addr_housenumber": "8767 G"
+        "id": 5592,
+        "geometry": "POINT (-84.087955 33.833501)",
+        "poi_name": "Yellow River Game Ranch",
+        "osm_id": 827126721,
+        "tourism": "zoo",
+        "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+        "website": "https://www.yellowrivergameranch.com/",
+        "phone": "+1 (770) 972-6643",
+        "zoo": "petting_zoo",
+        "addr_state": "GA",
+        "addr_city": "Lilburn",
+        "addr_postcode": "30047",
+        "addr_street": "US 78",
+        "addr_housenumber": "4525"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Jackson M. Abbott Wetland Refuge, Fort Belvoir, VA",
-      "geo_wkt": "POINT (-77.132526 38.727035)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Chestatee Overlook, Dahlonega, GA",
+      "geo_wkt": "POINT (-83.982699 34.665048)",
       "poi": {
-        "id": 267149,
-        "geometry": "POINT (-77.132526 38.727035)",
-        "poi_name": "Jackson M. Abbott Wetland Refuge",
-        "osm_id": 4596224778,
-        "leisure": "nature_reserve",
-        "addr_state": "VA",
-        "addr_city": "Fort Belvoir",
-        "addr_street": "Pole Road",
-        "addr_housenumber": "5000"
+        "id": 12945,
+        "geometry": "POINT (-83.982699 34.665048)",
+        "poi_name": "Chestatee Overlook",
+        "osm_id": 3980488412,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "opening_hours": "sunrise-sunset",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
+        "addr_state": "GA",
+        "addr_city": "Dahlonega",
+        "addr_postcode": "30533",
+        "addr_street": "GA 60"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1319,
+  "id": 1519,
   "type": "knn:towards+loc"
 }

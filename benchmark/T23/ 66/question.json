@@ -1,40 +1,44 @@
 {
-  "question": "How many restaurants can be found within a 20 kilometers radius from Outdoor Biological Research Facility, Vestal, NY?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography, 20000)\nAND amenity = 'restaurant';\n",
+  "question": "What\u2019s the quantity of museums within a 60 kilometers range from Harbor Oaks Hospital, New Baltimore, MI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.756088 42.676753)',4326)::geography, 60000)\nAND tourism = 'museum';\n",
   "answers": [
     {
-      "count": 65
+      "count": 19
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
-      "geo_wkt": "POINT (-75.978456 42.082185)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Harbor Oaks Hospital, New Baltimore, MI",
+      "geo_wkt": "POINT (-82.756088 42.676753)",
       "poi": {
-        "id": 246670,
-        "geometry": "POINT (-75.978456 42.082185)",
-        "poi_name": "Outdoor Biological Research Facility",
-        "osm_id": 8793514697,
-        "leisure": "garden",
-        "addr_state": "NY",
-        "addr_city": "Vestal",
-        "addr_postcode": "13850",
-        "addr_street": "Bunn Hill Road",
-        "addr_housenumber": "906"
+        "id": 31875,
+        "geometry": "POINT (-82.756088 42.676753)",
+        "poi_name": "Harbor Oaks Hospital",
+        "osm_id": 8453619003,
+        "amenity": "hospital",
+        "website": "https://www.harboroaks.com/",
+        "phone": "+1-586-684-4870",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "MI",
+        "addr_city": "New Baltimore",
+        "addr_postcode": "48047",
+        "addr_street": "23 Mile Road",
+        "addr_housenumber": "35031"
       }
     }
   },
-  "id": 2265,
+  "id": 1865,
   "type": "range+count"
 }

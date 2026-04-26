@@ -1,47 +1,50 @@
 {
-  "question": "When was the nearest zoo from Latvian Cultural Garden, Cleveland, OH opened?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest stadium from Lander Trail, Afton, WY hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-110.934459 42.731474)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5801,
-      "geometry": "POINT (-81.703823 41.496747)",
-      "poi_name": "Greater Cleveland Aquarium",
-      "osm_id": 1601169068,
-      "tourism": "zoo",
-      "website": "http://greaterclevelandaquarium.com/",
-      "wikidata": "Q5600498",
-      "addr_street": "Sycamore St",
-      "addr_housenumber": "2000",
-      "multihop_answer": "January 21, 2012",
-      "multihop_attribute": "Date opened",
-      "multihop_long_answer": "Greater Cleveland Aquarium Date opened: January 21, 2012"
+      "id": 266188,
+      "geometry": "POINT (-111.96187 41.237122)",
+      "poi_name": "Pioneer Stadium",
+      "osm_id": 598066080,
+      "leisure": "stadium",
+      "sport": "equestrian",
+      "wikidata": "Q7079951",
+      "addr_state": "UT",
+      "addr_city": "Ogden",
+      "addr_street": "17th Street",
+      "addr_housenumber": "668",
+      "multi_source_answer": "20000",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "Pioneer Stadium Capacity: 20000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Latvian Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.626843 41.526119)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lander Trail, Afton, WY",
+      "geo_wkt": "POINT (-110.934459 42.731474)",
       "poi": {
-        "id": 247015,
-        "geometry": "POINT (-81.626843 41.526119)",
-        "poi_name": "Latvian Cultural Garden",
-        "osm_id": 8567373868,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1030"
+        "id": 305,
+        "geometry": "POINT (-110.934459 42.731474)",
+        "poi_name": "Lander Trail",
+        "osm_id": 8299561130,
+        "tourism": "museum",
+        "phone": "+1-307-883-2174",
+        "addr_state": "WY",
+        "addr_city": "Afton",
+        "addr_postcode": "83110",
+        "addr_street": "West 1st Avenue",
+        "addr_housenumber": "138"
       }
     }
   },
-  "id": 967,
-  "type": "knn+name+multihop1"
+  "id": 867,
+  "type": "knn+name+multi_source1"
 }

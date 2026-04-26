@@ -1,72 +1,72 @@
 {
-  "question": "Where's the closest fast food restaurant on the path leading to Jeptha Creed Distillery, Shelbyville, KY from North Pole Community Garden, Lexington, KY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography, ST_GeomFromText('POINT (-85.264482 38.189306)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum lying along the route toward Westchester Women's Medical Healthcare, Mount Vernon, NY from Sloth Encounters, Hauppauge, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, ST_GeomFromText('POINT (-73.839837 40.911646)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 150117,
-      "geometry": "POINT (-84.52008 38.063791)",
-      "poi_name": "Jimmy John's",
-      "osm_id": 4042935518,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "phone": "+1 859 309 2999",
-      "takeaway": "yes",
-      "official_name": "Jimmy John's Gourmet Sandwiches",
-      "delivery": "yes",
-      "addr_state": "KY",
-      "addr_city": "Lexington",
-      "addr_postcode": "40508",
+      "id": 22395,
+      "geometry": "POINT (-73.457195 40.871256)",
+      "poi_name": "Preservation Long Islannd",
+      "osm_id": 7016083504,
+      "tourism": "museum",
+      "website": "http://preservationlonglsland.org/",
+      "addr_state": "NY",
+      "addr_city": "Cold Spring Harbor",
+      "addr_postcode": "11724",
       "addr_street": "West Main Street",
-      "addr_housenumber": "1397",
-      "value": 282.1102610153663
+      "addr_housenumber": "161",
+      "value": 280.534027524838
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "North Pole Community Garden, Lexington, KY",
-      "geo_wkt": "POINT (-84.47951 38.058992)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
       "poi": {
-        "id": 248386,
-        "geometry": "POINT (-84.47951 38.058992)",
-        "poi_name": "North Pole Community Garden",
-        "osm_id": 4072709120,
-        "leisure": "garden",
-        "operator": "Seedleaf",
-        "website": "https://www.seedleaf.org/",
-        "addr_state": "KY",
-        "addr_city": "Lexington",
-        "addr_street": "North Limestone",
-        "addr_housenumber": "909"
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Jeptha Creed Distillery, Shelbyville, KY",
-      "geo_wkt": "POINT (-85.264482 38.189306)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Westchester Women's Medical Healthcare, Mount Vernon, NY",
+      "geo_wkt": "POINT (-73.839837 40.911646)",
       "poi": {
-        "id": 26275,
-        "geometry": "POINT (-85.264482 38.189306)",
-        "poi_name": "Jeptha Creed Distillery",
-        "osm_id": 5832472576,
-        "tourism": "attraction",
-        "website": "https://jepthacreed.com/",
-        "phone": "(502) 487-5007",
-        "addr_state": "KY",
-        "addr_city": "Shelbyville",
-        "addr_postcode": "40065",
-        "addr_street": "Gordon Lane",
-        "addr_housenumber": "500"
+        "id": 144639,
+        "geometry": "POINT (-73.839837 40.911646)",
+        "poi_name": "Westchester Women's Medical Healthcare",
+        "osm_id": 7278441828,
+        "amenity": "hospital",
+        "website": "https://www.westchesterwomens.com/",
+        "phone": "+1-914-205-4351",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Mount Vernon",
+        "addr_postcode": "10550",
+        "addr_street": "Stevens Avenue",
+        "addr_housenumber": "105"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1320,
+  "id": 1520,
   "type": "knn:towards+loc"
 }

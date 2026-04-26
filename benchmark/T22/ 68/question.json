@@ -1,52 +1,45 @@
 {
-  "question": "Which direction should I take to get to the nearest golf course from Top of the Rock, New York, NY?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the compass direction to the closest garden from Action Behavior Centers - ABA therapy for Autism, Mansfield, TX?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.179759 32.580912)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.179759 32.580912)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245808,
-      "geometry": "POINT (-74.105825 40.806925)",
-      "poi_name": "InHome Golf",
-      "osm_id": 10100433578,
-      "leisure": "golf_course",
-      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
-      "opening_hours": "Mo-Fr 08:00-18:00",
-      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
-      "phone": "+1 800-557-5859",
-      "addr_state": "NJ",
-      "addr_city": "Lyndhurst",
-      "addr_postcode": "07071",
-      "addr_street": "Wall Street West",
-      "addr_housenumber": "1000",
-      "angle": 296.5299612702132
+      "id": 247865,
+      "geometry": "POINT (-97.316636 32.524704)",
+      "poi_name": "Fire Station 16 Memorial Garden",
+      "osm_id": 11516973515,
+      "leisure": "garden",
+      "angle": 244.16986511038954
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Top of the Rock, New York, NY",
-      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, Mansfield, TX",
+      "geo_wkt": "POINT (-97.179759 32.580912)",
       "poi": {
-        "id": 26307,
-        "geometry": "POINT (-73.979395 40.759034)",
-        "poi_name": "Top of the Rock",
-        "osm_id": 5844051585,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://www.topoftherocknyc.com/",
-        "wikidata": "Q66722774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Rockefeller Plaza",
-        "addr_housenumber": "30"
+        "id": 54794,
+        "geometry": "POINT (-97.179759 32.580912)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10156267621,
+        "amenity": "hospital",
+        "description": "Services:Center-based Autism Therapy (ABA Therapy), Assessment, Autism Diagnostic Observation Schedule Assessment (ADOS Assessment), ABC at Home (Home-based Therapy)",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-mansfield-owens-court-tx/",
+        "phone": "682-224-7600",
+        "healthcare": "hospital",
+        "addr_state": "TX",
+        "addr_city": "Mansfield",
+        "addr_postcode": "76063",
+        "addr_street": "Owen Court",
+        "addr_housenumber": "1805"
       }
     }
   },
-  "id": 1467,
+  "id": 567,
   "type": "knn+angle"
 }

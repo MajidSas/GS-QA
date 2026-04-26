@@ -1,43 +1,47 @@
 {
-  "question": "In what direction can I find the closest viewpoint situated from Hearing Rehab Center, Fort Collins, CO?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.095368 40.555861)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.095368 40.555861)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the bearing from the Potted Plant Inc., Scottsdale, AZ to the nearest restaurant?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.920729 33.631545)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21273,
-      "geometry": "POINT (-105.187647 40.568139)",
-      "poi_name": "Arthur's Rock",
-      "osm_id": 1462036217,
-      "tourism": "viewpoint",
-      "angle": 279.92603683063845
+      "id": 126870,
+      "geometry": "POINT (-111.924961 33.633555)",
+      "poi_name": "Blaze Pizza",
+      "osm_id": 8005379688,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "AZ",
+      "addr_city": "Scottsdale",
+      "addr_postcode": "85254",
+      "addr_street": "North Scottsdale Road",
+      "addr_housenumber": "16203",
+      "angle": 299.5873359524169
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Hearing Rehab Center, Fort Collins, CO",
-      "geo_wkt": "POINT (-105.095368 40.555861)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "The Potted Plant Inc., Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.920729 33.631545)",
       "poi": {
-        "id": 149538,
-        "geometry": "POINT (-105.095368 40.555861)",
-        "poi_name": "Hearing Rehab Center",
-        "osm_id": 4015035835,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "CO",
-        "addr_city": "Fort Collins",
-        "addr_postcode": "80526",
-        "addr_street": "Centre Avenue",
-        "addr_housenumber": "1030"
+        "id": 247645,
+        "geometry": "POINT (-111.920729 33.631545)",
+        "poi_name": "The Potted Plant Inc.",
+        "osm_id": 8008054008,
+        "leisure": "garden",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_postcode": "85260",
+        "addr_street": "North Dial Boulevard",
+        "addr_housenumber": "16055"
       }
     }
   },
-  "id": 1475,
+  "id": 575,
   "type": "knn+angle"
 }

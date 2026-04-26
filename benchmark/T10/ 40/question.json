@@ -1,15 +1,24 @@
 {
-  "question": "What's the closest park in the direction of Beacon Hill Rehabilitation, Longview, WA from Silver Point Interpretive Overlook, OR?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography, ST_GeomFromText('POINT (-122.916631 46.175156)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'park'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-123.962654 45.855581)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest hotel you pass going from Top of the Rock, New York, NY to Jay Heritage Center, Rye, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, ST_GeomFromText('POINT (-73.706068 40.95728)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 253935,
-      "geometry": "POINT (-123.865529 45.902851)",
-      "poi_name": "C Z Picnic Ground",
-      "osm_id": 357297457,
-      "leisure": "park",
-      "addr_state": "OR",
-      "value": 65.94673571517177
+      "id": 21159,
+      "geometry": "POINT (-73.974332 40.761246)",
+      "poi_name": "St Regis",
+      "osm_id": 1428427564,
+      "tourism": "hotel",
+      "operator": "Marriott International",
+      "website": "http://www.stregisnewyork.com/",
+      "internet_access": "yes",
+      "phone": "+1-212-753-4500",
+      "wikidata": "Q2322983",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10022",
+      "addr_street": "East 55th Street",
+      "addr_housenumber": "2",
+      "value": 46.220345128551095
     }
   ],
   "answer_type": "name",
@@ -17,42 +26,47 @@
     "[2]": {
       "main_category": "tourism",
       "sub_category": "viewpoint",
-      "display_name": "Silver Point Interpretive Overlook, OR",
-      "geo_wkt": "POINT (-123.962654 45.855581)",
+      "display_name": "Top of the Rock, New York, NY",
+      "geo_wkt": "POINT (-73.979395 40.759034)",
       "poi": {
-        "id": 21991,
-        "geometry": "POINT (-123.962654 45.855581)",
-        "poi_name": "Silver Point Interpretive Overlook",
-        "osm_id": 954793454,
+        "id": 26307,
+        "geometry": "POINT (-73.979395 40.759034)",
+        "poi_name": "Top of the Rock",
+        "osm_id": 5844051585,
         "tourism": "viewpoint",
-        "addr_state": "OR",
-        "addr_street": "Oregon Coast Highway"
+        "wheelchair": "yes",
+        "website": "https://www.topoftherocknyc.com/",
+        "wikidata": "Q66722774",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Rockefeller Plaza",
+        "addr_housenumber": "30"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Beacon Hill Rehabilitation, Longview, WA",
-      "geo_wkt": "POINT (-122.916631 46.175156)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Jay Heritage Center, Rye, NY",
+      "geo_wkt": "POINT (-73.706068 40.95728)",
       "poi": {
-        "id": 205578,
-        "geometry": "POINT (-122.916631 46.175156)",
-        "poi_name": "Beacon Hill Rehabilitation",
-        "osm_id": 7173862497,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "WA",
-        "addr_city": "Longview",
-        "addr_postcode": "98632",
-        "addr_street": "Old Beacon Hill Drive",
-        "addr_housenumber": "128"
+        "id": 248470,
+        "geometry": "POINT (-73.706068 40.95728)",
+        "poi_name": "Jay Heritage Center",
+        "osm_id": 4196086062,
+        "leisure": "park",
+        "description": "National Historic Landmark home of John Jay. Historic Site and Park. Member Site of New York State's Path Through History, Hudson River Valley National Heritage Area and Westchester County African American Heritage Trail. Hours Wed. thru Fri. 10am - 4pm ",
+        "addr_state": "NY",
+        "addr_city": "Rye",
+        "addr_postcode": "10580",
+        "addr_street": "Boston Post Road",
+        "addr_housenumber": "210"
       }
     },
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 139,
+  "id": 1639,
   "type": "knn:towards+name"
 }

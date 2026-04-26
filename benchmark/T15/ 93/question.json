@@ -1,56 +1,61 @@
 {
-  "question": "Where can I find a garden located within 160 kilometers in the direction of west from Carson Park Stadium, Eau Claire, WI?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography, 160000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where can I find a gallery that fall within 60 kilometers in the south direction of Stratton Fire Tower, Stratton, Vermont?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography, 60000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 248857,
-      "geometry": "POINT (-91.520118 44.808189)",
-      "poi_name": "Nokomis Naturescape Garden",
-      "osm_id": 4865581364,
-      "leisure": "garden",
-      "website": "https://www.facebook.com/NokomisNaturescape/?fref=ts",
-      "phone": "+1 612 727 3562",
-      "addr_state": "MN",
-      "addr_city": "Minneapolis",
-      "addr_postcode": "55417",
-      "addr_street": "East Lake Nokomis Parkway",
-      "addr_housenumber": "5000"
+      "id": 3587,
+      "geometry": "POINT (-72.924966 43.086214)",
+      "poi_name": "Salmon Falls",
+      "osm_id": 5476774667,
+      "tourism": "gallery",
+      "operator": "Josh Simpson",
+      "website": "https://salmonfallsgallery.com/",
+      "addr_state": "MA",
+      "addr_city": "Shelburne Falls",
+      "addr_postcode": "01370",
+      "addr_street": "Ashfield Street",
+      "addr_housenumber": "1"
+    },
+    {
+      "id": 9120,
+      "geometry": "POINT (-72.924966 43.086214)",
+      "poi_name": "Gallery 51",
+      "osm_id": 3677954567,
+      "tourism": "gallery"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Carson Park Stadium, Eau Claire, WI",
-      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Stratton Fire Tower, Stratton, Vermont",
+      "geo_wkt": "POINT (-72.924966 43.086214)",
       "poi": {
-        "id": 247238,
-        "geometry": "POINT (-91.520118 44.808189)",
-        "poi_name": "Carson Park Stadium",
-        "osm_id": 3843182571,
-        "leisure": "stadium",
-        "sport": "american_football",
-        "wikidata": "Q16028032",
-        "addr_state": "WI",
-        "addr_city": "Eau Claire",
-        "addr_postcode": "54703",
-        "addr_street": "Carson Park Drive"
+        "id": 16156,
+        "geometry": "POINT (-72.924966 43.086214)",
+        "poi_name": "Stratton Fire Tower",
+        "osm_id": 356555377,
+        "tourism": "viewpoint",
+        "addr_state": "Vermont",
+        "addr_city": "Stratton",
+        "addr_street": "Maintenance Road",
+        "addr_housenumber": "2148"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 92,
+  "id": 2292,
   "type": "range:direction+loc"
 }

@@ -1,38 +1,44 @@
 {
-  "question": "In what direction can I find the closest stadium situated from Red Roof Inn, NJ?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.069915 40.208041)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.069915 40.208041)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction connects Wenatchee Valley Museum and Cultural Center, Wenatchee, WA to the nearest attraction?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246348,
-      "geometry": "POINT (-74.171068 40.73335)",
-      "poi_name": "Prudential Center",
-      "osm_id": 11343840343,
-      "leisure": "stadium",
-      "angle": 351.66696812008047
+      "id": 2,
+      "geometry": "POINT (-120.30077 47.410189)",
+      "poi_name": "Great Northern Steam Locomotive",
+      "osm_id": 401622013,
+      "historic": "locomotive",
+      "tourism": "attraction",
+      "angle": 150.6871967358865
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Red Roof Inn, NJ",
-      "geo_wkt": "POINT (-74.069915 40.208041)",
+      "sub_category": "museum",
+      "display_name": "Wenatchee Valley Museum and Cultural Center, Wenatchee, WA",
+      "geo_wkt": "POINT (-120.310936 47.42248)",
       "poi": {
-        "id": 23868,
-        "geometry": "POINT (-74.069915 40.208041)",
-        "poi_name": "Red Roof Inn",
-        "osm_id": 9170581565,
-        "tourism": "hotel",
-        "addr_state": "NJ",
-        "addr_street": "NJ-33"
+        "id": 4,
+        "geometry": "POINT (-120.310936 47.42248)",
+        "poi_name": "Wenatchee Valley Museum and Cultural Center",
+        "osm_id": 403501655,
+        "tourism": "museum",
+        "opening_hours": "Tu-Su 10:00-16:00",
+        "website": "https://www.wenatcheevalleymuseum.org/",
+        "addr_state": "WA",
+        "addr_city": "Wenatchee",
+        "addr_postcode": "98801",
+        "addr_street": "S. Mission St.",
+        "addr_housenumber": "127"
       }
     }
   },
-  "id": 1457,
+  "id": 557,
   "type": "knn+angle"
 }

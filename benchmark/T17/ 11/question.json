@@ -1,45 +1,48 @@
 {
-  "question": "Do you know where the nearest golf course is from Prince Conti Hotel, New Orleans, LA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.06858 29.956522)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you tell me where the nearest hospital from Maryvale Baseball Park, Phoenix, AZ is located?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245942,
-      "geometry": "POINT (-89.766425 30.308978)",
-      "poi_name": "PInewood Golf and Country Club",
-      "osm_id": 5347458590,
-      "leisure": "golf_course",
-      "addr_state": "LA",
-      "addr_city": "Slidell",
-      "addr_postcode": "70458",
-      "addr_street": "Country Club Boulevard",
-      "addr_housenumber": "405"
+      "id": 167784,
+      "geometry": "POINT (-112.09927 33.517203)",
+      "poi_name": "North Phoenix Heart Center",
+      "osm_id": 359292620,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85015",
+      "addr_street": "North 19th Avenue",
+      "addr_housenumber": "5501"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Prince Conti Hotel, New Orleans, LA",
-      "geo_wkt": "POINT (-90.06858 29.956522)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 24670,
-        "geometry": "POINT (-90.06858 29.956522)",
-        "poi_name": "Prince Conti Hotel",
-        "osm_id": 11164357258,
-        "tourism": "hotel",
-        "addr_state": "LA",
-        "addr_city": "New Orleans",
-        "addr_postcode": "70130",
-        "addr_street": "Conti Street",
-        "addr_housenumber": "830"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 1810,
+  "id": 710,
   "type": "knn+loc"
 }

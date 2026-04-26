@@ -1,65 +1,63 @@
 {
-  "question": "What is the closest fast food in the direction of Biggest Loser Resort Chicago, Bloomingdale, IL from Sauk Trail Woods, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography, ST_GeomFromText('POINT (-88.097137 41.951268)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest caf\u00e9 you pass going from Hamtramck Disneyland, Hamtramck, MI to TYP Collection, Birmingham, MI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography, ST_GeomFromText('POINT (-83.213824 42.545655)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 146866,
-      "geometry": "POINT (-87.661952 41.506657)",
-      "poi_name": "Dunkin'",
-      "osm_id": 7484411847,
-      "amenity": "fast_food",
-      "cuisine": "donut;coffee_shop",
+      "id": 195292,
+      "geometry": "POINT (-83.084859 42.447688)",
+      "poi_name": "Tim Hortons",
+      "osm_id": 10299385830,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
       "takeaway": "yes",
-      "addr_state": "IL",
-      "addr_city": "Chicago Heights",
-      "addr_postcode": "60411",
-      "addr_street": "West Lincoln Highway",
-      "addr_housenumber": "431",
-      "value": 324.1209934738296
+      "value": 320.3634817852074
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Sauk Trail Woods, IL",
-      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hamtramck Disneyland, Hamtramck, MI",
+      "geo_wkt": "POINT (-83.058623 42.407216)",
       "poi": {
-        "id": 265408,
-        "geometry": "POINT (-87.649076 41.489705)",
-        "poi_name": "Sauk Trail Woods",
-        "osm_id": 369059365,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 2296,
+        "geometry": "POINT (-83.058623 42.407216)",
+        "poi_name": "Hamtramck Disneyland",
+        "osm_id": 3371170310,
+        "tourism": "attraction",
+        "website": "https://en.wikipedia.org/wiki/Hamtramck_Disneyland",
+        "wikidata": "Q5646445",
+        "addr_state": "MI",
+        "addr_city": "Hamtramck",
+        "addr_postcode": "48212",
+        "addr_street": "Klinger Street",
+        "addr_housenumber": "12087"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Biggest Loser Resort Chicago, Bloomingdale, IL",
-      "geo_wkt": "POINT (-88.097137 41.951268)",
+      "sub_category": "gallery",
+      "display_name": "TYP Collection, Birmingham, MI",
+      "geo_wkt": "POINT (-83.213824 42.545655)",
       "poi": {
-        "id": 9590,
-        "geometry": "POINT (-88.097137 41.951268)",
-        "poi_name": "Biggest Loser Resort Chicago",
-        "osm_id": 3902668100,
-        "tourism": "hotel",
-        "website": "https://www.biggestloserresort.com/chicago-il/",
-        "phone": "+1 855 420 9950",
-        "addr_state": "IL",
-        "addr_city": "Bloomingdale",
-        "addr_postcode": "60108",
-        "addr_street": "Schick Road",
-        "addr_housenumber": "250"
+        "id": 21784,
+        "geometry": "POINT (-83.213824 42.545655)",
+        "poi_name": "TYP Collection",
+        "osm_id": 10678631717,
+        "tourism": "gallery",
+        "addr_state": "MI",
+        "addr_city": "Birmingham",
+        "addr_postcode": "48009",
+        "addr_street": "East Merrill Street",
+        "addr_housenumber": "261"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 143,
+  "id": 1643,
   "type": "knn:towards+name"
 }

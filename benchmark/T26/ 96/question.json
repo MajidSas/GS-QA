@@ -1,17 +1,20 @@
 {
-  "question": "What's the distance to the closest caf\u00e9 in reference to Five Wells Roping Rodeo Arena, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the closest caf\u00e9 when measured from Memory Garden, Mequon, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 162586,
-      "geometry": "POINT (-97.385028 31.057012)",
-      "poi_name": "Daddy",
-      "osm_id": 4936216222,
+      "id": 86453,
+      "geometry": "POINT (-87.983619 43.231232)",
+      "poi_name": "Fiddleheads Artisan Bakery",
+      "osm_id": 1932260731,
       "amenity": "cafe",
-      "addr_postcode": "76502",
-      "addr_street": "Buckskin Trail",
-      "addr_housenumber": "4815",
-      "distance": 7049.07180633
+      "cuisine": "coffee_shop",
+      "wheelchair": "limited",
+      "internet_access": "wlan",
+      "addr_postcode": "53092",
+      "addr_street": "N. Main Street",
+      "addr_housenumber": "120",
+      "distance": 3249.58375822
     }
   ],
   "answer_type": "distance",
@@ -22,19 +25,20 @@
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Five Wells Roping Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
       "poi": {
-        "id": 265394,
-        "geometry": "POINT (-97.402227 30.995182)",
-        "poi_name": "Five Wells Roping Rodeo Arena",
-        "osm_id": 368165371,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
       }
     }
   },
-  "id": 2495,
+  "id": 695,
   "type": "knn+distance"
 }

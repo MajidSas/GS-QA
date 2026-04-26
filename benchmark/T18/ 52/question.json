@@ -1,49 +1,50 @@
 {
-  "question": "Where can I find the nearest sandwich restaurant near Lake Stanley Draper Park Recreation Area #2, Oklahoma City, OK?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.370202 35.374271)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest emergency hospital located relative to Stonehedge Gardens, Tamaqua, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.942183 40.761418)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 232570,
-      "geometry": "POINT (-97.529557 35.363865)",
-      "poi_name": "McAlister's Deli",
-      "osm_id": 4532458904,
-      "amenity": "restaurant",
-      "cuisine": "sandwich",
-      "opening_hours": "Su-Th 10:30-22:00; Fr, Sa 10:30-22:30",
-      "takeaway": "yes",
-      "delivery": "no",
-      "addr_state": "OK",
-      "addr_city": "Oklahoma City",
-      "addr_postcode": "73139",
-      "addr_street": "South Western Avenue",
-      "addr_housenumber": "10440"
+      "id": 115288,
+      "geometry": "POINT (-75.747899 40.810354)",
+      "poi_name": "Lehigh Valley Hospital - Carbon",
+      "osm_id": 8888300330,
+      "amenity": "hospital",
+      "operator": "Lehigh Valley Health Network",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "PA",
+      "addr_city": "Lehighton",
+      "addr_postcode": "18235",
+      "addr_street": "E Blakeslee BLVD DR",
+      "addr_housenumber": "2128"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "sandwich restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Lake Stanley Draper Park Recreation Area #2, Oklahoma City, OK",
-      "geo_wkt": "POINT (-97.370202 35.374271)",
+      "sub_category": "garden",
+      "display_name": "Stonehedge Gardens, Tamaqua, PA",
+      "geo_wkt": "POINT (-75.942183 40.761418)",
       "poi": {
-        "id": 248824,
-        "geometry": "POINT (-97.370202 35.374271)",
-        "poi_name": "Lake Stanley Draper Park Recreation Area #2",
-        "osm_id": 4829549005,
-        "leisure": "park",
-        "addr_state": "OK",
-        "addr_city": "Oklahoma City",
-        "addr_postcode": "73165"
+        "id": 267309,
+        "geometry": "POINT (-75.942183 40.761418)",
+        "poi_name": "Stonehedge Gardens",
+        "osm_id": 5823460252,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Tamaqua",
+        "addr_postcode": "18252",
+        "addr_street": "Dairy Road",
+        "addr_housenumber": "51"
       }
     }
   },
-  "id": 351,
+  "id": 1351,
   "type": "knn:non_spat_filter+loc"
 }

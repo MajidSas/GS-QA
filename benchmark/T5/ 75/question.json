@@ -1,38 +1,41 @@
 {
-  "question": "What's the closest park nearby ABQ BioPark (Aquarium), Albuquerque, NM?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is the closest one near Dolphins Plus Bayside, Key Largo, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266274,
-      "geometry": "POINT (-106.680403 35.093006)",
-      "poi_name": "Children's Fantasy Garden",
-      "osm_id": 7113478417,
-      "leisure": "park"
+      "id": 131364,
+      "geometry": "POINT (-80.441036 25.086144)",
+      "poi_name": "Backyard Cafe",
+      "osm_id": 9911707018,
+      "amenity": "cafe"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "aquarium",
-      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
-      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
       "poi": {
-        "id": 6226,
-        "geometry": "POINT (-106.678998 35.093235)",
-        "poi_name": "ABQ BioPark (Aquarium)",
-        "osm_id": 1788029735,
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
         "tourism": "aquarium",
-        "wikidata": "Q4712807",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque"
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
       }
     }
   },
-  "id": 274,
+  "id": 1074,
   "type": "knn+name"
 }

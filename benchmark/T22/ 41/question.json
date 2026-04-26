@@ -1,42 +1,39 @@
 {
-  "question": "What direction does one need to follow to reach the closest hotel from Forest High School Stadium, FL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.067859 29.140252)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.067859 29.140252)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way is the closest viewpoint from Canyon View Park, Afton, WY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-110.919483 42.731191)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-110.919483 42.731191)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 11865,
-      "geometry": "POINT (-81.888211 28.829688)",
-      "poi_name": "Best Western Plus Chain Of Lakes Inn & Suites",
-      "osm_id": 11592590116,
-      "tourism": "hotel",
-      "addr_state": "FL",
-      "addr_city": "Leesburg",
-      "addr_postcode": "34748",
-      "addr_street": "North 14th Street",
-      "addr_housenumber": "1321",
-      "angle": 152.99793603334797
+      "id": 9900,
+      "geometry": "POINT (-110.908171 42.506205)",
+      "poi_name": "Salt River Pass Interpretive Site",
+      "osm_id": 9051428163,
+      "tourism": "viewpoint",
+      "angle": 177.86956527557234
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "viewpoint"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Forest High School Stadium, FL",
-      "geo_wkt": "POINT (-82.067859 29.140252)",
+      "sub_category": "park",
+      "display_name": "Canyon View Park, Afton, WY",
+      "geo_wkt": "POINT (-110.919483 42.731191)",
       "poi": {
-        "id": 265378,
-        "geometry": "POINT (-82.067859 29.140252)",
-        "poi_name": "Forest High School Stadium",
-        "osm_id": 367826912,
-        "leisure": "stadium",
-        "addr_state": "FL"
+        "id": 245114,
+        "geometry": "POINT (-110.919483 42.731191)",
+        "poi_name": "Canyon View Park",
+        "osm_id": 8252606350,
+        "leisure": "park",
+        "addr_state": "WY",
+        "addr_city": "Afton",
+        "addr_postcode": "83110"
       }
     }
   },
-  "id": 1440,
+  "id": 540,
   "type": "knn+angle"
 }

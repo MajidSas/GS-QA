@@ -1,39 +1,40 @@
 {
-  "question": "What is the closest zoo in the south direction of Adventure Sports in Hershey, Hershey, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which stadium is nearest when considering the south direction of Kenilworth Historical Society, Kenilworth, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.716192 42.087014)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 2491,
-      "geometry": "POINT (-76.62265 40.236123)",
-      "poi_name": "Amazonia",
-      "osm_id": 3479268111,
-      "tourism": "zoo"
+      "id": 266107,
+      "geometry": "POINT (-87.716192 42.087014)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 10655734023,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Adventure Sports in Hershey, Hershey, PA",
-      "geo_wkt": "POINT (-76.62265 40.236123)",
+      "sub_category": "museum",
+      "display_name": "Kenilworth Historical Society, Kenilworth, IL",
+      "geo_wkt": "POINT (-87.716192 42.087014)",
       "poi": {
-        "id": 18427,
-        "geometry": "POINT (-76.62265 40.236123)",
-        "poi_name": "Adventure Sports in Hershey",
-        "osm_id": 2295840835,
-        "tourism": "theme_park",
-        "website": "https://www.adventurehershey.com/",
-        "phone": "717.533.7479",
-        "addr_state": "PA",
-        "addr_city": "Hershey",
-        "addr_postcode": "17033",
-        "addr_street": "Elizabethtown Road",
-        "addr_housenumber": "3010"
+        "id": 8566,
+        "geometry": "POINT (-87.716192 42.087014)",
+        "poi_name": "Kenilworth Historical Society",
+        "osm_id": 8559680934,
+        "tourism": "museum",
+        "opening_hours": "Tu 09:00-17:00; Th 09:00-17:00",
+        "website": "https://kenilworthhistory.org/",
+        "museum": "local",
+        "addr_state": "IL",
+        "addr_city": "Kenilworth",
+        "addr_postcode": "60043",
+        "addr_street": "Kenilworth Avenue",
+        "addr_housenumber": "415"
       }
     },
     "[3]": {
@@ -41,6 +42,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2505,
+  "id": 1205,
   "type": "knn:direction+name"
 }

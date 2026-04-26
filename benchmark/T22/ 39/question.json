@@ -1,50 +1,51 @@
 {
-  "question": "What's the heading to the closest university from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction should I proceed in to reach the closest golf course from Kettlewell & Edwards, Saratoga Springs, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.785108 43.080601)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.785108 43.080601)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167699,
-      "geometry": "POINT (-119.695763 34.419304)",
-      "poi_name": "Antioch University - Santa Barbara",
-      "osm_id": 358792225,
-      "amenity": "university",
-      "wikidata": "Q4775042",
-      "addr_state": "CA",
-      "addr_city": "Santa Barbara",
-      "addr_postcode": "93101",
-      "addr_street": "Anacapa Street",
-      "addr_housenumber": "602",
-      "angle": 316.75529529483845
+      "id": 267461,
+      "geometry": "POINT (-74.301636 43.783544)",
+      "poi_name": "Cedar River Golf Course",
+      "osm_id": 6033212585,
+      "leisure": "golf_course",
+      "description": "Cedar River Golf Course, Driving Range, Restaurant, & Motel",
+      "website": "https://cedarrivergolf.com/",
+      "addr_state": "NY",
+      "addr_city": "Indian Lake",
+      "addr_postcode": "12842",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "6689",
+      "angle": 332.0078940503482
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
-      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "sub_category": "gallery",
+      "display_name": "Kettlewell & Edwards, Saratoga Springs, NY",
+      "geo_wkt": "POINT (-73.785108 43.080601)",
       "poi": {
-        "id": 18273,
-        "geometry": "POINT (-119.685686 34.410426)",
-        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
-        "osm_id": 368174545,
-        "tourism": "aquarium",
-        "operator": "Santa Barbara Museum of Natural History",
-        "website": "https://www.sbnature.org/twsc/2.html",
-        "wikidata": "Q3542641",
-        "addr_state": "CA",
-        "addr_city": "Santa Barbara",
-        "addr_postcode": "93101",
-        "addr_street": "Stearns Wharf",
-        "addr_housenumber": "211"
+        "id": 496,
+        "geometry": "POINT (-73.785108 43.080601)",
+        "poi_name": "Kettlewell & Edwards",
+        "osm_id": 8405030677,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-17:30",
+        "website": "https://www.kettlewellandedwards.com/home",
+        "phone": "+1 518 584 3664",
+        "addr_state": "NY",
+        "addr_city": "Saratoga Springs",
+        "addr_postcode": "12866",
+        "addr_street": "Phila Street",
+        "addr_housenumber": "13"
       }
     }
   },
-  "id": 1438,
+  "id": 538,
   "type": "knn+angle"
 }

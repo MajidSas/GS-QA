@@ -1,39 +1,42 @@
 {
-  "question": "What's the distance between Coral Ridge Ice Arena, IA and the closest aquarium?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance to the closest viewpoint starting from Glenwood Caverns Adventure Park, Glenwood Springs, CO?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-107.33239 39.553632)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-107.33239 39.553632)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 8156,
-      "geometry": "POINT (-87.895468 43.036753)",
-      "poi_name": "Reiman Aquarium",
-      "osm_id": 6578835963,
-      "tourism": "aquarium",
-      "fee": "yes",
-      "opening_hours": "Apr-Sep Mo-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off; Sep-Apr Tu-Fr 09:00-16:00; Sa-Su 10:00-17:00; PH off",
-      "distance": 339848.23625009
+      "id": 26833,
+      "geometry": "POINT (-107.304995 39.621544)",
+      "poi_name": "Windy Point Overlook",
+      "osm_id": 177075273,
+      "tourism": "viewpoint",
+      "distance": 7898.72436582
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Coral Ridge Ice Arena, IA",
-      "geo_wkt": "POINT (-91.600665 41.690452)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Glenwood Caverns Adventure Park, Glenwood Springs, CO",
+      "geo_wkt": "POINT (-107.33239 39.553632)",
       "poi": {
-        "id": 265360,
-        "geometry": "POINT (-91.600665 41.690452)",
-        "poi_name": "Coral Ridge Ice Arena",
-        "osm_id": 367088905,
-        "leisure": "stadium",
-        "addr_state": "IA"
+        "id": 26097,
+        "geometry": "POINT (-107.33239 39.553632)",
+        "poi_name": "Glenwood Caverns Adventure Park",
+        "osm_id": 5782876196,
+        "description": "Ticket purchase office",
+        "tourism": "theme_park",
+        "addr_state": "CO",
+        "addr_city": "Glenwood Springs",
+        "addr_postcode": "81601",
+        "addr_street": "Two Rivers Plaza Road",
+        "addr_housenumber": "51000"
       }
     }
   },
-  "id": 2481,
+  "id": 681,
   "type": "knn+distance"
 }

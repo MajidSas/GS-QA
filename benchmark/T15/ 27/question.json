@@ -1,65 +1,56 @@
 {
-  "question": "Where can I find a university towards the north of Brigham and Women's, Foxborough, MA within 60 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.266184 42.092705)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.266184 42.092705)',4326)::geography, 60000)\nAND amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a golf course situated northeast of Xtreme Action Park, Fort Lauderdale, FL within a distance of 140 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography, 140000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 70992,
-      "geometry": "POINT (-71.266184 42.092705)",
-      "poi_name": "Radcliffe Institute for Advanced Studies",
-      "osm_id": 11378728082,
-      "amenity": "university",
-      "wikidata": "Q7280030",
-      "addr_state": "MA"
-    },
-    {
-      "id": 163970,
-      "geometry": "POINT (-71.266184 42.092705)",
-      "poi_name": "Harvard Graduate School of Education",
-      "osm_id": 9444773346,
-      "amenity": "university",
-      "operator": "Harvard University",
-      "wikidata": "Q14715517",
-      "addr_state": "MA",
-      "addr_city": "Cambridge",
-      "addr_postcode": "02138",
-      "addr_street": "Appian Way",
-      "addr_housenumber": "13"
+      "id": 246300,
+      "geometry": "POINT (-80.153423 26.191598)",
+      "poi_name": "The Boca Raton Golf Club",
+      "osm_id": 11269839310,
+      "leisure": "golf_course",
+      "website": "https://www.thebocaraton.com/",
+      "addr_city": "Boca Raton",
+      "addr_street": "E Boca Raton Rd",
+      "addr_housenumber": "501"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Brigham and Women's, Foxborough, MA",
-      "geo_wkt": "POINT (-71.266184 42.092705)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
       "poi": {
-        "id": 68228,
-        "geometry": "POINT (-71.266184 42.092705)",
-        "poi_name": "Brigham and Women's",
-        "osm_id": 11264710210,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "MA",
-        "addr_city": "Foxborough",
-        "addr_postcode": "02035",
-        "addr_street": "Patriot Place",
-        "addr_housenumber": "20"
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 26,
+  "id": 2226,
   "type": "range:direction+loc"
 }

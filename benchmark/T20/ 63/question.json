@@ -1,63 +1,65 @@
 {
-  "question": "Where's the closest caf\u00e9 on the path leading to Crabtree Falls, Montebello, VA from SeaQuest, Lynchburg, VA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, ST_GeomFromText('POINT (-79.079728 37.851133)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 ahead of In the Game - Hollywood Park, Crestwood, IL toward Norwood Park Historical Society, Chicago, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, ST_GeomFromText('POINT (-87.795994 41.983597)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.747217 41.655827)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 100677,
-      "geometry": "POINT (-79.143913 37.415346)",
-      "poi_name": "Marigold",
-      "osm_id": 6595226830,
+      "id": 169437,
+      "geometry": "POINT (-87.749444 41.719554)",
+      "poi_name": "Starbucks",
+      "osm_id": 2300443583,
       "amenity": "cafe",
-      "cuisine": "coffee_shop;sandwich",
-      "opening_hours": "Mo-Su 06:30-15:00",
-      "website": "https://www.thevirginianhotel.com/restaurants-bars/marigold",
-      "addr_state": "VA",
-      "addr_city": "Lynchburg",
-      "addr_street": "Church Street",
-      "addr_housenumber": "712",
-      "value": 9.151201493641151
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "IL",
+      "addr_city": "Oak Lawn",
+      "addr_postcode": "60453",
+      "addr_street": "West 95th Street",
+      "addr_housenumber": "5135",
+      "value": 353.66430795824226
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "SeaQuest, Lynchburg, VA",
-      "geo_wkt": "POINT (-79.178489 37.365024)",
+      "sub_category": "theme park",
+      "display_name": "In the Game - Hollywood Park, Crestwood, IL",
+      "geo_wkt": "POINT (-87.747217 41.655827)",
       "poi": {
-        "id": 10602,
-        "geometry": "POINT (-79.178489 37.365024)",
-        "poi_name": "SeaQuest",
-        "osm_id": 6937652614,
-        "tourism": "aquarium",
-        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
-        "website": "https://visitseaquest.com/lynchburg/",
-        "addr_state": "VA",
-        "addr_city": "Lynchburg",
-        "addr_postcode": "24502",
-        "addr_street": "Candlers Mountain Road",
-        "addr_housenumber": "3405"
+        "id": 22694,
+        "geometry": "POINT (-87.747217 41.655827)",
+        "poi_name": "In the Game - Hollywood Park",
+        "osm_id": 7217378704,
+        "tourism": "theme_park",
+        "website": "https://crestwood.inthegame.net",
+        "phone": "+1 708 389 7275",
+        "addr_state": "IL",
+        "addr_city": "Crestwood",
+        "addr_postcode": "60445",
+        "addr_street": "Cal Sag Road",
+        "addr_housenumber": "5051"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Crabtree Falls, Montebello, VA",
-      "geo_wkt": "POINT (-79.079728 37.851133)",
+      "sub_category": "museum",
+      "display_name": "Norwood Park Historical Society, Chicago, IL",
+      "geo_wkt": "POINT (-87.795994 41.983597)",
       "poi": {
-        "id": 6945,
-        "geometry": "POINT (-79.079728 37.851133)",
-        "poi_name": "Crabtree Falls",
-        "osm_id": 8780834098,
-        "tourism": "attraction",
-        "fee": "yes",
-        "wikidata": "Q38081",
-        "addr_state": "VA",
-        "addr_city": "Montebello",
-        "addr_postcode": "24464",
-        "addr_street": "Crabtree Falls Highway",
-        "addr_housenumber": "11581"
+        "id": 9401,
+        "geometry": "POINT (-87.795994 41.983597)",
+        "poi_name": "Norwood Park Historical Society",
+        "osm_id": 3785693441,
+        "tourism": "museum",
+        "website": "https://www.norwoodparkhistoricalsociety.org",
+        "museum": "local",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60631",
+        "addr_street": "North Newark Avenue",
+        "addr_housenumber": "5624"
       }
     },
     "[1]": {
@@ -65,6 +67,6 @@
       "sub_category": "cafe"
     }
   },
-  "id": 1362,
+  "id": 1562,
   "type": "knn:towards+loc"
 }

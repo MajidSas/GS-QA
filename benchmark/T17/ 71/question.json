@@ -1,45 +1,43 @@
 {
-  "question": "Where's the nearest attraction from Weld House Museum, Nauvoo, IL located?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.380554 40.549562)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Do you know where I can find the nearest golf course from Strawberry Hill, San Francisco, CA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1922,
-      "geometry": "POINT (-91.313649 40.629533)",
-      "poi_name": "ATSF Depot",
-      "osm_id": 3218326489,
-      "description": "Historic Santa Fe depot which houses the Santa Fe Depot Museum. Amtrak plans to move into the depot once work is completed on the passenger waiting area and a new passenger platform is constructed.",
-      "tourism": "attraction",
-      "addr_state": "IA",
-      "addr_city": "Fort Madison",
-      "addr_street": "10th Street",
-      "addr_housenumber": "814"
+      "id": 245552,
+      "geometry": "POINT (-122.565478 38.064796)",
+      "poi_name": "Marin Country Club",
+      "osm_id": 3097353505,
+      "leisure": "golf_course",
+      "website": "https://www.marincountryclub.com/",
+      "addr_city": "Novato",
+      "addr_postcode": "94949",
+      "addr_street": "Country Club Drive",
+      "addr_housenumber": "500"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Weld House Museum, Nauvoo, IL",
-      "geo_wkt": "POINT (-91.380554 40.549562)",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 10095,
-        "geometry": "POINT (-91.380554 40.549562)",
-        "poi_name": "Weld House Museum",
-        "osm_id": 6709992661,
-        "tourism": "museum",
-        "addr_state": "IL",
-        "addr_city": "Nauvoo",
-        "addr_postcode": "62354",
-        "addr_street": "Mulholland Street",
-        "addr_housenumber": "1380"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     }
   },
-  "id": 1870,
+  "id": 770,
   "type": "knn+loc"
 }

@@ -1,60 +1,64 @@
 {
-  "question": "Where's the nearest restaurant heading towards Santa Monica Museum of Art, CA from Aquatic Zoo Tropical Fish, Thousand Oaks, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, ST_GeomFromText('POINT (-118.484479 34.003611)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant located between Caldwell Woods, Chicago, IL and Mayslake Peabody Estate, Oak Brook, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, ST_GeomFromText('POINT (-87.961322 41.828563)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 72288,
-      "geometry": "POINT (-118.833808 34.167111)",
-      "poi_name": "Phil's",
-      "osm_id": 11419386112,
+      "id": 65753,
+      "geometry": "POINT (-87.802608 41.980425)",
+      "poi_name": "Dino's Pizza",
+      "osm_id": 5711709192,
       "amenity": "restaurant",
-      "cuisine": "american",
-      "wheelchair": "yes",
-      "website": "https://www.phils1000oaks.com/",
-      "phone": "(805)371-7773",
-      "addr_state": "CA",
-      "addr_city": "Thousand Oaks",
-      "addr_postcode": "91362",
-      "addr_street": "E Thousand Oaks Blvd.",
-      "addr_housenumber": "3316",
-      "value": 119.62681315127487
+      "cuisine": "italian;pizza",
+      "opening_hours": "Mo-Su 11:00-23:00",
+      "website": "https://www.dinospizzachicago.com/",
+      "takeaway": "yes",
+      "outdoor_seating": "yes",
+      "delivery": "yes",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60656",
+      "addr_street": "West Higgins Avenue",
+      "addr_housenumber": "7004",
+      "value": 217.75132088154356
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
-      "geo_wkt": "POINT (-118.840161 34.172588)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Caldwell Woods, Chicago, IL",
+      "geo_wkt": "POINT (-87.786491 41.997567)",
       "poi": {
-        "id": 5259,
-        "geometry": "POINT (-118.840161 34.172588)",
-        "poi_name": "Aquatic Zoo Tropical Fish",
-        "osm_id": 9819470337,
-        "tourism": "aquarium",
-        "opening_hours": "Mo-Sa 10:30-19:00",
-        "operator": "Ken Kay Khzam",
-        "shop": "pet",
-        "addr_state": "CA",
-        "addr_city": "Thousand Oaks",
-        "addr_postcode": "91362",
-        "addr_street": "East Thousand Oaks Boulevard",
-        "addr_housenumber": "2655"
+        "id": 245668,
+        "geometry": "POINT (-87.786491 41.997567)",
+        "poi_name": "Caldwell Woods",
+        "osm_id": 3358252547,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60646"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Santa Monica Museum of Art, CA",
-      "geo_wkt": "POINT (-118.484479 34.003611)",
+      "sub_category": "attraction",
+      "display_name": "Mayslake Peabody Estate, Oak Brook, IL",
+      "geo_wkt": "POINT (-87.961322 41.828563)",
       "poi": {
-        "id": 18200,
-        "geometry": "POINT (-118.484479 34.003611)",
-        "poi_name": "Santa Monica Museum of Art",
-        "osm_id": 368174027,
-        "tourism": "museum",
-        "addr_state": "CA"
+        "id": 26766,
+        "geometry": "POINT (-87.961322 41.828563)",
+        "poi_name": "Mayslake Peabody Estate",
+        "osm_id": 6035720248,
+        "tourism": "attraction",
+        "operator": "Forest Preserve District of DuPage County",
+        "addr_state": "IL",
+        "addr_city": "Oak Brook",
+        "addr_street": "31st Street",
+        "addr_housenumber": "1717"
       }
     },
     "[1]": {
@@ -62,6 +66,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 1373,
+  "id": 1573,
   "type": "knn:towards+loc"
 }

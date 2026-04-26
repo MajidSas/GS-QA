@@ -1,38 +1,45 @@
 {
-  "question": "How far is the nearest aquarium situated from Bennett County Park, OR?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-124.078435 43.112055)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.078435 43.112055)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest fast food restaurant with respect to Inn at Bay Harbor, Bay Harbor, MI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-85.015501 45.36903)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.015501 45.36903)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18181,
-      "geometry": "POINT (-122.465976 37.769485)",
-      "poi_name": "Steinhart Aquarium",
-      "osm_id": 368173914,
-      "tourism": "aquarium",
-      "addr_state": "CA",
-      "distance": 608789.65435861
+      "id": 72282,
+      "geometry": "POINT (-84.957395 45.375353)",
+      "poi_name": "Petosky Pretzel co.",
+      "osm_id": 11419352186,
+      "amenity": "fast_food",
+      "cuisine": "pretzel",
+      "distance": 4605.65364077
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Bennett County Park, OR",
-      "geo_wkt": "POINT (-124.078435 43.112055)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Inn at Bay Harbor, Bay Harbor, MI",
+      "geo_wkt": "POINT (-85.015501 45.36903)",
       "poi": {
-        "id": 253812,
-        "geometry": "POINT (-124.078435 43.112055)",
-        "poi_name": "Bennett County Park",
-        "osm_id": 357277249,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 815,
+        "geometry": "POINT (-85.015501 45.36903)",
+        "poi_name": "Inn at Bay Harbor",
+        "osm_id": 2699157719,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.innatbayharbor.com/",
+        "phone": "+1-231-439-4000",
+        "addr_state": "MI",
+        "addr_city": "Bay Harbor",
+        "addr_postcode": "49770",
+        "addr_street": "Village Harbor Drive",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 2489,
+  "id": 689,
   "type": "knn+distance"
 }

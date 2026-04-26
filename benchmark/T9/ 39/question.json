@@ -1,45 +1,50 @@
 {
-  "question": "What's the closest viewpoint towards the southwest of Willowbrooke, Villa Rica, GA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.913089 33.748578)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest garden to the west of Kartway, Eagle River, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5828,
-      "geometry": "POINT (-84.913089 33.748578)",
-      "poi_name": "Vista View of Escambia Bay Bridge",
-      "osm_id": 1634138788,
-      "tourism": "viewpoint"
+      "id": 265789,
+      "geometry": "POINT (-89.251612 45.940777)",
+      "poi_name": "Minnesota Goose Garden",
+      "osm_id": 7798445660,
+      "leisure": "garden",
+      "website": "http://www.minnesotagoosegarden.com/information.html",
+      "phone": "+1-320-390-2323",
+      "addr_street": "355th Avenue",
+      "addr_housenumber": "3136"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Willowbrooke, Villa Rica, GA",
-      "geo_wkt": "POINT (-84.913089 33.748578)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Kartway, Eagle River, WI",
+      "geo_wkt": "POINT (-89.251612 45.940777)",
       "poi": {
-        "id": 205791,
-        "geometry": "POINT (-84.913089 33.748578)",
-        "poi_name": "Willowbrooke",
-        "osm_id": 7180135185,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "GA",
-        "addr_city": "Villa Rica",
-        "addr_postcode": "30180",
-        "addr_street": "Herrell Road",
-        "addr_housenumber": "20"
+        "id": 9758,
+        "geometry": "POINT (-89.251612 45.940777)",
+        "poi_name": "Kartway",
+        "osm_id": 8976002654,
+        "tourism": "theme_park",
+        "website": "http://rockingwkartway.com/kartway.html",
+        "phone": "+1-715-479-4450",
+        "addr_state": "WI",
+        "addr_city": "Eagle River",
+        "addr_postcode": "54521",
+        "addr_street": "Pleasure Island Road",
+        "addr_housenumber": "1890"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2538,
+  "id": 1238,
   "type": "knn:direction+name"
 }

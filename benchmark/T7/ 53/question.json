@@ -1,52 +1,59 @@
 {
-  "question": "What is the mascot of the nearest university from AHN Cancer Institute, Erie, PA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the name of the university that is affiliated with the closest hospital from the View Lounge, San Francisco, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 133663,
-      "geometry": "POINT (-80.086729 42.128105)",
-      "poi_name": "Gannon University",
-      "osm_id": 10003127082,
-      "amenity": "university",
-      "operator": "Gannon University",
-      "wikidata": "Q5521430",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16541",
-      "addr_street": "University Square",
-      "addr_housenumber": "109",
-      "multihop_answer": "Victor E. Knight",
-      "multihop_attribute": "Mascot",
-      "multihop_long_answer": "Gannon University Mascot: Victor E. Knight"
+      "id": 62192,
+      "geometry": "POINT (-122.389664 37.764772)",
+      "poi_name": "UCSF Benioff Children's Hospital San Francisco",
+      "osm_id": 5555408498,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.ucsfbenioffchildrens.org/",
+      "phone": "+1 415 353 1664",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q17031376",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94158",
+      "addr_street": "4th Street",
+      "addr_housenumber": "1975",
+      "multi_source_answer": "UCSF",
+      "multi_source_attribute": "Affiliated university",
+      "multi_source_long_answer": "UCSF Benioff Children's Hospital San Francisco Affiliated university: UCSF"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "AHN Cancer Institute, Erie, PA",
-      "geo_wkt": "POINT (-80.080644 42.110128)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
       "poi": {
-        "id": 31591,
-        "geometry": "POINT (-80.080644 42.110128)",
-        "poi_name": "AHN Cancer Institute",
-        "osm_id": 8435416613,
-        "amenity": "hospital",
-        "operator": "Allegheny Health Network",
-        "healthcare": "hospital",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16544",
-        "addr_street": "Myrtle Street",
-        "addr_housenumber": "2508"
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
       }
     }
   },
-  "id": 952,
-  "type": "knn+name+multihop1"
+  "id": 852,
+  "type": "knn+name+multi_source1"
 }

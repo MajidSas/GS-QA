@@ -1,55 +1,1537 @@
 {
-  "question": "Where can I find a zoo positioned towards the southeast of the Coachlight Inn Motel, Oconto Falls, WI, within a radius of 160 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography, 160000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Where can I find a park no more than 150 kilometers away to the northeast of Bowditch Middle School Auditorium, Foster City, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography, 150000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 2509,
-      "geometry": "POINT (-88.144657 44.876538)",
-      "poi_name": "Lincoln Park Zoo",
-      "osm_id": 3491296260,
-      "tourism": "zoo",
-      "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
-      "phone": "920-683-4685",
-      "wikidata": "Q3241309",
-      "addr_state": "WI",
-      "addr_city": "Manitowoc"
+      "id": 245097,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Brushy Peak Regional Preserve",
+      "osm_id": 434003165,
+      "leisure": "park",
+      "wikidata": "Q4979759"
+    },
+    {
+      "id": 245727,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "William Pond Rec Area",
+      "osm_id": 3475310801,
+      "leisure": "park"
+    },
+    {
+      "id": 245744,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Rose Garden",
+      "osm_id": 3506153174,
+      "leisure": "park"
+    },
+    {
+      "id": 245925,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Diablo Vista Ball Park",
+      "osm_id": 5331875990,
+      "leisure": "park"
+    },
+    {
+      "id": 246009,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sacramento Valley Conservancy",
+      "osm_id": 5443519992,
+      "leisure": "park"
+    },
+    {
+      "id": 246039,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Camp Pollock",
+      "osm_id": 5476740187,
+      "leisure": "park"
+    },
+    {
+      "id": 246046,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Paradise Beach",
+      "osm_id": 5483242688,
+      "leisure": "park"
+    },
+    {
+      "id": 246050,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lower Sunrise Recreation Area",
+      "osm_id": 5489530511,
+      "leisure": "park"
+    },
+    {
+      "id": 246051,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Upper Sunrise Recreation Area",
+      "osm_id": 5489531447,
+      "leisure": "park"
+    },
+    {
+      "id": 247505,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "O\u2019Donnell Heritage Park",
+      "osm_id": 6709187262,
+      "leisure": "park"
+    },
+    {
+      "id": 247510,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "LeVar Burton Park",
+      "osm_id": 6734478350,
+      "leisure": "park"
+    },
+    {
+      "id": 248471,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Santa Fe Linear Park",
+      "osm_id": 4197611796,
+      "leisure": "park"
+    },
+    {
+      "id": 248584,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Summer Lake Park",
+      "osm_id": 4649584434,
+      "leisure": "park"
+    },
+    {
+      "id": 248585,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lakeside Park",
+      "osm_id": 4649584446,
+      "leisure": "park"
+    },
+    {
+      "id": 248586,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Manresa Park",
+      "osm_id": 4649584450,
+      "leisure": "park"
+    },
+    {
+      "id": 248641,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "David A. Simpson Park",
+      "osm_id": 4713062400,
+      "leisure": "park",
+      "addr_state": "CA",
+      "addr_city": "Elk Grove",
+      "addr_postcode": "95624",
+      "addr_street": "Crisswell Drive",
+      "addr_housenumber": "9565"
+    },
+    {
+      "id": 248666,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Galt Community Park",
+      "osm_id": 4726754101,
+      "leisure": "park"
+    },
+    {
+      "id": 248667,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lake Canyon Park",
+      "osm_id": 4726754112,
+      "leisure": "park"
+    },
+    {
+      "id": 248670,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Chabolla Park",
+      "osm_id": 4726779361,
+      "leisure": "park"
+    },
+    {
+      "id": 248776,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Crockett Park",
+      "osm_id": 4792138794,
+      "leisure": "park"
+    },
+    {
+      "id": 248970,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Little Hills Ranch",
+      "osm_id": 9473434707,
+      "leisure": "park",
+      "phone": "19258378158",
+      "addr_street": "Bollinger Canyon Road",
+      "addr_housenumber": "18013"
+    },
+    {
+      "id": 261972,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "American River Parkway",
+      "osm_id": 358760942,
+      "leisure": "park"
+    },
+    {
+      "id": 261985,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Blakely Park",
+      "osm_id": 358762111,
+      "leisure": "park"
+    },
+    {
+      "id": 262003,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Cherokee Memorial Park",
+      "osm_id": 358763466,
+      "leisure": "park"
+    },
+    {
+      "id": 262008,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Crabtree Park",
+      "osm_id": 358764269,
+      "leisure": "park"
+    },
+    {
+      "id": 262011,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Discovery Park",
+      "osm_id": 358764776,
+      "leisure": "park"
+    },
+    {
+      "id": 262012,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Don Castro Regional Recreation Area",
+      "osm_id": 358764813,
+      "leisure": "park",
+      "wikidata": "Q14681850"
+    },
+    {
+      "id": 262057,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hogback Island Recreation Facility",
+      "osm_id": 358767641,
+      "leisure": "park"
+    },
+    {
+      "id": 262131,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Redwood Park",
+      "osm_id": 358773422,
+      "leisure": "park"
+    },
+    {
+      "id": 262066,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Johnston Park",
+      "osm_id": 358768474,
+      "leisure": "park"
+    },
+    {
+      "id": 262076,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lodi Municipal Lake Park",
+      "osm_id": 358769609,
+      "leisure": "park"
+    },
+    {
+      "id": 262081,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mandeville Tip County Park",
+      "osm_id": 358770086,
+      "leisure": "park"
+    },
+    {
+      "id": 262020,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Emerson Park",
+      "osm_id": 358765445,
+      "leisure": "park"
+    },
+    {
+      "id": 262138,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Root Park",
+      "osm_id": 358773807,
+      "leisure": "park",
+      "wikidata": "Q49553560"
+    },
+    {
+      "id": 262042,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Gibson Ranch County Park",
+      "osm_id": 358766510,
+      "leisure": "park"
+    },
+    {
+      "id": 262045,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "River Bend Park",
+      "osm_id": 358766628,
+      "leisure": "park"
+    },
+    {
+      "id": 262089,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mitchell Creek Park",
+      "osm_id": 358770917,
+      "leisure": "park"
+    },
+    {
+      "id": 262591,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sixth Street Park",
+      "osm_id": 358795683,
+      "leisure": "park"
+    },
+    {
+      "id": 262106,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Pardee Reservoir Recreation Area",
+      "osm_id": 358772383,
+      "leisure": "park",
+      "wikidata": "Q49539206"
+    },
+    {
+      "id": 262112,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Plaza Park",
+      "osm_id": 358772850,
+      "leisure": "park",
+      "wikidata": "Q49544022"
+    },
+    {
+      "id": 262261,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Twin Oaks Park",
+      "osm_id": 358777601,
+      "leisure": "park"
+    },
+    {
+      "id": 262267,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Van Buskirk Park",
+      "osm_id": 358778036,
+      "leisure": "park"
+    },
+    {
+      "id": 262269,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Vinewood Park",
+      "osm_id": 358778155,
+      "leisure": "park"
+    },
+    {
+      "id": 262207,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sorensdale Park",
+      "osm_id": 358776253,
+      "leisure": "park",
+      "wikidata": "Q49563090"
+    },
+    {
+      "id": 262211,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "South Spud Island Recreation Area",
+      "osm_id": 358776343,
+      "leisure": "park"
+    },
+    {
+      "id": 262691,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sacramento Bypass Wildlife Area",
+      "osm_id": 358809491,
+      "leisure": "park"
+    },
+    {
+      "id": 262592,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Franks Tract",
+      "osm_id": 358795690,
+      "leisure": "park"
+    },
+    {
+      "id": 262754,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Earl Warren Park",
+      "osm_id": 358817727,
+      "leisure": "park",
+      "wikidata": "Q49484982"
+    },
+    {
+      "id": 262712,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Del Paso Park",
+      "osm_id": 358815701,
+      "leisure": "park"
+    },
+    {
+      "id": 262713,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Dixieland Park",
+      "osm_id": 358815706,
+      "leisure": "park"
+    },
+    {
+      "id": 262714,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Fair Oaks Park",
+      "osm_id": 358815713,
+      "leisure": "park"
+    },
+    {
+      "id": 262717,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Kennedy Park",
+      "osm_id": 358815733,
+      "leisure": "park"
+    },
+    {
+      "id": 262718,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Larchmont Park",
+      "osm_id": 358815736,
+      "leisure": "park"
+    },
+    {
+      "id": 262719,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lower Sunrise Recreational Area",
+      "osm_id": 358815750,
+      "leisure": "park"
+    },
+    {
+      "id": 262720,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Memorial Park",
+      "osm_id": 358815758,
+      "leisure": "park"
+    },
+    {
+      "id": 262721,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Midtown Park",
+      "osm_id": 358815763,
+      "leisure": "park"
+    },
+    {
+      "id": 262722,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mont View Park",
+      "osm_id": 358815769,
+      "leisure": "park"
+    },
+    {
+      "id": 262723,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Muir Park",
+      "osm_id": 358815771,
+      "leisure": "park"
+    },
+    {
+      "id": 262724,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "North Norwood Park",
+      "osm_id": 358815776,
+      "leisure": "park"
+    },
+    {
+      "id": 262726,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Pacific Park",
+      "osm_id": 358815814,
+      "leisure": "park"
+    },
+    {
+      "id": 262755,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Edendale Park",
+      "osm_id": 358817732,
+      "leisure": "park",
+      "wikidata": "Q49485668"
+    },
+    {
+      "id": 262728,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Redding Park",
+      "osm_id": 358815823,
+      "leisure": "park"
+    },
+    {
+      "id": 262831,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Contra Costa County Fairgrounds",
+      "osm_id": 358821227,
+      "leisure": "park"
+    },
+    {
+      "id": 262833,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Fairview Park",
+      "osm_id": 358821238,
+      "leisure": "park"
+    },
+    {
+      "id": 262756,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Independent Park",
+      "osm_id": 358817787,
+      "leisure": "park",
+      "wikidata": "Q49504698"
+    },
+    {
+      "id": 262834,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Memorial Park",
+      "osm_id": 358821278,
+      "leisure": "park"
+    },
+    {
+      "id": 262729,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Rio Linda Central Park",
+      "osm_id": 358815829,
+      "leisure": "park"
+    },
+    {
+      "id": 262730,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Seymour Park",
+      "osm_id": 358815842,
+      "leisure": "park"
+    },
+    {
+      "id": 262731,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Spruce Park",
+      "osm_id": 358815847,
+      "leisure": "park"
+    },
+    {
+      "id": 262835,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sunny Ridge Park",
+      "osm_id": 358821317,
+      "leisure": "park"
+    },
+    {
+      "id": 262838,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Ambrose Recreation Center",
+      "osm_id": 358821439,
+      "leisure": "park",
+      "website": "https://www.ambroserec.org/aboutus.html"
+    },
+    {
+      "id": 262839,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Cabrillo Park",
+      "osm_id": 358821527,
+      "leisure": "park"
+    },
+    {
+      "id": 262840,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Chorley Park",
+      "osm_id": 358821533,
+      "leisure": "park"
+    },
+    {
+      "id": 262841,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Florin Park",
+      "osm_id": 358821541,
+      "leisure": "park"
+    },
+    {
+      "id": 262842,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Freeport Park",
+      "osm_id": 358821543,
+      "leisure": "park"
+    },
+    {
+      "id": 262843,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hopkins Park",
+      "osm_id": 358821547,
+      "leisure": "park"
+    },
+    {
+      "id": 262757,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mount Eden Park",
+      "osm_id": 358817846,
+      "leisure": "park"
+    },
+    {
+      "id": 262844,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Nielsen Park",
+      "osm_id": 358821551,
+      "leisure": "park"
+    },
+    {
+      "id": 262845,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Valley High Park",
+      "osm_id": 358821559,
+      "leisure": "park"
+    },
+    {
+      "id": 262758,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Southgate Park",
+      "osm_id": 358817875,
+      "leisure": "park"
+    },
+    {
+      "id": 262846,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Woods Park",
+      "osm_id": 358821561,
+      "leisure": "park"
+    },
+    {
+      "id": 262794,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Heath Park",
+      "osm_id": 358819453,
+      "leisure": "park",
+      "wikidata": "Q49499377"
+    },
+    {
+      "id": 262886,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hill Park",
+      "osm_id": 358822756,
+      "leisure": "park"
+    },
+    {
+      "id": 262748,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Fairlands Park",
+      "osm_id": 358816979,
+      "leisure": "park"
+    },
+    {
+      "id": 262749,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Meadows Park",
+      "osm_id": 358817052,
+      "leisure": "park",
+      "wikidata": "Q49524345"
+    },
+    {
+      "id": 262751,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Ashland Park",
+      "osm_id": 358817678,
+      "leisure": "park",
+      "wikidata": "Q49473056"
+    },
+    {
+      "id": 262752,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "College Heights Park",
+      "osm_id": 358817716,
+      "leisure": "park"
+    },
+    {
+      "id": 262753,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "DeAnza Park",
+      "osm_id": 358817724,
+      "leisure": "park"
+    },
+    {
+      "id": 262796,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lewelling Playground",
+      "osm_id": 358819473,
+      "leisure": "park",
+      "wikidata": "Q49516173"
+    },
+    {
+      "id": 262799,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Peixoto Playfield",
+      "osm_id": 358819532,
+      "leisure": "park",
+      "wikidata": "Q49540919"
+    },
+    {
+      "id": 262805,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Toyon Park",
+      "osm_id": 358819589,
+      "leisure": "park"
+    },
+    {
+      "id": 262970,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Charles Howard Park",
+      "osm_id": 358827138,
+      "leisure": "park",
+      "wikidata": "Q49477766"
+    },
+    {
+      "id": 263134,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Acorn Recreation Area",
+      "osm_id": 358832924,
+      "leisure": "park",
+      "wikidata": "Q49471841"
+    },
+    {
+      "id": 263135,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Fiddleneck Day Use Area",
+      "osm_id": 358832937,
+      "leisure": "park",
+      "wikidata": "Q49488956"
+    },
+    {
+      "id": 263136,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Oak Knoll Recreation Area",
+      "osm_id": 358832941,
+      "leisure": "park",
+      "wikidata": "Q49534020"
+    },
+    {
+      "id": 263137,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Valley Springs State Historic Landmark",
+      "osm_id": 358832951,
+      "leisure": "park",
+      "wikidata": "Q49573954"
+    },
+    {
+      "id": 263138,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Wrinkle Cove Day Use Area",
+      "osm_id": 358832952,
+      "leisure": "park",
+      "wikidata": "Q49583278"
+    },
+    {
+      "id": 263142,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Jenny Lind State Historic Landmark",
+      "osm_id": 358832996,
+      "leisure": "park",
+      "wikidata": "Q49507464"
+    },
+    {
+      "id": 263329,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Heavenside Park",
+      "osm_id": 358837075,
+      "leisure": "park"
+    },
+    {
+      "id": 263261,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Upper Sunrise Recreation Area",
+      "osm_id": 358835978,
+      "leisure": "park"
+    },
+    {
+      "id": 263263,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Bear Flag School Park",
+      "osm_id": 358835984,
+      "leisure": "park"
+    },
+    {
+      "id": 263264,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Brannan School Park",
+      "osm_id": 358835989,
+      "leisure": "park"
+    },
+    {
+      "id": 263265,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Cabrillo School Park",
+      "osm_id": 358835990,
+      "leisure": "park"
+    },
+    {
+      "id": 263266,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Kennedy School Park",
+      "osm_id": 358836009,
+      "leisure": "park"
+    },
+    {
+      "id": 263267,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Leiva Park",
+      "osm_id": 358836012,
+      "leisure": "park"
+    },
+    {
+      "id": 263268,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Pony Express School Park",
+      "osm_id": 358836021,
+      "leisure": "park"
+    },
+    {
+      "id": 263269,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Wenzel School Park",
+      "osm_id": 358836043,
+      "leisure": "park"
+    },
+    {
+      "id": 263270,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Granite Park",
+      "osm_id": 358836094,
+      "leisure": "park"
+    },
+    {
+      "id": 263271,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Greenfair Park",
+      "osm_id": 358836104,
+      "leisure": "park"
+    },
+    {
+      "id": 263330,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hopkins School Park",
+      "osm_id": 358837076,
+      "leisure": "park"
+    },
+    {
+      "id": 263272,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Jefferson School Park",
+      "osm_id": 358836107,
+      "leisure": "park"
+    },
+    {
+      "id": 263331,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Kemble School Park",
+      "osm_id": 358837079,
+      "leisure": "park"
+    },
+    {
+      "id": 263273,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Seventeenth Avenue Park",
+      "osm_id": 358836115,
+      "leisure": "park"
+    },
+    {
+      "id": 263333,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Portuguese Community Park",
+      "osm_id": 358837120,
+      "leisure": "park"
+    },
+    {
+      "id": 263274,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Twenty-First Avenue Parkway",
+      "osm_id": 358836119,
+      "leisure": "park"
+    },
+    {
+      "id": 263275,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Wood School Park",
+      "osm_id": 358836121,
+      "leisure": "park"
+    },
+    {
+      "id": 263276,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Creekside Park",
+      "osm_id": 358836131,
+      "leisure": "park"
+    },
+    {
+      "id": 263277,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "East Lawn Childrens Park",
+      "osm_id": 358836132,
+      "leisure": "park"
+    },
+    {
+      "id": 263278,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hall Park",
+      "osm_id": 358836133,
+      "leisure": "park"
+    },
+    {
+      "id": 263279,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Jonas Larkspur Park",
+      "osm_id": 358836136,
+      "leisure": "park"
+    },
+    {
+      "id": 263280,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sierra Vista Park",
+      "osm_id": 358836147,
+      "leisure": "park"
+    },
+    {
+      "id": 263281,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sunset Park",
+      "osm_id": 358836151,
+      "leisure": "park"
+    },
+    {
+      "id": 263282,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Winterstein Park",
+      "osm_id": 358836155,
+      "leisure": "park"
+    },
+    {
+      "id": 263283,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Ben Ali School Park",
+      "osm_id": 358836158,
+      "leisure": "park"
+    },
+    {
+      "id": 263232,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Bell Avenue Park",
+      "osm_id": 358835561,
+      "leisure": "park"
+    },
+    {
+      "id": 263233,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Elkhorn Regional Park",
+      "osm_id": 358835571,
+      "leisure": "park"
+    },
+    {
+      "id": 263234,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Main Avenue Park",
+      "osm_id": 358835590,
+      "leisure": "park"
+    },
+    {
+      "id": 263235,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "North Avenue Park",
+      "osm_id": 358835594,
+      "leisure": "park"
+    },
+    {
+      "id": 263236,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Robertson Park",
+      "osm_id": 358835604,
+      "leisure": "park"
+    },
+    {
+      "id": 263335,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Riverlake Park",
+      "osm_id": 358837125,
+      "leisure": "park"
+    },
+    {
+      "id": 263237,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Taylor Street Park",
+      "osm_id": 358835611,
+      "leisure": "park"
+    },
+    {
+      "id": 263238,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Babe Park",
+      "osm_id": 358835616,
+      "leisure": "park"
+    },
+    {
+      "id": 263239,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Carl Hansen Park",
+      "osm_id": 358835622,
+      "leisure": "park"
+    },
+    {
+      "id": 263286,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Airport Park",
+      "osm_id": 358836207,
+      "leisure": "park"
+    },
+    {
+      "id": 263287,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Oak Park",
+      "osm_id": 358836219,
+      "leisure": "park"
+    },
+    {
+      "id": 263288,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Phillips School Park",
+      "osm_id": 358836220,
+      "leisure": "park"
+    },
+    {
+      "id": 263240,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Castori Park",
+      "osm_id": 358835623,
+      "leisure": "park"
+    },
+    {
+      "id": 263289,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sutterville School Park",
+      "osm_id": 358836230,
+      "leisure": "park"
+    },
+    {
+      "id": 263336,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Seymour Park",
+      "osm_id": 358837135,
+      "leisure": "park"
+    },
+    {
+      "id": 263290,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Woodbine Park",
+      "osm_id": 358836233,
+      "leisure": "park"
+    },
+    {
+      "id": 263291,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Countryside Park",
+      "osm_id": 358836453,
+      "leisure": "park"
+    },
+    {
+      "id": 263292,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Williams Pond Recreation Area",
+      "osm_id": 358836499,
+      "leisure": "park"
+    },
+    {
+      "id": 263293,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Alkali Flat Central Historic District",
+      "osm_id": 358836500,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263294,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Alkali Flat North Historic District",
+      "osm_id": 358836501,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263295,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Alkali Flat West Historic District",
+      "osm_id": 358836503,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263296,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Maddox Park",
+      "osm_id": 358836670,
+      "leisure": "park"
+    },
+    {
+      "id": 263241,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Linda Creek Park",
+      "osm_id": 358835641,
+      "leisure": "park"
+    },
+    {
+      "id": 263242,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "North Point Park",
+      "osm_id": 358835652,
+      "leisure": "park"
+    },
+    {
+      "id": 263243,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Westside Park",
+      "osm_id": 358835668,
+      "leisure": "park"
+    },
+    {
+      "id": 263244,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Northbrook Park",
+      "osm_id": 358835731,
+      "leisure": "park"
+    },
+    {
+      "id": 263245,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Ponderosa Farm Community Park",
+      "osm_id": 358835737,
+      "leisure": "park"
+    },
+    {
+      "id": 263246,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Cherry Creek Park",
+      "osm_id": 358835759,
+      "leisure": "park"
+    },
+    {
+      "id": 263247,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Del Campo Park",
+      "osm_id": 358835768,
+      "leisure": "park",
+      "opening_hours": "24/7",
+      "operator": "Carmichael Recreation and Park District",
+      "website": "https://www.carmichaelpark.com/parks"
+    },
+    {
+      "id": 263298,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Riverfront Park",
+      "osm_id": 358836698,
+      "leisure": "park"
+    },
+    {
+      "id": 263299,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Hagginwood School Park",
+      "osm_id": 358836800,
+      "leisure": "park"
+    },
+    {
+      "id": 263337,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sloat School Park",
+      "osm_id": 358837138,
+      "leisure": "park"
+    },
+    {
+      "id": 263300,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "North del Rio School Park",
+      "osm_id": 358836813,
+      "leisure": "park"
+    },
+    {
+      "id": 263301,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Strauch School Park",
+      "osm_id": 358836820,
+      "leisure": "park"
+    },
+    {
+      "id": 263248,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Arcade Creek Nature Area",
+      "osm_id": 358835797,
+      "leisure": "park"
+    },
+    {
+      "id": 263249,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Kohler Park",
+      "osm_id": 358835802,
+      "leisure": "park"
+    },
+    {
+      "id": 263302,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Illa Collin Park",
+      "osm_id": 358836867,
+      "leisure": "park"
+    },
+    {
+      "id": 263338,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sunrise Florin Park",
+      "osm_id": 358837143,
+      "leisure": "park"
+    },
+    {
+      "id": 263303,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mack School Park",
+      "osm_id": 358836874,
+      "leisure": "park"
+    },
+    {
+      "id": 263304,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Mix Park",
+      "osm_id": 358836876,
+      "leisure": "park"
+    },
+    {
+      "id": 263305,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sheldon Park",
+      "osm_id": 358836886,
+      "leisure": "park"
+    },
+    {
+      "id": 263306,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Womack Park",
+      "osm_id": 358836896,
+      "leisure": "park"
+    },
+    {
+      "id": 263307,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "California Multi-Cultural Park",
+      "osm_id": 358836898,
+      "leisure": "park"
+    },
+    {
+      "id": 263308,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Canyon Creek Park",
+      "osm_id": 358836901,
+      "leisure": "park"
+    },
+    {
+      "id": 263309,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Chabolla Park",
+      "osm_id": 358836909,
+      "leisure": "park"
+    },
+    {
+      "id": 263250,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Rushmore Jeanine Park",
+      "osm_id": 358835813,
+      "leisure": "park"
+    },
+    {
+      "id": 263339,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Elk Grove Historic District",
+      "osm_id": 358837160,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263310,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Emerald Vista Park",
+      "osm_id": 358836924,
+      "leisure": "park"
+    },
+    {
+      "id": 263311,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Georgiana Slough Fishing Access",
+      "osm_id": 358836929,
+      "leisure": "park"
+    },
+    {
+      "id": 263340,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Van Doren Park",
+      "osm_id": 358837180,
+      "leisure": "park"
+    },
+    {
+      "id": 263312,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Harvey Park",
+      "osm_id": 358836931,
+      "leisure": "park"
+    },
+    {
+      "id": 263313,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lake Canyon Park",
+      "osm_id": 358836935,
+      "leisure": "park"
+    },
+    {
+      "id": 263341,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lawrence Park",
+      "osm_id": 358837312,
+      "leisure": "park"
+    },
+    {
+      "id": 263314,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Locke Historic District",
+      "osm_id": 358836936,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263342,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lodi Lake Park",
+      "osm_id": 358837319,
+      "leisure": "park"
+    },
+    {
+      "id": 263315,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Meadow View Park",
+      "osm_id": 358836938,
+      "leisure": "park"
+    },
+    {
+      "id": 263316,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Oak Park",
+      "osm_id": 358836939,
+      "leisure": "park"
+    },
+    {
+      "id": 263343,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Maple Square",
+      "osm_id": 358837324,
+      "leisure": "park"
+    },
+    {
+      "id": 263317,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Sherman Island Park",
+      "osm_id": 358836956,
+      "leisure": "park",
+      "website": "https://www.sfba.org/sherman-island-park.html"
+    },
+    {
+      "id": 263344,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Westgate Park",
+      "osm_id": 358837339,
+      "leisure": "park"
+    },
+    {
+      "id": 263318,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Smud Park",
+      "osm_id": 358836957,
+      "leisure": "park"
+    },
+    {
+      "id": 263319,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Walnut Grove Chinese-American Historic District",
+      "osm_id": 358836960,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263320,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Walnut Grove Commercial-Residential Historic District",
+      "osm_id": 358836961,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263321,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Walnut Grove Japanese-American Historic District",
+      "osm_id": 358836964,
+      "leisure": "park",
+      "historic": "district"
+    },
+    {
+      "id": 263322,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Susan B Anthony Park",
+      "osm_id": 358837034,
+      "leisure": "park"
+    },
+    {
+      "id": 263323,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Union School Park",
+      "osm_id": 358837043,
+      "leisure": "park"
+    },
+    {
+      "id": 263324,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Bidwell School Park",
+      "osm_id": 358837050,
+      "leisure": "park"
+    },
+    {
+      "id": 263325,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Burbank School Park",
+      "osm_id": 358837052,
+      "leisure": "park"
+    },
+    {
+      "id": 263326,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Freeport School Park",
+      "osm_id": 358837069,
+      "leisure": "park"
+    },
+    {
+      "id": 263327,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Garcia Bend Park",
+      "osm_id": 358837071,
+      "leisure": "park"
+    },
+    {
+      "id": 263328,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Goethe School Park",
+      "osm_id": 358837073,
+      "leisure": "park"
+    },
+    {
+      "id": 263345,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Zupo Field",
+      "osm_id": 358837342,
+      "leisure": "park"
+    },
+    {
+      "id": 263346,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Pixley Park",
+      "osm_id": 358837371,
+      "leisure": "park"
+    },
+    {
+      "id": 263347,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Salas Park",
+      "osm_id": 358837374,
+      "leisure": "park"
+    },
+    {
+      "id": 263348,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Emil Seifert Recreation Center",
+      "osm_id": 358837393,
+      "leisure": "park"
+    },
+    {
+      "id": 263349,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Stillman Magee Park",
+      "osm_id": 358837446,
+      "leisure": "park"
+    },
+    {
+      "id": 263353,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Reverend Peterson Park",
+      "osm_id": 358837653,
+      "leisure": "park"
+    },
+    {
+      "id": 263354,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Reyes Park",
+      "osm_id": 358837834,
+      "leisure": "park"
+    },
+    {
+      "id": 263699,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Farrelly Swimming Pool",
+      "osm_id": 358851682,
+      "leisure": "park"
+    },
+    {
+      "id": 263707,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Oakley Park",
+      "osm_id": 358857164,
+      "leisure": "park"
+    },
+    {
+      "id": 265774,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Soccer Park",
+      "osm_id": 7771126714,
+      "leisure": "park",
+      "addr_state": "CA",
+      "addr_city": "Rancho Cordova",
+      "addr_postcode": "95670",
+      "addr_street": "Kilgore Road"
+    },
+    {
+      "id": 266676,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Cordova Park Services Department",
+      "osm_id": 9297808621,
+      "leisure": "park"
+    },
+    {
+      "id": 266889,
+      "geometry": "POINT (-122.248613 37.559053)",
+      "poi_name": "Lake Chabot - Main Entrance",
+      "osm_id": 11088313870,
+      "leisure": "park"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
-      "geo_wkt": "POINT (-88.144657 44.876538)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
+      "geo_wkt": "POINT (-122.248613 37.559053)",
       "poi": {
-        "id": 38,
-        "geometry": "POINT (-88.144657 44.876538)",
-        "poi_name": "The Coachlight Inn Motel",
-        "osm_id": 416309233,
-        "tourism": "hotel",
-        "website": "https://coachlightinnmotel.com/",
-        "phone": "920-846-3424",
-        "addr_state": "WI",
-        "addr_city": "Oconto Falls",
-        "addr_postcode": "54154",
-        "addr_street": "North Main Street",
-        "addr_housenumber": "248"
+        "id": 246975,
+        "geometry": "POINT (-122.248613 37.559053)",
+        "poi_name": "Bowditch Middle School Auditorium",
+        "osm_id": 8468035653,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball",
+        "addr_state": "CA",
+        "addr_city": "Foster City",
+        "addr_postcode": "94404",
+        "addr_street": "Tarpon Street",
+        "addr_housenumber": "1450"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 28,
+  "id": 2228,
   "type": "range:direction+loc"
 }

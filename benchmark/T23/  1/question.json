@@ -1,39 +1,40 @@
 {
-  "question": "How many hotels are available within 130 kilometers from Wilmington Skate Park, Wilmington, DE?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.562042 39.738354)',4326)::geography, 130000)\nAND tourism = 'hotel';\n",
+  "question": "What\u2019s the number of zoos present within 170 kilometers of New York Institute of Technology, New York, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 170000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "count": 176
+      "count": 7
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Wilmington Skate Park, Wilmington, DE",
-      "geo_wkt": "POINT (-75.562042 39.738354)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
       "poi": {
-        "id": 247867,
-        "geometry": "POINT (-75.562042 39.738354)",
-        "poi_name": "Wilmington Skate Park",
-        "osm_id": 11519956885,
-        "leisure": "park",
-        "opening_hours": "Sunrise to Sundown",
-        "addr_state": "DE",
-        "addr_city": "Wilmington",
-        "addr_street": "Linden Street"
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
       }
     }
   },
-  "id": 2200,
+  "id": 1800,
   "type": "range+count"
 }

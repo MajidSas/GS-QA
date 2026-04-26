@@ -1,37 +1,35 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Presbyterian Hospital.",
+      "answer": "**Caf\u00e9 name:** *The Coffee Pot*\n\n**Location:** 100 Main Street, Green River, WY\n\n**Distance:** Approximately ninety kilometers northeast.",
       "scores": {
         "attempted": true,
-        "P": 0.0,
-        "R": 0.0,
-        "F1": 0.0
+        "P": 0.125,
+        "R": 0.0232558139534883,
+        "F1": 0.0392156862745098
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Presbyterian Hospital",
-          "address": "1 University Blvd NE, Albuquerque, NM 87102",
-          "distance": 5,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "The Coffee Pot",
+          "address": "100Main Street, Green River, WY",
+          "distance": 90,
+          "azimuth_angle": 45
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.4285714285714285,
-        "R": 0.4285714285714285,
-        "F1": 0.4285714285714285,
-        "distance_error": 0.0126837426778557
+        "P": 0.3333333333333333,
+        "R": 0.4,
+        "F1": 0.3636363636363636,
+        "distance_error": 1.0
       }
     }
   },
-  "GT": {
+  "ministral-3:14b-cloud_rag": {
     "text": {
-      "answer": "St. James Hospital",
+      "answer": "No caf\u00e9 found.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -42,24 +40,22 @@
     "parsed": {
       "answer": [
         {
-          "name": "St. James Hospital",
-          "address": "1000 San Pedro Dr NE, Albuquerque, NM 87102",
-          "distance": 5,
-          "azimuth_angle": 270
+          "name": "Canyon View Park",
+          "address": "Afton, WY"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.375,
-        "R": 0.4285714285714285,
-        "F1": 0.3999999999999999,
-        "distance_error": 0.0101506321504415
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.0002099943532436
       }
     }
   },
-  "GR": {
+  "shuffled": {
     "text": {
-      "answer": "No hospital found.",
+      "answer": "",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -70,13 +66,95 @@
     "parsed": {
       "answer": [
         {
-          "name": null,
-          "address": null,
-          "count": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Canyon View Caf\u00e9",
+          "address": "123Main Street, Afton, WY 83110",
+          "distance": 5
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.6666666666666666,
+        "R": 0.8,
+        "F1": 0.7272727272727272,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "ministral-3:14b-cloud_text2sql": {
+    "text": {
+      "answer": "No relevant caf\u00e9 found in the provided records.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "Here are some caf\u00e9s within a 100-kilometer radius of Canyon View Park, Afton, WY:\n\n1. **Periodic Spring Caf\u00e9** \u2013 Afton, WY, approximately **ten** kilometers away.\n2. **Bear Lake Coffee** \u2013 Montpelier, ID, approximately **fifty** kilometers away.\n3. **The Grind Coffeehouse** \u2013 Kemmerer, WY, approximately **ninety** kilometers away.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1219512195121951,
+        "R": 0.0581395348837209,
+        "F1": 0.0787401574803149
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Periodic Spring Caf\u00e9",
+          "address": "Afton, WY",
+          "distance": 10
+        },
+        {
+          "name": "Bear Lake Coffee",
+          "address": "Montpelier, ID",
+          "distance": 50
+        },
+        {
+          "name": "The Grind Coffeehouse",
+          "address": "Kemmerer, WY",
+          "distance": 90
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.0002099943532436
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "There is no caf\u00e9 within a 100 kilometer radius based on the available records.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "count": 0,
+          "distance": 100
         }
       ],
       "scores": {
@@ -88,94 +166,104 @@
       }
     }
   },
-  "L": {
+  "sonnet4.6_text2sql": {
     "text": {
-      "answer": "The University of New Mexico Hospital is approximately six kilometers away from the New Mexico Slaughter House in Albuquerque, NM.",
+      "answer": "Here are caf\u00e9s located near Canyon View Park, Afton, WY:\n\n1. **Valleon Cafe** \u2013 Afton, WY\n2. **Branding Iron**\n3. **Persephone Bakery** \u2013 Wilson, WY\n4. **Beans & Brews Coffee House** \u2013 Garden City\n5. **Crepes and Coffee** \u2013 Garden City, UT\n6. **Rivers Coffee Hours** \u2013 Alpine, WY\n7. **Horseshoe Inn** \u2013 Etna, WY\n8. **Etna Trading Company** \u2013 Etna, WY\n9. **Cowboy Coffee** \u2013 Jackson, WY\n10. **Healthy Being Cafe and Juicery**\n11. **Star Valley Medical Center - Swift Creek Cafe** \u2013 Afton, WY\n12. **Inversion Cafe**\n13. **Old Mill Ice Cream Shop** \u2013 Freedom, WY\n14. **Persephone Bakery** \u2013 Jackson, WY\n15. **Soda Sip** \u2013 Soda Springs, ID\n16. **Pine Coffee Supply** \u2013 Pinedale, WY\n17. **Dave's Last Stand**\n18. **Picnic** \u2013 Jackson, WY\n19. **South Cable**\n20. **Cafe 6311**\n21. **Tin Can Cantina**\n22. **Off Piste Market**\n23. **New York City Sub Shop**\n24. **Starbucks**\n25. **Jedediah's**",
       "scores": {
         "attempted": true,
-        "P": 0.1428571428571428,
-        "R": 0.1666666666666666,
-        "F1": 0.1538461538461538
+        "P": 0.1180555555555555,
+        "R": 0.1976744186046511,
+        "F1": 0.1478260869565217
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "University of New Mexico Hospital",
-          "address": "1 University Blvd, Albuquerque, NM 87131-0001",
-          "distance": 6000,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Valleon Cafe",
+          "address": "Afton, WY"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.2857142857142857,
-        "F1": 0.3076923076923076,
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.0002099943532436
+      }
+    }
+  },
+  "gpt4o_direct": {
+    "text": {
+      "answer": "Rocky Mountain Coffee Co.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Rocky Mountain Coffee Co.",
+          "address": "Canyon View Park, Afton, WY"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.4,
+        "R": 0.4,
+        "F1": 0.4000000000000001,
+        "distance_error": 0.0025068245947769
+      }
+    }
+  },
+  "gpt4o_rag": {
+    "text": {
+      "answer": "No relevant information available.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
         "distance_error": 1.0
       }
     }
   },
-  "LT": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "The University of New Mexico Hospital is approximately five kilometers from the New Mexico Slaughter House in Albuquerque.",
+      "answer": "Valleon Cafe",
       "scores": {
         "attempted": true,
-        "P": 0.0833333333333333,
-        "R": 0.0833333333333333,
-        "F1": 0.0833333333333333
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "University of New Mexico Hospital",
-          "address": "1 University Blvd, Albuquerque, NM 87131-0001",
-          "distance": 5,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Valleon Cafe",
+          "address": "Afton, WY"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.2857142857142857,
-        "F1": 0.3076923076923076,
-        "distance_error": 1.0
-      }
-    }
-  },
-  "LR": {
-    "text": {
-      "answer": "University of New Mexico Hospital is approximately five kilometers away from the New Mexico Slaughter House in Albuquerque, NM.",
-      "scores": {
-        "attempted": true,
-        "P": 0.1428571428571428,
-        "R": 0.1666666666666666,
-        "F1": 0.1538461538461538
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "University of New Mexico Hospital",
-          "address": "1 University Blvd, Albuquerque, NM 87131-0001",
-          "count": null,
-          "distance": 5000,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.2857142857142857,
-        "F1": 0.3076923076923076,
-        "distance_error": 1.0
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.0002099943532436
       }
     }
   }

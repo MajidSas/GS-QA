@@ -1,58 +1,68 @@
 {
-  "question": "Which fast food is nearest when approaching Harper's Chelsea, New York, NY from Speert Green, Wayne, NJ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.005432 40.747232)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food lies closest ahead of Voorhees College, Denmark, SC toward Graduate from Columbia, S.C., Columbia, SC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography, ST_GeomFromText('POINT (-81.025118 34.001092)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 113250,
-      "geometry": "POINT (-74.177296 40.922644)",
-      "poi_name": "Little Caesars",
-      "osm_id": 3827242752,
+      "id": 76730,
+      "geometry": "POINT (-81.098618 33.745466)",
+      "poi_name": "Subway",
+      "osm_id": 9790937472,
       "amenity": "fast_food",
-      "cuisine": "pizza",
-      "website": "https://littlecaesars.com/en-us/store/10308/",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 10:00-20:00",
+      "website": "https://restaurants.subway.com/united-states/sc/swansea/1953-a-southbound-rd",
+      "phone": "+1 803 568 7293",
       "takeaway": "yes",
-      "value": 143.28680150203837
+      "addr_state": "SC",
+      "addr_city": "Swansea",
+      "addr_postcode": "29160",
+      "addr_street": "Southbound Road",
+      "addr_housenumber": "1953A",
+      "value": 7.064687873603498
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Speert Green, Wayne, NJ",
-      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 266681,
-        "geometry": "POINT (-74.198768 40.944562)",
-        "poi_name": "Speert Green",
-        "osm_id": 9317008519,
-        "leisure": "garden",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Harper's Chelsea, New York, NY",
-      "geo_wkt": "POINT (-74.005432 40.747232)",
+      "sub_category": "hotel",
+      "display_name": "Graduate Columbia, S.C., Columbia, SC",
+      "geo_wkt": "POINT (-81.025118 34.001092)",
       "poi": {
-        "id": 19737,
-        "geometry": "POINT (-74.005432 40.747232)",
-        "poi_name": "Harper's Chelsea",
-        "osm_id": 10861543616,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 10:00-18:00",
-        "website": "https://www.harpersgallery.com",
-        "phone": "+1-917-675-6124\u200b\u200b\u200b\u200b\u200b",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10011",
-        "addr_street": "West 22nd Street",
-        "addr_housenumber": "512"
+        "id": 3276,
+        "geometry": "POINT (-81.025118 34.001092)",
+        "poi_name": "Graduate Columbia, S.C.",
+        "osm_id": 5332052529,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.graduatehotels.com/columbia-sc/",
+        "internet_access": "wlan",
+        "phone": "+1-803-779-7779",
+        "official_name": "Graduate Hotels",
+        "addr_state": "SC",
+        "addr_city": "Columbia",
+        "addr_postcode": "29201",
+        "addr_street": "Pendleton Street",
+        "addr_housenumber": "1619"
       }
     },
     "[1]": {
@@ -60,6 +70,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 140,
+  "id": 1640,
   "type": "knn:towards+name"
 }

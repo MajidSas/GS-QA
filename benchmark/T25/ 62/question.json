@@ -1,46 +1,46 @@
 {
-  "question": "How far away is a garden from Plaza Sports Center, Edinburg, TX within a 40 kilometers distance?",
-  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography, 40000)\nAND leisure = 'garden';\n",
+  "question": "How far is a university measured from Fish Creek Falls, Steamboat Springs, CO inside 170 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-106.772075 40.481627)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.772075 40.481627)',4326)::geography, 170000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "id": 248106,
-      "geometry": "POINT (-98.230767 26.229482)",
-      "poi_name": "Mcallen Community Garden",
-      "osm_id": 6344125068,
-      "leisure": "garden",
-      "distance": 6438.64099665
+      "id": 167739,
+      "geometry": "POINT (-105.593611 40.567205)",
+      "poi_name": "Colorado State University - Mountain Campus",
+      "osm_id": 358911405,
+      "amenity": "university",
+      "operator": "Colorado State University",
+      "website": "https://www.mountaincampus.colostate.edu/",
+      "wikidata": "Q7195807",
+      "distance": 100309.92516252
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Plaza Sports Center, Edinburg, TX",
-      "geo_wkt": "POINT (-98.166433 26.232776)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Fish Creek Falls, Steamboat Springs, CO",
+      "geo_wkt": "POINT (-106.772075 40.481627)",
       "poi": {
-        "id": 248451,
-        "geometry": "POINT (-98.166433 26.232776)",
-        "poi_name": "Plaza Sports Center",
-        "osm_id": 4161977645,
-        "leisure": "stadium",
-        "sport": "soccer",
-        "addr_state": "TX",
-        "addr_city": "Edinburg",
-        "addr_postcode": "78577",
-        "addr_street": "E. Nolana Loop",
-        "addr_housenumber": "1101"
+        "id": 1378,
+        "geometry": "POINT (-106.772075 40.481627)",
+        "poi_name": "Fish Creek Falls",
+        "osm_id": 2965424958,
+        "tourism": "attraction",
+        "addr_state": "CO",
+        "addr_city": "Steamboat Springs",
+        "addr_street": "Fish Creek Falls Road"
       }
     }
   },
-  "id": 761,
+  "id": 1961,
   "type": "range+distance"
 }

@@ -1,67 +1,66 @@
 {
-  "question": "What is the closest restaurant in the direction of the Loren Hotel, Austin, TX from Five Wells Roping Rodeo Arena, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, ST_GeomFromText('POINT (-97.757 30.264164)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which attraction is closest as you go from Shechem Ministries, Lawrenceburg, KY to Founders Square, Louisville, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, ST_GeomFromText('POINT (-85.759462 38.25175)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 105519,
-      "geometry": "POINT (-97.608782 30.810246)",
-      "poi_name": "Aurora\u2019s Family Kitchen",
-      "osm_id": 8632896541,
-      "amenity": "restaurant",
-      "wheelchair": "yes",
-      "opening_hours": "Tu-Sa 08:00-20:00; Su 08:00-19:00",
-      "website": "https://www.facebook.com/JarrellKitchen/",
-      "phone": "+1-972-971-7216",
-      "takeaway": "yes",
-      "drive_through": "no",
-      "addr_state": "TX",
-      "addr_city": "Jarrell",
-      "addr_postcode": "76537",
-      "addr_street": "Sonterra Boulevard",
-      "addr_housenumber": "205",
-      "value": 202.85767474543078
+      "id": 26275,
+      "geometry": "POINT (-85.264482 38.189306)",
+      "poi_name": "Jeptha Creed Distillery",
+      "osm_id": 5832472576,
+      "tourism": "attraction",
+      "website": "https://jepthacreed.com/",
+      "phone": "(502) 487-5007",
+      "addr_state": "KY",
+      "addr_city": "Shelbyville",
+      "addr_postcode": "40065",
+      "addr_street": "Gordon Lane",
+      "addr_housenumber": "500",
+      "value": 291.17916061424216
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Five Wells Roping Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
       "poi": {
-        "id": 265394,
-        "geometry": "POINT (-97.402227 30.995182)",
-        "poi_name": "Five Wells Roping Rodeo Arena",
-        "osm_id": 368165371,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "The Loren Hotel, Austin, TX",
-      "geo_wkt": "POINT (-97.757 30.264164)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Founders Square, Louisville, KY",
+      "geo_wkt": "POINT (-85.759462 38.25175)",
       "poi": {
-        "id": 9737,
-        "geometry": "POINT (-97.757 30.264164)",
-        "poi_name": "The Loren Hotel",
-        "osm_id": 8964090024,
-        "tourism": "hotel",
-        "internet_access": "wlan",
-        "addr_state": "TX",
-        "addr_city": "Austin",
-        "addr_postcode": "78704",
-        "addr_street": "South Lamar Boulevard",
-        "addr_housenumber": "211"
+        "id": 247085,
+        "geometry": "POINT (-85.759462 38.25175)",
+        "poi_name": "Founders Square",
+        "osm_id": 3516418234,
+        "leisure": "park",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40202",
+        "addr_street": "West Muhammad Ali Boulevard",
+        "addr_housenumber": "501"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     }
   },
-  "id": 191,
+  "id": 1691,
   "type": "knn:towards+name"
 }

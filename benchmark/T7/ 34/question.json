@@ -1,45 +1,56 @@
 {
-  "question": "When was the the nearest hospital from Hairpin Turn, Clarksburg, MA built?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest nature reserve from Malibu Jack's, Springfield, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167369,
-      "geometry": "POINT (-72.562619 42.859373)",
-      "poi_name": "Brattleboro Retreat",
-      "osm_id": 356557575,
-      "amenity": "hospital",
-      "website": "https://www.brattlebororetreat.org/",
-      "phone": "+1 802 257 7785",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "wikidata": "Q4958128",
-      "multihop_answer": "1834",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "Brattleboro Retreat Built: 1834"
+      "id": 267118,
+      "geometry": "POINT (-89.61996 39.802443)",
+      "poi_name": "Margery Adams Wildlife Sanctuary",
+      "osm_id": 4567499757,
+      "leisure": "nature_reserve",
+      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+      "phone": "+1-217-544-5781",
+      "wikidata": "Q4680461",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Clear Lake Avenue",
+      "addr_housenumber": "2315",
+      "multi_source_answer": "1983",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Margery Adams Wildlife Sanctuary Established: 1983"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Hairpin Turn, Clarksburg, MA",
-      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
       "poi": {
-        "id": 7303,
-        "geometry": "POINT (-73.062971 42.709369)",
-        "poi_name": "Hairpin Turn",
-        "osm_id": 2072400239,
-        "tourism": "viewpoint",
-        "addr_state": "MA",
-        "addr_city": "Clarksburg"
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
       }
     }
   },
-  "id": 933,
-  "type": "knn+name+multihop1"
+  "id": 833,
+  "type": "knn+name+multi_source1"
 }

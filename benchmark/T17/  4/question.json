@@ -1,42 +1,49 @@
 {
-  "question": "Could you tell me the location of the closest restaurant relative to Bonner Arnold Coliseum, MS?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.56394 34.66815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you tell me the location of the nearest hospital to Frank Sinatra's Birthplace, Hoboken, NJ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.038603 40.743437)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 118472,
-      "geometry": "POINT (-88.812509 34.71063)",
-      "poi_name": "Hurt's Grill",
-      "osm_id": 9046981926,
-      "amenity": "restaurant",
-      "phone": "+1-662-837-7467",
-      "addr_state": "MS",
-      "addr_city": "Ripley",
-      "addr_postcode": "38663",
-      "addr_street": "Highway 4 East",
-      "addr_housenumber": "18070"
+      "id": 167513,
+      "geometry": "POINT (-74.000833 40.737778)",
+      "poi_name": "Lenox Health Greenwich Village",
+      "osm_id": 357620244,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Northwell Health",
+      "website": "https://www.northwell.edu/lenox-health-greenwich-village",
+      "phone": "+1 646 665 6000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "New York",
+      "addr_postcode": "10011",
+      "addr_street": "7th Avenue",
+      "addr_housenumber": "30"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Bonner Arnold Coliseum, MS",
-      "geo_wkt": "POINT (-88.56394 34.66815)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Frank Sinatra's Birthplace, Hoboken, NJ",
+      "geo_wkt": "POINT (-74.038603 40.743437)",
       "poi": {
-        "id": 265364,
-        "geometry": "POINT (-88.56394 34.66815)",
-        "poi_name": "Bonner Arnold Coliseum",
-        "osm_id": 367134883,
-        "leisure": "stadium",
-        "addr_state": "MS"
+        "id": 3565,
+        "geometry": "POINT (-74.038603 40.743437)",
+        "poi_name": "Frank Sinatra's Birthplace",
+        "osm_id": 5468067617,
+        "tourism": "attraction",
+        "addr_state": "NJ",
+        "addr_city": "Hoboken",
+        "addr_street": "Monroe Street",
+        "addr_housenumber": "415"
       }
     }
   },
-  "id": 1803,
+  "id": 703,
   "type": "knn+loc"
 }

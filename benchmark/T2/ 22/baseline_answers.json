@@ -1,7 +1,7 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Anne Arundel Medical Center.",
+      "answer": "Northside Medical Center\nLocation: 1001 Medical Center Drive NE, Albuquerque, New Mexico\nDistance: Sixty kilometers northeast",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,12 +12,10 @@
     "parsed": {
       "answer": [
         {
-          "name": "Anne Arundel Medical Center",
-          "address": "1 Hospital Circle, Annapolis, MD 21401",
-          "distance": 120,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Northside Medical Center",
+          "address": "1001Medical Center Drive NE, Albuquerque, New Mexico",
+          "distance": 60,
+          "azimuth_angle": 45
         }
       ],
       "scores": {
@@ -28,9 +26,9 @@
       }
     }
   },
-  "GT": {
+  "ministral-3:14b-cloud_rag": {
     "text": {
-      "answer": "Capital Health at Deborah - Emergency Department",
+      "answer": "Central Vermont Hospital.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -41,12 +39,9 @@
     "parsed": {
       "answer": [
         {
-          "name": "Capital Health at Deborah - Emergency Department",
-          "address": "100 Hospital Dr, Annapolis, MD 21401",
-          "distance": 120,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Central Vermont Hospital",
+          "address": "Pilar, NM",
+          "distance": 70
         }
       ],
       "scores": {
@@ -57,9 +52,9 @@
       }
     }
   },
-  "GR": {
+  "shuffled": {
     "text": {
-      "answer": "No.",
+      "answer": "",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -70,22 +65,85 @@
     "parsed": {
       "answer": [
         {
-          "name": null,
-          "address": null,
-          "count": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
-        },
+          "name": "Emergency Hospital",
+          "address": "Pilar, NM",
+          "distance": 70
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.5,
+        "R": 0.5,
+        "F1": 0.5
+      }
+    }
+  },
+  "ministral-3:14b-cloud_text2sql": {
+    "text": {
+      "answer": "North Valley Regional Hospital, 1000 Remington Blvd NE, Albuquerque, New Mexico.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
         {
-          "name": null,
-          "address": null,
-          "count": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "North Valley Regional Hospital",
+          "address": "1000Remington Blvd NE, Albuquerque, New Mexico"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "Yes, **Holy Cross Hospital** in Taos, NM, approximately **30 kilometers** away.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Holy Cross Hospital",
+          "address": "Taos, NM",
+          "distance": 30
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "Based on the records provided, there are no emergency hospitals within seventy kilometers of the location.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1111111111111111,
+        "R": 0.5,
+        "F1": 0.1818181818181818
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "count": 0,
+          "distance": 70
         }
       ],
       "scores": {
@@ -96,23 +154,46 @@
       }
     }
   },
-  "L": {
+  "sonnet4.6_text2sql": {
     "text": {
-      "answer": "The nearest emergency hospital is Johns Hopkins Bayview Medical Center, located approximately One Hundred Ten kilometers southeast of the United States Naval Academy in Annapolis, Maryland.",
+      "answer": "Emergency Room, approximately sixty-nine thousand, zero meters away.",
       "scores": {
         "attempted": true,
-        "P": 0.0476190476190476,
-        "R": 0.1,
-        "F1": 0.064516129032258
+        "P": 0.25,
+        "R": 1.0,
+        "F1": 0.4
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Johns Hopkins Bayview Medical Center",
-          "address": "5200 Eastern Avenue, Baltimore, MD 21224",
-          "distance": 110,
-          "azimuth_angle": 135
+          "name": "Emergency Room",
+          "distance": 69000
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 1.0,
+        "F1": 1.0
+      }
+    }
+  },
+  "gpt4o_direct": {
+    "text": {
+      "answer": "Holy Cross Medical Center.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Holy Cross Medical Center",
+          "distance": 70
         }
       ],
       "scores": {
@@ -123,62 +204,53 @@
       }
     }
   },
-  "LT": {
+  "gpt4o_rag": {
     "text": {
-      "answer": "Maryland General Hospital is approximately one hundred and twenty kilometers from the United States Naval Academy in Annapolis, Maryland.",
+      "answer": "Central Vermont Hospital",
       "scores": {
         "attempted": true,
-        "P": 0.0714285714285714,
-        "R": 0.1,
-        "F1": 0.0833333333333333
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Maryland General Hospital",
-          "address": "Annapolis, MD",
-          "distance": 120,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Central Vermont Hospital",
+          "address": "Pilar, NM"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.3333333333333333,
-        "F1": 0.3333333333333333
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     }
   },
-  "LR": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "Maryland Hospital Center.\n\nIt is located approximately Seventy kilometers from the United States Naval Academy, Annapolis, MD.",
+      "answer": "Emergency Room",
       "scores": {
         "attempted": true,
-        "P": 0.0769230769230769,
-        "R": 0.1,
-        "F1": 0.0869565217391304
+        "P": 1.0,
+        "R": 1.0,
+        "F1": 1.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Maryland Hospital Center",
-          "address": "United States Naval Academy, Annapolis, MD",
-          "count": null,
-          "distance": 70,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Emergency Room",
+          "distance": 70
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.3333333333333333,
-        "F1": 0.3333333333333333
+        "P": 1.0,
+        "R": 1.0,
+        "F1": 1.0
       }
     }
   }

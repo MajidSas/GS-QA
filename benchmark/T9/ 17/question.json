@@ -1,45 +1,48 @@
 {
-  "question": "What is the nearest garden in the east direction of Flathead Lake State Park - West Shore Unit, Lakeside, MT?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-114.188452 47.949392)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the closest zoo in the northwest direction of Cardiovascular Institute of New England, Cranston, RI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267271,
-      "geometry": "POINT (-114.188452 47.949392)",
-      "poi_name": "Secret Garden",
-      "osm_id": 5792889132,
-      "leisure": "garden"
+      "id": 3731,
+      "geometry": "POINT (-71.472092 41.786868)",
+      "poi_name": "Green Hill Park Farm",
+      "osm_id": 5569990665,
+      "tourism": "zoo",
+      "zoo": "petting_zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Flathead Lake State Park - West Shore Unit, Lakeside, MT",
-      "geo_wkt": "POINT (-114.188452 47.949392)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
       "poi": {
-        "id": 258201,
-        "geometry": "POINT (-114.188452 47.949392)",
-        "poi_name": "Flathead Lake State Park - West Shore Unit",
-        "osm_id": 357940525,
-        "leisure": "park",
-        "operator": "Montana State Parks",
-        "addr_state": "MT",
-        "addr_city": "Lakeside",
-        "addr_postcode": "59922",
-        "addr_street": "HWY 93",
-        "addr_housenumber": "17768"
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2516,
+  "id": 1216,
   "type": "knn:direction+name"
 }

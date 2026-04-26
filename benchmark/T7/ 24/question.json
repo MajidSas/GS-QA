@@ -1,18 +1,18 @@
 {
-  "question": "How many spectators can the nearest stadium from Sea Life Aquarium Kansas City, Kansas City, MO hold?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest stadium from Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267093,
-      "geometry": "POINT (-94.786059 39.762053)",
-      "poi_name": "Spratt Stadium",
-      "osm_id": 4489896600,
+      "id": 265349,
+      "geometry": "POINT (-104.961685 39.682266)",
+      "poi_name": "Magness Arena",
+      "osm_id": 366396379,
       "leisure": "stadium",
-      "sport": "football",
-      "wikidata": "Q7580208",
-      "multihop_answer": "10000",
-      "multihop_attribute": "Capacity",
-      "multihop_long_answer": "Spratt Stadium Capacity: 10000"
+      "wikidata": "Q14684923",
+      "addr_state": "CO",
+      "multi_source_answer": "September\u00a015,\u00a01999",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Magness Arena Opened: September\u00a015,\u00a01999"
     }
   ],
   "answer_type": "name",
@@ -22,26 +22,28 @@
       "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
-      "geo_wkt": "POINT (-94.5816 39.082158)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO",
+      "geo_wkt": "POINT (-104.799593 38.839378)",
       "poi": {
-        "id": 12063,
-        "geometry": "POINT (-94.5816 39.082158)",
-        "poi_name": "Sea Life Aquarium Kansas City",
-        "osm_id": 6171269243,
-        "tourism": "zoo",
-        "website": "https://www.visitsealife.com/kansas-city/",
-        "phone": "+1 (816)471-4386",
-        "addr_state": "MO",
-        "addr_city": "Kansas City",
-        "addr_postcode": "64108",
-        "addr_street": "Grand Boulevard",
-        "addr_housenumber": "2475"
+        "id": 46387,
+        "geometry": "POINT (-104.799593 38.839378)",
+        "poi_name": "Children's Hospital Colorado at Memorial Hospital",
+        "osm_id": 3262037034,
+        "amenity": "hospital",
+        "website": "https://www.childrenscolorado.org/about/locations/colorado-springs/memorial-hospital-central",
+        "phone": "+1-719-365-5000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Colorado Springs",
+        "addr_postcode": "80909",
+        "addr_street": "East Boulder Street",
+        "addr_housenumber": "1400"
       }
     }
   },
-  "id": 923,
-  "type": "knn+name+multihop1"
+  "id": 823,
+  "type": "knn+name+multi_source1"
 }

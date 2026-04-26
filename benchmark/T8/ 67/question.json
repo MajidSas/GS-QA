@@ -1,45 +1,41 @@
 {
-  "question": "Any recommendations for the closest restaurant from the museum that was built in 1891 in Ventura, CA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest gallery around the university with the former name Denmark Industrial School for African Americans in Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 147478,
-      "geometry": "POINT (-119.246088 34.266914)",
-      "poi_name": "Poke Bar",
-      "osm_id": 7535846729,
-      "amenity": "restaurant",
-      "cuisine": "asian"
+      "id": 252,
+      "geometry": "POINT (-81.142301 33.326083)",
+      "poi_name": "Jim Harrison Gallery",
+      "osm_id": 8262537598,
+      "tourism": "gallery"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Dudley House, Ventura, CA",
-      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 1032,
-        "geometry": "POINT (-119.24024 34.277629)",
-        "poi_name": "Dudley House",
-        "osm_id": 2800250595,
-        "tourism": "museum",
-        "operator": "San Buenaventura Heritage",
-        "website": "https://dudleyhouse.org/",
-        "phone": "+1 (805) 644-3286",
-        "wikidata": "Q14681880",
-        "addr_state": "CA",
-        "addr_city": "Ventura",
-        "addr_postcode": "93003",
-        "addr_street": "North Ashwood Avenue",
-        "addr_housenumber": "197"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2766,
-  "type": "knn+name+multihop2"
+  "id": 966,
+  "type": "knn+name+multi_source2"
 }

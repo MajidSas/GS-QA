@@ -1,60 +1,76 @@
 {
-  "question": "Where is the nearest hotel as you head towards Oceans Behavioral Hospital Of Lufkin, Lufkin, TX from McDonald Museum, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography, ST_GeomFromText('POINT (-94.745768 31.307051)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.503288 31.872946)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hospital that comes up heading toward the Colonnade Hotel, Boston, MA from Copicut Woods Parking, Westport, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.065023 41.708865)',4326)::geography, ST_GeomFromText('POINT (-71.080931 42.345726)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'hospital'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.065023 41.708865)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.065023 41.708865)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18062,
-      "geometry": "POINT (-93.737666 30.089377)",
-      "poi_name": "Woodmen of the World Lodge-Phoenix Camp Number 32",
-      "osm_id": 368165472,
-      "tourism": "hotel",
-      "wikidata": "Q8033106",
-      "addr_state": "TX",
-      "value": 130.91299424564806
+      "id": 182457,
+      "geometry": "POINT (-71.241096 42.050152)",
+      "poi_name": "Norcap Lodge",
+      "osm_id": 10892361142,
+      "amenity": "hospital",
+      "website": "https://www.goodsamaritanmedical.org/services-directory/substance-abuse",
+      "phone": "+1 508 588 4000",
+      "healthcare": "hospital",
+      "addr_state": "MA",
+      "addr_city": "Foxborough",
+      "addr_postcode": "02035",
+      "addr_street": "Walnut Street",
+      "addr_housenumber": "71",
+      "value": 358.93837372343603
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "McDonald Museum, TX",
-      "geo_wkt": "POINT (-95.503288 31.872946)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Copicut Woods Parking, Westport, MA",
+      "geo_wkt": "POINT (-71.065023 41.708865)",
       "poi": {
-        "id": 17980,
-        "geometry": "POINT (-95.503288 31.872946)",
-        "poi_name": "McDonald Museum",
-        "osm_id": 368165022,
-        "tourism": "museum",
-        "addr_state": "TX"
+        "id": 246663,
+        "geometry": "POINT (-71.065023 41.708865)",
+        "poi_name": "Copicut Woods Parking",
+        "osm_id": 8790044765,
+        "leisure": "park",
+        "operator": "The Tristees",
+        "website": "https://thetrustees.org/places-to-visit/south-coast/copicut-woods.html",
+        "addr_state": "MA",
+        "addr_city": "Westport",
+        "addr_postcode": "02790",
+        "addr_street": "Indian Town Road"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Oceans Behavioral Hospital Of Lufkin, Lufkin, TX",
-      "geo_wkt": "POINT (-94.745768 31.307051)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Colonnade Hotel, Boston, MA",
+      "geo_wkt": "POINT (-71.080931 42.345726)",
       "poi": {
-        "id": 183136,
-        "geometry": "POINT (-94.745768 31.307051)",
-        "poi_name": "Oceans Behavioral Hospital Of Lufkin",
-        "osm_id": 10916930770,
-        "amenity": "hospital",
-        "website": "https://oceanshealthcare.com/ohc-location/lufkin/",
-        "phone": "+1 936 632 2276",
-        "healthcare": "hospital",
-        "addr_state": "TX",
-        "addr_city": "Lufkin",
-        "addr_postcode": "75904",
-        "addr_street": "Gobblers Knob Road",
-        "addr_housenumber": "302"
+        "id": 5904,
+        "geometry": "POINT (-71.080931 42.345726)",
+        "poi_name": "The Colonnade Hotel",
+        "osm_id": 1667360408,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "opening_hours": "24/7",
+        "operator": "Preferred Hotel Group\u2122",
+        "website": "https://www.colonnadehotel.com/",
+        "internet_access": "wlan",
+        "phone": "+1-617-424-7000",
+        "parking": "multi-storey",
+        "wikidata": "Q7239839",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02116",
+        "addr_street": "Huntington Avenue",
+        "addr_housenumber": "120"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     }
   },
-  "id": 1357,
+  "id": 1557,
   "type": "knn:towards+loc"
 }

@@ -1,52 +1,91 @@
 {
-  "question": "What direction should I take to reach a nature reserve from Indian Run Falls Park - Observation Deck B, Dublin, OH within 40 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 40000)\nAND leisure = 'nature_reserve';\n",
+  "question": "What\u2019s the heading from Hyatt Centric, New York, NY toward a zoo, limited to 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.007746 40.705205)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.007746 40.705205)',4326)::geography, 90000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "id": 255445,
-      "geometry": "POINT (-82.797396 39.881453)",
-      "poi_name": "Pickerington Pond Wetlands Nature Preserve",
-      "osm_id": 357514486,
-      "leisure": "nature_reserve",
-      "angle": 131.38211545925458
+      "id": 22,
+      "geometry": "POINT (-74.116529 40.625131)",
+      "poi_name": "Kids Korral",
+      "osm_id": 411668741,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 226.0064090123075
     },
     {
-      "id": 255459,
-      "geometry": "POINT (-82.809619 39.938953)",
-      "poi_name": "Walter A Tucker Nature Preserve",
-      "osm_id": 357518167,
-      "leisure": "nature_reserve",
-      "angle": 124.06240539317926
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo",
+      "angle": 352.47733789168683
+    },
+    {
+      "id": 6973,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551",
+      "angle": 78.61091144466887
+    },
+    {
+      "id": 15666,
+      "geometry": "POINT (-74.431868 40.341459)",
+      "poi_name": "Thompson Park Zoo",
+      "osm_id": 9438273157,
+      "tourism": "zoo",
+      "angle": 221.7995147566437
+    },
+    {
+      "id": 15667,
+      "geometry": "POINT (-74.183755 40.368213)",
+      "poi_name": "Longstreet Farm Animals",
+      "osm_id": 9438273158,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 201.78371363006536
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "sub_category": "hotel",
+      "display_name": "Hyatt Centric, New York, NY",
+      "geo_wkt": "POINT (-74.007746 40.705205)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 1078,
+        "geometry": "POINT (-74.007746 40.705205)",
+        "poi_name": "Hyatt Centric",
+        "osm_id": 2825051771,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://newyork.wallstreet.andaz.hyatt.com/",
+        "phone": "+12125901234",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10005",
+        "addr_street": "Wall Street",
+        "addr_housenumber": "75"
       }
     }
   },
-  "id": 1098,
+  "id": 1798,
   "type": "range+angle"
 }

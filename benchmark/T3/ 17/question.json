@@ -1,49 +1,182 @@
 {
-  "question": "Which zoo is available in the southwest direction of Pocono Go-Karts and Play Park, East Stroudsburg, PA within 110 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography, 110000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Which hotel lie within 90 kilometers in the forward northeast direction from North Olmsted Recreation Center, North Olmsted, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, 90000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 26721,
-      "geometry": "POINT (-75.108007 41.052123)",
-      "poi_name": "Pocono Snake & Animal Farm",
-      "osm_id": 6008753954,
-      "tourism": "zoo"
+      "id": 9325,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Hotel Indigo Cleveland Downtown",
+      "osm_id": 3743081821,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "website": "https://www.ihg.com/spnd/hotels/us/en/cleveland/clehr/hoteldetail",
+      "internet_access": "wlan",
+      "phone": "+1-216-377-9000",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44115",
+      "addr_street": "Huron Road",
+      "addr_housenumber": "651"
+    },
+    {
+      "id": 1117,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Hyatt Regency Cleveland at The Arcade",
+      "osm_id": 2838195203,
+      "tourism": "hotel",
+      "website": "https://cleveland.hyatt.com/",
+      "phone": "+1 (216) 575 1234",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44114",
+      "addr_street": "Superior Avenue East",
+      "addr_housenumber": "420"
+    },
+    {
+      "id": 1677,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Metropolitan at The 9, Autograph Collection",
+      "osm_id": 3117729136,
+      "tourism": "hotel"
+    },
+    {
+      "id": 9215,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Holiday Inn Express",
+      "osm_id": 3707174633,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44114",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "629"
+    },
+    {
+      "id": 9173,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Residence Inn Cleveland Downtown",
+      "osm_id": 3695696884,
+      "tourism": "hotel",
+      "official_name": "Residence Inn by Marriott"
+    },
+    {
+      "id": 18667,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "The Ritz-Carlton",
+      "osm_id": 2370912930,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44113",
+      "addr_street": "West 3rd Street",
+      "addr_housenumber": "1515"
+    },
+    {
+      "id": 9674,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Quality Inn Wickliffe",
+      "osm_id": 8923166967,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Wickliffe",
+      "addr_postcode": "44092",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "28611"
+    },
+    {
+      "id": 13087,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "The Kimpton Schofield Hotel",
+      "osm_id": 4053863521,
+      "tourism": "hotel",
+      "phone": "+1 216 357-3250",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44115",
+      "addr_street": "East 9th Street",
+      "addr_housenumber": "2000"
+    },
+    {
+      "id": 18700,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Aloft Cleveland Downtown",
+      "osm_id": 2383674352,
+      "tourism": "hotel",
+      "operator": "A-Loft"
+    },
+    {
+      "id": 20419,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Holiday Inn Express",
+      "osm_id": 1152156849,
+      "tourism": "hotel"
+    },
+    {
+      "id": 19871,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Holiday Inn Express & Suites Madison",
+      "osm_id": 10921889420,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Madison",
+      "addr_postcode": "44057",
+      "addr_street": "Water Tower Drive",
+      "addr_housenumber": "181"
+    },
+    {
+      "id": 19872,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Hampton Inn Madison",
+      "osm_id": 10921889461,
+      "tourism": "hotel",
+      "official_name": "Hampton by Hilton",
+      "addr_state": "OH",
+      "addr_city": "Madison",
+      "addr_postcode": "44057",
+      "addr_street": "Water Tower Drive",
+      "addr_housenumber": "171"
+    },
+    {
+      "id": 23395,
+      "geometry": "POINT (-81.910184 41.423463)",
+      "poi_name": "Quail Hollow Resort and Country Club",
+      "osm_id": 5167516850,
+      "tourism": "hotel"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Pocono Go-Karts and Play Park, East Stroudsburg, PA",
-      "geo_wkt": "POINT (-75.108007 41.052123)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
       "poi": {
-        "id": 26207,
-        "geometry": "POINT (-75.108007 41.052123)",
-        "poi_name": "Pocono Go-Karts and Play Park",
-        "osm_id": 5809688278,
-        "tourism": "theme_park",
-        "website": "http://poconogokarts.com/",
-        "addr_state": "PA",
-        "addr_city": "East Stroudsburg",
-        "addr_postcode": "18302",
-        "addr_street": "Milford Road",
-        "addr_housenumber": "5021"
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2616,
+  "id": 2316,
   "type": "range:direction+name"
 }

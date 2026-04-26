@@ -1,47 +1,44 @@
 {
-  "question": "In what direction is the nearest beach resort located from SEA LIFE Minnesota Aquarium, Bloomington, MN?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In which direction lies the nearest attraction from Tensas River National Wildlife Refuge, Tallulah, LA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246551,
-      "geometry": "POINT (-94.21902 46.59147)",
-      "poi_name": "Breezy Point Resort",
-      "osm_id": 725473297,
-      "leisure": "beach_resort",
-      "angle": 338.8047516511908
+      "id": 6330,
+      "geometry": "POINT (-90.866659 32.375917)",
+      "poi_name": "USS Cairo",
+      "osm_id": 1820725848,
+      "historic": "ship",
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "wikidata": "Q3545006",
+      "angle": 82.19366952592985
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
-      "geo_wkt": "POINT (-93.240076 44.854752)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Tensas River National Wildlife Refuge, Tallulah, LA",
+      "geo_wkt": "POINT (-91.377071 32.317567)",
       "poi": {
-        "id": 25908,
-        "geometry": "POINT (-93.240076 44.854752)",
-        "poi_name": "SEA LIFE Minnesota Aquarium",
-        "osm_id": 5739830095,
-        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
-        "tourism": "aquarium",
-        "fee": "yes",
-        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
-        "operator": "Merlin Entertainments'",
-        "website": "https://www.visitsealife.com/minnesota/",
-        "phone": "+1-952-883-0202",
-        "addr_state": "MN",
-        "addr_city": "Bloomington",
-        "addr_postcode": "55425",
-        "addr_street": "East Broadway",
-        "addr_housenumber": "120"
+        "id": 247209,
+        "geometry": "POINT (-91.377071 32.317567)",
+        "poi_name": "Tensas River National Wildlife Refuge",
+        "osm_id": 3777211992,
+        "leisure": "nature_reserve",
+        "addr_state": "LA",
+        "addr_city": "Tallulah",
+        "addr_postcode": "71282",
+        "addr_street": "Quebec Road",
+        "addr_housenumber": "2312"
       }
     }
   },
-  "id": 1460,
+  "id": 560,
   "type": "knn+angle"
 }

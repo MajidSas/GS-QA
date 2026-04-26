@@ -1,39 +1,40 @@
 {
-  "question": "Could you tell me the number of fast food restaurants located within a 40 kilometers radius from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, 40000)\nAND amenity = 'fast_food';\n",
+  "question": "What\u2019s the count of gardens inside a 160 kilometers distance from Oak Grove Football Stadium, Bessemer, AL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography, 160000)\nAND leisure = 'garden';\n",
   "answers": [
     {
-      "count": 371
+      "count": 4
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
       }
     }
   },
-  "id": 2284,
+  "id": 1884,
   "type": "range+count"
 }

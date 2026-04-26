@@ -1,52 +1,52 @@
 {
-  "question": "When was the nearest university from Cockrell Butterfly Center, Houston, TX established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.39032 29.722176)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest museum from Ducks Unlimited National Headquarters, Memphis, TN established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.808044 35.130821)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 30759,
-      "geometry": "POINT (-95.398757 29.720135)",
-      "poi_name": "George R. Brown School of Engineering",
-      "osm_id": 8379958482,
-      "amenity": "university",
-      "website": "https://engineering.rice.edu/",
-      "phone": "+1-713-348-4955",
-      "wikidata": "Q5543612",
-      "addr_state": "TX",
-      "addr_city": "Houston",
-      "addr_postcode": "77005",
-      "addr_street": "Main Street",
-      "addr_housenumber": "6100",
-      "multihop_answer": "1975",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "George R. Brown School of Engineering Established: 1975"
+      "id": 1294,
+      "geometry": "POINT (-90.031176 35.115755)",
+      "poi_name": "Stax Museum",
+      "osm_id": 2929544114,
+      "tourism": "museum",
+      "opening_hours": "Tu-Su 10:00-17:00",
+      "wikidata": "Q7604973",
+      "addr_city": "Memphis",
+      "addr_postcode": "38126",
+      "addr_street": "East McLemore Avenue",
+      "addr_housenumber": "926",
+      "multi_source_answer": "May 2003",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Stax Museum Established: May 2003"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Cockrell Butterfly Center, Houston, TX",
-      "geo_wkt": "POINT (-95.39032 29.722176)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ducks Unlimited National Headquarters, Memphis, TN",
+      "geo_wkt": "POINT (-89.808044 35.130821)",
       "poi": {
-        "id": 14408,
-        "geometry": "POINT (-95.39032 29.722176)",
-        "poi_name": "Cockrell Butterfly Center",
-        "osm_id": 4299317974,
-        "tourism": "zoo",
-        "operator": "Houston Museum of Natural Science",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77030",
-        "addr_street": "Hermann Park Drive",
-        "addr_housenumber": "5555"
+        "id": 245848,
+        "geometry": "POINT (-89.808044 35.130821)",
+        "poi_name": "Ducks Unlimited National Headquarters",
+        "osm_id": 10189100936,
+        "leisure": "nature_reserve",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Ducks Unlimited",
+        "website": "https://www.ducks.org/",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38120",
+        "addr_street": "Waterfowl Way",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 970,
-  "type": "knn+name+multihop1"
+  "id": 870,
+  "type": "knn+name+multi_source1"
 }

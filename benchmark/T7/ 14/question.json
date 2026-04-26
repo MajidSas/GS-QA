@@ -1,47 +1,40 @@
 {
-  "question": "How many spectators can the nearest stadium from Cardiovascular Institute of New England, Cranston, RI hold?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest park from Steinhart Aquarium, CA hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246343,
-      "geometry": "POINT (-71.515966 41.717988)",
-      "poi_name": "McCarthy Field",
-      "osm_id": 11331230041,
-      "leisure": "stadium",
-      "wikidata": "Q14709442",
-      "multihop_answer": "2500",
-      "multihop_attribute": "Capacity",
-      "multihop_long_answer": "McCarthy Field Capacity: 2500"
+      "id": 263710,
+      "geometry": "POINT (-122.448056 37.776944)",
+      "poi_name": "Benedetti Diamond",
+      "osm_id": 358857215,
+      "leisure": "park",
+      "wikidata": "Q49474355",
+      "multi_source_answer": "2000",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "Benedetti Diamond Capacity: 2000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
-      "geo_wkt": "POINT (-71.472092 41.786868)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Steinhart Aquarium, CA",
+      "geo_wkt": "POINT (-122.465976 37.769485)",
       "poi": {
-        "id": 30660,
-        "geometry": "POINT (-71.472092 41.786868)",
-        "poi_name": "Cardiovascular Institute of New England",
-        "osm_id": 8372733079,
-        "amenity": "hospital",
-        "website": "https://www.necardiologists.com/contact-locations/",
-        "phone": "+14014649751",
-        "healthcare": "hospital",
-        "addr_state": "RI",
-        "addr_city": "Cranston",
-        "addr_postcode": "02920",
-        "addr_street": "Atwood Avenue",
-        "addr_housenumber": "395"
+        "id": 18181,
+        "geometry": "POINT (-122.465976 37.769485)",
+        "poi_name": "Steinhart Aquarium",
+        "osm_id": 368173914,
+        "tourism": "aquarium",
+        "addr_state": "CA"
       }
     }
   },
-  "id": 913,
-  "type": "knn+name+multihop1"
+  "id": 813,
+  "type": "knn+name+multi_source1"
 }

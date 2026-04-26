@@ -1,41 +1,40 @@
 {
-  "question": "What's the quantity of beach resorts that can be found within a 190 kilometers distance from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, 190000)\nAND leisure = 'beach_resort';\n",
+  "question": "How many aquaria can I find within 80 kilometers of Procter Farm Preserve, Wendell, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography, 80000)\nAND tourism = 'aquarium';\n",
   "answers": [
     {
-      "count": 1
+      "count": 2
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
-      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Procter Farm Preserve, Wendell, NC",
+      "geo_wkt": "POINT (-78.390009 35.831172)",
       "poi": {
-        "id": 11808,
-        "geometry": "POINT (-122.432984 47.131086)",
-        "poi_name": "Debbie Doolittle's Petting Zoo",
-        "osm_id": 11550085362,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "WA",
-        "addr_city": "Tacoma",
-        "addr_postcode": "98444",
-        "addr_street": "138th St. S.",
-        "addr_housenumber": "120"
+        "id": 247665,
+        "geometry": "POINT (-78.390009 35.831172)",
+        "poi_name": "Procter Farm Preserve",
+        "osm_id": 8057386012,
+        "leisure": "nature_reserve",
+        "addr_state": "NC",
+        "addr_city": "Wendell",
+        "addr_postcode": "27591",
+        "addr_street": "Doc Procter Road",
+        "addr_housenumber": "7201"
       }
     }
   },
-  "id": 2202,
+  "id": 1802,
   "type": "range+count"
 }

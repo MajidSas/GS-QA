@@ -1,49 +1,43 @@
 {
-  "question": "How far is the nearest caf\u00e9 from the reference point Spartanburg Art Museum, Spartanburg, SC?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.930148 34.952729)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.930148 34.952729)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the separation distance between School of Cosmetology, Somerset, KY and the closest stadium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 141771,
-      "geometry": "POINT (-81.93286 34.952159)",
-      "poi_name": "Pharmacy Coffee",
-      "osm_id": 6296910868,
-      "amenity": "cafe",
-      "cuisine": "coffee",
-      "website": "https://www.facebook.com/pharmacycoffee864/",
-      "addr_state": "SC",
-      "addr_city": "Spartanburg",
-      "addr_postcode": "29306",
-      "addr_street": "North Church Street",
-      "addr_housenumber": "187",
-      "distance": 255.69041665
+      "id": 246342,
+      "geometry": "POINT (-84.780633 37.642742)",
+      "poi_name": "Farris Stadium",
+      "osm_id": 11331208059,
+      "leisure": "stadium",
+      "wikidata": "Q104880108",
+      "distance": 68249.17027022
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Spartanburg Art Museum, Spartanburg, SC",
-      "geo_wkt": "POINT (-81.930148 34.952729)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
       "poi": {
-        "id": 3931,
-        "geometry": "POINT (-81.930148 34.952729)",
-        "poi_name": "Spartanburg Art Museum",
-        "osm_id": 5637891658,
-        "tourism": "museum",
-        "website": "https://www.spartanburgartmuseum.org/",
-        "addr_state": "SC",
-        "addr_city": "Spartanburg",
-        "addr_postcode": "29306",
-        "addr_street": "East Saint John Street",
-        "addr_housenumber": "200"
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
       }
     }
   },
-  "id": 2401,
+  "id": 601,
   "type": "knn+distance"
 }

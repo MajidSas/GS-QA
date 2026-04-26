@@ -1,71 +1,67 @@
 {
-  "question": "Which restaurant is closest on the way to Museum Of American Jewelry Design and Manufacturing, Harrisonburg, VA from Costello Stadium, Palmyra, VA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography, ST_GeomFromText('POINT (-78.871852 38.447095)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.27531 37.826783)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest museum along the path leading from the Lake House, East Springfield, PA to UPMC Hillman Cancer Center, Erie, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.433908 41.993983)',4326)::geography, ST_GeomFromText('POINT (-80.137019 42.10374)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.433908 41.993983)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.433908 41.993983)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 243801,
-      "geometry": "POINT (-78.313128 37.898218)",
-      "poi_name": "Panda Kitchen",
-      "osm_id": 7678816651,
-      "amenity": "restaurant",
-      "cuisine": "chinese",
-      "phone": "+1 434 591 0067",
-      "takeaway": "yes",
-      "addr_state": "VA",
-      "addr_city": "Palmyra",
-      "addr_postcode": "22963",
-      "addr_street": "Joshua Lane",
-      "addr_housenumber": "82",
-      "value": 322.96529246218705
+      "id": 20242,
+      "geometry": "POINT (-80.310677 42.005012)",
+      "poi_name": "Hazel Kibler Memorial Museum",
+      "osm_id": 7960235714,
+      "tourism": "museum",
+      "museum": "history",
+      "addr_state": "PA",
+      "addr_city": "Girard",
+      "addr_postcode": "16417",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "522",
+      "value": 63.518916142083434
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Costello Stadium, Palmyra, VA",
-      "geo_wkt": "POINT (-78.27531 37.826783)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Lake House, East Springfield, PA",
+      "geo_wkt": "POINT (-80.433908 41.993983)",
       "poi": {
-        "id": 267563,
-        "geometry": "POINT (-78.27531 37.826783)",
-        "poi_name": "Costello Stadium",
-        "osm_id": 7683085715,
-        "leisure": "stadium",
-        "operator": "Fluvanna County Public Schools",
-        "addr_state": "VA",
-        "addr_city": "Palmyra",
-        "addr_postcode": "22963",
-        "addr_street": "Central Plains Road",
-        "addr_housenumber": "3717"
+        "id": 368,
+        "geometry": "POINT (-80.433908 41.993983)",
+        "poi_name": "The Lake House",
+        "osm_id": 8338947755,
+        "tourism": "hotel",
+        "addr_state": "PA",
+        "addr_city": "East Springfield",
+        "addr_postcode": "16411",
+        "addr_street": "Old Lake Road",
+        "addr_housenumber": "12689"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Museum Of American Jewelry Design and Manufacturing, Harrisonburg, VA",
-      "geo_wkt": "POINT (-78.871852 38.447095)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UPMC Hillman Cancer Center, Erie, PA",
+      "geo_wkt": "POINT (-80.137019 42.10374)",
       "poi": {
-        "id": 23897,
-        "geometry": "POINT (-78.871852 38.447095)",
-        "poi_name": "Museum Of American Jewelry Design and Manufacturing",
-        "osm_id": 9188634160,
-        "tourism": "museum",
-        "opening_hours": "Tu-Fr 14:30-15:30",
-        "website": "https://hugokohl.com/unearth-the-story/",
-        "phone": "+15405744306",
-        "addr_state": "VA",
-        "addr_city": "Harrisonburg",
-        "addr_postcode": "22801",
-        "addr_street": "South Liberty Street",
-        "addr_housenumber": "217"
+        "id": 242825,
+        "geometry": "POINT (-80.137019 42.10374)",
+        "poi_name": "UPMC Hillman Cancer Center",
+        "osm_id": 7600984051,
+        "amenity": "hospital",
+        "operator": "University of Pittsburgh Medical Center",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16505",
+        "addr_street": "West 12th Street",
+        "addr_housenumber": "2500"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 132,
+  "id": 1632,
   "type": "knn:towards+name"
 }

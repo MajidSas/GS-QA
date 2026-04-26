@@ -1,15 +1,14 @@
 {
-  "question": "Where's the closest museum to the southwest of Rainbow Valley Family Farms, Traverse City, MI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-85.697759 44.695249)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest museum relative to Sonny's Place, Somers, CT, heading north?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17586,
-      "geometry": "POINT (-85.697759 44.695249)",
-      "poi_name": "Manistee County Museum",
-      "osm_id": 367816228,
+      "id": 17365,
+      "geometry": "POINT (-72.468092 41.986478)",
+      "poi_name": "Childrens Museum",
+      "osm_id": 367781240,
       "tourism": "museum",
-      "website": "https://www.manisteemuseum.org/",
-      "addr_state": "MI"
+      "addr_state": "MA"
     }
   ],
   "answer_type": "loc",
@@ -20,26 +19,28 @@
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Rainbow Valley Family Farms, Traverse City, MI",
-      "geo_wkt": "POINT (-85.697759 44.695249)",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
       "poi": {
-        "id": 24437,
-        "geometry": "POINT (-85.697759 44.695249)",
-        "poi_name": "Rainbow Valley Family Farms",
-        "osm_id": 11054966206,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "MI",
-        "addr_city": "Traverse City",
-        "addr_postcode": "49685",
-        "addr_street": "Culver Road",
-        "addr_housenumber": "6040"
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
   "id": 1106,

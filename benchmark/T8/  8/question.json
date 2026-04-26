@@ -1,45 +1,45 @@
 {
-  "question": "What's the closest golf course nearby the stadium with the former name University of Denver Auditorium in CO?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which attraction near the zoo that was opened on 1868 in Manitowoc, WI do you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266621,
-      "geometry": "POINT (-104.896649 39.538596)",
-      "poi_name": "Jakes Academy",
-      "osm_id": 9162690294,
-      "leisure": "golf_course",
-      "opening_hours": "Mo-Sa 08:00-20:00",
-      "operator": "Riley Andrews",
-      "website": "https://jakesacademy.com/",
-      "addr_state": "CO",
-      "addr_city": "Lone Tree",
-      "addr_postcode": "80124",
-      "addr_street": "Sunningdale Blvd",
-      "addr_housenumber": "9808"
+      "id": 266981,
+      "geometry": "POINT (-87.634876 44.114452)",
+      "poi_name": "West of the Lake Gardens",
+      "osm_id": 4313825797,
+      "leisure": "garden",
+      "tourism": "attraction",
+      "fee": "no",
+      "opening_hours": "10:00-17:00",
+      "website": "https://www.westfoundation.us/",
+      "phone": "(920) 684-6110"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Magness Arena, CO",
-      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
       "poi": {
-        "id": 265349,
-        "geometry": "POINT (-104.961685 39.682266)",
-        "poi_name": "Magness Arena",
-        "osm_id": 366396379,
-        "leisure": "stadium",
-        "wikidata": "Q14684923",
-        "addr_state": "CO"
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
+        "addr_state": "WI",
+        "addr_city": "Manitowoc"
       }
     }
   },
-  "id": 2707,
-  "type": "knn+name+multihop2"
+  "id": 907,
+  "type": "knn+name+multi_source2"
 }

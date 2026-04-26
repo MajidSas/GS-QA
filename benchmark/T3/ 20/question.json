@@ -1,49 +1,50 @@
 {
-  "question": "Which attraction is available when moving in the direction of east from Long Eddy Preserve, Jamison, PA within 60 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.160958 41.848195)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.160958 41.848195)',4326)::geography, 60000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Which aquarium exist within 110 kilometers on the northeast side relative to Rock of the Marne, VA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography, 110000)\nAND tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 8732,
-      "geometry": "POINT (-75.160958 41.848195)",
-      "poi_name": "VanTran Covered Bridge",
-      "osm_id": 8655020017,
-      "tourism": "attraction",
-      "addr_postcode": "12758",
-      "addr_street": "Covered Bridge Road"
+      "id": 1512,
+      "geometry": "POINT (-77.073797 38.876769)",
+      "poi_name": "Go Fish",
+      "osm_id": 3026471881,
+      "tourism": "aquarium",
+      "addr_state": "MD",
+      "addr_city": "Rosedale",
+      "addr_postcode": "21237",
+      "addr_street": "Philadelphia Road",
+      "addr_housenumber": "8767 G"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "aquarium"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Long Eddy Preserve, Jamison, PA",
-      "geo_wkt": "POINT (-75.160958 41.848195)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Rock of the Marne, VA",
+      "geo_wkt": "POINT (-77.073797 38.876769)",
       "poi": {
-        "id": 248975,
-        "geometry": "POINT (-75.160958 41.848195)",
-        "poi_name": "Long Eddy Preserve",
-        "osm_id": 9481406351,
-        "leisure": "park",
-        "operator": "Nature Conservancy",
-        "addr_state": "PA",
-        "addr_city": "Jamison",
-        "addr_street": "River Road"
+        "id": 139,
+        "geometry": "POINT (-77.073797 38.876769)",
+        "poi_name": "Rock of the Marne",
+        "osm_id": 453542780,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2619,
+  "id": 2319,
   "type": "range:direction+name"
 }

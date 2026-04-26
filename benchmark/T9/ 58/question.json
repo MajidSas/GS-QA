@@ -1,35 +1,40 @@
 {
-  "question": "Which hospital is the nearest to the southwest of Memory Garden, Mequon, WI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest garden situated towards the southwest of Point Lookout, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 185920,
-      "geometry": "POINT (-87.959122 43.254358)",
-      "poi_name": "Henke Nursing Center",
-      "osm_id": 7894337986,
-      "amenity": "hospital",
-      "healthcare": "hospital"
+      "id": 248616,
+      "geometry": "POINT (-79.663483 39.854147)",
+      "poi_name": "Ritter Park Rose Garden",
+      "osm_id": 4683706042,
+      "leisure": "garden",
+      "addr_state": "WV",
+      "addr_city": "Huntington",
+      "addr_postcode": "25701",
+      "addr_street": "McCoy Road",
+      "addr_housenumber": "1501"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Mequon, WI",
-      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
       "poi": {
-        "id": 245940,
-        "geometry": "POINT (-87.959122 43.254358)",
-        "poi_name": "Memory Garden",
-        "osm_id": 5345442455,
-        "leisure": "garden",
-        "addr_state": "WI",
-        "addr_city": "Mequon"
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
       }
     },
     "[3]": {
@@ -37,6 +42,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2557,
+  "id": 1257,
   "type": "knn:direction+name"
 }

@@ -1,44 +1,46 @@
 {
-  "question": "What's the nearest hospital near the museum directed by Jason T. Busch in New York, NY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.981596 40.77323)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest garden relative to the zoo that was opened on June 13, 2008 in New Orleans, LA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 195721,
-      "geometry": "POINT (-73.992777 40.768828)",
-      "poi_name": "Mount Sinai",
-      "osm_id": 10363943866,
-      "amenity": "hospital",
-      "healthcare": "hospital"
+      "id": 248526,
+      "geometry": "POINT (-90.068175 30.026201)",
+      "poi_name": "Sciences Botanical Common area",
+      "osm_id": 4634221723,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "American Folk Art Museum, New York, NY",
-      "geo_wkt": "POINT (-73.981596 40.77323)",
+      "sub_category": "zoo",
+      "display_name": "Audubon Insectarium, New Orleans, LA",
+      "geo_wkt": "POINT (-90.063318 29.951359)",
       "poi": {
-        "id": 1950,
-        "geometry": "POINT (-73.981596 40.77323)",
-        "poi_name": "American Folk Art Museum",
-        "osm_id": 3224793125,
-        "tourism": "museum",
+        "id": 15891,
+        "geometry": "POINT (-90.063318 29.951359)",
+        "poi_name": "Audubon Insectarium",
+        "osm_id": 9588493777,
+        "tourism": "zoo",
         "wheelchair": "yes",
-        "website": "http://www.folkartmuseum.org",
-        "museum": "art",
-        "wikidata": "Q464354",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Lincoln Square",
-        "addr_housenumber": "2"
+        "building": "yes",
+        "opening_hours": "Tu-Su 10:00-17:00",
+        "website": "http://www.auduboninstitute.org/visit/insectarium",
+        "zoo": "insectarium",
+        "wikidata": "Q4820238",
+        "addr_state": "LA",
+        "addr_city": "New Orleans",
+        "addr_postcode": "70130",
+        "addr_street": "Canal Street",
+        "addr_housenumber": "403"
       }
     }
   },
-  "id": 2753,
-  "type": "knn+name+multihop2"
+  "id": 953,
+  "type": "knn+name+multi_source2"
 }

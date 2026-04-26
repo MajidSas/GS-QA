@@ -1,64 +1,446 @@
 {
-  "question": "Which attraction is available as you move towards Sun Behavioral Health, Erlanger, KY from Red Wolf Sanctuary, Rising Sun, IN, within a radius of 70 kilometers?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, ST_GeomFromText('POINT (-84.594441 39.038947)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, 70000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "question": "Which attraction can I find within a 50 kilometers radius while heading toward American Hotel, Freehold, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography, ST_GeomFromText('POINT (-74.273309 40.260464)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
   "answers": [
     {
-      "id": 8334,
-      "geometry": "POINT (-84.519923 39.134241)",
-      "poi_name": "LIVE",
-      "osm_id": 6632375017,
+      "id": 16,
+      "geometry": "POINT (-74.247221 40.496348)",
+      "poi_name": "The South Pole",
+      "osm_id": 411499455,
       "tourism": "attraction",
-      "value": 68.18156051971071
+      "value": 203.988696739384
+    },
+    {
+      "id": 364,
+      "geometry": "POINT (-74.139776 40.583771)",
+      "poi_name": "Heyerdahl Ruins",
+      "osm_id": 8336374091,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 321,
+      "geometry": "POINT (-74.135957 40.58252)",
+      "poi_name": "Buck\u2019s Hollow",
+      "osm_id": 8317327442,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 3270,
+      "geometry": "POINT (-74.110544 40.594008)",
+      "poi_name": "Jurassic Park",
+      "osm_id": 5327546602,
+      "tourism": "attraction",
+      "website": "https://www.dnainfo.com/new-york/20120606/todt-hill/dinosaurs-dragons-transform-staten-island-home-into-fantasy-world",
+      "addr_state": "NY",
+      "addr_city": "Staten Island",
+      "addr_postcode": "10304",
+      "addr_street": "Todt Hill Road",
+      "addr_housenumber": "724",
+      "value": 203.988696739384
+    },
+    {
+      "id": 3513,
+      "geometry": "POINT (-74.003303 40.72269)",
+      "poi_name": "Paul Nicklen Gallery",
+      "osm_id": 5449742521,
+      "tourism": "attraction",
+      "opening_hours": "Mo-Su 12:00-19:00",
+      "website": "http://www.paulnicklengallery.com",
+      "phone": "+16468910042",
+      "addr_postcode": "10013",
+      "value": 203.988696739384
+    },
+    {
+      "id": 10922,
+      "geometry": "POINT (-73.997602 40.718125)",
+      "poi_name": "Italian flag painted Apartments",
+      "osm_id": 8146801300,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 3620,
+      "geometry": "POINT (-74.008331 40.655947)",
+      "poi_name": "Winter Flea + Smorgasburg",
+      "osm_id": 5500391921,
+      "tourism": "attraction",
+      "opening_hours": "Sa-Su 10:00-17:00",
+      "website": "https://brooklynflea.com/industry-city/",
+      "addr_postcode": "11232",
+      "addr_street": "37th Street",
+      "addr_housenumber": "241",
+      "value": 203.988696739384
+    },
+    {
+      "id": 4118,
+      "geometry": "POINT (-74.184844 40.390723)",
+      "poi_name": "Holmdel Horn Antenna",
+      "osm_id": 5685585294,
+      "historic": "yes",
+      "description": "At this site in 1964, Arno Penzias and Robert Wilson used this horn-shaped radio antenna and detected cosmic microwave background radiation, a significant discovery supporting the Big Bang theory.",
+      "tourism": "attraction",
+      "wikidata": "Q5883312",
+      "value": 203.988696739384
+    },
+    {
+      "id": 8685,
+      "geometry": "POINT (-74.017472 40.673928)",
+      "poi_name": "Street Car",
+      "osm_id": 8621959370,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 9484,
+      "geometry": "POINT (-74.0053 40.732359)",
+      "poi_name": "Friends Building",
+      "osm_id": 3830610284,
+      "tourism": "attraction",
+      "addr_city": "New York",
+      "addr_postcode": "10014",
+      "addr_street": "Bedford Street",
+      "addr_housenumber": "90",
+      "value": 203.988696739384
+    },
+    {
+      "id": 10621,
+      "geometry": "POINT (-74.000701 40.723252)",
+      "poi_name": "King of Green Street",
+      "osm_id": 6949759085,
+      "tourism": "attraction",
+      "addr_street": "Greene Street",
+      "addr_housenumber": "72",
+      "value": 203.988696739384
+    },
+    {
+      "id": 10622,
+      "geometry": "POINT (-74.002448 40.721178)",
+      "poi_name": "Queen of Green Street",
+      "osm_id": 6949759185,
+      "tourism": "attraction",
+      "addr_street": "Greene Street",
+      "addr_housenumber": "28",
+      "value": 203.988696739384
+    },
+    {
+      "id": 10623,
+      "geometry": "POINT (-73.998164 40.724126)",
+      "poi_name": "Little Singer Building",
+      "osm_id": 6949759186,
+      "tourism": "attraction",
+      "addr_street": "Broadway",
+      "addr_housenumber": "561",
+      "value": 203.988696739384
+    },
+    {
+      "id": 10654,
+      "geometry": "POINT (-74.099966 40.593461)",
+      "poi_name": "Pierre Billiou House",
+      "osm_id": 6981971285,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 17777,
+      "geometry": "POINT (-74.002148 40.733801)",
+      "poi_name": "Stonewall Inn",
+      "osm_id": 368043598,
+      "amenity": "bar",
+      "tourism": "attraction",
+      "wheelchair": "limited",
+      "sport": "billiards",
+      "website": "https://thestonewallinnnyc.com/",
+      "wikidata": "Q1261362",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10014",
+      "addr_street": "Christopher Street",
+      "addr_housenumber": "53",
+      "value": 203.988696739384
+    },
+    {
+      "id": 11937,
+      "geometry": "POINT (-73.999292 40.717376)",
+      "poi_name": "Explore Chinatown Information Kiosk",
+      "osm_id": 6100997485,
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "value": 203.988696739384
+    },
+    {
+      "id": 12053,
+      "geometry": "POINT (-74.00687 40.713354)",
+      "poi_name": "Site of the Beach Pneumatic Subway",
+      "osm_id": 6163555085,
+      "tourism": "attraction",
+      "addr_street": "Murray Street",
+      "addr_housenumber": "1",
+      "value": 203.988696739384
+    },
+    {
+      "id": 15179,
+      "geometry": "POINT (-74.009925 40.70982)",
+      "poi_name": "Barthman's Sidewalk Clock",
+      "osm_id": 4822806224,
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "addr_street": "Maiden Lane",
+      "value": 203.988696739384
+    },
+    {
+      "id": 15180,
+      "geometry": "POINT (-74.004834 40.718499)",
+      "poi_name": "Dream house",
+      "osm_id": 4822806225,
+      "tourism": "attraction",
+      "opening_hours": "Th-Sa 14:00-00:00",
+      "value": 203.988696739384
+    },
+    {
+      "id": 15181,
+      "geometry": "POINT (-73.994677 40.733199)",
+      "poi_name": "La de forest house",
+      "osm_id": 4822806226,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 16054,
+      "geometry": "POINT (-74.002906 40.70575)",
+      "poi_name": "South Street Seaport",
+      "osm_id": 320948228,
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "wikidata": "Q223000",
+      "value": 203.988696739384
+    },
+    {
+      "id": 23466,
+      "geometry": "POINT (-74.005668 40.717463)",
+      "poi_name": "Textile building",
+      "osm_id": 5215246721,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 19154,
+      "geometry": "POINT (-74.033915 40.71202)",
+      "poi_name": "Colgate Clock",
+      "osm_id": 2525734185,
+      "amenity": "clock",
+      "historic": "yes",
+      "tourism": "attraction",
+      "wikidata": "Q1108243",
+      "value": 203.988696739384
+    },
+    {
+      "id": 23052,
+      "geometry": "POINT (-73.990322 40.743693)",
+      "poi_name": "Chelsea Flea Market",
+      "osm_id": 5016404328,
+      "tourism": "attraction",
+      "wheelchair": "yes",
+      "value": 203.988696739384
+    },
+    {
+      "id": 21501,
+      "geometry": "POINT (-74.216098 40.557154)",
+      "poi_name": "Staten Island Boat Graveyard",
+      "osm_id": 10289645209,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 22998,
+      "geometry": "POINT (-74.012417 40.691458)",
+      "poi_name": "Governor's Island Kayacking",
+      "osm_id": 4991344748,
+      "description": "Established in 1994, the Downtown Boathouse is an all-volunteer nonprofit organization dedicated to providing free public access to the harbor in New York City through our kayaking programs.",
+      "tourism": "attraction",
+      "operator": "Downtown Boathouse",
+      "sport": "canoeing",
+      "website": "https://www.downtownboathouse.org/",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_street": "Pier 101",
+      "value": 203.988696739384
+    },
+    {
+      "id": 23105,
+      "geometry": "POINT (-73.998325 40.69563)",
+      "poi_name": "Brooklyn Heights Promenade",
+      "osm_id": 5039268173,
+      "tourism": "attraction",
+      "wikidata": "Q15205111",
+      "value": 203.988696739384
+    },
+    {
+      "id": 26816,
+      "geometry": "POINT (-73.99875 40.72288)",
+      "poi_name": "SoHo",
+      "osm_id": 158809984,
+      "tourism": "attraction",
+      "wikidata": "Q461572",
+      "value": 203.988696739384
+    },
+    {
+      "id": 24732,
+      "geometry": "POINT (-73.997566 40.699556)",
+      "poi_name": "Kayak Brooklyn",
+      "osm_id": 4305803394,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 24875,
+      "geometry": "POINT (-73.998472 40.715626)",
+      "poi_name": "Chinatown",
+      "osm_id": 4351547190,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 25299,
+      "geometry": "POINT (-74.002303 40.717739)",
+      "poi_name": "Cortlandt Alley",
+      "osm_id": 4441423089,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 25668,
+      "geometry": "POINT (-74.00353 40.717227)",
+      "poi_name": "American Icon",
+      "osm_id": 4573225230,
+      "tourism": "attraction",
+      "addr_street": "Broadway",
+      "addr_housenumber": "360",
+      "value": 203.988696739384
+    },
+    {
+      "id": 24768,
+      "geometry": "POINT (-73.992152 40.724241)",
+      "poi_name": "Liz Christy Garden",
+      "osm_id": 4314829890,
+      "tourism": "attraction",
+      "wikidata": "Q6660076",
+      "value": 203.988696739384
+    },
+    {
+      "id": 24779,
+      "geometry": "POINT (-73.992454 40.72928)",
+      "poi_name": "Colonnade row",
+      "osm_id": 4319650089,
+      "tourism": "attraction",
+      "wikidata": "Q8348030",
+      "value": 203.988696739384
+    },
+    {
+      "id": 25226,
+      "geometry": "POINT (-73.990717 40.743608)",
+      "poi_name": "Cocktail Kingdom",
+      "osm_id": 4425455889,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 25374,
+      "geometry": "POINT (-74.002817 40.733584)",
+      "poi_name": "Greenwich Village",
+      "osm_id": 4470028591,
+      "tourism": "attraction",
+      "wikidata": "Q205380",
+      "value": 203.988696739384
+    },
+    {
+      "id": 26524,
+      "geometry": "POINT (-73.99815 40.714413)",
+      "poi_name": "Bloody Angle",
+      "osm_id": 5919381986,
+      "tourism": "attraction",
+      "wikidata": "Q885252",
+      "value": 203.988696739384
+    },
+    {
+      "id": 26548,
+      "geometry": "POINT (-73.998609 40.731969)",
+      "poi_name": "Hangman's Elm",
+      "osm_id": 5927576885,
+      "tourism": "attraction",
+      "wikidata": "Q1407769",
+      "value": 203.988696739384
+    },
+    {
+      "id": 26549,
+      "geometry": "POINT (-73.996459 40.733706)",
+      "poi_name": "Mark Twain House",
+      "osm_id": 5927588585,
+      "tourism": "attraction",
+      "value": 203.988696739384
+    },
+    {
+      "id": 26792,
+      "geometry": "POINT (-74.005466 40.72577)",
+      "poi_name": "Color Factory",
+      "osm_id": 6052834699,
+      "tourism": "attraction",
+      "opening_hours": "Mo, Th, Su 09:30-18:00; Tu 09:30-17:00; We off; Fr, Sa 09:30-20:00",
+      "website": "https://colorfactory.co/",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10013",
+      "addr_street": "Spring Street",
+      "addr_housenumber": "251",
+      "value": 203.988696739384
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
-      "geo_wkt": "POINT (-84.875376 38.951571)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY School of Professional Studies, New York, NY",
+      "geo_wkt": "POINT (-73.990094 40.748387)",
       "poi": {
-        "id": 1647,
-        "geometry": "POINT (-84.875376 38.951571)",
-        "poi_name": "Red Wolf Sanctuary",
-        "osm_id": 3099118301,
-        "leisure": "nature_reserve",
-        "tourism": "attraction",
-        "opening_hours": "\"By appointment only\"",
-        "operator": "THE RED WOLF SANCTUARY INC",
-        "website": "https://www.redwolf.org/",
-        "phone": "+1 812 438 2306",
-        "addr_state": "IN",
-        "addr_city": "Rising Sun",
-        "addr_postcode": "47040",
-        "addr_street": "IN-262",
-        "addr_housenumber": "3027"
+        "id": 34678,
+        "geometry": "POINT (-73.990094 40.748387)",
+        "poi_name": "CUNY School of Professional Studies",
+        "osm_id": 2703449228,
+        "amenity": "university",
+        "operator": "City University of New York",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 31st Street",
+        "addr_housenumber": "119"
       }
     },
     "[4]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Sun Behavioral Health, Erlanger, KY",
-      "geo_wkt": "POINT (-84.594441 39.038947)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "American Hotel, Freehold, NJ",
+      "geo_wkt": "POINT (-74.273309 40.260464)",
       "poi": {
-        "id": 182311,
-        "geometry": "POINT (-84.594441 39.038947)",
-        "poi_name": "Sun Behavioral Health",
-        "osm_id": 10888189383,
-        "amenity": "hospital",
-        "website": "https://sunbehavioral.com/kentucky",
-        "phone": "+1 859 429 5188",
-        "healthcare": "hospital",
-        "addr_state": "KY",
-        "addr_city": "Erlanger",
-        "addr_postcode": "41018",
-        "addr_street": "Dolwick Drive",
-        "addr_housenumber": "820"
+        "id": 3116,
+        "geometry": "POINT (-74.273309 40.260464)",
+        "poi_name": "American Hotel",
+        "osm_id": 10183268806,
+        "tourism": "hotel",
+        "website": "https://www.americanhotelnj.com/",
+        "internet_access": "yes",
+        "phone": "7324313220",
+        "wikidata": "Q115206461",
+        "addr_state": "NJ",
+        "addr_city": "Freehold",
+        "addr_postcode": "07728",
+        "addr_street": "E Main Street",
+        "addr_housenumber": "18"
       }
     },
     "[1]": {
@@ -66,6 +448,6 @@
       "sub_category": "attraction"
     }
   },
-  "id": 1671,
+  "id": 2771,
   "type": "range:towards+name"
 }

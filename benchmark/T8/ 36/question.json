@@ -1,44 +1,41 @@
 {
-  "question": "Could you tell me the closest restaurant relative to the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which beach resort near the university with the former name Denmark Industrial School for African Americans in Denmark, SC would you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 236350,
-      "geometry": "POINT (-75.124749 40.090139)",
-      "poi_name": "Hibachi of Jenkintown",
-      "osm_id": 5790719735,
-      "amenity": "restaurant",
-      "cuisine": "hibachi;japanese"
+      "id": 245523,
+      "geometry": "POINT (-87.421202 33.272894)",
+      "poi_name": "Rocky Branch",
+      "osm_id": 3048380506,
+      "leisure": "beach_resort"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "beach resort"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Salus University, Elkins Park, PA",
-      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 39110,
-        "geometry": "POINT (-75.129394 40.086172)",
-        "poi_name": "Salus University",
-        "osm_id": 2903322114,
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
         "amenity": "university",
-        "website": "https://www.salus.edu/",
-        "phone": "+1-215-780-1400",
-        "wikidata": "Q7406311",
-        "addr_state": "PA",
-        "addr_city": "Elkins Park",
-        "addr_postcode": "19027",
-        "addr_street": "Old York Road",
-        "addr_housenumber": "8360"
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2735,
-  "type": "knn+name+multihop2"
+  "id": 935,
+  "type": "knn+name+multi_source2"
 }

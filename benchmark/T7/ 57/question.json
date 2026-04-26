@@ -1,51 +1,50 @@
 {
-  "question": "What is the name of the architect that designed the closest museum from Creighton University, Phoenix, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you tell me about a former name of the nearest stadium from White Cliff Fen And Forest State Natural Area, Egg Harbor, WI?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.274673 45.075501)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14083,
-      "geometry": "POINT (-112.065978 33.450208)",
-      "poi_name": "Rosson House Museum",
-      "osm_id": 4219066093,
-      "tourism": "museum",
-      "fee": "yes",
-      "opening_hours": "Th-Sa 10:00-16:00; Su 12:00-16:00",
-      "website": "https://heritagesquarephx.org/rossonhouse/",
-      "wikidata": "Q7369916",
-      "addr_state": "AZ",
-      "addr_city": "Phoenix",
-      "addr_street": "North 6th Street",
-      "addr_housenumber": "139",
-      "multihop_answer": "George Franklin Barber via A.P. Petit",
-      "multihop_attribute": "Architect",
-      "multihop_long_answer": "Rosson House Museum Architect: George Franklin Barber via A.P. Petit"
+      "id": 250726,
+      "geometry": "POINT (-87.992711 44.50774)",
+      "poi_name": "City Stadium",
+      "osm_id": 354533238,
+      "leisure": "stadium",
+      "description": "This is the original home field of the Green Bay Packers.",
+      "sport": "american_football",
+      "wikidata": "Q5123438",
+      "addr_city": "Green Bay",
+      "addr_postcode": "54301",
+      "multi_source_answer": "East Stadium",
+      "multi_source_attribute": "Former names",
+      "multi_source_long_answer": "City Stadium Former names: East Stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Creighton University, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.074389 33.483178)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "White Cliff Fen And Forest State Natural Area, Egg Harbor, WI",
+      "geo_wkt": "POINT (-87.274673 45.075501)",
       "poi": {
-        "id": 88341,
-        "geometry": "POINT (-112.074389 33.483178)",
-        "poi_name": "Creighton University",
-        "osm_id": 8779535609,
-        "amenity": "university",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85003",
-        "addr_street": "North Central Avenue",
-        "addr_housenumber": "3100"
+        "id": 250688,
+        "geometry": "POINT (-87.274673 45.075501)",
+        "poi_name": "White Cliff Fen And Forest State Natural Area",
+        "osm_id": 354533104,
+        "leisure": "park",
+        "operator": "Door County Land Trust",
+        "website": "https://www.doorcountylandtrust.org/white-cliff-nature-preserve/",
+        "addr_state": "WI",
+        "addr_city": "Egg Harbor",
+        "addr_postcode": "54209",
+        "addr_street": "White Cliff Road",
+        "addr_housenumber": "8248"
       }
     }
   },
-  "id": 956,
-  "type": "knn+name+multihop1"
+  "id": 856,
+  "type": "knn+name+multi_source1"
 }

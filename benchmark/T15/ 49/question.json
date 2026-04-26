@@ -1,54 +1,57 @@
 {
-  "question": "Within a radius of 50 kilometers, where can I find a golf course towards the south of Mission Hills Church Park, San Marcos, CA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography, 50000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where can I find a zoo that lie within 180 kilometers toward the northeast side of Oskaloosa Care Center, Oskaloosa, IA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-92.668612 41.30199)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.668612 41.30199)',4326)::geography, 180000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 246425,
-      "geometry": "POINT (-117.148078 33.148133)",
-      "poi_name": "Mission Bay Golf Course",
-      "osm_id": 9632409806,
-      "leisure": "golf_course",
-      "addr_state": "CA",
-      "addr_city": "San Diego",
-      "addr_postcode": "92109",
-      "addr_street": "N Mission Bay Dr",
-      "addr_housenumber": "2702"
+      "id": 25164,
+      "geometry": "POINT (-92.668612 41.30199)",
+      "poi_name": "Raptor Center",
+      "osm_id": 4415617837,
+      "tourism": "zoo",
+      "addr_state": "IA",
+      "addr_city": "Solon",
+      "addr_postcode": "52333",
+      "addr_street": "Raptor Ridge Road Northeast",
+      "addr_housenumber": "3673"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Mission Hills Church Park, San Marcos, CA",
-      "geo_wkt": "POINT (-117.148078 33.148133)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Oskaloosa Care Center, Oskaloosa, IA",
+      "geo_wkt": "POINT (-92.668612 41.30199)",
       "poi": {
-        "id": 246426,
-        "geometry": "POINT (-117.148078 33.148133)",
-        "poi_name": "Mission Hills Church Park",
-        "osm_id": 9632460029,
-        "leisure": "park",
-        "operator": "Mission Hills Church",
-        "addr_state": "CA",
-        "addr_city": "San Marcos",
-        "addr_postcode": "92069",
-        "addr_street": "E. Mission Hills Court",
-        "addr_housenumber": "400"
+        "id": 153996,
+        "geometry": "POINT (-92.668612 41.30199)",
+        "poi_name": "Oskaloosa Care Center",
+        "osm_id": 4218421319,
+        "amenity": "hospital",
+        "website": "https://www.facebook.com/pages/Oskaloosa-Care-center/285649701446842?rf=907119676072639",
+        "phone": "+1-641-676-3414",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "IA",
+        "addr_city": "Oskaloosa",
+        "addr_postcode": "52577",
+        "addr_street": "Highway 432",
+        "addr_housenumber": "605"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 48,
+  "id": 2248,
   "type": "range:direction+loc"
 }

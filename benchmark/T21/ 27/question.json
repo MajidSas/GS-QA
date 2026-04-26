@@ -1,16 +1,63 @@
 {
-  "question": "In which direction should I proceed to reach a hospital from the Last House on Mulholland, Los Angeles, CA within 10 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, 10000)\nAND amenity = 'hospital';\n",
+  "question": "What\u2019s the directional path toward a hospital from Edinburg Municipal Park, Edinburg, TX within 140 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.133046 26.288188)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.133046 26.288188)',4326)::geography, 140000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "id": 222344,
-      "geometry": "POINT (-118.386306 34.076966)",
-      "poi_name": "Cedars Sinai Transplant Center",
-      "osm_id": 11014639805,
+      "id": 65203,
+      "geometry": "POINT (-98.206138 26.252672)",
+      "poi_name": "Doctors Hospital at Renaissance",
+      "osm_id": 5690493776,
       "amenity": "hospital",
-      "addr_street": "Beverly Boulevard",
-      "addr_housenumber": "8900",
-      "angle": 225.2806712501748
+      "operator": "Doctors Hospital at Renaissance",
+      "website": "https://www.dhr-rgv.com/Healthcare-Services/Rehabilitation-Hospital",
+      "phone": "+1-956-362-3550",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Edinburg",
+      "addr_postcode": "78539",
+      "addr_street": "Doctor's Drive",
+      "addr_housenumber": "5405",
+      "angle": 241.6936393347146
+    },
+    {
+      "id": 183166,
+      "geometry": "POINT (-97.509889 25.973809)",
+      "poi_name": "Solara Specialty Hospitals Harlingen - Brownsville",
+      "osm_id": 10917000738,
+      "amenity": "hospital",
+      "website": "https://www.chghospitals.com/location-brownsville",
+      "phone": "+1 956 546 0808",
+      "healthcare": "hospital",
+      "addr_state": "TX",
+      "addr_city": "Brownsville",
+      "addr_postcode": "78520",
+      "addr_street": "Lorenaly Drive",
+      "addr_housenumber": "333",
+      "angle": 119.06300953795254
+    },
+    {
+      "id": 183102,
+      "geometry": "POINT (-97.672162 26.163574)",
+      "poi_name": "Palms Behavioral Health",
+      "osm_id": 10916190484,
+      "amenity": "hospital",
+      "website": "https://www.palmsbh.com",
+      "phone": "+1 956 365 2600",
+      "healthcare": "hospital",
+      "addr_state": "TX",
+      "addr_city": "Harlingen",
+      "addr_postcode": "78550",
+      "addr_street": "Victoria Lane",
+      "addr_housenumber": "613",
+      "angle": 106.5858363628313
+    },
+    {
+      "id": 229695,
+      "geometry": "POINT (-98.266728 26.086635)",
+      "poi_name": "Cetro Medico San Francisco",
+      "osm_id": 4395357530,
+      "amenity": "hospital",
+      "angle": 210.9263416047592
     }
   ],
   "answer_type": "angle",
@@ -20,30 +67,28 @@
       "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 10000,
-      "text": "10 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The Last House on Mulholland, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Edinburg Municipal Park, Edinburg, TX",
+      "geo_wkt": "POINT (-98.133046 26.288188)",
       "poi": {
-        "id": 3061,
-        "geometry": "POINT (-118.320457 34.131243)",
-        "poi_name": "The Last House on Mulholland",
-        "osm_id": 10152480147,
-        "description": "Hollywood Sign Viewpoint",
-        "tourism": "viewpoint",
-        "parking": "no",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mulholland Highway",
-        "addr_housenumber": "6101"
+        "id": 246098,
+        "geometry": "POINT (-98.133046 26.288188)",
+        "poi_name": "Edinburg Municipal Park",
+        "osm_id": 5573998029,
+        "leisure": "park",
+        "addr_state": "TX",
+        "addr_city": "Edinburg",
+        "addr_postcode": "78542",
+        "addr_street": "S. Raul Longoria Rd.",
+        "addr_housenumber": "714"
       }
     }
   },
-  "id": 1026,
+  "id": 1726,
   "type": "range+angle"
 }

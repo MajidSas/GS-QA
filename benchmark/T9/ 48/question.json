@@ -1,49 +1,45 @@
 {
-  "question": "What is the nearest garden in the southeast direction of WellSpan Surgery and Rehabilitation Hospital, York, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.718936 39.926176)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which stadium is nearest in the east direction from Kelly Inn, Minot, ND?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.316102 48.206438)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246951,
-      "geometry": "POINT (-76.718936 39.926176)",
-      "poi_name": "Shamrock Park Memorial Tree Grove",
-      "osm_id": 6631814748,
-      "leisure": "garden",
-      "operator": "Town of Bel Air"
+      "id": 265358,
+      "geometry": "POINT (-101.316102 48.206438)",
+      "poi_name": "Detroit Lakes Sports Arena",
+      "osm_id": 367067717,
+      "leisure": "stadium",
+      "addr_state": "MN"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "WellSpan Surgery and Rehabilitation Hospital, York, PA",
-      "geo_wkt": "POINT (-76.718936 39.926176)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Kelly Inn, Minot, ND",
+      "geo_wkt": "POINT (-101.316102 48.206438)",
       "poi": {
-        "id": 234454,
-        "geometry": "POINT (-76.718936 39.926176)",
-        "poi_name": "WellSpan Surgery and Rehabilitation Hospital",
-        "osm_id": 4623740758,
-        "amenity": "hospital",
-        "wheelchair": "yes",
-        "operator": "WellSpan Health",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "PA",
-        "addr_city": "York",
-        "addr_postcode": "17403",
-        "addr_street": "Monument Rd",
-        "addr_housenumber": "55"
+        "id": 549,
+        "geometry": "POINT (-101.316102 48.206438)",
+        "poi_name": "Kelly Inn",
+        "osm_id": 8439703947,
+        "tourism": "hotel",
+        "addr_state": "ND",
+        "addr_city": "Minot",
+        "addr_postcode": "58701",
+        "addr_street": "26th Avenue Southwest",
+        "addr_housenumber": "1510"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2547,
+  "id": 1247,
   "type": "knn:direction+name"
 }

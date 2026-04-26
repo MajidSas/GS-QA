@@ -1,60 +1,115 @@
 {
-  "question": "Where can I find a nature reserve in the north direction of Malibu Jack's, Springfield, IL, within a radius of 120 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, 120000)\nAND leisure = 'nature_reserve'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a golf course positioned within 170 kilometers relative to Montefiore Medical Center - Wakefield Campus, Bronx, NY in the southwest direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography, 170000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 246437,
-      "geometry": "POINT (-89.704796 39.767257)",
-      "poi_name": "Ulrich Wildlife Preserve",
-      "osm_id": 9654359178,
-      "leisure": "nature_reserve",
-      "opening_hours": "dawn-dusk",
-      "operator": "Morton Park District",
-      "addr_state": "IL",
-      "addr_city": "Morton",
-      "addr_postcode": "61550",
-      "addr_street": "Turtle Creek Trail",
-      "addr_housenumber": "100"
+      "id": 245808,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "InHome Golf",
+      "osm_id": 10100433578,
+      "leisure": "golf_course",
+      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
+      "opening_hours": "Mo-Fr 08:00-18:00",
+      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
+      "phone": "+1 800-557-5859",
+      "addr_state": "NJ",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "07071",
+      "addr_street": "Wall Street West",
+      "addr_housenumber": "1000"
+    },
+    {
+      "id": 246266,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "Double Eagle Chip and Put",
+      "osm_id": 11226099749,
+      "leisure": "golf_course",
+      "operator": "Double Eagle"
+    },
+    {
+      "id": 246767,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "Cobblestone Creek Country Club",
+      "osm_id": 6381391425,
+      "leisure": "golf_course",
+      "opening_hours": "Tu-Su 10:00-18:00",
+      "addr_state": "NJ",
+      "addr_city": "Lawrence Township",
+      "addr_postcode": "08648",
+      "addr_street": "Lawrence Road",
+      "addr_housenumber": "2170"
+    },
+    {
+      "id": 248493,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "Twin Ponds Golf Course",
+      "osm_id": 4238541592,
+      "leisure": "golf_course",
+      "addr_state": "PA",
+      "addr_city": "Gilbertsville",
+      "addr_postcode": "19525",
+      "addr_street": "Gilbertsville Road",
+      "addr_housenumber": "700"
+    },
+    {
+      "id": 266215,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "The Golf Range @ Branchburg",
+      "osm_id": 7065436012,
+      "leisure": "golf_course",
+      "addr_state": "NJ",
+      "addr_city": "Branchburg Township",
+      "addr_postcode": "08876",
+      "addr_street": "US-22",
+      "addr_housenumber": "3091"
+    },
+    {
+      "id": 267204,
+      "geometry": "POINT (-73.861082 40.893776)",
+      "poi_name": "Fox Hollow Golf Club",
+      "osm_id": 5742212193,
+      "leisure": "golf_course",
+      "addr_state": "NJ",
+      "addr_city": "Branchburg Township",
+      "addr_postcode": "08876",
+      "addr_street": "Fox Chase Run",
+      "addr_housenumber": "59"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Montefiore Medical Center - Wakefield Campus, Bronx, NY",
+      "geo_wkt": "POINT (-73.861082 40.893776)",
       "poi": {
-        "id": 4386,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 37608,
+        "geometry": "POINT (-73.861082 40.893776)",
+        "poi_name": "Montefiore Medical Center - Wakefield Campus",
+        "osm_id": 2822777418,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10466",
+        "addr_street": "Carpenter Avenue",
+        "addr_housenumber": "4141"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 15,
+  "id": 2215,
   "type": "range:direction+loc"
 }

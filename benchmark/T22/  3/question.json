@@ -1,39 +1,49 @@
 {
-  "question": "Which way should I head to access the closest aquarium from Point Lookout, PA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the orientation from USS Serpens Monument, VA toward the nearest fast food restaurant?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.06869 38.874024)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.06869 38.874024)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23816,
-      "geometry": "POINT (-77.13886 38.967344)",
-      "poi_name": "Glen Echo Park Aquarium",
-      "osm_id": 9149543103,
-      "tourism": "aquarium",
-      "angle": 113.55669648384836
+      "id": 172901,
+      "geometry": "POINT (-77.07927 38.873594)",
+      "poi_name": "Subway",
+      "osm_id": 2419012532,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Fr 08:00-18:00; Sa 09:00-18:00; Su 11:00-17:00",
+      "website": "https://restaurants.subway.com/united-states/va/fort-myers/building-441-pershing-dr",
+      "phone": "+1-703-243-1786",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "VA",
+      "addr_city": "Fort Myer",
+      "addr_postcode": "22211",
+      "addr_street": "McNair Road",
+      "addr_housenumber": "106",
+      "angle": 267.0257774015587
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Point Lookout, PA",
-      "geo_wkt": "POINT (-79.663483 39.854147)",
+      "sub_category": "attraction",
+      "display_name": "USS Serpens Monument, VA",
+      "geo_wkt": "POINT (-77.06869 38.874024)",
       "poi": {
-        "id": 15562,
-        "geometry": "POINT (-79.663483 39.854147)",
-        "poi_name": "Point Lookout",
-        "osm_id": 4939274603,
-        "tourism": "viewpoint",
-        "addr_state": "PA",
-        "addr_street": "Scenic Overlook",
-        "addr_housenumber": "1"
+        "id": 2568,
+        "geometry": "POINT (-77.06869 38.874024)",
+        "poi_name": "USS Serpens Monument",
+        "osm_id": 515463132,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     }
   },
-  "id": 1402,
+  "id": 502,
   "type": "knn+angle"
 }

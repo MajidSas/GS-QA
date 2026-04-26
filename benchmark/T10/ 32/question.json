@@ -1,74 +1,68 @@
 {
-  "question": "What is the closest fast food from Community Stroke And Rehabilitation Center, Crown Point, IN towards National Museum of Puerto Rican Arts & Culture, Chicago, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography, ST_GeomFromText('POINT (-87.703187 41.902311)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.33391 41.430406)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is nearest along the route connecting Mentor Civic Arena, Mentor, OH to Woodrow Nash Art Gallery, Akron, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, ST_GeomFromText('POINT (-81.550837 41.084623)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.332139 41.698458)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 132605,
-      "geometry": "POINT (-87.345934 41.471676)",
-      "poi_name": "Steak 'n Shake",
-      "osm_id": 9959071466,
-      "amenity": "fast_food",
-      "cuisine": "burger",
+      "id": 106122,
+      "geometry": "POINT (-81.366879 41.65948)",
+      "poi_name": "Starbucks",
+      "osm_id": 8665711328,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
       "takeaway": "yes",
-      "drive_through": "yes",
-      "addr_state": "IN",
-      "addr_city": "Merrillville",
-      "addr_postcode": "46410",
-      "addr_street": "West 81st Avenue",
-      "value": 329.7196129571156
+      "official_name": "Starbucks Coffee",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Mentor Avenue",
+      "addr_housenumber": "7681",
+      "value": 195.09109812698026
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Community Stroke And Rehabilitation Center, Crown Point, IN",
-      "geo_wkt": "POINT (-87.33391 41.430406)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Mentor Civic Arena, Mentor, OH",
+      "geo_wkt": "POINT (-81.332139 41.698458)",
       "poi": {
-        "id": 182103,
-        "geometry": "POINT (-87.33391 41.430406)",
-        "poi_name": "Community Stroke And Rehabilitation Center",
-        "osm_id": 10876837568,
-        "amenity": "hospital",
-        "website": "https://www.comhs.org/about-us/community-stroke-and-rehabilitation-center",
-        "phone": "+1 219 836 1600",
-        "healthcare": "rehabilitation",
-        "addr_state": "IN",
-        "addr_city": "Crown Point",
-        "addr_postcode": "46307",
-        "addr_street": "Broadway Avenue",
-        "addr_housenumber": "10215"
+        "id": 246704,
+        "geometry": "POINT (-81.332139 41.698458)",
+        "poi_name": "Mentor Civic Arena",
+        "osm_id": 8842654476,
+        "leisure": "stadium",
+        "operator": "City of Mentor",
+        "addr_state": "OH",
+        "addr_city": "Mentor",
+        "addr_postcode": "44060",
+        "addr_street": "Munson Road",
+        "addr_housenumber": "8600"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "National Museum of Puerto Rican Arts & Culture, Chicago, IL",
-      "geo_wkt": "POINT (-87.703187 41.902311)",
+      "sub_category": "gallery",
+      "display_name": "Woodrow Nash Art Gallery, Akron, OH",
+      "geo_wkt": "POINT (-81.550837 41.084623)",
       "poi": {
-        "id": 8926,
-        "geometry": "POINT (-87.703187 41.902311)",
-        "poi_name": "National Museum of Puerto Rican Arts & Culture",
-        "osm_id": 3575515095,
-        "tourism": "museum",
-        "opening_hours": "Tu-Fr 10:00-17:00; Sa 10:00-14:00",
-        "website": "https://nmprac.org/",
-        "phone": "+1-773-486-8345",
-        "museum": "art",
-        "wikidata": "Q15228725",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60622",
-        "addr_street": "West Division Street",
-        "addr_housenumber": "3015"
+        "id": 26028,
+        "geometry": "POINT (-81.550837 41.084623)",
+        "poi_name": "Woodrow Nash Art Gallery",
+        "osm_id": 5765775263,
+        "tourism": "gallery",
+        "addr_state": "OH",
+        "addr_city": "Akron",
+        "addr_postcode": "44320",
+        "addr_street": "Copley Road",
+        "addr_housenumber": "800"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 131,
+  "id": 1631,
   "type": "knn:towards+name"
 }

@@ -1,40 +1,42 @@
 {
-  "question": "What is the count of stadia within 140 kilometers from Wolf Hill Forest Preserve, Smithfield, RI?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.539863 41.898564)',4326)::geography, 140000)\nAND leisure = 'stadium';\n",
+  "question": "How many hotels are available within 70 kilometers from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, 70000)\nAND tourism = 'hotel';\n",
   "answers": [
     {
-      "count": 8
+      "count": 64
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wolf Hill Forest Preserve, Smithfield, RI",
-      "geo_wkt": "POINT (-71.539863 41.898564)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
       "poi": {
-        "id": 246002,
-        "geometry": "POINT (-71.539863 41.898564)",
-        "poi_name": "Wolf Hill Forest Preserve",
-        "osm_id": 5422164134,
-        "leisure": "nature_reserve",
-        "website": "https://exploreri.org/",
-        "addr_state": "RI",
-        "addr_city": "Smithfield",
-        "addr_postcode": "02917",
-        "addr_street": "Waterview Drive"
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
       }
     }
   },
-  "id": 2297,
+  "id": 1897,
   "type": "range+count"
 }

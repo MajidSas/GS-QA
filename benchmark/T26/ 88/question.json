@@ -1,51 +1,41 @@
 {
-  "question": "How far away is the nearest university with respect to J. Pepin, Portland, OR?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-122.680325 45.525355)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.680325 45.525355)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from Chicago Portage National Historic Site, Lyons, IL to the closest garden available?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.802535 41.805303)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.802535 41.805303)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 143659,
-      "geometry": "POINT (-122.68312 45.527042)",
-      "poi_name": "Pacific University",
-      "osm_id": 6346326097,
-      "amenity": "university",
-      "description": "Master of Fine Arts in Writing",
-      "website": "https://www.pacificu.edu/",
-      "addr_state": "OR",
-      "addr_city": "Portland",
-      "addr_postcode": "97209",
-      "addr_street": "Northwest 12th Avenue",
-      "addr_housenumber": "530",
-      "distance": 287.83498163
+      "id": 246520,
+      "geometry": "POINT (-87.845305 41.814554)",
+      "poi_name": "Fairy Garden",
+      "osm_id": 9801980092,
+      "leisure": "garden",
+      "distance": 3699.62117939
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "J. Pepin, Portland, OR",
-      "geo_wkt": "POINT (-122.680325 45.525355)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Chicago Portage National Historic Site, Lyons, IL",
+      "geo_wkt": "POINT (-87.802535 41.805303)",
       "poi": {
-        "id": 7466,
-        "geometry": "POINT (-122.680325 45.525355)",
-        "poi_name": "J. Pepin",
-        "osm_id": 2174824165,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 12:00-17:30; Su 12:00-16:00",
-        "website": "http://www.jpepinartgallery.com/",
-        "phone": "+1-503-274-9614",
-        "addr_state": "OR",
-        "addr_city": "Portland",
-        "addr_postcode": "97209",
-        "addr_street": "Northwest 9th Avenue",
-        "addr_housenumber": "319"
+        "id": 249541,
+        "geometry": "POINT (-87.802535 41.805303)",
+        "poi_name": "Chicago Portage National Historic Site",
+        "osm_id": 354160458,
+        "leisure": "park",
+        "wikidata": "Q5095746",
+        "addr_state": "IL",
+        "addr_city": "Lyons",
+        "addr_street": "South Harlem Avenue",
+        "addr_housenumber": "4800"
       }
     }
   },
-  "id": 2487,
+  "id": 687,
   "type": "knn+distance"
 }

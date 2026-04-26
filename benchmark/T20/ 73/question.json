@@ -1,74 +1,68 @@
 {
-  "question": "Where is the closest caf\u00e9 along the way to Gallery 19C, Westlake, TX from LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, ST_GeomFromText('POINT (-97.174004 32.983278)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-97.043468 32.966617)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery along the corridor from University Spine Center, Wayne, NJ to NYU Courant Institute of Mathematical Sciences, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.226965 40.929521)',4326)::geography, ST_GeomFromText('POINT (-73.995715 40.728699)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.226965 40.929521)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.226965 40.929521)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 242710,
-      "geometry": "POINT (-97.168285 32.97901)",
-      "poi_name": "Starbucks",
-      "osm_id": 7592772161,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "internet_access": "yes",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "outdoor_seating": "no",
-      "addr_state": "TX",
-      "addr_city": "Westlake",
-      "addr_postcode": "76262",
-      "addr_street": "Solana Boulevard",
-      "addr_housenumber": "1301",
-      "value": 278.64618719969627
+      "id": 14422,
+      "geometry": "POINT (-74.169572 40.869853)",
+      "poi_name": "Sunrise Art Studio",
+      "osm_id": 4633865397,
+      "tourism": "gallery",
+      "website": "https://www.sunriseart.net/",
+      "addr_state": "NJ",
+      "addr_city": "Clifton",
+      "addr_postcode": "07013",
+      "addr_street": "Van Houten Avenue",
+      "addr_housenumber": "1212",
+      "value": 138.7490537507816
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "LEGOLAND Discovery Center Dallas/Fort Worth, Grapevine, TX",
-      "geo_wkt": "POINT (-97.043468 32.966617)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "University Spine Center, Wayne, NJ",
+      "geo_wkt": "POINT (-74.226965 40.929521)",
       "poi": {
-        "id": 9989,
-        "geometry": "POINT (-97.043468 32.966617)",
-        "poi_name": "LEGOLAND Discovery Center Dallas/Fort Worth",
-        "osm_id": 9095109739,
-        "tourism": "theme_park",
-        "wheelchair": "limited",
-        "operator": "Merlin Entertainments",
-        "website": "https://www.legolanddiscoverycenter.com/dallas-fw/",
-        "phone": "(469) 444-3050",
-        "wikidata": "Q20712562",
-        "addr_state": "TX",
-        "addr_city": "Grapevine",
-        "addr_postcode": "76051",
-        "addr_street": "Grapevine Mills Pkwy",
-        "addr_housenumber": "3000"
+        "id": 106693,
+        "geometry": "POINT (-74.226965 40.929521)",
+        "poi_name": "University Spine Center",
+        "osm_id": 8696653777,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "504"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Gallery 19C, Westlake, TX",
-      "geo_wkt": "POINT (-97.174004 32.983278)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "NYU Courant Institute of Mathematical Sciences, New York, NY",
+      "geo_wkt": "POINT (-73.995715 40.728699)",
       "poi": {
-        "id": 11867,
-        "geometry": "POINT (-97.174004 32.983278)",
-        "poi_name": "Gallery 19C",
-        "osm_id": 11592998741,
-        "tourism": "gallery",
-        "addr_state": "TX",
-        "addr_city": "Westlake",
-        "addr_postcode": "76262",
-        "addr_street": "Solana Boulevard",
-        "addr_housenumber": "1500"
+        "id": 168213,
+        "geometry": "POINT (-73.995715 40.728699)",
+        "poi_name": "NYU Courant Institute of Mathematical Sciences",
+        "osm_id": 368055987,
+        "amenity": "university",
+        "internet_access": "wlan",
+        "phone": "+12129983315",
+        "wikidata": "Q946028",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Mercer Street",
+        "addr_housenumber": "251"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1372,
+  "id": 1572,
   "type": "knn:towards+loc"
 }

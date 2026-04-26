@@ -1,43 +1,51 @@
 {
-  "question": "How far is the closest university from Werners Hotel, MI?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.312647 44.773391)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.312647 44.773391)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the closest caf\u00e9 relative to SeaQuest, Lynchburg, VA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.178489 37.365024)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182815,
-      "geometry": "POINT (-83.818127 45.421977)",
-      "poi_name": "Michigan State University (MSU) Extension - Presque Isle County",
-      "osm_id": 10905649867,
-      "amenity": "university",
-      "website": "https://www.canr.msu.edu/presque_isle/index",
-      "addr_state": "MI",
-      "addr_city": "Rogers City",
-      "addr_postcode": "49779",
-      "addr_street": "East Huron Avenue",
-      "addr_housenumber": "106",
-      "distance": 81918.17549353
+      "id": 137911,
+      "geometry": "POINT (-79.179326 37.364238)",
+      "poi_name": "Mission House Coffee",
+      "osm_id": 6121901279,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 08:00-21:00; Sa 09:00-21:00; Su 12:00-18:00",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_postcode": "24502",
+      "addr_street": "Candlers Mountain Road",
+      "addr_housenumber": "3405",
+      "distance": 114.44450361
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Werners Hotel, MI",
-      "geo_wkt": "POINT (-84.312647 44.773391)",
+      "sub_category": "aquarium",
+      "display_name": "SeaQuest, Lynchburg, VA",
+      "geo_wkt": "POINT (-79.178489 37.365024)",
       "poi": {
-        "id": 17553,
-        "geometry": "POINT (-84.312647 44.773391)",
-        "poi_name": "Werners Hotel",
-        "osm_id": 367815861,
-        "tourism": "hotel",
-        "addr_state": "MI"
+        "id": 10602,
+        "geometry": "POINT (-79.178489 37.365024)",
+        "poi_name": "SeaQuest",
+        "osm_id": 6937652614,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+        "website": "https://visitseaquest.com/lynchburg/",
+        "addr_state": "VA",
+        "addr_city": "Lynchburg",
+        "addr_postcode": "24502",
+        "addr_street": "Candlers Mountain Road",
+        "addr_housenumber": "3405"
       }
     }
   },
-  "id": 2432,
+  "id": 632,
   "type": "knn+distance"
 }

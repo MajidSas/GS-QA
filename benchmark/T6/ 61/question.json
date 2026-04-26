@@ -1,46 +1,52 @@
 {
-  "question": "What's the nearest art museum situated from Zao Island, Valparaiso, IN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'art'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.067399 41.458418)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which emergency hospital closest to the Coachlight Inn Motel, Oconto Falls, WI is available?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 4216,
-      "geometry": "POINT (-86.985557 41.673289)",
-      "poi_name": "Beverly Shores Depot Museum and Art Gallery",
-      "osm_id": 5720101016,
-      "tourism": "museum",
-      "website": "https://bsdepot.org/",
-      "museum": "art"
+      "id": 57799,
+      "geometry": "POINT (-88.454227 44.187892)",
+      "poi_name": "Children's Wisconsin-Fox Valley Hospital",
+      "osm_id": 5352023735,
+      "amenity": "hospital",
+      "operator": "Children's Hospital of Wisconsin",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "WI",
+      "addr_city": "Neenah",
+      "addr_postcode": "54956",
+      "addr_street": "2nd Street",
+      "addr_housenumber": "130"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "art museum",
-      "poi_filter_sql": "museum = 'art'"
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Zao Island, Valparaiso, IN",
-      "geo_wkt": "POINT (-87.067399 41.458418)",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
       "poi": {
-        "id": 22695,
-        "geometry": "POINT (-87.067399 41.458418)",
-        "poi_name": "Zao Island",
-        "osm_id": 7217435771,
-        "tourism": "theme_park",
-        "website": "https://zaoisland.net/",
-        "phone": "+1-219-462-1194",
-        "addr_state": "IN",
-        "addr_city": "Valparaiso",
-        "addr_postcode": "46385",
-        "addr_street": "Horse Prairie Avenue",
-        "addr_housenumber": "1050"
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
       }
     }
   },
-  "id": 660,
+  "id": 1460,
   "type": "knn:non_spat_filter+name"
 }

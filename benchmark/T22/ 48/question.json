@@ -1,48 +1,45 @@
 {
-  "question": "Which way should I take to get to the closest fast food restaurant from Raptor Center, Solon, IA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the orientation from New Mexico Highlands University, Las Vegas, NM toward the nearest zoo?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.221648 35.597175)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.221648 35.597175)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 116777,
-      "geometry": "POINT (-91.602527 41.752354)",
-      "poi_name": "Pizza Plus",
-      "osm_id": 8960109847,
-      "amenity": "fast_food",
-      "cuisine": "pizza",
-      "opening_hours": "Mo-Fr 17:00-21:00; Sa-Su 11:00-21:00",
-      "phone": "+1-319-626-3434",
-      "addr_state": "IA",
-      "addr_city": "North Liberty",
-      "addr_street": "North Dubuque Street",
-      "addr_housenumber": "515",
-      "angle": 217.9175313485792
+      "id": 12109,
+      "geometry": "POINT (-101.398051 35.65198)",
+      "poi_name": "Frank J Smith Bird Sanctuary",
+      "osm_id": 6189542194,
+      "tourism": "zoo",
+      "angle": 87.88078807762763
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Raptor Center, Solon, IA",
-      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New Mexico Highlands University, Las Vegas, NM",
+      "geo_wkt": "POINT (-105.221648 35.597175)",
       "poi": {
-        "id": 25164,
-        "geometry": "POINT (-91.571085 41.782583)",
-        "poi_name": "Raptor Center",
-        "osm_id": 4415617837,
-        "tourism": "zoo",
-        "addr_state": "IA",
-        "addr_city": "Solon",
-        "addr_postcode": "52333",
-        "addr_street": "Raptor Ridge Road Northeast",
-        "addr_housenumber": "3673"
+        "id": 167487,
+        "geometry": "POINT (-105.221648 35.597175)",
+        "poi_name": "New Mexico Highlands University",
+        "osm_id": 357574967,
+        "amenity": "university",
+        "wheelchair": "limited",
+        "website": "https://www.nmhu.edu/",
+        "phone": "+1 877 850 9064",
+        "wikidata": "Q7010189",
+        "addr_state": "NM",
+        "addr_city": "Las Vegas",
+        "addr_postcode": "87701",
+        "addr_street": "University Avenue",
+        "addr_housenumber": "800"
       }
     }
   },
-  "id": 1447,
+  "id": 547,
   "type": "knn+angle"
 }

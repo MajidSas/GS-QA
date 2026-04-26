@@ -1,45 +1,43 @@
 {
-  "question": "Seeking the nearest zoo from the attraction that was opened on June\u00a03,\u00a01937 in Rapid City, SD, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-103.271398 43.990679)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest stadium close to the university established in the year 1969 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5788,
-      "geometry": "POINT (-105.129607 39.976701)",
-      "poi_name": "My Nature Lab",
-      "osm_id": 1588879863,
-      "tourism": "zoo",
-      "opening_hours": "We-Fr 09:00-17:00; Sa,Su 10:00-16:00",
-      "website": "https://www.mynaturelab.org/",
-      "zoo": "reptile"
+      "id": 266107,
+      "geometry": "POINT (-87.688467 41.661626)",
+      "poi_name": "Memorial Stadium",
+      "osm_id": 10655734023,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Reptile Gardens, Rapid City, SD",
-      "geo_wkt": "POINT (-103.271398 43.990679)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
       "poi": {
-        "id": 1210,
-        "geometry": "POINT (-103.271398 43.990679)",
-        "poi_name": "Reptile Gardens",
-        "osm_id": 2897438619,
-        "tourism": "attraction",
-        "website": "https://www.reptilegardens.com/",
-        "wikidata": "Q3427461",
-        "addr_state": "SD",
-        "addr_city": "Rapid City",
-        "addr_postcode": "57702",
-        "addr_street": "South Highway 16",
-        "addr_housenumber": "8955"
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
       }
     }
   },
-  "id": 2760,
-  "type": "knn+name+multihop2"
+  "id": 960,
+  "type": "knn+name+multi_source2"
 }

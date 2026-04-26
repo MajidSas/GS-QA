@@ -1,52 +1,50 @@
 {
-  "question": "What's the nearest emergency hospital available from Big Creek Historical Museum, Polk City, Iowa?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.714492 41.771489)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which new american restaurant is closest to J P Riddle Stadium, Fayetteville, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american_new%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 147577,
-      "geometry": "POINT (-95.977982 41.256489)",
-      "poi_name": "Nebraska Medicine emergency Services at Nebraska Medical Center",
-      "osm_id": 7546124076,
-      "amenity": "hospital",
-      "website": "https://nebraskamed.com/",
-      "phone": "+1-402-559-6637",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "NE",
-      "addr_city": "Omaha",
-      "addr_postcode": "68105",
-      "addr_street": "Dewey Avenue",
-      "addr_housenumber": "4350"
+      "id": 96946,
+      "geometry": "POINT (-84.520193 39.115781)",
+      "poi_name": "Social OTR",
+      "osm_id": 6452827763,
+      "amenity": "restaurant",
+      "cuisine": "american;new_american",
+      "website": "https://socialotr.com",
+      "phone": "+1-513-263-6893",
+      "addr_state": "OH",
+      "addr_city": "Cincinnati",
+      "addr_postcode": "45202",
+      "addr_street": "Elm Street",
+      "addr_housenumber": "1819"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "new american restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%american_new%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Big Creek Historical Museum, Polk City, Iowa",
-      "geo_wkt": "POINT (-93.714492 41.771489)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
       "poi": {
-        "id": 24693,
-        "geometry": "POINT (-93.714492 41.771489)",
-        "poi_name": "Big Creek Historical Museum",
-        "osm_id": 11173288748,
-        "tourism": "museum",
-        "museum": "history",
-        "addr_state": "Iowa",
-        "addr_city": "Polk City",
-        "addr_postcode": "50226",
-        "addr_street": "South 3rd Street",
-        "addr_housenumber": "116"
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
+        "leisure": "stadium",
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
       }
     }
   },
-  "id": 689,
+  "id": 1489,
   "type": "knn:non_spat_filter+name"
 }

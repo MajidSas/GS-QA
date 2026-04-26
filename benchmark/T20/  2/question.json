@@ -1,67 +1,76 @@
 {
-  "question": "Where's the closest restaurant on the route to the Francis, Portland, ME from UMA Handley Hall, Augusta, ME?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography, ST_GeomFromText('POINT (-70.27053 43.653517)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-69.774666 44.313813)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest attraction as you travel in the direction of Sunrise Art Studio, Clifton, NJ from Children's Cultural Center of Native America, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, ST_GeomFromText('POINT (-74.169572 40.869853)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 193200,
-      "geometry": "POINT (-69.790286 44.286327)",
-      "poi_name": "Liberal Cup",
-      "osm_id": 1507961585,
-      "amenity": "restaurant",
-      "phone": "+1-207-623-2739",
-      "addr_state": "ME",
-      "addr_city": "Hallowell",
-      "addr_postcode": "04347",
-      "addr_street": "Water Street",
-      "addr_housenumber": "115",
-      "value": 208.64070871023455
+      "id": 23386,
+      "geometry": "POINT (-74.053112 40.869207)",
+      "poi_name": "Urban Air Trampoline & Adventure Park",
+      "osm_id": 5159110696,
+      "leisure": "playground",
+      "description": "Trampoline Park in South Hackensack.",
+      "tourism": "attraction",
+      "operator": "Urban Air LLC",
+      "website": "https://www.urbanairtrampolinepark.com/trampoline-park-locations/south-hackensack-nj/",
+      "phone": "+1-201- 212-6454",
+      "addr_state": "NJ",
+      "addr_city": "South Hackensack",
+      "addr_postcode": "07606",
+      "addr_street": "Wesley Street",
+      "addr_housenumber": "69",
+      "value": 282.5354216409954
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "UMA Handley Hall, Augusta, ME",
-      "geo_wkt": "POINT (-69.774666 44.313813)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Children's Cultural Center of Native America, New York, NY",
+      "geo_wkt": "POINT (-73.944872 40.832146)",
       "poi": {
-        "id": 116615,
-        "geometry": "POINT (-69.774666 44.313813)",
-        "poi_name": "UMA Handley Hall",
-        "osm_id": 8949781064,
-        "amenity": "university",
-        "addr_state": "ME",
-        "addr_city": "Augusta",
-        "addr_postcode": "04330",
-        "addr_street": "Water Street",
-        "addr_housenumber": "331"
+        "id": 979,
+        "geometry": "POINT (-73.944872 40.832146)",
+        "poi_name": "Children's Cultural Center of Native America",
+        "osm_id": 2768275469,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 10:30-13:00",
+        "operator": "Nitchen Inc.",
+        "website": "https://www.cccona.org/",
+        "phone": "+1-917-902-6628",
+        "museum": "children",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10032",
+        "addr_street": "West 155th Street",
+        "addr_housenumber": "550"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "The Francis, Portland, ME",
-      "geo_wkt": "POINT (-70.27053 43.653517)",
+      "sub_category": "gallery",
+      "display_name": "Sunrise Art Studio, Clifton, NJ",
+      "geo_wkt": "POINT (-74.169572 40.869853)",
       "poi": {
-        "id": 22590,
-        "geometry": "POINT (-70.27053 43.653517)",
-        "poi_name": "The Francis",
-        "osm_id": 7171976319,
-        "tourism": "hotel",
-        "website": "https://thefrancismaine.com/",
-        "phone": "+1 (207) 772-7485",
-        "addr_state": "ME",
-        "addr_city": "Portland",
-        "addr_postcode": "04102",
-        "addr_street": "Congress Street",
-        "addr_housenumber": "747"
+        "id": 14422,
+        "geometry": "POINT (-74.169572 40.869853)",
+        "poi_name": "Sunrise Art Studio",
+        "osm_id": 4633865397,
+        "tourism": "gallery",
+        "website": "https://www.sunriseart.net/",
+        "addr_state": "NJ",
+        "addr_city": "Clifton",
+        "addr_postcode": "07013",
+        "addr_street": "Van Houten Avenue",
+        "addr_housenumber": "1212"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     }
   },
-  "id": 1301,
+  "id": 1501,
   "type": "knn:towards+loc"
 }

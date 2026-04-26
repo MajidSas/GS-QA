@@ -1,63 +1,71 @@
 {
-  "question": "Where's the nearest caf\u00e9 heading towards Camas Boutique Hotel, Camas, WA from Latourette Park, OR?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography, ST_GeomFromText('POINT (-122.404091 45.586093)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.253977 45.435954)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest attraction encountered en route to Anya & Andrew Shiva Gallery, New York, NY from Science Hall East, Wayne, NJ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography, ST_GeomFromText('POINT (-73.990272 40.771366)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.197392 40.946212)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 178284,
-      "geometry": "POINT (-122.387929 45.519233)",
-      "poi_name": "Stark Street Espresso Bar",
-      "osm_id": 10719655554,
-      "amenity": "cafe",
-      "addr_state": "OR",
-      "addr_city": "Troutdale",
-      "addr_postcode": "97060",
-      "addr_street": "Southeast Stark Street",
-      "addr_housenumber": "26729",
-      "value": 324.94729060340165
+      "id": 15218,
+      "geometry": "POINT (-74.143347 40.858032)",
+      "poi_name": "Brighton Asylum",
+      "osm_id": 4830873565,
+      "tourism": "attraction",
+      "phone": "+1-201-716-2827",
+      "addr_state": "NJ",
+      "addr_city": "Passaic",
+      "addr_postcode": "07055",
+      "addr_street": "Brighton Avenue",
+      "addr_housenumber": "2",
+      "value": 137.9644867708545
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Latourette Park, OR",
-      "geo_wkt": "POINT (-122.253977 45.435954)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Science Hall East, Wayne, NJ",
+      "geo_wkt": "POINT (-74.197392 40.946212)",
       "poi": {
-        "id": 254285,
-        "geometry": "POINT (-122.253977 45.435954)",
-        "poi_name": "Latourette Park",
-        "osm_id": 357348737,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 63022,
+        "geometry": "POINT (-74.197392 40.946212)",
+        "poi_name": "Science Hall East",
+        "osm_id": 5597728216,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Camas Boutique Hotel, Camas, WA",
-      "geo_wkt": "POINT (-122.404091 45.586093)",
+      "sub_category": "gallery",
+      "display_name": "Anya & Andrew Shiva Gallery, New York, NY",
+      "geo_wkt": "POINT (-73.990272 40.771366)",
       "poi": {
-        "id": 18912,
-        "geometry": "POINT (-122.404091 45.586093)",
-        "poi_name": "Camas Boutique Hotel",
-        "osm_id": 2447372810,
-        "tourism": "hotel",
-        "website": "https://www.camasboutiquehotel.com/",
-        "internet_access": "wlan",
-        "phone": "+1-360-834-5722",
-        "addr_state": "WA",
-        "addr_city": "Camas",
-        "addr_postcode": "98607",
-        "addr_street": "Northeast 4th Avenue",
-        "addr_housenumber": "405"
+        "id": 26902,
+        "geometry": "POINT (-73.990272 40.771366)",
+        "poi_name": "Anya & Andrew Shiva Gallery",
+        "osm_id": 7618290787,
+        "tourism": "gallery",
+        "wheelchair": "yes",
+        "opening_hours": "Mo-Fr 10:00-18:00",
+        "operator": "John Jay College of Criminal Justice",
+        "website": "http://shivagallery.org",
+        "internet_access": "no",
+        "phone": "+1-212-237-1439",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10019",
+        "addr_street": "11th Avenue",
+        "addr_housenumber": "860"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     }
   },
-  "id": 1359,
+  "id": 1559,
   "type": "knn:towards+loc"
 }

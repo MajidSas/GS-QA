@@ -1,46 +1,48 @@
 {
-  "question": "What's the closest aquarium positioned towards the southwest of Saint Vincent Surgery Center, Erie, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.080993 42.110692)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the closest university north of Eddy Lookout Tower, Sanderson, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24095,
-      "geometry": "POINT (-80.080993 42.110692)",
-      "poi_name": "The Reef Aquarium Shop",
-      "osm_id": 9310064911,
-      "tourism": "aquarium"
+      "id": 167655,
+      "geometry": "POINT (-82.34337 30.543305)",
+      "poi_name": "Augusta University",
+      "osm_id": 358707380,
+      "amenity": "university",
+      "wikidata": "Q5547686",
+      "addr_postcode": "30912",
+      "addr_street": "Fifteenth Street",
+      "addr_housenumber": "1120"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Saint Vincent Surgery Center, Erie, PA",
-      "geo_wkt": "POINT (-80.080993 42.110692)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Eddy Lookout Tower, Sanderson, FL",
+      "geo_wkt": "POINT (-82.34337 30.543305)",
       "poi": {
-        "id": 31592,
-        "geometry": "POINT (-80.080993 42.110692)",
-        "poi_name": "Saint Vincent Surgery Center",
-        "osm_id": 8435416614,
-        "amenity": "hospital",
-        "operator": "Allegheny Health Network",
-        "healthcare": "hospital",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16544",
-        "addr_street": "West 25th Street",
-        "addr_housenumber": "312"
+        "id": 8681,
+        "geometry": "POINT (-82.34337 30.543305)",
+        "poi_name": "Eddy Lookout Tower",
+        "osm_id": 8618634369,
+        "tourism": "viewpoint",
+        "addr_state": "FL",
+        "addr_city": "Sanderson",
+        "addr_postcode": "32087",
+        "addr_street": "State Road 2",
+        "addr_housenumber": "18568"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2562,
+  "id": 1262,
   "type": "knn:direction+name"
 }

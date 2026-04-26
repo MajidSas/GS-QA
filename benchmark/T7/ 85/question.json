@@ -1,51 +1,54 @@
 {
-  "question": "When was the nearest museum from Montana Grizzly Encounter, Bozeman, MT established?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest nature reserve from UIS Greenhouse, Springfield, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16445,
-      "geometry": "POINT (-111.054974 45.659349)",
-      "poi_name": "American Computer Museum",
-      "osm_id": 366093943,
-      "tourism": "museum",
-      "fee": "yes",
-      "opening_hours": "Tu-Su 10:00-16:00",
-      "website": "http://www.compustory.com/",
-      "wikidata": "Q4743510",
-      "addr_state": "MT",
-      "addr_city": "Bozeman",
-      "addr_street": "Stadium Drive",
-      "addr_housenumber": "2023",
-      "multihop_answer": "May 1990",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "American Computer Museum Established: May 1990"
+      "id": 267118,
+      "geometry": "POINT (-89.61996 39.802443)",
+      "poi_name": "Margery Adams Wildlife Sanctuary",
+      "osm_id": 4567499757,
+      "leisure": "nature_reserve",
+      "website": "https://illinoisaudubon.org/location/adams-wildlife-sanctuary/",
+      "phone": "+1-217-544-5781",
+      "wikidata": "Q4680461",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Clear Lake Avenue",
+      "addr_housenumber": "2315",
+      "multi_source_answer": "1983",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Margery Adams Wildlife Sanctuary Established: 1983"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Montana Grizzly Encounter, Bozeman, MT",
-      "geo_wkt": "POINT (-110.834041 45.663969)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
       "poi": {
-        "id": 14047,
-        "geometry": "POINT (-110.834041 45.663969)",
-        "poi_name": "Montana Grizzly Encounter",
-        "osm_id": 4215553273,
-        "tourism": "zoo",
-        "addr_state": "MT",
-        "addr_city": "Bozeman",
-        "addr_postcode": "59175",
-        "addr_street": "Bozeman Hill Road",
-        "addr_housenumber": "18000"
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 984,
-  "type": "knn+name+multihop1"
+  "id": 884,
+  "type": "knn+name+multi_source1"
 }

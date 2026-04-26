@@ -1,74 +1,69 @@
 {
-  "question": "Where is the nearest fast food restaurant as you head towards Lions Club Park, Oconee, IL from Malibu Jack's, Springfield, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, ST_GeomFromText('POINT (-89.109338 39.288623)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant you hit on the way to William and Ida Friday Institute for Educational Innovation, Raleigh, NC from Ganyard Hill Farms, Durham, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography, ST_GeomFromText('POINT (-78.68802 35.758656)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 150299,
-      "geometry": "POINT (-89.70215 39.764596)",
-      "poi_name": "Chick-fil-A",
-      "osm_id": 4049260597,
-      "amenity": "fast_food",
-      "cuisine": "chicken",
-      "opening_hours": "Mo-Sa 06:30-22:00",
-      "website": "https://www.chick-fil-a.com/locations/il/white-oaks",
-      "phone": "+1-217-546-2000",
-      "takeaway": "yes",
-      "drive_through": "yes",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62704",
-      "addr_street": "Wabash Avenue",
-      "addr_housenumber": "2431",
-      "value": 135.87743245763852
+      "id": 206864,
+      "geometry": "POINT (-78.788713 35.91968)",
+      "poi_name": "Your Pie",
+      "osm_id": 7231241230,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "website": "https://yourpie.com/stores/raleigh-brier-creek/",
+      "phone": "+1-919-957-0077",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27703",
+      "addr_street": "Corners Parkway",
+      "addr_housenumber": "4233",
+      "value": 153.27417006783114
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "sub_category": "attraction",
+      "display_name": "Ganyard Hill Farms, Durham, NC",
+      "geo_wkt": "POINT (-78.811548 35.958684)",
       "poi": {
-        "id": 4386,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 1828,
+        "geometry": "POINT (-78.811548 35.958684)",
+        "poi_name": "Ganyard Hill Farms",
+        "osm_id": 3159155056,
+        "tourism": "attraction",
+        "website": "http://ganyardhillfarm.com/",
+        "addr_state": "NC",
+        "addr_city": "Durham",
+        "addr_postcode": "27703",
+        "addr_street": "Sherron Road",
+        "addr_housenumber": "319"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Lions Club Park, Oconee, IL",
-      "geo_wkt": "POINT (-89.109338 39.288623)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "William and Ida Friday Institute for Educational Innovation, Raleigh, NC",
+      "geo_wkt": "POINT (-78.68802 35.758656)",
       "poi": {
-        "id": 246028,
-        "geometry": "POINT (-89.109338 39.288623)",
-        "poi_name": "Lions Club Park",
-        "osm_id": 5474510779,
-        "leisure": "park",
-        "addr_state": "IL",
-        "addr_city": "Oconee",
-        "addr_postcode": "62553",
-        "addr_street": "North 2nd Street"
+        "id": 174236,
+        "geometry": "POINT (-78.68802 35.758656)",
+        "poi_name": "William and Ida Friday Institute for Educational Innovation",
+        "osm_id": 2470661698,
+        "amenity": "university",
+        "website": "https://www.fi.ncsu.edu/",
+        "addr_state": "NC",
+        "addr_city": "Raleigh",
+        "addr_postcode": "27606",
+        "addr_street": "Main Campus Drive",
+        "addr_housenumber": "1890"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1334,
+  "id": 1534,
   "type": "knn:towards+loc"
 }

@@ -1,52 +1,57 @@
 {
-  "question": "What's the closest museum positioned towards the east of Universty Medical Center, Lubbock, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-101.891285 33.587996)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which hotel is the nearest in the northwest direction of Money Museum, Chicago, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.632568 41.87833)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 15165,
-      "geometry": "POINT (-101.891285 33.587996)",
-      "poi_name": "The Buddy Holly Center",
-      "osm_id": 4815554192,
-      "tourism": "museum",
-      "website": "https://ci.lubbock.tx.us/departments/buddy-holly-center",
-      "addr_state": "TX",
-      "addr_city": "Lubbock",
-      "addr_street": "Crickets Avenue",
-      "addr_housenumber": "1801"
+      "id": 9859,
+      "geometry": "POINT (-87.632568 41.87833)",
+      "poi_name": "Homewood Suites",
+      "osm_id": 9025067829,
+      "tourism": "hotel",
+      "wheelchair": "yes",
+      "internet_access": "wlan",
+      "official_name": "Homewood Suites by Hilton",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60661",
+      "addr_street": "North Jefferson Street",
+      "addr_housenumber": "118"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Universty Medical Center, Lubbock, TX",
-      "geo_wkt": "POINT (-101.891285 33.587996)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Money Museum, Chicago, IL",
+      "geo_wkt": "POINT (-87.632568 41.87833)",
       "poi": {
-        "id": 143774,
-        "geometry": "POINT (-101.891285 33.587996)",
-        "poi_name": "Universty Medical Center",
-        "osm_id": 6350686701,
-        "amenity": "hospital",
-        "operator": "UMC Health Systems",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "TX",
-        "addr_city": "Lubbock",
-        "addr_postcode": "79415",
-        "addr_street": "Indiana Avenue",
-        "addr_housenumber": "602"
+        "id": 1419,
+        "geometry": "POINT (-87.632568 41.87833)",
+        "poi_name": "Money Museum",
+        "osm_id": 2979738790,
+        "tourism": "museum",
+        "fee": "no",
+        "opening_hours": "Mo-Fr 08:30-17:00",
+        "operator": "Federal Reserve Bank of Chicago",
+        "website": "https://www.chicagofed.org/education/money-museum/",
+        "wikidata": "Q965251",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60604",
+        "addr_street": "South LaSalle Street",
+        "addr_housenumber": "230"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2570,
+  "id": 1270,
   "type": "knn:direction+name"
 }

@@ -1,52 +1,55 @@
 {
-  "question": "When was the the nearest university from River Deck, Edgewater, MD built?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What type of emergency department is available at the nearest hospital from Mission Hills Church Park, San Marcos, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167598,
-      "geometry": "POINT (-76.483216 38.981598)",
-      "poi_name": "United States Naval Academy",
-      "osm_id": 358250114,
-      "amenity": "university",
-      "operator": "United States Navy",
-      "website": "https://www.usna.edu/",
-      "wikidata": "Q559549",
-      "addr_state": "MD",
-      "addr_city": "Annapolis",
-      "addr_postcode": "21402",
-      "addr_street": "Blake Road",
-      "addr_housenumber": "121",
-      "multihop_answer": "1845",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "United States Naval Academy Built: 1845"
+      "id": 167717,
+      "geometry": "POINT (-117.055952 32.996822)",
+      "poi_name": "Palomar Medical Center Poway",
+      "osm_id": 358845273,
+      "amenity": "hospital",
+      "operator": "Palomar Health",
+      "website": "http://www.pph.org/ContentPage.aspx?nd=420",
+      "phone": "+18586134000",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7227263",
+      "addr_state": "CA",
+      "addr_city": "Poway",
+      "addr_postcode": "92064",
+      "addr_street": "Pomerado Road",
+      "addr_housenumber": "15615",
+      "multi_source_answer": "Yes",
+      "multi_source_attribute": "Emergency department",
+      "multi_source_long_answer": "Palomar Medical Center Poway Emergency department: Yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mission Hills Church Park, San Marcos, CA",
+      "geo_wkt": "POINT (-117.148078 33.148133)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
-        "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "id": 246426,
+        "geometry": "POINT (-117.148078 33.148133)",
+        "poi_name": "Mission Hills Church Park",
+        "osm_id": 9632460029,
+        "leisure": "park",
+        "operator": "Mission Hills Church",
+        "addr_state": "CA",
+        "addr_city": "San Marcos",
+        "addr_postcode": "92069",
+        "addr_street": "E. Mission Hills Court",
+        "addr_housenumber": "400"
       }
     }
   },
-  "id": 982,
-  "type": "knn+name+multihop1"
+  "id": 882,
+  "type": "knn+name+multi_source1"
 }

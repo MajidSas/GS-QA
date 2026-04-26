@@ -1,42 +1,43 @@
 {
-  "question": "Where is the nearest hospital towards the north of Knight Sports Arena, VA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-79.350197 37.74151)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest university toward the north of J P Riddle Stadium, Fayetteville, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167361,
-      "geometry": "POINT (-79.350197 37.74151)",
-      "poi_name": "John Manchin Senior Health Care Center",
-      "osm_id": 356534697,
-      "amenity": "hospital",
-      "operator": "West Virginia Department of Health & Human Resources",
-      "website": "http://www.dhhr.wv.gov/bhhf/facilities/John ManchinSr.HealthCareCenter/",
-      "phone": "+1 304 363 2500",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "addr_city": "Fairmont",
-      "addr_postcode": "26554",
-      "addr_street": "Guffy Street",
-      "addr_housenumber": "401"
+      "id": 167543,
+      "geometry": "POINT (-78.909681 35.008472)",
+      "poi_name": "Fayetteville State University",
+      "osm_id": 357772684,
+      "amenity": "university",
+      "operator": "A Constituent Institution of the University of North Carolina",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_postcode": "28301",
+      "addr_street": "Murchison Road",
+      "addr_housenumber": "1200"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Knight Sports Arena, VA",
-      "geo_wkt": "POINT (-79.350197 37.74151)",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
       "poi": {
-        "id": 265386,
-        "geometry": "POINT (-79.350197 37.74151)",
-        "poi_name": "Knight Sports Arena",
-        "osm_id": 367997526,
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
         "leisure": "stadium",
-        "addr_state": "VA"
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
       }
     },
     "[3]": {

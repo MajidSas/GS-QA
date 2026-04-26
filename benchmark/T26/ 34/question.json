@@ -1,47 +1,43 @@
 {
-  "question": "What's the separation between Nemacolin, Farmington, PA and the nearest hospital?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.55178 39.804851)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.55178 39.804851)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest fast food restaurant relative to where Point Lookout, PA is?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.663483 39.854147)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167363,
-      "geometry": "POINT (-79.958858 39.653775)",
-      "poi_name": "Mary Babb Randolph Cancer Center",
-      "osm_id": 356536005,
-      "amenity": "hospital",
-      "website": "https://wvucancer.org/",
-      "phone": "+1 877 427 2894",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "distance": 38720.59435365
+      "id": 172956,
+      "geometry": "POINT (-79.619823 39.844042)",
+      "poi_name": "Subway",
+      "osm_id": 2419971732,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_postcode": "15421",
+      "addr_street": "US Route 40",
+      "distance": 3901.32569748
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Nemacolin, Farmington, PA",
-      "geo_wkt": "POINT (-79.55178 39.804851)",
+      "sub_category": "viewpoint",
+      "display_name": "Point Lookout, PA",
+      "geo_wkt": "POINT (-79.663483 39.854147)",
       "poi": {
-        "id": 3069,
-        "geometry": "POINT (-79.55178 39.804851)",
-        "poi_name": "Nemacolin",
-        "osm_id": 10155810291,
-        "tourism": "hotel",
-        "website": "https://www.nemacolin.com/",
-        "phone": "866-344-6957",
+        "id": 15562,
+        "geometry": "POINT (-79.663483 39.854147)",
+        "poi_name": "Point Lookout",
+        "osm_id": 4939274603,
+        "tourism": "viewpoint",
         "addr_state": "PA",
-        "addr_city": "Farmington",
-        "addr_postcode": "15437",
-        "addr_street": "Lafayette Drive",
-        "addr_housenumber": "1001"
+        "addr_street": "Scenic Overlook",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 2433,
+  "id": 633,
   "type": "knn+distance"
 }

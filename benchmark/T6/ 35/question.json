@@ -1,51 +1,51 @@
 {
-  "question": "Which emergency hospital nearby Lakeland College-Central Wisconsin Center, Wisconsin Rapids, WI?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.783214 44.39316)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hot pot restaurant around Mays Chapel Medical Care Center, Lutherville, MD is closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%hot_pot%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 239830,
-      "geometry": "POINT (-90.178312 44.6769)",
-      "poi_name": "Marshfield Children's Hospital",
-      "osm_id": 5940818235,
-      "amenity": "hospital",
-      "operator": "Marshfield Clinic",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "WI",
-      "addr_city": "Marshfield",
-      "addr_postcode": "54449",
-      "addr_street": "Saint Joseph Avenue",
-      "addr_housenumber": "611"
+      "id": 180729,
+      "geometry": "POINT (-73.833045 40.760646)",
+      "poi_name": "Chongqing Lao Zao",
+      "osm_id": 10815574642,
+      "amenity": "restaurant",
+      "cuisine": "chinese;hot_pot",
+      "phone": "9175637171",
+      "addr_state": "NY",
+      "addr_city": "Flushing",
+      "addr_postcode": "11354",
+      "addr_street": "Prince Street",
+      "addr_housenumber": "37-04"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "hot pot restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%hot_pot%'"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Lakeland College- Central Wisconsin Center, Wisconsin Rapids, WI",
-      "geo_wkt": "POINT (-89.783214 44.39316)",
+      "sub_category": "hospital",
+      "display_name": "Mays Chapel Medical Care Center, Lutherville, MD",
+      "geo_wkt": "POINT (-76.663402 39.458755)",
       "poi": {
-        "id": 110443,
-        "geometry": "POINT (-89.783214 44.39316)",
-        "poi_name": "Lakeland College- Central Wisconsin Center",
-        "osm_id": 3703484054,
-        "amenity": "university",
-        "operator": "Lakeland College",
-        "addr_state": "WI",
-        "addr_city": "Wisconsin Rapids",
-        "addr_postcode": "54494",
-        "addr_street": "32nd Street North",
-        "addr_housenumber": "500"
+        "id": 41532,
+        "geometry": "POINT (-76.663402 39.458755)",
+        "poi_name": "Mays Chapel Medical Care Center",
+        "osm_id": 3019370509,
+        "amenity": "hospital",
+        "operator": "Lifebridge Health",
+        "website": "https://www.lifebridgehealth.org/Main/MaysChapelMedicalCareCenters.aspx",
+        "addr_state": "MD",
+        "addr_city": "Lutherville",
+        "addr_postcode": "21093",
+        "addr_street": "Tullamore Road",
+        "addr_housenumber": "12221"
       }
     }
   },
-  "id": 634,
+  "id": 1434,
   "type": "knn:non_spat_filter+name"
 }

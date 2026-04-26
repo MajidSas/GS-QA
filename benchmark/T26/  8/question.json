@@ -1,21 +1,19 @@
 {
-  "question": "How distant is the closest stadium located from It's A Zoo Life, Macclesville, NC?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between Taylor's Aquarium, Dunn, NC and the closest available stadium?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248769,
-      "geometry": "POINT (-78.060871 35.61119)",
-      "poi_name": "Southern National Motorsport Park",
-      "osm_id": 4773889332,
+      "id": 246067,
+      "geometry": "POINT (-78.909681 35.008472)",
+      "poi_name": "J P Riddle Stadium",
+      "osm_id": 5529754475,
       "leisure": "stadium",
-      "sport": "motor",
-      "wikidata": "Q7570163",
       "addr_state": "NC",
-      "addr_city": "Lucama",
-      "addr_postcode": "27851",
-      "addr_street": "Newsome Mill Road",
-      "addr_housenumber": "8071",
-      "distance": 40030.61171509
+      "addr_city": "Fayetteville",
+      "addr_postcode": "28306",
+      "addr_street": "Legion Road",
+      "addr_housenumber": "2823",
+      "distance": 36131.63663297
     }
   ],
   "answer_type": "distance",
@@ -26,27 +24,24 @@
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "It's A Zoo Life, Macclesville, NC",
-      "geo_wkt": "POINT (-77.67449 35.786787)",
+      "sub_category": "aquarium",
+      "display_name": "Taylor's Aquarium, Dunn, NC",
+      "geo_wkt": "POINT (-78.589533 35.200429)",
       "poi": {
-        "id": 12531,
-        "geometry": "POINT (-77.67449 35.786787)",
-        "poi_name": "It's A Zoo Life",
-        "osm_id": 7297084056,
-        "tourism": "zoo",
-        "fee": "yes",
-        "opening_hours": "Mo-Sa 08:00-17:00",
-        "phone": "(252) 266-7974",
-        "zoo": "petting_zoo",
+        "id": 24624,
+        "geometry": "POINT (-78.589533 35.200429)",
+        "poi_name": "Taylor's Aquarium",
+        "osm_id": 11141985607,
+        "tourism": "aquarium",
+        "phone": "+19105675377",
         "addr_state": "NC",
-        "addr_city": "Macclesville",
-        "addr_postcode": "27852",
-        "addr_street": "NC-42",
-        "addr_housenumber": "4313"
+        "addr_city": "Dunn",
+        "addr_postcode": "28334",
+        "addr_street": "North Spring Branch Road",
+        "addr_housenumber": "590"
       }
     }
   },
-  "id": 2407,
+  "id": 607,
   "type": "knn+distance"
 }

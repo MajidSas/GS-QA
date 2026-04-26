@@ -1,38 +1,47 @@
 {
-  "question": "Looking for the closest fast food restaurant in relation to Ice Arena, MN, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.694594 44.04413)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest caf\u00e9 around Shop One, Rochester, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 230522,
-      "geometry": "POINT (-91.677205 44.048943)",
-      "poi_name": "Subway",
-      "osm_id": 4428410442,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes"
+      "id": 172421,
+      "geometry": "POINT (-77.67971 43.082585)",
+      "poi_name": "Midnight Oil",
+      "osm_id": 2402056831,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 07:30-23:00; Sa,Su 10:00-23:00",
+      "internet_access": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Ice Arena, MN",
-      "geo_wkt": "POINT (-91.694594 44.04413)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Shop One, Rochester, NY",
+      "geo_wkt": "POINT (-77.680465 43.08274)",
       "poi": {
-        "id": 265357,
-        "geometry": "POINT (-91.694594 44.04413)",
-        "poi_name": "Ice Arena",
-        "osm_id": 367067698,
-        "leisure": "stadium",
-        "addr_state": "MN"
+        "id": 1083,
+        "geometry": "POINT (-77.680465 43.08274)",
+        "poi_name": "Shop One",
+        "osm_id": 2825443717,
+        "tourism": "attraction",
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "website": "http://www.shopone.rit.edu",
+        "shop": "gift",
+        "phone": "585-475-2335",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14623",
+        "addr_street": "Reynolds Drive",
+        "addr_housenumber": "6000"
       }
     }
   },
-  "id": 239,
+  "id": 1039,
   "type": "knn+name"
 }

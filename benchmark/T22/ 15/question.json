@@ -1,51 +1,54 @@
 {
-  "question": "What's the bearing to the nearest museum from Go Ape Treetop Adventure Course, Strongsville, OH?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way is the nearest caf\u00e9 located from Oak Grove Football Stadium, Bessemer, AL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.156715 33.468802)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9729,
-      "geometry": "POINT (-81.834579 41.315481)",
-      "poi_name": "Strong House",
-      "osm_id": 8958333966,
-      "tourism": "museum",
-      "operator": "City of Strongsville",
-      "website": "http://www.strongsville.org/about-strongsville/history",
-      "museum": "history",
-      "addr_state": "OH",
-      "addr_city": "Strongsville",
-      "addr_postcode": "44136",
-      "addr_street": "Westwood Drive",
-      "addr_housenumber": "18910",
-      "angle": 241.42910057228508
+      "id": 203319,
+      "geometry": "POINT (-86.874415 33.497985)",
+      "poi_name": "Starbucks",
+      "osm_id": 7078502742,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Sa 05:30-21:00; Su 06:00-20:30",
+      "website": "https://www.starbucks.com/store-locator/store/1022784/hwy-11-and-avenue-w-2401-crossplex-boulevard-birmingham-al-352085705-u",
+      "internet_access": "yes",
+      "phone": "+1-205-788-2782",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "AL",
+      "addr_city": "Birmingham",
+      "addr_postcode": "35208",
+      "addr_street": "Crossplex Boulevard",
+      "addr_housenumber": "2401",
+      "angle": 82.88925348823402
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Go Ape Treetop Adventure Course, Strongsville, OH",
-      "geo_wkt": "POINT (-81.818381 41.322133)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Oak Grove Football Stadium, Bessemer, AL",
+      "geo_wkt": "POINT (-87.156715 33.468802)",
       "poi": {
-        "id": 14029,
-        "geometry": "POINT (-81.818381 41.322133)",
-        "poi_name": "Go Ape Treetop Adventure Course",
-        "osm_id": 4214519779,
-        "tourism": "theme_park",
-        "operator": "Go Ape",
-        "website": "https://goape.com/zip-line/mill-stream-run-reservation",
-        "addr_state": "OH",
-        "addr_city": "Strongsville",
-        "addr_postcode": "44136",
-        "addr_street": "Valley Parkway",
-        "addr_housenumber": "16200"
+        "id": 247941,
+        "geometry": "POINT (-87.156715 33.468802)",
+        "poi_name": "Oak Grove Football Stadium",
+        "osm_id": 6120962255,
+        "leisure": "stadium",
+        "addr_state": "AL",
+        "addr_city": "Bessemer",
+        "addr_postcode": "35023",
+        "addr_street": "Oak Grove Parkway",
+        "addr_housenumber": "9494"
       }
     }
   },
-  "id": 1414,
+  "id": 514,
   "type": "knn+angle"
 }

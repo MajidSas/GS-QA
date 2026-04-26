@@ -1,61 +1,63 @@
 {
-  "question": "Where's the nearest restaurant heading towards Ethel Barckley Memorial Park, Milford, PA from Rachel Uffner, New York, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.984974 40.720931)',4326)::geography, ST_GeomFromText('POINT (-74.79776 41.319434)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.984974 40.720931)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.984974 40.720931)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant in the direction from AT&SF NO.940, Bartlesville, OK to Center For Orthopaedic Reconstruction And Excellence, Jenks, OK?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.978558 36.752784)',4326)::geography, ST_GeomFromText('POINT (-96.009856 36.025821)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.978558 36.752784)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.978558 36.752784)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 37735,
-      "geometry": "POINT (-73.985476 40.721774)",
-      "poi_name": "Remedy Diner",
-      "osm_id": 2826842017,
+      "id": 45020,
+      "geometry": "POINT (-95.97934 36.750867)",
+      "poi_name": "Great American Grill",
+      "osm_id": 3188637226,
       "amenity": "restaurant",
-      "cuisine": "diner",
-      "opening_hours": "24/7",
-      "website": "https://remedydinerny.com/",
-      "phone": "+1 212-677-5110",
-      "takeaway": "yes",
-      "delivery": "yes",
-      "addr_city": "New York",
-      "addr_postcode": "10002",
-      "addr_street": "East Houston Street",
-      "addr_housenumber": "245",
-      "value": 314.4601720965198
+      "cuisine": "american",
+      "addr_state": "OK",
+      "addr_city": "Bartlesville",
+      "addr_postcode": "74003",
+      "addr_street": "Southwest Frank Phillips Boulevard",
+      "addr_housenumber": "205",
+      "value": 182.00291804167983
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Rachel Uffner, New York, NY",
-      "geo_wkt": "POINT (-73.984974 40.720931)",
+      "sub_category": "attraction",
+      "display_name": "AT&SF NO.940, Bartlesville, OK",
+      "geo_wkt": "POINT (-95.978558 36.752784)",
       "poi": {
-        "id": 14924,
-        "geometry": "POINT (-73.984974 40.720931)",
-        "poi_name": "Rachel Uffner",
-        "osm_id": 4764733060,
-        "tourism": "gallery",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10002",
-        "addr_street": "Suffolk Street",
-        "addr_housenumber": "170"
+        "id": 1841,
+        "geometry": "POINT (-95.978558 36.752784)",
+        "poi_name": "AT&SF NO.940",
+        "osm_id": 3179570874,
+        "tourism": "attraction",
+        "operator": "Bartlesville Community Foundation",
+        "website": "http://bartlesvillelocomotive.org",
+        "addr_state": "OK",
+        "addr_city": "Bartlesville",
+        "addr_postcode": "74003",
+        "addr_street": "South Keeler Avenue",
+        "addr_housenumber": "201"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Ethel Barckley Memorial Park, Milford, PA",
-      "geo_wkt": "POINT (-74.79776 41.319434)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Center For Orthopaedic Reconstruction And Excellence, Jenks, OK",
+      "geo_wkt": "POINT (-96.009856 36.025821)",
       "poi": {
-        "id": 267575,
-        "geometry": "POINT (-74.79776 41.319434)",
-        "poi_name": "Ethel Barckley Memorial Park",
-        "osm_id": 7712282169,
-        "leisure": "park",
-        "addr_state": "PA",
-        "addr_city": "Milford",
-        "addr_postcode": "18337",
-        "addr_street": "East Ann Street"
+        "id": 182777,
+        "geometry": "POINT (-96.009856 36.025821)",
+        "poi_name": "Center For Orthopaedic Reconstruction And Excellence",
+        "osm_id": 10904126879,
+        "amenity": "hospital",
+        "website": "https://corejenks.com",
+        "phone": "+1 918 701 2300",
+        "healthcare": "hospital",
+        "addr_state": "OK",
+        "addr_city": "Jenks",
+        "addr_postcode": "74037",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "3029"
       }
     },
     "[1]": {
@@ -63,6 +65,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 1346,
+  "id": 1546,
   "type": "knn:towards+loc"
 }

@@ -1,20 +1,104 @@
 {
-  "question": "Within a radius of 170 kilometers, what hospital is available towards the east of Falls Ridge Preserve, Elliston, VA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.321578 37.193218)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Which hospital fall within 170 kilometers when moving northwest from Sloth Encounters, Hauppauge, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 72600,
-      "geometry": "POINT (-80.321578 37.193218)",
-      "poi_name": "Altavista Medical Center",
-      "osm_id": 11436052502,
+      "id": 59057,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Maria Fareri Children's Hospital",
+      "osm_id": 5408870771,
       "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Westchester Medical Center Health Network",
+      "website": "https://www.mariafarerichildrens.org/",
+      "phone": "+1 914 493 7000",
       "healthcare": "hospital",
       "emergency": "yes",
-      "addr_state": "VA",
-      "addr_city": "Altavista",
-      "addr_postcode": "24517",
-      "addr_street": "7th Street",
-      "addr_housenumber": "1280"
+      "wikidata": "Q17020173",
+      "addr_city": "Valhalla",
+      "addr_postcode": "10595",
+      "addr_street": "Woods Road",
+      "addr_housenumber": "100"
+    },
+    {
+      "id": 81198,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Diaz Ambulance",
+      "osm_id": 1613759872,
+      "amenity": "hospital",
+      "emergency": "no"
+    },
+    {
+      "id": 98014,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Cassena Care At Norwalk",
+      "osm_id": 6504841070,
+      "amenity": "hospital",
+      "operator": "Cassena Care",
+      "healthcare": "hospital",
+      "addr_state": "CT",
+      "addr_city": "Norwalk",
+      "addr_postcode": "06850",
+      "addr_street": "Prospect Road",
+      "addr_housenumber": "23"
+    },
+    {
+      "id": 128344,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Silver Hill Hospital",
+      "osm_id": 8150343107,
+      "amenity": "hospital",
+      "website": "https://www.silverhillhospital.org/home",
+      "phone": "+1 866 542 4455",
+      "healthcare": "hospital",
+      "addr_state": "CT",
+      "addr_city": "New Canaan",
+      "addr_postcode": "06840",
+      "addr_street": "Valley Road",
+      "addr_housenumber": "208"
+    },
+    {
+      "id": 120062,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Garnet Health Medical Center - Catskills, Harris Campus",
+      "osm_id": 9137294605,
+      "amenity": "hospital",
+      "website": "https://www.garnethealth.org/"
+    },
+    {
+      "id": 146611,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Nyack Hospital",
+      "osm_id": 7463163965,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes"
+    },
+    {
+      "id": 167504,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Four Winds Hospital",
+      "osm_id": 357608132,
+      "amenity": "hospital",
+      "website": "https://www.fourwindshospital.com/about_four_winds/westchester/index.html",
+      "phone": "+1 914 763 8151",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q50039187",
+      "addr_city": "Katonah",
+      "addr_postcode": "10536",
+      "addr_street": "Cross River Road",
+      "addr_housenumber": "800"
+    },
+    {
+      "id": 203656,
+      "geometry": "POINT (-73.210029 40.824517)",
+      "poi_name": "Hospital For Special Surgery",
+      "osm_id": 7096368072,
+      "amenity": "hospital",
+      "website": "https://www.hss.edu/hss-westchester.asp",
+      "phone": "+1 877 960 1165",
+      "healthcare": "hospital"
     }
   ],
   "answer_type": "name",
@@ -28,27 +112,32 @@
       "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Falls Ridge Preserve, Elliston, VA",
-      "geo_wkt": "POINT (-80.321578 37.193218)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
       "poi": {
-        "id": 266492,
-        "geometry": "POINT (-80.321578 37.193218)",
-        "poi_name": "Falls Ridge Preserve",
-        "osm_id": 5189591887,
-        "leisure": "nature_reserve",
-        "addr_state": "VA",
-        "addr_city": "Elliston",
-        "addr_postcode": "24087",
-        "addr_street": "Falls Ridge Rd"
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2601,
+  "id": 2301,
   "type": "range:direction+name"
 }

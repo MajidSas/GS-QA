@@ -1,41 +1,42 @@
 {
-  "question": "How many stadia are available within 190 kilometers from Rhododendron Species Botanical Garden, Federal Way, WA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.302257 47.292739)',4326)::geography, 190000)\nAND leisure = 'stadium';\n",
+  "question": "What\u2019s the quantity of nature reserves found within 100 kilometers from Mays Chapel Medical Care Center, Lutherville, MD?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography, 100000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "count": 3
+      "count": 17
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Rhododendron Species Botanical Garden, Federal Way, WA",
-      "geo_wkt": "POINT (-122.302257 47.292739)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mays Chapel Medical Care Center, Lutherville, MD",
+      "geo_wkt": "POINT (-76.663402 39.458755)",
       "poi": {
-        "id": 248648,
-        "geometry": "POINT (-122.302257 47.292739)",
-        "poi_name": "Rhododendron Species Botanical Garden",
-        "osm_id": 4721258058,
-        "leisure": "garden",
-        "website": "https://rhodygarden.org/",
-        "addr_state": "WA",
-        "addr_city": "Federal Way",
-        "addr_postcode": "98003",
-        "addr_street": "South 336th Street",
-        "addr_housenumber": "2525"
+        "id": 41532,
+        "geometry": "POINT (-76.663402 39.458755)",
+        "poi_name": "Mays Chapel Medical Care Center",
+        "osm_id": 3019370509,
+        "amenity": "hospital",
+        "operator": "Lifebridge Health",
+        "website": "https://www.lifebridgehealth.org/Main/MaysChapelMedicalCareCenters.aspx",
+        "addr_state": "MD",
+        "addr_city": "Lutherville",
+        "addr_postcode": "21093",
+        "addr_street": "Tullamore Road",
+        "addr_housenumber": "12221"
       }
     }
   },
-  "id": 2271,
+  "id": 1871,
   "type": "range+count"
 }

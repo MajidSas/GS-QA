@@ -1,986 +1,671 @@
 {
-  "question": "Is there a nature reserve within 150 kilometers from Turtle Island Park, Lake in the Hills, IL?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.328177 42.185635)',4326)::geography, 150000)\nAND leisure = 'nature_reserve';\n",
+  "question": "Do you know of a museum not farther than 150 kilometers from Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography, 150000)\nAND tourism = 'museum';\n",
   "answers": [
     {
-      "id": 245285,
-      "geometry": "POINT (-88.067518 42.143312)",
-      "poi_name": "Deer Grove Forest Preserve - West",
-      "osm_id": 2683595152,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 245286,
-      "geometry": "POINT (-88.048128 42.14353)",
-      "poi_name": "Deer Grove Forest Preserve - East",
-      "osm_id": 2683595157,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 245519,
-      "geometry": "POINT (-88.207814 42.234515)",
-      "poi_name": "Hickory Grove Riverfront",
-      "osm_id": 3030995710,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "McHenry County Conservation District",
-      "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
-      "addr_state": "IL",
-      "addr_city": "Cary",
-      "addr_street": "Hickory Nut Grove Lane",
-      "addr_housenumber": "500"
-    },
-    {
-      "id": 245520,
-      "geometry": "POINT (-88.198289 42.22857)",
-      "poi_name": "Lyons Prairie and Marsh",
-      "osm_id": 3030995711,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "McHenry County Conservation District",
-      "website": "https://dnr.illinois.gov/inpc/area.area2lakelyonsprairieandmarsh.html",
-      "addr_state": "IL",
-      "addr_city": "Cary",
-      "addr_street": "South Hickory Nut Grove Road",
-      "addr_housenumber": "7000"
-    },
-    {
-      "id": 245668,
-      "geometry": "POINT (-87.786491 41.997567)",
-      "poi_name": "Caldwell Woods",
-      "osm_id": 3358252547,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/caldwell-woods/",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60646"
-    },
-    {
-      "id": 245710,
-      "geometry": "POINT (-87.600467 41.556462)",
-      "poi_name": "Sweet Woods",
-      "osm_id": 3441392275,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 245711,
-      "geometry": "POINT (-87.609866 41.562066)",
-      "poi_name": "Brownell Woods",
-      "osm_id": 3441392276,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 245815,
-      "geometry": "POINT (-87.482323 41.155443)",
-      "poi_name": "LaSalle Fish & Wildlife Area",
-      "osm_id": 10117492213,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 246127,
-      "geometry": "POINT (-88.205901 42.153178)",
-      "poi_name": "Far Field Preserve",
-      "osm_id": 5595619721,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 246769,
-      "geometry": "POINT (-88.492731 42.887309)",
-      "poi_name": "Paradise Springs Nature Trail",
-      "osm_id": 6384478872,
-      "leisure": "nature_reserve",
-      "historic": "yes",
-      "operator": "Wisconsin DNR"
-    },
-    {
-      "id": 247229,
-      "geometry": "POINT (-87.887957 42.084376)",
-      "poi_name": "Camp Pine Woods",
-      "osm_id": 3817877839,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 247243,
-      "geometry": "POINT (-87.829931 41.863116)",
-      "poi_name": "Miller Meadow North",
-      "osm_id": 3854982085,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 247244,
-      "geometry": "POINT (-87.828654 41.856859)",
-      "poi_name": "Miller Meadow South",
-      "osm_id": 3854982086,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 247245,
-      "geometry": "POINT (-87.784178 41.633311)",
-      "poi_name": "Bachelor's Grove Woods",
-      "osm_id": 3857049849,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 247535,
-      "geometry": "POINT (-88.011751 42.494788)",
-      "poi_name": "Dutch Gap Forest Preserve",
-      "osm_id": 6783845775,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 247831,
-      "geometry": "POINT (-87.774965 42.129272)",
-      "poi_name": "Forest Way Grove",
-      "osm_id": 10010203412,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 247953,
-      "geometry": "POINT (-87.953526 42.330291)",
-      "poi_name": "Independence Grove",
-      "osm_id": 6131886421,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 248002,
-      "geometry": "POINT (-88.15075 42.154137)",
-      "poi_name": "Pederson Preserve",
-      "osm_id": 6235317843,
-      "leisure": "nature_reserve",
-      "website": "https://www.bactrust.org/land-preservation/our-preserves/"
-    },
-    {
-      "id": 248099,
-      "geometry": "POINT (-87.792654 42.01126)",
-      "poi_name": "Bunker Hill",
-      "osm_id": 6340856922,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/bunker-hill/",
-      "phone": "+1-800-870-3666",
-      "addr_state": "IL"
-    },
-    {
-      "id": 249421,
-      "geometry": "POINT (-88.081742 42.14197)",
-      "poi_name": "Deer Grove West Forest Preserve",
-      "osm_id": 354101853,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249447,
-      "geometry": "POINT (-89.093715 42.167245)",
-      "poi_name": "Kilbuck Bluffs County Forest Preserve",
-      "osm_id": 354117189,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249466,
-      "geometry": "POINT (-89.025225 41.296128)",
-      "poi_name": "Matthiessen State Park",
-      "osm_id": 354123680,
-      "leisure": "nature_reserve",
-      "opening_hours": "08:00-21:00",
-      "website": "https://www.dnr.illinois.gov/Parks/Pages/Matthiessen.aspx",
-      "phone": "+1-815-667-4868",
-      "wikidata": "Q6791634"
-    },
-    {
-      "id": 249521,
-      "geometry": "POINT (-89.070107 42.338074)",
-      "poi_name": "Winnebago County Forest Preserve",
-      "osm_id": 354155821,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249585,
-      "geometry": "POINT (-87.934799 42.445298)",
-      "poi_name": "Wadsworth Savanna Forest Preserve",
-      "osm_id": 354170208,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 249586,
-      "geometry": "POINT (-87.926742 42.402521)",
-      "poi_name": "Gurnee Woods Forest Preserve",
-      "osm_id": 354170213,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 249867,
-      "geometry": "POINT (-87.93063 42.3478)",
-      "poi_name": "River Hill Forest Preserve",
-      "osm_id": 354228328,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 249873,
-      "geometry": "POINT (-87.937577 42.451132)",
-      "poi_name": "Sterling Lake Forest Preserve",
-      "osm_id": 354228455,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 249994,
-      "geometry": "POINT (-88.163136 42.228079)",
-      "poi_name": "Tower Lakes Fen Nature Preserve",
-      "osm_id": 354249735,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249995,
-      "geometry": "POINT (-87.802572 42.45891)",
-      "poi_name": "North Dunes Nature Preserve",
-      "osm_id": 354249741,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249996,
-      "geometry": "POINT (-88.163414 42.226135)",
-      "poi_name": "Wagner Fen Nature Preserve",
-      "osm_id": 354249747,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 249997,
-      "geometry": "POINT (-87.93091 42.439743)",
-      "poi_name": "Wadsworth Prairie Nature Preserve",
-      "osm_id": 354249753,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 249998,
-      "geometry": "POINT (-87.983688 42.314189)",
-      "poi_name": "Liberty Prairie Nature Preserve",
-      "osm_id": 354249770,
-      "leisure": "nature_reserve",
-      "website": "https://www.dnr.illinois.gov/INPC/Pages/Area2LakeLibertyPrairie.aspx"
-    },
-    {
-      "id": 249999,
-      "geometry": "POINT (-87.812293 42.407799)",
-      "poi_name": "Illinois Beach Nature Preserve",
-      "osm_id": 354249773,
-      "leisure": "nature_reserve",
-      "operator": "Illinois Department of Natural Resources"
-    },
-    {
-      "id": 250003,
-      "geometry": "POINT (-87.898404 42.21308)",
-      "poi_name": "Florsheim Park Nature Preserve",
-      "osm_id": 354250381,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250005,
-      "geometry": "POINT (-87.908681 42.175581)",
-      "poi_name": "Edward L Ryerson Nature Preserve",
-      "osm_id": 354250393,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 250006,
-      "geometry": "POINT (-88.137302 42.219468)",
-      "poi_name": "Barrington Bog Nature Preserve",
-      "osm_id": 354250398,
-      "leisure": "nature_reserve",
-      "website": "https://dnr.illinois.gov/inpc/area.area2lakebarringtonbog.html"
-    },
-    {
-      "id": 250050,
-      "geometry": "POINT (-88.319198 41.361096)",
-      "poi_name": "Goose Lake Prairie Nature Preserve",
-      "osm_id": 354251942,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250058,
-      "geometry": "POINT (-89.460942 41.995586)",
-      "poi_name": "White Pines Forest Nature Preserve",
-      "osm_id": 354252135,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250101,
-      "geometry": "POINT (-87.925905 42.21808)",
-      "poi_name": "Half Day County Forest Preserve",
-      "osm_id": 354255527,
-      "leisure": "nature_reserve",
-      "operator": "Lake County Forest Preserves"
-    },
-    {
-      "id": 250121,
-      "geometry": "POINT (-87.845618 41.946142)",
-      "poi_name": "Seymour Simon Preserve",
-      "osm_id": 354272660,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "wikidata": "Q49560056"
-    },
-    {
-      "id": 250138,
-      "geometry": "POINT (-88.209528 42.269734)",
-      "poi_name": "Cotton Creek Marsh Nature Preserve",
-      "osm_id": 354278138,
-      "leisure": "nature_reserve",
-      "description": "Access to this preserve is by permission only.",
-      "operator": "McHenry County Conservation District",
-      "website": "https://dnr.illinois.gov/inpc/area.area2mchenrycottoncreekmarsh.html"
-    },
-    {
-      "id": 250139,
-      "geometry": "POINT (-88.222861 42.249468)",
-      "poi_name": "Bates Fen Nature Preserve",
-      "osm_id": 354278149,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250141,
-      "geometry": "POINT (-88.313975 42.253912)",
-      "poi_name": "Wingate Prairie Nature Preserve",
-      "osm_id": 354278284,
-      "leisure": "nature_reserve",
-      "website": "https://www.dnr.illinois.gov/INPC/Pages/Area2McHenryWingatePrairie.aspx"
-    },
-    {
-      "id": 250144,
-      "geometry": "POINT (-88.3581 42.2857)",
-      "poi_name": "Parker Fen Nature Preserve",
-      "osm_id": 354278551,
-      "leisure": "nature_reserve",
-      "website": "https://dnr.illinois.gov/inpc/area.area2juliamandroycelparkerfen.html"
-    },
-    {
-      "id": 250152,
-      "geometry": "POINT (-87.862526 42.083135)",
-      "poi_name": "Kennicott's Grove Nature Preserve",
-      "osm_id": 354279604,
-      "leisure": "nature_reserve",
-      "wheelchair": "limited"
-    },
-    {
-      "id": 250154,
-      "geometry": "POINT (-87.690944 41.604733)",
-      "poi_name": "Gensburg - Markham Prairie Nature Preserve",
-      "osm_id": 354279919,
-      "leisure": "nature_reserve",
-      "description": "Fake lock on the entrance.,",
-      "website": "https://www.dnr.illinois.gov/INPC/Pages/Area2CookGensburg-MarkhamPrairie.aspx"
-    },
-    {
-      "id": 250156,
-      "geometry": "POINT (-87.859337 42.260926)",
-      "poi_name": "Skokie River Nature Preserve",
-      "osm_id": 354280447,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250159,
-      "geometry": "POINT (-88.059249 42.464464)",
-      "poi_name": "Redwing Slough Forest Preserve",
-      "osm_id": 354281124,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250165,
-      "geometry": "POINT (-88.129528 42.388354)",
-      "poi_name": "Gavin Bog and Prairie",
-      "osm_id": 354281274,
-      "leisure": "nature_reserve",
-      "website": "https://www.dnr.illinois.gov/INPC/Pages/Area2LakeGavinBogAndPrairie.aspx"
-    },
-    {
-      "id": 250168,
-      "geometry": "POINT (-88.031747 42.400577)",
-      "poi_name": "Fourth Lake Fen Forest Preserve",
-      "osm_id": 354281929,
-      "leisure": "nature_reserve",
-      "website": "https://www.lcfpd.org/fourth-lake/"
-    },
-    {
-      "id": 250454,
-      "geometry": "POINT (-87.867205 42.806739)",
-      "poi_name": "Renak-Polak Maple-Beech Woods State Natural Area",
-      "osm_id": 354531257,
-      "leisure": "nature_reserve",
-      "website": "https://dnr.wi.gov/topic/Lands/naturalareas/index.asp?SNA=95"
-    },
-    {
-      "id": 250456,
-      "geometry": "POINT (-88.113426 43.33917)",
-      "poi_name": "Jackson Marsh State Natural Area",
-      "osm_id": 354531264,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250466,
-      "geometry": "POINT (-88.251757 42.61224)",
-      "poi_name": "Karcher Springs State Natural Area",
-      "osm_id": 354531298,
-      "leisure": "nature_reserve",
-      "website": "https://dnr.wisconsin.gov/topic/statenaturalareas/KarcherSprings",
-      "wikidata": "Q49509377"
-    },
-    {
-      "id": 250526,
-      "geometry": "POINT (-88.512877 42.9014)",
-      "poi_name": "Scuppernong Prairie State Natural Area",
-      "osm_id": 354531668,
-      "leisure": "nature_reserve",
-      "wikidata": "Q49559070"
-    },
-    {
-      "id": 250624,
-      "geometry": "POINT (-88.15842 42.498075)",
-      "poi_name": "Peat Lake State Natural Area",
-      "osm_id": 354532504,
-      "leisure": "nature_reserve",
-      "wikidata": "Q49540735"
-    },
-    {
-      "id": 250638,
-      "geometry": "POINT (-89.322604 42.948086)",
-      "poi_name": "Hook Lake Bog State Natural Area",
-      "osm_id": 354532570,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250649,
-      "geometry": "POINT (-88.452876 42.836124)",
-      "poi_name": "Lulu Lake State Natural Area",
-      "osm_id": 354532706,
-      "leisure": "nature_reserve",
-      "website": "https://dnr.wi.gov/topic/Lands/naturalareas/index.asp?SNA=138"
-    },
-    {
-      "id": 250650,
-      "geometry": "POINT (-88.441764 42.801125)",
-      "poi_name": "Pickerel Lake Fen State Natural Area",
-      "osm_id": 354532710,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250664,
-      "geometry": "POINT (-88.841497 42.815842)",
-      "poi_name": "Lima Bog State Natural Area",
-      "osm_id": 354532920,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250695,
-      "geometry": "POINT (-88.026944 43.384722)",
-      "poi_name": "Cedarburg Beech Woods State Natural Area",
-      "osm_id": 354533124,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 250697,
-      "geometry": "POINT (-88.4875 42.912778)",
-      "poi_name": "Kettle Moraine Low Prairie State Natural Area",
-      "osm_id": 354533128,
-      "leisure": "nature_reserve",
-      "wikidata": "Q49510448"
-    },
-    {
-      "id": 250698,
-      "geometry": "POINT (-88.230833 42.884444)",
-      "poi_name": "Martin's Woods State Natural Area",
-      "osm_id": 354533129,
-      "leisure": "nature_reserve",
-      "wikidata": "Q49522297"
-    },
-    {
-      "id": 265397,
-      "geometry": "POINT (-87.872175 42.023616)",
-      "poi_name": "Algonquin Woods",
-      "osm_id": 369047872,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265398,
-      "geometry": "POINT (-87.888401 42.099472)",
-      "poi_name": "Allison Woods",
-      "osm_id": 369049527,
-      "leisure": "nature_reserve",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265399,
-      "geometry": "POINT (-87.87275 42.030183)",
-      "poi_name": "Campground Woods",
-      "osm_id": 369050439,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL",
-      "addr_city": "Des Plaines"
-    },
-    {
-      "id": 265400,
-      "geometry": "POINT (-87.846451 41.951697)",
-      "poi_name": "Che-Che-Pin-Qua Woods",
-      "osm_id": 369050502,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265401,
-      "geometry": "POINT (-87.754949 41.980626)",
-      "poi_name": "Forest Glen Woods",
-      "osm_id": 369050715,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/forest-glen-woods/",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265402,
-      "geometry": "POINT (-87.766335 41.988963)",
-      "poi_name": "Thaddeus S. \"Ted\" Lechowicz Woods",
-      "osm_id": 369050875,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/thaddeus-s-ted-lechowicz-woods/",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265403,
-      "geometry": "POINT (-87.857277 41.67531)",
-      "poi_name": "Swallow Cliff Woods South",
-      "osm_id": 369051006,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265404,
-      "geometry": "POINT (-87.851292 41.951863)",
-      "poi_name": "Schiller Woods South",
-      "osm_id": 369051015,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265405,
-      "geometry": "POINT (-87.964233 41.941696)",
-      "poi_name": "Fisher Woods",
-      "osm_id": 369051083,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of DuPage County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265406,
-      "geometry": "POINT (-87.891459 42.083532)",
-      "poi_name": "Dam Number 2 Woods",
-      "osm_id": 369051165,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265407,
-      "geometry": "POINT (-87.656017 41.47522)",
-      "poi_name": "King's Grove",
-      "osm_id": 369051905,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265408,
-      "geometry": "POINT (-87.649076 41.489705)",
-      "poi_name": "Sauk Trail Woods",
-      "osm_id": 369059365,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265409,
-      "geometry": "POINT (-87.765024 41.993433)",
-      "poi_name": "Edgebrook Woods",
-      "osm_id": 369059632,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/edgebrook-woods/",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265674,
-      "geometry": "POINT (-88.354786 42.172352)",
-      "poi_name": "Trail Woods Creek Natural Area",
-      "osm_id": 10817249157,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 265675,
-      "geometry": "POINT (-88.363786 42.168555)",
-      "poi_name": "Trails of Woods Creek Natural Area",
-      "osm_id": 10817714349,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 265726,
-      "geometry": "POINT (-87.781473 42.004049)",
-      "poi_name": "Bunker Hill",
-      "osm_id": 10874811379,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/bunker-hill/",
-      "phone": "+1-800-870-3666",
-      "addr_state": "IL"
-    },
-    {
-      "id": 265728,
-      "geometry": "POINT (-87.795764 42.030156)",
-      "poi_name": "Miami Woods",
-      "osm_id": 10879783548,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/miami-woods/"
-    },
-    {
-      "id": 265729,
-      "geometry": "POINT (-87.789297 42.026597)",
-      "poi_name": "St. Paul Woods",
-      "osm_id": 10879853141,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/st-paul-woods/"
-    },
-    {
-      "id": 265730,
-      "geometry": "POINT (-87.787458 42.037109)",
-      "poi_name": "St. Paul Woods",
-      "osm_id": 10879853142,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/st-paul-woods/"
-    },
-    {
-      "id": 265731,
-      "geometry": "POINT (-87.789456 42.042578)",
-      "poi_name": "Wayside Woods",
-      "osm_id": 10880294588,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/wayside-woods/"
-    },
-    {
-      "id": 265732,
-      "geometry": "POINT (-87.78428 42.041059)",
-      "poi_name": "Linne Woods",
-      "osm_id": 10880458827,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/linne-woods/"
-    },
-    {
-      "id": 265737,
-      "geometry": "POINT (-87.766072 42.0541)",
-      "poi_name": "Glen Grove Equestrian Center (Closed)",
-      "osm_id": 10894541007,
-      "leisure": "nature_reserve",
-      "opening_hours": "closed",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/glen-grove-equestrian-center/"
-    },
-    {
-      "id": 265738,
-      "geometry": "POINT (-87.762736 42.055894)",
-      "poi_name": "Calvin R. Sutker Grove",
-      "osm_id": 10894812527,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/harms-woods/"
-    },
-    {
-      "id": 265739,
-      "geometry": "POINT (-87.767876 42.058329)",
-      "poi_name": "Harms Woods-South",
-      "osm_id": 10895060232,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/harms-woods/"
-    },
-    {
-      "id": 265740,
-      "geometry": "POINT (-87.768784 42.060064)",
-      "poi_name": "Harms Woods-Central",
-      "osm_id": 10895060233,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/harms-woods/"
-    },
-    {
-      "id": 265741,
-      "geometry": "POINT (-87.769929 42.062302)",
-      "poi_name": "Harms Woods-North",
-      "osm_id": 10895060234,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/harms-woods/"
-    },
-    {
-      "id": 265742,
-      "geometry": "POINT (-87.771649 42.067607)",
-      "poi_name": "Glenview Woods",
-      "osm_id": 10895060239,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/harms-woods/"
-    },
-    {
-      "id": 265743,
-      "geometry": "POINT (-87.775998 42.079634)",
-      "poi_name": "Blue Star Memorial Woods",
-      "osm_id": 10895360660,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 265750,
-      "geometry": "POINT (-87.769626 42.116144)",
-      "poi_name": "Tower Road",
-      "osm_id": 10909264381,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 265751,
-      "geometry": "POINT (-87.765345 42.101575)",
-      "poi_name": "Erickson Woods",
-      "osm_id": 10910582112,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 265752,
-      "geometry": "POINT (-87.774892 42.115925)",
-      "poi_name": "Tower Road Boat Launch",
-      "osm_id": 10910802929,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 265800,
-      "geometry": "POINT (-88.346582 42.15998)",
-      "poi_name": "Grand Reserve Prairie",
-      "osm_id": 7814420468,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 265829,
-      "geometry": "POINT (-88.312541 42.164176)",
-      "poi_name": "Gaslight Park Bird & Butterfly Sanctuary",
-      "osm_id": 7866844190,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 265882,
-      "geometry": "POINT (-89.764799 42.587937)",
-      "poi_name": "Browntown Oak Forest State Natural Area",
-      "osm_id": 1118103516,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 266246,
-      "geometry": "POINT (-87.149569 41.444803)",
-      "poi_name": "Gabis Arboretum at Purdue Northwest",
-      "osm_id": 7086478117,
-      "leisure": "nature_reserve",
-      "opening_hours": "Mo-Su 08:00-sunset",
-      "website": "https://www.pnw.edu/gabis-arboretum/",
-      "phone": "+1 219 462 0025",
-      "addr_state": "IN",
-      "addr_city": "Valparaiso",
-      "addr_postcode": "46385",
-      "addr_street": "West 100 North",
-      "addr_housenumber": "450"
-    },
-    {
-      "id": 266254,
-      "geometry": "POINT (-87.88325 42.259719)",
-      "poi_name": "Middlefork Farm",
-      "osm_id": 7097495572,
-      "leisure": "nature_reserve",
-      "operator": "Lake Forest Open Lands"
-    },
-    {
-      "id": 267141,
-      "geometry": "POINT (-87.842044 41.952594)",
-      "poi_name": "Schiller Woods East",
-      "osm_id": 4591238564,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 267142,
-      "geometry": "POINT (-87.850914 41.953053)",
-      "poi_name": "Schiller Woods West",
-      "osm_id": 4591240466,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Cook County"
-    },
-    {
-      "id": 267143,
-      "geometry": "POINT (-87.740809 41.975523)",
-      "poi_name": "Irene C. Hernandez Family Picnic Grove",
-      "osm_id": 4591260689,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/labagh-woods/"
-    },
-    {
-      "id": 267144,
-      "geometry": "POINT (-87.747902 41.977534)",
-      "poi_name": "LaBagh Woods",
-      "osm_id": 4591260894,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/labagh-woods/"
-    },
-    {
-      "id": 267180,
-      "geometry": "POINT (-88.970694 43.001295)",
-      "poi_name": "Lake District Preserve",
-      "osm_id": 4631013435,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 267284,
-      "geometry": "POINT (-87.851701 42.249109)",
-      "poi_name": "Derwen Mawr (Skokie River Nature Preserve)",
-      "osm_id": 5805617092,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 267392,
-      "geometry": "POINT (-87.864746 41.521737)",
-      "poi_name": "Hickory Creek Forest Preserve",
-      "osm_id": 5950429199,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 267407,
-      "geometry": "POINT (-89.018526 42.328579)",
-      "poi_name": "Harlem Hills Nature Preserve",
-      "osm_id": 5977183039,
-      "leisure": "nature_reserve",
-      "website": "https://www.dnr.illinois.gov/INPC/Pages/Area1WinnebagoHarlemHills.aspx"
-    },
-    {
-      "id": 267419,
-      "geometry": "POINT (-88.17326 41.261316)",
-      "poi_name": "Kankakee Sands Preserve",
-      "osm_id": 5984342972,
-      "leisure": "nature_reserve",
-      "operator": "Forest Preserve District of Will County",
-      "website": "https://www.reconnectwithnature.org/preserves-trails/preserves/kankakee-sands/"
-    },
-    {
-      "id": 267452,
-      "geometry": "POINT (-88.996898 42.35442)",
-      "poi_name": "South Hart Rd Grassland Natural Area",
-      "osm_id": 6024009393,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 267453,
-      "geometry": "POINT (-88.994784 42.342654)",
-      "poi_name": "Willow Creek Natural Area",
-      "osm_id": 6024009394,
-      "leisure": "nature_reserve"
-    },
-    {
-      "id": 245214,
-      "geometry": "POINT (-89.664823 42.954088)",
-      "poi_name": "Mount Vernon Creek Fishery Area",
-      "osm_id": 8418664342,
-      "leisure": "nature_reserve",
-      "operator": "WDNR",
-      "website": "https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/1710mountvernoncreek.html"
-    },
-    {
-      "id": 245215,
-      "geometry": "POINT (-89.668939 42.956226)",
-      "poi_name": "Dane County Wildlife Area",
-      "osm_id": 8418664343,
-      "leisure": "nature_reserve",
-      "operator": "Dane County Parks"
+      "id": 619,
+      "geometry": "POINT (-105.224827 39.751848)",
+      "poi_name": "The Colorado School of Mines Geology Museum",
+      "osm_id": 2622999684,
+      "tourism": "museum",
+      "website": "https://www.mines.edu/museumofearthscience/",
+      "wikidata": "Q15959608",
+      "addr_city": "Golden",
+      "addr_postcode": "80401",
+      "addr_street": "Maple Street",
+      "addr_housenumber": "1310"
+    },
+    {
+      "id": 1393,
+      "geometry": "POINT (-104.837334 39.745062)",
+      "poi_name": "Eisenhower's Room",
+      "osm_id": 2969741585,
+      "tourism": "museum",
+      "website": "https://www.ucdenver.edu/academics/colleges/medicalschool/administration/history/Pages/Eisenhower-Suite.aspx"
+    },
+    {
+      "id": 3561,
+      "geometry": "POINT (-104.98984 39.737124)",
+      "poi_name": "Center for Colorado Women\u2019s History",
+      "osm_id": 5465741433,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "opening_hours": "Mo, Thur, Fri, Sat 10:30 - 15:30",
+      "website": "https://www.historycolorado.org/center-colorado-womens-history",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80204",
+      "addr_street": "Bannock Street",
+      "addr_housenumber": "1310"
+    },
+    {
+      "id": 3815,
+      "geometry": "POINT (-105.081101 39.668143)",
+      "poi_name": "Molly Brown Summer House",
+      "osm_id": 5608503565,
+      "tourism": "museum",
+      "website": "https://www.mollybrownsummerhouse.com/",
+      "wikidata": "Q4829106",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80227",
+      "addr_street": "West Yale Avenue",
+      "addr_housenumber": "7595"
+    },
+    {
+      "id": 4069,
+      "geometry": "POINT (-104.994635 39.753866)",
+      "poi_name": "National Ballpark Museum",
+      "osm_id": 5664762221,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 11:00-17:00",
+      "website": "https://ballparkmuseum.com/",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80202",
+      "addr_street": "Blake Street",
+      "addr_housenumber": "1940"
+    },
+    {
+      "id": 4412,
+      "geometry": "POINT (-106.04737 39.481424)",
+      "poi_name": "Mountain Top Exploratorium",
+      "osm_id": 11251921443,
+      "tourism": "museum",
+      "museum": "children"
+    },
+    {
+      "id": 4549,
+      "geometry": "POINT (-105.024586 39.611414)",
+      "poi_name": "SpaceX Falcon 9 DISH Network Rocket",
+      "osm_id": 11307847056,
+      "description": "Given to DISH Networks HQ for display for being a SpaceX Customer",
+      "tourism": "museum",
+      "opening_hours": "24/7",
+      "operator": "SpaceX",
+      "museum": "art"
+    },
+    {
+      "id": 5160,
+      "geometry": "POINT (-104.982453 39.70918)",
+      "poi_name": "International Church of Cannabis",
+      "osm_id": 9784520819,
+      "tourism": "museum",
+      "website": "https://elevationists.org/",
+      "addr_postcode": "80209",
+      "addr_street": "South Logan Street",
+      "addr_housenumber": "400"
+    },
+    {
+      "id": 5604,
+      "geometry": "POINT (-104.862306 39.374057)",
+      "poi_name": "Castle Rock Museum",
+      "osm_id": 833649879,
+      "tourism": "museum",
+      "opening_hours": "We-Fr 12:00-17:00; Sa 11:00-16:00",
+      "website": "https://www.castlerockmuseum.org/",
+      "addr_city": "Castle Rock",
+      "addr_postcode": "80104",
+      "addr_street": "Elbert Street",
+      "addr_housenumber": "420"
+    },
+    {
+      "id": 5834,
+      "geometry": "POINT (-105.132286 39.979803)",
+      "poi_name": "Louisville Historical Museum",
+      "osm_id": 1642159826,
+      "tourism": "museum",
+      "wheelchair": "limited",
+      "fee": "no",
+      "opening_hours": "Tu-Sa 10:00-15:00; We 13:00-18:00; Jul 04, Nov 11 off; Nov 23 - 24 off",
+      "website": "https://www.louisvilleco.gov/exploring-louisville/historical-museum",
+      "addr_state": "CO",
+      "addr_city": "Louisville",
+      "addr_postcode": "80027",
+      "addr_street": "Main Street",
+      "addr_housenumber": "1001"
+    },
+    {
+      "id": 6241,
+      "geometry": "POINT (-105.247191 38.439305)",
+      "poi_name": "Colorado Prison Museum",
+      "osm_id": 1795002655,
+      "tourism": "museum",
+      "website": "https://www.prisonmuseum.org/",
+      "wikidata": "Q16203658"
+    },
+    {
+      "id": 6525,
+      "geometry": "POINT (-105.288997 38.944834)",
+      "poi_name": "Pikes Peak Historical Society Museum",
+      "osm_id": 1834805033,
+      "tourism": "museum",
+      "fee": "no",
+      "website": "http://www.pikespeakhsmuseum.org"
+    },
+    {
+      "id": 7301,
+      "geometry": "POINT (-105.202478 40.065806)",
+      "poi_name": "Shelby American Car Museum",
+      "osm_id": 2071818182,
+      "tourism": "museum",
+      "opening_hours": "Sa 10:00-16:00",
+      "website": "https://shelbyamericancollection.org/",
+      "phone": "+1-303-516-9565"
+    },
+    {
+      "id": 7932,
+      "geometry": "POINT (-104.849912 38.792782)",
+      "poi_name": "Penrose Heritage Museum",
+      "osm_id": 6481098686,
+      "tourism": "museum",
+      "fee": "no",
+      "website": "https://www.elpomar.org/About-Us/museum-and-legacy-properties/penrose-heritage-museum-1/"
+    },
+    {
+      "id": 8277,
+      "geometry": "POINT (-105.021362 39.743706)",
+      "poi_name": "Colorado Sports Hall of Fame",
+      "osm_id": 6604135495,
+      "tourism": "museum",
+      "website": "https://www.coloradosports.org/",
+      "wikidata": "Q5148916"
+    },
+    {
+      "id": 8820,
+      "geometry": "POINT (-105.18214 38.746225)",
+      "poi_name": "Outlaws & Law Men Jail Museum",
+      "osm_id": 3534456700,
+      "tourism": "museum",
+      "website": "http://visitcripplecreek.com/businesses/cripple-creek-jail-museum",
+      "phone": "+1-719-689-6556",
+      "addr_state": "CO",
+      "addr_city": "Cripple Creek",
+      "addr_postcode": "80813",
+      "addr_street": "West Bennett Avenue",
+      "addr_housenumber": "136"
+    },
+    {
+      "id": 9567,
+      "geometry": "POINT (-105.275298 39.978056)",
+      "poi_name": "NCAR Exhibits",
+      "osm_id": 3889737512,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "fee": "no",
+      "opening_hours": "Mo-Fr 08:00-17:00, Sa-Su 08:00-16:00, PH 08:00-16:00",
+      "operator": "National Center for Atmospheric Research",
+      "website": "https://scied.ucar.edu/exhibits/exhibits-national-center-atmospheric-research",
+      "museum": "aerospace"
+    },
+    {
+      "id": 9581,
+      "geometry": "POINT (-105.411233 40.063634)",
+      "poi_name": "Gold Hill Museum",
+      "osm_id": 3894535847,
+      "tourism": "museum",
+      "addr_street": "Pine Street",
+      "addr_housenumber": "661"
+    },
+    {
+      "id": 11102,
+      "geometry": "POINT (-106.346443 38.703344)",
+      "poi_name": "American House Hotel Parlor",
+      "osm_id": 9857054318,
+      "tourism": "museum",
+      "addr_street": "Main Street"
+    },
+    {
+      "id": 11103,
+      "geometry": "POINT (-106.345907 38.703288)",
+      "poi_name": "Evans Firewall & Savard Building",
+      "osm_id": 9857054319,
+      "tourism": "museum",
+      "addr_street": "Chalk Creek Drive",
+      "addr_housenumber": "25880"
+    },
+    {
+      "id": 11104,
+      "geometry": "POINT (-106.346782 38.703191)",
+      "poi_name": "St. Elmo Town Hall & Jail",
+      "osm_id": 9857054417,
+      "tourism": "museum",
+      "addr_street": "Main Street",
+      "addr_housenumber": "2190"
+    },
+    {
+      "id": 11165,
+      "geometry": "POINT (-105.891193 39.315983)",
+      "poi_name": "South Park Rail Como Project",
+      "osm_id": 9873236408,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su \"by appointment\"",
+      "operator": "South Park Rail Society",
+      "website": "https://www.southparkrailsociety.org/the-roundhouse",
+      "museum": "history",
+      "addr_state": "CO",
+      "addr_city": "Como",
+      "addr_postcode": "80432",
+      "addr_street": "County Road 33",
+      "addr_housenumber": "990"
+    },
+    {
+      "id": 12038,
+      "geometry": "POINT (-104.61858 38.263795)",
+      "poi_name": "Train Museum",
+      "osm_id": 6152655682,
+      "tourism": "museum"
+    },
+    {
+      "id": 12358,
+      "geometry": "POINT (-105.167906 39.822921)",
+      "poi_name": "Cussler Museum",
+      "osm_id": 6314730866,
+      "tourism": "museum",
+      "opening_hours": "May-Sep: Mo-Th 10:00-17:00; Oct-Apr: closed",
+      "website": "https://www.cusslermuseum.com/",
+      "addr_state": "CO",
+      "addr_city": "Arvada",
+      "addr_postcode": "80007",
+      "addr_street": "West 69th Avenue",
+      "addr_housenumber": "14959"
+    },
+    {
+      "id": 12750,
+      "geometry": "POINT (-104.862643 38.895822)",
+      "poi_name": "Space Foundation Discovery Center",
+      "osm_id": 7512235102,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Tu-Sa 10:00-16:00",
+      "operator": "Space Foundation",
+      "website": "https://discoverspace.org/",
+      "addr_state": "CO",
+      "addr_city": "Colorado Springs",
+      "addr_postcode": "80907",
+      "addr_street": "Arrowswest Drive",
+      "addr_housenumber": "4425"
+    },
+    {
+      "id": 14827,
+      "geometry": "POINT (-104.781595 37.623645)",
+      "poi_name": "Huerfano Heritage Center",
+      "osm_id": 4733224294,
+      "tourism": "museum",
+      "opening_hours": "We 14:00-17:00; Th 11:00-15:00; Fr 14:00-17:00",
+      "website": "https://www.huerfanohistory.org/",
+      "phone": "+1-719-989-1305",
+      "addr_street": "West 6th Street",
+      "addr_housenumber": "114"
+    },
+    {
+      "id": 15115,
+      "geometry": "POINT (-105.118325 39.719658)",
+      "poi_name": "Denver Federal Center Museum",
+      "osm_id": 4806942380,
+      "tourism": "museum"
+    },
+    {
+      "id": 15757,
+      "geometry": "POINT (-104.782366 38.824743)",
+      "poi_name": "Pikes Peak Children's Museum",
+      "osm_id": 9506324632,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Tu-Sa 09:00-17:00",
+      "website": "https://www.pikespeakchildrensmuseum.org/",
+      "museum": "children",
+      "addr_state": "CO",
+      "addr_city": "Colorado Springs",
+      "addr_postcode": "80910",
+      "addr_street": "Airport Road",
+      "addr_housenumber": "2565"
+    },
+    {
+      "id": 16672,
+      "geometry": "POINT (-104.998839 39.730046)",
+      "poi_name": "Museo De Las Americas",
+      "osm_id": 366394539,
+      "tourism": "museum",
+      "website": "https://museo.org/",
+      "wikidata": "Q18154827",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80204",
+      "addr_street": "Santa Fe Drive",
+      "addr_housenumber": "861"
+    },
+    {
+      "id": 16673,
+      "geometry": "POINT (-104.960654 39.745713)",
+      "poi_name": "Denver Museum of Miniatures, Dolls And Toys",
+      "osm_id": 366396447,
+      "tourism": "museum",
+      "website": "https://dmmdt.org/",
+      "phone": "+1-303-322-1053",
+      "wikidata": "Q5259750",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80205",
+      "addr_street": "Gaylord Street",
+      "addr_housenumber": "1880"
+    },
+    {
+      "id": 16674,
+      "geometry": "POINT (-105.017044 39.748654)",
+      "poi_name": "Children\u2019s Museum of Denver at Marsico Campus",
+      "osm_id": 366396449,
+      "tourism": "museum",
+      "museum": "children",
+      "wikidata": "Q5098167",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80211",
+      "addr_street": "Children's Museum Drive",
+      "addr_housenumber": "2121"
+    },
+    {
+      "id": 16675,
+      "geometry": "POINT (-105.323457 39.639114)",
+      "poi_name": "Hiwan Homestead Museum",
+      "osm_id": 366396452,
+      "tourism": "museum",
+      "opening_hours": "Tu-Fr 12:00-16:00; Sa,Su 12:00-16:30",
+      "website": "https://www.jeffco.us/1251/Hiwan-Heritage-Park",
+      "addr_state": "CO"
+    },
+    {
+      "id": 16676,
+      "geometry": "POINT (-104.917249 39.709062)",
+      "poi_name": "Mizel Museum",
+      "osm_id": 366396453,
+      "tourism": "museum",
+      "website": "https://mizelmuseum.org/",
+      "phone": "+1-720-785-7300",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80224",
+      "addr_street": "South Kearney Street",
+      "addr_housenumber": "400"
+    },
+    {
+      "id": 16677,
+      "geometry": "POINT (-104.992426 39.740657)",
+      "poi_name": "Denver Firefighters Museum",
+      "osm_id": 366396458,
+      "tourism": "museum",
+      "website": "https://denverfirefightersmuseum.org/",
+      "phone": "+1-303-892-1436",
+      "wikidata": "Q5259725",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80204",
+      "addr_street": "Tremont Place",
+      "addr_housenumber": "1326"
+    },
+    {
+      "id": 16678,
+      "geometry": "POINT (-104.974471 39.759228)",
+      "poi_name": "Black American West Museum",
+      "osm_id": 366396460,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Sa 10:00-14:00",
+      "website": "https://www.bawmhc.org/",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80205",
+      "addr_street": "California Street",
+      "addr_housenumber": "3091"
+    },
+    {
+      "id": 16679,
+      "geometry": "POINT (-104.987962 39.744627)",
+      "poi_name": "American Museum of Western Art",
+      "osm_id": 366396461,
+      "tourism": "museum",
+      "website": "https://www.anschutzcollection.org/",
+      "phone": "+1-303-293-2000",
+      "wikidata": "Q4770539",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80202",
+      "addr_street": "Tremont Place",
+      "addr_housenumber": "1727"
+    },
+    {
+      "id": 16680,
+      "geometry": "POINT (-105.099551 40.145721)",
+      "poi_name": "Longmont Museum and Culture Center",
+      "osm_id": 366396462,
+      "tourism": "museum",
+      "website": "https://www.longmontcolorado.gov/departments/departments-e-m/museum",
+      "addr_state": "CO"
+    },
+    {
+      "id": 16681,
+      "geometry": "POINT (-105.089574 39.998099)",
+      "poi_name": "Miners Museum",
+      "osm_id": 366396464,
+      "tourism": "museum",
+      "website": "https://www.lafayettehistoricalsociety.org/",
+      "addr_state": "CO"
+    },
+    {
+      "id": 16683,
+      "geometry": "POINT (-105.083868 39.703202)",
+      "poi_name": "Lakewood's Heritage Center",
+      "osm_id": 366396471,
+      "tourism": "museum",
+      "addr_state": "CO",
+      "addr_city": "Lakewood",
+      "addr_postcode": "80226",
+      "addr_street": "South Yarrow Street",
+      "addr_housenumber": "801"
+    },
+    {
+      "id": 16685,
+      "geometry": "POINT (-106.142455 38.086297)",
+      "poi_name": "Saguache County Museum",
+      "osm_id": 366396480,
+      "tourism": "museum",
+      "website": "https://www.museumtrail.org/saguache-county-museum",
+      "addr_state": "CO"
+    },
+    {
+      "id": 16686,
+      "geometry": "POINT (-105.791156 39.932746)",
+      "poi_name": "Cozens Ranch Museum",
+      "osm_id": 366396481,
+      "tourism": "museum",
+      "website": "http://grandcountyhistory.org/museums/cozens-ranch-museum/",
+      "addr_state": "CO"
+    },
+    {
+      "id": 19452,
+      "geometry": "POINT (-104.848853 38.793862)",
+      "poi_name": "World Figure Skating Museum",
+      "osm_id": 10762948083,
+      "tourism": "museum",
+      "website": "https://worldskatingmuseum.org",
+      "phone": "+1-719-635-5200",
+      "addr_street": "1st",
+      "addr_housenumber": "20"
+    },
+    {
+      "id": 21192,
+      "geometry": "POINT (-105.509564 39.959905)",
+      "poi_name": "Wild Bear Mountain Ecology Center",
+      "osm_id": 1436799594,
+      "tourism": "museum",
+      "website": "https://wildbear.org/"
+    },
+    {
+      "id": 21227,
+      "geometry": "POINT (-105.093984 39.665504)",
+      "poi_name": "Old Stone House",
+      "osm_id": 1446655211,
+      "tourism": "museum"
+    },
+    {
+      "id": 21986,
+      "geometry": "POINT (-105.518502 39.741957)",
+      "poi_name": "Fire Station #1",
+      "osm_id": 950735719,
+      "tourism": "museum"
+    },
+    {
+      "id": 22450,
+      "geometry": "POINT (-104.92912 39.703335)",
+      "poi_name": "Grant Family Education Center",
+      "osm_id": 7078460011,
+      "tourism": "museum",
+      "website": "https://fourmilepark.org/",
+      "phone": "+1-720-865-0800",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80246",
+      "addr_street": "South Forest Street",
+      "addr_housenumber": "715"
+    },
+    {
+      "id": 22939,
+      "geometry": "POINT (-106.293631 39.246381)",
+      "poi_name": "Temple Israel",
+      "osm_id": 4976416722,
+      "tourism": "museum",
+      "fee": "no",
+      "website": "http://www.jewishleadville.org/"
+    },
+    {
+      "id": 22955,
+      "geometry": "POINT (-106.043404 39.631296)",
+      "poi_name": "Summit Historical Museum",
+      "osm_id": 4980459626,
+      "tourism": "museum",
+      "website": "https://summithistorical.org/",
+      "phone": "+1-970-468-2207",
+      "addr_state": "CO",
+      "addr_city": "Dillon",
+      "addr_postcode": "80435",
+      "addr_street": "La Bonte Street",
+      "addr_housenumber": "403"
+    },
+    {
+      "id": 22956,
+      "geometry": "POINT (-106.046482 39.480285)",
+      "poi_name": "Breckenridge History Museum",
+      "osm_id": 4980475423,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "fee": "no",
+      "internet_access": "wlan"
+    },
+    {
+      "id": 22961,
+      "geometry": "POINT (-106.045831 39.485395)",
+      "poi_name": "Red White and Blue Fire Museum",
+      "osm_id": 4980786172,
+      "tourism": "museum",
+      "website": "https://www.rwbfire.org/291/Museum"
+    },
+    {
+      "id": 23003,
+      "geometry": "POINT (-105.206687 39.665397)",
+      "poi_name": "Colorado Music Hall of Fame",
+      "osm_id": 4995644333,
+      "tourism": "museum",
+      "opening_hours": "Apr-Oct: Mo-Su 07:00-19:00, Nov-Mar: Mo-Su 07:00-19:00",
+      "website": "https://cmhof.org/",
+      "wikidata": "Q20714869"
+    },
+    {
+      "id": 24156,
+      "geometry": "POINT (-105.042531 38.839905)",
+      "poi_name": "Pike's Peak Summit Visitor Center",
+      "osm_id": 9354171248,
+      "tourism": "museum",
+      "website": "https://www.pikes-peak.com/"
+    },
+    {
+      "id": 25557,
+      "geometry": "POINT (-104.99549 39.747335)",
+      "poi_name": "The Money Museum",
+      "osm_id": 4540518695,
+      "tourism": "museum",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 09:30-16:00",
+      "website": "https://kansascityfed.org/moneymuseum?location=1",
+      "phone": "+1-303-571-2300",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80202",
+      "addr_street": "16th Street Mall",
+      "addr_housenumber": "1020"
+    },
+    {
+      "id": 25643,
+      "geometry": "POINT (-104.991757 39.745727)",
+      "poi_name": "Dikeou Collection",
+      "osm_id": 4568941000,
+      "tourism": "museum",
+      "opening_hours": "We-Th 11:00-17:00; Fr 15:00-21:00",
+      "website": "https://dikeoucollection.org/",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80202",
+      "addr_street": "California Street",
+      "addr_housenumber": "1615"
+    },
+    {
+      "id": 25758,
+      "geometry": "POINT (-105.196425 39.720668)",
+      "poi_name": "Rocky Mountain Quilt Museum",
+      "osm_id": 4596299754,
+      "tourism": "museum",
+      "wikidata": "Q28149746"
+    },
+    {
+      "id": 26832,
+      "geometry": "POINT (-105.500477 39.787097)",
+      "poi_name": "Hidee Gold Mine",
+      "osm_id": 177043858,
+      "tourism": "museum"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "distance": 150000,
       "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Turtle Island Park, Lake in the Hills, IL",
-      "geo_wkt": "POINT (-88.328177 42.185635)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO",
+      "geo_wkt": "POINT (-104.799593 38.839378)",
       "poi": {
-        "id": 267608,
-        "geometry": "POINT (-88.328177 42.185635)",
-        "poi_name": "Turtle Island Park",
-        "osm_id": 7755470376,
-        "leisure": "park",
-        "opening_hours": "sunrise-sunset",
-        "addr_state": "IL",
-        "addr_city": "Lake in the Hills",
-        "addr_postcode": "60102",
-        "addr_street": "Indian Trail",
-        "addr_housenumber": "290 1/2"
+        "id": 46387,
+        "geometry": "POINT (-104.799593 38.839378)",
+        "poi_name": "Children's Hospital Colorado at Memorial Hospital",
+        "osm_id": 3262037034,
+        "amenity": "hospital",
+        "website": "https://www.childrenscolorado.org/about/locations/colorado-springs/memorial-hospital-central",
+        "phone": "+1-719-365-5000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Colorado Springs",
+        "addr_postcode": "80909",
+        "addr_street": "East Boulder Street",
+        "addr_housenumber": "1400"
       }
     }
   },
-  "id": 800,
+  "id": 2100,
   "type": "range+name"
 }

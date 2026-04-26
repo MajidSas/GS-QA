@@ -1,43 +1,52 @@
 {
-  "question": "Where's the closest museum to the north of School of Architecture, Coral Gables, FL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.279337 25.717224)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest nature reserve located toward northwest from Sherwood Forest Faire, McDade, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17632,
-      "geometry": "POINT (-80.279337 25.717224)",
-      "poi_name": "Anhinga Indian Museum",
-      "osm_id": 367827363,
-      "tourism": "museum",
-      "addr_state": "FL"
+      "id": 246820,
+      "geometry": "POINT (-97.166138 30.231527)",
+      "poi_name": "Wildlife West Nature Park",
+      "osm_id": 6471544426,
+      "leisure": "nature_reserve",
+      "opening_hours": "10:00-18:00",
+      "operator": "New Mexico Wildlife Association",
+      "website": "https://wildlifewest.org/",
+      "phone": "+1 505 281-7655",
+      "addr_state": "NM",
+      "addr_city": "Edgewood",
+      "addr_postcode": "87015",
+      "addr_street": "North Frontage Road",
+      "addr_housenumber": "87"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "School of Architecture, Coral Gables, FL",
-      "geo_wkt": "POINT (-80.279337 25.717224)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
       "poi": {
-        "id": 238674,
-        "geometry": "POINT (-80.279337 25.717224)",
-        "poi_name": "School of Architecture",
-        "osm_id": 5889618224,
-        "amenity": "university",
-        "addr_state": "FL",
-        "addr_city": "Coral Gables",
-        "addr_postcode": "33146",
-        "addr_street": "Theo Dickinson Drive",
-        "addr_housenumber": "1223"
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1138,

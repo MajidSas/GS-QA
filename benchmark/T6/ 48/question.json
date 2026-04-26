@@ -1,51 +1,48 @@
 {
-  "question": "What's the nearest new american restaurant available from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american_new%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which emergency hospital near Mokup\u0101papa Discovery Center, Hilo, HI is the nearest one?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-155.087013 19.726684)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 98120,
-      "geometry": "POINT (-118.364416 34.090584)",
-      "poi_name": "Laurel Hardware",
-      "osm_id": 6507202779,
-      "amenity": "restaurant",
-      "cuisine": "american;new_american;farm-to-table",
-      "website": "https://www.laurelhardware.com/",
-      "phone": "+1-323-656-6070",
-      "addr_state": "CA",
-      "addr_city": "West Hollywood",
-      "addr_postcode": "90046",
-      "addr_street": "Santa Monica Boulevard",
-      "addr_housenumber": "7984"
+      "id": 203134,
+      "geometry": "POINT (-155.994458 20.763562)",
+      "poi_name": "Hana Health",
+      "osm_id": 7065042271,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "new american restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%american_new%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
-      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "sub_category": "aquarium",
+      "display_name": "Mokup\u0101papa Discovery Center, Hilo, HI",
+      "geo_wkt": "POINT (-155.087013 19.726684)",
       "poi": {
-        "id": 11808,
-        "geometry": "POINT (-122.432984 47.131086)",
-        "poi_name": "Debbie Doolittle's Petting Zoo",
-        "osm_id": 11550085362,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "WA",
-        "addr_city": "Tacoma",
-        "addr_postcode": "98444",
-        "addr_street": "138th St. S.",
-        "addr_housenumber": "120"
+        "id": 19974,
+        "geometry": "POINT (-155.087013 19.726684)",
+        "poi_name": "Mokup\u0101papa Discovery Center",
+        "osm_id": 7795612527,
+        "tourism": "aquarium",
+        "fee": "no",
+        "opening_hours": "Tu-Sa 09:00-16:00",
+        "website": "https://www.papahanaumokuakea.gov/education/center.html",
+        "phone": "+1 808 498 4709",
+        "addr_state": "HI",
+        "addr_city": "Hilo",
+        "addr_postcode": "96720",
+        "addr_street": "Kamehameha Avenue",
+        "addr_housenumber": "76"
       }
     }
   },
-  "id": 647,
+  "id": 1447,
   "type": "knn:non_spat_filter+name"
 }

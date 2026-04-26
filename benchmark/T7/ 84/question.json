@@ -1,45 +1,57 @@
 {
-  "question": "When was the nearest theme park from Mission Hills Church Park, San Marcos, CA first opened?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest hospital from Cyrus Dallin Art Museum, Arlington, MA first opened?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16342,
-      "geometry": "POINT (-116.883359 32.841995)",
-      "poi_name": "Marshal Scottys Playland",
-      "osm_id": 358845750,
-      "tourism": "theme_park",
-      "wikidata": "Q17020373",
-      "multihop_answer": "1967",
-      "multihop_attribute": "Opened",
-      "multihop_long_answer": "Marshal Scottys Playland Opened: 1967"
+      "id": 188948,
+      "geometry": "POINT (-71.070154 42.362739)",
+      "poi_name": "Massachusetts Eye and Ear",
+      "osm_id": 257489564,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.masseyeandear.org/",
+      "phone": "+1 617 523 7900",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q6784269",
+      "addr_city": "Boston",
+      "addr_postcode": "02114",
+      "addr_street": "Charles Street",
+      "addr_housenumber": "243",
+      "multi_source_answer": "1824[2]",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Massachusetts Eye and Ear Opened: 1824[2]"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Mission Hills Church Park, San Marcos, CA",
-      "geo_wkt": "POINT (-117.148078 33.148133)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 246426,
-        "geometry": "POINT (-117.148078 33.148133)",
-        "poi_name": "Mission Hills Church Park",
-        "osm_id": 9632460029,
-        "leisure": "park",
-        "operator": "Mission Hills Church",
-        "addr_state": "CA",
-        "addr_city": "San Marcos",
-        "addr_postcode": "92069",
-        "addr_street": "E. Mission Hills Court",
-        "addr_housenumber": "400"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     }
   },
-  "id": 983,
-  "type": "knn+name+multihop1"
+  "id": 883,
+  "type": "knn+name+multi_source1"
 }

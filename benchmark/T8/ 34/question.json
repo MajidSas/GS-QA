@@ -1,41 +1,48 @@
 {
-  "question": "Seeking the nearest garden from the university with the former name Denmark Industrial School for African Americans in Denmark, SC, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest caf\u00e9 nearby the stadium with the former name Southern National Speedway in Lucama, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245343,
-      "geometry": "POINT (-80.871461 33.486997)",
-      "poi_name": "Sensory Garden",
-      "osm_id": 2773287169,
-      "leisure": "garden"
+      "id": 145432,
+      "geometry": "POINT (-78.122863 35.593758)",
+      "poi_name": "Second Street Coffee & Cafe",
+      "osm_id": 7354637981,
+      "amenity": "cafe",
+      "phone": "19195885159",
+      "addr_state": "NC",
+      "addr_city": "Kenly",
+      "addr_postcode": "27542",
+      "addr_street": "East 2nd Street",
+      "addr_housenumber": "102"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
-        "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
+        "leisure": "stadium",
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
       }
     }
   },
-  "id": 2733,
-  "type": "knn+name+multihop2"
+  "id": 933,
+  "type": "knn+name+multi_source2"
 }

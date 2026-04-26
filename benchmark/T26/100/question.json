@@ -1,43 +1,42 @@
 {
-  "question": "How far is the nearest golf course situated from Sea Life Aquarium, San Antonio, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between Lucille Ball Childhood Home, Jamestown, NY and the closest available nature reserve?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 252533,
-      "geometry": "POINT (-98.483958 28.982712)",
-      "poi_name": "Pleasanton Country Club",
-      "osm_id": 356848744,
-      "leisure": "golf_course",
-      "distance": 48923.72839223
+      "id": 247259,
+      "geometry": "POINT (-79.336833 42.454284)",
+      "poi_name": "Forever Wild Forest Trail Head",
+      "osm_id": 3890361157,
+      "leisure": "nature_reserve",
+      "distance": 39273.96253934
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Sea Life Aquarium, San Antonio, TX",
-      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "sub_category": "museum",
+      "display_name": "Lucille Ball Childhood Home, Jamestown, NY",
+      "geo_wkt": "POINT (-79.286417 42.102703)",
       "poi": {
-        "id": 3121,
-        "geometry": "POINT (-98.485816 29.424103)",
-        "poi_name": "Sea Life Aquarium",
-        "osm_id": 10184935041,
-        "tourism": "aquarium",
-        "website": "https://www.visitsealife.com/san-antonio/",
-        "wikidata": "Q664334",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78205",
-        "addr_street": "East Commerce Street",
-        "addr_housenumber": "849"
+        "id": 373,
+        "geometry": "POINT (-79.286417 42.102703)",
+        "poi_name": "Lucille Ball Childhood Home",
+        "osm_id": 8342270492,
+        "tourism": "museum",
+        "website": "https://59lucylane.com/",
+        "addr_state": "NY",
+        "addr_city": "Jamestown",
+        "addr_postcode": "14701",
+        "addr_street": "Lucy Lane",
+        "addr_housenumber": "59"
       }
     }
   },
-  "id": 2499,
+  "id": 699,
   "type": "knn+distance"
 }

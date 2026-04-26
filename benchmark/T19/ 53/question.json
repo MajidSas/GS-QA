@@ -1,44 +1,50 @@
 {
-  "question": "Where's the closest gallery positioned towards the southeast of Attala County Coliseum, MS?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.577528 33.067521)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest nature reserve located on the southwest side relative to South University, Austin, Round Rock, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.689962 30.479356)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23712,
-      "geometry": "POINT (-89.577528 33.067521)",
-      "poi_name": "Quayside Art Gallery",
-      "osm_id": 5283052163,
-      "tourism": "gallery",
-      "fee": "no",
-      "addr_state": "FL",
-      "addr_city": "Pensacola",
-      "addr_postcode": "32502",
-      "addr_street": "East Zarragossa Street",
-      "addr_housenumber": "17"
+      "id": 246012,
+      "geometry": "POINT (-97.689962 30.479356)",
+      "poi_name": "James C. Curry Nature Center",
+      "osm_id": 5449527323,
+      "leisure": "nature_reserve",
+      "operator": "Comal County",
+      "addr_state": "TX",
+      "addr_city": "Canyon Lake",
+      "addr_postcode": "78133",
+      "addr_street": "Skyline Drive",
+      "addr_housenumber": "1889"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Attala County Coliseum, MS",
-      "geo_wkt": "POINT (-89.577528 33.067521)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "South University, Austin, Round Rock, TX",
+      "geo_wkt": "POINT (-97.689962 30.479356)",
       "poi": {
-        "id": 265363,
-        "geometry": "POINT (-89.577528 33.067521)",
-        "poi_name": "Attala County Coliseum",
-        "osm_id": 367134880,
-        "leisure": "stadium",
-        "addr_state": "MS"
+        "id": 103293,
+        "geometry": "POINT (-97.689962 30.479356)",
+        "poi_name": "South University, Austin",
+        "osm_id": 8493550779,
+        "amenity": "university",
+        "website": "https://www.southuniversity.edu/austin",
+        "phone": "+1-877-659-5706",
+        "addr_state": "TX",
+        "addr_city": "Round Rock",
+        "addr_postcode": "78681",
+        "addr_street": "West Louis Henna Boulevard",
+        "addr_housenumber": "1220"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1152,

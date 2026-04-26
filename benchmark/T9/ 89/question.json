@@ -1,47 +1,43 @@
 {
-  "question": "What is the nearest garden in the southwest direction of the Painting Center, New York, NY?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.004398 40.751285)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest university to the southwest of Joppa Hill Farm, Bedford, NH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246948,
-      "geometry": "POINT (-74.004398 40.751285)",
-      "poi_name": "Gary Lapelusa Landscaping LLC",
-      "osm_id": 6627360488,
-      "leisure": "garden",
-      "website": "http://garylapelusalanscaping.com",
-      "phone": "+1-201-823-1868",
-      "addr_state": "NJ",
-      "addr_city": "Bayonne",
-      "addr_postcode": "07002",
-      "addr_street": "W 19th St",
-      "addr_housenumber": "41"
+      "id": 97577,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Franklin Pierce University",
+      "osm_id": 6484120956,
+      "amenity": "university",
+      "website": "https://franklinpierce.edu/",
+      "wikidata": "Q5491762",
+      "addr_state": "NH",
+      "addr_city": "Rindge",
+      "addr_postcode": "03461",
+      "addr_street": "University Drive",
+      "addr_housenumber": "40"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "The Painting Center, New York, NY",
-      "geo_wkt": "POINT (-74.004398 40.751285)",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
       "poi": {
-        "id": 19696,
-        "geometry": "POINT (-74.004398 40.751285)",
-        "poi_name": "The Painting Center",
-        "osm_id": 10860703827,
-        "tourism": "gallery",
-        "opening_hours": "Tu 10:00-16:00; We-Sa 11:00-18:00",
-        "website": "https://www.thepaintingcenter.org",
-        "phone": "+1-212-343-1060",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10001",
-        "addr_street": "West 27th Street",
-        "addr_housenumber": "547"
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
       }
     },
     "[3]": {
@@ -49,6 +45,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2588,
+  "id": 1288,
   "type": "knn:direction+name"
 }

@@ -1,48 +1,42 @@
 {
-  "question": "What's the closest restaurant nearby the hospital that has pediatric emergency department in Bronx, NY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest theme park around the university that has the nickname Ravens in Rindge, NH?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.055892 42.779337)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 37382,
-      "geometry": "POINT (-73.881555 40.882664)",
-      "poi_name": "El Valle Restaurant",
-      "osm_id": 2810061605,
-      "amenity": "restaurant",
-      "addr_state": "NY",
-      "addr_city": "Bronx",
-      "addr_postcode": "10467",
-      "addr_street": "Jerome Avenue",
-      "addr_housenumber": "3535"
+      "id": 6709,
+      "geometry": "POINT (-71.428921 42.252635)",
+      "poi_name": "Boston Paint Ball",
+      "osm_id": 1934564832,
+      "tourism": "theme_park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
-      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University, Rindge, NH",
+      "geo_wkt": "POINT (-72.055892 42.779337)",
       "poi": {
-        "id": 37381,
-        "geometry": "POINT (-73.878898 40.880372)",
-        "poi_name": "Children's Hospital at Montefiore",
-        "osm_id": 2810045562,
-        "amenity": "hospital",
-        "operator": "Montefiore Medical Center",
-        "healthcare": "hospital",
-        "wikidata": "Q30279893",
-        "addr_state": "NY",
-        "addr_city": "Bronx",
-        "addr_postcode": "10467",
-        "addr_street": "Bainbridge Avenue",
-        "addr_housenumber": "3415"
+        "id": 97577,
+        "geometry": "POINT (-72.055892 42.779337)",
+        "poi_name": "Franklin Pierce University",
+        "osm_id": 6484120956,
+        "amenity": "university",
+        "website": "https://franklinpierce.edu/",
+        "wikidata": "Q5491762",
+        "addr_state": "NH",
+        "addr_city": "Rindge",
+        "addr_postcode": "03461",
+        "addr_street": "University Drive",
+        "addr_housenumber": "40"
       }
     }
   },
-  "id": 2764,
-  "type": "knn+name+multihop2"
+  "id": 964,
+  "type": "knn+name+multi_source2"
 }

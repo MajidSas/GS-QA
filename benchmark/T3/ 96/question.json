@@ -1,49 +1,49 @@
 {
-  "question": "Within a radius of 110 kilometers, what nature reserve can I find located in the north of Thomson Park, Thunderbolt, GA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography, 110000)\nAND leisure = 'nature_reserve'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "What garden are within 50 kilometers in the southwestward direction of Bagley Nature Area viewing platform, Duluth, MN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, 50000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 265997,
-      "geometry": "POINT (-81.050045 32.03109)",
-      "poi_name": "Savannah National Wildlife Refuge",
-      "osm_id": 1549137171,
-      "leisure": "nature_reserve",
-      "wikidata": "Q7427867"
+      "id": 245889,
+      "geometry": "POINT (-92.08933 46.822185)",
+      "poi_name": "Chinese Peace Bell and Garden",
+      "osm_id": 10243142739,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Thomson Park, Thunderbolt, GA",
-      "geo_wkt": "POINT (-81.050045 32.03109)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Bagley Nature Area viewing platform, Duluth, MN",
+      "geo_wkt": "POINT (-92.08933 46.822185)",
       "poi": {
-        "id": 245088,
-        "geometry": "POINT (-81.050045 32.03109)",
-        "poi_name": "Thomson Park",
-        "osm_id": 411397560,
-        "leisure": "park",
-        "addr_state": "GA",
-        "addr_city": "Thunderbolt",
-        "addr_postcode": "31404",
-        "addr_street": "River Drive",
-        "addr_housenumber": "2821"
+        "id": 16041,
+        "geometry": "POINT (-92.08933 46.822185)",
+        "poi_name": "Bagley Nature Area viewing platform",
+        "osm_id": 316372272,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "addr_state": "MN",
+        "addr_city": "Duluth",
+        "addr_postcode": "55812",
+        "addr_street": "Junction Avenue",
+        "addr_housenumber": "1325"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2695,
+  "id": 2395,
   "type": "range:direction+name"
 }

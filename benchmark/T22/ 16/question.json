@@ -1,39 +1,47 @@
 {
-  "question": "Which way should I go to reach the closest university from Strawberry Hill, San Francisco, CA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the orientation from Action Behavior Centers - ABA therapy for Autism, Longmont, CO toward the nearest fast food restaurant?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.123738 40.136268)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.123738 40.136268)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 190611,
-      "geometry": "POINT (-122.4265 37.770956)",
-      "poi_name": "UCSF Dental School",
-      "osm_id": 1307325427,
-      "amenity": "university",
-      "angle": 86.61880392314545
+      "id": 113753,
+      "geometry": "POINT (-105.129596 40.141989)",
+      "poi_name": "Dairy Queen",
+      "osm_id": 3845397909,
+      "amenity": "fast_food",
+      "cuisine": "ice_cream;burger",
+      "takeaway": "yes",
+      "angle": 321.83953362960756
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Strawberry Hill, San Francisco, CA",
-      "geo_wkt": "POINT (-122.475512 37.768668)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Action Behavior Centers - ABA Therapy for Autism, Longmont, CO",
+      "geo_wkt": "POINT (-105.123738 40.136268)",
       "poi": {
-        "id": 6747,
-        "geometry": "POINT (-122.475512 37.768668)",
-        "poi_name": "Strawberry Hill",
-        "osm_id": 1948074360,
-        "tourism": "viewpoint",
-        "internet_access": "no",
-        "addr_state": "CA",
-        "addr_city": "San Francisco"
+        "id": 53309,
+        "geometry": "POINT (-105.123738 40.136268)",
+        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
+        "osm_id": 10074565438,
+        "amenity": "hospital",
+        "description": "Our Longmont ABA Therapy center provides services for early learners, school-age children, and teens on the Autism Spectrum. Applied Behavior Analysis (ABA) therapy is the leading treatment method to improve the signs and symptoms associated with ASD.",
+        "website": "https://www.actionbehavior.com/locations/aba-therapy-longmont-co/",
+        "phone": "+1 720-405-6201",
+        "healthcare": "hospital",
+        "addr_state": "CO",
+        "addr_city": "Longmont",
+        "addr_postcode": "80501",
+        "addr_street": "Corporate Center Circle",
+        "addr_housenumber": "1921"
       }
     }
   },
-  "id": 1415,
+  "id": 515,
   "type": "knn+angle"
 }

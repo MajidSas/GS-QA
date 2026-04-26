@@ -1,52 +1,71 @@
 {
-  "question": "Where can I find a viewpoint to the north of Oregon Coast Scenic Railroad, Garibaldi, OR within 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-123.910627 45.558356)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.910627 45.558356)',4326)::geography, 140000)\nAND tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a hospital located within an 80 kilometers range toward the east of Steinhart Aquarium, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, 80000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 21991,
-      "geometry": "POINT (-123.910627 45.558356)",
-      "poi_name": "Silver Point Interpretive Overlook",
-      "osm_id": 954793454,
-      "tourism": "viewpoint",
-      "addr_state": "OR",
-      "addr_street": "Oregon Coast Highway"
+      "id": 62192,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "UCSF Benioff Children's Hospital San Francisco",
+      "osm_id": 5555408498,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.ucsfbenioffchildrens.org/",
+      "phone": "+1 415 353 1664",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q17031376",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94158",
+      "addr_street": "4th Street",
+      "addr_housenumber": "1975"
+    },
+    {
+      "id": 122738,
+      "geometry": "POINT (-122.465976 37.769485)",
+      "poi_name": "Dublin Medical Offices and Cancer Center",
+      "osm_id": 6816256205,
+      "amenity": "hospital",
+      "operator": "Kaiser Permanente",
+      "website": "https://thrive.kaiserpermanente.org/care-near-you/northern-california/diablo/locations/dublin-medical-offices/",
+      "phone": "+1-925-556-4200",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "CA",
+      "addr_city": "Dublin",
+      "addr_postcode": "94568",
+      "addr_street": "Dublin Boulevard",
+      "addr_housenumber": "3100"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Oregon Coast Scenic Railroad, Garibaldi, OR",
-      "geo_wkt": "POINT (-123.910627 45.558356)",
+      "sub_category": "aquarium",
+      "display_name": "Steinhart Aquarium, CA",
+      "geo_wkt": "POINT (-122.465976 37.769485)",
       "poi": {
-        "id": 1313,
-        "geometry": "POINT (-123.910627 45.558356)",
-        "poi_name": "Oregon Coast Scenic Railroad",
-        "osm_id": 2933695048,
-        "tourism": "museum",
-        "website": "https://oregoncoastscenic.org/",
-        "phone": "+1 503 842 7972",
-        "addr_state": "OR",
-        "addr_city": "Garibaldi",
-        "addr_postcode": "97118",
-        "addr_street": "American Avenue",
-        "addr_housenumber": "306"
+        "id": 18181,
+        "geometry": "POINT (-122.465976 37.769485)",
+        "poi_name": "Steinhart Aquarium",
+        "osm_id": 368173914,
+        "tourism": "aquarium",
+        "addr_state": "CA"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 13,
+  "id": 2213,
   "type": "range:direction+loc"
 }

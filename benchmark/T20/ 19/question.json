@@ -1,69 +1,68 @@
 {
-  "question": "Where's the nearest restaurant on the way to Gannon University, Erie, PA from Glenhill Farmhouse, Erie, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, ST_GeomFromText('POINT (-80.086729 42.128105)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 while traveling toward Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio from Akron Children's Hospital NICU at Summa, Akron, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.50133 41.080742)',4326)::geography, ST_GeomFromText('POINT (-80.844899 41.715412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.50133 41.080742)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.50133 41.080742)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 242552,
-      "geometry": "POINT (-80.015801 42.121289)",
-      "poi_name": "Fine Restaurant & Bar",
-      "osm_id": 7578562309,
-      "amenity": "restaurant",
-      "cuisine": "indian",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16510",
-      "addr_street": "East 38th Street",
-      "addr_housenumber": "2330",
-      "value": 276.79245447745154
+      "id": 209531,
+      "geometry": "POINT (-81.479672 41.119584)",
+      "poi_name": "Starbucks",
+      "osm_id": 5042003025,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "OH",
+      "addr_city": "Cuyahoga Falls",
+      "addr_postcode": "44221",
+      "addr_street": "Howe Avenue",
+      "addr_housenumber": "371",
+      "value": 37.69468873352771
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Glenhill Farmhouse, Erie, PA",
-      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Akron Children's Hospital NICU at Summa, Akron, OH",
+      "geo_wkt": "POINT (-81.50133 41.080742)",
       "poi": {
-        "id": 241,
-        "geometry": "POINT (-79.985748 42.119196)",
-        "poi_name": "Glenhill Farmhouse",
-        "osm_id": 8255522795,
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Fr 08:00-17:00",
-        "operator": "Penn State Behrend",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16563",
-        "addr_street": "College Drive",
-        "addr_housenumber": "4701"
+        "id": 75823,
+        "geometry": "POINT (-81.50133 41.080742)",
+        "poi_name": "Akron Children's Hospital NICU at Summa",
+        "osm_id": 9749113787,
+        "amenity": "hospital",
+        "operator": "Akron Children's Hospital",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "OH",
+        "addr_city": "Akron",
+        "addr_postcode": "44304",
+        "addr_street": "North Forge Street",
+        "addr_housenumber": "141"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Gannon University, Erie, PA",
-      "geo_wkt": "POINT (-80.086729 42.128105)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio",
+      "geo_wkt": "POINT (-80.844899 41.715412)",
       "poi": {
-        "id": 133663,
-        "geometry": "POINT (-80.086729 42.128105)",
-        "poi_name": "Gannon University",
-        "osm_id": 10003127082,
-        "amenity": "university",
-        "operator": "Gannon University",
-        "wikidata": "Q5521430",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16541",
-        "addr_street": "University Square",
-        "addr_housenumber": "109"
+        "id": 246522,
+        "geometry": "POINT (-80.844899 41.715412)",
+        "poi_name": "Eagleville Road WRGT Trailhead and Parking",
+        "osm_id": 9804147199,
+        "leisure": "park",
+        "operator": "Western Reserve Greenway Trail",
+        "addr_state": "Ohio",
+        "addr_city": "Jefferson"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 1318,
+  "id": 1518,
   "type": "knn:towards+loc"
 }

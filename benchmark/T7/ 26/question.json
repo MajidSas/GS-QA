@@ -1,56 +1,46 @@
 {
-  "question": "When was the nearest theme park from Harbor Oaks Hospital, New Baltimore, MI first opened?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.756088 42.676753)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Who is the director of the nearest university from Funkmeyer New Reality Garden, Los Angeles, CA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 10709,
-      "geometry": "POINT (-82.678842 41.478118)",
-      "poi_name": "Cedar Point",
-      "osm_id": 153917102,
-      "tourism": "theme_park",
-      "wheelchair": "yes",
-      "operator": "Cedar Fair Entertainment Company",
-      "website": "https://www.cedarpoint.com/",
-      "phone": "+1-419-627-2350",
-      "wikidata": "Q859230",
-      "addr_city": "Sandusky",
-      "addr_postcode": "44870",
-      "addr_street": "Cedar Point Drive",
-      "addr_housenumber": "1",
-      "multihop_answer": "1870; 154\u00a0years ago",
-      "multihop_attribute": "Opened",
-      "multihop_long_answer": "Cedar Point Opened: 1870; 154\u00a0years ago"
+      "id": 167729,
+      "geometry": "POINT (-118.232807 34.043179)",
+      "poi_name": "Southern California Institute of Architecture",
+      "osm_id": 358858290,
+      "amenity": "university",
+      "wikidata": "Q1786506",
+      "multi_source_answer": "Hernan Diaz Alonso",
+      "multi_source_attribute": "Director",
+      "multi_source_long_answer": "Southern California Institute of Architecture Director: Hernan Diaz Alonso"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Harbor Oaks Hospital, New Baltimore, MI",
-      "geo_wkt": "POINT (-82.756088 42.676753)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.366951 34.039786)",
       "poi": {
-        "id": 31875,
-        "geometry": "POINT (-82.756088 42.676753)",
-        "poi_name": "Harbor Oaks Hospital",
-        "osm_id": 8453619003,
-        "amenity": "hospital",
-        "website": "https://www.harboroaks.com/",
-        "phone": "+1-586-684-4870",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "MI",
-        "addr_city": "New Baltimore",
-        "addr_postcode": "48047",
-        "addr_street": "23 Mile Road",
-        "addr_housenumber": "35031"
+        "id": 247152,
+        "geometry": "POINT (-118.366951 34.039786)",
+        "poi_name": "Funkmeyer New Reality Garden",
+        "osm_id": 3659354357,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "operator": "Otis and Jenny Funkmeyer",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90016",
+        "addr_street": "South Spaulding Avenue",
+        "addr_housenumber": "2033"
       }
     }
   },
-  "id": 925,
-  "type": "knn+name+multihop1"
+  "id": 825,
+  "type": "knn+name+multi_source1"
 }

@@ -1,46 +1,53 @@
 {
-  "question": "Where can I find the nearest university in the vicinity of Sea Life Aquarium, San Antonio, TX?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest theme park close to Shop One, Rochester, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.680465 43.08274)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 206218,
-      "geometry": "POINT (-98.490182 29.460428)",
-      "poi_name": "UIW SPS Alamo Heights Center",
-      "osm_id": 7201375091,
-      "amenity": "university",
-      "addr_state": "TX",
-      "addr_city": "San Antonio",
-      "addr_street": "McCullough Avenue",
-      "addr_housenumber": "3200"
+      "id": 354,
+      "geometry": "POINT (-78.975759 43.024544)",
+      "poi_name": "Niagara Amusement Park & Splash World",
+      "osm_id": 8331045218,
+      "tourism": "theme_park",
+      "information": "board",
+      "wheelchair": "yes",
+      "operator": "IB Parks & Entertainment",
+      "website": "https://niagaraamusementpark.com/",
+      "addr_state": "NY",
+      "addr_city": "Grand Island",
+      "addr_postcode": "14072",
+      "addr_street": "Grand Island Boulevard",
+      "addr_housenumber": "2400"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Sea Life Aquarium, San Antonio, TX",
-      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "sub_category": "attraction",
+      "display_name": "Shop One, Rochester, NY",
+      "geo_wkt": "POINT (-77.680465 43.08274)",
       "poi": {
-        "id": 3121,
-        "geometry": "POINT (-98.485816 29.424103)",
-        "poi_name": "Sea Life Aquarium",
-        "osm_id": 10184935041,
-        "tourism": "aquarium",
-        "website": "https://www.visitsealife.com/san-antonio/",
-        "wikidata": "Q664334",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78205",
-        "addr_street": "East Commerce Street",
-        "addr_housenumber": "849"
+        "id": 1083,
+        "geometry": "POINT (-77.680465 43.08274)",
+        "poi_name": "Shop One",
+        "osm_id": 2825443717,
+        "tourism": "attraction",
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "website": "http://www.shopone.rit.edu",
+        "shop": "gift",
+        "phone": "585-475-2335",
+        "addr_state": "NY",
+        "addr_city": "Rochester",
+        "addr_postcode": "14623",
+        "addr_street": "Reynolds Drive",
+        "addr_housenumber": "6000"
       }
     }
   },
-  "id": 1877,
+  "id": 777,
   "type": "knn+loc"
 }

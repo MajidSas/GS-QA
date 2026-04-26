@@ -1,59 +1,49 @@
 {
-  "question": "Which museum can I find west of Action Behavior Centers - ABA therapy for Autism, San Antonio, TX, within a radius of 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-98.689976 29.461831)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-98.689976 29.461831)',4326)::geography, 100000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Which attraction are available within 20 kilometers on the southeast side of Mission Hills Church Park, San Marcos, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.148078 33.148133)',4326)::geography, 20000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 17997,
-      "geometry": "POINT (-98.689976 29.461831)",
-      "poi_name": "Sabinal Canyon Museum",
-      "osm_id": 368165053,
-      "tourism": "museum",
-      "addr_state": "TX"
-    },
-    {
-      "id": 9472,
-      "geometry": "POINT (-98.689976 29.461831)",
-      "poi_name": "Sabinal Canyon Museum ",
-      "osm_id": 3825363439,
-      "tourism": "museum"
+      "id": 4682,
+      "geometry": "POINT (-117.148078 33.148133)",
+      "poi_name": "The Kit Carson Park Snake",
+      "osm_id": 11385765446,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 20000,
+      "text": "20 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Action Behavior Centers - ABA Therapy for Autism, San Antonio, TX",
-      "geo_wkt": "POINT (-98.689976 29.461831)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Mission Hills Church Park, San Marcos, CA",
+      "geo_wkt": "POINT (-117.148078 33.148133)",
       "poi": {
-        "id": 52937,
-        "geometry": "POINT (-98.689976 29.461831)",
-        "poi_name": "Action Behavior Centers - ABA Therapy for Autism",
-        "osm_id": 10055836944,
-        "amenity": "hospital",
-        "website": "https://www.actionbehavior.com/locations/aba-therapy-westover-hills-tx/",
-        "phone": "+1-210-775-2222",
-        "healthcare": "hospital",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78251",
-        "addr_street": "Highway 151 Access Rd",
-        "addr_housenumber": "12031"
+        "id": 246426,
+        "geometry": "POINT (-117.148078 33.148133)",
+        "poi_name": "Mission Hills Church Park",
+        "osm_id": 9632460029,
+        "leisure": "park",
+        "operator": "Mission Hills Church",
+        "addr_state": "CA",
+        "addr_city": "San Marcos",
+        "addr_postcode": "92069",
+        "addr_street": "E. Mission Hills Court",
+        "addr_housenumber": "400"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2603,
+  "id": 2303,
   "type": "range:direction+name"
 }

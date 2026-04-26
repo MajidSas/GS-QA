@@ -1,16 +1,22 @@
 {
-  "question": "What is the nearest museum as you head towards Oscar G. Johnson Veterans Affairs Medical Center, Iron Mountain, MI from Little Lake Nature Preserve, Washington Island, WI?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography, ST_GeomFromText('POINT (-88.061478 45.810283)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-86.936008 45.41454)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant encountered heading toward Howard University College of Pharmacy, Washington, DC from Charlotte's Quest Nature Center, Manchester, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography, ST_GeomFromText('POINT (-77.01851 38.921619)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17590,
-      "geometry": "POINT (-87.607222 45.709167)",
-      "poi_name": "IXL Historical Museum",
-      "osm_id": 367816239,
-      "tourism": "museum",
-      "wikidata": "Q5975712",
-      "addr_state": "MI",
-      "value": 297.0132292380829
+      "id": 92327,
+      "geometry": "POINT (-76.884426 39.660322)",
+      "poi_name": "Dutch Corner Restaurant",
+      "osm_id": 2112372801,
+      "amenity": "restaurant",
+      "opening_hours": "Mo-Fr 17:00-02:00; Sa 18:00-01:00; Su 19:00-01:00",
+      "website": "https://www.dutchcornerrestaurant.com/",
+      "phone": "+1-410-239-8100",
+      "addr_state": "MD",
+      "addr_city": "Manchester",
+      "addr_postcode": "21102",
+      "addr_street": "Main Street",
+      "addr_housenumber": "3154",
+      "value": 188.07920754228184
     }
   ],
   "answer_type": "name",
@@ -18,50 +24,46 @@
     "[2]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Little Lake Nature Preserve, Washington Island, WI",
-      "geo_wkt": "POINT (-86.936008 45.41454)",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
       "poi": {
-        "id": 248110,
-        "geometry": "POINT (-86.936008 45.41454)",
-        "poi_name": "Little Lake Nature Preserve",
-        "osm_id": 6346545339,
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
         "leisure": "nature_reserve",
-        "operator": "Door County Land Trust",
-        "website": "https://www.doorcountylandtrust.org/little-lake-nature-preserve-3/",
-        "addr_state": "WI",
-        "addr_city": "Washington Island",
-        "addr_postcode": "54246",
-        "addr_street": "Main Road",
-        "addr_housenumber": "2285"
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
       }
     },
     "[3]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Oscar G. Johnson Veterans Affairs Medical Center, Iron Mountain, MI",
-      "geo_wkt": "POINT (-88.061478 45.810283)",
+      "sub_category": "university",
+      "display_name": "Howard University College of Pharmacy, Washington, DC",
+      "geo_wkt": "POINT (-77.01851 38.921619)",
       "poi": {
-        "id": 167301,
-        "geometry": "POINT (-88.061478 45.810283)",
-        "poi_name": "Oscar G. Johnson Veterans Affairs Medical Center",
-        "osm_id": 354015776,
-        "amenity": "hospital",
-        "website": "https://www.ironmountain.va.gov/",
-        "phone": "+1-906-774-3300",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "MI",
-        "addr_city": "Iron Mountain",
-        "addr_postcode": "49801",
-        "addr_street": "East H Street",
-        "addr_housenumber": "325"
+        "id": 168193,
+        "geometry": "POINT (-77.01851 38.921619)",
+        "poi_name": "Howard University College of Pharmacy",
+        "osm_id": 367143610,
+        "amenity": "university",
+        "internet_access": "yes",
+        "addr_state": "DC",
+        "addr_city": "Washington",
+        "addr_postcode": "20059",
+        "addr_street": "4th Street Northwest",
+        "addr_housenumber": "2300"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 121,
+  "id": 1621,
   "type": "knn:towards+name"
 }

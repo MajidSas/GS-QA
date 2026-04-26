@@ -1,55 +1,56 @@
 {
-  "question": "Where is the nearest museum towards the northwest of Xtreme Action Park, Fort Lauderdale, FL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest golf course positioned in the direction of west from Wildlife West Nature Park, Edgewood, NM?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17636,
-      "geometry": "POINT (-80.153423 26.191598)",
-      "poi_name": "Clewiston Museum",
-      "osm_id": 367827370,
-      "tourism": "museum",
-      "opening_hours": "Mo-Fr 09:00-16:00",
-      "website": "https://www.theclewistonmuseum.org/",
-      "phone": "+1 863 983 2870",
-      "wikidata": "Q5132353",
-      "addr_state": "FL",
-      "addr_city": "Clewiston",
-      "addr_postcode": "33440",
-      "addr_street": "Central Avenue",
-      "addr_housenumber": "109"
+      "id": 245189,
+      "geometry": "POINT (-106.202309 35.071827)",
+      "poi_name": "Elite Golf Schools of Arizona",
+      "osm_id": 8385322483,
+      "leisure": "golf_course",
+      "description": "Elite Golf Schools of Arizona is a Gold Canyon golf academy designed to help both adult and junior golfers improve their game.",
+      "opening_hours": "Mo-Su 06:00-20:00",
+      "operator": "Riley Andrews",
+      "website": "https://elitegolfofaz.com/gold-canyon-golf-school/",
+      "phone": "(480) 712-9367",
+      "addr_state": "AZ",
+      "addr_city": "Gold Canyon",
+      "addr_postcode": "85118",
+      "addr_street": "S Mountainbrook Dr",
+      "addr_housenumber": "5783"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
-      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wildlife West Nature Park, Edgewood, NM",
+      "geo_wkt": "POINT (-106.202309 35.071827)",
       "poi": {
-        "id": 8743,
-        "geometry": "POINT (-80.153423 26.191598)",
-        "poi_name": "Xtreme Action Park",
-        "osm_id": 8665236909,
-        "tourism": "theme_park",
-        "wheelchair": "yes",
-        "website": "https://xtremeactionpark.com",
-        "internet_access": "wlan",
-        "phone": "(954) 491-6265",
-        "addr_state": "FL",
-        "addr_city": "Fort Lauderdale",
-        "addr_postcode": "33309",
-        "addr_street": "Powerline Road",
-        "addr_housenumber": "5300"
+        "id": 246820,
+        "geometry": "POINT (-106.202309 35.071827)",
+        "poi_name": "Wildlife West Nature Park",
+        "osm_id": 6471544426,
+        "leisure": "nature_reserve",
+        "opening_hours": "10:00-18:00",
+        "operator": "New Mexico Wildlife Association",
+        "website": "https://wildlifewest.org/",
+        "phone": "+1 505 281-7655",
+        "addr_state": "NM",
+        "addr_city": "Edgewood",
+        "addr_postcode": "87015",
+        "addr_street": "North Frontage Road",
+        "addr_housenumber": "87"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1159,

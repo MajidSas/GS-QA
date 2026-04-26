@@ -1,42 +1,48 @@
 {
-  "question": "How far is the nearest viewpoint situated from Super Cichlids Inc, Dover, DE?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest museum from Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13661,
-      "geometry": "POINT (-75.088769 38.788342)",
-      "poi_name": "Hawk Watch",
-      "osm_id": 4124678462,
-      "tourism": "viewpoint",
-      "distance": 53922.90322935
+      "id": 21007,
+      "geometry": "POINT (-78.84806 42.936123)",
+      "poi_name": "Darwin D. Martin House",
+      "osm_id": 1342600765,
+      "tourism": "museum",
+      "fee": "yes",
+      "website": "https://www.darwinmartinhouse.org/",
+      "wikidata": "Q1166906",
+      "distance": 14317.24609305
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Super Cichlids Inc, Dover, DE",
-      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
       "poi": {
-        "id": 24354,
-        "geometry": "POINT (-75.496486 39.155267)",
-        "poi_name": "Super Cichlids Inc",
-        "osm_id": 11016560740,
-        "tourism": "aquarium",
-        "phone": "302-608-3846",
-        "addr_state": "DE",
-        "addr_city": "Dover",
-        "addr_postcode": "19901",
-        "addr_street": "Barl Court",
-        "addr_housenumber": "1055"
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
       }
     }
   },
-  "id": 2463,
+  "id": 663,
   "type": "knn+distance"
 }

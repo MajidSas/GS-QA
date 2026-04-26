@@ -1,47 +1,53 @@
 {
-  "question": "What's the closest restaurant located in the east direction starting from Allison Woods, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.888401 42.099472)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which golf course is closest in the north direction of Red Wolf Sanctuary, Rising Sun, IN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 196521,
-      "geometry": "POINT (-87.888401 42.099472)",
-      "poi_name": "Blufish",
-      "osm_id": 10583030927,
-      "amenity": "restaurant",
-      "cuisine": "sushi",
-      "phone": "8472723474",
-      "addr_state": "IL",
-      "addr_city": "Glenview",
-      "addr_postcode": "60026",
-      "addr_street": "Pfingsten Road",
-      "addr_housenumber": "2709"
+      "id": 266292,
+      "geometry": "POINT (-84.875376 38.951571)",
+      "poi_name": "Centennial Acres Golf Course",
+      "osm_id": 7142070868,
+      "leisure": "golf_course",
+      "website": "https://www.centennialacres.com/",
+      "phone": "+1 517-566-8055",
+      "addr_street": "Dow Road",
+      "addr_housenumber": "12485"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Allison Woods, IL",
-      "geo_wkt": "POINT (-87.888401 42.099472)",
+      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
+      "geo_wkt": "POINT (-84.875376 38.951571)",
       "poi": {
-        "id": 265398,
-        "geometry": "POINT (-87.888401 42.099472)",
-        "poi_name": "Allison Woods",
-        "osm_id": 369049527,
+        "id": 245554,
+        "geometry": "POINT (-84.875376 38.951571)",
+        "poi_name": "Red Wolf Sanctuary",
+        "osm_id": 3099118301,
         "leisure": "nature_reserve",
-        "addr_state": "IL"
+        "tourism": "attraction",
+        "opening_hours": "\"By appointment only\"",
+        "operator": "THE RED WOLF SANCTUARY INC",
+        "website": "https://www.redwolf.org/",
+        "phone": "+1 812 438 2306",
+        "addr_state": "IN",
+        "addr_city": "Rising Sun",
+        "addr_postcode": "47040",
+        "addr_street": "IN-262",
+        "addr_housenumber": "3027"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2586,
+  "id": 1286,
   "type": "knn:direction+name"
 }

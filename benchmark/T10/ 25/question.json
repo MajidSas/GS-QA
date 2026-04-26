@@ -1,65 +1,65 @@
 {
-  "question": "Which restaurant is closest on the route towards Homewood Suites by Hilton Richmond-Downtown, Richmond, VA from Historic Trade: Leather Breeches Maker, Williamsburg, VA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography, ST_GeomFromText('POINT (-77.437596 37.539521)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.697625 37.271652)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which gallery lies closest ahead of Dwarfskill Preserve, Milford, PA toward Montefiore Medical Center - Wakefield Campus, Bronx, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography, ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 28142,
-      "geometry": "POINT (-76.706785 37.272074)",
-      "poi_name": "Blue Talon",
-      "osm_id": 469920793,
-      "amenity": "restaurant",
-      "value": 294.6322561802412
+      "id": 9715,
+      "geometry": "POINT (-74.26284 40.971038)",
+      "poi_name": "silentsiren",
+      "osm_id": 8951062872,
+      "tourism": "gallery",
+      "addr_state": "NJ",
+      "addr_city": "Wayne",
+      "addr_postcode": "07470",
+      "addr_street": "Paterson-Hamburg Turnpike",
+      "addr_housenumber": "1777",
+      "value": 117.14997969799319
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Historic Trade: Leather Breeches Maker, Williamsburg, VA",
-      "geo_wkt": "POINT (-76.697625 37.271652)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Dwarfskill Preserve, Milford, PA",
+      "geo_wkt": "POINT (-74.895166 41.300832)",
       "poi": {
-        "id": 4572,
-        "geometry": "POINT (-76.697625 37.271652)",
-        "poi_name": "Historic Trade: Leather Breeches Maker",
-        "osm_id": 11333534528,
-        "tourism": "attraction",
-        "wheelchair": "no",
-        "opening_hours": "Tu-Sa 09:00-17:00",
-        "operator": "Colonial Williamsburg Foundation",
-        "addr_state": "VA",
-        "addr_city": "Williamsburg",
-        "addr_postcode": "23185",
-        "addr_street": "East Duke of Gloucester Street",
-        "addr_housenumber": "303 C"
+        "id": 267602,
+        "geometry": "POINT (-74.895166 41.300832)",
+        "poi_name": "Dwarfskill Preserve",
+        "osm_id": 7740705080,
+        "leisure": "nature_reserve",
+        "addr_state": "PA",
+        "addr_city": "Milford",
+        "addr_postcode": "18337",
+        "addr_street": "Dwarfskill Falls Lane",
+        "addr_housenumber": "132"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Homewood Suites by Hilton Richmond-Downtown, Richmond, VA",
-      "geo_wkt": "POINT (-77.437596 37.539521)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Montefiore Medical Center - Wakefield Campus, Bronx, NY",
+      "geo_wkt": "POINT (-73.861082 40.893776)",
       "poi": {
-        "id": 27085,
-        "geometry": "POINT (-77.437596 37.539521)",
-        "poi_name": "Homewood Suites by Hilton Richmond-Downtown",
-        "osm_id": 7686351579,
-        "tourism": "hotel",
-        "website": "https://www.hilton.com/en/hotels/ricdohw-homewood-suites-richmond-downtown/",
-        "phone": "+1 804-643-2900",
-        "official_name": "Homewood Suites by Hilton",
-        "addr_state": "VA",
-        "addr_city": "Richmond",
-        "addr_postcode": "23219",
-        "addr_street": "East Main Street",
-        "addr_housenumber": "700"
+        "id": 37608,
+        "geometry": "POINT (-73.861082 40.893776)",
+        "poi_name": "Montefiore Medical Center - Wakefield Campus",
+        "osm_id": 2822777418,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10466",
+        "addr_street": "Carpenter Avenue",
+        "addr_housenumber": "4141"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 124,
+  "id": 1624,
   "type": "knn:towards+name"
 }

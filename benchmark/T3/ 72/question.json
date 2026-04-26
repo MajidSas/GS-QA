@@ -1,102 +1,95 @@
 {
-  "question": "Which fast food restaurant is available in the west direction of Pioneer Stadium, Ogden, UT within 50 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, 50000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Which museum lie within 170 kilometers in the northwest direction from Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.132523 25.790419)',4326)::geography, 170000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 51136,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "McDonald's",
-      "osm_id": 513052480,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/ut/west-haven/2085-s-1100-w/23491.html",
-      "takeaway": "yes"
+      "id": 3621,
+      "geometry": "POINT (-80.132523 25.790419)",
+      "poi_name": "Dinner Island Ranch",
+      "osm_id": 5501882421,
+      "tourism": "museum",
+      "website": "https://myfwc.com/recreation/lead/dinner-island/"
     },
     {
-      "id": 166743,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "Blimpie",
-      "osm_id": 310654366,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes"
+      "id": 4979,
+      "geometry": "POINT (-80.132523 25.790419)",
+      "poi_name": "Art @ The Citadel",
+      "osm_id": 9703680417,
+      "tourism": "museum"
     },
     {
-      "id": 55248,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "Burly Burger",
-      "osm_id": 10178757655,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "wheelchair": "yes",
-      "opening_hours": "Mo-Sa 11:00-21:00",
-      "drive_through": "yes"
+      "id": 17636,
+      "geometry": "POINT (-80.132523 25.790419)",
+      "poi_name": "Clewiston Museum",
+      "osm_id": 367827370,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 09:00-16:00",
+      "website": "https://www.theclewistonmuseum.org/",
+      "phone": "+1 863 983 2870",
+      "wikidata": "Q5132353",
+      "addr_state": "FL",
+      "addr_city": "Clewiston",
+      "addr_postcode": "33440",
+      "addr_street": "Central Avenue",
+      "addr_housenumber": "109"
     },
     {
-      "id": 81342,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "Subway",
-      "osm_id": 1627855833,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes",
-      "addr_street": "South 1900 West",
-      "addr_housenumber": "2355"
+      "id": 15015,
+      "geometry": "POINT (-80.132523 25.790419)",
+      "poi_name": "LaBelle Heritage Museum",
+      "osm_id": 4782153322,
+      "tourism": "museum",
+      "website": "https://www.facebook.com/people/Labelle-Heritage-Museum/100057307636419/",
+      "addr_state": "FL",
+      "addr_city": "LaBelle",
+      "addr_postcode": "33935",
+      "addr_street": "North Bridge Street",
+      "addr_housenumber": "360"
     },
     {
-      "id": 201820,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "Taco Bell",
-      "osm_id": 660916063,
-      "amenity": "fast_food",
-      "cuisine": "tex-mex",
-      "website": "https://locations.tacobell.com/ut/ogden/1670-w-12th-st.html",
-      "takeaway": "yes"
-    },
-    {
-      "id": 201822,
-      "geometry": "POINT (-111.96187 41.237122)",
-      "poi_name": "Subway",
-      "osm_id": 660916071,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes"
+      "id": 25528,
+      "geometry": "POINT (-80.132523 25.790419)",
+      "poi_name": "Immokalee Pioneer Museum",
+      "osm_id": 4530357414,
+      "tourism": "museum",
+      "website": "https://colliermuseums.com/locations/immokalee-pioneer-museum-at-roberts-ranch"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Pioneer Stadium, Ogden, UT",
-      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Miami Beach Urban Studios (FIU MBUS), Miami Beach, FL",
+      "geo_wkt": "POINT (-80.132523 25.790419)",
       "poi": {
-        "id": 266188,
-        "geometry": "POINT (-111.96187 41.237122)",
-        "poi_name": "Pioneer Stadium",
-        "osm_id": 598066080,
-        "leisure": "stadium",
-        "sport": "equestrian",
-        "wikidata": "Q7079951",
-        "addr_state": "UT",
-        "addr_city": "Ogden",
-        "addr_street": "17th Street",
-        "addr_housenumber": "668"
+        "id": 53329,
+        "geometry": "POINT (-80.132523 25.790419)",
+        "poi_name": "Miami Beach Urban Studios (FIU MBUS)",
+        "osm_id": 10075871652,
+        "amenity": "university",
+        "operator": "Florida International University",
+        "website": "https://carta.fiu.edu/mbus/",
+        "addr_state": "FL",
+        "addr_city": "Miami Beach",
+        "addr_postcode": "33139",
+        "addr_street": "Lincoln Road",
+        "addr_housenumber": "420"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2671,
+  "id": 2371,
   "type": "range:direction+name"
 }

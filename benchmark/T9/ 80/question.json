@@ -1,44 +1,44 @@
 {
-  "question": "What is the nearest beach resort in the west direction of O'Rena, Rochester, MI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.213305 42.674149)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is closest when moving in the northwest direction from Conservation Park of Virginia, Charles City, VA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.182001 37.471322)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248226,
-      "geometry": "POINT (-83.213305 42.674149)",
-      "poi_name": "Chippy's Sports Beach",
-      "osm_id": 7471958784,
-      "leisure": "beach_resort"
+      "id": 134247,
+      "geometry": "POINT (-77.182001 37.471322)",
+      "poi_name": "Mila Cafe",
+      "osm_id": 11461074670,
+      "amenity": "cafe"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "O'Rena, Rochester, MI",
-      "geo_wkt": "POINT (-83.213305 42.674149)",
+      "sub_category": "park",
+      "display_name": "Conservation Park of Virginia, Charles City, VA",
+      "geo_wkt": "POINT (-77.182001 37.471322)",
       "poi": {
-        "id": 267317,
-        "geometry": "POINT (-83.213305 42.674149)",
-        "poi_name": "O'Rena",
-        "osm_id": 5842381796,
-        "leisure": "stadium",
-        "addr_state": "MI",
-        "addr_city": "Rochester",
-        "addr_postcode": "48309-4482",
-        "addr_street": "Pioneer Drive",
-        "addr_housenumber": "569"
+        "id": 246836,
+        "geometry": "POINT (-77.182001 37.471322)",
+        "poi_name": "Conservation Park of Virginia",
+        "osm_id": 6501316473,
+        "leisure": "park",
+        "addr_state": "VA",
+        "addr_city": "Charles City",
+        "addr_postcode": "23030",
+        "addr_street": "Charles City Rd",
+        "addr_housenumber": "5100"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2579,
+  "id": 1279,
   "type": "knn:direction+name"
 }

@@ -1,51 +1,54 @@
 {
-  "question": "Where is the closest emergency hospital from River Art Gallery & Gifts, North Tonawanda, NY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.877103 43.0241)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest fast food restaurant near the area of IIT Stuart School of Business, Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 102778,
-      "geometry": "POINT (-78.772645 42.780256)",
-      "poi_name": "Mercy Hospital - Mercy Hospital Orchard Park Division",
-      "osm_id": 8457918967,
-      "amenity": "hospital",
-      "website": "https://www.chsbuffalo.org/facilities/diagnostic/mercyambulatorycarecenter",
-      "phone": "+1 716 662 0500",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "NY",
-      "addr_city": "Orchard Park",
-      "addr_postcode": "14127",
-      "addr_street": "Southwestern Boulevard",
-      "addr_housenumber": "3669"
+      "id": 89484,
+      "geometry": "POINT (-87.644223 41.939029)",
+      "poi_name": "Bombay Wraps",
+      "osm_id": 8847543106,
+      "amenity": "restaurant",
+      "cuisine": "indian;fast_food",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "website": "https://bombaywraps.com/",
+      "phone": "+1-773-799-8989",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60657",
+      "addr_street": "North Broadway",
+      "addr_housenumber": "3149 1/2"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fast food restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "River Art Gallery & Gifts, North Tonawanda, NY",
-      "geo_wkt": "POINT (-78.877103 43.0241)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
       "poi": {
-        "id": 11360,
-        "geometry": "POINT (-78.877103 43.0241)",
-        "poi_name": "River Art Gallery & Gifts",
-        "osm_id": 9947842239,
-        "tourism": "gallery",
-        "addr_state": "NY",
-        "addr_city": "North Tonawanda",
-        "addr_postcode": "14120",
-        "addr_street": "Webster Street",
-        "addr_housenumber": "83"
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
       }
     }
   },
-  "id": 353,
+  "id": 1353,
   "type": "knn:non_spat_filter+loc"
 }

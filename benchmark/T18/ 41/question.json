@@ -1,19 +1,22 @@
 {
-  "question": "Where is the nearest chicken restaurant available from New Mexico Slaughter House, Albuquerque, NM?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%chicken%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest belgian restaurant around Sherwood Forest Faire, McDade, TX?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%belgian%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 46514,
-      "geometry": "POINT (-106.595148 35.075515)",
-      "poi_name": "Frank's Famous Chicken & Waffles",
-      "osm_id": 3269830033,
+      "id": 55808,
+      "geometry": "POINT (-95.372219 29.773563)",
+      "poi_name": "Cafe Brussels",
+      "osm_id": 10208499922,
       "amenity": "restaurant",
-      "cuisine": "chicken",
-      "addr_state": "NM",
-      "addr_city": "Albuquerque",
-      "addr_postcode": "87108",
-      "addr_street": "Washington Street Southeast",
-      "addr_housenumber": "400"
+      "cuisine": "belgian",
+      "opening_hours": "Tu-Th 11:00-14:00, 17:30-21:30; Fr 11:00-14:00, 17:30-22:00; Sa 10:00-15:00, 17:30-22:00",
+      "website": "https://www.cafebrusselshouston.com/",
+      "phone": "+1-713-222-6996",
+      "addr_state": "TX",
+      "addr_city": "Houston",
+      "addr_postcode": "77007",
+      "addr_street": "Houston Avenue",
+      "addr_housenumber": "1718"
     }
   ],
   "answer_type": "loc",
@@ -21,31 +24,29 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "chicken restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%chicken%'"
+      "poi_filter_desc": "belgian restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%belgian%'"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "theme park",
-      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
       "poi": {
-        "id": 10873,
-        "geometry": "POINT (-106.657079 35.199273)",
-        "poi_name": "New Mexico Slaughter House",
-        "osm_id": 8107941834,
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
         "tourism": "theme_park",
-        "opening_hours": "Oct Fr-Su 19:00-22:00",
-        "website": "https://www.nmslaughterhouse.com/",
-        "phone": "+1-505-764-2868",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_postcode": "87114",
-        "addr_street": "Coors Boulevard Bypass Northwest",
-        "addr_housenumber": "10000"
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
       }
     }
   },
-  "id": 340,
+  "id": 1340,
   "type": "knn:non_spat_filter+loc"
 }

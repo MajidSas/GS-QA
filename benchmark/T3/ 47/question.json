@@ -1,21 +1,23 @@
 {
-  "question": "What stadium can I find positioned within 80 kilometers towards the northeast of Cardiovascular Institute of New England, Cranston, RI?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, 80000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "What stadium lie within 170 kilometers relative to Shavers Creek Environmental Center, Petersburg, PA in the north direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 247338,
-      "geometry": "POINT (-71.472092 41.786868)",
-      "poi_name": "Gate P2",
-      "osm_id": 8969236699,
+      "id": 245977,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Bob Lanier Court in the Reilly Center",
+      "osm_id": 5381001519,
       "leisure": "stadium",
-      "description": "Gate P2"
+      "description": "The Bob Lanier court is located in the Reilly Center on the campus of St. Bonaventure University. The Reilly Center is home the the universities Men's and Women's basketball teams. St. Bonaventure is a Division 1 school and is a part of the Atlantic 10.",
+      "sport": "basketball"
     },
     {
-      "id": 259649,
-      "geometry": "POINT (-71.472092 41.786868)",
-      "poi_name": "Memorial Stadium",
-      "osm_id": 358260110,
-      "leisure": "stadium"
+      "id": 255531,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Bradner Stadium",
+      "osm_id": 357550083,
+      "leisure": "stadium",
+      "wikidata": "Q4955092"
     }
   ],
   "answer_type": "name",
@@ -25,35 +27,34 @@
       "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
-      "geo_wkt": "POINT (-71.472092 41.786868)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
       "poi": {
-        "id": 30660,
-        "geometry": "POINT (-71.472092 41.786868)",
-        "poi_name": "Cardiovascular Institute of New England",
-        "osm_id": 8372733079,
-        "amenity": "hospital",
-        "website": "https://www.necardiologists.com/contact-locations/",
-        "phone": "+14014649751",
-        "healthcare": "hospital",
-        "addr_state": "RI",
-        "addr_city": "Cranston",
-        "addr_postcode": "02920",
-        "addr_street": "Atwood Avenue",
-        "addr_housenumber": "395"
+        "id": 2748,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2646,
+  "id": 2346,
   "type": "range:direction+name"
 }

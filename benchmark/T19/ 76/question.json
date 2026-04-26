@@ -1,54 +1,43 @@
 {
-  "question": "Where's the closest university to the south of American Coney Island, Detroit, MI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.048743 42.331438)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest stadium located on the southeast side relative to Tunca RiverPark, Robinsonville, MS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.363192 34.837979)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 97387,
-      "geometry": "POINT (-83.048743 42.331438)",
-      "poi_name": "The Ohio State University at Mansfield",
-      "osm_id": 6476844898,
-      "amenity": "university",
-      "operator": "The Ohio State University",
-      "website": "https://www.mansfield.osu.edu",
-      "phone": "+1-419-755-4011",
-      "addr_state": "OH",
-      "addr_city": "Mansfield",
-      "addr_postcode": "44906",
-      "addr_street": "University Drive",
-      "addr_housenumber": "1760"
+      "id": 265362,
+      "geometry": "POINT (-90.363192 34.837979)",
+      "poi_name": "Chickasaw County Coliseum",
+      "osm_id": 367134879,
+      "leisure": "stadium",
+      "addr_state": "MS"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "American Coney Island, Detroit, MI",
-      "geo_wkt": "POINT (-83.048743 42.331438)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Tunca RiverPark, Robinsonville, MS",
+      "geo_wkt": "POINT (-90.363192 34.837979)",
       "poi": {
-        "id": 189187,
-        "geometry": "POINT (-83.048743 42.331438)",
-        "poi_name": "American Coney Island",
-        "osm_id": 1218005961,
-        "amenity": "restaurant",
-        "cuisine": "american",
+        "id": 15961,
+        "geometry": "POINT (-90.363192 34.837979)",
+        "poi_name": "Tunca RiverPark",
+        "osm_id": 280815276,
+        "leisure": "park",
         "tourism": "attraction",
-        "wheelchair": "no",
-        "website": "http://americanconeyisland.com",
-        "addr_state": "MI",
-        "addr_city": "Detroit",
-        "addr_postcode": "48226",
-        "addr_street": "Lafayette Boulevard West",
-        "addr_housenumber": "114"
+        "addr_state": "MS",
+        "addr_city": "Robinsonville",
+        "addr_postcode": "38664",
+        "addr_street": "River Park Drive"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1175,

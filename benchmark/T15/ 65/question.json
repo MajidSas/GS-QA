@@ -1,53 +1,71 @@
 {
-  "question": "Where can I find a park in the direction of south from Forty Oaks, Clarkston, GA within 90 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.234474 33.806684)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.234474 33.806684)',4326)::geography, 90000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where can I find a golf course within 150 kilometers, oriented toward the northwest of Appalachian Wireless Arena, Pikeville, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography, 150000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 262119,
-      "geometry": "POINT (-84.234474 33.806684)",
-      "poi_name": "Panola Mountain State Park",
-      "osm_id": 358773176,
-      "leisure": "park",
-      "addr_state": "GA",
-      "addr_city": "Stockbridge",
-      "addr_postcode": "30281",
-      "addr_street": "GA 155 Southwest",
-      "addr_housenumber": "2620"
+      "id": 265709,
+      "geometry": "POINT (-82.517286 37.477755)",
+      "poi_name": "Carter Caves State Resort Park Golf Course(CLOSED)",
+      "osm_id": 10860534036,
+      "leisure": "golf_course"
+    },
+    {
+      "id": 266940,
+      "geometry": "POINT (-82.517286 37.477755)",
+      "poi_name": "StoneCrest Golf Course",
+      "osm_id": 11154753277,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Fr 08:00-19:00, Sa-Su 08:00-20:00",
+      "operator": "StoneCrest Jenny Wiley, LLC",
+      "addr_state": "KY",
+      "addr_city": "Prestonsburg",
+      "addr_street": "Club House Drive",
+      "addr_housenumber": "918"
+    },
+    {
+      "id": 266943,
+      "geometry": "POINT (-82.517286 37.477755)",
+      "poi_name": "Sheltowee Trail CC(CLOSED)",
+      "osm_id": 11159231778,
+      "leisure": "golf_course"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "park"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Forty Oaks, Clarkston, GA",
-      "geo_wkt": "POINT (-84.234474 33.806684)",
+      "sub_category": "stadium",
+      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
+      "geo_wkt": "POINT (-82.517286 37.477755)",
       "poi": {
-        "id": 247803,
-        "geometry": "POINT (-84.234474 33.806684)",
-        "poi_name": "Forty Oaks",
-        "osm_id": 9951770357,
-        "leisure": "nature_reserve",
-        "addr_state": "GA",
-        "addr_city": "Clarkston",
-        "addr_postcode": "30021",
-        "addr_street": "Market Street",
-        "addr_housenumber": "3790"
+        "id": 246594,
+        "geometry": "POINT (-82.517286 37.477755)",
+        "poi_name": "Appalachian Wireless Arena",
+        "osm_id": 1736849627,
+        "leisure": "stadium",
+        "building": "yes",
+        "sport": "basketball",
+        "phone": "+1 606 444 5500",
+        "addr_state": "KY",
+        "addr_city": "Pikeville",
+        "addr_postcode": "41501",
+        "addr_street": "Main Street",
+        "addr_housenumber": "126"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 64,
+  "id": 2264,
   "type": "range:direction+loc"
 }

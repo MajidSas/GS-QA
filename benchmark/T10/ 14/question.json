@@ -1,61 +1,66 @@
 {
-  "question": "What's the nearest fast food on the way to Fisher Woods, IL from Porter - Starke Services, Valparaiso, IN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography, ST_GeomFromText('POINT (-87.964233 41.941696)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.052033 41.48969)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum is nearest on the route from Joppa Hill Farm, Bedford, NH toward the Westin Boston Waterfront, Boston, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography, ST_GeomFromText('POINT (-71.042738 42.346186)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 155946,
-      "geometry": "POINT (-87.140404 41.550808)",
-      "poi_name": "Subway",
-      "osm_id": 4636076362,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes",
-      "value": 303.7809835868429
+      "id": 10486,
+      "geometry": "POINT (-71.308736 42.647581)",
+      "poi_name": "Mill Girls and Immigrants Exhibit",
+      "osm_id": 6883963160,
+      "tourism": "museum",
+      "operator": "Lowell Nationai Historical Park",
+      "addr_state": "MA",
+      "addr_city": "Lowell",
+      "addr_street": "French Street",
+      "addr_housenumber": "40",
+      "value": 145.9099674911195
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Porter - Starke Services, Valparaiso, IN",
-      "geo_wkt": "POINT (-87.052033 41.48969)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Joppa Hill Farm, Bedford, NH",
+      "geo_wkt": "POINT (-71.575992 42.931889)",
       "poi": {
-        "id": 182074,
-        "geometry": "POINT (-87.052033 41.48969)",
-        "poi_name": "Porter - Starke Services",
-        "osm_id": 10876711802,
-        "amenity": "hospital",
-        "website": "https://www.porterstarke.org",
-        "phone": "+1 219 531 3500",
-        "healthcare": "hospital",
-        "addr_state": "IN",
-        "addr_city": "Valparaiso",
-        "addr_postcode": "46383",
-        "addr_street": "Wall Street",
-        "addr_housenumber": "701"
+        "id": 10743,
+        "geometry": "POINT (-71.575992 42.931889)",
+        "poi_name": "Joppa Hill Farm",
+        "osm_id": 8014170407,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "NH",
+        "addr_city": "Bedford",
+        "addr_postcode": "03110"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Fisher Woods, IL",
-      "geo_wkt": "POINT (-87.964233 41.941696)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Westin Boston Waterfront, Boston, MA",
+      "geo_wkt": "POINT (-71.042738 42.346186)",
       "poi": {
-        "id": 265405,
-        "geometry": "POINT (-87.964233 41.941696)",
-        "poi_name": "Fisher Woods",
-        "osm_id": 369051083,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of DuPage County",
-        "addr_state": "IL"
+        "id": 102,
+        "geometry": "POINT (-71.042738 42.346186)",
+        "poi_name": "The Westin Boston Waterfront",
+        "osm_id": 436166487,
+        "tourism": "hotel",
+        "operator": "Westin",
+        "website": "https://www.marriott.com/hotels/travel/bosow-the-westin-boston-waterfront",
+        "phone": "+1-617-532-4600",
+        "addr_state": "MA",
+        "addr_city": "Boston",
+        "addr_postcode": "02210",
+        "addr_street": "Summer Street",
+        "addr_housenumber": "425"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 113,
+  "id": 1613,
   "type": "knn:towards+name"
 }

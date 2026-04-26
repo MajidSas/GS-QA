@@ -1,39 +1,42 @@
 {
-  "question": "Could you tell me the number of hotels located within a 150 kilometers radius from Frank Sinatra's Birthplace, Hoboken, NJ?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.038603 40.743437)',4326)::geography, 150000)\nAND tourism = 'hotel';\n",
+  "question": "How many galleries can I find within 50 kilometers of Meadow Museum, Benson, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.457419 35.320622)',4326)::geography, 50000)\nAND tourism = 'gallery';\n",
   "answers": [
     {
-      "count": 389
+      "count": 2
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Frank Sinatra's Birthplace, Hoboken, NJ",
-      "geo_wkt": "POINT (-74.038603 40.743437)",
+      "sub_category": "museum",
+      "display_name": "Meadow Museum, Benson, NC",
+      "geo_wkt": "POINT (-78.457419 35.320622)",
       "poi": {
-        "id": 3565,
-        "geometry": "POINT (-74.038603 40.743437)",
-        "poi_name": "Frank Sinatra's Birthplace",
-        "osm_id": 5468067617,
-        "tourism": "attraction",
-        "addr_state": "NJ",
-        "addr_city": "Hoboken",
-        "addr_street": "Monroe Street",
-        "addr_housenumber": "415"
+        "id": 455,
+        "geometry": "POINT (-78.457419 35.320622)",
+        "poi_name": "Meadow Museum",
+        "osm_id": 8380269313,
+        "tourism": "museum",
+        "website": "https://www.johnstoncountync.org/listing/meadow-museum/2436/",
+        "phone": "+19193985342",
+        "addr_state": "NC",
+        "addr_city": "Benson",
+        "addr_postcode": "27504",
+        "addr_street": "NC-50 South",
+        "addr_housenumber": "7296"
       }
     }
   },
-  "id": 2248,
+  "id": 1848,
   "type": "range+count"
 }

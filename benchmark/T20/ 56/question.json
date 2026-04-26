@@ -1,67 +1,68 @@
 {
-  "question": "Where's the closest restaurant on the route to Top of the Rock, New York, NY from Speert Green, Wayne, NJ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest fast food restaurant along the route from Ganyard Hill Farms, Durham, NC to Johnston County Rugby Park, Wilsons Mills, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography, ST_GeomFromText('POINT (-78.36109 35.601085)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 219199,
-      "geometry": "POINT (-74.197267 40.942662)",
-      "poi_name": "Bento Sushi",
-      "osm_id": 9317008518,
-      "amenity": "restaurant",
-      "cuisine": "sushi",
-      "addr_state": "NJ",
-      "addr_city": "Wayne",
-      "addr_postcode": "07470",
-      "addr_street": "Pompton Road",
-      "addr_housenumber": "300",
-      "value": 138.00944227809867
+      "id": 206861,
+      "geometry": "POINT (-78.787411 35.918756)",
+      "poi_name": "Jersey Mike's Subs",
+      "osm_id": 7231241220,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27617",
+      "addr_street": "Corners Parkway",
+      "addr_housenumber": "4205",
+      "value": 134.1198364516668
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Speert Green, Wayne, NJ",
-      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Ganyard Hill Farms, Durham, NC",
+      "geo_wkt": "POINT (-78.811548 35.958684)",
       "poi": {
-        "id": 266681,
-        "geometry": "POINT (-74.198768 40.944562)",
-        "poi_name": "Speert Green",
-        "osm_id": 9317008519,
-        "leisure": "garden",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 1828,
+        "geometry": "POINT (-78.811548 35.958684)",
+        "poi_name": "Ganyard Hill Farms",
+        "osm_id": 3159155056,
+        "tourism": "attraction",
+        "website": "http://ganyardhillfarm.com/",
+        "addr_state": "NC",
+        "addr_city": "Durham",
+        "addr_postcode": "27703",
+        "addr_street": "Sherron Road",
+        "addr_housenumber": "319"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Top of the Rock, New York, NY",
-      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Johnston County Rugby Park, Wilsons Mills, NC",
+      "geo_wkt": "POINT (-78.36109 35.601085)",
       "poi": {
-        "id": 26307,
-        "geometry": "POINT (-73.979395 40.759034)",
-        "poi_name": "Top of the Rock",
-        "osm_id": 5844051585,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://www.topoftherocknyc.com/",
-        "wikidata": "Q66722774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Rockefeller Plaza",
-        "addr_housenumber": "30"
+        "id": 248237,
+        "geometry": "POINT (-78.36109 35.601085)",
+        "poi_name": "Johnston County Rugby Park",
+        "osm_id": 7508364636,
+        "leisure": "park",
+        "addr_state": "NC",
+        "addr_city": "Wilsons Mills",
+        "addr_postcode": "27527",
+        "addr_street": "Powhatan Road",
+        "addr_housenumber": "988"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 1355,
+  "id": 1555,
   "type": "knn:towards+loc"
 }

@@ -1,68 +1,67 @@
 {
-  "question": "Where is the nearest museum as you head towards ABQ BioPark (Aquarium), Albuquerque, NM from New Mexico Slaughter House, Albuquerque, NM?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography, ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 along the corridor from Caldwell Woods, Chicago, IL to Fox Meadow Park, South Elgin, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, ST_GeomFromText('POINT (-88.321054 42.002492)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.786491 41.997567)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7341,
-      "geometry": "POINT (-106.654624 35.103176)",
-      "poi_name": "New Mexico Steam Locomotive and Railroad Historical Society",
-      "osm_id": 2094286421,
-      "tourism": "museum",
-      "operator": "NMSL&RHS",
-      "website": "http://www.nmslrhs.org/",
-      "museum": "railway",
-      "addr_state": "NM",
-      "addr_city": "Albuquerque",
-      "addr_postcode": "87102",
-      "addr_street": "8th Street Northwest",
-      "addr_housenumber": "1833",
-      "value": 189.64235294586032
+      "id": 142585,
+      "geometry": "POINT (-87.816975 42.002361)",
+      "poi_name": "LeFlour Cafe & Bakery",
+      "osm_id": 6318312291,
+      "amenity": "cafe",
+      "website": "http://www.thecafeatleflour.com/",
+      "phone": "+1-773-219-2739",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60631",
+      "addr_street": "North Olmsted Avenue",
+      "addr_housenumber": "6701",
+      "value": 270.88649628607044
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Caldwell Woods, Chicago, IL",
+      "geo_wkt": "POINT (-87.786491 41.997567)",
       "poi": {
-        "id": 10873,
-        "geometry": "POINT (-106.657079 35.199273)",
-        "poi_name": "New Mexico Slaughter House",
-        "osm_id": 8107941834,
-        "tourism": "theme_park",
-        "opening_hours": "Oct Fr-Su 19:00-22:00",
-        "website": "https://www.nmslaughterhouse.com/",
-        "phone": "+1-505-764-2868",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_postcode": "87114",
-        "addr_street": "Coors Boulevard Bypass Northwest",
-        "addr_housenumber": "10000"
+        "id": 245668,
+        "geometry": "POINT (-87.786491 41.997567)",
+        "poi_name": "Caldwell Woods",
+        "osm_id": 3358252547,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/caldwell-woods/",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60646"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
-      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Fox Meadow Park, South Elgin, IL",
+      "geo_wkt": "POINT (-88.321054 42.002492)",
       "poi": {
-        "id": 6226,
-        "geometry": "POINT (-106.678998 35.093235)",
-        "poi_name": "ABQ BioPark (Aquarium)",
-        "osm_id": 1788029735,
-        "tourism": "aquarium",
-        "wikidata": "Q4712807",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque"
+        "id": 266460,
+        "geometry": "POINT (-88.321054 42.002492)",
+        "poi_name": "Fox Meadow Park",
+        "osm_id": 5107826396,
+        "leisure": "park",
+        "addr_state": "IL",
+        "addr_city": "South Elgin",
+        "addr_postcode": "60177",
+        "addr_street": "Hobart Drive",
+        "addr_housenumber": "625"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     }
   },
-  "id": 1302,
+  "id": 1502,
   "type": "knn:towards+loc"
 }

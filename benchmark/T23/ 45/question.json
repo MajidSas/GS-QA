@@ -1,40 +1,41 @@
 {
-  "question": "Could you tell me the number of hotels located within a 10 kilometers radius from UNMC Childcare Development Center, Omaha, NE?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.977823 41.255193)',4326)::geography, 10000)\nAND tourism = 'hotel';\n",
+  "question": "How many nature reserves are there within 180 kilometers of the point Broadbent Arena, Louisville, KY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, 180000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "count": 17
+      "count": 13
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 10000,
-      "text": "10 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "UNMC Childcare Development Center, Omaha, NE",
-      "geo_wkt": "POINT (-95.977823 41.255193)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
       "poi": {
-        "id": 147573,
-        "geometry": "POINT (-95.977823 41.255193)",
-        "poi_name": "UNMC Childcare Development Center",
-        "osm_id": 7546124068,
-        "amenity": "hospital",
-        "phone": "+1-402-559-8801",
-        "healthcare": "hospital",
-        "addr_state": "NE",
-        "addr_city": "Omaha",
-        "addr_postcode": "68105"
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
       }
     }
   },
-  "id": 2244,
+  "id": 1844,
   "type": "range+count"
 }

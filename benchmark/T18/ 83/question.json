@@ -1,23 +1,19 @@
 {
-  "question": "Where can I find the nearest fish restaurant from Faith Arena, Surprise, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fish%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest burger place nearby to Nohra Haime Gallery, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%burger%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 218912,
-      "geometry": "POINT (-111.97776 33.494176)",
-      "poi_name": "The Bread And Honey House Arcadia",
-      "osm_id": 9307782874,
+      "id": 108687,
+      "geometry": "POINT (-74.005625 40.74027)",
+      "poi_name": "Bill's Bar & Burger",
+      "osm_id": 3632857383,
       "amenity": "restaurant",
-      "cuisine": "mexican;breakfast;burger;brunch;lunch;fish_taco",
-      "opening_hours": "Mo-Su 08:00-16:00",
-      "website": "https://thebreadandhoneyhouse.com/",
-      "phone": "+1-602-825-1048",
-      "delivery": "yes",
-      "addr_state": "AZ",
-      "addr_city": "Phoenix",
-      "addr_postcode": "85018",
-      "addr_street": "East Indian School Road",
-      "addr_housenumber": "4801"
+      "cuisine": "burger",
+      "website": "https://www.billsbarandburger.com/",
+      "phone": "+1 212-414-3003",
+      "addr_city": "New York",
+      "addr_street": "9th Avenue",
+      "addr_housenumber": "22"
     }
   ],
   "answer_type": "loc",
@@ -25,28 +21,30 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "fish restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%fish%'"
+      "poi_filter_desc": "burger place",
+      "poi_filter_sql": "cuisine ILIKE '%burger%'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Faith Arena, Surprise, AZ",
-      "geo_wkt": "POINT (-112.371855 33.62819)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Nohra Haime Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.005499 40.746428)",
       "poi": {
-        "id": 265626,
-        "geometry": "POINT (-112.371855 33.62819)",
-        "poi_name": "Faith Arena",
-        "osm_id": 10762941402,
-        "leisure": "stadium",
-        "addr_state": "AZ",
-        "addr_city": "Surprise",
-        "addr_postcode": "85374",
-        "addr_street": "West Tierra Buena Lane",
-        "addr_housenumber": "14470"
+        "id": 2885,
+        "geometry": "POINT (-74.005499 40.746428)",
+        "poi_name": "Nohra Haime Gallery",
+        "osm_id": 10064063749,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://nohrahaimegallery.com",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 21st Street",
+        "addr_housenumber": "500A"
       }
     }
   },
-  "id": 382,
+  "id": 1382,
   "type": "knn:non_spat_filter+loc"
 }

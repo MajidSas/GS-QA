@@ -1,66 +1,131 @@
 {
-  "question": "Where can I find a park located in the west of the Dells Mill and Museum, Augusta, WI, within a radius of 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 140000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where can I find a fast food restaurant within 150 kilometers toward the north of Flagler Town Museum, Flagler, CO?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-103.067777 39.291573)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-103.067777 39.291573)',4326)::geography, 150000)\nAND amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 246530,
-      "geometry": "POINT (-91.148747 44.72554)",
-      "poi_name": "Randall Park",
-      "osm_id": 9814815936,
-      "leisure": "park",
-      "addr_state": "WI",
-      "addr_city": "Fall Creek",
-      "addr_postcode": "54742"
+      "id": 236060,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Little Caesars",
+      "osm_id": 5777834455,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "https://littlecaesars.com/en-us/store/10637/",
+      "takeaway": "yes",
+      "addr_city": "Sterling",
+      "addr_postcode": "80751",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "532"
     },
     {
-      "id": 249118,
-      "geometry": "POINT (-91.148747 44.72554)",
-      "poi_name": "Handy-Andy Memorial Park",
-      "osm_id": 353873131,
-      "leisure": "park",
-      "addr_state": "WI",
-      "addr_city": "Spring Valley",
-      "addr_postcode": "54767",
-      "addr_street": "McKay Avenue",
-      "addr_housenumber": "S242"
+      "id": 112091,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Sonic",
+      "osm_id": 3780478428,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "opening_hours": "Mo-Th 06:00-22:00; Fr,Sa 06:00-23:00; Su 08:00-22:00",
+      "takeaway": "yes",
+      "addr_city": "Sterling",
+      "addr_postcode": "80751",
+      "addr_street": "Chestnut Street",
+      "addr_housenumber": "421"
+    },
+    {
+      "id": 112094,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Burger King",
+      "osm_id": 3780511304,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "wheelchair": "yes",
+      "opening_hours": "24/7",
+      "internet_access": "wlan",
+      "phone": "+1-970-522-2743",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "toilets": "yes",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "1602"
+    },
+    {
+      "id": 112096,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "McDonald's",
+      "osm_id": 3780511320,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.mcdonalds.com/us/en-us/location/co/sterling/214-w-main-st/4226.html",
+      "takeaway": "yes"
+    },
+    {
+      "id": 112098,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Arby's",
+      "osm_id": 3780511343,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 07:30-22:00",
+      "takeaway": "yes",
+      "addr_city": "Sterling",
+      "addr_postcode": "80751",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "905"
+    },
+    {
+      "id": 112099,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Wendy's",
+      "osm_id": 3780541480,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes",
+      "drive_through": "yes"
+    },
+    {
+      "id": 112100,
+      "geometry": "POINT (-103.067777 39.291573)",
+      "poi_name": "Taco Bell",
+      "osm_id": 3780541484,
+      "amenity": "fast_food",
+      "cuisine": "tex-mex",
+      "website": "https://locations.tacobell.com/co/sterling/1301-west-main-street.html",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "museum",
-      "display_name": "The Dells Mill and Museum, Augusta, WI",
-      "geo_wkt": "POINT (-91.148747 44.72554)",
+      "display_name": "Flagler Town Museum, Flagler, CO",
+      "geo_wkt": "POINT (-103.067777 39.291573)",
       "poi": {
-        "id": 540,
-        "geometry": "POINT (-91.148747 44.72554)",
-        "poi_name": "The Dells Mill and Museum",
-        "osm_id": 8435491750,
+        "id": 508,
+        "geometry": "POINT (-103.067777 39.291573)",
+        "poi_name": "Flagler Town Museum",
+        "osm_id": 8409988315,
         "tourism": "museum",
-        "opening_hours": "May-Oct 10:00-17:00",
-        "website": "https://dellsmill.com/",
-        "phone": "715-286-2714",
-        "addr_state": "WI",
-        "addr_city": "Augusta",
-        "addr_postcode": "54722",
-        "addr_street": "County Highway V",
-        "addr_housenumber": "E18855"
+        "operator": "Town of Flagler",
+        "museum": "history",
+        "addr_state": "CO",
+        "addr_city": "Flagler",
+        "addr_postcode": "80815",
+        "addr_street": "Main Avenue"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 16,
+  "id": 2216,
   "type": "range:direction+loc"
 }

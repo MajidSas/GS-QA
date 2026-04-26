@@ -1,53 +1,43 @@
 {
-  "question": "Where is the nearest university situated towards the southeast of David Richard Gallery, New York, NY?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.004151 40.749896)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest attraction in the direction of west from the Grove, Washington, DC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.022498 38.877195)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 228324,
-      "geometry": "POINT (-74.004151 40.749896)",
-      "poi_name": "Stanford in New York Center",
-      "osm_id": 4338958231,
-      "amenity": "university",
-      "operator": "The Board of Trustees of the Leland Stanford Junior University",
-      "website": "https://undergrad.stanford.edu/stanford-in-new-york",
-      "phone": "(212) 768-2905",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_postcode": "10010",
-      "addr_street": "Broadway",
-      "addr_housenumber": "915"
+      "id": 16015,
+      "geometry": "POINT (-77.022498 38.877195)",
+      "poi_name": "Columbarium",
+      "osm_id": 310423792,
+      "historic": "memorial",
+      "tourism": "attraction",
+      "addr_state": "VA"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "David Richard Gallery, New York, NY",
-      "geo_wkt": "POINT (-74.004151 40.749896)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "The Grove, Washington, DC",
+      "geo_wkt": "POINT (-77.022498 38.877195)",
       "poi": {
-        "id": 19723,
-        "geometry": "POINT (-74.004151 40.749896)",
-        "poi_name": "David Richard Gallery",
-        "osm_id": 10861507196,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 10:00-18:00",
-        "website": "https://davidrichardgallery.com",
-        "phone": "+1-212-882-1705",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10001",
-        "addr_street": "West 26th Street",
-        "addr_housenumber": "526"
+        "id": 247771,
+        "geometry": "POINT (-77.022498 38.877195)",
+        "poi_name": "The Grove",
+        "osm_id": 9901947050,
+        "leisure": "park",
+        "addr_state": "DC",
+        "addr_city": "Washington",
+        "addr_postcode": "20024",
+        "addr_street": "Wharf Street Southwest"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1115,

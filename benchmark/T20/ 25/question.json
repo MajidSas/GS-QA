@@ -1,67 +1,71 @@
 {
-  "question": "Where's the nearest fast food restaurant on the way to Willowbrooke, Villa Rica, GA from Bogan Park, Buford, GA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography, ST_GeomFromText('POINT (-84.913089 33.748578)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.968518 34.106096)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum forward of Memory Garden, Baltimore, MD in the direction of Cal, Sr.'s Yard, Aberdeen, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 242822,
-      "geometry": "POINT (-84.004373 34.104112)",
-      "poi_name": "Domino's",
-      "osm_id": 7600873790,
-      "amenity": "fast_food",
-      "cuisine": "pizza",
-      "opening_hours": "Su-Th 09:00-23:59",
-      "takeaway": "yes",
-      "addr_state": "GA",
-      "addr_city": "Buford",
-      "addr_postcode": "30518",
-      "addr_street": "Buford Highway Northeast",
-      "value": 245.84351133141388
+      "id": 15899,
+      "geometry": "POINT (-76.627017 39.304312)",
+      "poi_name": "Lillie Carroll Jackson Civil Rights Museum",
+      "osm_id": 9593128625,
+      "tourism": "museum",
+      "opening_hours": "We,Fr,Sa 11:00-15:00",
+      "operator": "Morgan State University",
+      "website": "https://www.lilliecarrolljacksonmuseum.org/",
+      "museum": "history",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21217",
+      "addr_street": "Eutaw Place",
+      "addr_housenumber": "1320",
+      "value": 56.255563631752366
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Bogan Park, Buford, GA",
-      "geo_wkt": "POINT (-83.968518 34.106096)",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
       "poi": {
-        "id": 248324,
-        "geometry": "POINT (-83.968518 34.106096)",
-        "poi_name": "Bogan Park",
-        "osm_id": 3988178382,
-        "leisure": "park",
-        "addr_state": "GA",
-        "addr_city": "Buford",
-        "addr_postcode": "30519",
-        "addr_street": "North Bogan Road",
-        "addr_housenumber": "2723"
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Willowbrooke, Villa Rica, GA",
-      "geo_wkt": "POINT (-84.913089 33.748578)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
       "poi": {
-        "id": 205791,
-        "geometry": "POINT (-84.913089 33.748578)",
-        "poi_name": "Willowbrooke",
-        "osm_id": 7180135185,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "GA",
-        "addr_city": "Villa Rica",
-        "addr_postcode": "30180",
-        "addr_street": "Herrell Road",
-        "addr_housenumber": "20"
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1324,
+  "id": 1524,
   "type": "knn:towards+loc"
 }

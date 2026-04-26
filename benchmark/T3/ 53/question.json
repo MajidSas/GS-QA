@@ -1,54 +1,66 @@
 {
-  "question": "Within a radius of 190 kilometers, what golf course can I find located in the direction of south from Ritter Park Rose Garden, Huntington, WV?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.440699 38.406448)',4326)::geography, 190000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "What hotel can I find inside 100 kilometers to the north of Johnsonburg Swamp Preserve, Johnsonburg, NJ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.867494 40.980105)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.867494 40.980105)',4326)::geography, 100000)\nAND tourism = 'hotel'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 266940,
-      "geometry": "POINT (-82.440699 38.406448)",
-      "poi_name": "StoneCrest Golf Course",
-      "osm_id": 11154753277,
-      "leisure": "golf_course",
-      "opening_hours": "Mo-Fr 08:00-19:00, Sa-Su 08:00-20:00",
-      "operator": "StoneCrest Jenny Wiley, LLC",
-      "addr_state": "KY",
-      "addr_city": "Prestonsburg",
-      "addr_street": "Club House Drive",
-      "addr_housenumber": "918"
+      "id": 3110,
+      "geometry": "POINT (-74.867494 40.980105)",
+      "poi_name": "Kenoza Hall",
+      "osm_id": 10178909926,
+      "tourism": "hotel",
+      "website": "https://kenozahall.com",
+      "phone": "+1 (845) 482-1022",
+      "addr_state": "NY",
+      "addr_city": "Kenoza Lake",
+      "addr_postcode": "12750",
+      "addr_street": "State Route 52",
+      "addr_housenumber": "5762"
+    },
+    {
+      "id": 20109,
+      "geometry": "POINT (-74.867494 40.980105)",
+      "poi_name": "The Historic Greeley Inn",
+      "osm_id": 7875987923,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Greeley",
+      "addr_street": "PA-590",
+      "addr_housenumber": "218"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Ritter Park Rose Garden, Huntington, WV",
-      "geo_wkt": "POINT (-82.440699 38.406448)",
+      "sub_category": "nature reserve",
+      "display_name": "Johnsonburg Swamp Preserve, Johnsonburg, NJ",
+      "geo_wkt": "POINT (-74.867494 40.980105)",
       "poi": {
-        "id": 248616,
-        "geometry": "POINT (-82.440699 38.406448)",
-        "poi_name": "Ritter Park Rose Garden",
-        "osm_id": 4683706042,
-        "leisure": "garden",
-        "addr_state": "WV",
-        "addr_city": "Huntington",
-        "addr_postcode": "25701",
-        "addr_street": "McCoy Road",
-        "addr_housenumber": "1501"
+        "id": 265643,
+        "geometry": "POINT (-74.867494 40.980105)",
+        "poi_name": "Johnsonburg Swamp Preserve",
+        "osm_id": 10780285209,
+        "leisure": "nature_reserve",
+        "operator": "The Nature Conservancy",
+        "addr_state": "NJ",
+        "addr_city": "Johnsonburg",
+        "addr_postcode": "07860",
+        "addr_street": "Old Stage Road"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2652,
+  "id": 2352,
   "type": "range:direction+name"
 }

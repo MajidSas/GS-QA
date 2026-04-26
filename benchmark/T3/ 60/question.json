@@ -1,120 +1,66 @@
 {
-  "question": "What hotel situated within 150 kilometers towards the northwest of North Olmsted Recreation Center, North Olmsted, OH?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, 150000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "What golf course are located within 60 kilometers range in the direction of southwest from Memory Garden, Baltimore, MD?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography, 60000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 2873,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Red Roof Inn",
-      "osm_id": 10061533093,
-      "tourism": "hotel"
+      "id": 246260,
+      "geometry": "POINT (-76.638575 39.300016)",
+      "poi_name": "CitySwing",
+      "osm_id": 11221520741,
+      "leisure": "golf_course",
+      "opening_hours": "10:00-22:00",
+      "website": "https://www.cityswingdc.com",
+      "phone": "+1 202-902-0983",
+      "addr_street": "New York Avenue Northwest",
+      "addr_housenumber": "901"
     },
     {
-      "id": 9828,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Red Roof Inn Detroit Metro Airport - Taylor",
-      "osm_id": 9010818682,
-      "tourism": "hotel",
-      "addr_state": "MI",
-      "addr_city": "Taylor",
-      "addr_postcode": "48180",
-      "addr_street": "Eureka Road",
-      "addr_housenumber": "21230"
-    },
-    {
-      "id": 6947,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Rivertown Inn & Suites",
-      "osm_id": 8781739686,
-      "tourism": "hotel",
-      "addr_state": "MI",
-      "addr_city": "Detroit",
-      "addr_postcode": "48207",
-      "addr_street": "East Jefferson Avenue",
-      "addr_housenumber": "1316"
-    },
-    {
-      "id": 5167,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "The Westin Book Cadillac Detroit",
-      "osm_id": 9791136173,
-      "tourism": "hotel",
-      "internet_access": "yes",
-      "addr_state": "MI",
-      "addr_city": "Detroit",
-      "addr_postcode": "48226",
-      "addr_street": "Washington Boulevard",
-      "addr_housenumber": "1114"
-    },
-    {
-      "id": 9614,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Shinola Hotel",
-      "osm_id": 8888652178,
-      "tourism": "hotel",
-      "internet_access": "yes",
-      "addr_state": "MI",
-      "addr_city": "Detroit",
-      "addr_postcode": "48226",
-      "addr_street": "Woodward Avenue",
-      "addr_housenumber": "1400"
-    },
-    {
-      "id": 19823,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "The Siren Hotel",
-      "osm_id": 10899381804,
-      "tourism": "hotel"
-    },
-    {
-      "id": 24528,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Sonder Gabriel Richard",
-      "osm_id": 11099089388,
-      "tourism": "hotel"
-    },
-    {
-      "id": 24691,
-      "geometry": "POINT (-81.910184 41.423463)",
-      "poi_name": "Cambria Hotel",
-      "osm_id": 11173174730,
-      "tourism": "hotel"
+      "id": 247148,
+      "geometry": "POINT (-76.638575 39.300016)",
+      "poi_name": "Monster Mini Golf",
+      "osm_id": 3646417551,
+      "leisure": "golf_course",
+      "addr_state": "MD",
+      "addr_city": "Jessup",
+      "addr_postcode": "20794",
+      "addr_street": "Assateague Drive",
+      "addr_housenumber": "7351"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
-      "geo_wkt": "POINT (-81.910184 41.423463)",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
       "poi": {
-        "id": 247332,
-        "geometry": "POINT (-81.910184 41.423463)",
-        "poi_name": "North Olmsted Recreation Center",
-        "osm_id": 8944513246,
-        "leisure": "stadium",
-        "operator": "City of North Olmsted",
-        "addr_state": "OH",
-        "addr_city": "North Olmsted",
-        "addr_postcode": "44070",
-        "addr_street": "Lorain Road",
-        "addr_housenumber": "26000"
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2659,
+  "id": 2359,
   "type": "range:direction+name"
 }

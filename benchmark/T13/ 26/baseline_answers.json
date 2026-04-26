@@ -1,7 +1,35 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Griffith Observatory",
+      "answer": "**Inwood Hill Park**\n**New York, United States**\n**Approximately one hundred and fifty kilometers northeast**",
+      "scores": {
+        "attempted": true,
+        "P": 0.1538461538461538,
+        "R": 0.1052631578947368,
+        "F1": 0.125
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Inwood Hill Park",
+          "address": "New York, United States",
+          "distance": 150,
+          "azimuth_angle": 45
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.5,
+        "R": 0.4,
+        "F1": 0.4444444444444445,
+        "distance_error": 0.0011888698058511
+      }
+    }
+  },
+  "ministral-3:14b-cloud_rag": {
+    "text": {
+      "answer": "Pelham Bay Park.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,24 +40,23 @@
     "parsed": {
       "answer": [
         {
-          "name": "Griffith Observatory",
-          "address": "2800 E Observatory Rd, Los Angeles, CA 90027",
-          "distance": 140,
-          "azimuth_angle": 270
+          "name": "Pelham Bay Park",
+          "address": "Pelham Bay Park, Bronx, NY 10467",
+          "distance": 150
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.375,
-        "R": 0.5,
-        "F1": 0.4285714285714285,
-        "distance_error": 0.0047104659189304
+        "P": 0.1666666666666666,
+        "R": 0.2,
+        "F1": 0.1818181818181818,
+        "distance_error": 0.0166851173766955
       }
     }
   },
-  "GT": {
+  "shuffled": {
     "text": {
-      "answer": "Griffith Observatory",
+      "answer": "",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -40,45 +67,88 @@
     "parsed": {
       "answer": [
         {
-          "name": "Griffith Observatory",
-          "address": "2800 E Observatory Rd, Los Angeles, CA 90027",
-          "distance": 140,
-          "azimuth_angle": 270
+          "address": "Children's Hospital at Montefiore, Bronx, NY"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.375,
-        "R": 0.5,
-        "F1": 0.4285714285714285,
-        "distance_error": 0.0047104659189304
+        "P": 0.1666666666666666,
+        "R": 0.2,
+        "F1": 0.1818181818181818,
+        "distance_error": 0.0070777066532302
       }
     }
   },
-  "GR": {
+  "ministral-3:14b-cloud_text2sql": {
     "text": {
-      "answer": "I don't have information on viewpoints within one hundred fifty kilometers from UCLA Extension, Woodland Hills, CA.",
+      "answer": "Inwood Hill Park.",
       "scores": {
         "attempted": true,
-        "P": 0.0769230769230769,
-        "R": 0.1666666666666666,
-        "F1": 0.1052631578947368
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "",
-          "address": "",
-          "count": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Inwood Hill Park",
+          "address": "205th Street, New York, NY 10463",
+          "distance": 150
         }
       ],
       "scores": {
         "attempted": true,
+        "P": 0.5,
+        "R": 0.6,
+        "F1": 0.5454545454545454,
+        "distance_error": 0.0105624455167049
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "Bear Mountain State Park Perkins Memorial Tower, located approximately **80 kilometers** away.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Bear Mountain State Park Perkins Memorial Tower",
+          "address": "Bear Mountain State Park, Perkins Memorial Tower, Bear Mountain, NY",
+          "distance": 80
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.1,
+        "R": 0.2,
+        "F1": 0.1333333333333333,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "I don't have viewpoint data within one hundred fifty kilometers of Children's Hospital at Montefiore, Bronx, NY in the provided records.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0625,
+        "R": 0.0526315789473684,
+        "F1": 0.0571428571428571
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
         "P": 0.0,
         "R": 0.0,
         "F1": 0.0,
@@ -86,92 +156,105 @@
       }
     }
   },
-  "L": {
+  "sonnet4.6_text2sql": {
     "text": {
-      "answer": "The Griffith Observatory is approximately one hundred fifty kilometers from UCLA Extension, Woodland Hills, CA. It is located at Five Hundred Twenty-Five North Oxford Street, Los Angeles, CA 90027.",
+      "answer": "Here are viewpoints within roughly one hundred fifty kilometers, starting with the closest:\n\n1. Scenic Viewing Platform \u2013 three thousand five hundred forty meters\n2. Half-Moon Overlook \u2013 three thousand six hundred sixty meters\n3. HBP 187 View \u2013 five thousand two hundred meters\n4. GWB View \u2013 six thousand five hundred meters\n5. Sylvan Terrace \u2013 seven thousand two hundred meters\n6. West side highway access \u2013 twelve thousand one hundred forty meters\n7. Point Lookout \u2013 twelve thousand three hundred forty meters\n8. Eddy Pawiro-oelomo \u2013 thirteen thousand three hundred eighty meters\n9. Skate Circle \u2013 fourteen thousand two hundred ninety meters\n10. view point \u2013 fifteen thousand nine hundred meters\n11. Top of the Rock \u2013 fifteen thousand nine hundred twenty meters\n12. TKTS Viewpoint \u2013 sixteen thousand one hundred sixty meters\n13. Summit One Vanderbilt \u2013 sixteen thousand four hundred seventy meters\n14. Skyline View \u2013 sixteen thousand eight hundred ten meters\n15. Edge \u2013 seventeen thousand four hundred meters\n16. Hudson Yards Vista Point \u2013 seventeen thousand five hundred meters\n17. Flushing Meadows Bird Blind \u2013 eighteen thousand meters\n18. Ricks' Overlook \u2013 eighteen thousand eighty meters\n19. Mason's Overlook \u2013 eighteen thousand one hundred seventy meters\n20. Flushing Meadows Scenic Viewpoint \u2013 eighteen thousand two hundred thirty meters\n21. Kiesza - Hideaway \u2013 eighteen thousand seven hundred twenty meters\n22. Overlook \u2013 eighteen thousand seven hundred fifty meters\n23. Northwest Overlook \u2013 eighteen thousand nine hundred twenty meters\n24. Free Public Stargazing \u2013 eighteen thousand nine hundred seventy meters\n25. Southeast Overlook \u2013 eighteen thousand nine hundred eighty meters\n26. Southwest Overlook \u2013 nineteen thousand ten meters\n27. Hewlett's Overlook \u2013 nineteen thousand six hundred seventy meters\n28. Sand Miner's Overlook \u2013 twenty thousand four hundred ninety meters\n29. Pier 32 \u2013 twenty thousand five hundred ninety meters\n30. Woodhaven Overlook \u2013 twenty thousand six hundred thirty meters\n31. Hearst's Overlook \u2013 twenty thousand six hundred forty meters\n32. Staple Street Skybridge \u2013 twenty-one thousand one hundred meters\n33. Tides of Tarrytown \u2013 twenty-one thousand one hundred seventy meters\n34. Half Moon \u2013 twenty-one thousand two hundred thirty meters\n35. River Crossing \u2013 twenty-one thousand two hundred forty meters\n36. Painters Point \u2013 twenty-one thousand two hundred sixty meters\n37. Palisades \u2013 twenty-one thousand three hundred forty meters\n38. Fish & Ships \u2013 twenty-one thousand four hundred sixty meters\n39. Manhattan Bridge Viewpoint \u2013 twenty-one thousand five hundred forty meters\n40. One World Observatory \u2013 twenty-one thousand seven hundred seventy meters\n41. North Arlington Scenic Overlook \u2013 twenty-two thousand seventy meters\n42. Granite Prospect \u2013 twenty-two thousand one hundred ninety meters\n43. Old Pier 1 Piles \u2013 twenty-two thousand two hundred eighty meters\n44. Hudson River Waterfront \u2013 twenty-two thousand six hundred eighty meters\n45. Morris Canal Park \u2013 twenty-two thousand nine hundred thirty meters\n46. Jersey City Marina \u2013 twenty-three thousand one hundred thirty meters\n47. Hudson River Waterfront Walkway \u2013 twenty-three thousand one hundred ninety meters\n48. Jersey City Marina \u2013 twenty-three thousand two hundred ten meters\n49. The Heights \u2013 twenty-three thousand four hundred thirty meters\n50. The Overlook \u2013 twenty-four thousand four hundred ninety meters\n51. Scenic View Pull-off \u2013 twenty-four thousand five hundred meters\n52. Rockwood Hall \u2013 twenty-five thousand eight hundred seventy meters\n53. Mountain Top View \u2013 twenty-five thousand nine hundred ten meters\n54. Mountain Top View \u2013 twenty-six thousand two hundred meters\n55. Skybowl \u2013 twenty-six thousand three hundred meters\n56. Reservoir View \u2013 twenty-six thousand four hundred ten meters\n57. Battle Hill \u2013 twenty-six thousand four hundred ninety meters\n58. Pirie Platform \u2013 twenty-six thousand eight hundred twenty meters\n59. Warden's Watch \u2013 twenty-six thousand eight hundred eighty meters\n60. Osprey Platform \u2013 twenty-seven thousand meters\n61. Belt Parkway Lookout \u2013 twenty-eight thousand three hundred ten meters\n62. Lookout Point \u2013 twenty-eight thousand six hundred sixty meters\n63. Mountain \u2013 twenty-nine thousand meters\n64. Waterfall \u2013 twenty-nine thousand six hundred meters\n65. Buttermilk Falls \u2013 thirty-one thousand one hundred eighty meters\n66. Franklin Clove \u2013 thirty-one thousand two hundred forty meters\n67. Mud Flat Lookout \u2013 thirty-one thousand three hundred sixty meters\n68. Ossining Double Arch viewing platform \u2013 thirty-one thousand three hundred ninety meters\n69. Eagle Rock \u2013 thirty-one thousand four hundred ninety meters\n70. White Island Lookout \u2013 thirty-one thousand nine hundred twenty meters\n71. The Point Lookout \u2013 thirty-two thousand three hundred seventy meters\n72. Overlook \u2013 thirty-three thousand two hundred fifty meters\n73. Lloyd Point \u2013 thirty-four thousand ten meters\n74. Hawk Rock \u2013 thirty-four thousand seven hundred seventy meters\n75. Cactus Ledge \u2013 thirty-four thousand eight hundred seventy meters\n76. Ridge Overlook \u2013 thirty-five thousand fifty meters\n77. Battery Harris East \u2013 thirty-five thousand four hundred forty meters\n78. MacMillan Reservoir Overlook \u2013 thirty-five thousand four hundred sixty meters\n79. Matapan Rock \u2013 thirty-seven thousand four hundred seventy meters\n80. Bramhall Terrace \u2013 thirty-seven thousand five hundred thirty meters\n81. Ilgenstein Riock \u2013 thirty-seven thousand five hundred thirty meters\n82. Woodcleft Scenic Pier \u2013 thirty-seven thousand seven hundred ten meters\n83. Ramapo Torne \u2013 thirty-eight thousand three hundred eighty meters\n84. Crater View \u2013 thirty-eight thousand four hundred ten meters\n85. Mountain Top \u2013 thirty-eight thousand seven hundred twenty meters\n86. Paulo's Peak \u2013 thirty-nine thousand one hundred twenty meters\n87. Washington Rock \u2013 thirty-nine thousand four hundred meters\n88. Warm Puppy Rock \u2013 thirty-nine thousand seven hundred meters\n89. Montville Basin Overlook \u2013 thirty-nine thousand seven hundred fifty meters\n90. Sleater Hill \u2013 forty thousand nine hundred fifty meters\n91. Dater Mountain \u2013 forty-one thousand seven hundred seventy meters\n92. Chikahoki Falls \u2013 forty-two thousand three hundred twenty meters\n93. Scenic Overlook - Ball Mountain \u2013 forty-two thousand three hundred fifty meters\n94. Scenic Overlook - Board Mountain \u2013 forty-two thousand four hundred seventy meters\n95. Scenic Overlook - Carris Hill \u2013 forty-two thousand five hundred eighty meters\n96. Scenic Overlook - Yoo-Hoo Point \u2013 forty-two thousand nine hundred twenty meters\n97. Osio Rock Overlook \u2013 forty-three thousand three hundred ten meters\n98. Lucy's Overlook \u2013 forty-three thousand seven hundred meters\n99. Otter Hole \u2013 forty-three thousand seven hundred twenty meters\n100. Scenic Overlook - North Jersey to New York City \u2013 forty-four thousand one hundred ten meters",
       "scores": {
         "attempted": true,
-        "P": 0.1304347826086956,
-        "R": 0.5,
-        "F1": 0.2068965517241379
+        "P": 0.0038910505836575,
+        "R": 0.2105263157894736,
+        "F1": 0.0076408787010506
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Griffith Observatory",
-          "address": "Five Hundred Twenty-Five North Oxford Street, Los Angeles, CA 90027",
-          "distance": 150,
-          "azimuth_angle": 270
+          "count": 100,
+          "distance": 150000
         }
       ],
       "scores": {
-        "attempted": true,
-        "P": 0.3,
-        "R": 0.5,
-        "F1": 0.3749999999999999,
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
         "distance_error": 1.0
       }
     }
   },
-  "LT": {
+  "gpt4o_direct": {
     "text": {
-      "answer": "The Griffith Observatory is approximately one hundred and fifty kilometers from UCLA Extension, Woodland Hills, CA. It is located at Five Hundred Fifty North Observatory Road, Los Angeles, CA 90027.",
+      "answer": "Bear Mountain State Park.",
       "scores": {
         "attempted": true,
-        "P": 0.1304347826086956,
-        "R": 0.5,
-        "F1": 0.2068965517241379
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Griffith Observatory",
-          "address": "Five Hundred Fifty North Observatory Road, Los Angeles, CA 90027",
-          "distance": 150,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Bear Mountain State Park",
+          "address": "Bear Mountain, NY 10930",
+          "distance": 150
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.3,
-        "R": 0.5,
-        "F1": 0.3749999999999999,
+        "P": 0.25,
+        "R": 0.2,
+        "F1": 0.2222222222222222,
+        "distance_error": 0.0103612606562513
+      }
+    }
+  },
+  "gpt4o_rag": {
+    "text": {
+      "answer": "No relevant information available.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
         "distance_error": 1.0
       }
     }
   },
-  "LR": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "The nearest viewpoint is Runyon Canyon Park, which is approximately Fifty kilometers away from UCLA Extension, Woodland Hills, CA.",
+      "answer": "Bear Mountain State Park",
       "scores": {
         "attempted": true,
-        "P": 0.0714285714285714,
-        "R": 0.1666666666666666,
-        "F1": 0.1
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Runyon Canyon Park",
-          "address": "2000 N Fuller Ave, Los Angeles, CA 90046",
-          "count": null,
-          "distance": 50,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Bear Mountain State Park",
+          "address": "Bear Mountain, NY 10938, USA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.375,
-        "R": 0.5,
-        "F1": 0.4285714285714285,
-        "distance_error": 0.0077700386108121
+        "P": 0.2,
+        "R": 0.2,
+        "F1": 0.2,
+        "distance_error": 0.0103612606562513
       }
     }
   }

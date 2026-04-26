@@ -1,48 +1,47 @@
 {
-  "question": "Which aquarium is nearest in the west direction from Manatee Viewing Center, Apollo Beach, FL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.400924 27.792747)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which attraction is nearest in the northwest direction from Lake Plantaganet Southeast Public Access - MN DNR, Bemidji, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.909183 47.36769)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18669,
-      "geometry": "POINT (-82.400924 27.792747)",
-      "poi_name": "Sea Center Texas",
-      "osm_id": 2373700701,
-      "tourism": "aquarium"
+      "id": 21476,
+      "geometry": "POINT (-94.909183 47.36769)",
+      "poi_name": "Thief River Falls Airport",
+      "osm_id": 10278568350,
+      "historic": "aircraft",
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Manatee Viewing Center, Apollo Beach, FL",
-      "geo_wkt": "POINT (-82.400924 27.792747)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Lake Plantaganet Southeast Public Access - MN DNR, Bemidji, MN",
+      "geo_wkt": "POINT (-94.909183 47.36769)",
       "poi": {
-        "id": 772,
-        "geometry": "POINT (-82.400924 27.792747)",
-        "poi_name": "Manatee Viewing Center",
-        "osm_id": 2676923692,
-        "tourism": "attraction",
-        "opening_hours": "Nov 01-Apr 15 10:00-17:00; Nov: Th[4] off; Dec 24-25 off; easter off",
-        "operator": "TECO",
-        "website": "https://www.tampaelectric.com/company/mvc/",
-        "phone": "+1 (813) 228-4289",
-        "addr_state": "FL",
-        "addr_city": "Apollo Beach",
-        "addr_postcode": "33572",
-        "addr_street": "Dickman Road",
-        "addr_housenumber": "6990"
+        "id": 245443,
+        "geometry": "POINT (-94.909183 47.36769)",
+        "poi_name": "Lake Plantaganet Southeast Public Access - MN DNR",
+        "osm_id": 2916223849,
+        "leisure": "park",
+        "description": "Landing Type: Trailer Launch\nNumber of Launches: 1\nLaunch Surface: Concrete\nNumber of Vehicle/Trailer Stalls: 15",
+        "operator": "Plantagenet Boat Launches",
+        "addr_state": "MN",
+        "addr_city": "Bemidji",
+        "addr_postcode": "56601",
+        "addr_street": "County Road 9",
+        "addr_housenumber": "21888"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2539,
+  "id": 1239,
   "type": "knn:direction+name"
 }

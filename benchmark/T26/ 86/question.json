@@ -1,46 +1,45 @@
 {
-  "question": "What's the distance between Zoological Wildlife Foundation, Miami, FL and the nearest caf\u00e9?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.470734 25.614343)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.470734 25.614343)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the proximity distance of the closest zoo to Sonny's Place, Somers, CT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 39795,
-      "geometry": "POINT (-80.415256 25.654002)",
-      "poi_name": "Starbucks",
-      "osm_id": 2940399094,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "distance": 7095.29983271
+      "id": 3731,
+      "geometry": "POINT (-71.780432 42.281855)",
+      "poi_name": "Green Hill Park Farm",
+      "osm_id": 5569990665,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "distance": 65640.6936427
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Zoological Wildlife Foundation, Miami, FL",
-      "geo_wkt": "POINT (-80.470734 25.614343)",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
       "poi": {
-        "id": 14087,
-        "geometry": "POINT (-80.470734 25.614343)",
-        "poi_name": "Zoological Wildlife Foundation",
-        "osm_id": 4221532470,
-        "tourism": "zoo",
-        "website": "https://zoologicalwildlifefoundation.com/",
-        "phone": "+1-305-969-3696",
-        "addr_state": "FL",
-        "addr_city": "Miami",
-        "addr_postcode": "33187",
-        "addr_street": "SW 172nd Ave",
-        "addr_housenumber": "16225"
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
       }
     }
   },
-  "id": 2485,
+  "id": 685,
   "type": "knn+distance"
 }

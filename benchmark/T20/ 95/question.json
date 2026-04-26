@@ -1,23 +1,21 @@
 {
-  "question": "Where's the closest fast food restaurant on the route to Procter Farm Preserve, Wendell, NC from Quality Inn, Dunn, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography, ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.598863 35.30081)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 along the direction of travel from City Suites Hotel, Chicago, IL to Heritage Museum and Cultural Center, Saint Joseph, MI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography, ST_GeomFromText('POINT (-86.482343 42.10621)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 40574,
-      "geometry": "POINT (-78.542958 35.37784)",
-      "poi_name": "McDonald's",
-      "osm_id": 2973560081,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/nc/benson/600-e-main-st/21806.html",
-      "phone": "+19198948503",
-      "takeaway": "yes",
-      "addr_state": "NC",
-      "addr_city": "Benson",
-      "addr_postcode": "27504",
-      "addr_street": "East Main Street",
-      "addr_housenumber": "600",
-      "value": 17.775418918493134
+      "id": 142586,
+      "geometry": "POINT (-87.650778 41.93977)",
+      "poi_name": "Life Spring Health Foods & Juice Bar",
+      "osm_id": 6318385635,
+      "amenity": "cafe",
+      "website": "http://lifespringchicago.com/",
+      "phone": "+1-773-327-1023",
+      "addr_state": "IL",
+      "addr_city": "Chicago",
+      "addr_postcode": "60657",
+      "addr_street": "North Clark Street",
+      "addr_housenumber": "3178",
+      "value": 78.81199986212374
     }
   ],
   "answer_type": "loc",
@@ -25,45 +23,45 @@
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Quality Inn, Dunn, NC",
-      "geo_wkt": "POINT (-78.598863 35.30081)",
+      "display_name": "City Suites Hotel, Chicago, IL",
+      "geo_wkt": "POINT (-87.65288 41.939769)",
       "poi": {
-        "id": 27136,
-        "geometry": "POINT (-78.598863 35.30081)",
-        "poi_name": "Quality Inn",
-        "osm_id": 7729137531,
+        "id": 74,
+        "geometry": "POINT (-87.65288 41.939769)",
+        "poi_name": "City Suites Hotel",
+        "osm_id": 424212348,
         "tourism": "hotel",
-        "phone": "+19102924682",
-        "addr_state": "NC",
-        "addr_city": "Dunn",
-        "addr_postcode": "28334",
-        "addr_street": "East Cumberland Street",
-        "addr_housenumber": "1011"
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60657",
+        "addr_street": "West Belmont Avenue",
+        "addr_housenumber": "933"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Procter Farm Preserve, Wendell, NC",
-      "geo_wkt": "POINT (-78.390009 35.831172)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Heritage Museum and Cultural Center, Saint Joseph, MI",
+      "geo_wkt": "POINT (-86.482343 42.10621)",
       "poi": {
-        "id": 247665,
-        "geometry": "POINT (-78.390009 35.831172)",
-        "poi_name": "Procter Farm Preserve",
-        "osm_id": 8057386012,
-        "leisure": "nature_reserve",
-        "addr_state": "NC",
-        "addr_city": "Wendell",
-        "addr_postcode": "27591",
-        "addr_street": "Doc Procter Road",
-        "addr_housenumber": "7201"
+        "id": 17567,
+        "geometry": "POINT (-86.482343 42.10621)",
+        "poi_name": "Heritage Museum and Cultural Center",
+        "osm_id": 367816196,
+        "tourism": "museum",
+        "opening_hours": "Tu,We,Fr,Sa 10:00-16:00; Th 10:00-20:00",
+        "website": "https://theheritagemcc.org/",
+        "museum": "history",
+        "addr_state": "MI",
+        "addr_city": "Saint Joseph",
+        "addr_postcode": "49085"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 1394,
+  "id": 1594,
   "type": "knn:towards+loc"
 }

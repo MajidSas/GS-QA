@@ -1,43 +1,46 @@
 {
-  "question": "What's the orientation towards the closest zoo from Washington Park Botanical Garden, Springfield, IL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction should I travel to get to the closest theme park from Hole N'' the Rock, Moab, UT?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-109.454349 38.390826)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-109.454349 38.390826)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 296,
-      "geometry": "POINT (-89.738036 40.734904)",
-      "poi_name": "Wildlife Prairie Park",
-      "osm_id": 8290740899,
-      "tourism": "zoo",
-      "angle": 357.55243184183473
+      "id": 26097,
+      "geometry": "POINT (-107.33239 39.553632)",
+      "poi_name": "Glenwood Caverns Adventure Park",
+      "osm_id": 5782876196,
+      "description": "Ticket purchase office",
+      "tourism": "theme_park",
+      "addr_state": "CO",
+      "addr_city": "Glenwood Springs",
+      "addr_postcode": "81601",
+      "addr_street": "Two Rivers Plaza Road",
+      "addr_housenumber": "51000",
+      "angle": 54.26762318475572
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Washington Park Botanical Garden, Springfield, IL",
-      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hole N'' The Rock, Moab, UT",
+      "geo_wkt": "POINT (-109.454349 38.390826)",
       "poi": {
-        "id": 267108,
-        "geometry": "POINT (-89.684904 39.78926)",
-        "poi_name": "Washington Park Botanical Garden",
-        "osm_id": 4530576300,
-        "leisure": "garden",
-        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
-        "phone": "+1-217-546-4116",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "West Fayette Avenue",
-        "addr_housenumber": "1740"
+        "id": 1455,
+        "geometry": "POINT (-109.454349 38.390826)",
+        "poi_name": "Hole N'' The Rock",
+        "osm_id": 2991185281,
+        "tourism": "attraction",
+        "website": "https://www.theholeintherock.com/",
+        "addr_state": "UT",
+        "addr_city": "Moab",
+        "addr_street": "US-191"
       }
     }
   },
-  "id": 1430,
+  "id": 530,
   "type": "knn+angle"
 }

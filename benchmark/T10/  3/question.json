@@ -1,62 +1,62 @@
 {
-  "question": "What's the nearest caf\u00e9 heading towards Rhododendron Species Botanical Garden, Federal Way, WA from Debbie Doolittle's Petting Zoo, Tacoma, WA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, ST_GeomFromText('POINT (-122.302257 47.292739)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest hotel encountered heading toward MedStar Franklin Square Medical Center, Rosedale, Maryland from Rock of the Marne, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography, ST_GeomFromText('POINT (-76.478714 39.351819)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.073797 38.876769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 29135,
-      "geometry": "POINT (-122.35769 47.192046)",
-      "poi_name": "Hot Rod Espresso",
-      "osm_id": 8282805836,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "value": 28.808644648029958
+      "id": 5431,
+      "geometry": "POINT (-77.055843 38.899338)",
+      "poi_name": "The Watergate Hotel",
+      "osm_id": 759570172,
+      "tourism": "hotel",
+      "website": "http://www.watergatehotel.com/",
+      "phone": "+1 800-289-1555",
+      "wikidata": "Q109349448",
+      "addr_street": "Virginia Avenue Northwest",
+      "addr_housenumber": "2650",
+      "value": 44.113229627017276
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
-      "geo_wkt": "POINT (-122.432984 47.131086)",
+      "sub_category": "attraction",
+      "display_name": "Rock of the Marne, VA",
+      "geo_wkt": "POINT (-77.073797 38.876769)",
       "poi": {
-        "id": 11808,
-        "geometry": "POINT (-122.432984 47.131086)",
-        "poi_name": "Debbie Doolittle's Petting Zoo",
-        "osm_id": 11550085362,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "WA",
-        "addr_city": "Tacoma",
-        "addr_postcode": "98444",
-        "addr_street": "138th St. S.",
-        "addr_housenumber": "120"
+        "id": 139,
+        "geometry": "POINT (-77.073797 38.876769)",
+        "poi_name": "Rock of the Marne",
+        "osm_id": 453542780,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Rhododendron Species Botanical Garden, Federal Way, WA",
-      "geo_wkt": "POINT (-122.302257 47.292739)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "MedStar Franklin Square Medical Center, Rosedale, Maryland",
+      "geo_wkt": "POINT (-76.478714 39.351819)",
       "poi": {
-        "id": 248648,
-        "geometry": "POINT (-122.302257 47.292739)",
-        "poi_name": "Rhododendron Species Botanical Garden",
-        "osm_id": 4721258058,
-        "leisure": "garden",
-        "website": "https://rhodygarden.org/",
-        "addr_state": "WA",
-        "addr_city": "Federal Way",
-        "addr_postcode": "98003",
-        "addr_street": "South 336th Street",
-        "addr_housenumber": "2525"
+        "id": 130141,
+        "geometry": "POINT (-76.478714 39.351819)",
+        "poi_name": "MedStar Franklin Square Medical Center",
+        "osm_id": 9856193250,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "Maryland",
+        "addr_city": "Rosedale",
+        "addr_postcode": "21237",
+        "addr_street": "Franklin Square Drive",
+        "addr_housenumber": "9000"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 102,
+  "id": 1602,
   "type": "knn:towards+name"
 }

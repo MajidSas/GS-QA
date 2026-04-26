@@ -1,60 +1,58 @@
 {
-  "question": "Which fast food is closest on the way to Ledge View Nature Center, Chilton, WI from Children's Museum of Fond du Lac, Fond du Lac, WI?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography, ST_GeomFromText('POINT (-88.15542 44.001505)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.449668 43.792619)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest fast food you\u2019d reach going toward McCools of Bon Air, Richmond, VA from Treetop Zoofari Zip line and Adventure Park, Moseley, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.766318 37.38252)',4326)::geography, ST_GeomFromText('POINT (-77.560834 37.534206)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.766318 37.38252)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.766318 37.38252)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 124195,
-      "geometry": "POINT (-88.024898 43.92105)",
-      "poi_name": "Subway",
-      "osm_id": 6903145565,
+      "id": 44606,
+      "geometry": "POINT (-77.648889 37.450252)",
+      "poi_name": "Dunkin'",
+      "osm_id": 3165947300,
       "amenity": "fast_food",
-      "cuisine": "sandwich",
+      "cuisine": "donut;coffee_shop",
       "takeaway": "yes",
-      "value": 45.42624905522128
+      "value": 47.13737421236084
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Children's Museum of Fond du Lac, Fond du Lac, WI",
-      "geo_wkt": "POINT (-88.449668 43.792619)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Treetop Zoofari Zip line and Adventure Park, Moseley, VA",
+      "geo_wkt": "POINT (-77.766318 37.38252)",
       "poi": {
-        "id": 22536,
-        "geometry": "POINT (-88.449668 43.792619)",
-        "poi_name": "Children's Museum of Fond du Lac",
-        "osm_id": 7147289175,
-        "tourism": "museum",
-        "fee": "yes",
-        "opening_hours": "Tu-Th 09:00-17:00; Fr,Sa 09:00-16:00",
-        "website": "https://www.cmfdl.org/",
-        "addr_state": "WI",
-        "addr_city": "Fond du Lac",
-        "addr_postcode": "54935",
-        "addr_street": "West Scott Street",
-        "addr_housenumber": "75"
+        "id": 245352,
+        "geometry": "POINT (-77.766318 37.38252)",
+        "poi_name": "Treetop Zoofari Zip line and Adventure Park",
+        "osm_id": 2786859306,
+        "leisure": "park",
+        "website": "https://treetopzoofari.com/",
+        "phone": "+1 804-739-5666",
+        "addr_state": "VA",
+        "addr_city": "Moseley",
+        "addr_postcode": "23120",
+        "addr_street": "Beaver Bridge Road",
+        "addr_housenumber": "8300"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Ledge View Nature Center, Chilton, WI",
-      "geo_wkt": "POINT (-88.15542 44.001505)",
+      "sub_category": "gallery",
+      "display_name": "McCools of Bon Air, Richmond, VA",
+      "geo_wkt": "POINT (-77.560834 37.534206)",
       "poi": {
-        "id": 2410,
-        "geometry": "POINT (-88.15542 44.001505)",
-        "poi_name": "Ledge View Nature Center",
-        "osm_id": 3435470848,
-        "tourism": "attraction",
-        "website": "https://www.ledgeviewnaturecenter.org/",
-        "phone": "+1-920-849-7094",
-        "wikidata": "Q6512645",
-        "addr_state": "WI",
-        "addr_city": "Chilton",
-        "addr_postcode": "53014",
-        "addr_street": "Short Road",
-        "addr_housenumber": "W2348"
+        "id": 25618,
+        "geometry": "POINT (-77.560834 37.534206)",
+        "poi_name": "McCools of Bon Air",
+        "osm_id": 4556710162,
+        "tourism": "gallery",
+        "website": "http://mccoolsofbonair.com",
+        "phone": "+1 804-272-3161",
+        "addr_state": "VA",
+        "addr_city": "Richmond",
+        "addr_postcode": "23235",
+        "addr_street": "Buford Road",
+        "addr_housenumber": "2614"
       }
     },
     "[1]": {
@@ -62,6 +60,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 135,
+  "id": 1635,
   "type": "knn:towards+name"
 }

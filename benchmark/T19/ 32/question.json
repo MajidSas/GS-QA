@@ -1,39 +1,47 @@
 {
-  "question": "Where is the nearest nature reserve situated towards the southeast of Arthur Hoyt Scott Amphitheature, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest hotel relative to the northwest of Eddie C. Moore Park, Clearwater, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.710231 27.969393)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267495,
-      "geometry": "POINT (-75.355533 39.902444)",
-      "poi_name": "Juice Island",
-      "osm_id": 7599269555,
-      "leisure": "nature_reserve",
-      "addr_city": "Egg Harbor Township"
+      "id": 3248,
+      "geometry": "POINT (-82.710231 27.969393)",
+      "poi_name": "Franklin Inn",
+      "osm_id": 10254067942,
+      "tourism": "hotel",
+      "addr_state": "FL",
+      "addr_city": "Carrabelle",
+      "addr_postcode": "32322",
+      "addr_street": "Highway 98 West",
+      "addr_housenumber": "1589"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
-      "geo_wkt": "POINT (-75.355533 39.902444)",
+      "sub_category": "park",
+      "display_name": "Eddie C. Moore Park, Clearwater, FL",
+      "geo_wkt": "POINT (-82.710231 27.969393)",
       "poi": {
-        "id": 265384,
-        "geometry": "POINT (-75.355533 39.902444)",
-        "poi_name": "Arthur Hoyt Scott Amphitheature",
-        "osm_id": 367975510,
-        "leisure": "stadium",
-        "addr_state": "PA"
+        "id": 246597,
+        "geometry": "POINT (-82.710231 27.969393)",
+        "poi_name": "Eddie C. Moore Park",
+        "osm_id": 1768134609,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Clearwater",
+        "addr_postcode": "33759",
+        "addr_street": "Drew St",
+        "addr_housenumber": "3050"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1131,

@@ -1,40 +1,46 @@
 {
-  "question": "What is the count of attractions within 30 kilometers from Science Hall West, Wayne, NJ?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.197766 40.946744)',4326)::geography, 30000)\nAND tourism = 'attraction';\n",
+  "question": "How many viewpoints exist within 20 kilometers of the location 70 Park Avenue Hotel, New York, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.979628 40.74986)',4326)::geography, 20000)\nAND tourism = 'viewpoint';\n",
   "answers": [
     {
-      "count": 81
+      "count": 45
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 30000,
-      "text": "30 kilometers"
+      "distance": 20000,
+      "text": "20 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Science Hall West, Wayne, NJ",
-      "geo_wkt": "POINT (-74.197766 40.946744)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "70 Park Avenue Hotel, New York, NY",
+      "geo_wkt": "POINT (-73.979628 40.74986)",
       "poi": {
-        "id": 63023,
-        "geometry": "POINT (-74.197766 40.946744)",
-        "poi_name": "Science Hall West",
-        "osm_id": 5597728217,
-        "amenity": "university",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 861,
+        "geometry": "POINT (-73.979628 40.74986)",
+        "poi_name": "70 Park Avenue Hotel",
+        "osm_id": 2714855400,
+        "description": "70 Park Avenue Hotel is a hotel in New York. The hotel has free Wi-Fi, self parking, fitness center, e-concierge, comfort rooms, accommodation for dogs and business center.",
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "opening_hours": "24/7",
+        "operator": "Kimpton",
+        "internet_access": "yes",
+        "phone": "+1 212-973-2400",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10016",
+        "addr_street": "Park Avenue",
+        "addr_housenumber": "70"
       }
     }
   },
-  "id": 2231,
+  "id": 1831,
   "type": "range+count"
 }

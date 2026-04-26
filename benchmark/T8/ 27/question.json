@@ -1,39 +1,48 @@
 {
-  "question": "What's the closest theme park in proximity to the university established in the year 1911 in Memphis, TN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant closest to the hospital that has pediatric emergency department in Bronx, NY is available?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7371,
-      "geometry": "POINT (-87.614794 34.093004)",
-      "poi_name": "Natural Bridge Park",
-      "osm_id": 2108122273,
-      "tourism": "theme_park"
+      "id": 37382,
+      "geometry": "POINT (-73.881555 40.882664)",
+      "poi_name": "El Valle Restaurant",
+      "osm_id": 2810061605,
+      "amenity": "restaurant",
+      "addr_state": "NY",
+      "addr_city": "Bronx",
+      "addr_postcode": "10467",
+      "addr_street": "Jerome Avenue",
+      "addr_housenumber": "3535"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
-      "geo_wkt": "POINT (-90.031353 35.139317)",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 30527,
-        "geometry": "POINT (-90.031353 35.139317)",
-        "poi_name": "The University of Tennessee Health Science Center",
-        "osm_id": 8364364991,
-        "amenity": "university",
-        "wikidata": "Q7896420",
-        "addr_state": "TN",
-        "addr_city": "Memphis",
-        "addr_postcode": "38163"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     }
   },
-  "id": 2726,
-  "type": "knn+name+multihop2"
+  "id": 926,
+  "type": "knn+name+multi_source2"
 }

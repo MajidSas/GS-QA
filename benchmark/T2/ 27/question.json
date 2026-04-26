@@ -1,58 +1,92 @@
 {
-  "question": "Looking for a children museum, preferably within a 190 kilometers radius from Saint Josephs Hospital Behavioral Health Center, Tampa, FL. Can you assist me with this?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.489818 27.99168)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND museum = 'children';\n",
+  "question": "Can you assist in locating an emergency hospital within a 150 kilometers radius from Luthy Botanical Garden, Peoria, IL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography, 150000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 21447,
-      "geometry": "POINT (-82.13069 29.194364)",
-      "poi_name": "Discovery Center",
-      "osm_id": 10268437666,
-      "tourism": "museum",
-      "opening_hours": "Tu-Sa 10:00-16:00",
-      "website": "https://www.ocalafl.org/government/city-departments-i-z/recreation-parks/discovery-center",
-      "phone": "+1 352 401 3900",
-      "museum": "children",
-      "addr_state": "FL",
-      "addr_city": "Ocala",
-      "addr_postcode": "34470",
-      "addr_street": "Northeast Sanchez Avenue",
-      "addr_housenumber": "701"
+      "id": 63365,
+      "geometry": "POINT (-89.416974 40.418512)",
+      "poi_name": "Hopedale Medical Complex",
+      "osm_id": 5612743006,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.hopedalemc.com/",
+      "phone": "+1 309 449 3321",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hopedale",
+      "addr_postcode": "61747",
+      "addr_street": "Tremont Street",
+      "addr_housenumber": "107"
+    },
+    {
+      "id": 100909,
+      "geometry": "POINT (-91.174462 40.810039)",
+      "poi_name": "Emergency Department",
+      "osm_id": 6604130197,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "operator": "Great River Health System",
+      "website": "https://www.greatriverhealth.org/our-locations/emergency-department-southeast-iowa-regional-med2/",
+      "phone": "911",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IA",
+      "addr_city": "Burlington",
+      "addr_postcode": "52655",
+      "addr_street": "South Gear Avenue",
+      "addr_housenumber": "1221"
+    },
+    {
+      "id": 233215,
+      "geometry": "POINT (-89.697466 39.763463)",
+      "poi_name": "Springfield Clinic Wabash",
+      "osm_id": 4563757800,
+      "amenity": "hospital",
+      "website": "https://www.springfieldclinic.com/",
+      "phone": "+1-217-528-7541",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62705",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2200"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "children museum",
-      "poi_filter_sql": "museum = 'children'"
-    },
-    "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
-    },
-    "[3]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Saint Josephs Hospital Behavioral Health Center, Tampa, FL",
-      "geo_wkt": "POINT (-82.489818 27.99168)",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
+    },
+    "[2]": {
+      "distance": 150000,
+      "text": "150 kilometers"
+    },
+    "[3]": {
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
       "poi": {
-        "id": 181402,
-        "geometry": "POINT (-82.489818 27.99168)",
-        "poi_name": "Saint Josephs Hospital Behavioral Health Center",
-        "osm_id": 10844797750,
-        "amenity": "hospital",
-        "website": "https://baycare.org/locations/s/st-josephs-hospital-behavioral-health-center",
-        "phone": "+1 813 870 4000",
-        "healthcare": "hospital",
-        "addr_state": "FL",
-        "addr_city": "Tampa",
-        "addr_postcode": "33607",
-        "addr_street": "Habana Avenue",
-        "addr_housenumber": "4918"
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
       }
     }
   },
-  "id": 526,
+  "id": 2526,
   "type": "range:non_spat_filter+name"
 }

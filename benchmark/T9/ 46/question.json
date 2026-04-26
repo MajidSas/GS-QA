@@ -1,45 +1,48 @@
 {
-  "question": "Which park is the nearest to the southwest of Plaza Sports Center, Edinburg, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which hotel is the closest to the west of WORKS/San Jos\u00e9, San Jose, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.887315 37.329661)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248108,
-      "geometry": "POINT (-98.166433 26.232776)",
-      "poi_name": "Charles E. Curtis Park",
-      "osm_id": 6345377524,
-      "leisure": "park"
+      "id": 24317,
+      "geometry": "POINT (-121.887315 37.329661)",
+      "poi_name": "Hampton Inn & Suites",
+      "osm_id": 11002539279,
+      "tourism": "hotel",
+      "addr_city": "Sunnyvale",
+      "addr_postcode": "94087",
+      "addr_street": "East El Camino Real",
+      "addr_housenumber": "861"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Plaza Sports Center, Edinburg, TX",
-      "geo_wkt": "POINT (-98.166433 26.232776)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "WORKS/San Jos\u00e9, San Jose, CA",
+      "geo_wkt": "POINT (-121.887315 37.329661)",
       "poi": {
-        "id": 248451,
-        "geometry": "POINT (-98.166433 26.232776)",
-        "poi_name": "Plaza Sports Center",
-        "osm_id": 4161977645,
-        "leisure": "stadium",
-        "sport": "soccer",
-        "addr_state": "TX",
-        "addr_city": "Edinburg",
-        "addr_postcode": "78577",
-        "addr_street": "E. Nolana Loop",
-        "addr_housenumber": "1101"
+        "id": 2850,
+        "geometry": "POINT (-121.887315 37.329661)",
+        "poi_name": "WORKS/San Jos\u00e9",
+        "osm_id": 10052566494,
+        "tourism": "gallery",
+        "wikidata": "Q106986491",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_street": "South Market Street",
+        "addr_housenumber": "365"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2545,
+  "id": 1245,
   "type": "knn:direction+name"
 }

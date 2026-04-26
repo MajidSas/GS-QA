@@ -1,43 +1,40 @@
 {
-  "question": "Could you tell me how many viewpoints are present within a 170 kilometers radius from Embassy Suites St. Louis - Downtown, Saint Louis, MO?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-90.190263 38.630697)',4326)::geography, 170000)\nAND tourism = 'viewpoint';\n",
+  "question": "What\u2019s the total number of gardens inside a 150 kilometers radius from New York Institute of Technology, New York, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, 150000)\nAND leisure = 'garden';\n",
   "answers": [
     {
-      "count": 26
+      "count": 141
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Embassy Suites St. Louis - Downtown, Saint Louis, MO",
-      "geo_wkt": "POINT (-90.190263 38.630697)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "New York Institute of Technology, New York, NY",
+      "geo_wkt": "POINT (-73.983176 40.770074)",
       "poi": {
-        "id": 19262,
-        "geometry": "POINT (-90.190263 38.630697)",
-        "poi_name": "Embassy Suites St. Louis - Downtown",
-        "osm_id": 2594905076,
-        "tourism": "hotel",
-        "website": "https://embassysuites3.hilton.com/en/hotels/missouri/embassy-suites-st-louis-downtown-STLWAES/index.html",
-        "phone": "1-314-269-5900",
-        "official_name": "Embassy Suites by Hilton",
-        "addr_state": "MO",
-        "addr_city": "Saint Louis",
-        "addr_postcode": "63101",
-        "addr_street": "North 7th Street",
-        "addr_housenumber": "610"
+        "id": 35073,
+        "geometry": "POINT (-73.983176 40.770074)",
+        "poi_name": "New York Institute of Technology",
+        "osm_id": 2710082455,
+        "amenity": "university",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023",
+        "addr_street": "West 61st Street",
+        "addr_housenumber": "26"
       }
     }
   },
-  "id": 2281,
+  "id": 1881,
   "type": "range+count"
 }

@@ -1,59 +1,71 @@
 {
-  "question": "What is the nearest fast food as you head towards Tribeca Island Nature Reserve, Egg Harbor Township, NJ from Arthur Hoyt Scott Amphitheature, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography, ST_GeomFromText('POINT (-74.521346 39.327409)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant along the travel direction from SEA LIFE Minnesota Aquarium, Bloomington, MN to Bresnan Arena, Mankato, MN?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-93.240076 44.854752)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 213978,
-      "geometry": "POINT (-75.322771 39.879604)",
-      "poi_name": "China Wok",
-      "osm_id": 5262891098,
-      "amenity": "fast_food",
-      "cuisine": "chinese",
-      "takeaway": "yes",
-      "outdoor_seating": "no",
-      "delivery": "yes",
-      "addr_state": "PA",
-      "addr_city": "Ridley Park",
-      "addr_postcode": "19078",
-      "value": 131.44319154692377
+      "id": 234865,
+      "geometry": "POINT (-93.24104 44.853925)",
+      "poi_name": "Bubba Gump Shrimp Co.",
+      "osm_id": 5739829568,
+      "amenity": "restaurant",
+      "cuisine": "fish",
+      "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 11:00-23:00; Su 11:00-22:00",
+      "phone": "+1-952-853-6600",
+      "addr_street": "South Avenue",
+      "addr_housenumber": "396",
+      "value": 217.5932896920194
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
-      "geo_wkt": "POINT (-75.355533 39.902444)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "SEA LIFE Minnesota Aquarium, Bloomington, MN",
+      "geo_wkt": "POINT (-93.240076 44.854752)",
       "poi": {
-        "id": 265384,
-        "geometry": "POINT (-75.355533 39.902444)",
-        "poi_name": "Arthur Hoyt Scott Amphitheature",
-        "osm_id": 367975510,
-        "leisure": "stadium",
-        "addr_state": "PA"
+        "id": 25908,
+        "geometry": "POINT (-93.240076 44.854752)",
+        "poi_name": "SEA LIFE Minnesota Aquarium",
+        "osm_id": 5739830095,
+        "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
+        "tourism": "aquarium",
+        "fee": "yes",
+        "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
+        "operator": "Merlin Entertainments'",
+        "website": "https://www.visitsealife.com/minnesota/",
+        "phone": "+1-952-883-0202",
+        "addr_state": "MN",
+        "addr_city": "Bloomington",
+        "addr_postcode": "55425",
+        "addr_street": "East Broadway",
+        "addr_housenumber": "120"
       }
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Tribeca Island Nature Reserve, Egg Harbor Township, NJ",
-      "geo_wkt": "POINT (-74.521346 39.327409)",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
       "poi": {
-        "id": 267579,
-        "geometry": "POINT (-74.521346 39.327409)",
-        "poi_name": "Tribeca Island Nature Reserve",
-        "osm_id": 7714501962,
-        "leisure": "nature_reserve",
-        "addr_state": "NJ",
-        "addr_city": "Egg Harbor Township"
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 134,
+  "id": 1634,
   "type": "knn:towards+name"
 }

@@ -1,44 +1,43 @@
 {
-  "question": "How far away is the nearest golf course positioned from Rough Riders Monument, VA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.075986 38.875418)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.075986 38.875418)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the proximity distance of the closest park to Crave Golf Club, Pigeon Forge, TN?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246260,
-      "geometry": "POINT (-77.024806 38.902109)",
-      "poi_name": "CitySwing",
-      "osm_id": 11221520741,
-      "leisure": "golf_course",
-      "opening_hours": "10:00-22:00",
-      "website": "https://www.cityswingdc.com",
-      "phone": "+1 202-902-0983",
-      "addr_street": "New York Avenue Northwest",
-      "addr_housenumber": "901",
-      "distance": 5338.25223079
+      "id": 252182,
+      "geometry": "POINT (-83.534058 35.947312)",
+      "poi_name": "Sevier County Park",
+      "osm_id": 356832475,
+      "leisure": "park",
+      "wikidata": "Q49559963",
+      "distance": 16884.94200385
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "park"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Rough Riders Monument, VA",
-      "geo_wkt": "POINT (-77.075986 38.875418)",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
       "poi": {
-        "id": 5358,
-        "geometry": "POINT (-77.075986 38.875418)",
-        "poi_name": "Rough Riders Monument",
-        "osm_id": 746876115,
-        "historic": "monument",
-        "tourism": "attraction",
-        "wikidata": "Q14713163",
-        "addr_state": "VA"
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
       }
     }
   },
-  "id": 2466,
+  "id": 666,
   "type": "knn+distance"
 }

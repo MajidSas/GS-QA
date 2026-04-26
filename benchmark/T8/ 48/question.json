@@ -1,48 +1,45 @@
 {
-  "question": "Can you recommend the nearest hospital from the stadium that was constructed in 1930 in Ogden, UT?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which zoo is closest in relation to the museum that was built in 1830 in Arlington, MA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 183249,
-      "geometry": "POINT (-112.079206 41.075408)",
-      "poi_name": "Viewpoint Center",
-      "osm_id": 10920409045,
-      "amenity": "hospital",
-      "website": "https://www.viewpointcenter.com",
-      "healthcare": "hospital",
-      "addr_state": "UT",
-      "addr_city": "Syracuse",
-      "addr_postcode": "84075",
-      "addr_street": "West 2700 South",
-      "addr_housenumber": "2732"
+      "id": 3731,
+      "geometry": "POINT (-71.780432 42.281855)",
+      "poi_name": "Green Hill Park Farm",
+      "osm_id": 5569990665,
+      "tourism": "zoo",
+      "zoo": "petting_zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Pioneer Stadium, Ogden, UT",
-      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
+      "geo_wkt": "POINT (-71.15241 42.415769)",
       "poi": {
-        "id": 266188,
-        "geometry": "POINT (-111.96187 41.237122)",
-        "poi_name": "Pioneer Stadium",
-        "osm_id": 598066080,
-        "leisure": "stadium",
-        "sport": "equestrian",
-        "wikidata": "Q7079951",
-        "addr_state": "UT",
-        "addr_city": "Ogden",
-        "addr_street": "17th Street",
-        "addr_housenumber": "668"
+        "id": 148,
+        "geometry": "POINT (-71.15241 42.415769)",
+        "poi_name": "Cyrus Dallin Art Museum",
+        "osm_id": 456710478,
+        "tourism": "museum",
+        "fee": "donation",
+        "opening_hours": "Sa,Su 12:00-16:00",
+        "website": "https://dallin.org/",
+        "wikidata": "Q74035008",
+        "addr_state": "MA",
+        "addr_city": "Arlington",
+        "addr_postcode": "02476",
+        "addr_street": "Massachusetts Avenue",
+        "addr_housenumber": "611"
       }
     }
   },
-  "id": 2747,
-  "type": "knn+name+multihop2"
+  "id": 947,
+  "type": "knn+name+multi_source2"
 }

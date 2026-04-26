@@ -1,45 +1,41 @@
 {
-  "question": "What's the separation to the closest restaurant relative to Scottish Inn, Rocky Top, TN?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.157543 36.229819)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.157543 36.229819)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest museum relative to where Stratton Fire Tower, Stratton, Vermont is?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.924966 43.086214)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 169327,
-      "geometry": "POINT (-84.158227 36.230782)",
-      "poi_name": "La Fiesta Mexican Restaurant",
-      "osm_id": 2296687799,
-      "amenity": "restaurant",
-      "cuisine": "mexican",
-      "addr_postcode": "37769",
-      "addr_street": "North Main Street",
-      "addr_housenumber": "622",
-      "distance": 123.26007511
+      "id": 16841,
+      "geometry": "POINT (-73.072327 43.162854)",
+      "poi_name": "The American Museum of Fly Fishing Library",
+      "osm_id": 366668002,
+      "tourism": "museum",
+      "addr_state": "VT",
+      "distance": 14706.93441993
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Scottish Inn, Rocky Top, TN",
-      "geo_wkt": "POINT (-84.157543 36.229819)",
+      "sub_category": "viewpoint",
+      "display_name": "Stratton Fire Tower, Stratton, Vermont",
+      "geo_wkt": "POINT (-72.924966 43.086214)",
       "poi": {
-        "id": 23056,
-        "geometry": "POINT (-84.157543 36.229819)",
-        "poi_name": "Scottish Inn",
-        "osm_id": 5017479640,
-        "tourism": "hotel",
-        "addr_state": "TN",
-        "addr_city": "Rocky Top",
-        "addr_postcode": "37769",
-        "addr_street": "North Main Street",
-        "addr_housenumber": "530"
+        "id": 16156,
+        "geometry": "POINT (-72.924966 43.086214)",
+        "poi_name": "Stratton Fire Tower",
+        "osm_id": 356555377,
+        "tourism": "viewpoint",
+        "addr_state": "Vermont",
+        "addr_city": "Stratton",
+        "addr_street": "Maintenance Road",
+        "addr_housenumber": "2148"
       }
     }
   },
-  "id": 2421,
+  "id": 621,
   "type": "knn+distance"
 }

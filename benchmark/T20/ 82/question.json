@@ -1,68 +1,64 @@
 {
-  "question": "Where's the closest caf\u00e9 located en route to Oasis Villa Resort, Palm Springs, CA from Sugarplum Zoo, Temecula, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, ST_GeomFromText('POINT (-116.502215 33.795619)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant while traveling toward Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA from Main Street Art, Girard, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, ST_GeomFromText('POINT (-79.348409 41.636215)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 222593,
-      "geometry": "POINT (-116.720188 33.739097)",
-      "poi_name": "Alpaca Coffee and Tea",
-      "osm_id": 11026602487,
-      "amenity": "cafe",
-      "cuisine": "bubble_tea;coffee_shop",
-      "outdoor_seating": "yes",
-      "addr_state": "CA",
-      "addr_city": "Idyllwild",
-      "addr_postcode": "92549",
-      "value": 61.570668480342974
+      "id": 185190,
+      "geometry": "POINT (-80.127017 41.914565)",
+      "poi_name": "Engine House 39",
+      "osm_id": 7837967912,
+      "amenity": "restaurant",
+      "addr_state": "PA",
+      "addr_city": "Edinboro",
+      "addr_postcode": "16412",
+      "addr_street": "Washington Drive",
+      "addr_housenumber": "1000",
+      "value": 116.30795792732252
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sugarplum Zoo, Temecula, CA",
-      "geo_wkt": "POINT (-117.055191 33.546915)",
+      "sub_category": "gallery",
+      "display_name": "Main Street Art, Girard, PA",
+      "geo_wkt": "POINT (-80.318615 42.000159)",
       "poi": {
-        "id": 24034,
-        "geometry": "POINT (-117.055191 33.546915)",
-        "poi_name": "Sugarplum Zoo",
-        "osm_id": 9270599265,
-        "tourism": "zoo",
-        "fee": "yes",
-        "opening_hours": "Mo-Sa 08:00-18:00",
-        "addr_state": "CA",
-        "addr_city": "Temecula",
-        "addr_postcode": "92591",
-        "addr_street": "Berenda Rd",
-        "addr_housenumber": "39695"
+        "id": 253,
+        "geometry": "POINT (-80.318615 42.000159)",
+        "poi_name": "Main Street Art",
+        "osm_id": 8262672118,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Girard",
+        "addr_postcode": "16417",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "138"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Oasis Villa Resort, Palm Springs, CA",
-      "geo_wkt": "POINT (-116.502215 33.795619)",
+      "sub_category": "viewpoint",
+      "display_name": "Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA",
+      "geo_wkt": "POINT (-79.348409 41.636215)",
       "poi": {
-        "id": 1853,
-        "geometry": "POINT (-116.502215 33.795619)",
-        "poi_name": "Oasis Villa Resort",
-        "osm_id": 3186044335,
-        "tourism": "hotel",
-        "website": "https://www.viresorts.com/resorts/Oasis.html",
-        "phone": "+1 760-324-3422",
-        "addr_state": "CA",
-        "addr_city": "Palm Springs",
-        "addr_postcode": "92264",
-        "addr_street": "East Palm Canyon Drive",
-        "addr_housenumber": "4190"
+        "id": 19939,
+        "geometry": "POINT (-79.348409 41.636215)",
+        "poi_name": "Jakes Rock Overlook and Mountain Bike Trail",
+        "osm_id": 7771460457,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_city": "Tidioute",
+        "addr_postcode": "16351",
+        "addr_street": "Old Forest Road",
+        "addr_housenumber": "492"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1381,
+  "id": 1581,
   "type": "knn:towards+loc"
 }

@@ -1,42 +1,45 @@
 {
-  "question": "What is the closest nature reserve positioned towards the west of Cape Cod Coliseum, MA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-70.191131 41.690388)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the closest university east of Outdoor Biological Research Facility, Vestal, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.978456 42.082185)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265748,
-      "geometry": "POINT (-70.191131 41.690388)",
-      "poi_name": "Lowell Holly Reservation",
-      "osm_id": 10908728821,
-      "leisure": "nature_reserve",
-      "operator": "The Nature Conservancy"
+      "id": 111270,
+      "geometry": "POINT (-75.978456 42.082185)",
+      "poi_name": "Colleges of Nanoscale Science and Engineering, State University of New York Polytechnic Institute",
+      "osm_id": 3739805759,
+      "amenity": "university",
+      "operator": "State University of New York"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cape Cod Coliseum, MA",
-      "geo_wkt": "POINT (-70.191131 41.690388)",
+      "sub_category": "garden",
+      "display_name": "Outdoor Biological Research Facility, Vestal, NY",
+      "geo_wkt": "POINT (-75.978456 42.082185)",
       "poi": {
-        "id": 265368,
-        "geometry": "POINT (-70.191131 41.690388)",
-        "poi_name": "Cape Cod Coliseum",
-        "osm_id": 367781392,
-        "leisure": "stadium",
-        "wikidata": "Q5034679",
-        "addr_state": "MA"
+        "id": 246670,
+        "geometry": "POINT (-75.978456 42.082185)",
+        "poi_name": "Outdoor Biological Research Facility",
+        "osm_id": 8793514697,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Vestal",
+        "addr_postcode": "13850",
+        "addr_street": "Bunn Hill Road",
+        "addr_housenumber": "906"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2526,
+  "id": 1226,
   "type": "knn:direction+name"
 }

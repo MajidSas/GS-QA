@@ -1,40 +1,44 @@
 {
-  "question": "How far away is the nearest theme park positioned from S 22nd and Sears St. Garden, Philadelphia, PA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the closest park when measured from Chopper's Lawn Equipment, Kissimmee, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 19524,
-      "geometry": "POINT (-74.28079 40.24007)",
-      "poi_name": "iPlay America",
-      "osm_id": 10799803593,
-      "tourism": "theme_park",
-      "distance": 83861.76341952
+      "id": 246060,
+      "geometry": "POINT (-81.39668 28.293217)",
+      "poi_name": "Brinson Park",
+      "osm_id": 5503757910,
+      "leisure": "park",
+      "distance": 7605.14350179
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "garden",
-      "display_name": "S 22nd and Sears St. Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.180513 39.935321)",
+      "display_name": "Chopper's Lawn Equipment, Kissimmee, FL",
+      "geo_wkt": "POINT (-81.327543 28.262181)",
       "poi": {
-        "id": 247116,
-        "geometry": "POINT (-75.180513 39.935321)",
-        "poi_name": "S 22nd and Sears St. Garden",
-        "osm_id": 3559344530,
+        "id": 246454,
+        "geometry": "POINT (-81.327543 28.262181)",
+        "poi_name": "Chopper's Lawn Equipment",
+        "osm_id": 9684453306,
         "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_street": "S 22nd St",
-        "addr_housenumber": "1315"
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "website": "https://chopperslawnequipment.com",
+        "phone": "+1-407-891-8990",
+        "addr_state": "FL",
+        "addr_city": "Kissimmee",
+        "addr_postcode": "34744",
+        "addr_street": "Big Sky Boulevard",
+        "addr_housenumber": "2899"
       }
     }
   },
-  "id": 2498,
+  "id": 698,
   "type": "knn+distance"
 }

@@ -1,47 +1,47 @@
 {
-  "question": "How far is the closest nature reserve from Southern Railway Historical Assoc, Chattanooga, tennessee?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-85.205748 35.065188)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.205748 35.065188)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the closest beach resort from the location Ole Haugsrud Stadium, Superior, WI?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-92.08572 46.719546)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.08572 46.719546)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 252062,
-      "geometry": "POINT (-85.3038 35.057091)",
-      "poi_name": "Audubon Society Wildlife Refuge",
-      "osm_id": 356785878,
-      "leisure": "nature_reserve",
-      "operator": "Audubon",
-      "wikidata": "Q34892240",
-      "distance": 8989.34920598
+      "id": 245281,
+      "geometry": "POINT (-91.491978 46.302048)",
+      "poi_name": "Traut's Resort LLC",
+      "osm_id": 2669382020,
+      "leisure": "beach_resort",
+      "phone": "1-715-795-2529",
+      "addr_state": "WI",
+      "addr_city": "Solon Springs",
+      "addr_postcode": "54873",
+      "addr_street": "Twin Bay Road",
+      "addr_housenumber": "3855",
+      "distance": 65040.4480636
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Southern Railway Historical Assoc, Chattanooga, tennessee",
-      "geo_wkt": "POINT (-85.205748 35.065188)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Ole Haugsrud Stadium, Superior, WI",
+      "geo_wkt": "POINT (-92.08572 46.719546)",
       "poi": {
-        "id": 24226,
-        "geometry": "POINT (-85.205748 35.065188)",
-        "poi_name": "Southern Railway Historical Assoc",
-        "osm_id": 10966558261,
-        "description": "Office and archives of the Southern Railway Historical Assoc. Not open to the public.",
-        "tourism": "museum",
-        "opening_hours": "Open by appointment only",
-        "operator": "SRHA",
-        "museum": "history",
-        "addr_state": "tennessee",
-        "addr_city": "Chattanooga",
-        "addr_postcode": "37421",
-        "addr_street": "Turntable Road",
-        "addr_housenumber": "4543"
+        "id": 248569,
+        "geometry": "POINT (-92.08572 46.719546)",
+        "poi_name": "Ole Haugsrud Stadium",
+        "osm_id": 4639063671,
+        "leisure": "stadium",
+        "addr_state": "WI",
+        "addr_city": "Superior",
+        "addr_postcode": "54880",
+        "addr_street": "Mertz Mortorelli Memorial Drive",
+        "addr_housenumber": "1515"
       }
     }
   },
-  "id": 2436,
+  "id": 636,
   "type": "knn+distance"
 }

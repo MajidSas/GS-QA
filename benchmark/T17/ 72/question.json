@@ -1,51 +1,54 @@
 {
-  "question": "Looking for the closest stadium in relation to It's A Zoo Life, Macclesville, NC, any insights where it is?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest fast food restaurant relative to where Ducks Unlimited National Headquarters, Memphis, TN is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.808044 35.130821)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248769,
-      "geometry": "POINT (-78.060871 35.61119)",
-      "poi_name": "Southern National Motorsport Park",
-      "osm_id": 4773889332,
-      "leisure": "stadium",
-      "sport": "motor",
-      "wikidata": "Q7570163",
-      "addr_state": "NC",
-      "addr_city": "Lucama",
-      "addr_postcode": "27851",
-      "addr_street": "Newsome Mill Road",
-      "addr_housenumber": "8071"
+      "id": 170849,
+      "geometry": "POINT (-89.796524 35.137452)",
+      "poi_name": "Moe's Southwest Grill",
+      "osm_id": 2351373221,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "opening_hours": "Mo-Su 11:00-21:00",
+      "website": "https://www.moes.com/find-a-moes/tennessee/cordova/215",
+      "phone": "+19017375058",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "TN",
+      "addr_city": "Cordova",
+      "addr_postcode": "38018",
+      "addr_street": "North Germantown Parkway",
+      "addr_housenumber": "465"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "It's A Zoo Life, Macclesville, NC",
-      "geo_wkt": "POINT (-77.67449 35.786787)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ducks Unlimited National Headquarters, Memphis, TN",
+      "geo_wkt": "POINT (-89.808044 35.130821)",
       "poi": {
-        "id": 12531,
-        "geometry": "POINT (-77.67449 35.786787)",
-        "poi_name": "It's A Zoo Life",
-        "osm_id": 7297084056,
-        "tourism": "zoo",
-        "fee": "yes",
-        "opening_hours": "Mo-Sa 08:00-17:00",
-        "phone": "(252) 266-7974",
-        "zoo": "petting_zoo",
-        "addr_state": "NC",
-        "addr_city": "Macclesville",
-        "addr_postcode": "27852",
-        "addr_street": "NC-42",
-        "addr_housenumber": "4313"
+        "id": 245848,
+        "geometry": "POINT (-89.808044 35.130821)",
+        "poi_name": "Ducks Unlimited National Headquarters",
+        "osm_id": 10189100936,
+        "leisure": "nature_reserve",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Ducks Unlimited",
+        "website": "https://www.ducks.org/",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38120",
+        "addr_street": "Waterfowl Way",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 1871,
+  "id": 771,
   "type": "knn+loc"
 }

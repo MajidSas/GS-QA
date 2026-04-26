@@ -1,23 +1,19 @@
 {
-  "question": "Where can I find the nearest restaurant with a patio near Out of Africa Wildlife Park, Camp Verde, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND outdoor_seating ILIKE '%patio%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest dim sum restaurant near where E.O. Wilson Biophilia Center, Freeport, FL is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%dim_sum%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.054207 30.476436)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 238265,
-      "geometry": "POINT (-117.079208 32.639981)",
-      "poi_name": "California Sushi",
-      "osm_id": 5870510981,
+      "id": 237080,
+      "geometry": "POINT (-84.294505 33.892305)",
+      "poi_name": "Royal China Restaurant",
+      "osm_id": 5818421340,
       "amenity": "restaurant",
-      "cuisine": "sushi",
-      "opening_hours": "Mo,Tu 11:00-21:00;We-Fr 11:00-22:00;Sa 12:00-22:00;Su 12:00-20:00",
-      "website": "http://californiasushibar.com/",
-      "phone": "+16194224488",
-      "outdoor_seating": "patio",
-      "addr_state": "CA",
-      "addr_city": "Chula Vista",
-      "addr_postcode": "91910",
-      "addr_street": "3rd Avenue",
-      "addr_housenumber": "337"
+      "cuisine": "chinese;dim_sum",
+      "addr_state": "GA",
+      "addr_city": "Chamblee",
+      "addr_postcode": "30341",
+      "addr_street": "Chamblee Dunwoody Road",
+      "addr_housenumber": "3295"
     }
   ],
   "answer_type": "loc",
@@ -25,29 +21,27 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "restaurant with a patio",
-      "poi_filter_sql": "outdoor_seating ILIKE '%patio%'"
+      "poi_filter_desc": "dim sum restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%dim_sum%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
-      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "E.O. Wilson Biophilia Center, Freeport, FL",
+      "geo_wkt": "POINT (-86.054207 30.476436)",
       "poi": {
-        "id": 1846,
-        "geometry": "POINT (-111.9207 34.612641)",
-        "poi_name": "Out of Africa Wildlife Park",
-        "osm_id": 3181394247,
-        "tourism": "zoo",
-        "opening_hours": "09:30-17:00",
-        "addr_state": "AZ",
-        "addr_city": "Camp Verde",
-        "addr_postcode": "86322",
-        "addr_street": "State Route 260",
-        "addr_housenumber": "3505"
+        "id": 246958,
+        "geometry": "POINT (-86.054207 30.476436)",
+        "poi_name": "E.O. Wilson Biophilia Center",
+        "osm_id": 6662841103,
+        "leisure": "nature_reserve",
+        "addr_state": "FL",
+        "addr_city": "Freeport",
+        "addr_street": "FL-20",
+        "addr_housenumber": "4956"
       }
     }
   },
-  "id": 369,
+  "id": 1369,
   "type": "knn:non_spat_filter+loc"
 }

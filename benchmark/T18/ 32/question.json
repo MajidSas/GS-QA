@@ -1,21 +1,24 @@
 {
-  "question": "Where can I find the closest emergency hospital from Audubon Insectarium, New Orleans, LA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest emergency hospital in relation to College of Central Florida, Levy Campus, Chiefland, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.903143 29.552567)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167563,
-      "geometry": "POINT (-89.88619 31.969046)",
-      "poi_name": "Simpson General Hospital",
-      "osm_id": 357992858,
+      "id": 68159,
+      "geometry": "POINT (-81.244141 29.552131)",
+      "poi_name": "AdventHealth Palm Coast Emergency Room",
+      "osm_id": 11262787564,
       "amenity": "hospital",
       "opening_hours": "24/7",
-      "phone": "+1 601 847 2221",
+      "operator": "AdventHealth",
+      "website": "https://www.adventhealth.com/hospital/adventhealth-palm-coast-parkway",
+      "phone": "+1-386-302-1800",
       "healthcare": "hospital",
       "emergency": "yes",
-      "addr_city": "Mendenhall",
-      "addr_postcode": "39114",
-      "addr_street": "Simpson Highway 149",
-      "addr_housenumber": "1842"
+      "addr_state": "FL",
+      "addr_city": "Palm Coast",
+      "addr_postcode": "32137",
+      "addr_street": "AdventHealth Way",
+      "addr_housenumber": "1"
     }
   ],
   "answer_type": "loc",
@@ -27,30 +30,27 @@
       "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Audubon Insectarium, New Orleans, LA",
-      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "College of Central Florida, Levy Campus, Chiefland, FL",
+      "geo_wkt": "POINT (-82.903143 29.552567)",
       "poi": {
-        "id": 15891,
-        "geometry": "POINT (-90.063318 29.951359)",
-        "poi_name": "Audubon Insectarium",
-        "osm_id": 9588493777,
-        "tourism": "zoo",
-        "wheelchair": "yes",
-        "building": "yes",
-        "opening_hours": "Tu-Su 10:00-17:00",
-        "website": "http://www.auduboninstitute.org/visit/insectarium",
-        "zoo": "insectarium",
-        "wikidata": "Q4820238",
-        "addr_state": "LA",
-        "addr_city": "New Orleans",
-        "addr_postcode": "70130",
-        "addr_street": "Canal Street",
-        "addr_housenumber": "403"
+        "id": 97241,
+        "geometry": "POINT (-82.903143 29.552567)",
+        "poi_name": "College of Central Florida, Levy Campus",
+        "osm_id": 6468540428,
+        "amenity": "university",
+        "operator": "College of Central Florida",
+        "website": "https://cf.edu/community/locations/levy/",
+        "phone": "+1-352-658-4077",
+        "addr_state": "FL",
+        "addr_city": "Chiefland",
+        "addr_postcode": "32626",
+        "addr_street": "Northwest Highway 19",
+        "addr_housenumber": "15390"
       }
     }
   },
-  "id": 331,
+  "id": 1331,
   "type": "knn:non_spat_filter+loc"
 }

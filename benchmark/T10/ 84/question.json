@@ -1,64 +1,70 @@
 {
-  "question": "What is the closest restaurant from Speert Green, Wayne, NJ towards Dwarfskill Preserve, Milford, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest museum along the path leading from Adventure Sports in Hershey, Hershey, PA to Arts by the Bay Gallery, Havre de Grace, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography, ST_GeomFromText('POINT (-76.08988 39.550044)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.62265 40.236123)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 63158,
-      "geometry": "POINT (-74.203332 40.947054)",
-      "poi_name": "Frank Cardose",
-      "osm_id": 5602407494,
-      "amenity": "restaurant",
-      "addr_state": "NJ",
-      "addr_city": "Wayne",
-      "addr_postcode": "07470",
-      "addr_street": "Paterson-Hamburg Turnpike",
-      "addr_housenumber": "224",
-      "value": 304.3086099688368
+      "id": 7241,
+      "geometry": "POINT (-76.507681 40.112186)",
+      "poi_name": "Mount Joy Historical Society",
+      "osm_id": 2017381048,
+      "tourism": "museum",
+      "website": "https://www.mountjoyhistory.com/",
+      "museum": "local",
+      "addr_state": "PA",
+      "addr_city": "Mount Joy",
+      "addr_postcode": "17552",
+      "addr_street": "Fairview Street",
+      "addr_housenumber": "120",
+      "value": 148.94261388774962
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Speert Green, Wayne, NJ",
-      "geo_wkt": "POINT (-74.198768 40.944562)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Sports in Hershey, Hershey, PA",
+      "geo_wkt": "POINT (-76.62265 40.236123)",
       "poi": {
-        "id": 266681,
-        "geometry": "POINT (-74.198768 40.944562)",
-        "poi_name": "Speert Green",
-        "osm_id": 9317008519,
-        "leisure": "garden",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 18427,
+        "geometry": "POINT (-76.62265 40.236123)",
+        "poi_name": "Adventure Sports in Hershey",
+        "osm_id": 2295840835,
+        "tourism": "theme_park",
+        "website": "https://www.adventurehershey.com/",
+        "phone": "717.533.7479",
+        "addr_state": "PA",
+        "addr_city": "Hershey",
+        "addr_postcode": "17033",
+        "addr_street": "Elizabethtown Road",
+        "addr_housenumber": "3010"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Dwarfskill Preserve, Milford, PA",
-      "geo_wkt": "POINT (-74.895166 41.300832)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Arts by the Bay Gallery, Havre de Grace, MD",
+      "geo_wkt": "POINT (-76.08988 39.550044)",
       "poi": {
-        "id": 267602,
-        "geometry": "POINT (-74.895166 41.300832)",
-        "poi_name": "Dwarfskill Preserve",
-        "osm_id": 7740705080,
-        "leisure": "nature_reserve",
-        "addr_state": "PA",
-        "addr_city": "Milford",
-        "addr_postcode": "18337",
-        "addr_street": "Dwarfskill Falls Lane",
-        "addr_housenumber": "132"
+        "id": 10664,
+        "geometry": "POINT (-76.08988 39.550044)",
+        "poi_name": "Arts by the Bay Gallery",
+        "osm_id": 6990492207,
+        "tourism": "gallery",
+        "website": "https://www.artsbythebaygallery.com/",
+        "phone": "+1-410-939-1818",
+        "addr_state": "MD",
+        "addr_city": "Havre de Grace",
+        "addr_postcode": "21078",
+        "addr_street": "Saint John Street",
+        "addr_housenumber": "307"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 183,
+  "id": 1683,
   "type": "knn:towards+name"
 }

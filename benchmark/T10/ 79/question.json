@@ -1,65 +1,77 @@
 {
-  "question": "What's the nearest fast food heading towards Indian Run Falls Park - Observation Deck B, Dublin, OH from Ohio University \u2013 Zanesville, Zanesville, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.030557 39.96074)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest university you encounter en route to Miami Beach Urgent Care, Miami Beach, FL from Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography, ST_GeomFromText('POINT (-80.140646 25.784526)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'university'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 143388,
-      "geometry": "POINT (-82.400446 40.057989)",
-      "poi_name": "Wendy's",
-      "osm_id": 6338896410,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "takeaway": "yes",
-      "drive_through": "yes",
-      "value": 279.85460981590984
+      "id": 167669,
+      "geometry": "POINT (-80.163611 26.186389)",
+      "poi_name": "Keiser College",
+      "osm_id": 358742334,
+      "amenity": "university",
+      "operator": "Keiser University",
+      "addr_state": "FL",
+      "addr_city": "Fort Lauderdale",
+      "addr_postcode": "33309",
+      "addr_street": "Northwest 49th Street",
+      "addr_housenumber": "1500",
+      "value": 184.14655415515193
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Ohio University \u2013 Zanesville, Zanesville, OH",
-      "geo_wkt": "POINT (-82.030557 39.96074)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 133639,
-        "geometry": "POINT (-82.030557 39.96074)",
-        "poi_name": "Ohio University \u2013 Zanesville",
-        "osm_id": 10001421871,
-        "amenity": "university",
-        "operator": "Ohio University",
-        "website": "https://www.ohio.edu/zanesville",
-        "phone": "+1-740-453-0762",
-        "wikidata": "Q7081007",
-        "addr_state": "OH",
-        "addr_city": "Zanesville",
-        "addr_postcode": "43701",
-        "addr_street": "Newark Road",
-        "addr_housenumber": "1425"
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Miami Beach Urgent Care, Miami Beach, FL",
+      "geo_wkt": "POINT (-80.140646 25.784526)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 136921,
+        "geometry": "POINT (-80.140646 25.784526)",
+        "poi_name": "Miami Beach Urgent Care",
+        "osm_id": 6076485314,
+        "amenity": "hospital",
+        "description": "Miami Beach Urgent Care is a physician owned and operated center right in the heart of Miami Beach. We offer on-site lab services, x-ray, IV infusions, work and school physicals and well as a full array of other health care services. Our doctors are board",
+        "wheelchair": "yes",
+        "opening_hours": "8am-8pm Daily",
+        "operator": "Miami Beach Urgent Care, LLC",
+        "website": "https://miamibeachurgentcare.com",
+        "internet_access": "wlan",
+        "phone": "+1-305-344-2273",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "FL",
+        "addr_city": "Miami Beach",
+        "addr_postcode": "33139",
+        "addr_street": "Alton Road",
+        "addr_housenumber": "1329"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "university"
     }
   },
-  "id": 178,
+  "id": 1678,
   "type": "knn:towards+name"
 }

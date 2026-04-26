@@ -1,50 +1,48 @@
 {
-  "question": "Where is the nearest restaurant towards the west of Rockville Hospital, Vernon, CT?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-72.450994 41.866408)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest nature reserve in the direction of east starting from Ganyard Hill Farms, Durham, NC?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.811548 35.958684)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 222405,
-      "geometry": "POINT (-72.450994 41.866408)",
-      "poi_name": "Umami",
-      "osm_id": 11017172913,
-      "amenity": "restaurant",
-      "cuisine": "sushi",
-      "addr_state": "CT",
-      "addr_city": "Vernon",
-      "addr_postcode": "06066",
-      "addr_street": "Union Street",
-      "addr_housenumber": "172"
+      "id": 247665,
+      "geometry": "POINT (-78.811548 35.958684)",
+      "poi_name": "Procter Farm Preserve",
+      "osm_id": 8057386012,
+      "leisure": "nature_reserve",
+      "addr_state": "NC",
+      "addr_city": "Wendell",
+      "addr_postcode": "27591",
+      "addr_street": "Doc Procter Road",
+      "addr_housenumber": "7201"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Rockville Hospital, Vernon, CT",
-      "geo_wkt": "POINT (-72.450994 41.866408)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Ganyard Hill Farms, Durham, NC",
+      "geo_wkt": "POINT (-78.811548 35.958684)",
       "poi": {
-        "id": 222409,
-        "geometry": "POINT (-72.450994 41.866408)",
-        "poi_name": "Rockville Hospital",
-        "osm_id": 11017175927,
-        "amenity": "hospital",
-        "operator": "ECHN",
-        "healthcare": "hospital",
-        "addr_state": "CT",
-        "addr_city": "Vernon",
-        "addr_postcode": "06066",
-        "addr_street": "Union Street",
-        "addr_housenumber": "31"
+        "id": 1828,
+        "geometry": "POINT (-78.811548 35.958684)",
+        "poi_name": "Ganyard Hill Farms",
+        "osm_id": 3159155056,
+        "tourism": "attraction",
+        "website": "http://ganyardhillfarm.com/",
+        "addr_state": "NC",
+        "addr_city": "Durham",
+        "addr_postcode": "27703",
+        "addr_street": "Sherron Road",
+        "addr_housenumber": "319"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1104,

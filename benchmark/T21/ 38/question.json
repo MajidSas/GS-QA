@@ -1,90 +1,54 @@
 {
-  "question": "What's the route to a university from Joy Burns Arena, CO within 50 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography, 50000)\nAND amenity = 'university';\n",
+  "question": "Which direction should I aim for to get to a zoo from Hellsgate Farms, Astoria, NY within 40 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography, 40000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "id": 40329,
-      "geometry": "POINT (-104.838662 39.744649)",
-      "poi_name": "University of Colorado Anschutz Medical Campus",
-      "osm_id": 2967173424,
-      "amenity": "university",
-      "angle": 56.64865508463007
+      "id": 22,
+      "geometry": "POINT (-74.116529 40.625131)",
+      "poi_name": "Kids Korral",
+      "osm_id": 411668741,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "angle": 224.7243779704407
     },
     {
-      "id": 57434,
-      "geometry": "POINT (-104.996847 39.749178)",
-      "poi_name": "University of the Rockies",
-      "osm_id": 5336796189,
-      "amenity": "university",
-      "addr_state": "CO",
-      "addr_city": "Denver",
-      "addr_postcode": "80202",
-      "addr_street": "16th Street Mall",
-      "addr_housenumber": "1201",
-      "angle": 337.52634661813545
-    },
-    {
-      "id": 70277,
-      "geometry": "POINT (-104.860994 39.595547)",
-      "poi_name": "ECPI University Denver",
-      "osm_id": 11356406020,
-      "amenity": "university",
-      "addr_state": "CO",
-      "addr_city": "Centennial",
-      "addr_postcode": "80111",
-      "addr_street": "South Kenton Street",
-      "addr_housenumber": "6675",
-      "angle": 138.29227298013
-    },
-    {
-      "id": 93202,
-      "geometry": "POINT (-105.00434 39.743465)",
-      "poi_name": "Metropolitan State University of Denver",
-      "osm_id": 2155391509,
-      "amenity": "university",
-      "wikidata": "Q613736",
-      "angle": 331.30679969932373
-    },
-    {
-      "id": 152208,
-      "geometry": "POINT (-105.002296 39.745727)",
-      "poi_name": "Facility For Advanced Spatial Technology",
-      "osm_id": 4131746182,
-      "amenity": "university",
-      "wheelchair": "limited",
-      "addr_state": "CO",
-      "addr_city": "Denver",
-      "addr_postcode": "80217",
-      "addr_street": "Larimer Street",
-      "addr_housenumber": "1200",
-      "angle": 333.30767024937967
+      "id": 6148,
+      "geometry": "POINT (-74.047583 40.933983)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo",
+      "angle": 331.67139531974794
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Joy Burns Arena, CO",
-      "geo_wkt": "POINT (-104.961111 39.6825)",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 265350,
-        "geometry": "POINT (-104.961111 39.6825)",
-        "poi_name": "Joy Burns Arena",
-        "osm_id": 366396382,
-        "leisure": "stadium",
-        "addr_state": "CO"
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     }
   },
-  "id": 1037,
+  "id": 1737,
   "type": "range+angle"
 }

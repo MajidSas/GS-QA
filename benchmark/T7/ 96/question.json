@@ -1,53 +1,52 @@
 {
-  "question": "When was the nearest theme park from Franklin Pierce University at Lebanon, West Lebanon, NH first opened?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.317718 43.628022)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest university from Calloway Forest Preserve, Raeford, NC established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-79.309565 35.012234)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18384,
-      "geometry": "POINT (-71.685641 44.047903)",
-      "poi_name": "Clark's Trading Post",
-      "osm_id": 2276410850,
-      "tourism": "theme_park",
-      "wheelchair": "yes",
-      "website": "http://www.clarkstradingpost.com/",
-      "phone": "+1-603-745-8913",
-      "wikidata": "Q15210824",
-      "addr_city": "Lincoln",
-      "addr_postcode": "03251",
-      "addr_street": "Daniel Webster Highway",
-      "addr_housenumber": "110",
-      "multihop_answer": "1928",
-      "multihop_attribute": "Opened",
-      "multihop_long_answer": "Clark's Trading Post Opened: 1928"
+      "id": 167547,
+      "geometry": "POINT (-79.481437 34.740716)",
+      "poi_name": "Saint Andrews University",
+      "osm_id": 357784247,
+      "amenity": "university",
+      "website": "https://www.sa.edu/",
+      "phone": "+1 910 277 5555",
+      "wikidata": "Q7586947",
+      "addr_city": "Laurinburg",
+      "addr_postcode": "28352",
+      "addr_street": "Dogwood Mile",
+      "addr_housenumber": "1700",
+      "multi_source_answer": "1896",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Saint Andrews University Established: 1896"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Franklin Pierce University at Lebanon, West Lebanon, NH",
-      "geo_wkt": "POINT (-72.317718 43.628022)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Calloway Forest Preserve, Raeford, NC",
+      "geo_wkt": "POINT (-79.309565 35.012234)",
       "poi": {
-        "id": 104485,
-        "geometry": "POINT (-72.317718 43.628022)",
-        "poi_name": "Franklin Pierce University at Lebanon",
-        "osm_id": 8570371294,
-        "amenity": "university",
-        "website": "https://www.franklinpierce.edu/academics/gradstudies/lebanon-new-hampshire.htm",
-        "phone": "+1-603-298-5549",
-        "addr_state": "NH",
-        "addr_city": "West Lebanon",
-        "addr_postcode": "03784",
-        "addr_street": "Airport Road",
-        "addr_housenumber": "24"
+        "id": 248012,
+        "geometry": "POINT (-79.309565 35.012234)",
+        "poi_name": "Calloway Forest Preserve",
+        "osm_id": 6262924931,
+        "leisure": "park",
+        "operator": "The Nature Conservancy",
+        "website": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/calloway-forest/?tab_q=tab_container-tab_element",
+        "addr_state": "NC",
+        "addr_city": "Raeford",
+        "addr_postcode": "28376",
+        "addr_street": "Aberdeen Road",
+        "addr_housenumber": "4407"
       }
     }
   },
-  "id": 995,
-  "type": "knn+name+multihop1"
+  "id": 895,
+  "type": "knn+name+multi_source1"
 }

@@ -1,50 +1,50 @@
 {
-  "question": "Where can I find the closest falafel restaurant from Georgia Nature Center, Watkinsville, GA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%falafel%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.390157 33.734073)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest emergency hospital around the area of Kettle Creek Environmental Education Center, Stroudsburg, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 139273,
-      "geometry": "POINT (-80.042038 40.389057)",
-      "poi_name": "Hummus Pittsburgh",
-      "osm_id": 6189870795,
-      "amenity": "restaurant",
-      "cuisine": "falafel",
-      "phone": "+1-412-207-9146",
+      "id": 64145,
+      "geometry": "POINT (-75.242538 40.687207)",
+      "poi_name": "Easton Hospital",
+      "osm_id": 5641614323,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "yes",
       "addr_state": "PA",
-      "addr_city": "Pittsburgh",
-      "addr_postcode": "15216",
-      "addr_street": "West Liberty Avenue",
-      "addr_housenumber": "3285"
+      "addr_city": "Easton",
+      "addr_postcode": "18042",
+      "addr_street": "South 21st Street",
+      "addr_housenumber": "250"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "falafel restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%falafel%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Georgia Nature Center, Watkinsville, GA",
-      "geo_wkt": "POINT (-83.390157 33.734073)",
+      "display_name": "Kettle Creek Environmental Education Center, Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.29615 40.988615)",
       "poi": {
-        "id": 248864,
-        "geometry": "POINT (-83.390157 33.734073)",
-        "poi_name": "Georgia Nature Center",
-        "osm_id": 4873065186,
+        "id": 246853,
+        "geometry": "POINT (-75.29615 40.988615)",
+        "poi_name": "Kettle Creek Environmental Education Center",
+        "osm_id": 6536561704,
         "leisure": "nature_reserve",
-        "website": "www.naturecenter.com",
-        "addr_state": "GA",
-        "addr_city": "Watkinsville",
-        "addr_postcode": "30677",
-        "addr_street": "Salem Road",
-        "addr_housenumber": "3001"
+        "website": "https://www.mcconservation.org/",
+        "addr_state": "PA",
+        "addr_city": "Stroudsburg",
+        "addr_postcode": "18360",
+        "addr_street": "Running Valley Road",
+        "addr_housenumber": "8050"
       }
     }
   },
-  "id": 325,
+  "id": 1325,
   "type": "knn:non_spat_filter+loc"
 }

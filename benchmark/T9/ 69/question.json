@@ -1,41 +1,45 @@
 {
-  "question": "What's the closest viewpoint located in the northwest direction starting from the Villages High School Stadium, FL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.017586 28.924429)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which hotel is closest when moving towards the southeast of Russ Berrie Institute for Professional Sales, Wayne, NJ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.222716 40.96713)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 208,
-      "geometry": "POINT (-82.017586 28.924429)",
-      "poi_name": "River Sink Overlook",
-      "osm_id": 486156860,
-      "tourism": "viewpoint"
+      "id": 9751,
+      "geometry": "POINT (-74.222716 40.96713)",
+      "poi_name": "Crowne Plaza",
+      "osm_id": 8972990269,
+      "tourism": "hotel",
+      "website": "https://www.ihg.com/crowneplaza/hotels/us/en/saddle-brook/sadnj/hoteldetail"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "The Villages High School Stadium, FL",
-      "geo_wkt": "POINT (-82.017586 28.924429)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Russ Berrie Institute for Professional Sales, Wayne, NJ",
+      "geo_wkt": "POINT (-74.222716 40.96713)",
       "poi": {
-        "id": 265381,
-        "geometry": "POINT (-82.017586 28.924429)",
-        "poi_name": "The Villages High School Stadium",
-        "osm_id": 367826915,
-        "leisure": "stadium",
-        "sport": "football",
-        "addr_state": "FL"
+        "id": 63245,
+        "geometry": "POINT (-74.222716 40.96713)",
+        "poi_name": "Russ Berrie Institute for Professional Sales",
+        "osm_id": 5605978384,
+        "amenity": "university",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Valley Road",
+        "addr_housenumber": "1600"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2568,
+  "id": 1268,
   "type": "knn:direction+name"
 }

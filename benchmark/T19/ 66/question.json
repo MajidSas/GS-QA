@@ -1,45 +1,46 @@
 {
-  "question": "Where's the closest zoo located in the direction of northeast from Algonquin Woods, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest stadium toward the west side starting from Adventure Park, Scottsdale, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24437,
-      "geometry": "POINT (-87.872175 42.023616)",
-      "poi_name": "Rainbow Valley Family Farms",
-      "osm_id": 11054966206,
-      "tourism": "zoo",
-      "zoo": "petting_zoo",
-      "addr_state": "MI",
-      "addr_city": "Traverse City",
-      "addr_postcode": "49685",
-      "addr_street": "Culver Road",
-      "addr_housenumber": "6040"
+      "id": 265626,
+      "geometry": "POINT (-111.890218 33.543572)",
+      "poi_name": "Faith Arena",
+      "osm_id": 10762941402,
+      "leisure": "stadium",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85374",
+      "addr_street": "West Tierra Buena Lane",
+      "addr_housenumber": "14470"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Algonquin Woods, IL",
-      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Adventure Park, Scottsdale, AZ",
+      "geo_wkt": "POINT (-111.890218 33.543572)",
       "poi": {
-        "id": 265397,
-        "geometry": "POINT (-87.872175 42.023616)",
-        "poi_name": "Algonquin Woods",
-        "osm_id": 369047872,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 9897,
+        "geometry": "POINT (-111.890218 33.543572)",
+        "poi_name": "Adventure Park",
+        "osm_id": 9048785325,
+        "tourism": "theme_park",
+        "addr_state": "AZ",
+        "addr_city": "Scottsdale",
+        "addr_street": "North Pima Road",
+        "addr_housenumber": "7333"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1165,

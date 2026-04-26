@@ -1,44 +1,50 @@
 {
-  "question": "What is the nearest hotel situated towards the southwest of Irish Cultural Garden, Cleveland, OH?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which university is closest when moving towards the southeast of John Natsoulas Gallery, Davis, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1677,
-      "geometry": "POINT (-81.621886 41.522378)",
-      "poi_name": "Metropolitan at The 9, Autograph Collection",
-      "osm_id": 3117729136,
-      "tourism": "hotel"
+      "id": 44709,
+      "geometry": "POINT (-121.740978 38.54212)",
+      "poi_name": "University of California, Merced",
+      "osm_id": 3172059990,
+      "amenity": "university",
+      "addr_city": "Merced",
+      "addr_postcode": "95340",
+      "addr_street": "North Lake Road",
+      "addr_housenumber": "5200"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Irish Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "John Natsoulas Gallery, Davis, CA",
+      "geo_wkt": "POINT (-121.740978 38.54212)",
       "poi": {
-        "id": 247028,
-        "geometry": "POINT (-81.621886 41.522378)",
-        "poi_name": "Irish Cultural Garden",
-        "osm_id": 8567373881,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1201"
+        "id": 1952,
+        "geometry": "POINT (-121.740978 38.54212)",
+        "poi_name": "John Natsoulas Gallery",
+        "osm_id": 3226037808,
+        "tourism": "gallery",
+        "opening_hours": "07:00-19:00",
+        "internet_access": "yes",
+        "addr_state": "CA",
+        "addr_city": "Davis",
+        "addr_postcode": "95616",
+        "addr_street": "1st Street",
+        "addr_housenumber": "521"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2551,
+  "id": 1251,
   "type": "knn:direction+name"
 }

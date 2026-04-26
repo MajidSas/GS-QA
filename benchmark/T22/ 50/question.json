@@ -1,44 +1,50 @@
 {
-  "question": "Which way should I go to reach the closest nature reserve from the Dinosaur Place at Nature's Art Village, Montville, CT?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way leads toward the closest fast food restaurant starting at Dudley House, Ventura, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 259693,
-      "geometry": "POINT (-72.049521 41.500931)",
-      "poi_name": "Hubbardston State Forest",
-      "osm_id": 358263799,
-      "leisure": "nature_reserve",
-      "angle": 62.26478160442982
+      "id": 198545,
+      "geometry": "POINT (-119.247277 34.273513)",
+      "poi_name": "KFC",
+      "osm_id": 900587738,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "wheelchair": "yes",
+      "website": "https://locations.kfc.com/ca/ventura/3553-telegraph-rd",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "angle": 234.8351920923928
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "sub_category": "museum",
+      "display_name": "Dudley House, Ventura, CA",
+      "geo_wkt": "POINT (-119.24024 34.277629)",
       "poi": {
-        "id": 9051,
-        "geometry": "POINT (-72.222926 41.432518)",
-        "poi_name": "The Dinosaur Place at Nature's Art Village",
-        "osm_id": 3646707526,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-dusk",
-        "website": "www.naturesartvillage.com",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 1032,
+        "geometry": "POINT (-119.24024 34.277629)",
+        "poi_name": "Dudley House",
+        "osm_id": 2800250595,
+        "tourism": "museum",
+        "operator": "San Buenaventura Heritage",
+        "website": "https://dudleyhouse.org/",
+        "phone": "+1 (805) 644-3286",
+        "wikidata": "Q14681880",
+        "addr_state": "CA",
+        "addr_city": "Ventura",
+        "addr_postcode": "93003",
+        "addr_street": "North Ashwood Avenue",
+        "addr_housenumber": "197"
       }
     }
   },
-  "id": 1449,
+  "id": 549,
   "type": "knn+angle"
 }

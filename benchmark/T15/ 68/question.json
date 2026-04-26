@@ -1,54 +1,57 @@
 {
-  "question": "Where can I find a viewpoint towards the west of Hotel AKA Boston Common, Boston, MA within 180 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.060693 42.35733)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.060693 42.35733)',4326)::geography, 180000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where can I find a university inside a 70 kilometers radius toward the north of AHN Cancer Institute, Erie, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography, 70000)\nAND amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 7303,
-      "geometry": "POINT (-71.060693 42.35733)",
-      "poi_name": "Hairpin Turn",
-      "osm_id": 2072400239,
-      "tourism": "viewpoint",
-      "addr_state": "MA",
-      "addr_city": "Clarksburg"
+      "id": 133663,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Gannon University",
+      "osm_id": 10003127082,
+      "amenity": "university",
+      "operator": "Gannon University",
+      "wikidata": "Q5521430",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16541",
+      "addr_street": "University Square",
+      "addr_housenumber": "109"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hotel AKA Boston Common, Boston, MA",
-      "geo_wkt": "POINT (-71.060693 42.35733)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "AHN Cancer Institute, Erie, PA",
+      "geo_wkt": "POINT (-80.080644 42.110128)",
       "poi": {
-        "id": 1481,
-        "geometry": "POINT (-71.060693 42.35733)",
-        "poi_name": "Hotel AKA Boston Common",
-        "osm_id": 3000733513,
-        "tourism": "hotel",
-        "opening_hours": "24/7",
-        "website": "https://www.stayaka.com/hotel-aka-boston-common",
-        "internet_access": "wlan",
-        "phone": "+1 617 772 5800",
-        "addr_state": "MA",
-        "addr_city": "Boston",
-        "addr_postcode": "02108",
-        "addr_street": "Tremont Street",
-        "addr_housenumber": "90"
+        "id": 31591,
+        "geometry": "POINT (-80.080644 42.110128)",
+        "poi_name": "AHN Cancer Institute",
+        "osm_id": 8435416613,
+        "amenity": "hospital",
+        "operator": "Allegheny Health Network",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16544",
+        "addr_street": "Myrtle Street",
+        "addr_housenumber": "2508"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 67,
+  "id": 2267,
   "type": "range:direction+loc"
 }

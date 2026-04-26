@@ -1,44 +1,43 @@
 {
-  "question": "What's the closest university nearby the Camptons, Hancock, NY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.278896 41.953981)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which park near International Center of Photography, New York, NY would you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.983725 40.755739)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 172552,
-      "geometry": "POINT (-74.589598 41.448415)",
-      "poi_name": "Fei Tian Academy of Arts",
-      "osm_id": 2406481578,
-      "amenity": "university",
-      "website": "https://www.feitianacademy.org/",
-      "addr_postcode": "12729",
-      "addr_street": "Galley Hill Road",
-      "addr_housenumber": "140"
+      "id": 256663,
+      "geometry": "POINT (-73.991111 40.766389)",
+      "poi_name": "Oasis Garden",
+      "osm_id": 357650718,
+      "leisure": "park",
+      "wikidata": "Q49534533"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "The Camptons, Hancock, NY",
-      "geo_wkt": "POINT (-75.278896 41.953981)",
+      "sub_category": "museum",
+      "display_name": "International Center of Photography, New York, NY",
+      "geo_wkt": "POINT (-73.983725 40.755739)",
       "poi": {
-        "id": 6992,
-        "geometry": "POINT (-75.278896 41.953981)",
-        "poi_name": "The Camptons",
-        "osm_id": 8804403408,
-        "tourism": "gallery",
+        "id": 2728,
+        "geometry": "POINT (-73.983725 40.755739)",
+        "poi_name": "International Center of Photography",
+        "osm_id": 566445454,
+        "tourism": "museum",
+        "website": "https://www.icp.org/",
+        "wikidata": "Q636942",
         "addr_state": "NY",
-        "addr_city": "Hancock",
-        "addr_postcode": "13783",
-        "addr_street": "East Front Street",
-        "addr_housenumber": "154"
+        "addr_city": "New York",
+        "addr_postcode": "10036",
+        "addr_street": "6th Avenue",
+        "addr_housenumber": "1133"
       }
     }
   },
-  "id": 250,
+  "id": 1050,
   "type": "knn+name"
 }

@@ -1,50 +1,53 @@
 {
-  "question": "How distant is the closest hospital in relation to Titanic: the Experience, Orlando, FL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.471402 28.455322)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.471402 28.455322)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest theme park in relation to Aquatic Zoo Tropical Fish, Thousand Oaks, CA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.840161 34.172588)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 135749,
-      "geometry": "POINT (-81.478832 28.429229)",
-      "poi_name": "Orlando Health Dr. P. Phillips Hospital",
-      "osm_id": 11534665333,
-      "amenity": "hospital",
-      "operator": "Orlando Health",
-      "website": "https://orlandohealth.com",
-      "phone": "+1-407-351-8500",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "FL",
-      "addr_city": "Orlando",
-      "addr_postcode": "32819",
-      "addr_street": "Turkey Lake Road",
-      "addr_housenumber": "9400",
-      "distance": 2981.95640516
+      "id": 1749,
+      "geometry": "POINT (-117.918953 33.809089)",
+      "poi_name": "Disneyland Resort",
+      "osm_id": 3139378640,
+      "tourism": "theme_park",
+      "wheelchair": "limited",
+      "opening_hours": "\"Check with each entity for their daily operationg hours, either on the website or on program guide\"",
+      "website": "https://disneyland.disney.go.com/",
+      "wikidata": "Q1229066",
+      "addr_state": "CA",
+      "addr_city": "Anaheim",
+      "addr_postcode": "92802",
+      "addr_street": "South Harbor Blvd.",
+      "addr_housenumber": "1313",
+      "distance": 94181.32846438
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Titanic: The Experience, Orlando, FL",
-      "geo_wkt": "POINT (-81.471402 28.455322)",
+      "sub_category": "aquarium",
+      "display_name": "Aquatic Zoo Tropical Fish, Thousand Oaks, CA",
+      "geo_wkt": "POINT (-118.840161 34.172588)",
       "poi": {
-        "id": 21366,
-        "geometry": "POINT (-81.471402 28.455322)",
-        "poi_name": "Titanic: The Experience",
-        "osm_id": 1540263840,
-        "tourism": "attraction",
-        "addr_state": "FL",
-        "addr_city": "Orlando",
-        "addr_street": "International Drive",
-        "addr_housenumber": "7324"
+        "id": 5259,
+        "geometry": "POINT (-118.840161 34.172588)",
+        "poi_name": "Aquatic Zoo Tropical Fish",
+        "osm_id": 9819470337,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Sa 10:30-19:00",
+        "operator": "Ken Kay Khzam",
+        "shop": "pet",
+        "addr_state": "CA",
+        "addr_city": "Thousand Oaks",
+        "addr_postcode": "91362",
+        "addr_street": "East Thousand Oaks Boulevard",
+        "addr_housenumber": "2655"
       }
     }
   },
-  "id": 2458,
+  "id": 658,
   "type": "knn+distance"
 }

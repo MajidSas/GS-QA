@@ -1,39 +1,44 @@
 {
-  "question": "What's the closest theme park nearby the stadium with the former name University of Denver Auditorium in CO?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which university is the closest one near the museum established in the year 2015 in Richmond City, VA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.432516 37.534824)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 10133,
-      "geometry": "POINT (-104.877823 39.773072)",
-      "poi_name": "Urban Air Trampoline and Adventure Park",
-      "osm_id": 6715163588,
-      "tourism": "theme_park",
-      "website": "https://www.urbanairtrampolinepark.com/locations/colorado/stapleton",
-      "phone": "+1-303-536-1951"
+      "id": 243989,
+      "geometry": "POINT (-77.42932 37.539099)",
+      "poi_name": "VCU Medical Center Department of Physical Medicine and Rehabilitation",
+      "osm_id": 7691184397,
+      "amenity": "university"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Magness Arena, CO",
-      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "First Freedom Center, Richmond City, VA",
+      "geo_wkt": "POINT (-77.432516 37.534824)",
       "poi": {
-        "id": 265349,
-        "geometry": "POINT (-104.961685 39.682266)",
-        "poi_name": "Magness Arena",
-        "osm_id": 366396379,
-        "leisure": "stadium",
-        "wikidata": "Q14684923",
-        "addr_state": "CO"
+        "id": 2521,
+        "geometry": "POINT (-77.432516 37.534824)",
+        "poi_name": "First Freedom Center",
+        "osm_id": 3500856476,
+        "tourism": "museum",
+        "opening_hours": "Mo off; Tu-Sa 10:00-17:00; Su 12:00-17:00",
+        "website": "https://www.firstfreedom.org/",
+        "phone": "+1 804-649-0711",
+        "wikidata": "Q5453036",
+        "addr_state": "VA",
+        "addr_city": "Richmond City",
+        "addr_postcode": "23219",
+        "addr_street": "South 14th Street",
+        "addr_housenumber": "14"
       }
     }
   },
-  "id": 2799,
-  "type": "knn+name+multihop2"
+  "id": 999,
+  "type": "knn+name+multi_source2"
 }

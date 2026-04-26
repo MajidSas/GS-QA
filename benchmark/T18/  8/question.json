@@ -1,54 +1,59 @@
 {
-  "question": "Where can I find the nearest coffee shop near Super Cichlids Inc, Dover, DE?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%coffee_shop%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest emergency hospital closest to Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 212764,
-      "geometry": "POINT (-75.747876 39.683348)",
-      "poi_name": "The Original Hot Bagels",
-      "osm_id": 5220433256,
-      "amenity": "restaurant",
-      "cuisine": "american;breakfast;bagel;coffee_shop",
-      "opening_hours": "Mo-Su 07:00-15:00",
-      "website": "https://www.theoriginalhotbagels.com",
-      "phone": "+1 302-533-7299; +1 302-533-7578",
-      "takeaway": "yes",
-      "outdoor_seating": "yes",
-      "addr_state": "DE",
-      "addr_city": "Newark",
-      "addr_postcode": "19711",
-      "addr_street": "East Main Street",
-      "addr_housenumber": "131"
+      "id": 136921,
+      "geometry": "POINT (-80.140646 25.784526)",
+      "poi_name": "Miami Beach Urgent Care",
+      "osm_id": 6076485314,
+      "amenity": "hospital",
+      "description": "Miami Beach Urgent Care is a physician owned and operated center right in the heart of Miami Beach. We offer on-site lab services, x-ray, IV infusions, work and school physicals and well as a full array of other health care services. Our doctors are board",
+      "wheelchair": "yes",
+      "opening_hours": "8am-8pm Daily",
+      "operator": "Miami Beach Urgent Care, LLC",
+      "website": "https://miamibeachurgentcare.com",
+      "internet_access": "wlan",
+      "phone": "+1-305-344-2273",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "FL",
+      "addr_city": "Miami Beach",
+      "addr_postcode": "33139",
+      "addr_street": "Alton Road",
+      "addr_housenumber": "1329"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "coffee shop",
-      "poi_filter_sql": "cuisine ILIKE '%coffee_shop%'"
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "aquarium",
-      "display_name": "Super Cichlids Inc, Dover, DE",
-      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 24354,
-        "geometry": "POINT (-75.496486 39.155267)",
-        "poi_name": "Super Cichlids Inc",
-        "osm_id": 11016560740,
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
         "tourism": "aquarium",
-        "phone": "302-608-3846",
-        "addr_state": "DE",
-        "addr_city": "Dover",
-        "addr_postcode": "19901",
-        "addr_street": "Barl Court",
-        "addr_housenumber": "1055"
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     }
   },
-  "id": 307,
+  "id": 1307,
   "type": "knn:non_spat_filter+loc"
 }

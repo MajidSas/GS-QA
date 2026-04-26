@@ -1,51 +1,46 @@
 {
-  "question": "In what direction is the nearest hospital located from the Dinosaur Place at Nature's Art Village, Montville, CT?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the heading toward the nearest park starting from Hyatt Regency Bellevue on Seattle's Eastside, Bellevue, WA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.20116 47.618258)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.20116 47.618258)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 222409,
-      "geometry": "POINT (-72.450994 41.866408)",
-      "poi_name": "Rockville Hospital",
-      "osm_id": 11017175927,
-      "amenity": "hospital",
-      "operator": "ECHN",
-      "healthcare": "hospital",
-      "addr_state": "CT",
-      "addr_city": "Vernon",
-      "addr_postcode": "06066",
-      "addr_street": "Union Street",
-      "addr_housenumber": "31",
-      "angle": 338.55903175322084
+      "id": 266944,
+      "geometry": "POINT (-122.080542 47.592587)",
+      "poi_name": "Parker Plat - Future City of Sammamish Park.  Closed to public (as of 2023)",
+      "osm_id": 11159899396,
+      "leisure": "park",
+      "angle": 107.42391734859355
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "sub_category": "hotel",
+      "display_name": "Hyatt Regency Bellevue on Seattle's Eastside, Bellevue, WA",
+      "geo_wkt": "POINT (-122.20116 47.618258)",
       "poi": {
-        "id": 9051,
-        "geometry": "POINT (-72.222926 41.432518)",
-        "poi_name": "The Dinosaur Place at Nature's Art Village",
-        "osm_id": 3646707526,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-dusk",
-        "website": "www.naturesartvillage.com",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 2703,
+        "geometry": "POINT (-122.20116 47.618258)",
+        "poi_name": "Hyatt Regency Bellevue on Seattle's Eastside",
+        "osm_id": 557280121,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://bellevue.regency.hyatt.com/en/hotel/home.html",
+        "internet_access": "wlan",
+        "phone": "+1-425-462-1234",
+        "wikidata": "Q111393647",
+        "addr_state": "WA",
+        "addr_city": "Bellevue",
+        "addr_postcode": "98004",
+        "addr_street": "Bellevue Way Northeast",
+        "addr_housenumber": "900"
       }
     }
   },
-  "id": 1443,
+  "id": 543,
   "type": "knn+angle"
 }

@@ -1,44 +1,43 @@
 {
-  "question": "Any suggestions for the nearest attraction from the stadium that can hold 6600 spectators in Louisville, KY?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest park relative to the museum established in the year 1992 in Jacksonville, FL?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.656807 30.337046)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 10491,
-      "geometry": "POINT (-85.707803 38.204839)",
-      "poi_name": "Tortoise Area",
-      "osm_id": 6886875021,
-      "description": "Greek and Star Tortoises",
-      "tourism": "attraction",
-      "website": "https://louisvillezoo.org/animalsandplants/tortoise-greek/",
-      "zoo": "enclosure"
+      "id": 261657,
+      "geometry": "POINT (-81.616483 30.325518)",
+      "poi_name": "Exchange Club Park",
+      "osm_id": 358730573,
+      "leisure": "park",
+      "wikidata": "Q49487811"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Broadbent Arena, Louisville, KY",
-      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Karpeles Manuscript Library, Jacksonville, FL",
+      "geo_wkt": "POINT (-81.656807 30.337046)",
       "poi": {
-        "id": 245703,
-        "geometry": "POINT (-85.745629 38.200638)",
-        "poi_name": "Broadbent Arena",
-        "osm_id": 3418007532,
-        "leisure": "stadium",
-        "wikidata": "Q4972040",
-        "addr_state": "KY",
-        "addr_city": "Louisville",
-        "addr_postcode": "40209",
-        "addr_street": "Broadbent Drive",
-        "addr_housenumber": "3100"
+        "id": 1648,
+        "geometry": "POINT (-81.656807 30.337046)",
+        "poi_name": "Karpeles Manuscript Library",
+        "osm_id": 3099855229,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 10:00-15:00; Sa 10:00-16:00",
+        "website": "https://karpeles.com/museums/jax.php",
+        "wikidata": "Q6373297",
+        "addr_state": "FL",
+        "addr_city": "Jacksonville",
+        "addr_postcode": "32206",
+        "addr_street": "West 1st Street"
       }
     }
   },
-  "id": 2706,
-  "type": "knn+name+multihop2"
+  "id": 906,
+  "type": "knn+name+multi_source2"
 }

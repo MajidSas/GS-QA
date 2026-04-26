@@ -1,52 +1,44 @@
 {
-  "question": "Any recommendations for the closest restaurant from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest zoo relative to Captain Mike's Fun Park, Bridgman, MI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 222770,
-      "geometry": "POINT (-119.685577 34.409889)",
-      "poi_name": "Great Pacific Ice Cream Co",
-      "osm_id": 11035056976,
-      "amenity": "restaurant",
-      "cuisine": "ice_cream",
-      "opening_hours": "10am-9pm",
-      "website": "https://stearnswharf.org/great-pacific/",
-      "phone": "+18059620108",
-      "addr_state": "CA",
-      "addr_city": "Santa Barbara",
-      "addr_postcode": "93101",
-      "addr_street": "Stearns Wharf",
-      "addr_housenumber": "219"
+      "id": 16137,
+      "geometry": "POINT (-87.911048 42.278444)",
+      "poi_name": "Lambs Farm Petting Zoo and Amusement Park",
+      "osm_id": 354282642,
+      "tourism": "zoo",
+      "fee": "yes",
+      "zoo": "petting_zoo",
+      "wikidata": "Q6481575"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
-      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "sub_category": "theme park",
+      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
+      "geo_wkt": "POINT (-86.576965 41.919871)",
       "poi": {
-        "id": 18273,
-        "geometry": "POINT (-119.685686 34.410426)",
-        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
-        "osm_id": 368174545,
-        "tourism": "aquarium",
-        "operator": "Santa Barbara Museum of Natural History",
-        "website": "https://www.sbnature.org/twsc/2.html",
-        "wikidata": "Q3542641",
-        "addr_state": "CA",
-        "addr_city": "Santa Barbara",
-        "addr_postcode": "93101",
-        "addr_street": "Stearns Wharf",
-        "addr_housenumber": "211"
+        "id": 4790,
+        "geometry": "POINT (-86.576965 41.919871)",
+        "poi_name": "Captain Mike's Fun Park",
+        "osm_id": 9625343406,
+        "tourism": "theme_park",
+        "website": "https://captainmikesamusementpark.com/",
+        "addr_state": "MI",
+        "addr_city": "Bridgman",
+        "addr_postcode": "49106",
+        "addr_street": "Red Arrow Highway",
+        "addr_housenumber": "10975"
       }
     }
   },
-  "id": 252,
+  "id": 1052,
   "type": "knn+name"
 }

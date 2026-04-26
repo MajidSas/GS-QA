@@ -1,18 +1,20 @@
 {
-  "question": "What direction should I head in to reach the closest caf\u00e9 from Oxbow Park and Zollman Zoo, Byron, MN?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction is the nearest caf\u00e9 from Crave Golf Club, Pigeon Forge, TN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 117451,
-      "geometry": "POINT (-92.755576 44.066538)",
-      "poi_name": "County Seat Coffeehouse",
-      "osm_id": 8994681618,
+      "id": 197440,
+      "geometry": "POINT (-83.55415 35.785361)",
+      "poi_name": "Smokies Cuban Cafe",
+      "osm_id": 10648741980,
       "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "addr_state": "MN",
-      "addr_city": "Mantorville",
-      "addr_postcode": "55955",
-      "angle": 257.63329824688157
+      "phone": "+18653661098",
+      "addr_state": "TN",
+      "addr_city": "Pigeon Forge",
+      "addr_postcode": "37863",
+      "addr_street": "Parkway",
+      "addr_housenumber": "3526",
+      "angle": 143.6879303922968
     }
   ],
   "answer_type": "angle",
@@ -23,26 +25,24 @@
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
-      "geo_wkt": "POINT (-92.648741 44.083478)",
+      "sub_category": "theme park",
+      "display_name": "Crave Golf Club, Pigeon Forge, TN",
+      "geo_wkt": "POINT (-83.564838 35.797212)",
       "poi": {
-        "id": 8983,
-        "geometry": "POINT (-92.648741 44.083478)",
-        "poi_name": "Oxbow Park and Zollman Zoo",
-        "osm_id": 3606133825,
-        "tourism": "zoo",
-        "fee": "no",
-        "opening_hours": "Mo-Su 10:00-16:00",
-        "operator": "Olmsted County",
-        "addr_state": "MN",
-        "addr_city": "Byron",
-        "addr_postcode": "55920",
-        "addr_street": "County Road 105 Northwest",
-        "addr_housenumber": "5731"
+        "id": 11219,
+        "geometry": "POINT (-83.564838 35.797212)",
+        "poi_name": "Crave Golf Club",
+        "osm_id": 9900873342,
+        "tourism": "theme_park",
+        "phone": "(865) 366-3403",
+        "addr_state": "TN",
+        "addr_city": "Pigeon Forge",
+        "addr_postcode": "37863",
+        "addr_street": "Parkway",
+        "addr_housenumber": "2925"
       }
     }
   },
-  "id": 1437,
+  "id": 537,
   "type": "knn+angle"
 }

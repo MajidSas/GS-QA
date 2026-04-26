@@ -1,68 +1,51 @@
 {
-  "question": "Within a radius of 190 kilometers, what aquarium can I find to the southwest of the Dinosaur Place at Nature's Art Village, Montville, CT?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.222926 41.432518)',4326)::geography, 190000)\nAND tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Which university are available within 160 kilometers on the south side of Glenhill Farmhouse, Erie, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 160000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 15474,
-      "geometry": "POINT (-72.222926 41.432518)",
-      "poi_name": "Penguin Exhibit",
-      "osm_id": 4899672375,
-      "tourism": "aquarium",
-      "operator": "Atlantis Marine World"
-    },
-    {
-      "id": 7087,
-      "geometry": "POINT (-72.222926 41.432518)",
-      "poi_name": "Sea Life Aquarium",
-      "osm_id": 8850984245,
-      "tourism": "aquarium",
-      "website": "https://www.visitsealife.com/new-jersey/"
-    },
-    {
-      "id": 14684,
-      "geometry": "POINT (-72.222926 41.432518)",
-      "poi_name": "The River Project Wetlab",
-      "osm_id": 4685779445,
-      "tourism": "aquarium",
-      "operator": "The River Project"
+      "id": 167456,
+      "geometry": "POINT (-79.985748 42.119196)",
+      "poi_name": "Jennings Environmental Education Center",
+      "osm_id": 357331272,
+      "amenity": "university",
+      "wikidata": "Q6179022"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "The Dinosaur Place at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222926 41.432518)",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
       "poi": {
-        "id": 9051,
-        "geometry": "POINT (-72.222926 41.432518)",
-        "poi_name": "The Dinosaur Place at Nature's Art Village",
-        "osm_id": 3646707526,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-dusk",
-        "website": "www.naturesartvillage.com",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2656,
+  "id": 2356,
   "type": "range:direction+name"
 }

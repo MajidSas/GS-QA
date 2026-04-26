@@ -1,46 +1,48 @@
 {
-  "question": "What's the closest golf course nearby the stadium that can hold 2856 spectators in Eau Claire, WI?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest aquarium relative to the stadium with the former name Southern National Speedway in Lucama, NC?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247193,
-      "geometry": "POINT (-92.238102 43.984802)",
-      "poi_name": "West Side Park Disc Golf Course",
-      "osm_id": 3740889717,
-      "leisure": "golf_course",
-      "website": "https://www.dgcoursereview.com/course.php?id=1995&mode=ci",
-      "addr_state": "MN",
-      "addr_city": "Eyota",
-      "addr_postcode": "55934",
-      "addr_street": "5th Street SW"
+      "id": 12563,
+      "geometry": "POINT (-78.515805 35.970785)",
+      "poi_name": "Aquarium Outfitters Carolina",
+      "osm_id": 7329125760,
+      "tourism": "aquarium",
+      "phone": "(919) 556-8335",
+      "addr_state": "NC",
+      "addr_city": "Wake Forest",
+      "addr_postcode": "27587",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "823"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Carson Park Stadium, Eau Claire, WI",
-      "geo_wkt": "POINT (-91.520118 44.808189)",
+      "display_name": "Southern National Motorsport Park, Lucama, NC",
+      "geo_wkt": "POINT (-78.060871 35.61119)",
       "poi": {
-        "id": 247238,
-        "geometry": "POINT (-91.520118 44.808189)",
-        "poi_name": "Carson Park Stadium",
-        "osm_id": 3843182571,
+        "id": 248769,
+        "geometry": "POINT (-78.060871 35.61119)",
+        "poi_name": "Southern National Motorsport Park",
+        "osm_id": 4773889332,
         "leisure": "stadium",
-        "sport": "american_football",
-        "wikidata": "Q16028032",
-        "addr_state": "WI",
-        "addr_city": "Eau Claire",
-        "addr_postcode": "54703",
-        "addr_street": "Carson Park Drive"
+        "sport": "motor",
+        "wikidata": "Q7570163",
+        "addr_state": "NC",
+        "addr_city": "Lucama",
+        "addr_postcode": "27851",
+        "addr_street": "Newsome Mill Road",
+        "addr_housenumber": "8071"
       }
     }
   },
-  "id": 2710,
-  "type": "knn+name+multihop2"
+  "id": 910,
+  "type": "knn+name+multi_source2"
 }

@@ -1,54 +1,54 @@
 {
-  "question": "Where is the nearest fast food restaurant towards the southeast of Washington Park Botanical Garden, Springfield, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant found on the south side of Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 97922,
-      "geometry": "POINT (-89.684904 39.78926)",
-      "poi_name": "Little Caesars",
-      "osm_id": 6501102199,
-      "amenity": "fast_food",
-      "cuisine": "pizza",
-      "opening_hours": "Mo-Su 11:00-22:00",
-      "website": "https://littlecaesars.com/en-us/store/8245/",
-      "phone": "+1-217-522-3727",
+      "id": 243958,
+      "geometry": "POINT (-111.9207 34.612641)",
+      "poi_name": "Rock Springs Cafe",
+      "osm_id": 7688123379,
+      "amenity": "restaurant",
+      "cuisine": "breakfast;burger;chicken;steak_house",
+      "opening_hours": "Su-Th 07:00-21:00; Fr-Sa 07:00-22:00",
+      "website": "https://rockspringscafe.com/",
+      "phone": "(623) 374-5794",
       "takeaway": "yes",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62704",
-      "addr_street": "South MacArthur Boulevard",
-      "addr_housenumber": "1614"
+      "delivery": "no",
+      "addr_state": "AZ",
+      "addr_city": "Black Canyon City",
+      "addr_postcode": "85234",
+      "addr_street": "South Old Black Canyon Highway",
+      "addr_housenumber": "35900"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Washington Park Botanical Garden, Springfield, IL",
-      "geo_wkt": "POINT (-89.684904 39.78926)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
       "poi": {
-        "id": 267108,
-        "geometry": "POINT (-89.684904 39.78926)",
-        "poi_name": "Washington Park Botanical Garden",
-        "osm_id": 4530576300,
-        "leisure": "garden",
-        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
-        "phone": "+1-217-546-4116",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "West Fayette Avenue",
-        "addr_housenumber": "1740"
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
   "id": 1167,

@@ -1,42 +1,40 @@
 {
-  "question": "What is the count of restaurants within 90 kilometers from Smoky Mountain Alpine Coaster, Pigeon Forge, TN?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography, 90000)\nAND amenity = 'restaurant';\n",
+  "question": "How many hotels exist within 120 kilometers of the location Montana Grizzly Encounter, Bozeman, MT?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-110.834041 45.663969)',4326)::geography, 120000)\nAND tourism = 'hotel';\n",
   "answers": [
     {
-      "count": 447
+      "count": 21
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "sub_category": "zoo",
+      "display_name": "Montana Grizzly Encounter, Bozeman, MT",
+      "geo_wkt": "POINT (-110.834041 45.663969)",
       "poi": {
-        "id": 13057,
-        "geometry": "POINT (-83.596543 35.793397)",
-        "poi_name": "Smoky Mountain Alpine Coaster",
-        "osm_id": 4035710749,
-        "tourism": "theme_park",
-        "website": "http://www.smokymountainalpinecoaster.com/",
-        "wikidata": "Q29831450",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Wears Valley Road",
-        "addr_housenumber": "867"
+        "id": 14047,
+        "geometry": "POINT (-110.834041 45.663969)",
+        "poi_name": "Montana Grizzly Encounter",
+        "osm_id": 4215553273,
+        "tourism": "zoo",
+        "addr_state": "MT",
+        "addr_city": "Bozeman",
+        "addr_postcode": "59175",
+        "addr_street": "Bozeman Hill Road",
+        "addr_housenumber": "18000"
       }
     }
   },
-  "id": 2218,
+  "id": 1818,
   "type": "range+count"
 }

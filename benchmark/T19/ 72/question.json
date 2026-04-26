@@ -1,42 +1,50 @@
 {
-  "question": "Where's the closest restaurant located in the direction of south from Magness Arena, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest golf course in the direction of south starting from SCL Health Saint Joseph Hospital, Denver, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.971086 39.746176)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 197521,
-      "geometry": "POINT (-104.961685 39.682266)",
-      "poi_name": "Tokyo Bowl",
-      "osm_id": 10651254396,
-      "amenity": "restaurant",
-      "cuisine": "japanese",
-      "website": "https://www.tokyobowldenver.com/",
-      "phone": "+1-720-570-0720",
+      "id": 266621,
+      "geometry": "POINT (-104.971086 39.746176)",
+      "poi_name": "Jakes Academy",
+      "osm_id": 9162690294,
+      "leisure": "golf_course",
+      "opening_hours": "Mo-Sa 08:00-20:00",
+      "operator": "Riley Andrews",
+      "website": "https://jakesacademy.com/",
       "addr_state": "CO",
-      "addr_city": "Denver",
-      "addr_postcode": "80210",
-      "addr_street": "East Evans Avenue",
-      "addr_housenumber": "2337"
+      "addr_city": "Lone Tree",
+      "addr_postcode": "80124",
+      "addr_street": "Sunningdale Blvd",
+      "addr_housenumber": "9808"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Magness Arena, CO",
-      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "SCL Health Saint Joseph Hospital, Denver, CO",
+      "geo_wkt": "POINT (-104.971086 39.746176)",
       "poi": {
-        "id": 265349,
-        "geometry": "POINT (-104.961685 39.682266)",
-        "poi_name": "Magness Arena",
-        "osm_id": 366396379,
-        "leisure": "stadium",
-        "wikidata": "Q14684923",
-        "addr_state": "CO"
+        "id": 61565,
+        "geometry": "POINT (-104.971086 39.746176)",
+        "poi_name": "SCL Health Saint Joseph Hospital",
+        "osm_id": 5523640617,
+        "amenity": "hospital",
+        "website": "https://www.sclhealth.org/locations/saint-joseph-hospital/",
+        "phone": "+1-303-812-2000",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q5419994",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80218",
+        "addr_street": "East 19th Avenue",
+        "addr_housenumber": "1375"
       }
     },
     "[3]": {

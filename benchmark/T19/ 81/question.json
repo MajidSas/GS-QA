@@ -1,45 +1,56 @@
 {
-  "question": "Where is the nearest hotel towards the west of Hidden Hills Ice Arena, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant found toward the northwest of the Whitley, a Luxury Collection Hotel, Atlanta Buckhead, Atlanta, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.363189 33.850533)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 15892,
-      "geometry": "POINT (-105.041111 39.868611)",
-      "poi_name": "Indian Hot Springs",
-      "osm_id": 9588812190,
-      "amenity": "public_bath",
-      "tourism": "hotel",
-      "fee": "yes",
-      "addr_state": "CO",
-      "addr_city": "Idaho Springs",
-      "addr_postcode": "80452",
-      "addr_street": "Soda Creek Road",
-      "addr_housenumber": "302"
+      "id": 157141,
+      "geometry": "POINT (-84.363189 33.850533)",
+      "poi_name": "Wok & Roll",
+      "osm_id": 4688912084,
+      "amenity": "fast_food",
+      "cuisine": "chinese",
+      "opening_hours": "Mo-Th 11:00-22:30; Fr-Sa 11:00-23:00; Su 12:00-22:00",
+      "website": "http://www.woknrollasian.com",
+      "phone": "+1-404-943-0083",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "GA",
+      "addr_city": "Sandy Springs",
+      "addr_postcode": "30342",
+      "addr_street": "Roswell Road",
+      "addr_housenumber": "4920 Ste 47"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Hidden Hills Ice Arena, CO",
-      "geo_wkt": "POINT (-105.041111 39.868611)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Whitley, a Luxury Collection Hotel, Atlanta Buckhead, Atlanta, GA",
+      "geo_wkt": "POINT (-84.363189 33.850533)",
       "poi": {
-        "id": 265351,
-        "geometry": "POINT (-105.041111 39.868611)",
-        "poi_name": "Hidden Hills Ice Arena",
-        "osm_id": 366396389,
-        "leisure": "stadium",
-        "addr_state": "CO"
+        "id": 983,
+        "geometry": "POINT (-84.363189 33.850533)",
+        "poi_name": "The Whitley, a Luxury Collection Hotel, Atlanta Buckhead",
+        "osm_id": 2771547082,
+        "tourism": "hotel",
+        "website": "https://www.marriott.com/hotels/fact-sheet/travel/atllu-the-whitley-a-luxury-collection-hotel-atlanta-buckhead/",
+        "internet_access": "yes",
+        "phone": "+1-404-237-2700",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30326",
+        "addr_street": "Peachtree Road Northeast",
+        "addr_housenumber": "3434"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1180,

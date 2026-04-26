@@ -1,64 +1,73 @@
 {
-  "question": "Where is the nearest fast food restaurant as you progress towards Seton Castle Historic Site, NM from Alien Museum, Santa Fe, NM?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography, ST_GeomFromText('POINT (-105.931327 35.599586)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.998555 35.662973)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant as you go toward Jay walk, New York, NY from Sloth Encounters, Hauppauge, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, ST_GeomFromText('POINT (-73.989437 40.771015)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 54950,
-      "geometry": "POINT (-105.983766 35.639197)",
-      "poi_name": "Subway",
-      "osm_id": 10163924426,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "building": "no",
-      "takeaway": "yes",
-      "drive_through": "no",
-      "addr_state": "NM",
-      "addr_city": "Santa Fe",
-      "addr_postcode": "87507",
-      "addr_street": "Rodeo Road",
-      "addr_housenumber": "2801",
-      "value": 139.09203419959172
+      "id": 175427,
+      "geometry": "POINT (-73.232867 40.816089)",
+      "poi_name": "Butterfields",
+      "osm_id": 2521448966,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "website": "https://www.butterfieldsrestaurant.biz/",
+      "phone": "+1-631-851-1507",
+      "addr_state": "NY",
+      "addr_city": "hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Old Willets Path",
+      "addr_housenumber": "661",
+      "value": 265.09329340535044
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Alien Museum, Santa Fe, NM",
-      "geo_wkt": "POINT (-105.998555 35.662973)",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
       "poi": {
-        "id": 10246,
-        "geometry": "POINT (-105.998555 35.662973)",
-        "poi_name": "Alien Museum",
-        "osm_id": 6760507242,
-        "tourism": "museum",
-        "museum": "aliens",
-        "addr_state": "NM",
-        "addr_city": "Santa Fe",
-        "addr_street": "Agua Fria Street",
-        "addr_housenumber": "2915"
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Seton Castle Historic Site, NM",
-      "geo_wkt": "POINT (-105.931327 35.599586)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Jay walk, New York, NY",
+      "geo_wkt": "POINT (-73.989437 40.771015)",
       "poi": {
-        "id": 16582,
-        "geometry": "POINT (-105.931327 35.599586)",
-        "poi_name": "Seton Castle Historic Site",
-        "osm_id": 366378133,
-        "tourism": "attraction",
-        "addr_state": "NM"
+        "id": 248157,
+        "geometry": "POINT (-73.989437 40.771015)",
+        "poi_name": "Jay walk",
+        "osm_id": 7332034043,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 08:00-22:00",
+        "operator": "John Jay college",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10019",
+        "addr_street": "West 59th Street",
+        "addr_housenumber": "524"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1379,
+  "id": 1579,
   "type": "knn:towards+loc"
 }

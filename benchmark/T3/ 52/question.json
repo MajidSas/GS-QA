@@ -1,55 +1,58 @@
 {
-  "question": "Within a radius of 90 kilometers, what hospital can I find located in the southwest of Smokestack Pottery, Fort Collins, CO?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-105.071107 40.587891)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.071107 40.587891)',4326)::geography, 90000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Which viewpoint are available within 140 kilometers on the northeast side of Americas Best Value Inn-Nashville/Downtown Hotel, Nashville, TN?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.777756 36.209722)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.777756 36.209722)',4326)::geography, 140000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 149538,
-      "geometry": "POINT (-105.071107 40.587891)",
-      "poi_name": "Hearing Rehab Center",
-      "osm_id": 4015035835,
-      "amenity": "hospital",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "addr_state": "CO",
-      "addr_city": "Fort Collins",
-      "addr_postcode": "80526",
-      "addr_street": "Centre Avenue",
-      "addr_housenumber": "1030"
+      "id": 5561,
+      "geometry": "POINT (-86.777756 36.209722)",
+      "poi_name": "Sunset Point",
+      "osm_id": 810883250,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 5562,
+      "geometry": "POINT (-86.777756 36.209722)",
+      "poi_name": "Dixon Cave",
+      "osm_id": 810883321,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Smokestack Pottery, Fort Collins, CO",
-      "geo_wkt": "POINT (-105.071107 40.587891)",
+      "sub_category": "hotel",
+      "display_name": "Americas Best Value Inn-Nashville/Downtown Hotel, Nashville, TN",
+      "geo_wkt": "POINT (-86.777756 36.209722)",
       "poi": {
-        "id": 3327,
-        "geometry": "POINT (-105.071107 40.587891)",
-        "poi_name": "Smokestack Pottery",
-        "osm_id": 5353580148,
-        "tourism": "gallery",
-        "addr_state": "CO",
-        "addr_city": "Fort Collins",
-        "addr_postcode": "80524",
-        "addr_street": "East Lincoln Avenue",
-        "addr_housenumber": "119"
+        "id": 1251,
+        "geometry": "POINT (-86.777756 36.209722)",
+        "poi_name": "Americas Best Value Inn-Nashville/Downtown Hotel",
+        "osm_id": 2917693185,
+        "tourism": "hotel",
+        "operator": "Americas Best Value Inn-Nashville/Downtown Hotel",
+        "website": "http://www.abvinashvilledowntown.com",
+        "phone": "(615) 226-9805",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37207-4405",
+        "addr_street": "Brick Church Pike",
+        "addr_housenumber": "2403"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2651,
+  "id": 2351,
   "type": "range:direction+name"
 }

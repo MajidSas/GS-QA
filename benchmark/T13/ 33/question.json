@@ -1,42 +1,70 @@
 {
-  "question": "Could you help me locate a stadium that's within 170 kilometers from Curious Kids' Museum, IA?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.160793 42.504136)',4326)::geography, 170000)\nAND leisure = 'stadium';\n",
+  "question": "Can you point me to a zoo within 170 kilometers from Akron Children's Hospital NICU at Summa, Akron, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.50133 41.080742)',4326)::geography, 170000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "id": 265707,
-      "geometry": "POINT (-93.449931 41.596353)",
-      "poi_name": "SEP Stadium",
-      "osm_id": 10856875747,
-      "leisure": "stadium",
-      "addr_state": "Iowa",
-      "addr_city": "Pleasant Hill",
-      "addr_postcode": "50327",
-      "addr_street": "Martha L. Miller Drive",
-      "addr_housenumber": "7755"
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000"
+    },
+    {
+      "id": 20104,
+      "geometry": "POINT (-80.004351 40.308475)",
+      "poi_name": "South Park Game Preserve",
+      "osm_id": 7872549552,
+      "tourism": "zoo",
+      "opening_hours": "07:00-dusk"
+    },
+    {
+      "id": 24839,
+      "geometry": "POINT (-81.737201 40.522778)",
+      "poi_name": "The Farm at Walnut Creek",
+      "osm_id": 4341174209,
+      "tourism": "zoo",
+      "opening_hours": "08:30-18:00",
+      "website": "https://thefarmatwalnutcreek.com/",
+      "addr_state": "OH",
+      "addr_city": "Sugarcreek",
+      "addr_postcode": "44681",
+      "addr_street": "CR 114",
+      "addr_housenumber": "4147"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "distance": 170000,
       "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Curious Kids' Museum, IA",
-      "geo_wkt": "POINT (-94.160793 42.504136)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Akron Children's Hospital NICU at Summa, Akron, OH",
+      "geo_wkt": "POINT (-81.50133 41.080742)",
       "poi": {
-        "id": 17110,
-        "geometry": "POINT (-94.160793 42.504136)",
-        "poi_name": "Curious Kids' Museum",
-        "osm_id": 367089557,
-        "tourism": "museum",
-        "addr_state": "IA"
+        "id": 75823,
+        "geometry": "POINT (-81.50133 41.080742)",
+        "poi_name": "Akron Children's Hospital NICU at Summa",
+        "osm_id": 9749113787,
+        "amenity": "hospital",
+        "operator": "Akron Children's Hospital",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "OH",
+        "addr_city": "Akron",
+        "addr_postcode": "44304",
+        "addr_street": "North Forge Street",
+        "addr_housenumber": "141"
       }
     }
   },

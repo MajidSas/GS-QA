@@ -1,57 +1,54 @@
 {
-  "question": "What is the nearest restaurant as you progress towards Urban Arts Gallery, Salt Lake City, UT from Pioneer Stadium, Ogden, UT?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, ST_GeomFromText('POINT (-111.904248 40.766692)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.96187 41.237122)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant is nearest along the route connecting MSU Extention Service, Brandon, MS to Hyatt Place Jackson/Ridgeland, Ridgeland, MS?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.01043 32.278481)',4326)::geography, ST_GeomFromText('POINT (-90.145429 32.437008)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.01043 32.278481)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.01043 32.278481)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 123585,
-      "geometry": "POINT (-111.965112 41.220784)",
-      "poi_name": "Thai Curry Chicken",
-      "osm_id": 6864080801,
+      "id": 65755,
+      "geometry": "POINT (-90.015792 32.284222)",
+      "poi_name": "Bop's",
+      "osm_id": 5711710477,
       "amenity": "restaurant",
-      "cuisine": "thai",
-      "value": 174.6795044700538
+      "cuisine": "ice_cream",
+      "value": 324.17626724313
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Pioneer Stadium, Ogden, UT",
-      "geo_wkt": "POINT (-111.96187 41.237122)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "MSU Extention Service, Brandon, MS",
+      "geo_wkt": "POINT (-90.01043 32.278481)",
       "poi": {
-        "id": 266188,
-        "geometry": "POINT (-111.96187 41.237122)",
-        "poi_name": "Pioneer Stadium",
-        "osm_id": 598066080,
-        "leisure": "stadium",
-        "sport": "equestrian",
-        "wikidata": "Q7079951",
-        "addr_state": "UT",
-        "addr_city": "Ogden",
-        "addr_street": "17th Street",
-        "addr_housenumber": "668"
+        "id": 104692,
+        "geometry": "POINT (-90.01043 32.278481)",
+        "poi_name": "MSU Extention Service",
+        "osm_id": 8581437559,
+        "amenity": "university",
+        "addr_state": "MS",
+        "addr_city": "Brandon",
+        "addr_postcode": "39042",
+        "addr_street": "Marquette Road",
+        "addr_housenumber": "601"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Urban Arts Gallery, Salt Lake City, UT",
-      "geo_wkt": "POINT (-111.904248 40.766692)",
+      "sub_category": "hotel",
+      "display_name": "Hyatt Place Jackson/Ridgeland, Ridgeland, MS",
+      "geo_wkt": "POINT (-90.145429 32.437008)",
       "poi": {
-        "id": 24125,
-        "geometry": "POINT (-111.904248 40.766692)",
-        "poi_name": "Urban Arts Gallery",
-        "osm_id": 9335676387,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Th 12:00-21:00; Fr-Sa 12:00-22:00; Su 12:00-21:00",
-        "website": "https://www.urbanartsgallery.org/",
-        "phone": "+1-801-230-0820",
-        "addr_state": "UT",
-        "addr_city": "Salt Lake City",
-        "addr_postcode": "84101",
-        "addr_street": "Rio Grande Street",
-        "addr_housenumber": "116 S"
+        "id": 13232,
+        "geometry": "POINT (-90.145429 32.437008)",
+        "poi_name": "Hyatt Place Jackson/Ridgeland",
+        "osm_id": 4079922079,
+        "tourism": "hotel",
+        "internet_access": "yes",
+        "addr_state": "MS",
+        "addr_city": "Ridgeland",
+        "addr_postcode": "39157",
+        "addr_street": "Highland Colony Pkwy",
+        "addr_housenumber": "1016"
       }
     },
     "[1]": {
@@ -59,6 +56,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 190,
+  "id": 1690,
   "type": "knn:towards+name"
 }

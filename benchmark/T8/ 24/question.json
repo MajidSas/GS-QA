@@ -1,43 +1,46 @@
 {
-  "question": "What's the nearest garden from the hospital that has pediatric emergency department in Bronx, NY?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest hotel near the park that was constructed in Construction in Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265830,
-      "geometry": "POINT (-73.877858 40.86446)",
-      "poi_name": "Rock Garden",
-      "osm_id": 7872645113,
-      "leisure": "garden"
+      "id": 3854,
+      "geometry": "POINT (-112.113881 33.511269)",
+      "poi_name": "Grand Canyon University Hotel",
+      "osm_id": 5613756082,
+      "tourism": "hotel",
+      "internet_access": "wlan",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85017",
+      "addr_street": "North 27th Avenue",
+      "addr_housenumber": "5115"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
-      "geo_wkt": "POINT (-73.878898 40.880372)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 37381,
-        "geometry": "POINT (-73.878898 40.880372)",
-        "poi_name": "Children's Hospital at Montefiore",
-        "osm_id": 2810045562,
-        "amenity": "hospital",
-        "operator": "Montefiore Medical Center",
-        "healthcare": "hospital",
-        "wikidata": "Q30279893",
-        "addr_state": "NY",
-        "addr_city": "Bronx",
-        "addr_postcode": "10467",
-        "addr_street": "Bainbridge Avenue",
-        "addr_housenumber": "3415"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 2723,
-  "type": "knn+name+multihop2"
+  "id": 923,
+  "type": "knn+name+multi_source2"
 }

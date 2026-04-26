@@ -1,47 +1,47 @@
 {
-  "question": "What's the closest emergency hospital from Sky Ranch Lodge, Sedona, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.790454 34.852442)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature museum is nearest from Americas Best Value Inn-Nashville/Downtown Hotel, Nashville, TN?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'nature'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.777756 36.209722)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 211246,
-      "geometry": "POINT (-112.331391 34.591083)",
-      "poi_name": "Emergency Room",
-      "osm_id": 5148494284,
-      "amenity": "hospital",
-      "description": "Yavapai Medical Emergency Room\n",
-      "healthcare": "hospital",
-      "emergency": "yes"
+      "id": 2795,
+      "geometry": "POINT (-83.371876 33.945045)",
+      "poi_name": "Georgia Museum of Natural History",
+      "osm_id": 10034681322,
+      "tourism": "museum",
+      "website": "https://naturalhistory.uga.edu/",
+      "museum": "nature"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Sky Ranch Lodge, Sedona, AZ",
-      "geo_wkt": "POINT (-111.790454 34.852442)",
+      "display_name": "Americas Best Value Inn-Nashville/Downtown Hotel, Nashville, TN",
+      "geo_wkt": "POINT (-86.777756 36.209722)",
       "poi": {
-        "id": 21984,
-        "geometry": "POINT (-111.790454 34.852442)",
-        "poi_name": "Sky Ranch Lodge",
-        "osm_id": 948456954,
+        "id": 1251,
+        "geometry": "POINT (-86.777756 36.209722)",
+        "poi_name": "Americas Best Value Inn-Nashville/Downtown Hotel",
+        "osm_id": 2917693185,
         "tourism": "hotel",
-        "website": "https://skyranchlodge.com/",
-        "phone": "(928) 282-6400",
-        "addr_state": "AZ",
-        "addr_city": "Sedona",
-        "addr_postcode": "86336",
-        "addr_street": "Airport Road",
-        "addr_housenumber": "1105"
+        "operator": "Americas Best Value Inn-Nashville/Downtown Hotel",
+        "website": "http://www.abvinashvilledowntown.com",
+        "phone": "(615) 226-9805",
+        "addr_state": "TN",
+        "addr_city": "Nashville",
+        "addr_postcode": "37207-4405",
+        "addr_street": "Brick Church Pike",
+        "addr_housenumber": "2403"
       }
     }
   },
-  "id": 669,
+  "id": 1469,
   "type": "knn:non_spat_filter+name"
 }

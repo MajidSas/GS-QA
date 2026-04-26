@@ -1,44 +1,53 @@
 {
-  "question": "What is the nearest garden in the north direction of Allen Park Civic Arena, Allen Park, MI?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.211376 42.258691)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which golf course is closest when moving in the northwest direction from Children's Wisconsin-Fox Valley Hospital, Neenah, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-88.454227 44.187892)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267398,
-      "geometry": "POINT (-83.211376 42.258691)",
-      "poi_name": "butterfly garden",
-      "osm_id": 5961960457,
-      "leisure": "garden"
+      "id": 246216,
+      "geometry": "POINT (-88.454227 44.187892)",
+      "poi_name": "Northwood Golf Club",
+      "osm_id": 5714562863,
+      "leisure": "golf_course",
+      "website": "https://www.northwoodgolfclub.com/",
+      "phone": "+1-715-282-6565",
+      "addr_city": "Rhinelander",
+      "addr_postcode": "54501",
+      "addr_street": "Golf Course Road",
+      "addr_housenumber": "3131"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Allen Park Civic Arena, Allen Park, MI",
-      "geo_wkt": "POINT (-83.211376 42.258691)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Wisconsin-Fox Valley Hospital, Neenah, WI",
+      "geo_wkt": "POINT (-88.454227 44.187892)",
       "poi": {
-        "id": 265370,
-        "geometry": "POINT (-83.211376 42.258691)",
-        "poi_name": "Allen Park Civic Arena",
-        "osm_id": 367815831,
-        "leisure": "stadium",
-        "addr_state": "MI",
-        "addr_city": "Allen Park",
-        "addr_postcode": "48101",
-        "addr_street": "White Avenue",
-        "addr_housenumber": "15800"
+        "id": 57799,
+        "geometry": "POINT (-88.454227 44.187892)",
+        "poi_name": "Children's Wisconsin-Fox Valley Hospital",
+        "osm_id": 5352023735,
+        "amenity": "hospital",
+        "operator": "Children's Hospital of Wisconsin",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "WI",
+        "addr_city": "Neenah",
+        "addr_postcode": "54956",
+        "addr_street": "2nd Street",
+        "addr_housenumber": "130"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2585,
+  "id": 1285,
   "type": "knn:direction+name"
 }

@@ -1,55 +1,51 @@
 {
-  "question": "How far is the nearest museum from the reference point Upstate Golisano Children's Hospital, Syracuse, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.138443 43.042138)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.138443 43.042138)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the proximity distance of the closest beach resort to Sea Life Aquarium, San Antonio, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 6674,
-      "geometry": "POINT (-76.149151 43.047882)",
-      "poi_name": "Onondaga Historical Association Museum & Research Center",
-      "osm_id": 1917240901,
-      "tourism": "museum",
-      "opening_hours": "We-Fr 10:00-16:00; Sa-Su 11:00-16:00",
-      "website": "https://www.cnyhistory.org/",
-      "phone": "315 428 1864",
-      "addr_state": "NY",
-      "addr_city": "Syracuse",
-      "addr_postcode": "13202",
-      "addr_street": "Montgomery Street",
-      "addr_housenumber": "321",
-      "distance": 1080.94718337
+      "id": 249010,
+      "geometry": "POINT (-87.546195 30.279291)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103",
+      "distance": 1060914.63485432
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Upstate Golisano Children's Hospital, Syracuse, NY",
-      "geo_wkt": "POINT (-76.138443 43.042138)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
       "poi": {
-        "id": 169697,
-        "geometry": "POINT (-76.138443 43.042138)",
-        "poi_name": "Upstate Golisano Children's Hospital",
-        "osm_id": 2315338215,
-        "amenity": "hospital",
-        "opening_hours": "24/7",
-        "operator": "State University of New York Upstate Medical University",
-        "website": "https://www.upstate.edu/gch/",
-        "phone": "315 464 5437",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "NY",
-        "addr_city": "Syracuse",
-        "addr_postcode": "13210",
-        "addr_street": "Children's Circle",
-        "addr_housenumber": "1"
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
       }
     }
   },
-  "id": 2455,
+  "id": 655,
   "type": "knn+distance"
 }

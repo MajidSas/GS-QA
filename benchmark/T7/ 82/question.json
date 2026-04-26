@@ -1,48 +1,54 @@
 {
-  "question": "What is the closest city from the nearest nature reserve from Oak Ridge Children's Museum, Oak Ridge, TN?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the name of the university that is affiliated with the closest hospital from Hashimoto Contemporary, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.9827 40.718445)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24867,
-      "geometry": "POINT (-83.931295 35.357363)",
-      "poi_name": "Joyce Kilmer Memorial Forest",
-      "osm_id": 4349050188,
-      "leisure": "nature_reserve",
-      "tourism": "attraction",
-      "wikidata": "Q14708003",
-      "multihop_answer": "Robbinsville, North Carolina",
-      "multihop_attribute": "Nearest\u00a0city",
-      "multihop_long_answer": "Joyce Kilmer Memorial Forest Nearest\u00a0city: Robbinsville, North Carolina"
+      "id": 167520,
+      "geometry": "POINT (-73.984581 40.73188)",
+      "poi_name": "New York Eye and Ear Infirmary of Mount Sinai",
+      "osm_id": 357642745,
+      "amenity": "hospital",
+      "operator": "Mount Sinai",
+      "website": "http://www.nyee.edu/",
+      "phone": "+1 212 979 4000",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q7013496",
+      "addr_city": "New York",
+      "addr_postcode": "10003",
+      "addr_street": "East 14th Street",
+      "addr_housenumber": "310",
+      "multi_source_answer": "Icahn School of Medicine at Mount Sinai",
+      "multi_source_attribute": "Affiliated university",
+      "multi_source_long_answer": "New York Eye and Ear Infirmary of Mount Sinai Affiliated university: Icahn School of Medicine at Mount Sinai"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
-      "geo_wkt": "POINT (-84.272003 36.02315)",
+      "sub_category": "gallery",
+      "display_name": "Hashimoto Contemporary, New York, NY",
+      "geo_wkt": "POINT (-73.9827 40.718445)",
       "poi": {
-        "id": 683,
-        "geometry": "POINT (-84.272003 36.02315)",
-        "poi_name": "Oak Ridge Children's Museum",
-        "osm_id": 2635855829,
-        "tourism": "museum",
-        "website": "https://childrensmuseumofoakridge.org/",
-        "phone": "+1 (865) 482-1074",
-        "wikidata": "Q5098179",
-        "addr_state": "TN",
-        "addr_city": "Oak Ridge",
-        "addr_postcode": "37830",
-        "addr_street": "West Outer Drive",
-        "addr_housenumber": "461"
+        "id": 1094,
+        "geometry": "POINT (-73.9827 40.718445)",
+        "poi_name": "Hashimoto Contemporary",
+        "osm_id": 2826801779,
+        "tourism": "gallery",
+        "website": "https://www.hashimotocontemporary.com/",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10002",
+        "addr_street": "Rivington Street",
+        "addr_housenumber": "210"
       }
     }
   },
-  "id": 981,
-  "type": "knn+name+multihop1"
+  "id": 881,
+  "type": "knn+name+multi_source1"
 }

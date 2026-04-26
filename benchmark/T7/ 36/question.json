@@ -1,44 +1,54 @@
 {
-  "question": "When was the nearest nature reserve from Stephen Kasun Fine Art Gallery, Savannah, GA established?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.095259 32.080662)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest museum from Mercyhealth Hospital and Physician Clinic, Crystal Lake, IL established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.285376 42.216938)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265997,
-      "geometry": "POINT (-81.100209 32.160618)",
-      "poi_name": "Savannah National Wildlife Refuge",
-      "osm_id": 1549137171,
-      "leisure": "nature_reserve",
-      "wikidata": "Q7427867",
-      "multihop_answer": "1927; 97\u00a0years ago",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Savannah National Wildlife Refuge Established: 1927; 97\u00a0years ago"
+      "id": 2130,
+      "geometry": "POINT (-88.107526 42.260034)",
+      "poi_name": "Lake County Discovery Museum",
+      "osm_id": 3269928614,
+      "tourism": "museum",
+      "website": "https://www.lcfpd.org/museum/",
+      "phone": "+1-847-367-6640",
+      "wikidata": "Q6475496",
+      "addr_state": "IL",
+      "addr_city": "Libertyville",
+      "addr_postcode": "60048",
+      "addr_street": "Winchester Road",
+      "addr_housenumber": "1899",
+      "multi_source_answer": "1976",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Lake County Discovery Museum Established: 1976"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Stephen Kasun Fine Art Gallery, Savannah, GA",
-      "geo_wkt": "POINT (-81.095259 32.080662)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mercyhealth Hospital and Physician Clinic, Crystal Lake, IL",
+      "geo_wkt": "POINT (-88.285376 42.216938)",
       "poi": {
-        "id": 2299,
-        "geometry": "POINT (-81.095259 32.080662)",
-        "poi_name": "Stephen Kasun Fine Art Gallery",
-        "osm_id": 3372942082,
-        "tourism": "gallery",
-        "website": "https://www.kasunstudio.com/",
-        "addr_state": "GA",
-        "addr_city": "Savannah",
-        "addr_street": "West Congress Street",
-        "addr_housenumber": "306"
+        "id": 67613,
+        "geometry": "POINT (-88.285376 42.216938)",
+        "poi_name": "Mercyhealth Hospital and Physician Clinic",
+        "osm_id": 11242669956,
+        "amenity": "hospital",
+        "phone": "+1-779-220-5500",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "IL",
+        "addr_city": "Crystal Lake",
+        "addr_postcode": "60014",
+        "addr_street": "S IL31",
+        "addr_housenumber": "875"
       }
     }
   },
-  "id": 935,
-  "type": "knn+name+multihop1"
+  "id": 835,
+  "type": "knn+name+multi_source1"
 }

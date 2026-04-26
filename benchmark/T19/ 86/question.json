@@ -1,42 +1,50 @@
 {
-  "question": "Where's the closest museum to the west of Memorial Stadium, Wayne, NE?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.014509 42.243746)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant when heading north from Lander Trail, Afton, WY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-110.934459 42.731474)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16785,
-      "geometry": "POINT (-97.014509 42.243746)",
-      "poi_name": "Meadow Grove Museum",
-      "osm_id": 366492369,
-      "tourism": "museum",
-      "addr_state": "NE"
+      "id": 88290,
+      "geometry": "POINT (-110.934459 42.731474)",
+      "poi_name": "225 BBQ etc",
+      "osm_id": 8778014855,
+      "amenity": "restaurant",
+      "website": "225bbqetc.com",
+      "phone": "+1-307-883-2250",
+      "addr_state": "WY",
+      "addr_city": "Thayne",
+      "addr_postcode": "83127",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "261"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Memorial Stadium, Wayne, NE",
-      "geo_wkt": "POINT (-97.014509 42.243746)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lander Trail, Afton, WY",
+      "geo_wkt": "POINT (-110.934459 42.731474)",
       "poi": {
-        "id": 257717,
-        "geometry": "POINT (-97.014509 42.243746)",
-        "poi_name": "Memorial Stadium",
-        "osm_id": 357784811,
-        "leisure": "park",
-        "addr_state": "NE",
-        "addr_city": "Wayne",
-        "addr_postcode": "68787",
-        "addr_street": "Stadium Drive"
+        "id": 305,
+        "geometry": "POINT (-110.934459 42.731474)",
+        "poi_name": "Lander Trail",
+        "osm_id": 8299561130,
+        "tourism": "museum",
+        "phone": "+1-307-883-2174",
+        "addr_state": "WY",
+        "addr_city": "Afton",
+        "addr_postcode": "83110",
+        "addr_street": "West 1st Avenue",
+        "addr_housenumber": "138"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
   "id": 1185,

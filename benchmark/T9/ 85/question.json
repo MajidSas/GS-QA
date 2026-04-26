@@ -1,48 +1,45 @@
 {
-  "question": "Which golf course is nearest in the southwest direction from Five Wells Roping Rodeo Arena, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which zoo is nearest in the north direction from Parker Manatee Aquarium, Bradenton, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.571569 27.497999)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245444,
-      "geometry": "POINT (-97.402227 30.995182)",
-      "poi_name": "White Wing Golf Club",
-      "osm_id": 2918112986,
-      "leisure": "golf_course",
-      "operator": "Sun City Texas Community Association",
-      "website": "http://golf.sctxca.org/",
-      "phone": "+1-512-948-7570",
-      "addr_state": "TX",
-      "addr_city": "Georgetown",
-      "addr_postcode": "78633",
-      "addr_street": "Dove Hollow Trail",
-      "addr_housenumber": "150"
+      "id": 16307,
+      "geometry": "POINT (-82.571569 27.497999)",
+      "poi_name": "Tampa's Lowry Park Zoo",
+      "osm_id": 358699618,
+      "tourism": "zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Five Wells Roping Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Parker Manatee Aquarium, Bradenton, FL",
+      "geo_wkt": "POINT (-82.571569 27.497999)",
       "poi": {
-        "id": 265394,
-        "geometry": "POINT (-97.402227 30.995182)",
-        "poi_name": "Five Wells Roping Rodeo Arena",
-        "osm_id": 368165371,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 2533,
+        "geometry": "POINT (-82.571569 27.497999)",
+        "poi_name": "Parker Manatee Aquarium",
+        "osm_id": 493892785,
+        "tourism": "aquarium",
+        "fee": "yes",
+        "addr_state": "FL",
+        "addr_city": "Bradenton",
+        "addr_postcode": "34205",
+        "addr_street": "10th Street West",
+        "addr_housenumber": "201"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2584,
+  "id": 1284,
   "type": "knn:direction+name"
 }

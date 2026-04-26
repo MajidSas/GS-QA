@@ -1,49 +1,41 @@
 {
-  "question": "What is the direction towards the closest museum from It's A Zoo Life, Macclesville, NC?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.67449 35.786787)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In what direction is the closest park relative to Faith Arena, Surprise, AZ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3073,
-      "geometry": "POINT (-77.726499 35.490316)",
-      "poi_name": "Nooherooka Monument, Snow Hill",
-      "osm_id": 10158503818,
-      "tourism": "museum",
-      "website": "https://docsouth.unc.edu/",
-      "addr_postcode": "28580",
-      "addr_street": "Nooherooka Road",
-      "addr_housenumber": "2846",
-      "angle": 188.16484633634815
+      "id": 267507,
+      "geometry": "POINT (-112.378103 33.612593)",
+      "poi_name": "Lower Ventura Park",
+      "osm_id": 7609820133,
+      "leisure": "park",
+      "angle": 198.53022415486328
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "It's A Zoo Life, Macclesville, NC",
-      "geo_wkt": "POINT (-77.67449 35.786787)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Faith Arena, Surprise, AZ",
+      "geo_wkt": "POINT (-112.371855 33.62819)",
       "poi": {
-        "id": 12531,
-        "geometry": "POINT (-77.67449 35.786787)",
-        "poi_name": "It's A Zoo Life",
-        "osm_id": 7297084056,
-        "tourism": "zoo",
-        "fee": "yes",
-        "opening_hours": "Mo-Sa 08:00-17:00",
-        "phone": "(252) 266-7974",
-        "zoo": "petting_zoo",
-        "addr_state": "NC",
-        "addr_city": "Macclesville",
-        "addr_postcode": "27852",
-        "addr_street": "NC-42",
-        "addr_housenumber": "4313"
+        "id": 265626,
+        "geometry": "POINT (-112.371855 33.62819)",
+        "poi_name": "Faith Arena",
+        "osm_id": 10762941402,
+        "leisure": "stadium",
+        "addr_state": "AZ",
+        "addr_city": "Surprise",
+        "addr_postcode": "85374",
+        "addr_street": "West Tierra Buena Lane",
+        "addr_housenumber": "14470"
       }
     }
   },
-  "id": 1463,
+  "id": 563,
   "type": "knn+angle"
 }

@@ -1,57 +1,66 @@
 {
-  "question": "Where is the closest restaurant from Depot Museum, CA towards Hungry Valley SVRA, Gorman, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography, ST_GeomFromText('POINT (-118.871038 34.791936)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-119.277375 35.505634)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant along the corridor from Art Clinic, New York, NY to Stanford in New York Center, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983174 40.718763)',4326)::geography, ST_GeomFromText('POINT (-73.989774 40.739706)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983174 40.718763)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.983174 40.718763)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 138079,
-      "geometry": "POINT (-119.274525 35.502614)",
-      "poi_name": "La Fonda Taqueria y Mariscos",
-      "osm_id": 6128776295,
+      "id": 158840,
+      "geometry": "POINT (-73.984442 40.720542)",
+      "poi_name": "Ivan Ramen",
+      "osm_id": 4764733059,
       "amenity": "restaurant",
-      "cuisine": "mexican",
-      "addr_state": "CA",
-      "addr_city": "Shafter",
-      "addr_postcode": "93263",
-      "addr_street": "Central Avenue",
-      "addr_housenumber": "358",
-      "value": 154.82087318916888
+      "cuisine": "ramen;japanese",
+      "opening_hours": "Fr, Sa 12:30-23:00; Mo-Th, Su 12:30-22:00",
+      "website": "https://www.ivanramen.com/location/clinton-st/",
+      "phone": "+1-646-678-3859",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10002",
+      "addr_street": "Clinton Street",
+      "addr_housenumber": "25",
+      "value": 346.520578296304
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Depot Museum, CA",
-      "geo_wkt": "POINT (-119.277375 35.505634)",
+      "sub_category": "gallery",
+      "display_name": "Art Clinic, New York, NY",
+      "geo_wkt": "POINT (-73.983174 40.718763)",
       "poi": {
-        "id": 18282,
-        "geometry": "POINT (-119.277375 35.505634)",
-        "poi_name": "Depot Museum",
-        "osm_id": 368174562,
-        "tourism": "museum",
-        "website": "https://shafterdepotmuseum.org/",
-        "addr_state": "CA"
+        "id": 859,
+        "geometry": "POINT (-73.983174 40.718763)",
+        "poi_name": "Art Clinic",
+        "osm_id": 2713432144,
+        "description": "Art Studio operated by NYC street artist #SacSix that provided crayons and coloring books during the height of the pandemic",
+        "tourism": "gallery",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10002",
+        "addr_street": "Ridge Street",
+        "addr_housenumber": "106"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Hungry Valley SVRA, Gorman, CA",
-      "geo_wkt": "POINT (-118.871038 34.791936)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Stanford in New York Center, New York, NY",
+      "geo_wkt": "POINT (-73.989774 40.739706)",
       "poi": {
-        "id": 246478,
-        "geometry": "POINT (-118.871038 34.791936)",
-        "poi_name": "Hungry Valley SVRA",
-        "osm_id": 9733590976,
-        "leisure": "park",
-        "tourism": "camp_site",
-        "fee": "yes",
-        "operator": "California Department of Parks and Recreation",
-        "addr_state": "CA",
-        "addr_city": "Gorman",
-        "addr_postcode": "92343",
-        "addr_street": "Hungry Valley Road"
+        "id": 228324,
+        "geometry": "POINT (-73.989774 40.739706)",
+        "poi_name": "Stanford in New York Center",
+        "osm_id": 4338958231,
+        "amenity": "university",
+        "operator": "The Board of Trustees of the Leland Stanford Junior University",
+        "website": "https://undergrad.stanford.edu/stanford-in-new-york",
+        "phone": "(212) 768-2905",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10010",
+        "addr_street": "Broadway",
+        "addr_housenumber": "915"
       }
     },
     "[1]": {
@@ -59,6 +68,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 1386,
+  "id": 1586,
   "type": "knn:towards+loc"
 }

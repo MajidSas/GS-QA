@@ -1,14 +1,14 @@
 {
-  "question": "Which direction points towards the nearest zoo from Norwood Park, Norwood, NC?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.130475 35.231399)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.130475 35.231399)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the compass direction to the closest zoo from Bresnan Arena, Mankato, MN?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25293,
-      "geometry": "POINT (-80.720774 35.622932)",
-      "poi_name": "Lazy 5 Ranch",
-      "osm_id": 4440501003,
+      "id": 7277,
+      "geometry": "POINT (-95.124441 44.551118)",
+      "poi_name": "Redwood Falls Zoo",
+      "osm_id": 2044305641,
       "tourism": "zoo",
-      "angle": 309.19072636952
+      "angle": 296.9877681865734
     }
   ],
   "answer_type": "angle",
@@ -19,23 +19,24 @@
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Norwood Park, Norwood, NC",
-      "geo_wkt": "POINT (-80.130475 35.231399)",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
       "poi": {
-        "id": 265628,
-        "geometry": "POINT (-80.130475 35.231399)",
-        "poi_name": "Norwood Park",
-        "osm_id": 10763716150,
-        "leisure": "park",
-        "addr_state": "NC",
-        "addr_city": "Norwood",
-        "addr_postcode": "28128",
-        "addr_street": "North Main Street",
-        "addr_housenumber": "782"
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
       }
     }
   },
-  "id": 1455,
+  "id": 555,
   "type": "knn+angle"
 }

@@ -1,43 +1,46 @@
 {
-  "question": "How far away is the nearest theme park from Tablerocks Goodnight Amphitheater, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.532231 30.940462)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between El Paso Children's Hospital, El Paso, TX and the closest available garden?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-106.433956 31.771455)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.433956 31.771455)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1735,
-      "geometry": "POINT (-97.166138 30.231527)",
-      "poi_name": "Sherwood Forest Faire",
-      "osm_id": 3129085781,
-      "tourism": "theme_park",
-      "website": "https://www.sherwoodforestfaire.com/",
-      "addr_state": "TX",
-      "addr_city": "McDade",
-      "addr_postcode": "78650",
-      "addr_street": "Old Highway 20",
-      "addr_housenumber": "1883",
-      "distance": 86081.21526797
+      "id": 265563,
+      "geometry": "POINT (-106.506389 31.769308)",
+      "poi_name": "Chihuahuan Desert Gardens",
+      "osm_id": 2556109021,
+      "leisure": "garden",
+      "distance": 6865.58255819
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Tablerocks Goodnight Amphitheater, TX",
-      "geo_wkt": "POINT (-97.532231 30.940462)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "El Paso Children's Hospital, El Paso, TX",
+      "geo_wkt": "POINT (-106.433956 31.771455)",
       "poi": {
-        "id": 265396,
-        "geometry": "POINT (-97.532231 30.940462)",
-        "poi_name": "Tablerocks Goodnight Amphitheater",
-        "osm_id": 368165373,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 65538,
+        "geometry": "POINT (-106.433956 31.771455)",
+        "poi_name": "El Paso Children's Hospital",
+        "osm_id": 5700544350,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "website": "https://elpasochildrens.org/",
+        "phone": "+1-915-298-5444",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "TX",
+        "addr_city": "El Paso",
+        "addr_postcode": "79905",
+        "addr_street": "Alameda Avenue",
+        "addr_housenumber": "4845"
       }
     }
   },
-  "id": 2490,
+  "id": 690,
   "type": "knn+distance"
 }

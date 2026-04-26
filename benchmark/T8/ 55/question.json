@@ -1,46 +1,44 @@
 {
-  "question": "Seeking suggestions for the nearest nature reserve in relation to the zoo that was opened on June 13, 2008 in New Orleans, LA.",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest university you\u2019d suggest near the museum established in the year 1973 in Oak Ridge, TN?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 258314,
-      "geometry": "POINT (-89.95286 32.527918)",
-      "poi_name": "Pearl River State Waterfowl Refuge",
-      "osm_id": 357962878,
-      "leisure": "nature_reserve"
+      "id": 216904,
+      "geometry": "POINT (-83.935034 35.952216)",
+      "poi_name": "North Carrick",
+      "osm_id": 9193985241,
+      "amenity": "university",
+      "operator": "university of tennesee"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Audubon Insectarium, New Orleans, LA",
-      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
       "poi": {
-        "id": 15891,
-        "geometry": "POINT (-90.063318 29.951359)",
-        "poi_name": "Audubon Insectarium",
-        "osm_id": 9588493777,
-        "tourism": "zoo",
-        "wheelchair": "yes",
-        "building": "yes",
-        "opening_hours": "Tu-Su 10:00-17:00",
-        "website": "http://www.auduboninstitute.org/visit/insectarium",
-        "zoo": "insectarium",
-        "wikidata": "Q4820238",
-        "addr_state": "LA",
-        "addr_city": "New Orleans",
-        "addr_postcode": "70130",
-        "addr_street": "Canal Street",
-        "addr_housenumber": "403"
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
       }
     }
   },
-  "id": 2754,
-  "type": "knn+name+multihop2"
+  "id": 954,
+  "type": "knn+name+multi_source2"
 }

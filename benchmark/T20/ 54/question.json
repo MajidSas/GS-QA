@@ -1,22 +1,21 @@
 {
-  "question": "Where's the nearest fast food restaurant heading towards McLeod Dillon, Dillon, SC from Days Inn, Florence, SC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography, ST_GeomFromText('POINT (-79.364922 34.421371)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.8042 34.234378)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum lying along the route toward Factory Shoals Recreation Park, Covington, GA from Homewood Suites, Atlanta, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography, ST_GeomFromText('POINT (-83.8283 33.44673)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 161735,
-      "geometry": "POINT (-79.702985 34.265812)",
-      "poi_name": "McDonald's",
-      "osm_id": 4898075890,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/sc/florence/2961-williston-rd/26825.html",
-      "takeaway": "yes",
-      "addr_state": "SC",
-      "addr_city": "Florence",
-      "addr_postcode": "29506",
-      "addr_street": "North Williston Road",
-      "addr_housenumber": "2961",
-      "value": 62.71364605200668
+      "id": 3536,
+      "geometry": "POINT (-84.38977 33.794064)",
+      "poi_name": "William Breman Jewish Heritage Museum",
+      "osm_id": 5453157100,
+      "tourism": "museum",
+      "opening_hours": "Su-Th 10:00-17:00; Fr 10:00-16:00; Sa off",
+      "website": "https://www.thebreman.org/",
+      "wikidata": "Q8005885",
+      "addr_city": "Atlanta",
+      "addr_postcode": "30309",
+      "addr_street": "Spring Street Northwest",
+      "addr_housenumber": "1440",
+      "value": 129.09509535003684
     }
   ],
   "answer_type": "loc",
@@ -24,48 +23,50 @@
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Days Inn, Florence, SC",
-      "geo_wkt": "POINT (-79.8042 34.234378)",
+      "display_name": "Homewood Suites, Atlanta, GA",
+      "geo_wkt": "POINT (-84.460938 33.87927)",
       "poi": {
-        "id": 23891,
-        "geometry": "POINT (-79.8042 34.234378)",
-        "poi_name": "Days Inn",
-        "osm_id": 9181593997,
+        "id": 1442,
+        "geometry": "POINT (-84.460938 33.87927)",
+        "poi_name": "Homewood Suites",
+        "osm_id": 2986245627,
         "tourism": "hotel",
-        "addr_state": "SC",
-        "addr_city": "Florence",
-        "addr_postcode": "29501",
-        "addr_street": "West Lucas Street",
-        "addr_housenumber": "2111"
+        "opening_hours": "24/7",
+        "operator": "Hilton",
+        "website": "https://homewoodsuites3.hilton.com/en/hotels/georgia/homewood-suites-by-hilton-atlanta-galleria-cumberland-ATLCLHW/index.html",
+        "phone": "+1 (770) 988-9449",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "GA",
+        "addr_city": "Atlanta",
+        "addr_postcode": "30339",
+        "addr_street": "Cobb Parkway",
+        "addr_housenumber": "3200"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "McLeod Dillon, Dillon, SC",
-      "geo_wkt": "POINT (-79.364922 34.421371)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Factory Shoals Recreation Park, Covington, GA",
+      "geo_wkt": "POINT (-83.8283 33.44673)",
       "poi": {
-        "id": 167440,
-        "geometry": "POINT (-79.364922 34.421371)",
-        "poi_name": "McLeod Dillon",
-        "osm_id": 357117809,
-        "amenity": "hospital",
-        "website": "https://www.mcleodhealth.org/mcleod-dillon/mcleod-health-dillon-has-a-strong-history-in-the-dillon-community.html",
-        "phone": "+1 843 774 4111",
-        "healthcare": "hospital",
-        "emergency": "yes",
-        "addr_state": "SC",
-        "addr_city": "Dillon",
-        "addr_postcode": "29536",
-        "addr_street": "East Jackson Street",
-        "addr_housenumber": "301"
+        "id": 266026,
+        "geometry": "POINT (-83.8283 33.44673)",
+        "poi_name": "Factory Shoals Recreation Park",
+        "osm_id": 10281025741,
+        "leisure": "park",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "addr_state": "GA",
+        "addr_city": "Covington",
+        "addr_postcode": "30014",
+        "addr_street": "Newton Factory Bridge Road",
+        "addr_housenumber": "450"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1353,
+  "id": 1553,
   "type": "knn:towards+loc"
 }

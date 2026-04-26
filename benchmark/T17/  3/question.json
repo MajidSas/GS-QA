@@ -1,46 +1,44 @@
 {
-  "question": "Could you tell me the location of the closest caf\u00e9 relative to Old Tombstone Bunkhouse, Tombstone, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-110.070531 31.715588)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you tell me where the nearest museum from Missisquoi National Wildlife Refuge, Swanton, VT is located?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.168301 44.963098)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 164030,
-      "geometry": "POINT (-110.067847 31.711454)",
-      "poi_name": "The Hitching Post Cafe",
-      "osm_id": 9447888511,
-      "amenity": "cafe",
-      "description": "A fast grab and go concept with indoor and outdoor dining.\nSpecialty hot dogs, ice cream, (including soft serve), slushie machine, cold sandwiches, salads, nachos, popcorn and assorted beverages.\nGreat location with a friendly atmosphere.",
-      "website": "https://www.facebook.com/The-Hitching-Post-Cafe-103591485360484/",
-      "phone": "(520) 226-7459",
-      "addr_state": "AZ",
-      "addr_city": "Tombstone",
-      "addr_postcode": "85638",
-      "addr_street": "South 4th Street",
-      "addr_housenumber": "339"
+      "id": 16847,
+      "geometry": "POINT (-73.081827 44.810799)",
+      "poi_name": "Saint Albans Historical Museum",
+      "osm_id": 366668021,
+      "tourism": "museum",
+      "website": "https://www.stamuseum.org/",
+      "addr_state": "VT"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Old Tombstone Bunkhouse, Tombstone, AZ",
-      "geo_wkt": "POINT (-110.070531 31.715588)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Missisquoi National Wildlife Refuge, Swanton, VT",
+      "geo_wkt": "POINT (-73.168301 44.963098)",
       "poi": {
-        "id": 19443,
-        "geometry": "POINT (-110.070531 31.715588)",
-        "poi_name": "Old Tombstone Bunkhouse",
-        "osm_id": 10759616198,
-        "tourism": "attraction",
-        "addr_state": "AZ",
-        "addr_city": "Tombstone",
-        "addr_postcode": "85638"
+        "id": 251075,
+        "geometry": "POINT (-73.168301 44.963098)",
+        "poi_name": "Missisquoi National Wildlife Refuge",
+        "osm_id": 356553865,
+        "leisure": "nature_reserve",
+        "opening_hours": "08:00-16:30",
+        "operator": "United States Fish and Wildlife Service",
+        "addr_state": "VT",
+        "addr_city": "Swanton",
+        "addr_postcode": "05488",
+        "addr_street": "Tabor Road",
+        "addr_housenumber": "29"
       }
     }
   },
-  "id": 1802,
+  "id": 702,
   "type": "knn+loc"
 }

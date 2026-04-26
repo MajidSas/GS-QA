@@ -1,47 +1,51 @@
 {
-  "question": "Could you tell me the closest restaurant relative to Bunker Hill, IL?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 near the Denver Hospice, Denver, CO is nearest overall?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 183742,
-      "geometry": "POINT (-87.785907 41.995581)",
-      "poi_name": "Pasta D'Arte",
-      "osm_id": 10943438463,
-      "amenity": "restaurant",
-      "cuisine": "italian",
-      "website": "https://pastadarte.com/",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60646",
-      "addr_street": "North Milwaukee Avenue",
-      "addr_housenumber": "6311"
+      "id": 41069,
+      "geometry": "POINT (-104.896462 39.720043)",
+      "poi_name": "Copper Door Coffee Roasters",
+      "osm_id": 2993468197,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Th 08:00-21:00, Fr-Sa 08:00-22:00, Su 08:00-20:00",
+      "website": "http://www.thelaughinglatte.com/about-the-laughing-latte.html",
+      "phone": "+1-303-949-1783",
+      "addr_postcode": "80230",
+      "addr_street": "East Academy Boulevard",
+      "addr_housenumber": "7571"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Bunker Hill, IL",
-      "geo_wkt": "POINT (-87.781473 42.004049)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "The Denver Hospice, Denver, CO",
+      "geo_wkt": "POINT (-104.891985 39.719901)",
       "poi": {
-        "id": 265726,
-        "geometry": "POINT (-87.781473 42.004049)",
-        "poi_name": "Bunker Hill",
-        "osm_id": 10874811379,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/places/locations/bunker-hill/",
-        "phone": "+1-800-870-3666",
-        "addr_state": "IL"
+        "id": 37397,
+        "geometry": "POINT (-104.891985 39.719901)",
+        "poi_name": "The Denver Hospice",
+        "osm_id": 2810255127,
+        "amenity": "hospital",
+        "website": "https://thedenverhospice.org/",
+        "phone": "+1-303-418-3000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80230",
+        "addr_street": "East Lowry Boulevard",
+        "addr_housenumber": "8299"
       }
     }
   },
-  "id": 282,
+  "id": 1082,
   "type": "knn+name"
 }

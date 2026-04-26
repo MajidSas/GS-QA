@@ -1,60 +1,74 @@
 {
-  "question": "Which restaurant is closest towards Rattlesnake Bomber Base Museum, TX from Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography, ST_GeomFromText('POINT (-103.12767 31.542435)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-102.376579 31.844)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food along the route from Beloit Clinic, Beloit, WI to Cave of the Mounds, Blue Mounds, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.010008 42.550505)',4326)::geography, ST_GeomFromText('POINT (-89.814858 43.01674)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.010008 42.550505)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.010008 42.550505)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182975,
-      "geometry": "POINT (-102.38934 31.842491)",
-      "poi_name": "Brunch & Munch Eatery & Creperie",
-      "osm_id": 10913597948,
-      "amenity": "restaurant",
-      "opening_hours": "Su 10:00-13:00; We-Sa 08:00-13:00",
-      "website": "https://www.brunchandmuncheatery.com/",
-      "phone": "+1-432-552-8777",
-      "addr_state": "TX",
-      "addr_city": "Odessa",
-      "addr_postcode": "79763",
-      "addr_street": "North County Road West",
-      "addr_housenumber": "818",
-      "value": 245.04383443318633
+      "id": 185151,
+      "geometry": "POINT (-89.262662 42.632584)",
+      "poi_name": "Subway",
+      "osm_id": 7835870664,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://order.subway.com/en-us/restaurant/38775/menu/",
+      "phone": "+1-608-879-9000",
+      "takeaway": "yes",
+      "addr_state": "WI",
+      "addr_city": "Orfordville",
+      "addr_postcode": "53576",
+      "addr_street": "West Beloit Street",
+      "addr_housenumber": "618",
+      "value": 308.4557055748377
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Texas Tech University Health Sciences Center at the Permian Basin, Odessa, TX",
-      "geo_wkt": "POINT (-102.376579 31.844)",
+      "sub_category": "hospital",
+      "display_name": "Beloit Clinic, Beloit, WI",
+      "geo_wkt": "POINT (-89.010008 42.550505)",
       "poi": {
-        "id": 150549,
-        "geometry": "POINT (-102.376579 31.844)",
-        "poi_name": "Texas Tech University Health Sciences Center at the Permian Basin",
-        "osm_id": 4059065537,
-        "amenity": "university",
-        "addr_state": "TX",
-        "addr_city": "Odessa"
+        "id": 63331,
+        "geometry": "POINT (-89.010008 42.550505)",
+        "poi_name": "Beloit Clinic",
+        "osm_id": 5610650867,
+        "amenity": "hospital",
+        "operator": "Beloit Health",
+        "healthcare": "hospital",
+        "addr_state": "WI",
+        "addr_city": "Beloit",
+        "addr_postcode": "53511",
+        "addr_street": "Huebbe Parkway",
+        "addr_housenumber": "1905"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Rattlesnake Bomber Base Museum, TX",
-      "geo_wkt": "POINT (-103.12767 31.542435)",
+      "sub_category": "attraction",
+      "display_name": "Cave of the Mounds, Blue Mounds, WI",
+      "geo_wkt": "POINT (-89.814858 43.01674)",
       "poi": {
-        "id": 18018,
-        "geometry": "POINT (-103.12767 31.542435)",
-        "poi_name": "Rattlesnake Bomber Base Museum",
-        "osm_id": 368165090,
-        "tourism": "museum",
-        "addr_state": "TX"
+        "id": 20426,
+        "geometry": "POINT (-89.814858 43.01674)",
+        "poi_name": "Cave of the Mounds",
+        "osm_id": 1157366586,
+        "tourism": "attraction",
+        "fee": "yes",
+        "website": "https://www.caveofthemounds.com/",
+        "phone": "608) 437-3038",
+        "wikidata": "Q5054958",
+        "addr_state": "WI",
+        "addr_city": "Blue Mounds",
+        "addr_postcode": "53517",
+        "addr_street": "Cave of the Mounds Road",
+        "addr_housenumber": "2975"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 156,
+  "id": 1656,
   "type": "knn:towards+name"
 }

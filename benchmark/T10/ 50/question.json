@@ -1,62 +1,80 @@
 {
-  "question": "What's the closest restaurant located en route to Cal, Sr.'s Yard, Aberdeen, MD from Lebanon Valley College, Annville, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.514364 40.332402)',4326)::geography, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.514364 40.332402)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.514364 40.332402)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest fast food when heading from the View Lounge, San Francisco, CA toward Internet Archive - Physical Archive, Richmond, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, ST_GeomFromText('POINT (-122.345908 37.929269)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.404326 37.785414)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 107838,
-      "geometry": "POINT (-76.485464 40.246452)",
-      "poi_name": "Timbers Restaurant",
-      "osm_id": 3581223493,
-      "amenity": "restaurant",
-      "cuisine": "american",
-      "value": 162.36112623767107
+      "id": 48735,
+      "geometry": "POINT (-122.404015 37.786937)",
+      "poi_name": "Super Duper Burgers",
+      "osm_id": 3397910051,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "wheelchair": "yes",
+      "website": "http://www.superdupersf.com/",
+      "phone": "+1-415-538-3437",
+      "takeaway": "yes",
+      "outdoor_seating": "sidewalk",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94103",
+      "addr_street": "Market Street",
+      "addr_housenumber": "721",
+      "value": 17.829153528358333
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Lebanon Valley College, Annville, PA",
-      "geo_wkt": "POINT (-76.514364 40.332402)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The View Lounge, San Francisco, CA",
+      "geo_wkt": "POINT (-122.404326 37.785414)",
       "poi": {
-        "id": 158508,
-        "geometry": "POINT (-76.514364 40.332402)",
-        "poi_name": "Lebanon Valley College",
-        "osm_id": 4751392048,
-        "amenity": "university",
-        "website": "https://www.lvc.edu/",
-        "addr_state": "PA",
-        "addr_city": "Annville",
-        "addr_postcode": "17003",
-        "addr_street": "North College Avenue"
+        "id": 5810,
+        "geometry": "POINT (-122.404326 37.785414)",
+        "poi_name": "The View Lounge",
+        "osm_id": 1612808193,
+        "amenity": "bar",
+        "description": "39th floor bar with city views; enter through hotel",
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Su 16:00-24:00",
+        "operator": "Marriott",
+        "website": "https://www.sfmarquis.com/theview",
+        "phone": "+1 415-896-1600",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94103",
+        "addr_street": "4th Street",
+        "addr_housenumber": "55"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Internet Archive - Physical Archive, Richmond, CA",
+      "geo_wkt": "POINT (-122.345908 37.929269)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 8610,
+        "geometry": "POINT (-122.345908 37.929269)",
+        "poi_name": "Internet Archive - Physical Archive",
+        "osm_id": 8593718592,
+        "description": "The off-site Physical Archives of the Internet Archive",
+        "tourism": "museum",
+        "operator": "Internet Archive",
+        "website": "https://archive.org/",
+        "museum": "archive",
+        "addr_state": "CA",
+        "addr_city": "Richmond",
+        "addr_postcode": "94804",
+        "addr_street": "Florida Avenue",
+        "addr_housenumber": "2512"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 149,
+  "id": 1649,
   "type": "knn:towards+name"
 }

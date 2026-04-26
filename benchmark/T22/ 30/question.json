@@ -1,45 +1,45 @@
 {
-  "question": "Which direction leads to the nearest park situated from Hilton Garden Inn, Fremont, CA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.9314 37.494949)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.9314 37.494949)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the direction of travel to reach the nearest attraction from J P Riddle Stadium, Fayetteville, NC?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 262795,
-      "geometry": "POINT (-121.90468 37.490771)",
-      "poi_name": "Higuera Adobe Park",
-      "osm_id": 358819457,
-      "leisure": "park",
-      "wikidata": "Q49501386",
-      "angle": 101.09500374815129
+      "id": 25678,
+      "geometry": "POINT (-78.870763 35.088114)",
+      "poi_name": "Cape Fear River Trail",
+      "osm_id": 4574997252,
+      "tourism": "attraction",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_street": "Sherman Drive",
+      "addr_housenumber": "631",
+      "angle": 21.882017481687864
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hilton Garden Inn, Fremont, CA",
-      "geo_wkt": "POINT (-121.9314 37.494949)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "J P Riddle Stadium, Fayetteville, NC",
+      "geo_wkt": "POINT (-78.909681 35.008472)",
       "poi": {
-        "id": 4830,
-        "geometry": "POINT (-121.9314 37.494949)",
-        "poi_name": "Hilton Garden Inn",
-        "osm_id": 9643349065,
-        "tourism": "hotel",
-        "website": "https://www.hilton.com/en/hotels/sjcfcgi-hilton-garden-inn-fremont-milpitas/",
-        "internet_access": "yes",
-        "phone": "+1-510-668-1050",
-        "addr_state": "CA",
-        "addr_city": "Fremont",
-        "addr_postcode": "94539",
-        "addr_street": "Warm Springs Boulevard",
-        "addr_housenumber": "45976"
+        "id": 246067,
+        "geometry": "POINT (-78.909681 35.008472)",
+        "poi_name": "J P Riddle Stadium",
+        "osm_id": 5529754475,
+        "leisure": "stadium",
+        "addr_state": "NC",
+        "addr_city": "Fayetteville",
+        "addr_postcode": "28306",
+        "addr_street": "Legion Road",
+        "addr_housenumber": "2823"
       }
     }
   },
-  "id": 1429,
+  "id": 529,
   "type": "knn+angle"
 }

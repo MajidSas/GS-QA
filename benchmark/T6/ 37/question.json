@@ -1,49 +1,56 @@
 {
-  "question": "What's the nearest science museum situated from Raptor Center, Solon, IA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'science'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.571085 41.782583)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest pizza restaurant relative to Franklin Pierce University, Rindge, NH?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%pizza%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.055892 42.779337)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 846,
-      "geometry": "POINT (-89.405939 43.070526)",
-      "poi_name": "UW Geology Museum",
-      "osm_id": 2708020790,
-      "tourism": "museum",
-      "opening_hours": "Mo-Fr 08:30-16:30; Sa 09:00-13:00",
-      "operator": "University of Wisconsin- Madison",
-      "website": "https://geoscience.wisc.edu/museum/",
-      "museum": "science",
-      "wikidata": "Q14714618",
-      "addr_street": "West Dayton Street",
-      "addr_housenumber": "1215"
+      "id": 155600,
+      "geometry": "POINT (-72.138147 42.780448)",
+      "poi_name": "Crossroads Pizza & Subs",
+      "osm_id": 4291998282,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "opening_hours": "Mo 15:00-21:00, Tu-Th 11:00-22:00, Fr-Sa 11:00-23:00, Su 11:00-21:00",
+      "website": "http://www.crossroadspizzanh.com",
+      "capacity": "50",
+      "phone": "+1-603-585-7077",
+      "takeaway": "yes",
+      "delivery": "yes",
+      "addr_state": "NH",
+      "addr_city": "Fitzwilliam",
+      "addr_postcode": "03447",
+      "addr_street": "State Route 12",
+      "addr_housenumber": "21"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "science museum",
-      "poi_filter_sql": "museum = 'science'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "pizza restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%pizza%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Raptor Center, Solon, IA",
-      "geo_wkt": "POINT (-91.571085 41.782583)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Franklin Pierce University, Rindge, NH",
+      "geo_wkt": "POINT (-72.055892 42.779337)",
       "poi": {
-        "id": 25164,
-        "geometry": "POINT (-91.571085 41.782583)",
-        "poi_name": "Raptor Center",
-        "osm_id": 4415617837,
-        "tourism": "zoo",
-        "addr_state": "IA",
-        "addr_city": "Solon",
-        "addr_postcode": "52333",
-        "addr_street": "Raptor Ridge Road Northeast",
-        "addr_housenumber": "3673"
+        "id": 97577,
+        "geometry": "POINT (-72.055892 42.779337)",
+        "poi_name": "Franklin Pierce University",
+        "osm_id": 6484120956,
+        "amenity": "university",
+        "website": "https://franklinpierce.edu/",
+        "wikidata": "Q5491762",
+        "addr_state": "NH",
+        "addr_city": "Rindge",
+        "addr_postcode": "03461",
+        "addr_street": "University Drive",
+        "addr_housenumber": "40"
       }
     }
   },
-  "id": 636,
+  "id": 1436,
   "type": "knn:non_spat_filter+name"
 }

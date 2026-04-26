@@ -1,51 +1,48 @@
 {
-  "question": "How far away is the nearest golf course from Expo 72, Chicago, IL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.625356 41.88463)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance separating Akron Children's Hospital NICU at Mercy Lorain, Lorain, OH and the nearest hotel?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.236734 41.436258)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.236734 41.436258)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245846,
-      "geometry": "POINT (-87.670605 41.920519)",
-      "poi_name": "The Green",
-      "osm_id": 10186016485,
-      "leisure": "golf_course",
-      "description": "This is an indoor golf driving range simulator and entertainment center.",
-      "website": "https://www.golfthegreen.com",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60614",
-      "addr_street": "North Elston Avenue",
-      "addr_housenumber": "2133",
-      "distance": 5476.04567237
+      "id": 9791,
+      "geometry": "POINT (-82.210782 41.417029)",
+      "poi_name": "Days Inn by Wyndham Amherst",
+      "osm_id": 8994077269,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Amherst",
+      "addr_postcode": "44001",
+      "addr_street": "North Leavitt Road",
+      "addr_housenumber": "934",
+      "distance": 3044.13692725
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Expo 72, Chicago, IL",
-      "geo_wkt": "POINT (-87.625356 41.88463)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Akron Children's Hospital NICU at Mercy Lorain, Lorain, OH",
+      "geo_wkt": "POINT (-82.236734 41.436258)",
       "poi": {
-        "id": 12085,
-        "geometry": "POINT (-87.625356 41.88463)",
-        "poi_name": "Expo 72",
-        "osm_id": 6179056467,
-        "tourism": "gallery",
-        "fee": "no",
-        "opening_hours": "24/7",
-        "operator": "Chicago Department of Cultural Affairs and Special Events (DCASE)",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60601",
-        "addr_street": "East Randolph Street",
-        "addr_housenumber": "72"
+        "id": 75922,
+        "geometry": "POINT (-82.236734 41.436258)",
+        "poi_name": "Akron Children's Hospital NICU at Mercy Lorain",
+        "osm_id": 9752675535,
+        "amenity": "hospital",
+        "operator": "Akron Children's Hospital",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Lorain",
+        "addr_postcode": "44053",
+        "addr_street": "Kolbe Road",
+        "addr_housenumber": "3700"
       }
     }
   },
-  "id": 2488,
+  "id": 688,
   "type": "knn+distance"
 }

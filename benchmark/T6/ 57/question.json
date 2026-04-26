@@ -1,52 +1,54 @@
 {
-  "question": "What's the closest history museum from Hilton Garden Inn Mt. Juliet, Mount Juliet, TN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.517783 36.165803)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which sandwich restaurant in the area of Hyatt Centric, New York, NY is closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.007746 40.705205)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 15843,
-      "geometry": "POINT (-86.336725 36.092503)",
-      "poi_name": "Cedars of Lebanon: Sadie Ford Hertitage Farm & Arts Center",
-      "osm_id": 9556882326,
-      "tourism": "museum",
-      "website": "https://tnstateparks.com/parks/activity-detail/cedars-of-lebanon-sadie-ford-heritage-farm",
-      "museum": "history",
-      "addr_state": "TN",
-      "addr_city": "Lebanon",
-      "addr_postcode": "37090",
-      "addr_street": "Cedar Forest Rd.",
-      "addr_housenumber": "328"
+      "id": 93798,
+      "geometry": "POINT (-74.008836 40.704771)",
+      "poi_name": "Lenwich",
+      "osm_id": 2186614188,
+      "amenity": "restaurant",
+      "cuisine": "breakfast;sandwich",
+      "wheelchair": "yes",
+      "opening_hours": "Mo-Fr 08:00-04:00",
+      "outdoor_seating": "no",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10005",
+      "addr_street": "Hanover Square",
+      "addr_housenumber": "10"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "history museum",
-      "poi_filter_sql": "museum = 'history'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "sandwich restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Hilton Garden Inn Mt. Juliet, Mount Juliet, TN",
-      "geo_wkt": "POINT (-86.517783 36.165803)",
+      "display_name": "Hyatt Centric, New York, NY",
+      "geo_wkt": "POINT (-74.007746 40.705205)",
       "poi": {
-        "id": 5188,
-        "geometry": "POINT (-86.517783 36.165803)",
-        "poi_name": "Hilton Garden Inn Mt. Juliet",
-        "osm_id": 9794782575,
+        "id": 1078,
+        "geometry": "POINT (-74.007746 40.705205)",
+        "poi_name": "Hyatt Centric",
+        "osm_id": 2825051771,
         "tourism": "hotel",
-        "website": "https://www.hilton.com/en/hotels/bnamagi-hilton-garden-inn-mt-juliet/",
-        "internet_access": "yes",
-        "phone": "+1 615-637-0400",
-        "addr_state": "TN",
-        "addr_city": "Mount Juliet",
-        "addr_postcode": "37122",
-        "addr_street": "Providence Parkway",
-        "addr_housenumber": "1975"
+        "wheelchair": "yes",
+        "website": "https://newyork.wallstreet.andaz.hyatt.com/",
+        "phone": "+12125901234",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10005",
+        "addr_street": "Wall Street",
+        "addr_housenumber": "75"
       }
     }
   },
-  "id": 656,
+  "id": 1456,
   "type": "knn:non_spat_filter+name"
 }

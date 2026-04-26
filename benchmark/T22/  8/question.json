@@ -1,15 +1,14 @@
 {
-  "question": "Which way should I head to access the closest nature reserve from Lowcountry Graduate from Center, North Charleston, SC?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.021512 32.852846)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.021512 32.852846)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction points toward the closest nature reserve relative to Indian Run Falls Park - Observation Deck B, Dublin, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245787,
-      "geometry": "POINT (-79.706605 32.918368)",
-      "poi_name": "Avian Conservation Center",
-      "osm_id": 10057348402,
+      "id": 255459,
+      "geometry": "POINT (-82.809619 39.938953)",
+      "poi_name": "Walter A Tucker Nature Preserve",
+      "osm_id": 357518167,
       "leisure": "nature_reserve",
-      "website": "https://www.thecenterforbirdsofprey.org/",
-      "angle": 76.06171805514165
+      "angle": 124.06240539317926
     }
   ],
   "answer_type": "angle",
@@ -19,26 +18,23 @@
       "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Lowcountry Graduate Center, North Charleston, SC",
-      "geo_wkt": "POINT (-80.021512 32.852846)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
+      "geo_wkt": "POINT (-83.120136 40.100971)",
       "poi": {
-        "id": 155060,
-        "geometry": "POINT (-80.021512 32.852846)",
-        "poi_name": "Lowcountry Graduate Center",
-        "osm_id": 4268625329,
-        "amenity": "university",
-        "website": "https://www.lowcountrygradcenter.org/",
-        "phone": "843-953-4723",
-        "addr_state": "SC",
-        "addr_city": "North Charleston",
-        "addr_postcode": "29405",
-        "addr_street": "Paramount Drive",
-        "addr_housenumber": "3800"
+        "id": 7435,
+        "geometry": "POINT (-83.120136 40.100971)",
+        "poi_name": "Indian Run Falls Park - Observation Deck B",
+        "osm_id": 2151385735,
+        "tourism": "viewpoint",
+        "addr_state": "OH",
+        "addr_city": "Dublin",
+        "addr_street": "Shawan Falls Drive",
+        "addr_housenumber": "700"
       }
     }
   },
-  "id": 1407,
+  "id": 507,
   "type": "knn+angle"
 }

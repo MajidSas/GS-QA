@@ -1,80 +1,61 @@
 {
-  "question": "Where can I find an attraction located within 120 kilometers in the direction of southwest from Douglas Motorsports Park, Nicholls, GA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography, 120000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a zoo inside a 50 kilometers radius toward the east of Marietta Gone with the Wind Museum, Marietta, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.552262 33.943822)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.552262 33.943822)',4326)::geography, 50000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 228998,
-      "geometry": "POINT (-82.721626 31.422596)",
-      "poi_name": "Frogtown Cellars Hahira Tasting Room",
-      "osm_id": 4362122222,
-      "amenity": "cafe",
-      "cuisine": "sandwich",
-      "tourism": "attraction",
-      "opening_hours": "Mo-Th 12:00-18:00; Fr 12:00-22:00; Sa 12:00-18:00; Su 12:30-18:00",
-      "operator": "Frogtown Cellars",
-      "website": "http://frogtown.us/",
-      "internet_access": "no",
-      "phone": "+1 (229) 794-1600",
+      "id": 5592,
+      "geometry": "POINT (-84.552262 33.943822)",
+      "poi_name": "Yellow River Game Ranch",
+      "osm_id": 827126721,
+      "tourism": "zoo",
+      "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+      "website": "https://www.yellowrivergameranch.com/",
+      "phone": "+1 (770) 972-6643",
+      "zoo": "petting_zoo",
       "addr_state": "GA",
-      "addr_city": "Hahira",
-      "addr_postcode": "31632",
-      "addr_street": "Union Road",
-      "addr_housenumber": "7495"
-    },
-    {
-      "id": 24965,
-      "geometry": "POINT (-82.721626 31.422596)",
-      "poi_name": "Frogtown Cellars Hahira Tasting Room",
-      "osm_id": 4362122222,
-      "amenity": "cafe",
-      "cuisine": "sandwich",
-      "tourism": "attraction",
-      "opening_hours": "Mo-Th 12:00-18:00; Fr 12:00-22:00; Sa 12:00-18:00; Su 12:30-18:00",
-      "operator": "Frogtown Cellars",
-      "website": "http://frogtown.us/",
-      "internet_access": "no",
-      "phone": "+1 (229) 794-1600",
-      "addr_state": "GA",
-      "addr_city": "Hahira",
-      "addr_postcode": "31632",
-      "addr_street": "Union Road",
-      "addr_housenumber": "7495"
+      "addr_city": "Lilburn",
+      "addr_postcode": "30047",
+      "addr_street": "US 78",
+      "addr_housenumber": "4525"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Douglas Motorsports Park, Nicholls, GA",
-      "geo_wkt": "POINT (-82.721626 31.422596)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Marietta Gone with the Wind Museum, Marietta, GA",
+      "geo_wkt": "POINT (-84.552262 33.943822)",
       "poi": {
-        "id": 246444,
-        "geometry": "POINT (-82.721626 31.422596)",
-        "poi_name": "Douglas Motorsports Park",
-        "osm_id": 9673566883,
-        "leisure": "stadium",
-        "sport": "motor",
+        "id": 4122,
+        "geometry": "POINT (-84.552262 33.943822)",
+        "poi_name": "Marietta Gone with the Wind Museum",
+        "osm_id": 5688511847,
+        "tourism": "museum",
+        "opening_hours": "Mo-Sa 10:00-17:00",
+        "operator": "City of Marietta",
+        "website": "http://www.gwtwmarietta.com/",
+        "phone": "+1 (770) 794-5576",
         "addr_state": "GA",
-        "addr_city": "Nicholls",
-        "addr_postcode": "31554",
-        "addr_street": "Ronnie Walker Road",
-        "addr_housenumber": "1560"
+        "addr_city": "Marietta",
+        "addr_postcode": "30064",
+        "addr_street": "Powder Springs Street Southwest",
+        "addr_housenumber": "472"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 57,
+  "id": 2257,
   "type": "range:direction+loc"
 }

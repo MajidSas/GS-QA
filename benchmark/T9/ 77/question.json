@@ -1,55 +1,46 @@
 {
-  "question": "Which fast food restaurant is closest in the southeast direction of Aquarium Outfitters Carolina, Wake Forest, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which museum is nearest in the northwest direction from SEP Stadium, Pleasant Hill, Iowa?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.449931 41.596353)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 62675,
-      "geometry": "POINT (-78.515805 35.970785)",
-      "poi_name": "McDonald's",
-      "osm_id": 5581356497,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/nc/rolesville/415-s-main-st/18373.html",
-      "phone": "+19195567686",
-      "takeaway": "yes",
-      "drive_through": "yes",
-      "addr_state": "NC",
-      "addr_city": "Rolesville",
-      "addr_postcode": "27571",
-      "addr_street": "South Main Street",
-      "addr_housenumber": "415"
+      "id": 17065,
+      "geometry": "POINT (-93.449931 41.596353)",
+      "poi_name": "Iowa Gold Star Museum",
+      "osm_id": 367089444,
+      "tourism": "museum",
+      "website": "https://goldstarmuseum.iowa.gov/",
+      "addr_state": "IA"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
-      "geo_wkt": "POINT (-78.515805 35.970785)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "SEP Stadium, Pleasant Hill, Iowa",
+      "geo_wkt": "POINT (-93.449931 41.596353)",
       "poi": {
-        "id": 12563,
-        "geometry": "POINT (-78.515805 35.970785)",
-        "poi_name": "Aquarium Outfitters Carolina",
-        "osm_id": 7329125760,
-        "tourism": "aquarium",
-        "phone": "(919) 556-8335",
-        "addr_state": "NC",
-        "addr_city": "Wake Forest",
-        "addr_postcode": "27587",
-        "addr_street": "South Main Street",
-        "addr_housenumber": "823"
+        "id": 265707,
+        "geometry": "POINT (-93.449931 41.596353)",
+        "poi_name": "SEP Stadium",
+        "osm_id": 10856875747,
+        "leisure": "stadium",
+        "addr_state": "Iowa",
+        "addr_city": "Pleasant Hill",
+        "addr_postcode": "50327",
+        "addr_street": "Martha L. Miller Drive",
+        "addr_housenumber": "7755"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2576,
+  "id": 1276,
   "type": "knn:direction+name"
 }

@@ -1,40 +1,50 @@
 {
-  "question": "What's the closest garden towards the northwest of Gedney Creek County Park, OR?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-122.653087 44.420444)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest restaurant towards the west of Leon and Ethel Yeiser Rose Garden, Annville, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247783,
-      "geometry": "POINT (-122.653087 44.420444)",
-      "poi_name": "Perennial Garden",
-      "osm_id": 9917928124,
-      "leisure": "garden"
+      "id": 67761,
+      "geometry": "POINT (-76.51439 40.331543)",
+      "poi_name": "99 Chinese Express",
+      "osm_id": 11247299937,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "website": "http://99chinesepa.com/",
+      "phone": "+1-717-838-2034",
+      "addr_state": "PA",
+      "addr_city": "Palmyra",
+      "addr_postcode": "17078",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "613"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Gedney Creek County Park, OR",
-      "geo_wkt": "POINT (-122.653087 44.420444)",
+      "sub_category": "garden",
+      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
+      "geo_wkt": "POINT (-76.51439 40.331543)",
       "poi": {
-        "id": 254276,
-        "geometry": "POINT (-122.653087 44.420444)",
-        "poi_name": "Gedney Creek County Park",
-        "osm_id": 357347984,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 267072,
+        "geometry": "POINT (-76.51439 40.331543)",
+        "poi_name": "Leon and Ethel Yeiser Rose Garden",
+        "osm_id": 4422290591,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2574,
+  "id": 1274,
   "type": "knn:direction+name"
 }

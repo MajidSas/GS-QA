@@ -1,57 +1,396 @@
 {
-  "question": "Where can I find a gallery positioned within 160 kilometers towards the southwest of Centennial High School Football Stadium, Roswell, GA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography, 160000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a park inside a 150 kilometers radius toward the southeast of Fireside Farm & Sawmill, Efland, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.219808 35.967336)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.219808 35.967336)',4326)::geography, 150000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 4703,
-      "geometry": "POINT (-84.292979 34.007322)",
-      "poi_name": "Gregg Irby Gallery",
-      "osm_id": 11396923401,
-      "tourism": "gallery",
-      "wheelchair": "yes",
-      "website": "https://www.greggirbygallery.com",
-      "shop": "art",
-      "phone": "+1 404 549 8303",
-      "addr_state": "GA",
-      "addr_city": "Atlanta",
-      "addr_postcode": "30305",
-      "addr_street": "Peachtree Street Northeast",
-      "addr_housenumber": "2345"
+      "id": 245859,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Harris Lake County Park",
+      "osm_id": 10219953370,
+      "leisure": "park",
+      "phone": "+19193874342",
+      "addr_state": "NC",
+      "addr_city": "New Hill",
+      "addr_postcode": "27562",
+      "addr_street": "County Park Drive",
+      "addr_housenumber": "2112"
+    },
+    {
+      "id": 245860,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Longleaf Shelter - Harris Lake County Park",
+      "osm_id": 10219953371,
+      "leisure": "park",
+      "phone": "+19193874342",
+      "addr_state": "NC",
+      "addr_city": "New Hill",
+      "addr_postcode": "27562"
+    },
+    {
+      "id": 246657,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Big Field",
+      "osm_id": 8786724894,
+      "leisure": "park"
+    },
+    {
+      "id": 246789,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Green at Scotts Mill",
+      "osm_id": 6429174316,
+      "leisure": "park"
+    },
+    {
+      "id": 247650,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Smithfield Community Park",
+      "osm_id": 8022117641,
+      "leisure": "park",
+      "addr_state": "NC",
+      "addr_city": "Smithfield",
+      "addr_postcode": "27577",
+      "addr_street": "East Booker Dairy Road"
+    },
+    {
+      "id": 247666,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "A E Finley Education & Research Center",
+      "osm_id": 8057388969,
+      "leisure": "park",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27603",
+      "addr_street": "Lake Wheeler Road",
+      "addr_housenumber": "4620"
+    },
+    {
+      "id": 247922,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Twin Oaks Park",
+      "osm_id": 6086600179,
+      "leisure": "park"
+    },
+    {
+      "id": 248011,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "New Hope Church Rd Trailhead Parking",
+      "osm_id": 6260898124,
+      "leisure": "park"
+    },
+    {
+      "id": 248237,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Johnston County Rugby Park",
+      "osm_id": 7508364636,
+      "leisure": "park",
+      "addr_state": "NC",
+      "addr_city": "Wilsons Mills",
+      "addr_postcode": "27527",
+      "addr_street": "Powhatan Road",
+      "addr_housenumber": "988"
+    },
+    {
+      "id": 248781,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Jack Marley Park",
+      "osm_id": 4793475277,
+      "leisure": "park"
+    },
+    {
+      "id": 248801,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Raven Rock State Park",
+      "osm_id": 4802464308,
+      "leisure": "park",
+      "description": "A trail park",
+      "phone": "(910) 893-4888",
+      "addr_state": "NC",
+      "addr_city": "Lillington",
+      "addr_postcode": "27546",
+      "addr_street": "Raven Rock Road",
+      "addr_housenumber": "3009"
+    },
+    {
+      "id": 248916,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Alston Ridge Park",
+      "osm_id": 4929231182,
+      "leisure": "park",
+      "addr_state": "NC",
+      "addr_city": "Fuquay-Varina",
+      "addr_postcode": "27526",
+      "addr_street": "Hilltop Needmoore Extension",
+      "addr_housenumber": "6850"
+    },
+    {
+      "id": 257456,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Averasboro Battleground Monument",
+      "osm_id": 357767539,
+      "leisure": "park"
+    },
+    {
+      "id": 257462,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Clayton Field",
+      "osm_id": 357770673,
+      "leisure": "park"
+    },
+    {
+      "id": 257474,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Herman Park",
+      "osm_id": 357774688,
+      "leisure": "park"
+    },
+    {
+      "id": 257957,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Mina Weil Park",
+      "osm_id": 357796512,
+      "leisure": "park"
+    },
+    {
+      "id": 258017,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Regency Park",
+      "osm_id": 357797302,
+      "leisure": "park"
+    },
+    {
+      "id": 258058,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Peacock Park",
+      "osm_id": 357800377,
+      "leisure": "park"
+    },
+    {
+      "id": 258111,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Kirtwood Park",
+      "osm_id": 357810967,
+      "leisure": "park"
+    },
+    {
+      "id": 258125,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Kaplan Park",
+      "osm_id": 357813172,
+      "leisure": "park"
+    },
+    {
+      "id": 266031,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Hubb's Farm (Home of Hubb's Corn Maze)",
+      "osm_id": 10294709196,
+      "leisure": "park",
+      "phone": "(910) 564-6709",
+      "addr_state": "NC",
+      "addr_city": "Clinton",
+      "addr_postcode": "28328",
+      "addr_street": "US-421",
+      "addr_housenumber": "10276"
+    },
+    {
+      "id": 265538,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Dry Avenue Park",
+      "osm_id": 2489770068,
+      "leisure": "park"
+    },
+    {
+      "id": 266521,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Fishing Access",
+      "osm_id": 5257955430,
+      "leisure": "park"
+    },
+    {
+      "id": 266124,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Brack Wilson Park",
+      "osm_id": 10691982791,
+      "leisure": "park",
+      "phone": "+19199659841",
+      "addr_state": "NC",
+      "addr_city": "Selma",
+      "addr_postcode": "27576",
+      "addr_street": "West Oak Street",
+      "addr_housenumber": "1116"
+    },
+    {
+      "id": 266467,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Seqirus Pavilion Park",
+      "osm_id": 5130873213,
+      "leisure": "park"
+    },
+    {
+      "id": 266109,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Smithfield Dog Park",
+      "osm_id": 10657041205,
+      "leisure": "park"
+    },
+    {
+      "id": 266522,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Apex Community Park Sign",
+      "osm_id": 5257955460,
+      "leisure": "park",
+      "tourism": "information",
+      "information": "board"
+    },
+    {
+      "id": 267347,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Candlestick Park",
+      "osm_id": 5889214484,
+      "leisure": "park",
+      "description": "Community town park with baseball fields.",
+      "opening_hours": "Mo-Su 06:00-22:00",
+      "addr_state": "NC",
+      "addr_city": "Four Oaks",
+      "addr_postcode": "27524",
+      "addr_street": "Parker Road",
+      "addr_housenumber": "441"
+    },
+    {
+      "id": 267045,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Fuquay-Varina Dog Park",
+      "osm_id": 4368569155,
+      "leisure": "park"
+    },
+    {
+      "id": 267046,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Kinton Field",
+      "osm_id": 4368569160,
+      "leisure": "park"
+    },
+    {
+      "id": 267047,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "James A. Campbell Park",
+      "osm_id": 4368569165,
+      "leisure": "park"
+    },
+    {
+      "id": 267048,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Dr. William Freeman Park",
+      "osm_id": 4368569176,
+      "leisure": "park"
+    },
+    {
+      "id": 267349,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Holt Park",
+      "osm_id": 5889520887,
+      "leisure": "park"
+    },
+    {
+      "id": 267353,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Tarheel Mobile",
+      "osm_id": 5891362419,
+      "leisure": "park"
+    },
+    {
+      "id": 267355,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Jaycee Bob Wallace Park",
+      "osm_id": 5891876038,
+      "leisure": "park",
+      "description": "park, playground, monument, bench, picnic"
+    },
+    {
+      "id": 267372,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Crabtree Creek Nature Park",
+      "osm_id": 5922569814,
+      "leisure": "park"
+    },
+    {
+      "id": 267384,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Public Outdoor Learning Trail Seating",
+      "osm_id": 5940917205,
+      "leisure": "park",
+      "description": "An outdoor learning trail for the community and general public to walk and educate themselves on the different type of wildlife in the area."
+    },
+    {
+      "id": 267473,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "First Advent",
+      "osm_id": 6053385466,
+      "amenity": "place_of_worship",
+      "leisure": "park"
+    },
+    {
+      "id": 267385,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Outdoor Public Learning Trail Entrance",
+      "osm_id": 5940920721,
+      "leisure": "park",
+      "outdoor_seating": "bench"
+    },
+    {
+      "id": 267386,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Parkerville Community Playground",
+      "osm_id": 5940936608,
+      "leisure": "park"
+    },
+    {
+      "id": 267387,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Civitan Community Playground",
+      "osm_id": 5940964073,
+      "leisure": "park"
+    },
+    {
+      "id": 267388,
+      "geometry": "POINT (-79.219808 35.967336)",
+      "poi_name": "Parkerville Community Playground",
+      "osm_id": 5941035022,
+      "leisure": "park"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Centennial High School Football Stadium, Roswell, GA",
-      "geo_wkt": "POINT (-84.292979 34.007322)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Fireside Farm & Sawmill, Efland, NC",
+      "geo_wkt": "POINT (-79.219808 35.967336)",
       "poi": {
-        "id": 262496,
-        "geometry": "POINT (-84.292979 34.007322)",
-        "poi_name": "Centennial High School Football Stadium",
-        "osm_id": 358784376,
-        "leisure": "stadium",
-        "fee": "9 USD",
-        "sport": "american_football",
-        "addr_state": "GA",
-        "addr_city": "Roswell",
-        "addr_postcode": "30076"
+        "id": 4784,
+        "geometry": "POINT (-79.219808 35.967336)",
+        "poi_name": "Fireside Farm & Sawmill",
+        "osm_id": 9615093449,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "Efland",
+        "addr_postcode": "27243",
+        "addr_street": "Mt Mitchell Road",
+        "addr_housenumber": "6323"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 89,
+  "id": 2289,
   "type": "range:direction+loc"
 }

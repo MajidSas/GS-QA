@@ -1,66 +1,70 @@
 {
-  "question": "Which university is closest on the way to Dudley House, Ventura, CA from the Last House on Mulholland, Los Angeles, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'university'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food aligned with the route to Sugar Brook Field Trial and Wildlife Management Area, Plainfield, CT from Cardiovascular Institute of New England, Cranston, RI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, ST_GeomFromText('POINT (-71.940538 41.716725)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167730,
-      "geometry": "POINT (-118.501471 34.169601)",
-      "poi_name": "Phillips Graduate Institute",
-      "osm_id": 358858323,
-      "amenity": "university",
-      "website": "https://www.pgu.edu/",
-      "value": 281.10219211925505
+      "id": 112741,
+      "geometry": "POINT (-71.516755 41.78904)",
+      "poi_name": "Dunkin'",
+      "osm_id": 3803637775,
+      "amenity": "fast_food",
+      "cuisine": "donut;coffee_shop",
+      "phone": "(401) 946-6810",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "addr_state": "RI",
+      "addr_city": "Johnston",
+      "addr_postcode": "02919",
+      "addr_street": "Plainfield Pike",
+      "addr_housenumber": "1999",
+      "value": 258.84841561595067
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The Last House on Mulholland, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
       "poi": {
-        "id": 3061,
-        "geometry": "POINT (-118.320457 34.131243)",
-        "poi_name": "The Last House on Mulholland",
-        "osm_id": 10152480147,
-        "description": "Hollywood Sign Viewpoint",
-        "tourism": "viewpoint",
-        "parking": "no",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mulholland Highway",
-        "addr_housenumber": "6101"
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Dudley House, Ventura, CA",
-      "geo_wkt": "POINT (-119.24024 34.277629)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sugar Brook Field Trial and Wildlife Management Area, Plainfield, CT",
+      "geo_wkt": "POINT (-71.940538 41.716725)",
       "poi": {
-        "id": 1032,
-        "geometry": "POINT (-119.24024 34.277629)",
-        "poi_name": "Dudley House",
-        "osm_id": 2800250595,
-        "tourism": "museum",
-        "operator": "San Buenaventura Heritage",
-        "website": "https://dudleyhouse.org/",
-        "phone": "+1 (805) 644-3286",
-        "wikidata": "Q14681880",
-        "addr_state": "CA",
-        "addr_city": "Ventura",
-        "addr_postcode": "93003",
-        "addr_street": "North Ashwood Avenue",
-        "addr_housenumber": "197"
+        "id": 266572,
+        "geometry": "POINT (-71.940538 41.716725)",
+        "poi_name": "Sugar Brook Field Trial and Wildlife Management Area",
+        "osm_id": 5277645174,
+        "leisure": "park",
+        "description": "Outdoor recreation and hunting dog training area, Activities: Hiking, Horseback riding, X-country skiing, snowshoeing, hunting, fishing",
+        "addr_state": "CT",
+        "addr_city": "Plainfield",
+        "addr_street": "Sugar Brook Road"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "fast_food"
     }
   },
-  "id": 137,
+  "id": 1637,
   "type": "knn:towards+name"
 }

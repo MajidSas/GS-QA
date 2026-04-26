@@ -1,54 +1,49 @@
 {
-  "question": "What direction does one need to follow to reach the closest aquarium from 3 Palms Zoo & Education Center, Townsend, DE?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.695391 39.329473)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction connects Dolphins Plus Bayside, Key Largo, FL to the nearest golf course?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.41899 25.119027)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24354,
-      "geometry": "POINT (-75.496486 39.155267)",
-      "poi_name": "Super Cichlids Inc",
-      "osm_id": 11016560740,
-      "tourism": "aquarium",
-      "phone": "302-608-3846",
-      "addr_state": "DE",
-      "addr_city": "Dover",
-      "addr_postcode": "19901",
-      "addr_street": "Barl Court",
-      "addr_housenumber": "1055",
-      "angle": 138.33652631307578
+      "id": 247004,
+      "geometry": "POINT (-80.096459 26.19874)",
+      "poi_name": "Simply Golf",
+      "osm_id": 8564236166,
+      "leisure": "golf_course",
+      "sport": "golf",
+      "website": "https://simplygolf.golf",
+      "addr_state": "FL",
+      "addr_city": "Lauderdale-by-the-Sea",
+      "addr_postcode": "33308",
+      "addr_street": "North Ocean Drive",
+      "addr_housenumber": "4755",
+      "angle": 15.079288384597135
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "3 Palms Zoo & Education Center, Townsend, DE",
-      "geo_wkt": "POINT (-75.695391 39.329473)",
+      "sub_category": "aquarium",
+      "display_name": "Dolphins Plus Bayside, Key Largo, FL",
+      "geo_wkt": "POINT (-80.41899 25.119027)",
       "poi": {
-        "id": 9742,
-        "geometry": "POINT (-75.695391 39.329473)",
-        "poi_name": "3 Palms Zoo & Education Center",
-        "osm_id": 8969296347,
-        "tourism": "zoo",
-        "wheelchair": "limited",
-        "fee": "yes",
-        "opening_hours": "Mo-Su 11:00-15:00",
-        "operator": "3 Palms Zoo LLC",
-        "website": "https://3palmszoo.org",
-        "phone": "+1 302-504-6500",
-        "zoo": "petting_zoo",
-        "addr_state": "DE",
-        "addr_city": "Townsend",
-        "addr_postcode": "19734",
-        "addr_street": "Vandyke Greenspring Road",
-        "addr_housenumber": "1060"
+        "id": 14020,
+        "geometry": "POINT (-80.41899 25.119027)",
+        "poi_name": "Dolphins Plus Bayside",
+        "osm_id": 4213432166,
+        "tourism": "aquarium",
+        "website": "https://www.dolphinsplus.com/",
+        "phone": "+1 305-451-4060",
+        "addr_state": "FL",
+        "addr_city": "Key Largo",
+        "addr_street": "Overseas Highway",
+        "addr_housenumber": "1019000"
       }
     }
   },
-  "id": 1485,
+  "id": 585,
   "type": "knn+angle"
 }

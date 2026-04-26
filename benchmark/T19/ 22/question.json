@@ -1,54 +1,50 @@
 {
-  "question": "Where's the nearest gallery located in the northwest of Historic Carson House, Marion, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.057079 35.690893)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest stadium relative to the northeast of Elyria Arts Council, Elyria, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 4755,
-      "geometry": "POINT (-82.057079 35.690893)",
-      "poi_name": "Suzanne Barrett Justis Fine Art",
-      "osm_id": 11445377805,
-      "tourism": "gallery",
-      "opening_hours": "Mo-Fr 09:00-17:00, Sa 10:00-13:00",
-      "operator": "Suzanne Barrett",
-      "website": "https://sbjfineart.com",
-      "phone": "(423) 967-4040",
-      "addr_state": "TN",
-      "addr_city": "Kingsport",
-      "addr_postcode": "37660",
-      "addr_street": "East Market Street",
-      "addr_housenumber": "110"
+      "id": 246704,
+      "geometry": "POINT (-82.105078 41.367311)",
+      "poi_name": "Mentor Civic Arena",
+      "osm_id": 8842654476,
+      "leisure": "stadium",
+      "operator": "City of Mentor",
+      "addr_state": "OH",
+      "addr_city": "Mentor",
+      "addr_postcode": "44060",
+      "addr_street": "Munson Road",
+      "addr_housenumber": "8600"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Historic Carson House, Marion, NC",
-      "geo_wkt": "POINT (-82.057079 35.690893)",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
       "poi": {
-        "id": 22710,
-        "geometry": "POINT (-82.057079 35.690893)",
-        "poi_name": "Historic Carson House",
-        "osm_id": 7222985110,
-        "tourism": "museum",
-        "opening_hours": "We-Sa 10:00-16:00; Su 14:00-17:00",
-        "phone": "(828) 724-4948",
-        "wikidata": "Q5046941",
-        "addr_state": "NC",
-        "addr_city": "Marion",
-        "addr_postcode": "28752",
-        "addr_street": "US-70",
-        "addr_housenumber": "1805"
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
   "id": 1121,

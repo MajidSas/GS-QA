@@ -1,46 +1,266 @@
 {
-  "question": "Where can I find a stadium in the southwest direction of Kindred Hospital Chicago Northlake, Northlake, IL, within a radius of 160 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography, 160000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a hotel that are within 150 kilometers and lie southwest of Bastion Studios, Erie, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography, 150000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 265389,
-      "geometry": "POINT (-87.89054 41.906867)",
-      "poi_name": "Neil Carey Arena",
-      "osm_id": 368073990,
-      "leisure": "stadium",
-      "operator": "Lewis University",
-      "sport": "basketball;volleyball",
-      "addr_state": "IL"
+      "id": 368,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "The Lake House",
+      "osm_id": 8338947755,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "East Springfield",
+      "addr_postcode": "16411",
+      "addr_street": "Old Lake Road",
+      "addr_housenumber": "12689"
+    },
+    {
+      "id": 693,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Holiday Inn Express",
+      "osm_id": 2639469104,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Austintown",
+      "addr_postcode": "44515",
+      "addr_street": "Cerni Pl",
+      "addr_housenumber": "5555"
+    },
+    {
+      "id": 1618,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Liberty Inn",
+      "osm_id": 3080729666,
+      "tourism": "hotel",
+      "phone": "+1-440-599-9767",
+      "addr_state": "OH",
+      "addr_city": "Conneaut",
+      "addr_postcode": "44030",
+      "addr_street": "Liberty Street",
+      "addr_housenumber": "353"
+    },
+    {
+      "id": 2343,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Hotel 30",
+      "osm_id": 3406901193,
+      "tourism": "hotel"
+    },
+    {
+      "id": 3377,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Holiday Inn Express & Suites Ashtabula-Geneva",
+      "osm_id": 5386568486,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Austinburg",
+      "addr_postcode": "44010",
+      "addr_street": "Austinburg Road",
+      "addr_housenumber": "1831"
+    },
+    {
+      "id": 5616,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Hampton Inn&Suites",
+      "osm_id": 842479875,
+      "tourism": "hotel"
+    },
+    {
+      "id": 6841,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "OYO Hotel Conneaut I-90",
+      "osm_id": 8722341450,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Conneaut",
+      "addr_postcode": "44030",
+      "addr_street": "Days Boulevard",
+      "addr_housenumber": "600"
+    },
+    {
+      "id": 6990,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Economy Inn & Suites",
+      "osm_id": 8804126271,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "North Randall",
+      "addr_postcode": "44128",
+      "addr_street": "Northfield Road",
+      "addr_housenumber": "4751"
+    },
+    {
+      "id": 9674,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Quality Inn Wickliffe",
+      "osm_id": 8923166967,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Wickliffe",
+      "addr_postcode": "44092",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "28611"
+    },
+    {
+      "id": 9820,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Extended Stay America - Cleveland - Orange - South",
+      "osm_id": 9004732747,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Orange",
+      "addr_postcode": "44122",
+      "addr_street": "Orange Place",
+      "addr_housenumber": "3820"
+    },
+    {
+      "id": 10941,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Four Creeks Bed & Breakfast",
+      "osm_id": 8162234380,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Girard",
+      "addr_postcode": "16417",
+      "addr_street": "East Main Street",
+      "addr_housenumber": "159"
+    },
+    {
+      "id": 11647,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "TownePlace Suites",
+      "osm_id": 11464729092,
+      "tourism": "hotel",
+      "official_name": "TownePlace Suites by Marriott"
+    },
+    {
+      "id": 15782,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Hyatt Place Cleveland/Lyndhurst/Legacy Village",
+      "osm_id": 9520384747,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "44124",
+      "addr_street": "Cedar Road",
+      "addr_housenumber": "24665"
+    },
+    {
+      "id": 19871,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Holiday Inn Express & Suites Madison",
+      "osm_id": 10921889420,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Madison",
+      "addr_postcode": "44057",
+      "addr_street": "Water Tower Drive",
+      "addr_housenumber": "181"
+    },
+    {
+      "id": 19872,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Hampton Inn Madison",
+      "osm_id": 10921889461,
+      "tourism": "hotel",
+      "official_name": "Hampton by Hilton",
+      "addr_state": "OH",
+      "addr_city": "Madison",
+      "addr_postcode": "44057",
+      "addr_street": "Water Tower Drive",
+      "addr_housenumber": "171"
+    },
+    {
+      "id": 20047,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Quality Inn & Suites",
+      "osm_id": 7837815204,
+      "tourism": "hotel",
+      "addr_state": "PA",
+      "addr_city": "Fairview",
+      "addr_postcode": "16415",
+      "addr_street": "Sterrettania Road",
+      "addr_housenumber": "6467"
+    },
+    {
+      "id": 20419,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Holiday Inn Express",
+      "osm_id": 1152156849,
+      "tourism": "hotel"
+    },
+    {
+      "id": 21627,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Fairfield Inn & Suites by Marriott Ashtabula",
+      "osm_id": 10582402982,
+      "tourism": "hotel",
+      "official_name": "Fairfield Inn & Suites by Marriott",
+      "addr_state": "OH",
+      "addr_city": "Austinburg",
+      "addr_postcode": "44010",
+      "addr_street": "Sidley Court",
+      "addr_housenumber": "2782"
+    },
+    {
+      "id": 21630,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Hampton Inn Ashtabula",
+      "osm_id": 10584118043,
+      "tourism": "hotel",
+      "official_name": "Hampton by Hilton",
+      "addr_state": "OH",
+      "addr_city": "Austinburg",
+      "addr_postcode": "44010",
+      "addr_street": "G.H. Drive",
+      "addr_housenumber": "2900"
+    },
+    {
+      "id": 21631,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Red Roof Inn Ashtabula - Austinburg",
+      "osm_id": 10584333696,
+      "tourism": "hotel",
+      "addr_state": "OH",
+      "addr_city": "Austinburg",
+      "addr_postcode": "44010",
+      "addr_street": "Austinburg Road",
+      "addr_housenumber": "1860"
+    },
+    {
+      "id": 23395,
+      "geometry": "POINT (-80.078195 42.115808)",
+      "poi_name": "Quail Hollow Resort and Country Club",
+      "osm_id": 5167516850,
+      "tourism": "hotel"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Kindred Hospital Chicago Northlake, Northlake, IL",
-      "geo_wkt": "POINT (-87.89054 41.906867)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
       "poi": {
-        "id": 53851,
-        "geometry": "POINT (-87.89054 41.906867)",
-        "poi_name": "Kindred Hospital Chicago Northlake",
-        "osm_id": 10100695466,
-        "amenity": "hospital",
-        "operator": "Kindred Healthcare",
-        "healthcare": "hospital",
-        "addr_state": "IL",
-        "addr_city": "Northlake",
-        "addr_postcode": "60164",
-        "addr_street": "East North Avenue",
-        "addr_housenumber": "365"
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
       }
     },
     "[4]": {
@@ -48,6 +268,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 61,
+  "id": 2261,
   "type": "range:direction+loc"
 }

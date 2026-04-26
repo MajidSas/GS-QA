@@ -1,39 +1,41 @@
 {
-  "question": "What is the number of viewpoints located within 20 kilometers from Bearizona, AZ?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.152245 35.256642)',4326)::geography, 20000)\nAND tourism = 'viewpoint';\n",
+  "question": "What\u2019s the count of stadia within 100 kilometers of the reference point Copicut Woods Parking, Westport, MA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.065023 41.708865)',4326)::geography, 100000)\nAND leisure = 'stadium';\n",
   "answers": [
     {
-      "count": 2
+      "count": 6
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Bearizona, AZ",
-      "geo_wkt": "POINT (-112.152245 35.256642)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Copicut Woods Parking, Westport, MA",
+      "geo_wkt": "POINT (-71.065023 41.708865)",
       "poi": {
-        "id": 15345,
-        "geometry": "POINT (-112.152245 35.256642)",
-        "poi_name": "Bearizona",
-        "osm_id": 4868562858,
-        "tourism": "attraction",
-        "phone": "+19286352289",
-        "addr_state": "AZ",
-        "addr_street": "East Route 66",
-        "addr_housenumber": "1500"
+        "id": 246663,
+        "geometry": "POINT (-71.065023 41.708865)",
+        "poi_name": "Copicut Woods Parking",
+        "osm_id": 8790044765,
+        "leisure": "park",
+        "operator": "The Tristees",
+        "website": "https://thetrustees.org/places-to-visit/south-coast/copicut-woods.html",
+        "addr_state": "MA",
+        "addr_city": "Westport",
+        "addr_postcode": "02790",
+        "addr_street": "Indian Town Road"
       }
     }
   },
-  "id": 2222,
+  "id": 1822,
   "type": "range+count"
 }

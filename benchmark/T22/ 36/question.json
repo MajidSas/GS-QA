@@ -1,15 +1,20 @@
 {
-  "question": "What direction does one need to follow to reach the closest museum from Tensas River National Wildlife Refuge, Tallulah, LA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the compass direction to the closest museum from Strawberry Hill, San Francisco, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12347,
-      "geometry": "POINT (-91.403235 32.63619)",
-      "poi_name": "Poverty Point World Heritage Site",
-      "osm_id": 6308448835,
+      "id": 18187,
+      "geometry": "POINT (-122.44136 37.785207)",
+      "poi_name": "Museum of Russian Culture",
+      "osm_id": 368173975,
       "tourism": "museum",
-      "website": "https://www.povertypoint.us/",
-      "angle": 356.0252901425223
+      "website": "http://www.mrcsf.org/home/",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94115",
+      "addr_street": "Sutter Street",
+      "addr_housenumber": "2450",
+      "angle": 58.60087422909389
     }
   ],
   "answer_type": "angle",
@@ -19,24 +24,22 @@
       "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Tensas River National Wildlife Refuge, Tallulah, LA",
-      "geo_wkt": "POINT (-91.377071 32.317567)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 247209,
-        "geometry": "POINT (-91.377071 32.317567)",
-        "poi_name": "Tensas River National Wildlife Refuge",
-        "osm_id": 3777211992,
-        "leisure": "nature_reserve",
-        "addr_state": "LA",
-        "addr_city": "Tallulah",
-        "addr_postcode": "71282",
-        "addr_street": "Quebec Road",
-        "addr_housenumber": "2312"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     }
   },
-  "id": 1435,
+  "id": 535,
   "type": "knn+angle"
 }

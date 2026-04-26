@@ -1,59 +1,69 @@
 {
-  "question": "Which attraction is nearest as you move towards Sadsbury Woods Preserve, Sadsbury Township, PA from Leon and Ethel Yeiser Rose Garden, Annville, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, ST_GeomFromText('POINT (-75.910977 40.00201)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant along the route from Eddie C. Moore Park, Clearwater, FL to Crowley Museum and Nature Center, Old Myakka, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.710231 27.969393)',4326)::geography, ST_GeomFromText('POINT (-82.260576 27.310796)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.710231 27.969393)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.710231 27.969393)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25099,
-      "geometry": "POINT (-76.157787 40.203059)",
-      "poi_name": "Mother Tucker's Antiques",
-      "osm_id": 4398914891,
-      "tourism": "attraction",
-      "value": 125.25025835860018
+      "id": 85086,
+      "geometry": "POINT (-82.686824 27.894434)",
+      "poi_name": "House of China",
+      "osm_id": 1836070625,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "outdoor_seating": "no",
+      "addr_state": "FL",
+      "addr_city": "Largo",
+      "addr_postcode": "33762",
+      "addr_street": "Ulmerton Road",
+      "addr_housenumber": "3899",
+      "value": 148.59456767053206
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
-      "geo_wkt": "POINT (-76.51439 40.331543)",
+      "sub_category": "park",
+      "display_name": "Eddie C. Moore Park, Clearwater, FL",
+      "geo_wkt": "POINT (-82.710231 27.969393)",
       "poi": {
-        "id": 267072,
-        "geometry": "POINT (-76.51439 40.331543)",
-        "poi_name": "Leon and Ethel Yeiser Rose Garden",
-        "osm_id": 4422290591,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Annville",
-        "addr_postcode": "17003"
+        "id": 246597,
+        "geometry": "POINT (-82.710231 27.969393)",
+        "poi_name": "Eddie C. Moore Park",
+        "osm_id": 1768134609,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Clearwater",
+        "addr_postcode": "33759",
+        "addr_street": "Drew St",
+        "addr_housenumber": "3050"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Sadsbury Woods Preserve, Sadsbury Township, PA",
-      "geo_wkt": "POINT (-75.910977 40.00201)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Crowley Museum and Nature Center, Old Myakka, FL",
+      "geo_wkt": "POINT (-82.260576 27.310796)",
       "poi": {
-        "id": 247036,
-        "geometry": "POINT (-75.910977 40.00201)",
-        "poi_name": "Sadsbury Woods Preserve",
-        "osm_id": 8583251052,
-        "leisure": "park",
-        "opening_hours": "daily, sunrise - sunset",
-        "operator": "Natural Lands",
-        "website": "https://natlands.org/sadsbury-woods-preserve/",
-        "addr_state": "PA",
-        "addr_city": "Sadsbury Township",
-        "addr_street": "Old Wilmington Road",
-        "addr_housenumber": "443"
+        "id": 9601,
+        "geometry": "POINT (-82.260576 27.310796)",
+        "poi_name": "Crowley Museum and Nature Center",
+        "osm_id": 3908761340,
+        "tourism": "museum",
+        "website": "https://crowleyfl.org/",
+        "phone": "941-322-1000",
+        "addr_state": "FL",
+        "addr_city": "Old Myakka",
+        "addr_postcode": "34240",
+        "addr_street": "Myakka Road",
+        "addr_housenumber": "16405"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 133,
+  "id": 1633,
   "type": "knn:towards+name"
 }

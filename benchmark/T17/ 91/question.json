@@ -1,44 +1,46 @@
 {
-  "question": "Seeking the closest museum from Madrona Park, OR, any ideas where it is?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-123.216718 44.845577)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Can you direct me to the closest golf course from Memory Garden, Baltimore, MD?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 19494,
-      "geometry": "POINT (-123.039261 44.931418)",
-      "poi_name": "Bush House Museum",
-      "osm_id": 10788239902,
-      "tourism": "museum",
-      "operator": "Salem Art Association",
-      "website": "https://bushhousemuseum.org/",
-      "phone": "+1 503 363 4714",
-      "addr_state": "OR",
-      "addr_city": "Salem",
-      "addr_postcode": "97302",
-      "addr_street": "Mission Street Southeast",
-      "addr_housenumber": "600"
+      "id": 265591,
+      "geometry": "POINT (-76.624566 39.442836)",
+      "poi_name": "GOLFTEC",
+      "osm_id": 10727013934,
+      "leisure": "golf_course",
+      "addr_state": "MD",
+      "addr_city": "Lutherville",
+      "addr_postcode": "21093",
+      "addr_street": "York Road",
+      "addr_housenumber": "2141"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Madrona Park, OR",
-      "geo_wkt": "POINT (-123.216718 44.845577)",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Baltimore, MD",
+      "geo_wkt": "POINT (-76.638575 39.300016)",
       "poi": {
-        "id": 254442,
-        "geometry": "POINT (-123.216718 44.845577)",
-        "poi_name": "Madrona Park",
-        "osm_id": 357355300,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 245708,
+        "geometry": "POINT (-76.638575 39.300016)",
+        "poi_name": "Memory Garden",
+        "osm_id": 3432403574,
+        "leisure": "garden",
+        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
+        "addr_state": "MD",
+        "addr_city": "Baltimore",
+        "addr_postcode": "21217",
+        "addr_street": "North Carey Street",
+        "addr_housenumber": "929"
       }
     }
   },
-  "id": 1890,
+  "id": 790,
   "type": "knn+loc"
 }

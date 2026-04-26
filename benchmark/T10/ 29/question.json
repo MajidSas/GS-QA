@@ -1,61 +1,65 @@
 {
-  "question": "Which restaurant is closest towards Aquarium Depot, Miami, FL from Gallery 2612, Miami, FL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography, ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.199232 25.801806)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is closest when progressing from Go Fish, Rosedale, MD toward Earline Brown Memorial Park, Port Deposit, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, ST_GeomFromText('POINT (-76.124541 39.615555)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 44780,
-      "geometry": "POINT (-80.199725 25.801355)",
-      "poi_name": "Jugofresh",
-      "osm_id": 3175726143,
-      "amenity": "restaurant",
-      "cuisine": "juice",
-      "value": 235.601387696377
+      "id": 41903,
+      "geometry": "POINT (-76.465293 39.370812)",
+      "poi_name": "Chatime",
+      "osm_id": 3029996002,
+      "amenity": "cafe",
+      "cuisine": "bubble_tea",
+      "takeaway": "yes",
+      "addr_state": "MD",
+      "addr_city": "Nottingham",
+      "addr_postcode": "21236",
+      "addr_street": "Honeygo Boulevard",
+      "addr_housenumber": "8137 A1",
+      "value": 45.2315006612019
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Gallery 2612, Miami, FL",
-      "geo_wkt": "POINT (-80.199232 25.801806)",
+      "sub_category": "aquarium",
+      "display_name": "Go Fish, Rosedale, MD",
+      "geo_wkt": "POINT (-76.48474 39.339761)",
       "poi": {
-        "id": 14211,
-        "geometry": "POINT (-80.199232 25.801806)",
-        "poi_name": "Gallery 2612",
-        "osm_id": 4249047169,
-        "tourism": "gallery",
-        "addr_state": "FL",
-        "addr_city": "Miami",
-        "addr_postcode": "33127",
-        "addr_street": "Northwest 2nd Avenue",
-        "addr_housenumber": "2612"
+        "id": 1512,
+        "geometry": "POINT (-76.48474 39.339761)",
+        "poi_name": "Go Fish",
+        "osm_id": 3026471881,
+        "tourism": "aquarium",
+        "addr_state": "MD",
+        "addr_city": "Rosedale",
+        "addr_postcode": "21237",
+        "addr_street": "Philadelphia Road",
+        "addr_housenumber": "8767 G"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquarium Depot, Miami, FL",
-      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Earline Brown Memorial Park, Port Deposit, MD",
+      "geo_wkt": "POINT (-76.124541 39.615555)",
       "poi": {
-        "id": 26765,
-        "geometry": "POINT (-80.386248 25.685662)",
-        "poi_name": "Aquarium Depot",
-        "osm_id": 6035376680,
-        "tourism": "aquarium",
-        "phone": "+13055963373",
-        "addr_state": "FL",
-        "addr_city": "Miami",
-        "addr_postcode": "33186",
-        "addr_street": "Southwest 88th Street",
-        "addr_housenumber": "11762"
+        "id": 246690,
+        "geometry": "POINT (-76.124541 39.615555)",
+        "poi_name": "Earline Brown Memorial Park",
+        "osm_id": 8829711989,
+        "leisure": "park",
+        "addr_state": "MD",
+        "addr_city": "Port Deposit",
+        "addr_street": "Race Street",
+        "addr_housenumber": "23"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 128,
+  "id": 1628,
   "type": "knn:towards+name"
 }

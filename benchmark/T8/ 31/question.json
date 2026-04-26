@@ -1,41 +1,43 @@
 {
-  "question": "What's the nearest gallery near the university with the former name Denmark Industrial School for African Americans in Denmark, SC?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest zoo nearby the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 252,
-      "geometry": "POINT (-81.142301 33.326083)",
-      "poi_name": "Jim Harrison Gallery",
-      "osm_id": 8262537598,
-      "tourism": "gallery"
+      "id": 15666,
+      "geometry": "POINT (-74.431868 40.341459)",
+      "poi_name": "Thompson Park Zoo",
+      "osm_id": 9438273157,
+      "tourism": "zoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
         "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
       }
     }
   },
-  "id": 2730,
-  "type": "knn+name+multihop2"
+  "id": 930,
+  "type": "knn+name+multi_source2"
 }

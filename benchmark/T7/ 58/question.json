@@ -1,51 +1,45 @@
 {
-  "question": "Who is the director of the nearest museum from City Suites Hotel, Chicago, IL?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.65288 41.939769)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest stadium from School of Cosmetology, Somerset, KY first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9060,
-      "geometry": "POINT (-87.66105 41.899674)",
-      "poi_name": "Polish Museum of America",
-      "osm_id": 3652936567,
-      "tourism": "museum",
-      "website": "https://www.polishmuseumofamerica.org/",
-      "museum": "history",
-      "wikidata": "Q3394265",
-      "addr_state": "IL",
-      "addr_city": "Chicago",
-      "addr_postcode": "60642",
-      "addr_street": "North Milwaukee Avenue",
-      "addr_housenumber": "984",
-      "multihop_answer": "Malgorzata Kot",
-      "multihop_attribute": "Director",
-      "multihop_long_answer": "Polish Museum of America Director: Malgorzata Kot"
+      "id": 246342,
+      "geometry": "POINT (-84.780633 37.642742)",
+      "poi_name": "Farris Stadium",
+      "osm_id": 11331208059,
+      "leisure": "stadium",
+      "wikidata": "Q104880108",
+      "multi_source_answer": "November 3, 1923",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Farris Stadium Opened: November 3, 1923"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "City Suites Hotel, Chicago, IL",
-      "geo_wkt": "POINT (-87.65288 41.939769)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
       "poi": {
-        "id": 74,
-        "geometry": "POINT (-87.65288 41.939769)",
-        "poi_name": "City Suites Hotel",
-        "osm_id": 424212348,
-        "tourism": "hotel",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60657",
-        "addr_street": "West Belmont Avenue",
-        "addr_housenumber": "933"
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
       }
     }
   },
-  "id": 957,
-  "type": "knn+name+multihop1"
+  "id": 857,
+  "type": "knn+name+multi_source1"
 }

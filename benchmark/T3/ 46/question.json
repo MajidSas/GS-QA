@@ -1,50 +1,59 @@
 {
-  "question": "Which stadium is closest when moving towards the east of Aquarium Depot, Miami, FL within 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.386248 25.685662)',4326)::geography, 140000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "What garden can I find within 80 kilometers of Children's Hospital at Montefiore, Bronx, NY toward the southeast?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography, 80000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 261336,
-      "geometry": "POINT (-80.386248 25.685662)",
-      "poi_name": "Marine Stadium",
-      "osm_id": 358699859,
-      "leisure": "stadium",
-      "wikidata": "Q6827353"
+      "id": 266477,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Old Westbury Gardens",
+      "osm_id": 5159830140,
+      "leisure": "garden",
+      "wikidata": "Q2018559"
+    },
+    {
+      "id": 267508,
+      "geometry": "POINT (-73.878898 40.880372)",
+      "poi_name": "Foley Gardens",
+      "osm_id": 7610558203,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquarium Depot, Miami, FL",
-      "geo_wkt": "POINT (-80.386248 25.685662)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 26765,
-        "geometry": "POINT (-80.386248 25.685662)",
-        "poi_name": "Aquarium Depot",
-        "osm_id": 6035376680,
-        "tourism": "aquarium",
-        "phone": "+13055963373",
-        "addr_state": "FL",
-        "addr_city": "Miami",
-        "addr_postcode": "33186",
-        "addr_street": "Southwest 88th Street",
-        "addr_housenumber": "11762"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2645,
+  "id": 2345,
   "type": "range:direction+name"
 }

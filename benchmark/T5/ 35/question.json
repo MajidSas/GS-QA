@@ -1,37 +1,41 @@
 {
-  "question": "What's the nearest attraction near Sauk Trail Woods, IL?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.649076 41.489705)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest park near Catskill Mountain Lodge, Palenville, NY?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 18906,
-      "geometry": "POINT (-87.551922 41.595191)",
-      "poi_name": "Calumet City (Yellow Smiley Face) Water Tower",
-      "osm_id": 2445212225,
-      "tourism": "attraction"
+      "id": 255541,
+      "geometry": "POINT (-73.952912 42.085924)",
+      "poi_name": "Cantine Memorial Field",
+      "osm_id": 357552325,
+      "leisure": "park",
+      "wikidata": "Q34814056"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Sauk Trail Woods, IL",
-      "geo_wkt": "POINT (-87.649076 41.489705)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Catskill Mountain Lodge, Palenville, NY",
+      "geo_wkt": "POINT (-74.009838 42.163279)",
       "poi": {
-        "id": 265408,
-        "geometry": "POINT (-87.649076 41.489705)",
-        "poi_name": "Sauk Trail Woods",
-        "osm_id": 369059365,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 477,
+        "geometry": "POINT (-74.009838 42.163279)",
+        "poi_name": "Catskill Mountain Lodge",
+        "osm_id": 8401145450,
+        "tourism": "hotel",
+        "addr_state": "NY",
+        "addr_city": "Palenville",
+        "addr_postcode": "12463",
+        "addr_street": "Route 32A",
+        "addr_housenumber": "334"
       }
     }
   },
-  "id": 234,
+  "id": 1034,
   "type": "knn+name"
 }

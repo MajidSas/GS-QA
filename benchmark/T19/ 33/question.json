@@ -1,49 +1,50 @@
 {
-  "question": "Where's the nearest stadium located in the north of Aquarium Outfitters Carolina, Wake Forest, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest aquarium toward the northeast of Karpeles Manuscript Library, Jacksonville, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.656807 30.337046)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267563,
-      "geometry": "POINT (-78.515805 35.970785)",
-      "poi_name": "Costello Stadium",
-      "osm_id": 7683085715,
-      "leisure": "stadium",
-      "operator": "Fluvanna County Public Schools",
-      "addr_state": "VA",
-      "addr_city": "Palmyra",
-      "addr_postcode": "22963",
-      "addr_street": "Central Plains Road",
-      "addr_housenumber": "3717"
+      "id": 24624,
+      "geometry": "POINT (-81.656807 30.337046)",
+      "poi_name": "Taylor's Aquarium",
+      "osm_id": 11141985607,
+      "tourism": "aquarium",
+      "phone": "+19105675377",
+      "addr_state": "NC",
+      "addr_city": "Dunn",
+      "addr_postcode": "28334",
+      "addr_street": "North Spring Branch Road",
+      "addr_housenumber": "590"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
-      "geo_wkt": "POINT (-78.515805 35.970785)",
+      "sub_category": "museum",
+      "display_name": "Karpeles Manuscript Library, Jacksonville, FL",
+      "geo_wkt": "POINT (-81.656807 30.337046)",
       "poi": {
-        "id": 12563,
-        "geometry": "POINT (-78.515805 35.970785)",
-        "poi_name": "Aquarium Outfitters Carolina",
-        "osm_id": 7329125760,
-        "tourism": "aquarium",
-        "phone": "(919) 556-8335",
-        "addr_state": "NC",
-        "addr_city": "Wake Forest",
-        "addr_postcode": "27587",
-        "addr_street": "South Main Street",
-        "addr_housenumber": "823"
+        "id": 1648,
+        "geometry": "POINT (-81.656807 30.337046)",
+        "poi_name": "Karpeles Manuscript Library",
+        "osm_id": 3099855229,
+        "tourism": "museum",
+        "opening_hours": "Tu-Fr 10:00-15:00; Sa 10:00-16:00",
+        "website": "https://karpeles.com/museums/jax.php",
+        "wikidata": "Q6373297",
+        "addr_state": "FL",
+        "addr_city": "Jacksonville",
+        "addr_postcode": "32206",
+        "addr_street": "West 1st Street"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
   "id": 1132,

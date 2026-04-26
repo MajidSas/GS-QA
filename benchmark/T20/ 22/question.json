@@ -1,65 +1,70 @@
 {
-  "question": "Where is the closest museum from Discovery Park, Freeport, ME towards Augusta Nature Education Center, Augusta, ME?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography, ST_GeomFromText('POINT (-69.752722 44.311919)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-70.104409 43.857601)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant you encounter heading toward Green rooftop garden at design building, Amherst, MA from Bidwell House Museum, Monterey, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.218371 42.208433)',4326)::geography, ST_GeomFromText('POINT (-72.523498 42.388204)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.218371 42.208433)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.218371 42.208433)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17426,
-      "geometry": "POINT (-69.803176 44.088348)",
-      "poi_name": "CHTJ Southard House Museum",
-      "osm_id": 367795437,
-      "tourism": "museum",
-      "website": "https://www.richmondmaine.com/SouthardHouseMuseum",
-      "phone": "+1 (207) 737-8202",
-      "museum": "history",
-      "addr_state": "ME",
-      "addr_city": "Richmond",
-      "addr_postcode": "04357",
+      "id": 82338,
+      "geometry": "POINT (-72.87991 42.23488)",
+      "poi_name": "Four Main Street Bar & Grill",
+      "osm_id": 1694985287,
+      "amenity": "restaurant",
+      "phone": "+1 413 667 5300",
+      "addr_state": "MA",
+      "addr_city": "Huntington",
+      "addr_postcode": "01050",
       "addr_street": "Main Street",
-      "addr_housenumber": "75",
-      "value": 29.038334347943188
+      "addr_housenumber": "4",
+      "value": 70.55351687460487
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Discovery Park, Freeport, ME",
-      "geo_wkt": "POINT (-70.104409 43.857601)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Bidwell House Museum, Monterey, MA",
+      "geo_wkt": "POINT (-73.218371 42.208433)",
       "poi": {
-        "id": 246631,
-        "geometry": "POINT (-70.104409 43.857601)",
-        "poi_name": "Discovery Park",
-        "osm_id": 1957691568,
-        "leisure": "park",
-        "addr_state": "ME",
-        "addr_city": "Freeport",
-        "addr_postcode": "04032",
-        "addr_street": "Morse St"
+        "id": 245,
+        "geometry": "POINT (-73.218371 42.208433)",
+        "poi_name": "Bidwell House Museum",
+        "osm_id": 8257476461,
+        "tourism": "museum",
+        "opening_hours": "Tours available by reservation only from Memorial Day to Columbus Day.",
+        "operator": "Bidwell House Museum",
+        "website": "https://www.bidwellhousemuseum.org/",
+        "museum": "history",
+        "addr_state": "MA",
+        "addr_city": "Monterey",
+        "addr_postcode": "01245",
+        "addr_street": "Art School Road",
+        "addr_housenumber": "100"
       }
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Augusta Nature Education Center, Augusta, ME",
-      "geo_wkt": "POINT (-69.752722 44.311919)",
+      "sub_category": "park",
+      "display_name": "Green rooftop garden at design building, Amherst, MA",
+      "geo_wkt": "POINT (-72.523498 42.388204)",
       "poi": {
-        "id": 245779,
-        "geometry": "POINT (-69.752722 44.311919)",
-        "poi_name": "Augusta Nature Education Center",
-        "osm_id": 10046271240,
-        "leisure": "nature_reserve",
-        "addr_state": "ME",
-        "addr_city": "Augusta",
-        "addr_postcode": "04330",
-        "addr_street": "Cony Street"
+        "id": 247082,
+        "geometry": "POINT (-72.523498 42.388204)",
+        "poi_name": "Green rooftop garden at design building",
+        "osm_id": 8697461152,
+        "leisure": "park",
+        "operator": "UMass Amherst",
+        "addr_state": "MA",
+        "addr_city": "Amherst",
+        "addr_postcode": "01003",
+        "addr_street": "North Pleasant Street",
+        "addr_housenumber": "551"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 1321,
+  "id": 1521,
   "type": "knn:towards+loc"
 }

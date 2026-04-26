@@ -1,46 +1,48 @@
 {
-  "question": "What's the nearest nature reserve from the university established in the year 1969 in Chicago, IL?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 near the stadium that was constructed in Construction in CO would you recommend?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267143,
-      "geometry": "POINT (-87.740809 41.975523)",
-      "poi_name": "Irene C. Hernandez Family Picnic Grove",
-      "osm_id": 4591260689,
-      "leisure": "nature_reserve",
-      "opening_hours": "sunrise-sunset",
-      "operator": "Forest Preserve District of Cook County",
-      "website": "https://fpdcc.com/places/locations/labagh-woods/"
+      "id": 201433,
+      "geometry": "POINT (-104.95888 39.679939)",
+      "poi_name": "Starbucks",
+      "osm_id": 631828115,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Fr 04:30-20:30; Sa-Su 5:00-20:30",
+      "internet_access": "wlan",
+      "phone": "+1-303-733-9377",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80210",
+      "addr_street": "South University Boulevard",
+      "addr_housenumber": "2000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "IIT Stuart School of Business, Chicago, IL",
-      "geo_wkt": "POINT (-87.642109 41.879101)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
       "poi": {
-        "id": 81297,
-        "geometry": "POINT (-87.642109 41.879101)",
-        "poi_name": "IIT Stuart School of Business",
-        "osm_id": 1619741019,
-        "amenity": "university",
-        "operator": "Illinois Institute of Technology",
-        "website": "https://www.iit.edu/stuart",
-        "wikidata": "Q5971402",
-        "addr_state": "IL",
-        "addr_city": "Chicago",
-        "addr_postcode": "60661",
-        "addr_street": "West Adams Street",
-        "addr_housenumber": "565"
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
       }
     }
   },
-  "id": 2781,
-  "type": "knn+name+multihop2"
+  "id": 981,
+  "type": "knn+name+multi_source2"
 }

@@ -1,43 +1,43 @@
 {
-  "question": "Where's the closest nature reserve located in the direction of northeast from COLORADO WOLF AND WILDLIFE CENTER, Divide, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.212562 38.932278)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest golf course toward the northeast of Out of Africa Wildlife Park, Camp Verde, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266925,
-      "geometry": "POINT (-105.212562 38.932278)",
-      "poi_name": "Proghorn Nature Area",
-      "osm_id": 11135148290,
-      "leisure": "nature_reserve",
+      "id": 265825,
+      "geometry": "POINT (-111.9207 34.612641)",
+      "poi_name": "Sumo Golf Village",
+      "osm_id": 7858016926,
+      "leisure": "golf_course",
       "addr_state": "CO",
-      "addr_city": "Aurora",
-      "addr_postcode": "80016",
-      "addr_street": "East Quincy Avenue",
-      "addr_housenumber": "27800"
+      "addr_city": "Florence",
+      "addr_postcode": "81226",
+      "addr_street": "Gary Player Dr",
+      "addr_housenumber": "5201"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "golf course"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "COLORADO WOLF AND WILDLIFE CENTER, Divide, CO",
-      "geo_wkt": "POINT (-105.212562 38.932278)",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
       "poi": {
-        "id": 24088,
-        "geometry": "POINT (-105.212562 38.932278)",
-        "poi_name": "COLORADO WOLF AND WILDLIFE CENTER",
-        "osm_id": 9308278217,
-        "amenity": "animal_shelter",
-        "tourism": "attraction",
-        "addr_state": "CO",
-        "addr_city": "Divide",
-        "addr_postcode": "80814",
-        "addr_street": "Twin Rock Road",
-        "addr_housenumber": "4729"
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
       }
     },
     "[3]": {

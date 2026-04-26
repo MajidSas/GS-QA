@@ -1,0 +1,124 @@
+Convert the provided user question to a SQL query.
+The following are the tables that exist in the database:
+
+Table 1: pois
+contains the points of interest
+Columns: id, geometry, poi_name, wikidata, wikipedia,
+         addr_state, addr_city,
+         amenity, leisure, tourism, cuisine, museum, healthcare,
+         takeaway, drive_through, outdoor_seating, emergency, restaurant
+
+Table 2: lakes
+contains lakes, rivers, waterbodies, etc.
+Columns: id, geometry, lake_name, wikidata, wikipedia,
+         addr_country, addr_state, addr_county, addr_city, addr_postcode, addr_street, addr_housenumber,
+         waterway, water
+
+Table 3: parks
+contains parks, gardens, etc.
+Columns: id, geometry, park_name, wikidata, wikipedia,
+         leisure, park, tourism
+NOTE: parks has NO address columns (no addr_state, addr_city, etc.).
+      To filter parks by location use ST_Intersects with the regions table.
+
+Table 4: roads
+contains roads, walkways, etc.
+Columns: id, geometry, road_name, wikidata, wikipedia,
+         highway, sidewalk, foot, bicycle, cycleway
+NOTE: roads has NO address columns (no addr_state, addr_city, etc.).
+      To filter roads by location use ST_Intersects with the regions table.
+
+Table 5: regions
+contains administrative region boundaries (cities, counties, states, etc.)
+Columns: id, geometry, region_name, border_type, wikidata, wikipedia
+NOTE: regions has NO poi_name, amenity, leisure, tourism, or address columns.
+      It is used only for spatial boundary lookups.
+
+--- Column Exclusivity Rules ---
+The name column is different in every table — never use one table's name column on another:
+  poi_name    -> pois only
+  lake_name   -> lakes only
+  park_name   -> parks only
+  road_name   -> roads only
+  region_name -> regions only
+
+Address columns (addr_state, addr_city, addr_county, ...) exist only in pois and lakes.
+Parks, roads, and regions do NOT have address columns — filter them by location using:
+  ST_Intersects(X.geometry, (SELECT geometry FROM regions WHERE region_name ILIKE '%<place>%' LIMIT 1))
+
+Category columns are table-specific:
+  amenity, tourism, cuisine, healthcare  -> pois only
+  leisure                                -> pois and parks
+  waterway, water                        -> lakes only
+  highway, sidewalk, foot, bicycle, cycleway -> roads only
+  park                                   -> parks only
+  border_type                            -> regions only
+
+--- OSM Tag Values ---
+All tag values use underscores instead of spaces. Common values per column:
+  amenity:  restaurant, fast_food, cafe, hospital, university, pharmacy, bank, school, fuel, parking
+  leisure:  park, garden, golf_course, nature_reserve, common, marina, stadium, sports_centre, recreation_ground, pitch, playground
+  tourism:  hotel, museum, attraction, viewpoint, zoo, aquarium, gallery, artwork, bed_and_breakfast, theme_park, camp_site
+  highway:  motorway, primary, secondary, tertiary, residential, footway, cycleway, pedestrian, track, road, path, unclassified
+  waterway: river, canal, stream, drain, ditch
+  water:    lake, reservoir, bay, harbour, pond, river
+
+--- PostGIS Spatial Function Reference ---
+All geometry columns store geography type. Cast with ::geography when needed.
+
+Relationship / filter functions:
+  ST_Intersects(a, b)           -- true if geometries share any space (use for within-region queries)
+  ST_Contains(a, b)             -- true if a fully contains b
+  ST_Within(a, b)               -- true if b fully contains a (inverse of ST_Contains)
+  ST_DWithin(a, b, meters)      -- true if geometries are within N meters of each other
+  ST_Touches(a, b)              -- true if geometries share a boundary but not interior
+  ST_Crosses(a, b)              -- true if geometries share some but not all interior points
+  ST_Covers(a, b)               -- true if no point of b lies outside a
+  ST_Disjoint(a, b)             -- true if geometries share no space
+
+Measurement functions (return values in metres or square metres for geography):
+  ST_Distance(a, b)             -- straight-line distance in metres
+  ST_Length(geom::geography)    -- length of a linestring in metres
+  ST_Area(geom::geography)      -- area of a polygon in square metres
+  ST_Perimeter(geom::geography) -- perimeter of a polygon in metres
+
+Construction / transformation functions:
+  ST_Centroid(geom)             -- returns the centre point of a geometry
+  ST_Buffer(geom, meters)       -- returns a geometry expanded by N metres
+  ST_Envelope(geom)             -- returns the bounding-box polygon of a geometry
+  ST_ConvexHull(geom)           -- returns the convex hull of a geometry
+  ST_Union(geom)                -- aggregates / merges geometries
+  ST_Collect(geom)              -- collects geometries into a geometry collection
+  ST_GeomFromText(wkt, srid)    -- constructs a geometry from WKT
+  ST_MakePoint(lon, lat)        -- constructs a point geometry
+
+Direction / angle functions:
+  ST_Azimuth(origin, target)    -- bearing in radians clockwise from north; wrap with degrees() for degrees
+  Compass ranges (degrees):
+    North:     0-22.5 and 337.5-360
+    Northeast: 22.5-67.5
+    East:      67.5-112.5
+    Southeast: 112.5-157.5
+    South:     157.5-202.5
+    Southwest: 202.5-247.5
+    West:      247.5-292.5
+    Northwest: 292.5-337.5
+
+Nearest-neighbour (KNN) operator:
+  geometry <-> other_geometry   -- index-accelerated distance ordering; use in ORDER BY ... ASC to find nearest rows
+
+Named location lookups (never hardcode coordinates):
+  For a named POI:         (SELECT geometry FROM pois WHERE poi_name ILIKE '%<name>%' LIMIT 1)
+  For a region/state/city: (SELECT geometry FROM regions WHERE region_name ILIKE '%<name>%' LIMIT 1)
+
+When creating the sql queries make sure of the following:
+- they match the table names provided
+- every column used must exist in the schema of the table being queried — do not use columns from other tables
+- the queries are compatible with PostGIS
+- cast geometry columns with ::geography when calling ST_Area, ST_Length, ST_Distance, ST_DWithin, ST_Intersects
+- do not include the geometry column in the SELECT output
+- string matching must be flexible, use ILIKE and the '%' sign
+- for named locations (POIs, regions) always use subqueries — never hardcode coordinates
+- do not include any description or text, just the sql query
+- the query starts with ```sql and ends with ```
+Note all tables are based on OpenStreetMap data.

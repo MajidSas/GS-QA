@@ -1,57 +1,264 @@
 {
-  "question": "Where can I find a fast food restaurant to the southwest of Catskill Mountain Lodge, Palenville, NY within 50 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography, 50000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a park within a 140 kilometers search radius in the northwest direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, 140000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 145107,
-      "geometry": "POINT (-74.009838 42.163279)",
-      "poi_name": "Hong Kong Chinese Restaurant",
-      "osm_id": 7313772776,
-      "amenity": "fast_food",
-      "cuisine": "chinese",
-      "opening_hours": "Mo-Sa 11:00-21:00; Su 12:00-21:00",
-      "phone": "+1-845-657-6711",
-      "takeaway": "yes",
-      "addr_state": "NY",
-      "addr_city": "Boiceville",
-      "addr_postcode": "12412",
-      "addr_street": "State Route 28",
-      "addr_housenumber": "4123"
+      "id": 245735,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Donaldson Cave System & Woods",
+      "osm_id": 3497014474,
+      "leisure": "park"
+    },
+    {
+      "id": 246588,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Springs Valley Recreation Area",
+      "osm_id": 1670709294,
+      "leisure": "park",
+      "description": "Visitors to this area should be aware of a vandalism problem in this area and people are asked to report any suspicious activity",
+      "fee": "no",
+      "operator": "USFS, Tell City Ranger District",
+      "website": "https://www.fs.usda.gov/recarea/hoosier/recarea/?recid=41532"
+    },
+    {
+      "id": 248020,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Montgomery Ruritan Park",
+      "osm_id": 6272247894,
+      "leisure": "park"
+    },
+    {
+      "id": 248574,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Eastside Lake",
+      "osm_id": 4639863834,
+      "leisure": "park"
+    },
+    {
+      "id": 260498,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Parkhill Center",
+      "osm_id": 358602119,
+      "leisure": "park",
+      "wikidata": "Q49539509"
+    },
+    {
+      "id": 260874,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Gallahue Valley Camp",
+      "osm_id": 358654572,
+      "leisure": "park",
+      "wikidata": "Q34879569"
+    },
+    {
+      "id": 261118,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Allens Creek State Recreation Area",
+      "osm_id": 358677570,
+      "leisure": "park",
+      "wikidata": "Q34806164"
+    },
+    {
+      "id": 260780,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Bedford Christian Camp",
+      "osm_id": 358648829,
+      "leisure": "park",
+      "wikidata": "Q34895199",
+      "addr_state": "IN",
+      "addr_city": "Bedford",
+      "addr_postcode": "47421",
+      "addr_street": "Church Camp Road",
+      "addr_housenumber": "33"
+    },
+    {
+      "id": 260783,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Bishop Roberts Park",
+      "osm_id": 358649460,
+      "leisure": "park",
+      "wikidata": "Q34899752"
+    },
+    {
+      "id": 261001,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Otis Park",
+      "osm_id": 358662889,
+      "leisure": "park"
+    },
+    {
+      "id": 261007,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Pleasant Valley Camp",
+      "osm_id": 358663776,
+      "leisure": "park",
+      "wikidata": "Q49544204"
+    },
+    {
+      "id": 260830,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Camp Wapehani",
+      "osm_id": 358650805,
+      "leisure": "park",
+      "wikidata": "Q34845820"
+    },
+    {
+      "id": 260833,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Lower Cascades Park",
+      "osm_id": 358650969,
+      "leisure": "park"
+    },
+    {
+      "id": 261016,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Rotary Springs Camp",
+      "osm_id": 358665193,
+      "leisure": "park"
+    },
+    {
+      "id": 261043,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "T.C. Steele State Historic Site",
+      "osm_id": 358668769,
+      "leisure": "park"
+    },
+    {
+      "id": 261052,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "West Boggs Park",
+      "osm_id": 358670215,
+      "leisure": "park"
+    },
+    {
+      "id": 261057,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Wonder Valley Camp",
+      "osm_id": 358670748,
+      "leisure": "park"
+    },
+    {
+      "id": 261079,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "W C Culbertson Mansion",
+      "osm_id": 358673439,
+      "leisure": "park",
+      "wikidata": "Q49575974"
+    },
+    {
+      "id": 261119,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Brown County State Park",
+      "osm_id": 358677662,
+      "leisure": "park"
+    },
+    {
+      "id": 261120,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Camp Indi-Co-So",
+      "osm_id": 358677688,
+      "leisure": "park",
+      "wikidata": "Q34845109"
+    },
+    {
+      "id": 261122,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Hardin Ridge Recreation Area",
+      "osm_id": 358677938,
+      "leisure": "park"
+    },
+    {
+      "id": 261123,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Indian Creek Camp",
+      "osm_id": 358678005,
+      "leisure": "park"
+    },
+    {
+      "id": 261124,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Inital Point Historical Monument",
+      "osm_id": 358678009,
+      "leisure": "park"
+    },
+    {
+      "id": 261125,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Paynetown State Recreation Area",
+      "osm_id": 358678199,
+      "leisure": "park"
+    },
+    {
+      "id": 261132,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Williams Dam Public Fishing Area",
+      "osm_id": 358678685,
+      "leisure": "park"
+    },
+    {
+      "id": 261134,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Hindostan Falls Public Fishing Area",
+      "osm_id": 358678694,
+      "leisure": "park",
+      "wikidata": "Q34888014"
+    },
+    {
+      "id": 261136,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Middle Fork State Wildlife Refuge",
+      "osm_id": 358678775,
+      "leisure": "park"
+    },
+    {
+      "id": 261138,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Pioneer Mothers State Wayside",
+      "osm_id": 358678802,
+      "leisure": "park"
+    },
+    {
+      "id": 261139,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "North Fork State Wildlife Refuge",
+      "osm_id": 358678807,
+      "leisure": "park"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Catskill Mountain Lodge, Palenville, NY",
-      "geo_wkt": "POINT (-74.009838 42.163279)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
       "poi": {
-        "id": 477,
-        "geometry": "POINT (-74.009838 42.163279)",
-        "poi_name": "Catskill Mountain Lodge",
-        "osm_id": 8401145450,
-        "tourism": "hotel",
-        "addr_state": "NY",
-        "addr_city": "Palenville",
-        "addr_postcode": "12463",
-        "addr_street": "Route 32A",
-        "addr_housenumber": "334"
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 95,
+  "id": 2295,
   "type": "range:direction+loc"
 }

@@ -1,56 +1,49 @@
 {
-  "question": "What's the distance between Omni Bedford Springs Resort, Bedford, PA and the nearest zoo?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.50774 39.996444)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.50774 39.996444)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance between Anvil Arts Studio, Newland, NC and the nearest restaurant?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.957927 35.968786)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.957927 35.968786)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9965,
-      "geometry": "POINT (-78.658874 38.840265)",
-      "poi_name": "Heavenly Heart Farm & Mini Petting Zoo",
-      "osm_id": 9081274336,
-      "description": "Traveling petting zoo, open on location for special events or by appointment. Contact via email or phone for details.",
-      "tourism": "zoo",
-      "fee": "yes",
-      "website": "https://www.heavenlyheartfarmandminipettingzoo.com/",
-      "phone": "+1 540 984 3925",
-      "zoo": "petting_zoo",
-      "addr_state": "VA",
-      "addr_city": "Edinburg",
-      "addr_postcode": "22824",
-      "addr_street": "Swover Creek Road",
-      "addr_housenumber": "3795",
-      "distance": 129021.07047905
+      "id": 102154,
+      "geometry": "POINT (-81.942766 35.958876)",
+      "poi_name": "Famous Louise's Rock House Restaurant",
+      "osm_id": 6657834680,
+      "amenity": "restaurant",
+      "opening_hours": "Mo,We,Th 06:00-20:00; Fr-Sa 06:00-20:30; Su 06:00-19:00",
+      "phone": "(828) 765-2702",
+      "addr_state": "NC",
+      "addr_city": "Linville Falls",
+      "addr_postcode": "28647",
+      "addr_street": "Linville Falls Highway",
+      "addr_housenumber": "23175",
+      "distance": 1754.78181295
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Omni Bedford Springs Resort, Bedford, PA",
-      "geo_wkt": "POINT (-78.50774 39.996444)",
+      "sub_category": "gallery",
+      "display_name": "Anvil Arts Studio, Newland, NC",
+      "geo_wkt": "POINT (-81.957927 35.968786)",
       "poi": {
-        "id": 25191,
-        "geometry": "POINT (-78.50774 39.996444)",
-        "poi_name": "Omni Bedford Springs Resort",
-        "osm_id": 4419195443,
-        "tourism": "hotel",
-        "operator": "Omni Hotels",
-        "website": "https://www.omnihotels.com/hotels/bedford-springs",
-        "internet_access": "yes",
-        "phone": "(814) 623-8100",
-        "wikidata": "Q4879201",
-        "addr_state": "PA",
-        "addr_city": "Bedford",
-        "addr_postcode": "15522",
-        "addr_street": "Business 220",
-        "addr_housenumber": "2138"
+        "id": 537,
+        "geometry": "POINT (-81.957927 35.968786)",
+        "poi_name": "Anvil Arts Studio",
+        "osm_id": 8432590370,
+        "tourism": "gallery",
+        "phone": "+18287656226",
+        "addr_state": "NC",
+        "addr_city": "Newland",
+        "addr_postcode": "28657",
+        "addr_street": "Linville Falls Highway",
+        "addr_housenumber": "9600"
       }
     }
   },
-  "id": 2428,
+  "id": 628,
   "type": "knn+distance"
 }

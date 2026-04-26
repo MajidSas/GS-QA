@@ -1,44 +1,49 @@
 {
-  "question": "Where is the closest gallery north of Five Wells Roping Rodeo Arena, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.402227 30.995182)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant in relation to WORKS/San Jos\u00e9, San Jose, CA along the west direction?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.887315 37.329661)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12296,
-      "geometry": "POINT (-97.402227 30.995182)",
-      "poi_name": "Practically Pikasso",
-      "osm_id": 6283843601,
-      "tourism": "gallery",
-      "operator": "Russell McClellan",
-      "addr_state": "TX",
-      "addr_city": "Waco",
-      "addr_postcode": "76710",
-      "addr_street": "West Waco Drive",
-      "addr_housenumber": "4310"
+      "id": 98984,
+      "geometry": "POINT (-121.887315 37.329661)",
+      "poi_name": "Grace Deli & Cafe",
+      "osm_id": 6536481686,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://grace303.com/",
+      "outdoor_seating": "yes",
+      "addr_city": "San Jose",
+      "addr_postcode": "95110",
+      "addr_street": "Almaden Boulevard",
+      "addr_housenumber": "303"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Five Wells Roping Rodeo Arena, TX",
-      "geo_wkt": "POINT (-97.402227 30.995182)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "WORKS/San Jos\u00e9, San Jose, CA",
+      "geo_wkt": "POINT (-121.887315 37.329661)",
       "poi": {
-        "id": 265394,
-        "geometry": "POINT (-97.402227 30.995182)",
-        "poi_name": "Five Wells Roping Rodeo Arena",
-        "osm_id": 368165371,
-        "leisure": "stadium",
-        "addr_state": "TX"
+        "id": 2850,
+        "geometry": "POINT (-121.887315 37.329661)",
+        "poi_name": "WORKS/San Jos\u00e9",
+        "osm_id": 10052566494,
+        "tourism": "gallery",
+        "wikidata": "Q106986491",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_street": "South Market Street",
+        "addr_housenumber": "365"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1188,

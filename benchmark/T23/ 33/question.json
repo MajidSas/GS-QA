@@ -1,43 +1,40 @@
 {
-  "question": "How many viewpoints are situated within a 140 kilometers distance from Saint Josephs Hospital Behavioral Health Center, Tampa, FL?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.489818 27.99168)',4326)::geography, 140000)\nAND tourism = 'viewpoint';\n",
+  "question": "What\u2019s the count of restaurants within 140 kilometers of the reference point Bunker Hill, IL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography, 140000)\nAND amenity = 'restaurant';\n",
   "answers": [
     {
-      "count": 24
+      "count": 4378
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "distance": 140000,
       "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Saint Josephs Hospital Behavioral Health Center, Tampa, FL",
-      "geo_wkt": "POINT (-82.489818 27.99168)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Bunker Hill, IL",
+      "geo_wkt": "POINT (-87.781473 42.004049)",
       "poi": {
-        "id": 181402,
-        "geometry": "POINT (-82.489818 27.99168)",
-        "poi_name": "Saint Josephs Hospital Behavioral Health Center",
-        "osm_id": 10844797750,
-        "amenity": "hospital",
-        "website": "https://baycare.org/locations/s/st-josephs-hospital-behavioral-health-center",
-        "phone": "+1 813 870 4000",
-        "healthcare": "hospital",
-        "addr_state": "FL",
-        "addr_city": "Tampa",
-        "addr_postcode": "33607",
-        "addr_street": "Habana Avenue",
-        "addr_housenumber": "4918"
+        "id": 265726,
+        "geometry": "POINT (-87.781473 42.004049)",
+        "poi_name": "Bunker Hill",
+        "osm_id": 10874811379,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "Forest Preserve District of Cook County",
+        "website": "https://fpdcc.com/places/locations/bunker-hill/",
+        "phone": "+1-800-870-3666",
+        "addr_state": "IL"
       }
     }
   },
-  "id": 2232,
+  "id": 1832,
   "type": "range+count"
 }

@@ -1,43 +1,45 @@
 {
-  "question": "What's the course towards the closest theme park from Center for Spatial Planning Analytics and Visualization, Atlanta, GA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.38942 33.775794)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.38942 33.775794)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way is the closest hospital from the Last House on Mulholland, Los Angeles, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14768,
-      "geometry": "POINT (-86.646579 34.737413)",
-      "poi_name": "Shakala Trampolines",
-      "osm_id": 4712471444,
-      "tourism": "theme_park",
-      "angle": 297.79378181228424
+      "id": 222344,
+      "geometry": "POINT (-118.386306 34.076966)",
+      "poi_name": "Cedars Sinai Transplant Center",
+      "osm_id": 11014639805,
+      "amenity": "hospital",
+      "addr_street": "Beverly Boulevard",
+      "addr_housenumber": "8900",
+      "angle": 225.2806712501748
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Center for Spatial Planning Analytics and Visualization, Atlanta, GA",
-      "geo_wkt": "POINT (-84.38942 33.775794)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "The Last House on Mulholland, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.320457 34.131243)",
       "poi": {
-        "id": 237739,
-        "geometry": "POINT (-84.38942 33.775794)",
-        "poi_name": "Center for Spatial Planning Analytics and Visualization",
-        "osm_id": 5846621785,
-        "amenity": "university",
-        "wheelchair": "limited",
-        "operator": "Mboka",
-        "website": "https://cspav.gatech.edu/",
-        "addr_state": "GA",
-        "addr_city": "Atlanta",
-        "addr_street": "Spring Street Northwest",
-        "addr_housenumber": "760"
+        "id": 3061,
+        "geometry": "POINT (-118.320457 34.131243)",
+        "poi_name": "The Last House on Mulholland",
+        "osm_id": 10152480147,
+        "description": "Hollywood Sign Viewpoint",
+        "tourism": "viewpoint",
+        "parking": "no",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mulholland Highway",
+        "addr_housenumber": "6101"
       }
     }
   },
-  "id": 1490,
+  "id": 590,
   "type": "knn+angle"
 }

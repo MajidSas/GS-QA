@@ -1,42 +1,40 @@
 {
-  "question": "What is the total number of zoos within 140 kilometers from Honey Acres, Neosho, WI?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.519843 43.248953)',4326)::geography, 140000)\nAND tourism = 'zoo';\n",
+  "question": "How many attractions are situated within a 30 kilometers range of Lincoln Park Zoo, Manitowoc, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.649084 44.11068)',4326)::geography, 30000)\nAND tourism = 'attraction';\n",
   "answers": [
     {
-      "count": 9
+      "count": 3
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 30000,
+      "text": "30 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Honey Acres, Neosho, WI",
-      "geo_wkt": "POINT (-88.519843 43.248953)",
+      "sub_category": "zoo",
+      "display_name": "Lincoln Park Zoo, Manitowoc, WI",
+      "geo_wkt": "POINT (-87.649084 44.11068)",
       "poi": {
-        "id": 13195,
-        "geometry": "POINT (-88.519843 43.248953)",
-        "poi_name": "Honey Acres",
-        "osm_id": 4076047372,
-        "tourism": "museum",
-        "opening_hours": "Mo-Fr 09:00-15:30",
-        "website": "https://honeyacres.com/",
+        "id": 2509,
+        "geometry": "POINT (-87.649084 44.11068)",
+        "poi_name": "Lincoln Park Zoo",
+        "osm_id": 3491296260,
+        "tourism": "zoo",
+        "website": "https://www.manitowoc.org/766/Lincoln-Park-Zoo",
+        "phone": "920-683-4685",
+        "wikidata": "Q3241309",
         "addr_state": "WI",
-        "addr_city": "Neosho",
-        "addr_postcode": "53059",
-        "addr_street": "WI-67",
-        "addr_housenumber": "N1557"
+        "addr_city": "Manitowoc"
       }
     }
   },
-  "id": 2251,
+  "id": 1851,
   "type": "range+count"
 }

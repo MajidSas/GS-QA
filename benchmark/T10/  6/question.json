@@ -1,58 +1,72 @@
 {
-  "question": "Which fast food is closest on the route towards Minnesota Pioneer Park, Annandale, MN from Pine Grove Zoo, Little Falls, MN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, ST_GeomFromText('POINT (-94.110229 45.255422)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hotel is closest forward of West End Park, Queensbury, NY when heading toward College of Saint Joseph, Rutland, VT?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography, ST_GeomFromText('POINT (-73.000884 43.600546)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 77795,
-      "geometry": "POINT (-94.213114 45.756686)",
-      "poi_name": "McDonald's",
-      "osm_id": 715679159,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/mn/rice/2378-pine-rd-nw/31278.html",
-      "takeaway": "yes",
-      "value": 165.05559847354453
+      "id": 21514,
+      "geometry": "POINT (-73.253012 43.501426)",
+      "poi_name": "Panorama Motel",
+      "osm_id": 10296243647,
+      "tourism": "hotel",
+      "opening_hours": "Mo-Su 09:00-21:00",
+      "website": "https://panoramamotelny.com",
+      "phone": "518-282-9648",
+      "addr_state": "NY",
+      "addr_city": "Hampton",
+      "addr_postcode": "12837",
+      "addr_street": "State Highway 22A",
+      "value": 58.65904467500514
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Pine Grove Zoo, Little Falls, MN",
-      "geo_wkt": "POINT (-94.383608 45.979142)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "West End Park, Queensbury, NY",
+      "geo_wkt": "POINT (-73.679735 43.302111)",
       "poi": {
-        "id": 22633,
-        "geometry": "POINT (-94.383608 45.979142)",
-        "poi_name": "Pine Grove Zoo",
-        "osm_id": 7185157936,
-        "tourism": "zoo",
-        "website": "https://www.pinegrovezoo.com/",
-        "addr_state": "MN",
-        "addr_city": "Little Falls"
+        "id": 245515,
+        "geometry": "POINT (-73.679735 43.302111)",
+        "poi_name": "West End Park",
+        "osm_id": 3009465102,
+        "leisure": "park",
+        "opening_hours": "Apr-Nov: sunrise-sunset",
+        "operator": "Town of QueensburyRecreation Department",
+        "website": "https://recreation.queensbury.net/parks/",
+        "addr_state": "NY",
+        "addr_city": "Queensbury",
+        "addr_postcode": "12804",
+        "addr_street": "Luzerne Road",
+        "addr_housenumber": "117"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Minnesota Pioneer Park, Annandale, MN",
-      "geo_wkt": "POINT (-94.110229 45.255422)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "College of Saint Joseph, Rutland, VT",
+      "geo_wkt": "POINT (-73.000884 43.600546)",
       "poi": {
-        "id": 12810,
-        "geometry": "POINT (-94.110229 45.255422)",
-        "poi_name": "Minnesota Pioneer Park",
-        "osm_id": 7566829780,
-        "tourism": "attraction",
-        "phone": "+1-320-274-8489",
-        "addr_state": "MN",
-        "addr_city": "Annandale"
+        "id": 167370,
+        "geometry": "POINT (-73.000884 43.600546)",
+        "poi_name": "College of Saint Joseph",
+        "osm_id": 356557883,
+        "amenity": "university",
+        "website": "https://www.csj.edu/",
+        "phone": "+1 802-773-5900",
+        "wikidata": "Q5146842",
+        "addr_state": "VT",
+        "addr_city": "Rutland",
+        "addr_postcode": "05701",
+        "addr_street": "Clement Road",
+        "addr_housenumber": "71"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 105,
+  "id": 1605,
   "type": "knn:towards+name"
 }

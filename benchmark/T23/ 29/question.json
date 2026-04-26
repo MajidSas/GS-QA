@@ -1,39 +1,45 @@
 {
-  "question": "Within a 180 kilometers radius from Snail Garden, Lake Jackson, TX, how many galleries are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-95.452235 29.043376)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "question": "How many attractions are located inside a 120 kilometers radius of Haven Senior Horizons of Phoenix, Phoenix, AZ?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.081214 33.435646)',4326)::geography, 120000)\nAND tourism = 'attraction';\n",
   "answers": [
     {
-      "count": 9
+      "count": 183
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Snail Garden, Lake Jackson, TX",
-      "geo_wkt": "POINT (-95.452235 29.043376)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Haven Senior Horizons of Phoenix, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.081214 33.435646)",
       "poi": {
-        "id": 248645,
-        "geometry": "POINT (-95.452235 29.043376)",
-        "poi_name": "Snail Garden",
-        "osm_id": 4714529268,
-        "leisure": "garden",
-        "addr_state": "TX",
-        "addr_city": "Lake Jackson",
-        "addr_postcode": "77566",
-        "addr_street": "West Way Street"
+        "id": 54354,
+        "geometry": "POINT (-112.081214 33.435646)",
+        "poi_name": "Haven Senior Horizons of Phoenix",
+        "osm_id": 10128741386,
+        "amenity": "hospital",
+        "operator": "Haven Behavioral Healthcare",
+        "website": "https://www.havenofphoenix.com/",
+        "phone": "+1-623-236-2000",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85007",
+        "addr_street": "South 7th Avenue",
+        "addr_housenumber": "1201"
       }
     }
   },
-  "id": 2228,
+  "id": 1828,
   "type": "range+count"
 }

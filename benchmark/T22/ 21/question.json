@@ -1,44 +1,53 @@
 {
-  "question": "Which way leads to the nearest park from Johnson County Museum, Tecumseh, NE?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-96.19603 40.366568)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-96.19603 40.366568)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In what direction is the closest gallery relative to Appalachian Wireless Arena, Pikeville, KY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.517286 37.477755)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 257815,
-      "geometry": "POINT (-96.19612 40.366667)",
-      "poi_name": "Tecumseh Historical Marker",
-      "osm_id": 357788313,
-      "leisure": "park",
-      "addr_state": "NE",
-      "addr_city": "Tecumseh",
-      "angle": 325.077993546538
+      "id": 4755,
+      "geometry": "POINT (-82.560228 36.546269)",
+      "poi_name": "Suzanne Barrett Justis Fine Art",
+      "osm_id": 11445377805,
+      "tourism": "gallery",
+      "opening_hours": "Mo-Fr 09:00-17:00, Sa 10:00-13:00",
+      "operator": "Suzanne Barrett",
+      "website": "https://sbjfineart.com",
+      "phone": "(423) 967-4040",
+      "addr_state": "TN",
+      "addr_city": "Kingsport",
+      "addr_postcode": "37660",
+      "addr_street": "East Market Street",
+      "addr_housenumber": "110",
+      "angle": 182.13021316476807
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Johnson County Museum, Tecumseh, NE",
-      "geo_wkt": "POINT (-96.19603 40.366568)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Appalachian Wireless Arena, Pikeville, KY",
+      "geo_wkt": "POINT (-82.517286 37.477755)",
       "poi": {
-        "id": 16755,
-        "geometry": "POINT (-96.19603 40.366568)",
-        "poi_name": "Johnson County Museum",
-        "osm_id": 366492331,
-        "tourism": "museum",
-        "phone": "+1 (402) 853-3614",
-        "addr_state": "NE",
-        "addr_city": "Tecumseh",
-        "addr_postcode": "68450",
-        "addr_street": "Clay Street",
-        "addr_housenumber": "289"
+        "id": 246594,
+        "geometry": "POINT (-82.517286 37.477755)",
+        "poi_name": "Appalachian Wireless Arena",
+        "osm_id": 1736849627,
+        "leisure": "stadium",
+        "building": "yes",
+        "sport": "basketball",
+        "phone": "+1 606 444 5500",
+        "addr_state": "KY",
+        "addr_city": "Pikeville",
+        "addr_postcode": "41501",
+        "addr_street": "Main Street",
+        "addr_housenumber": "126"
       }
     }
   },
-  "id": 1420,
+  "id": 520,
   "type": "knn+angle"
 }

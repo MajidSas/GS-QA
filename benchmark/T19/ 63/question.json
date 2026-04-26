@@ -1,52 +1,53 @@
 {
-  "question": "Where is the nearest beach resort in the south direction of St Louis Park Historical Society, Saint Louis Park, MN?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.360941 44.938725)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest caf\u00e9 to the southwest of Glenwood Caverns Adventure Park, Glenwood Springs, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-107.33239 39.553632)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 249010,
-      "geometry": "POINT (-93.360941 44.938725)",
-      "poi_name": "Caribe Resort",
-      "osm_id": 9583387690,
-      "leisure": "beach_resort",
-      "fee": "yes",
-      "website": "https://cariberesort.com/",
-      "phone": "+1 251 980 9010",
-      "addr_state": "AL",
-      "addr_city": "Orange Beach",
-      "addr_postcode": "36561",
-      "addr_street": "Perdido Beach Boulevard",
-      "addr_housenumber": "28103"
+      "id": 37229,
+      "geometry": "POINT (-107.33239 39.553632)",
+      "poi_name": "357 Bar & Grill",
+      "osm_id": 2804128039,
+      "amenity": "cafe",
+      "cuisine": "burger;american;sandwich;breakfast",
+      "opening_hours": "Mo-Fr 09:00-21:00; Sa-Su 08:00-21:00",
+      "website": "https://357barandgrill.com/",
+      "internet_access": "wlan",
+      "phone": "+1-970-464-2226",
+      "addr_state": "CO",
+      "addr_city": "Palisade",
+      "addr_postcode": "81526",
+      "addr_street": "Main Street",
+      "addr_housenumber": "235"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "St Louis Park Historical Society, Saint Louis Park, MN",
-      "geo_wkt": "POINT (-93.360941 44.938725)",
+      "sub_category": "theme park",
+      "display_name": "Glenwood Caverns Adventure Park, Glenwood Springs, CO",
+      "geo_wkt": "POINT (-107.33239 39.553632)",
       "poi": {
-        "id": 4773,
-        "geometry": "POINT (-93.360941 44.938725)",
-        "poi_name": "St Louis Park Historical Society",
-        "osm_id": 9604575735,
-        "tourism": "museum",
-        "website": "https://slphistory.org/",
-        "museum": "history",
-        "addr_state": "MN",
-        "addr_city": "Saint Louis Park",
-        "addr_postcode": "55416",
-        "addr_street": "Dakota Avenue South",
-        "addr_housenumber": "3546"
+        "id": 26097,
+        "geometry": "POINT (-107.33239 39.553632)",
+        "poi_name": "Glenwood Caverns Adventure Park",
+        "osm_id": 5782876196,
+        "description": "Ticket purchase office",
+        "tourism": "theme_park",
+        "addr_state": "CO",
+        "addr_city": "Glenwood Springs",
+        "addr_postcode": "81601",
+        "addr_street": "Two Rivers Plaza Road",
+        "addr_housenumber": "51000"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1162,

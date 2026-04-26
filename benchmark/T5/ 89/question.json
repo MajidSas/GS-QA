@@ -1,40 +1,44 @@
 {
-  "question": "Could you tell me the closest stadium relative to Anderson Lakes Regional Park, Eden Prairie, MN?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.402562 44.839308)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest golf course around Chestatee Overlook, Dahlonega, GA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.982699 34.665048)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267381,
-      "geometry": "POINT (-93.371388 45.134783)",
-      "poi_name": "Auditorium",
-      "osm_id": 5937051959,
-      "leisure": "stadium"
+      "id": 247806,
+      "geometry": "POINT (-83.736489 34.55382)",
+      "poi_name": "Kelly's 19th Tee",
+      "osm_id": 9954833962,
+      "leisure": "golf_course",
+      "operator": "Driving Range"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Anderson Lakes Regional Park, Eden Prairie, MN",
-      "geo_wkt": "POINT (-93.402562 44.839308)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Chestatee Overlook, Dahlonega, GA",
+      "geo_wkt": "POINT (-83.982699 34.665048)",
       "poi": {
-        "id": 248819,
-        "geometry": "POINT (-93.402562 44.839308)",
-        "poi_name": "Anderson Lakes Regional Park",
-        "osm_id": 4826004062,
-        "leisure": "park",
-        "addr_state": "MN",
-        "addr_city": "Eden Prairie",
-        "addr_postcode": "55344",
-        "addr_street": "Anderson Lakes Parkway",
-        "addr_housenumber": "9800"
+        "id": 12945,
+        "geometry": "POINT (-83.982699 34.665048)",
+        "poi_name": "Chestatee Overlook",
+        "osm_id": 3980488412,
+        "tourism": "viewpoint",
+        "wheelchair": "yes",
+        "opening_hours": "sunrise-sunset",
+        "operator": "United States Forest Service",
+        "website": "https://www.fs.usda.gov/recarea/conf/recarea/?recid=77736",
+        "addr_state": "GA",
+        "addr_city": "Dahlonega",
+        "addr_postcode": "30533",
+        "addr_street": "GA 60"
       }
     }
   },
-  "id": 288,
+  "id": 1088,
   "type": "knn+name"
 }

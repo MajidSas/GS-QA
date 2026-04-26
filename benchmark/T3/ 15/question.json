@@ -1,73 +1,350 @@
 {
-  "question": "Which golf course is closest when moving towards the southwest of English Street Community Garden, New Haven, CT within 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography, 140000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "What museum are positioned within 140 kilometers when heading northeast from Barry Gallery, Arlington, VA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.126354 38.905102)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.126354 38.905102)',4326)::geography, 140000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
   "answers": [
     {
-      "id": 245395,
-      "geometry": "POINT (-72.896423 41.316453)",
-      "poi_name": "Bethpage Black",
-      "osm_id": 2854158382,
-      "leisure": "golf_course"
+      "id": 12783,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "C & D Canal Museum",
+      "osm_id": 7539142857,
+      "tourism": "museum",
+      "opening_hours": "Mo-Fr 08:00-15:30"
     },
     {
-      "id": 245808,
-      "geometry": "POINT (-72.896423 41.316453)",
-      "poi_name": "InHome Golf",
-      "osm_id": 10100433578,
-      "leisure": "golf_course",
-      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
-      "opening_hours": "Mo-Fr 08:00-18:00",
-      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
-      "phone": "+1 800-557-5859",
-      "addr_state": "NJ",
-      "addr_city": "Lyndhurst",
-      "addr_postcode": "07071",
-      "addr_street": "Wall Street West",
-      "addr_housenumber": "1000"
+      "id": 12365,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Perryville Railroad Museum",
+      "osm_id": 6317365682,
+      "tourism": "museum",
+      "website": "https://www.perryvillemd.org/transportation/pages/perryville-railroad-museum"
     },
     {
-      "id": 246144,
-      "geometry": "POINT (-72.896423 41.316453)",
-      "poi_name": "Peninsula Golf Club",
-      "osm_id": 5616067006,
-      "leisure": "golf_course"
+      "id": 149,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "American University Museum at the Katzen",
+      "osm_id": 457296753,
+      "tourism": "museum",
+      "wikidata": "Q4745303"
+    },
+    {
+      "id": 2441,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Amaranthine Museum",
+      "osm_id": 3449342092,
+      "tourism": "museum",
+      "website": "https://amaranthinemuseum.org/",
+      "phone": "+1 410 523 2574",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21211",
+      "addr_street": "Clipper Park Road",
+      "addr_housenumber": "2010"
+    },
+    {
+      "id": 3750,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "The Preservation Society",
+      "osm_id": 5579487244,
+      "tourism": "museum",
+      "website": "https://www.preservationsociety.com/"
+    },
+    {
+      "id": 5922,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "National Electronics Museum",
+      "osm_id": 1672908664,
+      "tourism": "museum",
+      "website": "https://www.nationalelectronicsmuseum.org/",
+      "wikidata": "Q6972406",
+      "addr_state": "MD",
+      "addr_city": "Linthicum",
+      "addr_postcode": "21090",
+      "addr_street": "West Nursery Road",
+      "addr_housenumber": "1745"
+    },
+    {
+      "id": 6150,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Old Line Museum",
+      "osm_id": 1761801485,
+      "tourism": "museum",
+      "website": "http://oldlinemuseum.com/",
+      "addr_state": "PA",
+      "addr_city": "Delta",
+      "addr_postcode": "17314",
+      "addr_street": "Main Street",
+      "addr_housenumber": "602"
+    },
+    {
+      "id": 8143,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Tank Hill",
+      "osm_id": 6577102976,
+      "tourism": "museum"
+    },
+    {
+      "id": 8144,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "CCBC History Exhibit",
+      "osm_id": 6577102982,
+      "tourism": "museum"
+    },
+    {
+      "id": 8145,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "CCBC History Exhibit",
+      "osm_id": 6577102983,
+      "tourism": "museum"
+    },
+    {
+      "id": 8146,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Battle of North Point",
+      "osm_id": 6577121960,
+      "tourism": "museum",
+      "website": "https://dnr.maryland.gov/publiclands/Pages/central/NorthPointBattlefield.aspx"
+    },
+    {
+      "id": 8147,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Battle of North Point Memorial Museum",
+      "osm_id": 6577121961,
+      "tourism": "museum"
+    },
+    {
+      "id": 8149,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "History of the Inner harbor Exhibit",
+      "osm_id": 6577182560,
+      "tourism": "museum"
+    },
+    {
+      "id": 13923,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Howard County Center of African American Culture",
+      "osm_id": 4187856285,
+      "tourism": "museum",
+      "website": "https://hccaac.org/",
+      "phone": "+1 410 715 1921",
+      "addr_state": "MD",
+      "addr_city": "Columbia",
+      "addr_postcode": "21044",
+      "addr_street": "Vantage Point Road",
+      "addr_housenumber": "5434"
+    },
+    {
+      "id": 15708,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Natural History Society of Maryland",
+      "osm_id": 9463643590,
+      "tourism": "museum",
+      "opening_hours": "We 14:00-18:00; Th 10:00-14:00; Fr-Tu \"By Appointment\"",
+      "website": "https://www.marylandnature.org/",
+      "museum": "nature",
+      "addr_street": "Belair Road",
+      "addr_housenumber": "6908"
+    },
+    {
+      "id": 17464,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Good Knight Castle Children's Museum",
+      "osm_id": 367799293,
+      "tourism": "museum",
+      "operator": "Good Knight Child Empowerment Network",
+      "website": "https://goodknight.org/the-castle/",
+      "addr_state": "MD"
+    },
+    {
+      "id": 15899,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Lillie Carroll Jackson Civil Rights Museum",
+      "osm_id": 9593128625,
+      "tourism": "museum",
+      "opening_hours": "We,Fr,Sa 11:00-15:00",
+      "operator": "Morgan State University",
+      "website": "https://www.lilliecarrolljacksonmuseum.org/",
+      "museum": "history",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21217",
+      "addr_street": "Eutaw Place",
+      "addr_housenumber": "1320"
+    },
+    {
+      "id": 15901,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Irish Railroad Workers Museum",
+      "osm_id": 9593128627,
+      "tourism": "museum",
+      "website": "https://www.irishshrine.org/",
+      "museum": "history",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21223",
+      "addr_street": "Lemmon Street",
+      "addr_housenumber": "918"
+    },
+    {
+      "id": 15902,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Baltimore Immigration Museum",
+      "osm_id": 9593128628,
+      "tourism": "museum",
+      "website": "https://www.immigrationbaltimore.org/",
+      "phone": "+1-443-542-2263",
+      "museum": "history",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21230",
+      "addr_street": "Beason Street",
+      "addr_housenumber": "1308"
+    },
+    {
+      "id": 17478,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Kent Museum",
+      "osm_id": 367799564,
+      "tourism": "museum",
+      "website": "https://www.kentcounty.com/museums/kent-museum",
+      "addr_city": "Kennedyville",
+      "addr_postcode": "21645",
+      "addr_street": "Turners Creek Road",
+      "addr_housenumber": "13689"
+    },
+    {
+      "id": 17470,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Lovely Lane Museum Library",
+      "osm_id": 367799318,
+      "tourism": "museum",
+      "website": "http://lovelylanemuseum.org/",
+      "addr_state": "MD"
+    },
+    {
+      "id": 17471,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Steppingstone Farm Museum",
+      "osm_id": 367799330,
+      "tourism": "museum",
+      "website": "https://www.steppingstonemuseum.org/",
+      "museum": "local",
+      "addr_state": "MD"
+    },
+    {
+      "id": 17475,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Fire Museum of Maryland",
+      "osm_id": 367799555,
+      "tourism": "museum",
+      "website": "https://firemuseummd.org",
+      "wikidata": "Q23135046",
+      "addr_state": "MD"
+    },
+    {
+      "id": 17740,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Indian Steps Museum",
+      "osm_id": 367975788,
+      "tourism": "museum",
+      "website": "https://www.indiansteps.org/",
+      "wikidata": "Q15228653",
+      "addr_state": "PA"
+    },
+    {
+      "id": 26062,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Frederick-Douglass Maritime Museum",
+      "osm_id": 5777339053,
+      "tourism": "museum",
+      "fee": "yes",
+      "website": "https://livingclassrooms.org/programs/fdimmp/"
+    },
+    {
+      "id": 22295,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Glenn L Martin Maryland Aviation Museum",
+      "osm_id": 643890039,
+      "tourism": "museum",
+      "phone": "+1 410 682 6122",
+      "wikidata": "Q28228092",
+      "addr_state": "MD",
+      "addr_city": "Middle River",
+      "addr_postcode": "21220",
+      "addr_street": "Wilson Point Road",
+      "addr_housenumber": "701"
+    },
+    {
+      "id": 24161,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Maryland Center for History and Culture Museum",
+      "osm_id": 9358916920,
+      "tourism": "museum",
+      "opening_hours": "Mo-Tu off; We,Fr-Su 10:00-17:00; Th 10:00-20:00",
+      "website": "https://www.mdhistory.org/museum/",
+      "addr_street": "Park Avenue",
+      "addr_housenumber": "610"
+    },
+    {
+      "id": 24170,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Baltimore Civil War Museum",
+      "osm_id": 9362798287,
+      "tourism": "museum",
+      "website": "https://baltimoremuseums.org/baltimore-civil-war-museum/",
+      "addr_state": "MD",
+      "addr_city": "Baltimore",
+      "addr_postcode": "21202",
+      "addr_street": "South President Street",
+      "addr_housenumber": "601"
+    },
+    {
+      "id": 25748,
+      "geometry": "POINT (-77.126354 38.905102)",
+      "poi_name": "Walters Art Museum",
+      "osm_id": 4590173181,
+      "tourism": "museum",
+      "fee": "no",
+      "website": "https://thewalters.org/",
+      "phone": "+1-410-547-9000",
+      "wikidata": "Q210081"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "distance": 140000,
       "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "English Street Community Garden, New Haven, CT",
-      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Barry Gallery, Arlington, VA",
+      "geo_wkt": "POINT (-77.126354 38.905102)",
       "poi": {
-        "id": 246384,
-        "geometry": "POINT (-72.896423 41.316453)",
-        "poi_name": "English Street Community Garden",
-        "osm_id": 11413367600,
-        "leisure": "garden",
-        "operator": "Gather New Haven",
-        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
-        "addr_state": "CT",
-        "addr_city": "New Haven",
-        "addr_postcode": "06513",
-        "addr_street": "English Street",
-        "addr_housenumber": "220"
+        "id": 4304,
+        "geometry": "POINT (-77.126354 38.905102)",
+        "poi_name": "Barry Gallery",
+        "osm_id": 11214312246,
+        "tourism": "gallery",
+        "operator": "Marymount University",
+        "website": "https://marymount.edu/academics/college-of-business-innovation-leadership-and-technology/school-of-design-and-art/the-barry-gallery/",
+        "phone": "+1-703-522-5600",
+        "addr_state": "VA",
+        "addr_city": "Arlington",
+        "addr_postcode": "22207",
+        "addr_street": "North Glebe Road",
+        "addr_housenumber": "2807"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2614,
+  "id": 2314,
   "type": "range:direction+name"
 }

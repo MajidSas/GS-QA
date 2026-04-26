@@ -1,47 +1,49 @@
 {
-  "question": "Which viewpoint is the closest to the north of Kaiser Ambulatory Surgery Center, Sacramento, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-121.423679 38.469436)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest restaurant towards the northwest of Mindful Pediatrics & Adolescent Medicine, Johns Creek, GA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.211185 34.065153)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 78,
-      "geometry": "POINT (-121.423679 38.469436)",
-      "poi_name": "Beale Falls",
-      "osm_id": 429180605,
-      "tourism": "viewpoint"
+      "id": 37392,
+      "geometry": "POINT (-84.211185 34.065153)",
+      "poi_name": "Tarahumata",
+      "osm_id": 2810148149,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Kaiser Ambulatory Surgery Center, Sacramento, CA",
-      "geo_wkt": "POINT (-121.423679 38.469436)",
+      "display_name": "Mindful Pediatrics & Adolescent Medicine, Johns Creek, GA",
+      "geo_wkt": "POINT (-84.211185 34.065153)",
       "poi": {
-        "id": 159284,
-        "geometry": "POINT (-121.423679 38.469436)",
-        "poi_name": "Kaiser Ambulatory Surgery Center",
-        "osm_id": 4785477140,
+        "id": 72616,
+        "geometry": "POINT (-84.211185 34.065153)",
+        "poi_name": "Mindful Pediatrics & Adolescent Medicine",
+        "osm_id": 11438788040,
         "amenity": "hospital",
-        "operator": "Kaiser Permanente",
+        "opening_hours": "Mo-Fr 08:00-16:30",
+        "operator": "Priya Thomas, MD",
         "healthcare": "hospital",
         "emergency": "no",
-        "addr_state": "CA",
-        "addr_city": "Sacramento",
-        "addr_postcode": "95823",
-        "addr_street": "Bruceville Road",
-        "addr_housenumber": "6600"
+        "addr_state": "GA",
+        "addr_city": "Johns Creek",
+        "addr_postcode": "30005",
+        "addr_street": "11705 Jones Bridge Rd",
+        "addr_housenumber": "Suite A201"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2512,
+  "id": 1212,
   "type": "knn:direction+name"
 }

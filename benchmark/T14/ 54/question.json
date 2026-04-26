@@ -1,68 +1,51 @@
 {
-  "question": "Seeking a himalayan restaurant, ideally within 110 kilometers of Anything for Princess!, Sewaren, NJ. Can you find me its location?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.25674 40.562373)',4326)::geography, 110000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%himalayan%';\n",
+  "question": "Where can I find a railway museum within a 190 kilometers proximity of Mount Washington Boat Terminal, Wolfeboro, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND museum = 'railway';\n",
   "answers": [
     {
-      "id": 44100,
-      "geometry": "POINT (-73.964092 40.641187)",
-      "poi_name": "Cafe Tibet",
-      "osm_id": 3144820988,
-      "amenity": "restaurant",
-      "cuisine": "himalayan",
-      "phone": "+1-718-941-2725",
-      "addr_state": "NY",
-      "addr_city": "Brooklyn",
-      "addr_postcode": "11226",
-      "addr_street": "Cortelyou Road",
-      "addr_housenumber": "1510"
-    },
-    {
-      "id": 44259,
-      "geometry": "POINT (-73.966887 40.639945)",
-      "poi_name": "Namaste Brooklyn",
-      "osm_id": 3153560987,
-      "amenity": "restaurant",
-      "cuisine": "himalayan",
-      "opening_hours": "Tu-Su 05:00-10:00",
-      "phone": "+1-347-365-3468",
-      "addr_state": "NY",
-      "addr_city": "Brooklyn",
-      "addr_postcode": "11218",
-      "addr_street": "Cortelyou Road",
-      "addr_housenumber": "1202"
+      "id": 24209,
+      "geometry": "POINT (-71.097326 42.362017)",
+      "poi_name": "Tech Model Railroad Club",
+      "osm_id": 10960080689,
+      "tourism": "museum",
+      "fee": "no",
+      "operator": "MIT",
+      "website": "tmrc.mit.edu",
+      "museum": "railway",
+      "addr_state": "MA",
+      "addr_city": "Cambridge"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "himalayan restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%himalayan%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Anything for Princess!, Sewaren, NJ",
-      "geo_wkt": "POINT (-74.25674 40.562373)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
+      "geo_wkt": "POINT (-71.21302 43.583693)",
       "poi": {
-        "id": 245844,
-        "geometry": "POINT (-74.25674 40.562373)",
-        "poi_name": "Anything for Princess!",
-        "osm_id": 10177477027,
-        "leisure": "park",
-        "addr_state": "NJ",
-        "addr_city": "Sewaren",
-        "addr_postcode": "07077",
-        "addr_street": "Cathrin Street",
-        "addr_housenumber": "42"
+        "id": 943,
+        "geometry": "POINT (-71.21302 43.583693)",
+        "poi_name": "Mount Washington Boat Terminal",
+        "osm_id": 2730505188,
+        "tourism": "attraction",
+        "addr_state": "NH",
+        "addr_city": "Wolfeboro",
+        "addr_postcode": "03894",
+        "addr_street": "North Main Street"
       }
     }
   },
-  "id": 453,
+  "id": 2453,
   "type": "range:non_spat_filter+loc"
 }

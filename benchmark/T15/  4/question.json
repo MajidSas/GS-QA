@@ -1,55 +1,87 @@
 {
-  "question": "Where can I find a garden to the southeast of Hasley Canyon Equestrian Center, Valencia, CA within 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography, 100000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Where can I find a hotel that sit within 150 kilometers on the south side of School of Cosmetology, Somerset, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.627773 37.040029)',4326)::geography, 150000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 247152,
-      "geometry": "POINT (-118.636206 34.452191)",
-      "poi_name": "Funkmeyer New Reality Garden",
-      "osm_id": 3659354357,
-      "leisure": "garden",
+      "id": 4404,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Quality Inn",
+      "osm_id": 11247877583,
+      "tourism": "hotel"
+    },
+    {
+      "id": 4405,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Baymont",
+      "osm_id": 11247877586,
+      "tourism": "hotel",
+      "official_name": "Baymont by Wyndham"
+    },
+    {
+      "id": 13275,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Sleep Inn",
+      "osm_id": 4084617932,
+      "tourism": "hotel"
+    },
+    {
+      "id": 13739,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Days Inn Lenoir City",
+      "osm_id": 4140169569,
+      "tourism": "hotel"
+    },
+    {
+      "id": 24004,
+      "geometry": "POINT (-84.627773 37.040029)",
+      "poi_name": "Element Knoxville West",
+      "osm_id": 9245406917,
+      "tourism": "hotel",
       "wheelchair": "yes",
-      "operator": "Otis and Jenny Funkmeyer",
-      "addr_state": "CA",
-      "addr_city": "Los Angeles",
-      "addr_postcode": "90016",
-      "addr_street": "South Spaulding Avenue",
-      "addr_housenumber": "2033"
+      "website": "https://www.marriott.com/hotels/travel/tysel-element-knoxville-west/",
+      "internet_access": "yes",
+      "phone": "+1 865-409-5030",
+      "addr_state": "TN",
+      "addr_city": "Knoxville",
+      "addr_postcode": "37922",
+      "addr_street": "North Peters Road",
+      "addr_housenumber": "400"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
-      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "School of Cosmetology, Somerset, KY",
+      "geo_wkt": "POINT (-84.627773 37.040029)",
       "poi": {
-        "id": 246005,
-        "geometry": "POINT (-118.636206 34.452191)",
-        "poi_name": "Hasley Canyon Equestrian Center",
-        "osm_id": 5431737185,
-        "leisure": "park",
-        "addr_state": "CA",
-        "addr_city": "Valencia",
-        "addr_postcode": "91355",
-        "addr_street": "Avenue Penn",
-        "addr_housenumber": "29161"
+        "id": 55006,
+        "geometry": "POINT (-84.627773 37.040029)",
+        "poi_name": "School of Cosmetology",
+        "osm_id": 10167388785,
+        "amenity": "university",
+        "operator": "Campbellsville University",
+        "addr_state": "KY",
+        "addr_city": "Somerset",
+        "addr_postcode": "42503",
+        "addr_street": "Family Fun Drive",
+        "addr_housenumber": "81"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 3,
+  "id": 2203,
   "type": "range:direction+loc"
 }

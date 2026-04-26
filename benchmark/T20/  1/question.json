@@ -1,70 +1,67 @@
 {
-  "question": "Where is the closest fast food restaurant from Courtyard Atlanta Alpharetta, Alpharetta, GA towards Centennial High School Football Stadium, Roswell, GA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography, ST_GeomFromText('POINT (-84.292979 34.007322)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.268867 34.089958)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant forward of Lucille Ball Childhood Home, Jamestown, NY in the direction of Tidioute Overlook, Tidioute, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography, ST_GeomFromText('POINT (-79.392843 41.675234)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 228490,
-      "geometry": "POINT (-84.270328 34.087465)",
-      "poi_name": "BurgerFi",
-      "osm_id": 4345582890,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "phone": "+1-770-817-4658",
+      "id": 232016,
+      "geometry": "POINT (-79.412492 41.683308)",
+      "poi_name": "Hummingbird Cafe",
+      "osm_id": 4505034627,
+      "amenity": "restaurant",
+      "cuisine": "breakfast",
+      "opening_hours": "08:00-21:00",
       "takeaway": "yes",
-      "addr_state": "GA",
-      "addr_city": "Alpharetta",
-      "addr_postcode": "30004",
-      "addr_street": "Windward Parkway",
-      "addr_housenumber": "5475",
-      "value": 193.65847517085217
+      "addr_state": "PA",
+      "addr_city": "Tidioute",
+      "addr_postcode": "16351",
+      "addr_street": "Main Street",
+      "addr_housenumber": "123",
+      "value": 190.57403772112514
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Courtyard Atlanta Alpharetta, Alpharetta, GA",
-      "geo_wkt": "POINT (-84.268867 34.089958)",
+      "sub_category": "museum",
+      "display_name": "Lucille Ball Childhood Home, Jamestown, NY",
+      "geo_wkt": "POINT (-79.286417 42.102703)",
       "poi": {
-        "id": 1616,
-        "geometry": "POINT (-84.268867 34.089958)",
-        "poi_name": "Courtyard Atlanta Alpharetta",
-        "osm_id": 3079249674,
-        "tourism": "hotel",
-        "website": "https://www.marriott.com/hotels/travel/atlph-courtyard-atlanta-alpharetta/",
-        "phone": "1-678-366-3360",
-        "official_name": "Courtyard by Marriott",
-        "addr_state": "GA",
-        "addr_city": "Alpharetta",
-        "addr_postcode": "30004",
-        "addr_street": "Deerfield Parkway",
-        "addr_housenumber": "12655"
+        "id": 373,
+        "geometry": "POINT (-79.286417 42.102703)",
+        "poi_name": "Lucille Ball Childhood Home",
+        "osm_id": 8342270492,
+        "tourism": "museum",
+        "website": "https://59lucylane.com/",
+        "addr_state": "NY",
+        "addr_city": "Jamestown",
+        "addr_postcode": "14701",
+        "addr_street": "Lucy Lane",
+        "addr_housenumber": "59"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Centennial High School Football Stadium, Roswell, GA",
-      "geo_wkt": "POINT (-84.292979 34.007322)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Tidioute Overlook, Tidioute, PA",
+      "geo_wkt": "POINT (-79.392843 41.675234)",
       "poi": {
-        "id": 262496,
-        "geometry": "POINT (-84.292979 34.007322)",
-        "poi_name": "Centennial High School Football Stadium",
-        "osm_id": 358784376,
-        "leisure": "stadium",
-        "fee": "9 USD",
-        "sport": "american_football",
-        "addr_state": "GA",
-        "addr_city": "Roswell",
-        "addr_postcode": "30076"
+        "id": 19938,
+        "geometry": "POINT (-79.392843 41.675234)",
+        "poi_name": "Tidioute Overlook",
+        "osm_id": 7771460443,
+        "tourism": "attraction",
+        "addr_state": "PA",
+        "addr_city": "Tidioute",
+        "addr_postcode": "16351",
+        "addr_street": "Bimber Run Road"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1300,
+  "id": 1500,
   "type": "knn:towards+loc"
 }

@@ -1,51 +1,47 @@
 {
-  "question": "What's the nearest beach resort near the university established in the year 1975 in Houston, TX?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum near the university established in the year 1957 in Anchorage, AK is nearest overall?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-149.809844 61.188847)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 249010,
-      "geometry": "POINT (-87.546195 30.279291)",
-      "poi_name": "Caribe Resort",
-      "osm_id": 9583387690,
-      "leisure": "beach_resort",
+      "id": 23787,
+      "geometry": "POINT (-149.886357 61.217685)",
+      "poi_name": "Alaska Law Enforcement Museum",
+      "osm_id": 5314336662,
+      "tourism": "museum",
       "fee": "yes",
-      "website": "https://cariberesort.com/",
-      "phone": "+1 251 980 9010",
-      "addr_state": "AL",
-      "addr_city": "Orange Beach",
-      "addr_postcode": "36561",
-      "addr_street": "Perdido Beach Boulevard",
-      "addr_housenumber": "28103"
+      "opening_hours": "Mo-Fr 10:00-16:00; Sa 12:00-16:00",
+      "website": "https://foast.org/museum"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "George R. Brown School of Engineering, Houston, TX",
-      "geo_wkt": "POINT (-95.398757 29.720135)",
+      "display_name": "Alaska Pacific University, Anchorage, AK",
+      "geo_wkt": "POINT (-149.809844 61.188847)",
       "poi": {
-        "id": 30759,
-        "geometry": "POINT (-95.398757 29.720135)",
-        "poi_name": "George R. Brown School of Engineering",
-        "osm_id": 8379958482,
+        "id": 86864,
+        "geometry": "POINT (-149.809844 61.188847)",
+        "poi_name": "Alaska Pacific University",
+        "osm_id": 1956023742,
         "amenity": "university",
-        "website": "https://engineering.rice.edu/",
-        "phone": "+1-713-348-4955",
-        "wikidata": "Q5543612",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77005",
-        "addr_street": "Main Street",
-        "addr_housenumber": "6100"
+        "description": "The main campus of Alaska Pacific University sits on 170 heavily wooded acres near the center of Alaska's largest city, Anchorage.  From APU Website",
+        "website": "https://www.alaskapacific.edu/",
+        "internet_access": "yes",
+        "wikidata": "Q1565621",
+        "addr_state": "AK",
+        "addr_city": "Anchorage",
+        "addr_postcode": "99508",
+        "addr_street": "University Drive",
+        "addr_housenumber": "4101"
       }
     }
   },
-  "id": 2740,
-  "type": "knn+name+multihop2"
+  "id": 940,
+  "type": "knn+name+multi_source2"
 }

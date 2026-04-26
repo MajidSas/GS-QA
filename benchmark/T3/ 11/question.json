@@ -1,64 +1,62 @@
 {
-  "question": "What gallery is positioned towards the west of Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO within 60 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.799593 38.839378)',4326)::geography, 60000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "What museum exist within 100 kilometers to the east relative to Yellow River Game Ranch, Lilburn, GA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, 100000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 19590,
-      "geometry": "POINT (-104.799593 38.839378)",
-      "poi_name": "surface gallery",
-      "osm_id": 10822781665,
-      "tourism": "gallery",
-      "addr_state": "CO",
-      "addr_city": "Colorado Springs",
-      "addr_postcode": "80904",
-      "addr_street": "West Colorado Avenue",
-      "addr_housenumber": "2752"
+      "id": 2795,
+      "geometry": "POINT (-84.087955 33.833501)",
+      "poi_name": "Georgia Museum of Natural History",
+      "osm_id": 10034681322,
+      "tourism": "museum",
+      "website": "https://naturalhistory.uga.edu/",
+      "museum": "nature"
     },
     {
-      "id": 9899,
-      "geometry": "POINT (-104.799593 38.839378)",
-      "poi_name": "The Michael Garman Museum & Gallery",
-      "osm_id": 9049229773,
-      "tourism": "gallery"
+      "id": 5977,
+      "geometry": "POINT (-84.087955 33.833501)",
+      "poi_name": "State Botanical Gardens",
+      "osm_id": 1693285117,
+      "tourism": "museum",
+      "website": "https://botgarden.uga.edu/"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 60000,
-      "text": "60 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Children's Hospital Colorado at Memorial Hospital, Colorado Springs, CO",
-      "geo_wkt": "POINT (-104.799593 38.839378)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Yellow River Game Ranch, Lilburn, GA",
+      "geo_wkt": "POINT (-84.087955 33.833501)",
       "poi": {
-        "id": 46387,
-        "geometry": "POINT (-104.799593 38.839378)",
-        "poi_name": "Children's Hospital Colorado at Memorial Hospital",
-        "osm_id": 3262037034,
-        "amenity": "hospital",
-        "website": "https://www.childrenscolorado.org/about/locations/colorado-springs/memorial-hospital-central",
-        "phone": "+1-719-365-5000",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "CO",
-        "addr_city": "Colorado Springs",
-        "addr_postcode": "80909",
-        "addr_street": "East Boulder Street",
-        "addr_housenumber": "1400"
+        "id": 5592,
+        "geometry": "POINT (-84.087955 33.833501)",
+        "poi_name": "Yellow River Game Ranch",
+        "osm_id": 827126721,
+        "tourism": "zoo",
+        "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+        "website": "https://www.yellowrivergameranch.com/",
+        "phone": "+1 (770) 972-6643",
+        "zoo": "petting_zoo",
+        "addr_state": "GA",
+        "addr_city": "Lilburn",
+        "addr_postcode": "30047",
+        "addr_street": "US 78",
+        "addr_housenumber": "4525"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2610,
+  "id": 2310,
   "type": "range:direction+name"
 }

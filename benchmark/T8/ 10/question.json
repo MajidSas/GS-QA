@@ -1,41 +1,46 @@
 {
-  "question": "Looking for the closest garden in relation to the attraction with the former name Hollywoodland Sign in Los Angeles, CA, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest university relative to the park that can hold 10000 spectators in Phoenix, AZ?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248982,
-      "geometry": "POINT (-118.356651 34.064263)",
-      "poi_name": "Pleistocene Garden",
-      "osm_id": 9504140108,
-      "leisure": "garden"
+      "id": 88341,
+      "geometry": "POINT (-112.074389 33.483178)",
+      "poi_name": "Creighton University",
+      "osm_id": 8779535609,
+      "amenity": "university",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85003",
+      "addr_street": "North Central Avenue",
+      "addr_housenumber": "3100"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Hollywood Sign, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 1885,
-        "geometry": "POINT (-118.321652 34.134099)",
-        "poi_name": "Hollywood Sign",
-        "osm_id": 3204926589,
-        "tourism": "attraction",
-        "operator": "The Trust for Public Land",
-        "wikidata": "Q180376",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mount Lee Drive"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 2709,
-  "type": "knn+name+multihop2"
+  "id": 909,
+  "type": "knn+name+multi_source2"
 }

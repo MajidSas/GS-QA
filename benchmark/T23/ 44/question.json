@@ -1,43 +1,42 @@
 {
-  "question": "How many restaurants are available within 70 kilometers from MICA Gallery, Lansing, MI?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.549353 42.747811)',4326)::geography, 70000)\nAND amenity = 'restaurant';\n",
+  "question": "What\u2019s the total count of caf\u00e9s within 140 kilometers from the location Wenatchee Valley Museum and Cultural Center, Wenatchee, WA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-120.310936 47.42248)',4326)::geography, 140000)\nAND amenity = 'cafe';\n",
   "answers": [
     {
-      "count": 310
+      "count": 255
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "MICA Gallery, Lansing, MI",
-      "geo_wkt": "POINT (-84.549353 42.747811)",
+      "sub_category": "museum",
+      "display_name": "Wenatchee Valley Museum and Cultural Center, Wenatchee, WA",
+      "geo_wkt": "POINT (-120.310936 47.42248)",
       "poi": {
-        "id": 4099,
-        "geometry": "POINT (-84.549353 42.747811)",
-        "poi_name": "MICA Gallery",
-        "osm_id": 5676662291,
-        "tourism": "gallery",
-        "operator": "Michigan Institute for Contemporary Art",
-        "website": "http://www.micagallery.org/",
-        "phone": "+1-517-371-4600",
-        "addr_state": "MI",
-        "addr_city": "Lansing",
-        "addr_postcode": "48906",
-        "addr_street": "Turner Street",
-        "addr_housenumber": "1210"
+        "id": 4,
+        "geometry": "POINT (-120.310936 47.42248)",
+        "poi_name": "Wenatchee Valley Museum and Cultural Center",
+        "osm_id": 403501655,
+        "tourism": "museum",
+        "opening_hours": "Tu-Su 10:00-16:00",
+        "website": "https://www.wenatcheevalleymuseum.org/",
+        "addr_state": "WA",
+        "addr_city": "Wenatchee",
+        "addr_postcode": "98801",
+        "addr_street": "S. Mission St.",
+        "addr_housenumber": "127"
       }
     }
   },
-  "id": 2243,
+  "id": 1843,
   "type": "range+count"
 }

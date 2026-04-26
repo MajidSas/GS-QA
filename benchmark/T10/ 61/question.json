@@ -1,70 +1,57 @@
 {
-  "question": "Which restaurant is nearest towards White Memorial Foundation, Litchfield, CT from Discovery Depot at Nature's Art Village, Montville, CT?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography, ST_GeomFromText('POINT (-73.213489 41.724615)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant along the travel direction from Bowditch Middle School Auditorium, Foster City, CA to Serge Sorokko Gallery, San Francisco, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography, ST_GeomFromText('POINT (-122.405733 37.790349)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 109031,
-      "geometry": "POINT (-72.222426 41.431796)",
-      "poi_name": "Cobalt Cafe at Nature's Art Village",
-      "osm_id": 3646701863,
+      "id": 143291,
+      "geometry": "POINT (-122.40857 37.662836)",
+      "poi_name": "El Palenque Taqueria",
+      "osm_id": 6335611916,
       "amenity": "restaurant",
-      "cuisine": "sandwich",
-      "opening_hours": "10:00-17:00",
-      "website": "http://www.naturesartvillage.com",
-      "capacity": "100",
-      "phone": "860-443-4367",
-      "takeaway": "yes",
-      "delivery": "no",
-      "addr_state": "CT",
-      "addr_city": "Montville",
-      "addr_postcode": "06370",
-      "addr_street": "Hartford-New London Turnpike",
-      "addr_housenumber": "1650",
-      "value": 291.8113514104954
+      "cuisine": "mexican;tacos",
+      "value": 331.6818782646346
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
+      "geo_wkt": "POINT (-122.248613 37.559053)",
       "poi": {
-        "id": 9052,
-        "geometry": "POINT (-72.222213 41.431675)",
-        "poi_name": "Discovery Depot at Nature's Art Village",
-        "osm_id": 3646715046,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-17:00 \"seasonal\"",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 246975,
+        "geometry": "POINT (-122.248613 37.559053)",
+        "poi_name": "Bowditch Middle School Auditorium",
+        "osm_id": 8468035653,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball",
+        "addr_state": "CA",
+        "addr_city": "Foster City",
+        "addr_postcode": "94404",
+        "addr_street": "Tarpon Street",
+        "addr_housenumber": "1450"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "White Memorial Foundation, Litchfield, CT",
-      "geo_wkt": "POINT (-73.213489 41.724615)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Serge Sorokko Gallery, San Francisco, CA",
+      "geo_wkt": "POINT (-122.405733 37.790349)",
       "poi": {
-        "id": 245812,
-        "geometry": "POINT (-73.213489 41.724615)",
-        "poi_name": "White Memorial Foundation",
-        "osm_id": 10112095367,
-        "leisure": "nature_reserve",
-        "description": "The White Memorial Foundation is the result of the vision of two generous and creative people, Alain C. White and his sister, May W. White. Between 1908 and 1912 they purchased several tracts of land surrounding their family\u2019s Whitehall property on the no",
-        "operator": "White Memorial Foundation",
-        "website": "www.whitememorialcc.org",
-        "phone": "860-567-0857",
-        "addr_state": "CT",
-        "addr_city": "Litchfield",
-        "addr_postcode": "06759",
-        "addr_street": "Whitehall Road",
-        "addr_housenumber": "72"
+        "id": 15815,
+        "geometry": "POINT (-122.405733 37.790349)",
+        "poi_name": "Serge Sorokko Gallery",
+        "osm_id": 9544205106,
+        "tourism": "gallery",
+        "wheelchair": "yes",
+        "fee": "no",
+        "website": "https://www.sorokko.com/",
+        "phone": "+1 415 4217770",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_street": "Grant Avenue",
+        "addr_housenumber": "365"
       }
     },
     "[1]": {
@@ -72,6 +59,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 160,
+  "id": 1660,
   "type": "knn:towards+name"
 }

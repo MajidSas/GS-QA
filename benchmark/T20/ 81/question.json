@@ -1,69 +1,67 @@
 {
-  "question": "Where's the closest restaurant located en route to Sloth Encounters, Hauppauge, NY from Post University, Waterbury, CT?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography, ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.041211 41.554134)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel you pass when going from Barons Bus Arena, Parma, OH to Wellington Reservation, Wellington, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 67063,
-      "geometry": "POINT (-73.055743 41.489741)",
-      "poi_name": "Chiangmai Thai",
-      "osm_id": 11221620343,
-      "amenity": "restaurant",
-      "cuisine": "thai",
-      "addr_state": "CT",
-      "addr_city": "Naugatuck",
-      "addr_postcode": "06770",
-      "addr_street": "Church Street",
-      "addr_housenumber": "166",
-      "value": 189.97000228421012
+      "id": 24470,
+      "geometry": "POINT (-83.013207 40.760627)",
+      "poi_name": "HideAway Country Inn",
+      "osm_id": 11067131676,
+      "description": "Set on 6 acres, this secluded boutique hotel occupies a historic manor house 3.6 miles from Sears Woods State Nature Preserve.",
+      "tourism": "hotel",
+      "opening_hours": "Mo-Th 09:00-20:00, Fr-Sa 09:00-21:00, Su 09:00-16:00",
+      "addr_state": "OH",
+      "addr_city": "Bucyrus",
+      "addr_postcode": "44820",
+      "addr_street": "Ohio 4",
+      "addr_housenumber": "1601",
+      "value": 233.19053822793538
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Post University, Waterbury, CT",
-      "geo_wkt": "POINT (-73.041211 41.554134)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Barons Bus Arena, Parma, OH",
+      "geo_wkt": "POINT (-81.758046 41.416012)",
       "poi": {
-        "id": 138346,
-        "geometry": "POINT (-73.041211 41.554134)",
-        "poi_name": "Post University",
-        "osm_id": 6142691782,
-        "amenity": "university",
-        "addr_state": "CT",
-        "addr_city": "Waterbury",
-        "addr_postcode": "06702",
-        "addr_street": "Bank Street",
-        "addr_housenumber": "140"
+        "id": 247265,
+        "geometry": "POINT (-81.758046 41.416012)",
+        "poi_name": "Barons Bus Arena",
+        "osm_id": 8888267688,
+        "leisure": "stadium",
+        "addr_state": "OH",
+        "addr_city": "Parma",
+        "addr_postcode": "44129",
+        "addr_street": "Hauserman Road",
+        "addr_housenumber": "5310"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sloth Encounters, Hauppauge, NY",
-      "geo_wkt": "POINT (-73.210029 40.824517)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
       "poi": {
-        "id": 6973,
-        "geometry": "POINT (-73.210029 40.824517)",
-        "poi_name": "Sloth Encounters",
-        "osm_id": 8791898433,
-        "tourism": "zoo",
-        "opening_hours": "Sa-Su 11:00-19:00",
-        "website": "https://www.slothencounters.com/",
-        "phone": "+1-631-257-5683",
-        "zoo": "petting_zoo",
-        "addr_state": "NY",
-        "addr_city": "Hauppauge",
-        "addr_postcode": "11788",
-        "addr_street": "Veterans Memorial Highway",
-        "addr_housenumber": "551"
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1380,
+  "id": 1580,
   "type": "knn:towards+loc"
 }

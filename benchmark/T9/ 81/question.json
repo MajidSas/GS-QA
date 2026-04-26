@@ -1,52 +1,44 @@
 {
-  "question": "What is the closest zoo in the southeast direction of Western avenue park, Rocky Mount, NC?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-77.809646 35.943766)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest nature reserve in the northeast direction of Hellsgate Farms, Astoria, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 12531,
-      "geometry": "POINT (-77.809646 35.943766)",
-      "poi_name": "It's A Zoo Life",
-      "osm_id": 7297084056,
-      "tourism": "zoo",
-      "fee": "yes",
-      "opening_hours": "Mo-Sa 08:00-17:00",
-      "phone": "(252) 266-7974",
-      "zoo": "petting_zoo",
-      "addr_state": "NC",
-      "addr_city": "Macclesville",
-      "addr_postcode": "27852",
-      "addr_street": "NC-42",
-      "addr_housenumber": "4313"
+      "id": 246642,
+      "geometry": "POINT (-73.930068 40.768724)",
+      "poi_name": "Wildlife Sanctuary",
+      "osm_id": 8732766446,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Western avenue park, Rocky Mount, NC",
-      "geo_wkt": "POINT (-77.809646 35.943766)",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 248360,
-        "geometry": "POINT (-77.809646 35.943766)",
-        "poi_name": "Western avenue park",
-        "osm_id": 4058414489,
-        "leisure": "park",
-        "addr_state": "NC",
-        "addr_city": "Rocky Mount",
-        "addr_street": "South Vyne Street",
-        "addr_housenumber": "209"
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2580,
+  "id": 1280,
   "type": "knn:direction+name"
 }

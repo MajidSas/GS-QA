@@ -1,69 +1,60 @@
 {
-  "question": "Where's the nearest hospital heading towards Vulture Mine Tours / Vulture City Ghost Town, Wickenburg, AZ from Creighton University, Phoenix, AZ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography, ST_GeomFromText('POINT (-112.828828 33.816527)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'hospital'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.074389 33.483178)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery when heading toward Travelodge by Wyndham Fairfield/Napa Valley, Fairfield, CA from Steinhart Aquarium, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, ST_GeomFromText('POINT (-122.131846 38.218343)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.465976 37.769485)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 181754,
-      "geometry": "POINT (-112.271718 33.587047)",
-      "poi_name": "Recovery Innovations Recovery Response Center",
-      "osm_id": 10863657754,
-      "amenity": "hospital",
-      "website": "https://riinternational.com/listing/recovery-response-center-retreat-peoria",
-      "phone": "+1 602 650 1212",
-      "healthcare": "hospital",
-      "addr_city": "Peoria",
-      "addr_postcode": "85345",
-      "addr_street": "North 99th Avenue",
-      "addr_housenumber": "11361",
-      "value": 298.05714010104197
+      "id": 2942,
+      "geometry": "POINT (-122.423189 37.806195)",
+      "poi_name": "Col Gallery",
+      "osm_id": 10087741500,
+      "tourism": "gallery",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94109",
+      "addr_street": "Beach Street",
+      "addr_housenumber": "887",
+      "value": 30.399610729309433
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Creighton University, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.074389 33.483178)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Steinhart Aquarium, CA",
+      "geo_wkt": "POINT (-122.465976 37.769485)",
       "poi": {
-        "id": 88341,
-        "geometry": "POINT (-112.074389 33.483178)",
-        "poi_name": "Creighton University",
-        "osm_id": 8779535609,
-        "amenity": "university",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85003",
-        "addr_street": "North Central Avenue",
-        "addr_housenumber": "3100"
+        "id": 18181,
+        "geometry": "POINT (-122.465976 37.769485)",
+        "poi_name": "Steinhart Aquarium",
+        "osm_id": 368173914,
+        "tourism": "aquarium",
+        "addr_state": "CA"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Vulture Mine Tours / Vulture City Ghost Town, Wickenburg, AZ",
-      "geo_wkt": "POINT (-112.828828 33.816527)",
+      "sub_category": "hotel",
+      "display_name": "Travelodge by Wyndham Fairfield/Napa Valley, Fairfield, CA",
+      "geo_wkt": "POINT (-122.131846 38.218343)",
       "poi": {
-        "id": 2137,
-        "geometry": "POINT (-112.828828 33.816527)",
-        "poi_name": "Vulture Mine Tours / Vulture City Ghost Town",
-        "osm_id": 3274100436,
-        "tourism": "museum",
-        "fee": "yes",
-        "website": "https://www.vultureminetours.com/",
-        "phone": "+1-877-425-9229",
-        "addr_state": "AZ",
-        "addr_city": "Wickenburg",
-        "addr_postcode": "85390",
-        "addr_street": "355th Ave",
-        "addr_housenumber": "36610"
+        "id": 4780,
+        "geometry": "POINT (-122.131846 38.218343)",
+        "poi_name": "Travelodge by Wyndham Fairfield/Napa Valley",
+        "osm_id": 9610137814,
+        "tourism": "hotel",
+        "addr_state": "CA",
+        "addr_city": "Fairfield",
+        "addr_postcode": "94534",
+        "addr_street": "Central Way",
+        "addr_housenumber": "4625"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1340,
+  "id": 1540,
   "type": "knn:towards+loc"
 }

@@ -1,38 +1,43 @@
 {
-  "question": "Which direction points towards the nearest viewpoint from Dam Number 2 Woods, IL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.891459 42.083532)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.891459 42.083532)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the bearing from Super Cichlids Inc, Dover, DE to the nearest park?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 4313,
-      "geometry": "POINT (-87.79019 42.145897)",
-      "poi_name": "Sensory Garden Arbor Viewpoint",
-      "osm_id": 11215892035,
-      "tourism": "viewpoint",
-      "angle": 50.37140575714494
+      "id": 256829,
+      "geometry": "POINT (-75.316304 39.354281)",
+      "poi_name": "Dix Fish and Wildlife Management Area",
+      "osm_id": 357732676,
+      "leisure": "park",
+      "wikidata": "Q49483418",
+      "angle": 35.08483666997065
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Dam Number 2 Woods, IL",
-      "geo_wkt": "POINT (-87.891459 42.083532)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Super Cichlids Inc, Dover, DE",
+      "geo_wkt": "POINT (-75.496486 39.155267)",
       "poi": {
-        "id": 265406,
-        "geometry": "POINT (-87.891459 42.083532)",
-        "poi_name": "Dam Number 2 Woods",
-        "osm_id": 369051165,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 24354,
+        "geometry": "POINT (-75.496486 39.155267)",
+        "poi_name": "Super Cichlids Inc",
+        "osm_id": 11016560740,
+        "tourism": "aquarium",
+        "phone": "302-608-3846",
+        "addr_state": "DE",
+        "addr_city": "Dover",
+        "addr_postcode": "19901",
+        "addr_street": "Barl Court",
+        "addr_housenumber": "1055"
       }
     }
   },
-  "id": 1421,
+  "id": 521,
   "type": "knn+angle"
 }

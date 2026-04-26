@@ -1,74 +1,70 @@
 {
-  "question": "Where is the closest restaurant from Malibu Jack's, Springfield, IL towards Ulrich Wildlife Preserve, Morton, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest museum along the travel direction toward Hellsgate Farms, Astoria, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography, ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205147,
-      "geometry": "POINT (-89.70372 39.790632)",
-      "poi_name": "Lime Street Cafe",
-      "osm_id": 7158624431,
-      "amenity": "restaurant",
-      "cuisine": "american",
-      "opening_hours": "Tu-Th 11:00-17:00; Fr 11:00-22:30; Sa 16:00-22:30",
-      "phone": "+1-217-793-1905",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62704",
-      "addr_street": "South Durkin Drive",
-      "addr_housenumber": "951",
-      "value": 10.4875540862242
+      "id": 25359,
+      "geometry": "POINT (-73.981479 40.749191)",
+      "poi_name": "The Morgan Library & Museum",
+      "osm_id": 4462440249,
+      "tourism": "museum",
+      "opening_hours": "Tu-Su 10:00-17:30",
+      "website": "https://www.themorgan.org/",
+      "phone": "+1-212-685-0008",
+      "museum": "art",
+      "wikidata": "Q1478423",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10016",
+      "addr_street": "Madison Avenue",
+      "addr_housenumber": "225",
+      "value": 65.9645091082183
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY School of Professional Studies, New York, NY",
+      "geo_wkt": "POINT (-73.990094 40.748387)",
       "poi": {
-        "id": 67633,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 34678,
+        "geometry": "POINT (-73.990094 40.748387)",
+        "poi_name": "CUNY School of Professional Studies",
+        "osm_id": 2703449228,
+        "amenity": "university",
+        "operator": "City University of New York",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 31st Street",
+        "addr_housenumber": "119"
       }
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
-      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "sub_category": "garden",
+      "display_name": "Hellsgate Farms, Astoria, NY",
+      "geo_wkt": "POINT (-73.930068 40.768724)",
       "poi": {
-        "id": 246437,
-        "geometry": "POINT (-89.490228 40.649994)",
-        "poi_name": "Ulrich Wildlife Preserve",
-        "osm_id": 9654359178,
-        "leisure": "nature_reserve",
-        "opening_hours": "dawn-dusk",
-        "operator": "Morton Park District",
-        "addr_state": "IL",
-        "addr_city": "Morton",
-        "addr_postcode": "61550",
-        "addr_street": "Turtle Creek Trail",
-        "addr_housenumber": "100"
+        "id": 266410,
+        "geometry": "POINT (-73.930068 40.768724)",
+        "poi_name": "Hellsgate Farms",
+        "osm_id": 4991507390,
+        "leisure": "garden",
+        "addr_state": "NY",
+        "addr_city": "Astoria",
+        "addr_postcode": "11102",
+        "addr_street": "30th Drive",
+        "addr_housenumber": "14-33"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 1395,
+  "id": 1595,
   "type": "knn:towards+loc"
 }

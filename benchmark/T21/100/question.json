@@ -1,45 +1,94 @@
 {
-  "question": "Which way should I head to get to an aquarium from Northwest Nazarene University, Idaho Falls, ID within 130 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.051353 43.483539)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-112.051353 43.483539)',4326)::geography, 130000)\nAND tourism = 'aquarium';\n",
+  "question": "Which way do I need to head to get to a gallery from Taylor's Aquarium, Dunn, NC within 70 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography, 70000)\nAND tourism = 'gallery';\n",
   "answers": [
     {
-      "id": 7128,
-      "geometry": "POINT (-112.021499 43.510858)",
-      "poi_name": "East Idaho Aquarium",
-      "osm_id": 8873854009,
-      "tourism": "aquarium",
-      "angle": 38.49230058351597
+      "id": 514,
+      "geometry": "POINT (-78.644367 35.77467)",
+      "poi_name": "Litmus Gallery & Studios",
+      "osm_id": 8412296516,
+      "tourism": "gallery",
+      "angle": 355.5501968375178
+    },
+    {
+      "id": 2177,
+      "geometry": "POINT (-78.644232 35.77699)",
+      "poi_name": "311 Gallery",
+      "osm_id": 3305442700,
+      "tourism": "gallery",
+      "fee": "no",
+      "opening_hours": "We-Sa 11:30-16:00",
+      "website": "http://311gallery.com/",
+      "phone": "919-247-4915",
+      "angle": 355.57908013217497
+    },
+    {
+      "id": 4984,
+      "geometry": "POINT (-78.283565 35.53543)",
+      "poi_name": "Strickland Art Gallery",
+      "osm_id": 9707094897,
+      "tourism": "gallery",
+      "phone": "Strickland Art Gallery",
+      "addr_state": "NC",
+      "addr_city": "Selma",
+      "addr_postcode": "27576",
+      "addr_street": "South Raiford Street",
+      "addr_housenumber": "115",
+      "angle": 36.71233200431047
+    },
+    {
+      "id": 18565,
+      "geometry": "POINT (-78.639598 35.771423)",
+      "poi_name": "Betty Ray McCain Art Gallery",
+      "osm_id": 2335652065,
+      "tourism": "gallery",
+      "angle": 355.9126216020364
+    },
+    {
+      "id": 22743,
+      "geometry": "POINT (-78.45364 35.617975)",
+      "poi_name": "Tinks and Tots Blocks",
+      "osm_id": 7239018678,
+      "tourism": "gallery",
+      "phone": "(919) 896-1903",
+      "addr_state": "NC",
+      "addr_city": "Clayton",
+      "addr_postcode": "27520",
+      "addr_street": "Penny Lane",
+      "addr_housenumber": "2014",
+      "angle": 14.880272138263814
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Northwest Nazarene University, Idaho Falls, ID",
-      "geo_wkt": "POINT (-112.051353 43.483539)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Taylor's Aquarium, Dunn, NC",
+      "geo_wkt": "POINT (-78.589533 35.200429)",
       "poi": {
-        "id": 76377,
-        "geometry": "POINT (-112.051353 43.483539)",
-        "poi_name": "Northwest Nazarene University",
-        "osm_id": 9774123453,
-        "amenity": "university",
-        "internet_access": "wlan",
-        "addr_state": "ID",
-        "addr_city": "Idaho Falls",
-        "addr_street": "Pier View Drive",
-        "addr_housenumber": "901"
+        "id": 24624,
+        "geometry": "POINT (-78.589533 35.200429)",
+        "poi_name": "Taylor's Aquarium",
+        "osm_id": 11141985607,
+        "tourism": "aquarium",
+        "phone": "+19105675377",
+        "addr_state": "NC",
+        "addr_city": "Dunn",
+        "addr_postcode": "28334",
+        "addr_street": "North Spring Branch Road",
+        "addr_housenumber": "590"
       }
     }
   },
-  "id": 1099,
+  "id": 1799,
   "type": "range+angle"
 }

@@ -1,16 +1,16 @@
 {
-  "question": "How many nature reserves can be found within a 120 kilometers radius from Stones Road Boat Launch, OR?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-123.630673 45.448441)',4326)::geography, 120000)\nAND leisure = 'nature_reserve';\n",
+  "question": "How many universities are located inside a 120 kilometers radius of Thomson Park, Thunderbolt, GA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography, 120000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "count": 8
+      "count": 1
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "distance": 120000,
@@ -19,18 +19,22 @@
     "[3]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Stones Road Boat Launch, OR",
-      "geo_wkt": "POINT (-123.630673 45.448441)",
+      "display_name": "Thomson Park, Thunderbolt, GA",
+      "geo_wkt": "POINT (-81.050045 32.03109)",
       "poi": {
-        "id": 254400,
-        "geometry": "POINT (-123.630673 45.448441)",
-        "poi_name": "Stones Road Boat Launch",
-        "osm_id": 357354890,
+        "id": 245088,
+        "geometry": "POINT (-81.050045 32.03109)",
+        "poi_name": "Thomson Park",
+        "osm_id": 411397560,
         "leisure": "park",
-        "addr_state": "OR"
+        "addr_state": "GA",
+        "addr_city": "Thunderbolt",
+        "addr_postcode": "31404",
+        "addr_street": "River Drive",
+        "addr_housenumber": "2821"
       }
     }
   },
-  "id": 2262,
+  "id": 1862,
   "type": "range+count"
 }

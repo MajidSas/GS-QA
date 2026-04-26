@@ -1,50 +1,46 @@
 {
-  "question": "How far away is the nearest hotel positioned from Jeffrey Deitch, New York, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-74.002655 40.721943)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.002655 40.721943)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from Mari Sandoz High Plains Heritage Center, Chadron, NE to the closest stadium available?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-103.002756 42.819997)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-103.002756 42.819997)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14557,
-      "geometry": "POINT (-74.004356 40.722004)",
-      "poi_name": "Soho Grand Hotel",
-      "osm_id": 4654873356,
-      "tourism": "hotel",
-      "wheelchair": "yes",
-      "website": "https://www.sohogrand.com/",
-      "phone": "+1 (212) 965-3000",
-      "wikidata": "Q7554755",
-      "addr_city": "New York",
-      "addr_postcode": "10013",
-      "addr_street": "West Broadway",
-      "addr_housenumber": "310",
-      "distance": 143.88110285
+      "id": 265490,
+      "geometry": "POINT (-104.83625 41.155172)",
+      "poi_name": "Frontier Days Arena",
+      "osm_id": 2394709319,
+      "leisure": "stadium",
+      "wheelchair": "limited",
+      "sport": "rodeo",
+      "website": "https://www.cfdrodeo.com/",
+      "distance": 239316.56879544
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Jeffrey Deitch, New York, NY",
-      "geo_wkt": "POINT (-74.002655 40.721943)",
+      "sub_category": "museum",
+      "display_name": "Mari Sandoz High Plains Heritage Center, Chadron, NE",
+      "geo_wkt": "POINT (-103.002756 42.819997)",
       "poi": {
-        "id": 24465,
-        "geometry": "POINT (-74.002655 40.721943)",
-        "poi_name": "Jeffrey Deitch",
-        "osm_id": 11066047179,
-        "tourism": "gallery",
-        "website": "https://www.deitch.com/new-york/exhibitions",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10013",
-        "addr_street": "Grand Street",
-        "addr_housenumber": "76"
+        "id": 4233,
+        "geometry": "POINT (-103.002756 42.819997)",
+        "poi_name": "Mari Sandoz High Plains Heritage Center",
+        "osm_id": 5729389721,
+        "tourism": "museum",
+        "website": "http://sandozcenter.com/",
+        "phone": "308-432-6401",
+        "addr_state": "NE",
+        "addr_city": "Chadron",
+        "addr_postcode": "69337",
+        "addr_street": "Main Street",
+        "addr_housenumber": "1000"
       }
     }
   },
-  "id": 2456,
+  "id": 656,
   "type": "knn+distance"
 }

@@ -1,47 +1,35 @@
 {
-  "question": "Where can I find a museum positioned towards the south of Mount Washington Boat Terminal, Wolfeboro, NH, within a radius of 90 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography, 90000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where are a museum positioned toward the northwest of Barrett, the Honors College at ASU, Tempe, AZ and inside 80 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-111.927437 33.415436)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.927437 33.415436)',4326)::geography, 80000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 23937,
-      "geometry": "POINT (-71.21302 43.583693)",
-      "poi_name": "Salem Transportation Museum",
-      "osm_id": 9207850127,
+      "id": 18447,
+      "geometry": "POINT (-111.927437 33.415436)",
+      "poi_name": "Hall of Flame Museum of Firefighting",
+      "osm_id": 2304382505,
       "tourism": "museum",
-      "addr_state": "NH",
-      "addr_city": "Salem",
-      "addr_postcode": "03079",
-      "addr_street": "Main Street",
-      "addr_housenumber": "81"
+      "opening_hours": "Mo-Sa 09:00-17:00; Su 12:00-16:00",
+      "website": "https://hallofflame.org/",
+      "phone": "+1-602-275-3473",
+      "wikidata": "Q14680373",
+      "addr_state": "AZ",
+      "addr_city": "Phoenix",
+      "addr_postcode": "85008",
+      "addr_street": "East Van Buren Street",
+      "addr_housenumber": "6101"
     },
     {
-      "id": 17358,
-      "geometry": "POINT (-71.21302 43.583693)",
-      "poi_name": "Bartlett Museum",
-      "osm_id": 367781160,
+      "id": 18450,
+      "geometry": "POINT (-111.927437 33.415436)",
+      "poi_name": "Glendale Police Museum",
+      "osm_id": 2306313762,
       "tourism": "museum",
-      "website": "http://bartlettmuseum.org/",
-      "wikidata": "Q4865412",
-      "addr_state": "MA",
-      "addr_city": "Amesbury",
-      "addr_postcode": "01913",
-      "addr_street": "Main Street",
-      "addr_housenumber": "220"
-    },
-    {
-      "id": 25040,
-      "geometry": "POINT (-71.21302 43.583693)",
-      "poi_name": "Derry Museum of History",
-      "osm_id": 4379962138,
-      "tourism": "museum",
-      "opening_hours": "We,Su 13:00-17:00",
-      "website": "http://www.derryhistorymuseum.org/",
-      "phone": "+1-603-434-1247",
-      "addr_state": "NH",
-      "addr_city": "Derry",
-      "addr_postcode": "03038",
-      "addr_street": "West Broadway",
-      "addr_housenumber": "29"
+      "operator": "City Of Glendale",
+      "addr_state": "AZ",
+      "addr_city": "Glendale",
+      "addr_postcode": "85301",
+      "addr_street": "North 57th Drive",
+      "addr_housenumber": "6835"
     }
   ],
   "answer_type": "loc",
@@ -51,31 +39,32 @@
       "sub_category": "museum"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
-      "geo_wkt": "POINT (-71.21302 43.583693)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Barrett, the Honors College at ASU, Tempe, AZ",
+      "geo_wkt": "POINT (-111.927437 33.415436)",
       "poi": {
-        "id": 943,
-        "geometry": "POINT (-71.21302 43.583693)",
-        "poi_name": "Mount Washington Boat Terminal",
-        "osm_id": 2730505188,
-        "tourism": "attraction",
-        "addr_state": "NH",
-        "addr_city": "Wolfeboro",
-        "addr_postcode": "03894",
-        "addr_street": "North Main Street"
+        "id": 50011,
+        "geometry": "POINT (-111.927437 33.415436)",
+        "poi_name": "Barrett, the Honors College at ASU",
+        "osm_id": 3460939942,
+        "amenity": "university",
+        "addr_state": "AZ",
+        "addr_city": "Tempe",
+        "addr_postcode": "85281",
+        "addr_street": "East Lemon Mall",
+        "addr_housenumber": "751"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 40,
+  "id": 2240,
   "type": "range:direction+loc"
 }

@@ -1,47 +1,39 @@
 {
-  "question": "In what direction can I find the closest restaurant situated from Earle - Wightman House Museum, NY?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.530324 40.870718)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.530324 40.870718)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way leads toward the closest university starting at Strawberry Hill, San Francisco, CA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 88395,
-      "geometry": "POINT (-73.531081 40.871737)",
-      "poi_name": "Autentico",
-      "osm_id": 8783481565,
-      "amenity": "restaurant",
-      "cuisine": "italian",
-      "website": "https://autenticooysterbay.com/",
-      "phone": "+1 516-922-2212",
-      "addr_state": "NY",
-      "addr_city": "Oyster Bay",
-      "addr_postcode": "11771",
-      "addr_street": "South Street",
-      "addr_housenumber": "124",
-      "angle": 330.56290170214623
+      "id": 190611,
+      "geometry": "POINT (-122.4265 37.770956)",
+      "poi_name": "UCSF Dental School",
+      "osm_id": 1307325427,
+      "amenity": "university",
+      "angle": 86.61880392314545
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Earle - Wightman House Museum, NY",
-      "geo_wkt": "POINT (-73.530324 40.870718)",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 17798,
-        "geometry": "POINT (-73.530324 40.870718)",
-        "poi_name": "Earle - Wightman House Museum",
-        "osm_id": 368061551,
-        "tourism": "museum",
-        "website": "https://www.oysterbayhistorical.org/house-and-garden.html",
-        "wikidata": "Q5326398",
-        "addr_state": "NY"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     }
   },
-  "id": 1486,
+  "id": 586,
   "type": "knn+angle"
 }

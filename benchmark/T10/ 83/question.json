@@ -1,63 +1,65 @@
 {
-  "question": "What's the nearest fast food heading towards James C. Curry Nature Center, Canyon Lake, TX from Sea Life Aquarium, San Antonio, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant aligned with the route to C.S.U. Technology Park, Long Beach, CA from Hollywood Sign, Los Angeles, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography, ST_GeomFromText('POINT (-118.221672 33.790124)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 65472,
-      "geometry": "POINT (-98.480721 29.441877)",
-      "poi_name": "Fletcher's Hamburgers",
-      "osm_id": 5697016485,
-      "amenity": "fast_food",
-      "opening_hours": "Su-Th 11:00-21:00; Fr,Sa 11:00-22:00",
-      "value": 30.85033103410657
+      "id": 154879,
+      "geometry": "POINT (-118.318607 34.105462)",
+      "poi_name": "Sushi Stop Hollywood",
+      "osm_id": 4259746793,
+      "amenity": "restaurant",
+      "cuisine": "sushi",
+      "addr_state": "CA",
+      "addr_city": "Los Angeles",
+      "addr_postcode": "90028",
+      "addr_street": "Franklin Avenue",
+      "addr_housenumber": "5917",
+      "value": 166.35753174920384
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Sea Life Aquarium, San Antonio, TX",
-      "geo_wkt": "POINT (-98.485816 29.424103)",
+      "sub_category": "attraction",
+      "display_name": "Hollywood Sign, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.321652 34.134099)",
       "poi": {
-        "id": 3121,
-        "geometry": "POINT (-98.485816 29.424103)",
-        "poi_name": "Sea Life Aquarium",
-        "osm_id": 10184935041,
-        "tourism": "aquarium",
-        "website": "https://www.visitsealife.com/san-antonio/",
-        "wikidata": "Q664334",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78205",
-        "addr_street": "East Commerce Street",
-        "addr_housenumber": "849"
+        "id": 1885,
+        "geometry": "POINT (-118.321652 34.134099)",
+        "poi_name": "Hollywood Sign",
+        "osm_id": 3204926589,
+        "tourism": "attraction",
+        "operator": "The Trust for Public Land",
+        "wikidata": "Q180376",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_postcode": "90068",
+        "addr_street": "Mount Lee Drive"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
-      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "C.S.U. Technology Park, Long Beach, CA",
+      "geo_wkt": "POINT (-118.221672 33.790124)",
       "poi": {
-        "id": 246012,
-        "geometry": "POINT (-98.194766 29.848573)",
-        "poi_name": "James C. Curry Nature Center",
-        "osm_id": 5449527323,
-        "leisure": "nature_reserve",
-        "operator": "Comal County",
-        "addr_state": "TX",
-        "addr_city": "Canyon Lake",
-        "addr_postcode": "78133",
-        "addr_street": "Skyline Drive",
-        "addr_housenumber": "1889"
+        "id": 88666,
+        "geometry": "POINT (-118.221672 33.790124)",
+        "poi_name": "C.S.U. Technology Park",
+        "osm_id": 8791182330,
+        "amenity": "university",
+        "operator": "California State University",
+        "addr_state": "CA",
+        "addr_city": "Long Beach",
+        "addr_street": "Technology Plaza"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 182,
+  "id": 1682,
   "type": "knn:towards+name"
 }

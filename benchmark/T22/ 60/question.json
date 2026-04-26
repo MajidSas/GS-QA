@@ -1,43 +1,42 @@
 {
-  "question": "Which direction points towards the nearest zoo from Discovery Depot at Nature's Art Village, Montville, CT?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.222213 41.431675)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction is the nearest beach resort from Wellington Reservation, Wellington, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16194,
-      "geometry": "POINT (-71.414516 41.790394)",
-      "poi_name": "Roger Williams Park Zoo",
-      "osm_id": 357266630,
-      "tourism": "zoo",
-      "angle": 59.11596319624053
+      "id": 248226,
+      "geometry": "POINT (-89.156386 44.170489)",
+      "poi_name": "Chippy's Sports Beach",
+      "osm_id": 7471958784,
+      "leisure": "beach_resort",
+      "angle": 302.9213164264003
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Discovery Depot at Nature's Art Village, Montville, CT",
-      "geo_wkt": "POINT (-72.222213 41.431675)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
       "poi": {
-        "id": 9052,
-        "geometry": "POINT (-72.222213 41.431675)",
-        "poi_name": "Discovery Depot at Nature's Art Village",
-        "osm_id": 3646715046,
-        "tourism": "theme_park",
-        "opening_hours": "10:00-17:00 \"seasonal\"",
-        "phone": "860-443-4367",
-        "addr_state": "CT",
-        "addr_city": "Montville",
-        "addr_postcode": "06370",
-        "addr_street": "Hartford-New London Turnpike",
-        "addr_housenumber": "1650"
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
       }
     }
   },
-  "id": 1459,
+  "id": 559,
   "type": "knn+angle"
 }

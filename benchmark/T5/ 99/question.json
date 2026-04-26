@@ -1,43 +1,51 @@
 {
-  "question": "What's the closest garden in proximity to Walton County Heritage Museum (Museum Depot), DeFuniak Springs, FL?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-86.113933 30.71997)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 nearby Mason in Loudoun, Sterling, VA is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.389666 39.024942)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267323,
-      "geometry": "POINT (-87.606542 30.27486)",
-      "poi_name": "Butterfly Garden",
-      "osm_id": 5852973997,
-      "leisure": "garden"
+      "id": 66584,
+      "geometry": "POINT (-77.394402 39.023318)",
+      "poi_name": "Cat Lounge Meows Corner",
+      "osm_id": 11200423843,
+      "amenity": "cafe",
+      "fee": "yes",
+      "website": "https://www.meowscorner.com/",
+      "addr_state": "VA",
+      "addr_city": "Sterling",
+      "addr_postcode": "20165",
+      "addr_street": "Epicerie Plaza",
+      "addr_housenumber": "21435"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Walton County Heritage Museum (Museum Depot), DeFuniak Springs, FL",
-      "geo_wkt": "POINT (-86.113933 30.71997)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Mason in Loudoun, Sterling, VA",
+      "geo_wkt": "POINT (-77.389666 39.024942)",
       "poi": {
-        "id": 22352,
-        "geometry": "POINT (-86.113933 30.71997)",
-        "poi_name": "Walton County Heritage Museum (Museum Depot)",
-        "osm_id": 671081600,
-        "historic": "building",
-        "description": "Museum in a former L&N Train Depot",
-        "tourism": "attraction",
-        "website": "https://www.waltoncountyheritage.org/",
-        "addr_state": "FL",
-        "addr_city": "DeFuniak Springs",
-        "addr_postcode": "32435",
-        "addr_street": "Circle Drive",
-        "addr_housenumber": "1140"
+        "id": 105912,
+        "geometry": "POINT (-77.389666 39.024942)",
+        "poi_name": "Mason in Loudoun",
+        "osm_id": 8653269684,
+        "amenity": "university",
+        "operator": "George Mason University",
+        "website": "https://loudoun.gmu.edu/",
+        "internet_access": "yes",
+        "phone": "+1-703-993-4350",
+        "addr_state": "VA",
+        "addr_city": "Sterling",
+        "addr_postcode": "20164",
+        "addr_street": "Signal Hill Plaza",
+        "addr_housenumber": "21335"
       }
     }
   },
-  "id": 298,
+  "id": 1098,
   "type": "knn+name"
 }

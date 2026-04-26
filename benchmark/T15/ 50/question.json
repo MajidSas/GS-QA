@@ -1,53 +1,55 @@
 {
-  "question": "Where can I find a stadium located in the south of Leon and Ethel Yeiser Rose Garden, Annville, PA, within a radius of 100 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, 100000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where can I find a nature reserve that lie within 160 kilometers toward the east side of ABQ BioPark (Botanic Garden), Albuquerque, NM?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-106.680854 35.09327)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.680854 35.09327)',4326)::geography, 160000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 246798,
-      "geometry": "POINT (-76.51439 40.331543)",
-      "poi_name": "Cal, Sr.'s Yard",
-      "osm_id": 6441911494,
-      "leisure": "stadium",
-      "sport": "baseball",
-      "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-      "addr_state": "MD",
-      "addr_city": "Aberdeen",
-      "addr_postcode": "21001",
-      "addr_street": "Long Drive",
-      "addr_housenumber": "873"
+      "id": 246820,
+      "geometry": "POINT (-106.680854 35.09327)",
+      "poi_name": "Wildlife West Nature Park",
+      "osm_id": 6471544426,
+      "leisure": "nature_reserve",
+      "opening_hours": "10:00-18:00",
+      "operator": "New Mexico Wildlife Association",
+      "website": "https://wildlifewest.org/",
+      "phone": "+1 505 281-7655",
+      "addr_state": "NM",
+      "addr_city": "Edgewood",
+      "addr_postcode": "87015",
+      "addr_street": "North Frontage Road",
+      "addr_housenumber": "87"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "garden",
-      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
-      "geo_wkt": "POINT (-76.51439 40.331543)",
+      "display_name": "ABQ BioPark (Botanic Garden), Albuquerque, NM",
+      "geo_wkt": "POINT (-106.680854 35.09327)",
       "poi": {
-        "id": 267072,
-        "geometry": "POINT (-76.51439 40.331543)",
-        "poi_name": "Leon and Ethel Yeiser Rose Garden",
-        "osm_id": 4422290591,
+        "id": 246600,
+        "geometry": "POINT (-106.680854 35.09327)",
+        "poi_name": "ABQ BioPark (Botanic Garden)",
+        "osm_id": 1788029997,
         "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Annville",
-        "addr_postcode": "17003"
+        "wikidata": "Q2843476",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 49,
+  "id": 2249,
   "type": "range:direction+loc"
 }

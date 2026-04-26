@@ -1,45 +1,42 @@
 {
-  "question": "What's the orientation towards the closest attraction from University of New Haven New London Campus, New London, CT?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.092202 41.327524)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-72.092202 41.327524)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which direction should I aim for to reach the nearest university from Latvian Cultural Garden, Cleveland, OH?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3292,
-      "geometry": "POINT (-71.932151 41.35238)",
-      "poi_name": "Large Glacial Erratic",
-      "osm_id": 5339946667,
-      "tourism": "attraction",
-      "angle": 78.30356763379424
+      "id": 189725,
+      "geometry": "POINT (-81.604878 41.504382)",
+      "poi_name": "Research Campus, CWRU School of Medicine",
+      "osm_id": 1246986337,
+      "amenity": "university",
+      "wikidata": "Q5048331",
+      "angle": 142.77695784763918
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "University of New Haven New London Campus, New London, CT",
-      "geo_wkt": "POINT (-72.092202 41.327524)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Latvian Cultural Garden, Cleveland, OH",
+      "geo_wkt": "POINT (-81.626843 41.526119)",
       "poi": {
-        "id": 167779,
-        "geometry": "POINT (-72.092202 41.327524)",
-        "poi_name": "University of New Haven New London Campus",
-        "osm_id": 359280782,
-        "amenity": "university",
-        "description": "The University of New Haven New London Campus has been serving the needs of business people and nearby residents for more than four decades.",
-        "operator": "University of New Haven",
-        "website": "https://www.newhaven.edu/about/campus-locations/new-london.php",
-        "phone": "+1 203 932 7440",
-        "addr_state": "CT",
-        "addr_city": "New London",
-        "addr_postcode": "06320",
-        "addr_street": "Pequot Avenue",
-        "addr_housenumber": "469"
+        "id": 247015,
+        "geometry": "POINT (-81.626843 41.526119)",
+        "poi_name": "Latvian Cultural Garden",
+        "osm_id": 8567373868,
+        "leisure": "garden",
+        "fee": "no",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_street": "Martin Luther King Junior Drive",
+        "addr_housenumber": "1030"
       }
     }
   },
-  "id": 1428,
+  "id": 528,
   "type": "knn+angle"
 }

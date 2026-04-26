@@ -1,54 +1,48 @@
 {
-  "question": "Where is the closest new american restaurant situated from Encompass Health Rehabilitation Hospital Of Desert Canyon, Las Vegas, NV?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%american_new%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-115.292448 36.08035)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest local museum to Fish Creek Falls, Steamboat Springs, CO?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.772075 40.481627)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 123123,
-      "geometry": "POINT (-118.226153 34.069096)",
-      "poi_name": "Majordomo",
-      "osm_id": 6835891609,
-      "amenity": "restaurant",
-      "cuisine": "american;new_american",
-      "website": "https://www.majordomo.la",
-      "phone": "+1-323-545-4880",
-      "addr_state": "CA",
-      "addr_city": "Los Angeles",
-      "addr_postcode": "90012",
-      "addr_street": "Naud Street",
-      "addr_housenumber": "1725"
+      "id": 16890,
+      "geometry": "POINT (-97.658928 39.570835)",
+      "poi_name": "Cloud County Historical Museum",
+      "osm_id": 366765905,
+      "description": "Including a great collection of old fashion cars",
+      "tourism": "museum",
+      "website": "https://cloudcountyhistoricalsocietymu.godaddysites.com/?fbclid=IwAR33re3Qu6mGPB4G_c3_LpFnOhZnRHaa04bwXtz48rRv0KyPTHb1tVLQdLY",
+      "museum": "local",
+      "wikidata": "Q5135657",
+      "addr_city": "Concordia",
+      "addr_postcode": "66901",
+      "addr_street": "Broadway Street",
+      "addr_housenumber": "635"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "new american restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%american_new%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Encompass Health Rehabilitation Hospital Of Desert Canyon, Las Vegas, NV",
-      "geo_wkt": "POINT (-115.292448 36.08035)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Fish Creek Falls, Steamboat Springs, CO",
+      "geo_wkt": "POINT (-106.772075 40.481627)",
       "poi": {
-        "id": 182567,
-        "geometry": "POINT (-115.292448 36.08035)",
-        "poi_name": "Encompass Health Rehabilitation Hospital Of Desert Canyon",
-        "osm_id": 10895078013,
-        "amenity": "hospital",
-        "operator": "Encompass Health",
-        "website": "https://encompasshealth.com/locations/desertcanyonrehab",
-        "phone": "+1 702 252 7342",
-        "healthcare": "hospital",
-        "addr_state": "NV",
-        "addr_city": "Las Vegas",
-        "addr_postcode": "89148",
-        "addr_street": "West Oquendo Road",
-        "addr_housenumber": "9175"
+        "id": 1378,
+        "geometry": "POINT (-106.772075 40.481627)",
+        "poi_name": "Fish Creek Falls",
+        "osm_id": 2965424958,
+        "tourism": "attraction",
+        "addr_state": "CO",
+        "addr_city": "Steamboat Springs",
+        "addr_street": "Fish Creek Falls Road"
       }
     }
   },
-  "id": 319,
+  "id": 1319,
   "type": "knn:non_spat_filter+loc"
 }

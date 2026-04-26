@@ -1,22 +1,62 @@
 {
-  "question": "Could you track down a fast food restaurant and is conveniently situated within 140 kilometers from Museum of the Americas, FL?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.207946 25.765691)',4326)::geography, 140000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%';\n",
+  "question": "Where is there a chicken restaurant within a distance of 30 kilometers from North Olmsted Recreation Center, North Olmsted, OH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%chicken%';\n",
   "answers": [
     {
-      "id": 137715,
-      "geometry": "POINT (-80.272533 26.192989)",
-      "poi_name": "Bru's Room",
-      "osm_id": 6110284357,
+      "id": 28979,
+      "geometry": "POINT (-82.019973 41.478106)",
+      "poi_name": "Moosehead BBQ Grill",
+      "osm_id": 8271196213,
       "amenity": "restaurant",
-      "cuisine": "fast_food;burger",
+      "cuisine": "american;barbecue;chicken;burger;seafood;pasta",
+      "website": "https://mooseheadbbq.com",
+      "phone": "+1-440-517-0078",
       "takeaway": "yes",
-      "outdoor_seating": "yes",
-      "delivery": "no",
-      "addr_state": "FL",
-      "addr_city": "Sunrise",
-      "addr_postcode": "33351",
-      "addr_street": "West Commercial Boulevard",
-      "addr_housenumber": "9060"
+      "delivery": "yes",
+      "addr_state": "OH",
+      "addr_city": "Avon",
+      "addr_postcode": "44011",
+      "addr_street": "Center Road",
+      "addr_housenumber": "820"
+    },
+    {
+      "id": 205405,
+      "geometry": "POINT (-81.951713 41.456814)",
+      "poi_name": "Hot Chicken Takeover",
+      "osm_id": 7167716368,
+      "amenity": "restaurant",
+      "cuisine": "fried_chicken;chicken",
+      "website": "https://hotchickentakeover.com/",
+      "addr_state": "OH",
+      "addr_city": "Westlake",
+      "addr_postcode": "44145",
+      "addr_street": "Main Street",
+      "addr_housenumber": "242"
+    },
+    {
+      "id": 161267,
+      "geometry": "POINT (-81.605519 41.508446)",
+      "poi_name": "Hell's Fried Chicken",
+      "osm_id": 4872680522,
+      "amenity": "restaurant",
+      "cuisine": "fried_chicken",
+      "addr_state": "OH",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44106",
+      "addr_street": "Euclid Avenue",
+      "addr_housenumber": "11322"
+    },
+    {
+      "id": 187218,
+      "geometry": "POINT (-81.565236 41.450927)",
+      "poi_name": "Happy's Pizza",
+      "osm_id": 7982117909,
+      "amenity": "restaurant",
+      "cuisine": "pizza;chicken",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44128",
+      "addr_street": "Lee Road",
+      "addr_housenumber": "3980"
     }
   ],
   "answer_type": "loc",
@@ -24,29 +64,33 @@
     "[1]": {
       "main_category": "amenity",
       "sub_category": "restaurant",
-      "poi_filter_desc": "fast food restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+      "poi_filter_desc": "chicken restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%chicken%'"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 30000,
+      "text": "30 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Museum of the Americas, FL",
-      "geo_wkt": "POINT (-80.207946 25.765691)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
       "poi": {
-        "id": 17659,
-        "geometry": "POINT (-80.207946 25.765691)",
-        "poi_name": "Museum of the Americas",
-        "osm_id": 367827603,
-        "tourism": "museum",
-        "website": "https://www.museumamericas.com/",
-        "addr_state": "FL"
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
       }
     }
   },
-  "id": 405,
+  "id": 2405,
   "type": "range:non_spat_filter+loc"
 }

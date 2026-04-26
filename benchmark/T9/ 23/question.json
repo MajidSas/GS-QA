@@ -1,54 +1,49 @@
 {
-  "question": "Which hospital is closest in the southeast direction of Riverfront Stadium, Wichita, KS?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-97.345485 37.681386)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which park is nearest to the east of Wagner Hotel, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.017294 40.705449)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182307,
-      "geometry": "POINT (-97.345485 37.681386)",
-      "poi_name": "Rock Regional Hospital",
-      "osm_id": 10888128905,
-      "amenity": "hospital",
-      "website": "https://rockregionalhospitalderby.com",
-      "phone": "+1-833-345-7625",
-      "healthcare": "hospital",
-      "addr_state": "KS",
-      "addr_city": "Derby",
-      "addr_postcode": "67037",
-      "addr_street": "North Rock Road",
-      "addr_housenumber": "3251"
+      "id": 255949,
+      "geometry": "POINT (-74.017294 40.705449)",
+      "poi_name": "South Street Seaport Historic District",
+      "osm_id": 357607904,
+      "leisure": "park",
+      "historic": "maritime",
+      "wikidata": "Q8561180"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Riverfront Stadium, Wichita, KS",
-      "geo_wkt": "POINT (-97.345485 37.681386)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Wagner Hotel, New York, NY",
+      "geo_wkt": "POINT (-74.017294 40.705449)",
       "poi": {
-        "id": 260589,
-        "geometry": "POINT (-97.345485 37.681386)",
-        "poi_name": "Riverfront Stadium",
-        "osm_id": 358627835,
-        "leisure": "stadium",
-        "website": "https://www.milb.com/wichita/ballpark",
-        "phone": "+1-316-221-8000",
-        "addr_state": "KS",
-        "addr_city": "Wichita",
-        "addr_postcode": "67213",
-        "addr_street": "South McLean Boulevard",
-        "addr_housenumber": "275"
+        "id": 1055,
+        "geometry": "POINT (-74.017294 40.705449)",
+        "poi_name": "Wagner Hotel",
+        "osm_id": 2808241057,
+        "tourism": "hotel",
+        "wheelchair": "no",
+        "website": "https://www.ritzcarlton.com/en/hotels/new-york/battery-park",
+        "phone": "+1-212-344-0800",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10004",
+        "addr_street": "Little West Street",
+        "addr_housenumber": "10"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2522,
+  "id": 1222,
   "type": "knn:direction+name"
 }

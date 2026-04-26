@@ -1,61 +1,60 @@
 {
-  "question": "Which fast food is closest on the route towards Eagle View Behavioral Health, Bettendorf, IA from Blackthorn Hill Nature Preserve, Alexis, IL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography, ST_GeomFromText('POINT (-90.520876 41.561023)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.473362 41.009491)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food comes up first when traveling toward Faith Arena, Surprise, AZ from Maryvale Baseball Park, Phoenix, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography, ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 211189,
-      "geometry": "POINT (-90.503336 41.467246)",
-      "poi_name": "Chick-fil-A",
-      "osm_id": 5144315721,
+      "id": 203163,
+      "geometry": "POINT (-112.203718 33.509784)",
+      "poi_name": "Wingstop",
+      "osm_id": 7067947051,
       "amenity": "fast_food",
-      "cuisine": "chicken",
-      "phone": "+1-309-797-2271",
+      "cuisine": "wings",
       "takeaway": "yes",
-      "addr_city": "Moline",
-      "addr_street": "South Park Mall (IL)",
-      "value": 356.2977098283032
+      "addr_state": "AZ",
+      "addr_city": "Glendale",
+      "addr_postcode": "85033",
+      "addr_street": "West Camelback Road",
+      "addr_housenumber": "6702",
+      "value": 309.94397093811807
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Blackthorn Hill Nature Preserve, Alexis, IL",
-      "geo_wkt": "POINT (-90.473362 41.009491)",
+      "sub_category": "park",
+      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.173653 33.489497)",
       "poi": {
-        "id": 267584,
-        "geometry": "POINT (-90.473362 41.009491)",
-        "poi_name": "Blackthorn Hill Nature Preserve",
-        "osm_id": 7728102374,
-        "leisure": "nature_reserve",
-        "website": "https://www.blackthornhill.org/",
-        "addr_state": "IL",
-        "addr_city": "Alexis",
-        "addr_postcode": "61412",
-        "addr_street": "Angling Rd - County Highway 4",
-        "addr_housenumber": "1590"
+        "id": 245566,
+        "geometry": "POINT (-112.173653 33.489497)",
+        "poi_name": "Maryvale Baseball Park",
+        "osm_id": 3136386495,
+        "leisure": "park",
+        "wikidata": "Q6781782",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85031",
+        "addr_street": "North 51st Avenue",
+        "addr_housenumber": "3600"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Eagle View Behavioral Health, Bettendorf, IA",
-      "geo_wkt": "POINT (-90.520876 41.561023)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Faith Arena, Surprise, AZ",
+      "geo_wkt": "POINT (-112.371855 33.62819)",
       "poi": {
-        "id": 182108,
-        "geometry": "POINT (-90.520876 41.561023)",
-        "poi_name": "Eagle View Behavioral Health",
-        "osm_id": 10876850167,
-        "amenity": "hospital",
-        "website": "https://www.eagleviewbh.com",
-        "phone": "+1-563-396-2100",
-        "healthcare": "hospital",
-        "addr_state": "IA",
-        "addr_city": "Bettendorf",
-        "addr_postcode": "52722",
-        "addr_street": "Tanglefoot Lane",
-        "addr_housenumber": "770"
+        "id": 265626,
+        "geometry": "POINT (-112.371855 33.62819)",
+        "poi_name": "Faith Arena",
+        "osm_id": 10762941402,
+        "leisure": "stadium",
+        "addr_state": "AZ",
+        "addr_city": "Surprise",
+        "addr_postcode": "85374",
+        "addr_street": "West Tierra Buena Lane",
+        "addr_housenumber": "14470"
       }
     },
     "[1]": {
@@ -63,6 +62,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 141,
+  "id": 1641,
   "type": "knn:towards+name"
 }

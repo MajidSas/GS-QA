@@ -1,48 +1,50 @@
 {
-  "question": "Could you tell me the location of the closest gallery relative to Amazing Air, San Antonio, TX?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Do you happen to know where the nearest theme park from Missisquoi National Wildlife Refuge, Swanton, VT is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.168301 44.963098)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 6976,
-      "geometry": "POINT (-98.126551 29.70219)",
-      "poi_name": "Comal County Rebels Art Gallery",
-      "osm_id": 8792816844,
-      "tourism": "gallery",
-      "addr_state": "TX",
-      "addr_city": "New Braunfels",
-      "addr_postcode": "78130",
-      "addr_street": "North Castell Avenue",
-      "addr_housenumber": "139"
+      "id": 18384,
+      "geometry": "POINT (-71.685641 44.047903)",
+      "poi_name": "Clark's Trading Post",
+      "osm_id": 2276410850,
+      "tourism": "theme_park",
+      "wheelchair": "yes",
+      "website": "http://www.clarkstradingpost.com/",
+      "phone": "+1-603-745-8913",
+      "wikidata": "Q15210824",
+      "addr_city": "Lincoln",
+      "addr_postcode": "03251",
+      "addr_street": "Daniel Webster Highway",
+      "addr_housenumber": "110"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Amazing Air, San Antonio, TX",
-      "geo_wkt": "POINT (-98.39639 29.503891)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Missisquoi National Wildlife Refuge, Swanton, VT",
+      "geo_wkt": "POINT (-73.168301 44.963098)",
       "poi": {
-        "id": 7732,
-        "geometry": "POINT (-98.39639 29.503891)",
-        "poi_name": "Amazing Air",
-        "osm_id": 6382562047,
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
-        "website": "https://amazingairsa.com/",
-        "phone": "+1-210-946-9800",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78218",
-        "addr_street": "North Interstate Highway 35",
-        "addr_housenumber": "7702"
+        "id": 251075,
+        "geometry": "POINT (-73.168301 44.963098)",
+        "poi_name": "Missisquoi National Wildlife Refuge",
+        "osm_id": 356553865,
+        "leisure": "nature_reserve",
+        "opening_hours": "08:00-16:30",
+        "operator": "United States Fish and Wildlife Service",
+        "addr_state": "VT",
+        "addr_city": "Swanton",
+        "addr_postcode": "05488",
+        "addr_street": "Tabor Road",
+        "addr_housenumber": "29"
       }
     }
   },
-  "id": 1889,
+  "id": 789,
   "type": "knn+loc"
 }

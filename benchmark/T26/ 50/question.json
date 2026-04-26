@@ -1,43 +1,44 @@
 {
-  "question": "How far is the nearest viewpoint from the reference point Stonehouse Wood Sanctuary, Rhinebeck, NY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.830795 41.901587)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.830795 41.901587)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the proximity distance of the closest gallery to Cockrell Butterfly Center, Houston, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-95.39032 29.722176)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.39032 29.722176)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 8369,
-      "geometry": "POINT (-73.942215 41.892648)",
-      "poi_name": "Umbrella Point",
-      "osm_id": 6655492255,
-      "tourism": "viewpoint",
-      "distance": 9299.2742701
+      "id": 19413,
+      "geometry": "POINT (-95.380554 29.736964)",
+      "poi_name": "Inman Gallery",
+      "osm_id": 10751879561,
+      "tourism": "gallery",
+      "opening_hours": "We-Sa 11:00-18:00",
+      "phone": "+1 713-526-7800",
+      "distance": 1892.07305685
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Stonehouse Wood Sanctuary, Rhinebeck, NY",
-      "geo_wkt": "POINT (-73.830795 41.901587)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Cockrell Butterfly Center, Houston, TX",
+      "geo_wkt": "POINT (-95.39032 29.722176)",
       "poi": {
-        "id": 266669,
-        "geometry": "POINT (-73.830795 41.901587)",
-        "poi_name": "Stonehouse Wood Sanctuary",
-        "osm_id": 9273495605,
-        "amenity": "animal_shelter",
-        "leisure": "nature_reserve",
-        "website": "https://stonehousewoodsanctuary.org",
-        "addr_state": "NY",
-        "addr_city": "Rhinebeck",
-        "addr_postcode": "12572",
-        "addr_street": "Stonehouse Road",
-        "addr_housenumber": "105"
+        "id": 14408,
+        "geometry": "POINT (-95.39032 29.722176)",
+        "poi_name": "Cockrell Butterfly Center",
+        "osm_id": 4299317974,
+        "tourism": "zoo",
+        "operator": "Houston Museum of Natural Science",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77030",
+        "addr_street": "Hermann Park Drive",
+        "addr_housenumber": "5555"
       }
     }
   },
-  "id": 2449,
+  "id": 649,
   "type": "knn+distance"
 }

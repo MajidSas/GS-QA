@@ -1,29 +1,24 @@
 {
-  "question": "Which museum is available in the north direction of Captain Mike's Fun Park, Bridgman, MI within 80 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.576965 41.919871)',4326)::geography, 80000)\nAND tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "What museum can I find inside 120 kilometers to the south of AHN Cancer Institute, Erie, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography, 120000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 17567,
-      "geometry": "POINT (-86.576965 41.919871)",
-      "poi_name": "Heritage Museum and Cultural Center",
-      "osm_id": 367816196,
+      "id": 2731,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Baldwin-Reynolds House",
+      "osm_id": 567033126,
       "tourism": "museum",
-      "opening_hours": "Tu,We,Fr,Sa 10:00-16:00; Th 10:00-20:00",
-      "website": "https://theheritagemcc.org/",
-      "museum": "history",
-      "addr_state": "MI",
-      "addr_city": "Saint Joseph",
-      "addr_postcode": "49085"
+      "wheelchair": "limited",
+      "opening_hours": "We-Su 12:00-16:00",
+      "website": "https://baldwinreynolds.org/"
     },
     {
-      "id": 17570,
-      "geometry": "POINT (-86.576965 41.919871)",
-      "poi_name": "Curious Kids' Museum",
-      "osm_id": 367816200,
+      "id": 11565,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Log Cabin",
+      "osm_id": 10012366813,
       "tourism": "museum",
-      "opening_hours": "We-Sa 10:00-17:00; Su 10:00-16:00",
-      "website": "https://curiouskidsmuseum.org/",
-      "addr_state": "MI"
+      "fee": "no"
     }
   ],
   "answer_type": "name",
@@ -33,33 +28,34 @@
       "sub_category": "museum"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Captain Mike's Fun Park, Bridgman, MI",
-      "geo_wkt": "POINT (-86.576965 41.919871)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "AHN Cancer Institute, Erie, PA",
+      "geo_wkt": "POINT (-80.080644 42.110128)",
       "poi": {
-        "id": 4790,
-        "geometry": "POINT (-86.576965 41.919871)",
-        "poi_name": "Captain Mike's Fun Park",
-        "osm_id": 9625343406,
-        "tourism": "theme_park",
-        "website": "https://captainmikesamusementpark.com/",
-        "addr_state": "MI",
-        "addr_city": "Bridgman",
-        "addr_postcode": "49106",
-        "addr_street": "Red Arrow Highway",
-        "addr_housenumber": "10975"
+        "id": 31591,
+        "geometry": "POINT (-80.080644 42.110128)",
+        "poi_name": "AHN Cancer Institute",
+        "osm_id": 8435416613,
+        "amenity": "hospital",
+        "operator": "Allegheny Health Network",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16544",
+        "addr_street": "Myrtle Street",
+        "addr_housenumber": "2508"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2686,
+  "id": 2386,
   "type": "range:direction+name"
 }

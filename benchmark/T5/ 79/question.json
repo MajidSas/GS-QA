@@ -1,40 +1,42 @@
 {
-  "question": "Seeking suggestions for the nearest garden in relation to Home2 Suites by Hilton Oxford, Oxford, MS.",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.522002 34.348581)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food restaurant is nearest to Thomson Park, Thunderbolt, GA right now?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.050045 32.03109)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245817,
-      "geometry": "POINT (-89.0172 35.27736)",
-      "poi_name": "Pleasant Run Creek Community Garden",
-      "osm_id": 10119730327,
-      "leisure": "garden"
+      "id": 233400,
+      "geometry": "POINT (-81.068102 32.04447)",
+      "poi_name": "Subway",
+      "osm_id": 4572128565,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Home2 Suites by Hilton Oxford, Oxford, MS",
-      "geo_wkt": "POINT (-89.522002 34.348581)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Thomson Park, Thunderbolt, GA",
+      "geo_wkt": "POINT (-81.050045 32.03109)",
       "poi": {
-        "id": 4166,
-        "geometry": "POINT (-89.522002 34.348581)",
-        "poi_name": "Home2 Suites by Hilton Oxford",
-        "osm_id": 5700620327,
-        "tourism": "hotel",
-        "addr_state": "MS",
-        "addr_city": "Oxford",
-        "addr_postcode": "38655",
-        "addr_street": "South Lamar Court",
-        "addr_housenumber": "101"
+        "id": 245088,
+        "geometry": "POINT (-81.050045 32.03109)",
+        "poi_name": "Thomson Park",
+        "osm_id": 411397560,
+        "leisure": "park",
+        "addr_state": "GA",
+        "addr_city": "Thunderbolt",
+        "addr_postcode": "31404",
+        "addr_street": "River Drive",
+        "addr_housenumber": "2821"
       }
     }
   },
-  "id": 278,
+  "id": 1078,
   "type": "knn+name"
 }

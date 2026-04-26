@@ -1,44 +1,43 @@
 {
-  "question": "How far is the closest park from Oceans Behavioral Hospital Of Alexandria, Alexandria, LA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-92.479821 31.323674)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.479821 31.323674)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest garden relative to where Sea Life Aquarium Kansas City, Kansas City, MO is?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 260104,
-      "geometry": "POINT (-92.470416 31.303794)",
-      "poi_name": "Harmon Field",
-      "osm_id": 358367466,
-      "leisure": "park",
-      "distance": 2379.11240284
+      "id": 247848,
+      "geometry": "POINT (-94.6146 39.050069)",
+      "poi_name": "School Garden",
+      "osm_id": 11469894166,
+      "leisure": "garden",
+      "distance": 4565.96450555
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "park"
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Oceans Behavioral Hospital Of Alexandria, Alexandria, LA",
-      "geo_wkt": "POINT (-92.479821 31.323674)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
+      "geo_wkt": "POINT (-94.5816 39.082158)",
       "poi": {
-        "id": 182433,
-        "geometry": "POINT (-92.479821 31.323674)",
-        "poi_name": "Oceans Behavioral Hospital Of Alexandria",
-        "osm_id": 10892140519,
-        "amenity": "hospital",
-        "website": "https://oceanshealthcare.com/ohc-location/alexandria",
-        "phone": "+1 318 448 8473",
-        "healthcare": "hospital",
-        "addr_state": "LA",
-        "addr_city": "Alexandria",
-        "addr_postcode": "71303",
-        "addr_street": "North Bolton Avenue",
-        "addr_housenumber": "2621"
+        "id": 12063,
+        "geometry": "POINT (-94.5816 39.082158)",
+        "poi_name": "Sea Life Aquarium Kansas City",
+        "osm_id": 6171269243,
+        "tourism": "zoo",
+        "website": "https://www.visitsealife.com/kansas-city/",
+        "phone": "+1 (816)471-4386",
+        "addr_state": "MO",
+        "addr_city": "Kansas City",
+        "addr_postcode": "64108",
+        "addr_street": "Grand Boulevard",
+        "addr_housenumber": "2475"
       }
     }
   },
-  "id": 2443,
+  "id": 643,
   "type": "knn+distance"
 }

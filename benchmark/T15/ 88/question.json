@@ -1,72 +1,80 @@
 {
-  "question": "Where can I find a garden in the direction of south from Ulrich Wildlife Preserve, Morton, IL within 110 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, 110000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Where are a restaurant situated within 20 kilometers when moving northwest from AHN Cancer Institute, Erie, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.080644 42.110128)',4326)::geography, 20000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 245618,
-      "geometry": "POINT (-89.490228 40.649994)",
-      "poi_name": "UIS Greenhouse",
-      "osm_id": 3214252196,
-      "leisure": "garden",
-      "wheelchair": "yes",
-      "website": "https://www.uis.edu/biology/",
-      "phone": "+1-217-206-6630",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62703",
-      "addr_street": "University Plaza",
-      "addr_housenumber": "1"
+      "id": 194444,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Virgil's Plate",
+      "osm_id": 10273292850,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16507",
+      "addr_street": "West 6th Street",
+      "addr_housenumber": "1001"
     },
     {
-      "id": 267108,
-      "geometry": "POINT (-89.490228 40.649994)",
-      "poi_name": "Washington Park Botanical Garden",
-      "osm_id": 4530576300,
-      "leisure": "garden",
-      "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
-      "phone": "+1-217-546-4116",
-      "addr_state": "IL",
-      "addr_city": "Springfield",
-      "addr_postcode": "62704",
-      "addr_street": "West Fayette Avenue",
-      "addr_housenumber": "1740"
+      "id": 128285,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Preferred Restaurants",
+      "osm_id": 8146259525,
+      "amenity": "restaurant",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16507",
+      "addr_street": "West 6th Street",
+      "addr_housenumber": "317"
+    },
+    {
+      "id": 244820,
+      "geometry": "POINT (-80.080644 42.110128)",
+      "poi_name": "Sloppy Duck Saloon",
+      "osm_id": 7742244755,
+      "amenity": "restaurant",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16507",
+      "addr_street": "Lawrence Pier",
+      "addr_housenumber": "726"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 20000,
+      "text": "20 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
-      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "AHN Cancer Institute, Erie, PA",
+      "geo_wkt": "POINT (-80.080644 42.110128)",
       "poi": {
-        "id": 246437,
-        "geometry": "POINT (-89.490228 40.649994)",
-        "poi_name": "Ulrich Wildlife Preserve",
-        "osm_id": 9654359178,
-        "leisure": "nature_reserve",
-        "opening_hours": "dawn-dusk",
-        "operator": "Morton Park District",
-        "addr_state": "IL",
-        "addr_city": "Morton",
-        "addr_postcode": "61550",
-        "addr_street": "Turtle Creek Trail",
-        "addr_housenumber": "100"
+        "id": 31591,
+        "geometry": "POINT (-80.080644 42.110128)",
+        "poi_name": "AHN Cancer Institute",
+        "osm_id": 8435416613,
+        "amenity": "hospital",
+        "operator": "Allegheny Health Network",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16544",
+        "addr_street": "Myrtle Street",
+        "addr_housenumber": "2508"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 87,
+  "id": 2287,
   "type": "range:direction+loc"
 }

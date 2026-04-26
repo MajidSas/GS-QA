@@ -1,62 +1,64 @@
 {
-  "question": "Where can I find a museum southwest of the Root Acupuncture, Lakewood, CO, within a radius of 160 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.15605 39.682803)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where are a golf course located no farther than 180 kilometers toward the southeast of Speert Green, Wayne, NJ?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.198768 40.944562)',4326)::geography, 180000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 11165,
-      "geometry": "POINT (-105.15605 39.682803)",
-      "poi_name": "South Park Rail Como Project",
-      "osm_id": 9873236408,
-      "tourism": "museum",
-      "opening_hours": "Mo-Su \"by appointment\"",
-      "operator": "South Park Rail Society",
-      "website": "https://www.southparkrailsociety.org/the-roundhouse",
-      "museum": "history",
-      "addr_state": "CO",
-      "addr_city": "Como",
-      "addr_postcode": "80432",
-      "addr_street": "County Road 33",
-      "addr_housenumber": "990"
+      "id": 245808,
+      "geometry": "POINT (-74.198768 40.944562)",
+      "poi_name": "InHome Golf",
+      "osm_id": 10100433578,
+      "leisure": "golf_course",
+      "description": "InHome Golf helps design and build indoor golf simulators across The United States and Canada.",
+      "opening_hours": "Mo-Fr 08:00-18:00",
+      "website": "https://inhomegolf.com/home-golf-simulator-new-jersey",
+      "phone": "+1 800-557-5859",
+      "addr_state": "NJ",
+      "addr_city": "Lyndhurst",
+      "addr_postcode": "07071",
+      "addr_street": "Wall Street West",
+      "addr_housenumber": "1000"
+    },
+    {
+      "id": 246144,
+      "geometry": "POINT (-74.198768 40.944562)",
+      "poi_name": "Peninsula Golf Club",
+      "osm_id": 5616067006,
+      "leisure": "golf_course"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "The Root Acupuncture, Lakewood, CO",
-      "geo_wkt": "POINT (-105.15605 39.682803)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Speert Green, Wayne, NJ",
+      "geo_wkt": "POINT (-74.198768 40.944562)",
       "poi": {
-        "id": 56785,
-        "geometry": "POINT (-105.15605 39.682803)",
-        "poi_name": "The Root Acupuncture",
-        "osm_id": 10248312278,
-        "amenity": "hospital",
-        "description": "The Root Acupuncture has successfully used acupuncture and Chinese Medicine to treat a wide range of conditions, but specializes in musculo-skeletal pain, digestive disorders, auto-immune conditions, sleep disorders, and stress management. We use a wide r",
-        "operator": "Erik Johnson",
-        "website": "https://therootacupuncture.com/",
-        "phone": "+1-303-500-5075",
-        "healthcare": "hospital",
-        "addr_state": "CO",
-        "addr_city": "Lakewood",
-        "addr_postcode": "80228",
-        "addr_street": "West Jewell Avenue",
-        "addr_housenumber": "13701"
+        "id": 266681,
+        "geometry": "POINT (-74.198768 40.944562)",
+        "poi_name": "Speert Green",
+        "osm_id": 9317008519,
+        "leisure": "garden",
+        "addr_state": "NJ",
+        "addr_city": "Wayne",
+        "addr_postcode": "07470",
+        "addr_street": "Pompton Road",
+        "addr_housenumber": "300"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 42,
+  "id": 2242,
   "type": "range:direction+loc"
 }

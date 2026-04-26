@@ -1,40 +1,47 @@
 {
-  "question": "Which way should I go to reach the closest aquarium from Otto Huechling House Historic Site, NM?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-107.979762 32.856189)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-107.979762 32.856189)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the direction of travel to reach the nearest museum from Frank Sinatra's Birthplace, Hoboken, NJ?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.038603 40.743437)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.038603 40.743437)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 6226,
-      "geometry": "POINT (-106.678998 35.093235)",
-      "poi_name": "ABQ BioPark (Aquarium)",
-      "osm_id": 1788029735,
-      "tourism": "aquarium",
-      "wikidata": "Q4712807",
-      "addr_state": "NM",
-      "addr_city": "Albuquerque",
-      "angle": 25.48597966624827
+      "id": 17310,
+      "geometry": "POINT (-74.030956 40.739273)",
+      "poi_name": "Hoboken Fire Department Museum",
+      "osm_id": 367697376,
+      "tourism": "museum",
+      "opening_hours": "Sa,Su 11:00-16:00",
+      "website": "https://www.hobokenmuseum.org/visit/hoboken-fire-department-museum/",
+      "wikidata": "Q4809792",
+      "addr_state": "NJ",
+      "addr_postcode": "07030",
+      "addr_street": "Bloomfield Street",
+      "addr_housenumber": "213",
+      "angle": 125.59866998809083
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "attraction",
-      "display_name": "Otto Huechling House Historic Site, NM",
-      "geo_wkt": "POINT (-107.979762 32.856189)",
+      "display_name": "Frank Sinatra's Birthplace, Hoboken, NJ",
+      "geo_wkt": "POINT (-74.038603 40.743437)",
       "poi": {
-        "id": 16504,
-        "geometry": "POINT (-107.979762 32.856189)",
-        "poi_name": "Otto Huechling House Historic Site",
-        "osm_id": 366377468,
+        "id": 3565,
+        "geometry": "POINT (-74.038603 40.743437)",
+        "poi_name": "Frank Sinatra's Birthplace",
+        "osm_id": 5468067617,
         "tourism": "attraction",
-        "addr_state": "NM"
+        "addr_state": "NJ",
+        "addr_city": "Hoboken",
+        "addr_street": "Monroe Street",
+        "addr_housenumber": "415"
       }
     }
   },
-  "id": 1491,
+  "id": 591,
   "type": "knn+angle"
 }

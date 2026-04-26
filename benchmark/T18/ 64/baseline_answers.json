@@ -1,7 +1,34 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Overlook Medical Center in Summit.",
+      "answer": "**Name:** Fusion Kitchen + Bar\n**Location:** 1010 Valencia Street, San Francisco, CA\n**Distance:** Approximately one kilometer.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1333333333333333,
+        "R": 0.5,
+        "F1": 0.2105263157894737
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Fusion Kitchen + Bar",
+          "address": "1010Valencia Street, San Francisco, CA",
+          "distance": 1000
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.3333333333333333,
+        "R": 0.5,
+        "F1": 0.4,
+        "distance_error": 0.036438248045022
+      }
+    }
+  },
+  "ministral-3:14b-cloud_rag": {
+    "text": {
+      "answer": "Alphonso's Trattoria Pizzeria.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,26 +39,48 @@
     "parsed": {
       "answer": [
         {
-          "name": "Overlook Medical Center",
-          "address": "99 Beauvoir Ave, Summit, NJ 07902",
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Alphonso's Trattoria Pizzeria",
+          "address": "Strawberry Hill, San Francisco, CA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.1666666666666666,
-        "R": 0.2,
-        "F1": 0.1818181818181818,
-        "distance_error": 0.0410418016284239
+        "P": 0.4,
+        "R": 0.5,
+        "F1": 0.4444444444444445,
+        "distance_error": 0.0410284050265799
       }
     }
   },
-  "GT": {
+  "shuffled": {
     "text": {
-      "answer": "True Life Care Center",
+      "answer": "East 50th Street, New York, NY, 10022",
+      "scores": {
+        "attempted": true,
+        "P": 0.2,
+        "R": 0.25,
+        "F1": 0.2222222222222222
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "fusion restaurant",
+          "address": "Vine Street, Bluffton, OH, 45817"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "ministral-3:14b-cloud_text2sql": {
+    "text": {
+      "answer": "The closest fusion restaurant is **Zuni Caf\u00e9**, located approximately one kilometer to the southeast.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -42,26 +91,100 @@
     "parsed": {
       "answer": [
         {
-          "name": "True Life Care Center",
-          "address": "1000 Route 9 S, Hamilton, NJ 08619",
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Zuni Caf\u00e9",
+          "address": "1659Market St, San Francisco, CA 94102",
+          "distance": 1000,
+          "azimuth_angle": 135
         }
       ],
       "scores": {
         "attempted": true,
+        "P": 0.2857142857142857,
+        "R": 0.5,
+        "F1": 0.3636363636363636,
+        "distance_error": 0.0335786660661735
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "The closest fusion restaurant near Strawberry Hill, San Francisco, CA is **Nopalito**, located on Broderick Street, approximately one kilometer to the north.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1176470588235294,
+        "R": 0.5,
+        "F1": 0.1904761904761904
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Nopalito",
+          "address": "Broderick Street, San Francisco, CA",
+          "distance": 1000
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.4,
+        "R": 0.5,
+        "F1": 0.4444444444444445,
+        "distance_error": 0.0342366263050836
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "I don't have any fusion restaurant records near Strawberry Hill, San Francisco, CA in the provided data.",
+      "scores": {
+        "attempted": true,
         "P": 0.1666666666666666,
-        "R": 0.2,
-        "F1": 0.1818181818181818,
+        "R": 0.5,
+        "F1": 0.25
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
         "distance_error": 1.0
       }
     }
   },
-  "GR": {
+  "sonnet4.6_text2sql": {
     "text": {
-      "answer": "Overlook Medical Center.",
+      "answer": "Saucy Asian in San Francisco, CA.",
+      "scores": {
+        "attempted": true,
+        "P": 0.4,
+        "R": 0.5,
+        "F1": 0.4444444444444445
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Saucy Asian",
+          "address": "San Francisco, CA"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.6666666666666666,
+        "R": 0.5,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.0323048229171223
+      }
+    }
+  },
+  "gpt4o_direct": {
+    "text": {
+      "answer": "Lime Tree Southeast Asian Kitchen.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -72,55 +195,22 @@
     "parsed": {
       "answer": [
         {
-          "name": "Overlook Medical Center",
-          "address": "99 Beauvoir Rd, Summit, NJ 07902",
-          "count": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Lime Tree Southeast Asian Kitchen",
+          "address": "Strawberry Hill, San Francisco, CA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.1666666666666666,
-        "R": 0.2,
-        "F1": 0.1818181818181818,
-        "distance_error": 1.0
+        "P": 0.4,
+        "R": 0.5,
+        "F1": 0.4444444444444445,
+        "distance_error": 0.0410284050265799
       }
     }
   },
-  "L": {
+  "gpt4o_rag": {
     "text": {
-      "answer": "The nearest emergency hospital is Raritan Bay Medical Center, located in Perth Amboy, New Jersey, approximately forty kilometers east of Dealaman Nature Trail and Pond, Warren Township, NJ.",
-      "scores": {
-        "attempted": true,
-        "P": 0.0434782608695652,
-        "R": 0.2,
-        "F1": 0.0714285714285714
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "Raritan Bay Medical Center",
-          "address": "1 Hospital Drive, Perth Amboy, NJ 08861",
-          "distance": 40,
-          "azimuth_angle": 90
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.1428571428571428,
-        "R": 0.2,
-        "F1": 0.1666666666666666,
-        "distance_error": 1.0
-      }
-    }
-  },
-  "LT": {
-    "text": {
-      "answer": "The nearest emergency hospital is Raritan Bay Medical Center, located in Holmdel, New Jersey.",
+      "answer": "Alphonso's Trattoria Pizzeria",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -131,50 +221,40 @@
     "parsed": {
       "answer": [
         {
-          "name": "Raritan Bay Medical Center",
-          "address": "1000 Manville Rd, Holmdel, NJ 07733",
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Alphonso's Trattoria Pizzeria",
+          "address": "Strawberry Hill, San Francisco, CA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.1666666666666666,
-        "R": 0.2,
-        "F1": 0.1818181818181818,
-        "distance_error": 1.0
+        "P": 0.4,
+        "R": 0.5,
+        "F1": 0.4444444444444445,
+        "distance_error": 0.0410284050265799
       }
     }
   },
-  "LR": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "Raritan Bay Medical Center is approximately thirty five hundred metres from Dealaman Nature Trail and Pond, Warren Township, NJ.",
+      "answer": "Mint Leaf",
       "scores": {
         "attempted": true,
-        "P": 0.0625,
-        "R": 0.2,
-        "F1": 0.0952380952380952
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Raritan Bay Medical Center",
-          "address": "999 Route 35, Holmdel, NJ 07733",
-          "count": null,
-          "distance": 3500,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Mint Leaf"
         }
       ],
       "scores": {
-        "attempted": true,
-        "P": 0.1666666666666666,
-        "R": 0.2,
-        "F1": 0.1818181818181818,
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
         "distance_error": 1.0
       }
     }

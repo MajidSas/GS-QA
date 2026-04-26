@@ -1,67 +1,75 @@
 {
-  "question": "What is the nearest museum as you head towards Memory Garden, Baltimore, MD from Super Cichlids Inc, Dover, DE?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, ST_GeomFromText('POINT (-76.638575 39.300016)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.496486 39.155267)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant on the way from UIS Greenhouse, Springfield, IL toward DIM Art House, Springfield, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography, ST_GeomFromText('POINT (-89.688539 39.797952)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14041,
-      "geometry": "POINT (-75.522992 39.157111)",
-      "poi_name": "Biggs Museum of American Art",
-      "osm_id": 4215177437,
-      "tourism": "museum",
-      "website": "https://www.biggsmuseum.org/",
-      "wikidata": "Q18325919",
-      "addr_state": "DE",
-      "addr_city": "Dover",
-      "addr_street": "Federal Street",
-      "addr_housenumber": "406",
-      "value": 279.61602252790664
+      "id": 139725,
+      "geometry": "POINT (-89.642798 39.745001)",
+      "poi_name": "Golden Corral",
+      "osm_id": 6214006914,
+      "amenity": "restaurant",
+      "cuisine": "american;buffet",
+      "opening_hours": "Mo-Fr 11:00-20:00; Sa-Su 09:00-20:00",
+      "website": "https://www.goldencorral.com/locations/location-detail/2589/golden-corral-le-june-dr/",
+      "phone": "+1-217-670-1604",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62703",
+      "addr_street": "Lejune Drive",
+      "addr_housenumber": "1038",
+      "value": 321.43428493463955
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Super Cichlids Inc, Dover, DE",
-      "geo_wkt": "POINT (-75.496486 39.155267)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
       "poi": {
-        "id": 24354,
-        "geometry": "POINT (-75.496486 39.155267)",
-        "poi_name": "Super Cichlids Inc",
-        "osm_id": 11016560740,
-        "tourism": "aquarium",
-        "phone": "302-608-3846",
-        "addr_state": "DE",
-        "addr_city": "Dover",
-        "addr_postcode": "19901",
-        "addr_street": "Barl Court",
-        "addr_housenumber": "1055"
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Baltimore, MD",
-      "geo_wkt": "POINT (-76.638575 39.300016)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "DIM Art House, Springfield, IL",
+      "geo_wkt": "POINT (-89.688539 39.797952)",
       "poi": {
-        "id": 245708,
-        "geometry": "POINT (-76.638575 39.300016)",
-        "poi_name": "Memory Garden",
-        "osm_id": 3432403574,
-        "leisure": "garden",
-        "description": "Established by Ms. Justine Bonner. Maintained by Ms. Hannah Trent and the Sandtown South Neighborhood Alliance. A mural in this location depicts Ms. Bonner, Ms. Trent, and Ms. Sandra Smith. The mural was painted by local artist Justin Nethercut.",
-        "addr_state": "MD",
-        "addr_city": "Baltimore",
-        "addr_postcode": "21217",
-        "addr_street": "North Carey Street",
-        "addr_housenumber": "929"
+        "id": 21724,
+        "geometry": "POINT (-89.688539 39.797952)",
+        "poi_name": "DIM Art House",
+        "osm_id": 10633013453,
+        "tourism": "gallery",
+        "opening_hours": "Fr 17:00-19:30; Sa 12:00-15:00",
+        "website": "http://www.dimarthouse.com/",
+        "phone": "+1-773-235-5600",
+        "wikidata": "Q116740552",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Chatham Road",
+        "addr_housenumber": "319"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 158,
+  "id": 1658,
   "type": "knn:towards+name"
 }

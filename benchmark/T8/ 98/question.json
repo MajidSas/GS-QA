@@ -1,42 +1,43 @@
 {
-  "question": "Looking for the closest park in relation to the university established in the year 1897 in Denmark, SC, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve nearby the university established in the year 1975 in Houston, TX is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 253552,
-      "geometry": "POINT (-81.128434 33.304877)",
-      "poi_name": "Vorhees College Historic District",
-      "osm_id": 357095727,
-      "leisure": "park",
-      "historic": "district"
+      "id": 251940,
+      "geometry": "POINT (-95.250212 29.050244)",
+      "poi_name": "Brazoria National Wildlife Refuge",
+      "osm_id": 356753007,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "park"
+      "sub_category": "nature reserve"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
         "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
       }
     }
   },
-  "id": 2797,
-  "type": "knn+name+multihop2"
+  "id": 997,
+  "type": "knn+name+multi_source2"
 }

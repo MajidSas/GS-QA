@@ -1,49 +1,43 @@
 {
-  "question": "What's the bearing to the nearest restaurant from Cohen & Danielle, Carrizozo, NM?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.875507 33.642739)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-105.875507 33.642739)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction should I head in from Hungry Valley SVRA, Gorman, CA to reach the closest nature reserve?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.871038 34.791936)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-118.871038 34.791936)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 154908,
-      "geometry": "POINT (-105.668314 33.413777)",
-      "poi_name": "Flying J Ranch",
-      "osm_id": 4261017421,
-      "amenity": "restaurant",
-      "cuisine": "regional",
-      "opening_hours": "Mo-Su 17:30-22:00",
-      "capacity": "600",
-      "takeaway": "no",
-      "addr_state": "NM",
-      "addr_city": "Alto",
-      "addr_postcode": "88312",
-      "addr_street": "State Highway 48",
-      "addr_housenumber": "1028",
-      "angle": 142.78465232894314
+      "id": 266150,
+      "geometry": "POINT (-119.087232 34.840092)",
+      "poi_name": "San Emigdio Plantation",
+      "osm_id": 987636226,
+      "leisure": "nature_reserve",
+      "angle": 285.1756529774917
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Cohen & Danielle, Carrizozo, NM",
-      "geo_wkt": "POINT (-105.875507 33.642739)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Hungry Valley SVRA, Gorman, CA",
+      "geo_wkt": "POINT (-118.871038 34.791936)",
       "poi": {
-        "id": 10121,
-        "geometry": "POINT (-105.875507 33.642739)",
-        "poi_name": "Cohen & Danielle",
-        "osm_id": 6711388576,
-        "tourism": "gallery",
-        "addr_state": "NM",
-        "addr_city": "Carrizozo",
-        "addr_street": "12th Street",
-        "addr_housenumber": "400"
+        "id": 246478,
+        "geometry": "POINT (-118.871038 34.791936)",
+        "poi_name": "Hungry Valley SVRA",
+        "osm_id": 9733590976,
+        "leisure": "park",
+        "tourism": "camp_site",
+        "fee": "yes",
+        "operator": "California Department of Parks and Recreation",
+        "addr_state": "CA",
+        "addr_city": "Gorman",
+        "addr_postcode": "92343",
+        "addr_street": "Hungry Valley Road"
       }
     }
   },
-  "id": 1433,
+  "id": 533,
   "type": "knn+angle"
 }

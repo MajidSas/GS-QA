@@ -1,37 +1,41 @@
 {
-  "question": "Could you provide me with the number of stadia within a 90 kilometers radius from Shoals Marine Laboratory, ME?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.61465 42.987327)',4326)::geography, 90000)\nAND leisure = 'stadium';\n",
+  "question": "What\u2019s the quantity of golf courses found within 190 kilometers from Aquarium Outfitters Carolina, Wake Forest, NC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography, 190000)\nAND leisure = 'golf_course';\n",
   "answers": [
     {
-      "count": 2
+      "count": 4
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Shoals Marine Laboratory, ME",
-      "geo_wkt": "POINT (-70.61465 42.987327)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
       "poi": {
-        "id": 168199,
-        "geometry": "POINT (-70.61465 42.987327)",
-        "poi_name": "Shoals Marine Laboratory",
-        "osm_id": 367795025,
-        "amenity": "university",
-        "wikidata": "Q7499746",
-        "addr_state": "ME"
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
       }
     }
   },
-  "id": 2272,
+  "id": 1872,
   "type": "range+count"
 }

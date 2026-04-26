@@ -1,54 +1,53 @@
 {
-  "question": "Where is the closest emergency hospital from Cullen Building, Houston, TX?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.396414 29.710667)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest railway museum close by UIS Greenhouse, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 126604,
-      "geometry": "POINT (-95.101262 29.70239)",
-      "poi_name": "CH First Emergency Room",
-      "osm_id": 7986050032,
-      "amenity": "hospital",
-      "operator": "CH First Emergency Room",
-      "website": "https://www.ch1er.com",
-      "phone": "+1-281-343-3134",
-      "healthcare": "Emergency Room",
-      "emergency": "yes",
-      "addr_state": "TX",
-      "addr_city": "Deer Park",
-      "addr_postcode": "77536",
-      "addr_street": "East Boulevard",
-      "addr_housenumber": "1101"
+      "id": 5913,
+      "geometry": "POINT (-86.616925 38.55496)",
+      "poi_name": "Indiana Railway Museum",
+      "osm_id": 1670281679,
+      "tourism": "museum",
+      "fee": "yes",
+      "website": "https://frenchlickscenicrailway.org/",
+      "museum": "railway",
+      "wikidata": "Q6023370",
+      "addr_state": "IN",
+      "addr_city": "French Lick",
+      "addr_street": "State Route 56",
+      "addr_housenumber": "8594"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "railway museum",
+      "poi_filter_sql": "museum = 'railway'"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Cullen Building, Houston, TX",
-      "geo_wkt": "POINT (-95.396414 29.710667)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
       "poi": {
-        "id": 154845,
-        "geometry": "POINT (-95.396414 29.710667)",
-        "poi_name": "Cullen Building",
-        "osm_id": 4259049651,
-        "amenity": "university",
-        "operator": "Baylor College of Medicine",
-        "website": "https://www.bcm.edu/",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77030",
-        "addr_street": "Baylor Plaza",
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
         "addr_housenumber": "1"
       }
     }
   },
-  "id": 338,
+  "id": 1338,
   "type": "knn:non_spat_filter+loc"
 }

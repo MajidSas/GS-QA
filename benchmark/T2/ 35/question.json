@@ -1,23 +1,15 @@
 {
-  "question": "In search of an emergency hospital that is ideally located within 170 kilometers from Prairie Trails Museum, Corydon, IA. Can you find one for me?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-93.311323 40.757506)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Would you be able to find an emergency hospital that\u2019s inside 70 kilometers of the Museum of History and Holocaust Education, Kennesaw, GA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.574289 34.031202)',4326)::geography, 70000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
   "answers": [
     {
-      "id": 167587,
-      "geometry": "POINT (-93.06726 39.774602)",
-      "poi_name": "General John J Pershing Memorial Hospital",
-      "osm_id": 358084364,
+      "id": 104081,
+      "geometry": "POINT (-84.353134 33.90853)",
+      "poi_name": "Emergency Room at Northside Hospital",
+      "osm_id": 8544395406,
       "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Pershing Health System",
-      "website": "https://www.phsmo.org/",
-      "phone": "+1 660 258 2222",
       "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_city": "Brookfield",
-      "addr_postcode": "64628",
-      "addr_street": "East Lockling Avenue",
-      "addr_housenumber": "130"
+      "emergency": "yes"
     }
   ],
   "answer_type": "name",
@@ -29,29 +21,31 @@
       "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "museum",
-      "display_name": "Prairie Trails Museum, Corydon, IA",
-      "geo_wkt": "POINT (-93.311323 40.757506)",
+      "display_name": "The Museum of History and Holocaust Education, Kennesaw, GA",
+      "geo_wkt": "POINT (-84.574289 34.031202)",
       "poi": {
-        "id": 17154,
-        "geometry": "POINT (-93.311323 40.757506)",
-        "poi_name": "Prairie Trails Museum",
-        "osm_id": 367089639,
+        "id": 2976,
+        "geometry": "POINT (-84.574289 34.031202)",
+        "poi_name": "The Museum of History and Holocaust Education",
+        "osm_id": 10112390511,
         "tourism": "museum",
-        "website": "https://www.prairietrailsmuseum.org/",
-        "addr_state": "IA",
-        "addr_city": "Corydon",
-        "addr_postcode": "50060",
-        "addr_street": "East Jefferson Street",
-        "addr_housenumber": "515"
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "website": "https://historymuseum.kennesaw.edu/",
+        "museum": "history",
+        "addr_state": "GA",
+        "addr_city": "Kennesaw",
+        "addr_postcode": "30144",
+        "addr_street": "Busbee Drive Northwest",
+        "addr_housenumber": "3333"
       }
     }
   },
-  "id": 534,
+  "id": 2534,
   "type": "range:non_spat_filter+name"
 }

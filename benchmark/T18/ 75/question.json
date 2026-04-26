@@ -1,48 +1,51 @@
 {
-  "question": "Where is the closest sandwich restaurant situated from Cobblestone Inn & Suites, Ord, NE?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.909215 41.592089)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest local museum near Blasingame Soccer Complex, Alma, AR?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-94.213871 35.478418)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205098,
-      "geometry": "POINT (-97.376848 41.459954)",
-      "poi_name": "Big Apple Bagels",
-      "osm_id": 7157223700,
-      "amenity": "restaurant",
-      "cuisine": "sandwich",
-      "website": "https://bigapplebagels.com/columbusne",
-      "phone": "231-773-4777",
-      "addr_state": "NE",
-      "addr_city": "Columbus",
-      "addr_postcode": "49442",
-      "addr_street": "41ST AVENUE",
-      "addr_housenumber": "4471"
+      "id": 11691,
+      "geometry": "POINT (-95.00975 36.20801)",
+      "poi_name": "Saline Courthouse Museum",
+      "osm_id": 11490093944,
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 10:00-16:00; Dec 19 off",
+      "website": "https://visitcherokeenation.com/attractions/saline-courthouse-museum",
+      "museum": "local",
+      "addr_state": "OK",
+      "addr_city": "Rose",
+      "addr_postcode": "74364",
+      "addr_street": "S. 490 Road",
+      "addr_housenumber": "55870"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "sandwich restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "local museum",
+      "poi_filter_sql": "museum = 'local'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Cobblestone Inn & Suites, Ord, NE",
-      "geo_wkt": "POINT (-98.909215 41.592089)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Blasingame Soccer Complex, Alma, AR",
+      "geo_wkt": "POINT (-94.213871 35.478418)",
       "poi": {
-        "id": 15748,
-        "geometry": "POINT (-98.909215 41.592089)",
-        "poi_name": "Cobblestone Inn & Suites",
-        "osm_id": 9501823825,
-        "tourism": "hotel",
-        "building": "commercial",
-        "addr_state": "NE",
-        "addr_city": "Ord"
+        "id": 247497,
+        "geometry": "POINT (-94.213871 35.478418)",
+        "poi_name": "Blasingame Soccer Complex",
+        "osm_id": 9138991278,
+        "leisure": "park",
+        "operator": "Boys & Girls Club of the Diamond Hills",
+        "addr_state": "AR",
+        "addr_city": "Alma",
+        "addr_postcode": "72921",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "410"
       }
     }
   },
-  "id": 374,
+  "id": 1374,
   "type": "knn:non_spat_filter+loc"
 }

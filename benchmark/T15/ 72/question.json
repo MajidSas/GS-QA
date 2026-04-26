@@ -1,82 +1,74 @@
 {
-  "question": "Where can I find a stadium located in the northeast of the Ohio State University at Mansfield, Mansfield, OH, within a radius of 150 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.578229 40.79881)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.578229 40.79881)',4326)::geography, 150000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "Where can I find a zoo that lie within 170 kilometers toward the southwest side of MAC 650 Gallery, Middletown, CT?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography, 170000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 247332,
-      "geometry": "POINT (-82.578229 40.79881)",
-      "poi_name": "North Olmsted Recreation Center",
-      "osm_id": 8944513246,
-      "leisure": "stadium",
-      "operator": "City of North Olmsted",
-      "addr_state": "OH",
-      "addr_city": "North Olmsted",
-      "addr_postcode": "44070",
-      "addr_street": "Lorain Road",
-      "addr_housenumber": "26000"
+      "id": 22,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Kids Korral",
+      "osm_id": 411668741,
+      "tourism": "zoo",
+      "zoo": "petting_zoo"
     },
     {
-      "id": 246704,
-      "geometry": "POINT (-82.578229 40.79881)",
-      "poi_name": "Mentor Civic Arena",
-      "osm_id": 8842654476,
-      "leisure": "stadium",
-      "operator": "City of Mentor",
-      "addr_state": "OH",
-      "addr_city": "Mentor",
-      "addr_postcode": "44060",
-      "addr_street": "Munson Road",
-      "addr_housenumber": "8600"
+      "id": 6148,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Bergen County Zoological Park",
+      "osm_id": 1760955751,
+      "tourism": "zoo"
     },
     {
-      "id": 247265,
-      "geometry": "POINT (-82.578229 40.79881)",
-      "poi_name": "Barons Bus Arena",
-      "osm_id": 8888267688,
-      "leisure": "stadium",
-      "addr_state": "OH",
-      "addr_city": "Parma",
-      "addr_postcode": "44129",
-      "addr_street": "Hauserman Road",
-      "addr_housenumber": "5310"
+      "id": 6973,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Sloth Encounters",
+      "osm_id": 8791898433,
+      "tourism": "zoo",
+      "opening_hours": "Sa-Su 11:00-19:00",
+      "website": "https://www.slothencounters.com/",
+      "phone": "+1-631-257-5683",
+      "zoo": "petting_zoo",
+      "addr_state": "NY",
+      "addr_city": "Hauppauge",
+      "addr_postcode": "11788",
+      "addr_street": "Veterans Memorial Highway",
+      "addr_housenumber": "551"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "The Ohio State University at Mansfield, Mansfield, OH",
-      "geo_wkt": "POINT (-82.578229 40.79881)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "MAC 650 Gallery, Middletown, CT",
+      "geo_wkt": "POINT (-72.652064 41.564871)",
       "poi": {
-        "id": 97387,
-        "geometry": "POINT (-82.578229 40.79881)",
-        "poi_name": "The Ohio State University at Mansfield",
-        "osm_id": 6476844898,
-        "amenity": "university",
-        "operator": "The Ohio State University",
-        "website": "https://www.mansfield.osu.edu",
-        "phone": "+1-419-755-4011",
-        "addr_state": "OH",
-        "addr_city": "Mansfield",
-        "addr_postcode": "44906",
-        "addr_street": "University Drive",
-        "addr_housenumber": "1760"
+        "id": 1357,
+        "geometry": "POINT (-72.652064 41.564871)",
+        "poi_name": "MAC 650 Gallery",
+        "osm_id": 2954479201,
+        "tourism": "gallery",
+        "fee": "no",
+        "operator": "Middletown Artists' Cooperative",
+        "addr_state": "CT",
+        "addr_city": "Middletown",
+        "addr_postcode": "06457",
+        "addr_street": "Main Street",
+        "addr_housenumber": "650"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 71,
+  "id": 2271,
   "type": "range:direction+loc"
 }

@@ -1,50 +1,48 @@
 {
-  "question": "Where's the closest caf\u00e9 positioned towards the southeast of Croatian Cultural Garden, Cleveland, OH?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.62453 41.524911)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest restaurant to the northwest of Beloit Clinic, Beloit, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.010008 42.550505)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 31477,
-      "geometry": "POINT (-81.62453 41.524911)",
-      "poi_name": "Cleveland Cold Brew Coffee & Cafe",
-      "osm_id": 8426441769,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "opening_hours": "Mo-Sa 09:00-14:00",
-      "website": "https://clevelandcoldbrew.com",
-      "addr_state": "OH",
-      "addr_city": "Cleveland",
-      "addr_postcode": "44106",
-      "addr_street": "East 105th Street",
-      "addr_housenumber": "1400"
+      "id": 171671,
+      "geometry": "POINT (-89.010008 42.550505)",
+      "poi_name": "Rock N Rolls",
+      "osm_id": 2383852502,
+      "amenity": "restaurant",
+      "addr_city": "Evansville",
+      "addr_postcode": "53536",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "1"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Croatian Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.62453 41.524911)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Beloit Clinic, Beloit, WI",
+      "geo_wkt": "POINT (-89.010008 42.550505)",
       "poi": {
-        "id": 247019,
-        "geometry": "POINT (-81.62453 41.524911)",
-        "poi_name": "Croatian Cultural Garden",
-        "osm_id": 8567373872,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1141"
+        "id": 63331,
+        "geometry": "POINT (-89.010008 42.550505)",
+        "poi_name": "Beloit Clinic",
+        "osm_id": 5610650867,
+        "amenity": "hospital",
+        "operator": "Beloit Health",
+        "healthcare": "hospital",
+        "addr_state": "WI",
+        "addr_city": "Beloit",
+        "addr_postcode": "53511",
+        "addr_street": "Huebbe Parkway",
+        "addr_housenumber": "1905"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1118,

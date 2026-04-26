@@ -1,49 +1,49 @@
 {
-  "question": "Where is the nearest railway museum available from Four Mile Old West Town, Custer, SD?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-103.673239 43.733023)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest restaurant serving grilled cheese close by Moltke Maize Maze, LLC, Rogers City, MI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%grilled_cheese%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.968943 45.435343)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 20241,
-      "geometry": "POINT (-96.476728 42.529033)",
-      "poi_name": "The Railroad Museum",
-      "osm_id": 7959730516,
-      "tourism": "museum",
-      "website": "https://www.siouxcityrailroadmuseum.org/",
-      "museum": "railway",
-      "addr_state": "IA",
-      "addr_city": "Sioux City",
-      "addr_postcode": "51102",
-      "addr_street": "Sioux River Road",
-      "addr_housenumber": "3400"
+      "id": 44515,
+      "geometry": "POINT (-81.799118 41.485295)",
+      "poi_name": "Melt Bar & Grilled",
+      "osm_id": 3161680228,
+      "amenity": "restaurant",
+      "cuisine": "grilled_cheese",
+      "opening_hours": "Mo-Fr 11:00-22:00; Sa 10:00-22:00; Su 10:00-21:00",
+      "addr_city": "Lakewood",
+      "addr_postcode": "44107",
+      "addr_street": "Detroit Avenue",
+      "addr_housenumber": "14718"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "railway museum",
-      "poi_filter_sql": "museum = 'railway'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "restaurant serving grilled cheese",
+      "poi_filter_sql": "cuisine ILIKE '%grilled_cheese%'"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "attraction",
-      "display_name": "Four Mile Old West Town, Custer, SD",
-      "geo_wkt": "POINT (-103.673239 43.733023)",
+      "display_name": "Moltke Maize Maze, LLC, Rogers City, MI",
+      "geo_wkt": "POINT (-83.968943 45.435343)",
       "poi": {
-        "id": 25745,
-        "geometry": "POINT (-103.673239 43.733023)",
-        "poi_name": "Four Mile Old West Town",
-        "osm_id": 4588836146,
+        "id": 4348,
+        "geometry": "POINT (-83.968943 45.435343)",
+        "poi_name": "Moltke Maize Maze, LLC",
+        "osm_id": 11229132052,
+        "description": "Annual Fall attraction. Enjoy a fun-filled day finding your way through the maze to discover items to solve 3 puzzles. Maze location varies slightly each year, but is in close proximity to this point & viewable from Curtis Rd.",
         "tourism": "attraction",
-        "phone": "+1 605-673-3905",
-        "addr_state": "SD",
-        "addr_city": "Custer",
-        "addr_street": "Mount Rushmore Road",
-        "addr_housenumber": "11921"
+        "addr_state": "MI",
+        "addr_city": "Rogers City",
+        "addr_postcode": "49779",
+        "addr_street": "North Curtis Road",
+        "addr_housenumber": "3567"
       }
     }
   },
-  "id": 308,
+  "id": 1308,
   "type": "knn:non_spat_filter+loc"
 }

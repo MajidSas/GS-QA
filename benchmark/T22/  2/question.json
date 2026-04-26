@@ -1,43 +1,44 @@
 {
-  "question": "What direction does one need to follow to reach the closest beach resort from Geneva Bay Center, Lake Geneva, WI?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.45126 42.587231)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.45126 42.587231)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way should I move to reach the closest garden from Childrens's Nature Center, Grand Junction, CO?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-108.603856 39.09253)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248226,
-      "geometry": "POINT (-89.156386 44.170489)",
-      "poi_name": "Chippy's Sports Beach",
-      "osm_id": 7471958784,
-      "leisure": "beach_resort",
-      "angle": 342.24476720057874
+      "id": 246936,
+      "geometry": "POINT (-106.36687 39.640324)",
+      "poi_name": "Rooftop Garden",
+      "osm_id": 6610695237,
+      "leisure": "garden",
+      "angle": 71.7833051829246
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "beach resort"
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Geneva Bay Center, Lake Geneva, WI",
-      "geo_wkt": "POINT (-88.45126 42.587231)",
+      "sub_category": "zoo",
+      "display_name": "Childrens's Nature Center, Grand Junction, CO",
+      "geo_wkt": "POINT (-108.603856 39.09253)",
       "poi": {
-        "id": 11850,
-        "geometry": "POINT (-88.45126 42.587231)",
-        "poi_name": "Geneva Bay Center",
-        "osm_id": 11580936420,
-        "tourism": "hotel",
-        "website": "https://covenantharbor.org/geneva-bay-center/",
-        "phone": "+1-262-248-3600",
-        "addr_state": "WI",
-        "addr_city": "Lake Geneva",
-        "addr_postcode": "53147",
-        "addr_street": "West Main Street",
-        "addr_housenumber": "1724"
+        "id": 8067,
+        "geometry": "POINT (-108.603856 39.09253)",
+        "poi_name": "Childrens's Nature Center",
+        "osm_id": 6546260867,
+        "description": "Zoo and aquarium great for children and exciting for all ages. Over 100 unique creatures and educational exhibits.",
+        "tourism": "zoo",
+        "opening_hours": "Su 12:00-16:00; Mo-Sa 10:00-16:00",
+        "phone": "+1-970-241-1000",
+        "addr_state": "CO",
+        "addr_city": "Grand Junction",
+        "addr_postcode": "81501",
+        "addr_street": "US 6 and 50",
+        "addr_housenumber": "2424"
       }
     }
   },
-  "id": 1401,
+  "id": 501,
   "type": "knn+angle"
 }

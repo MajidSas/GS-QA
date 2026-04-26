@@ -1,19 +1,22 @@
 {
-  "question": "Where is the nearest university towards the west of Amazing Air, San Antonio, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.39639 29.503891)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest university on the path going southeast from MAC 650 Gallery, Middletown, CT?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 218784,
-      "geometry": "POINT (-98.39639 29.503891)",
-      "poi_name": "Galen College of Nursing-San Antonio",
-      "osm_id": 9294861306,
+      "id": 167779,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "University of New Haven New London Campus",
+      "osm_id": 359280782,
       "amenity": "university",
-      "website": "https://galencollege.edu/",
-      "addr_state": "TX",
-      "addr_city": "San Antonio",
-      "addr_postcode": "78229",
-      "addr_street": "John Smith Drive",
-      "addr_housenumber": "7411"
+      "description": "The University of New Haven New London Campus has been serving the needs of business people and nearby residents for more than four decades.",
+      "operator": "University of New Haven",
+      "website": "https://www.newhaven.edu/about/campus-locations/new-london.php",
+      "phone": "+1 203 932 7440",
+      "addr_state": "CT",
+      "addr_city": "New London",
+      "addr_postcode": "06320",
+      "addr_street": "Pequot Avenue",
+      "addr_housenumber": "469"
     }
   ],
   "answer_type": "loc",
@@ -24,28 +27,27 @@
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Amazing Air, San Antonio, TX",
-      "geo_wkt": "POINT (-98.39639 29.503891)",
+      "sub_category": "gallery",
+      "display_name": "MAC 650 Gallery, Middletown, CT",
+      "geo_wkt": "POINT (-72.652064 41.564871)",
       "poi": {
-        "id": 7732,
-        "geometry": "POINT (-98.39639 29.503891)",
-        "poi_name": "Amazing Air",
-        "osm_id": 6382562047,
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 16:00-21:00;Fr 14:00-23:00; Sa 10:00-23:00; Su 12:00-20:00",
-        "website": "https://amazingairsa.com/",
-        "phone": "+1-210-946-9800",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78218",
-        "addr_street": "North Interstate Highway 35",
-        "addr_housenumber": "7702"
+        "id": 1357,
+        "geometry": "POINT (-72.652064 41.564871)",
+        "poi_name": "MAC 650 Gallery",
+        "osm_id": 2954479201,
+        "tourism": "gallery",
+        "fee": "no",
+        "operator": "Middletown Artists' Cooperative",
+        "addr_state": "CT",
+        "addr_city": "Middletown",
+        "addr_postcode": "06457",
+        "addr_street": "Main Street",
+        "addr_housenumber": "650"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
   "id": 1127,

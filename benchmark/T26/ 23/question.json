@@ -1,45 +1,45 @@
 {
-  "question": "What's the distance between Smoky Mountain Alpine Coaster, Pigeon Forge, TN and the closest fast food restaurant?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the measured distance to the closest caf\u00e9 from Sand Dunes Frontier, Florence, OR?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.111464 43.914209)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 69230,
-      "geometry": "POINT (-83.5848 35.800806)",
-      "poi_name": "Subway",
-      "osm_id": 11297417568,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "takeaway": "yes",
-      "distance": 1342.61261784
+      "id": 77460,
+      "geometry": "POINT (-124.108102 43.966252)",
+      "poi_name": "River Roasters",
+      "osm_id": 32153673,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "opening_hours": "Mo-Su 07:00-17:00",
+      "internet_access": "wlan",
+      "outdoor_seating": "yes",
+      "distance": 5788.81534365
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "theme park",
-      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "display_name": "Sand Dunes Frontier, Florence, OR",
+      "geo_wkt": "POINT (-124.111464 43.914209)",
       "poi": {
-        "id": 13057,
-        "geometry": "POINT (-83.596543 35.793397)",
-        "poi_name": "Smoky Mountain Alpine Coaster",
-        "osm_id": 4035710749,
+        "id": 25873,
+        "geometry": "POINT (-124.111464 43.914209)",
+        "poi_name": "Sand Dunes Frontier",
+        "osm_id": 4630148745,
         "tourism": "theme_park",
-        "website": "http://www.smokymountainalpinecoaster.com/",
-        "wikidata": "Q29831450",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Wears Valley Road",
-        "addr_housenumber": "867"
+        "addr_state": "OR",
+        "addr_city": "Florence",
+        "addr_postcode": "97439",
+        "addr_street": "Oregon Coast Highway",
+        "addr_housenumber": "83960"
       }
     }
   },
-  "id": 2422,
+  "id": 622,
   "type": "knn+distance"
 }

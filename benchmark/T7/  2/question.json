@@ -1,49 +1,47 @@
 {
-  "question": "How many spectators can the nearest stadium from Curtis Motel, Bridgeton, NC hold?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.017685 35.11729)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest university from City of Farmington Museum, Farmington, UT established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248769,
-      "geometry": "POINT (-78.060871 35.61119)",
-      "poi_name": "Southern National Motorsport Park",
-      "osm_id": 4773889332,
-      "leisure": "stadium",
-      "sport": "motor",
-      "wikidata": "Q7570163",
-      "addr_state": "NC",
-      "addr_city": "Lucama",
-      "addr_postcode": "27851",
-      "addr_street": "Newsome Mill Road",
-      "addr_housenumber": "8071",
-      "multihop_answer": "4500[1]",
-      "multihop_attribute": "Capacity",
-      "multihop_long_answer": "Southern National Motorsport Park Capacity: 4500[1]"
+      "id": 230559,
+      "geometry": "POINT (-111.890792 40.766101)",
+      "poi_name": "Neumont College",
+      "osm_id": 4431459466,
+      "amenity": "university",
+      "website": "https://www.neumont.edu/",
+      "wikidata": "Q7001981",
+      "multi_source_answer": "2003",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Neumont College Established: 2003"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Curtis Motel, Bridgeton, NC",
-      "geo_wkt": "POINT (-77.017685 35.11729)",
+      "sub_category": "museum",
+      "display_name": "City of Farmington Museum, Farmington, UT",
+      "geo_wkt": "POINT (-111.887141 40.98238)",
       "poi": {
-        "id": 280,
-        "geometry": "POINT (-77.017685 35.11729)",
-        "poi_name": "Curtis Motel",
-        "osm_id": 8280832784,
-        "tourism": "hotel",
-        "phone": "+12526383011",
-        "addr_state": "NC",
-        "addr_city": "Bridgeton",
-        "addr_postcode": "28519"
+        "id": 963,
+        "geometry": "POINT (-111.887141 40.98238)",
+        "poi_name": "City of Farmington Museum",
+        "osm_id": 2750936682,
+        "tourism": "museum",
+        "fee": "yes",
+        "website": "https://artsandmuseums.utah.gov/utah-museums-directory/listing/farmington-historical-museum__trashed/",
+        "addr_state": "UT",
+        "addr_city": "Farmington",
+        "addr_postcode": "84025",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "110"
       }
     }
   },
-  "id": 901,
-  "type": "knn+name+multihop1"
+  "id": 801,
+  "type": "knn+name+multi_source1"
 }

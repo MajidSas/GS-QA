@@ -1,41 +1,48 @@
 {
-  "question": "Seeking suggestions for the nearest aquarium in relation to the stadium that can hold 6600 spectators in Louisville, KY.",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which attraction near the museum designed by the architect Shaw, Selwyn in Ventura, CA stands out as closest?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.24024 34.277629)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24095,
-      "geometry": "POINT (-86.121741 39.855579)",
-      "poi_name": "The Reef Aquarium Shop",
-      "osm_id": 9310064911,
-      "tourism": "aquarium"
+      "id": 7846,
+      "geometry": "POINT (-118.955916 34.268873)",
+      "poi_name": "Hartley Botanica",
+      "osm_id": 6433373485,
+      "tourism": "attraction",
+      "website": "https://hartleybotanica.com/",
+      "addr_postcode": "93066",
+      "addr_street": "Balcom Canyon Road",
+      "addr_housenumber": "4465"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Broadbent Arena, Louisville, KY",
-      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Dudley House, Ventura, CA",
+      "geo_wkt": "POINT (-119.24024 34.277629)",
       "poi": {
-        "id": 245703,
-        "geometry": "POINT (-85.745629 38.200638)",
-        "poi_name": "Broadbent Arena",
-        "osm_id": 3418007532,
-        "leisure": "stadium",
-        "wikidata": "Q4972040",
-        "addr_state": "KY",
-        "addr_city": "Louisville",
-        "addr_postcode": "40209",
-        "addr_street": "Broadbent Drive",
-        "addr_housenumber": "3100"
+        "id": 1032,
+        "geometry": "POINT (-119.24024 34.277629)",
+        "poi_name": "Dudley House",
+        "osm_id": 2800250595,
+        "tourism": "museum",
+        "operator": "San Buenaventura Heritage",
+        "website": "https://dudleyhouse.org/",
+        "phone": "+1 (805) 644-3286",
+        "wikidata": "Q14681880",
+        "addr_state": "CA",
+        "addr_city": "Ventura",
+        "addr_postcode": "93003",
+        "addr_street": "North Ashwood Avenue",
+        "addr_housenumber": "197"
       }
     }
   },
-  "id": 2756,
-  "type": "knn+name+multihop2"
+  "id": 956,
+  "type": "knn+name+multi_source2"
 }

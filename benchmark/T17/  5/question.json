@@ -1,46 +1,49 @@
 {
-  "question": "Where can I find the nearest park relative to LSU AgCenter, Natchitoches, LA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-93.087882 31.761636)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest caf\u00e9 near Cal, Sr.'s Yard, Aberdeen, MD?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 249006,
-      "geometry": "POINT (-93.088093 31.751266)",
-      "poi_name": "Fort St. Jean Baptiste State Historic Site",
-      "osm_id": 9561369117,
-      "leisure": "park",
-      "opening_hours": "We-Su 09:00-17:00",
-      "website": "https://www.lastateparks.com/historic-sites/fort-st-jean-baptiste-state-historic-site",
-      "phone": "318-357-3101",
-      "addr_city": "Natchitoches",
-      "addr_street": "rue Jefferson",
-      "addr_housenumber": "155"
+      "id": 96467,
+      "geometry": "POINT (-76.182138 39.525375)",
+      "poi_name": "Mamie's Cafe with Love",
+      "osm_id": 6433545083,
+      "amenity": "cafe",
+      "website": "https://mamiescafewithlove.com/",
+      "phone": "410-273-8999",
+      "addr_state": "MD",
+      "addr_city": "Aberdeen",
+      "addr_postcode": "21001",
+      "addr_street": "Beards Hill Road",
+      "addr_housenumber": "939"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "LSU AgCenter, Natchitoches, LA",
-      "geo_wkt": "POINT (-93.087882 31.761636)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
+      "geo_wkt": "POINT (-76.186327 39.533089)",
       "poi": {
-        "id": 91532,
-        "geometry": "POINT (-93.087882 31.761636)",
-        "poi_name": "LSU AgCenter",
-        "osm_id": 2071876406,
-        "amenity": "university",
-        "addr_state": "LA",
-        "addr_city": "Natchitoches",
-        "addr_postcode": "71457",
-        "addr_street": "2nd Street",
-        "addr_housenumber": "624"
+        "id": 246798,
+        "geometry": "POINT (-76.186327 39.533089)",
+        "poi_name": "Cal, Sr.'s Yard",
+        "osm_id": 6441911494,
+        "leisure": "stadium",
+        "sport": "baseball",
+        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
+        "addr_state": "MD",
+        "addr_city": "Aberdeen",
+        "addr_postcode": "21001",
+        "addr_street": "Long Drive",
+        "addr_housenumber": "873"
       }
     }
   },
-  "id": 1804,
+  "id": 704,
   "type": "knn+loc"
 }

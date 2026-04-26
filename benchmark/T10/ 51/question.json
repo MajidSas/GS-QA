@@ -1,63 +1,68 @@
 {
-  "question": "What's the closest restaurant on the path leading to Holiday Inn Express & Suites Ashtabula-Geneva, Austinburg, OH from Ukrainian Cultural Garden, Cleveland, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography, ST_GeomFromText('POINT (-80.853977 41.79064)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.627549 41.527165)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food you pass going from Sonny's Place, Somers, CT to Worcester Art Museum, Worcester, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography, ST_GeomFromText('POINT (-71.801921 42.273227)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-72.468092 41.986478)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 168791,
-      "geometry": "POINT (-81.550033 41.583422)",
-      "poi_name": "Scotti's Italian Eatery",
-      "osm_id": 2278423546,
-      "amenity": "restaurant",
-      "cuisine": "italian",
-      "addr_postcode": "44119",
-      "addr_street": "East 185th Street",
-      "addr_housenumber": "882",
-      "value": 65.31702639762852
+      "id": 170947,
+      "geometry": "POINT (-72.113167 42.116048)",
+      "poi_name": "Subway",
+      "osm_id": 2352993990,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "value": 59.737731935793555
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Ukrainian Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.627549 41.527165)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Sonny's Place, Somers, CT",
+      "geo_wkt": "POINT (-72.468092 41.986478)",
       "poi": {
-        "id": 247011,
-        "geometry": "POINT (-81.627549 41.527165)",
-        "poi_name": "Ukrainian Cultural Garden",
-        "osm_id": 8567373864,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1008"
+        "id": 11952,
+        "geometry": "POINT (-72.468092 41.986478)",
+        "poi_name": "Sonny's Place",
+        "osm_id": 6106925340,
+        "tourism": "theme_park",
+        "opening_hours": "Sa 11:00-21:00; Su 11:00-19:00",
+        "website": "https://sonnysplace.com/",
+        "phone": "+1 860 763-5454",
+        "addr_state": "CT",
+        "addr_city": "Somers",
+        "addr_postcode": "06071",
+        "addr_street": "Main Street",
+        "addr_housenumber": "349"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Holiday Inn Express & Suites Ashtabula-Geneva, Austinburg, OH",
-      "geo_wkt": "POINT (-80.853977 41.79064)",
+      "sub_category": "gallery",
+      "display_name": "Worcester Art Museum, Worcester, MA",
+      "geo_wkt": "POINT (-71.801921 42.273227)",
       "poi": {
-        "id": 3377,
-        "geometry": "POINT (-80.853977 41.79064)",
-        "poi_name": "Holiday Inn Express & Suites Ashtabula-Geneva",
-        "osm_id": 5386568486,
-        "tourism": "hotel",
-        "addr_state": "OH",
-        "addr_city": "Austinburg",
-        "addr_postcode": "44010",
-        "addr_street": "Austinburg Road",
-        "addr_housenumber": "1831"
+        "id": 2964,
+        "geometry": "POINT (-71.801921 42.273227)",
+        "poi_name": "Worcester Art Museum",
+        "osm_id": 10102558853,
+        "tourism": "gallery",
+        "fee": "yes",
+        "opening_hours": "We-Su 10:00-17:00",
+        "operator": "Worcester Art Museum",
+        "addr_state": "MA",
+        "addr_city": "Worcester",
+        "addr_postcode": "01609",
+        "addr_street": "Salisbury Street",
+        "addr_housenumber": "55"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 150,
+  "id": 1650,
   "type": "knn:towards+name"
 }

@@ -1,47 +1,41 @@
 {
-  "question": "Could you tell me the closest caf\u00e9 relative to Hilton Garden Inn Phoenix Midtown, Phoenix, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.075192 33.49258)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which stadium is nearest to River Deck, Edgewater, MD right now?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 85683,
-      "geometry": "POINT (-112.074125 33.500458)",
-      "poi_name": "Lux Central",
-      "osm_id": 1887749279,
-      "amenity": "cafe",
-      "wheelchair": "limited",
-      "internet_access": "wlan",
-      "outdoor_seating": "yes",
-      "addr_state": "AZ",
-      "addr_city": "Phoenix",
-      "addr_street": "North Central Avenue",
-      "addr_housenumber": "4240"
+      "id": 267000,
+      "geometry": "POINT (-77.073539 38.772717)",
+      "poi_name": "Jeffrey C. Dietze Stadium",
+      "osm_id": 4320512551,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hilton Garden Inn Phoenix Midtown, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.075192 33.49258)",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
       "poi": {
-        "id": 13402,
-        "geometry": "POINT (-112.075192 33.49258)",
-        "poi_name": "Hilton Garden Inn Phoenix Midtown",
-        "osm_id": 4095017712,
-        "tourism": "hotel",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85012",
-        "addr_street": "North Central Avenue",
-        "addr_housenumber": "4000"
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
       }
     }
   },
-  "id": 244,
+  "id": 1044,
   "type": "knn+name"
 }

@@ -1,93 +1,135 @@
 {
-  "question": "Where can I find an attraction towards the north of Aloha Safari Park, Cameron, NC within 160 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.113032 35.317294)',4326)::geography, 160000)\nAND tourism = 'attraction'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a museum found within a 150 kilometers limit in the southwest direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography, 150000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 1828,
-      "geometry": "POINT (-79.113032 35.317294)",
-      "poi_name": "Ganyard Hill Farms",
-      "osm_id": 3159155056,
-      "tourism": "attraction",
-      "website": "http://ganyardhillfarm.com/",
-      "addr_state": "NC",
-      "addr_city": "Durham",
-      "addr_postcode": "27703",
-      "addr_street": "Sherron Road",
-      "addr_housenumber": "319"
+      "id": 1254,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Clemson Area African American Museum",
+      "osm_id": 2918004399,
+      "tourism": "museum",
+      "website": "https://caaamuseum.org/",
+      "wikidata": "Q17150899"
     },
     {
-      "id": 4784,
-      "geometry": "POINT (-79.113032 35.317294)",
-      "poi_name": "Fireside Farm & Sawmill",
-      "osm_id": 9615093449,
-      "tourism": "attraction",
-      "addr_state": "NC",
-      "addr_city": "Efland",
-      "addr_postcode": "27243",
-      "addr_street": "Mt Mitchell Road",
-      "addr_housenumber": "6323"
+      "id": 4728,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Dry Ridge Historical Museum",
+      "osm_id": 11418304574,
+      "tourism": "museum",
+      "museum": "history"
     },
     {
-      "id": 22639,
-      "geometry": "POINT (-79.113032 35.317294)",
-      "poi_name": "Shangri-La Stone Village",
-      "osm_id": 7190898013,
-      "tourism": "attraction",
-      "addr_state": "NC",
-      "addr_city": "Prospect Hill",
-      "addr_postcode": "27314",
-      "addr_street": "Henry Warren Road",
-      "addr_housenumber": "11535"
+      "id": 9050,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Irma Morris Museum of Fine Arts",
+      "osm_id": 3646028531,
+      "tourism": "museum"
     },
     {
-      "id": 21449,
-      "geometry": "POINT (-79.113032 35.317294)",
-      "poi_name": "Horton Grove",
-      "osm_id": 10268579609,
-      "tourism": "attraction",
-      "phone": "(919) 908-8809",
+      "id": 9712,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Fine Art Museum",
+      "osm_id": 8949988646,
+      "tourism": "museum",
+      "opening_hours": "Tu-We,Fr 10:00-16:00; Th 10:00-19:00",
+      "operator": "Western Carolina University - Bardo Performing Arts Center",
+      "website": "https://www.wcu.edu/bardo-arts-center/fine-art-museum/",
+      "museum": "art",
       "addr_state": "NC",
-      "addr_city": "Durham",
-      "addr_postcode": "27503",
-      "addr_street": "Jock Road",
-      "addr_housenumber": "5925"
+      "addr_city": "Cullowhee",
+      "addr_postcode": "28723",
+      "addr_street": "Centennial Drive",
+      "addr_housenumber": "199"
+    },
+    {
+      "id": 11059,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Western North Carolina Air Museum",
+      "osm_id": 9840117914,
+      "tourism": "museum",
+      "website": "http://www.westernnorthcarolinaairmuseum.com/"
+    },
+    {
+      "id": 14156,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Old Fort Railroad Museum",
+      "osm_id": 4238103380,
+      "tourism": "museum",
+      "phone": "+18286684244",
+      "addr_state": "NC",
+      "addr_city": "Old Fort",
+      "addr_postcode": "28762",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "25"
+    },
+    {
+      "id": 21515,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "The Real American Tea Museum",
+      "osm_id": 10297154160,
+      "tourism": "museum",
+      "website": "https://tablerocktea.com/tours"
+    },
+    {
+      "id": 22385,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Mineral & Lapidary Museum",
+      "osm_id": 686672317,
+      "tourism": "museum",
+      "opening_hours": "Mar-Dec: Mo-Fr 13:00-17:00; Sa 10:00-17:00; Jan, Feb Tu-Fr 13:00-17:00; Sa 10:00-17:00",
+      "website": "http://www.mineralmuseum.org/",
+      "phone": "828-698-1977",
+      "wikidata": "Q6864343"
+    },
+    {
+      "id": 22702,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Shook Museum",
+      "osm_id": 7221111326,
+      "tourism": "museum",
+      "phone": "(828) 564-1044",
+      "addr_state": "NC",
+      "addr_city": "Clyde",
+      "addr_postcode": "28721",
+      "addr_street": "Morgan Street",
+      "addr_housenumber": "178"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Aloha Safari Park, Cameron, NC",
-      "geo_wkt": "POINT (-79.113032 35.317294)",
+      "sub_category": "attraction",
+      "display_name": "Gem Mountain Gemstone Mine, Spruce Pine, NC",
+      "geo_wkt": "POINT (-82.050287 35.872594)",
       "poi": {
-        "id": 18897,
-        "geometry": "POINT (-79.113032 35.317294)",
-        "poi_name": "Aloha Safari Park",
-        "osm_id": 2440275710,
-        "tourism": "zoo",
-        "operator": "Lee Crutchfield",
-        "website": "http://alohasafarizoo.org/",
+        "id": 524,
+        "geometry": "POINT (-82.050287 35.872594)",
+        "poi_name": "Gem Mountain Gemstone Mine",
+        "osm_id": 8421455508,
+        "tourism": "attraction",
+        "opening_hours": "Temporary Closed",
         "addr_state": "NC",
-        "addr_city": "Cameron",
-        "addr_postcode": "28348",
-        "addr_street": "Mini Lane",
-        "addr_housenumber": "159"
+        "addr_city": "Spruce Pine",
+        "addr_postcode": "28777",
+        "addr_street": "NC-226",
+        "addr_housenumber": "13780"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 50,
+  "id": 2250,
   "type": "range:direction+loc"
 }

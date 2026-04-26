@@ -1,55 +1,104 @@
 {
-  "question": "Where can I find a golf course in the north direction of Cal, Sr.'s Yard, Aberdeen, MD, within a radius of 130 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 130000)\nAND leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are a beach resort within 60 kilometers of Children's Cultural Center of Native America, New York, NY in the south direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.944872 40.832146)',4326)::geography, 60000)\nAND leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 267320,
-      "geometry": "POINT (-76.186327 39.533089)",
-      "poi_name": "Hidden Valley Golf Course",
-      "osm_id": 5846859136,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Pine Grove",
-      "addr_postcode": "17963",
-      "addr_street": "Panther Valley Road",
-      "addr_housenumber": "1753"
+      "id": 246527,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Surfrider Beach Club",
+      "osm_id": 9809545162,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "931"
+    },
+    {
+      "id": 246528,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Sands Beach Club",
+      "osm_id": 9809545163,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "825"
+    },
+    {
+      "id": 247124,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Silver Gull Beach Club",
+      "osm_id": 3575812477,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://nysilvergull.com/"
+    },
+    {
+      "id": 265569,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Ship Ahoy Beach Club",
+      "osm_id": 2575212830,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "801"
+    },
+    {
+      "id": 265570,
+      "geometry": "POINT (-73.944872 40.832146)",
+      "poi_name": "Seabright Beach Club",
+      "osm_id": 2575212863,
+      "leisure": "beach_resort",
+      "addr_state": "NJ",
+      "addr_city": "Sea Bright",
+      "addr_postcode": "07760",
+      "addr_street": "Ocean Avenue",
+      "addr_housenumber": "999"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Children's Cultural Center of Native America, New York, NY",
+      "geo_wkt": "POINT (-73.944872 40.832146)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 979,
+        "geometry": "POINT (-73.944872 40.832146)",
+        "poi_name": "Children's Cultural Center of Native America",
+        "osm_id": 2768275469,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "Mo-Fr 10:30-13:00",
+        "operator": "Nitchen Inc.",
+        "website": "https://www.cccona.org/",
+        "phone": "+1-917-902-6628",
+        "museum": "children",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10032",
+        "addr_street": "West 155th Street",
+        "addr_housenumber": "550"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 37,
+  "id": 2237,
   "type": "range:direction+loc"
 }

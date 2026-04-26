@@ -1,50 +1,47 @@
 {
-  "question": "Where is the closest hotel positioned towards the east of Center for Drug Delivery and Nanomedicine, Omaha, NE?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest nature reserve positioned in the west direction of Butterfield Garage Art Gallery, Saint Augustine, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.319514 29.891225)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13255,
-      "geometry": "POINT (-95.980829 41.255456)",
-      "poi_name": "Element Omaha Midtown Crossing",
-      "osm_id": 4080963509,
-      "tourism": "hotel",
-      "website": "https://www.midtowncrossing.com/retail/hotel/element-hotel/",
-      "phone": "402-614-8080",
-      "wikidata": "Q111393746",
-      "addr_state": "NE",
-      "addr_city": "Omaha",
-      "addr_postcode": "68131",
-      "addr_street": "Dodge Street",
-      "addr_housenumber": "3253"
+      "id": 266081,
+      "geometry": "POINT (-81.319514 29.891225)",
+      "poi_name": "Southern Property Preservation",
+      "osm_id": 10577992723,
+      "leisure": "nature_reserve",
+      "addr_state": "FL",
+      "addr_city": "Middleburg",
+      "addr_postcode": "32068",
+      "addr_street": "Lee Drive South",
+      "addr_housenumber": "175"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Center for Drug Delivery and Nanomedicine, Omaha, NE",
-      "geo_wkt": "POINT (-95.980829 41.255456)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Butterfield Garage Art Gallery, Saint Augustine, FL",
+      "geo_wkt": "POINT (-81.319514 29.891225)",
       "poi": {
-        "id": 147575,
-        "geometry": "POINT (-95.980829 41.255456)",
-        "poi_name": "Center for Drug Delivery and Nanomedicine",
-        "osm_id": 7546124073,
-        "amenity": "university",
-        "website": "cddn.unmc.edu",
-        "phone": "+1-402-559-9330",
-        "addr_state": "NE",
-        "addr_city": "Omaha",
-        "addr_postcode": "68198"
+        "id": 1914,
+        "geometry": "POINT (-81.319514 29.891225)",
+        "poi_name": "Butterfield Garage Art Gallery",
+        "osm_id": 3215148637,
+        "tourism": "gallery",
+        "addr_state": "FL",
+        "addr_city": "Saint Augustine",
+        "addr_postcode": "32084",
+        "addr_street": "King Street",
+        "addr_housenumber": "137"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1117,

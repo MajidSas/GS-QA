@@ -1,48 +1,50 @@
 {
-  "question": "Where is the closest museum in the southeast direction starting from Coral Ridge Ice Arena, IA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-91.600665 41.690452)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest attraction relative to Hall des Lumi\u00e8res, New York, NY in the northwest direction?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.005072 40.713744)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1151,
-      "geometry": "POINT (-91.600665 41.690452)",
-      "poi_name": "Old Capitol Museum",
-      "osm_id": 2868950561,
-      "tourism": "museum",
-      "wheelchair": "yes",
-      "fee": "no",
-      "operator": "University of Iowa",
-      "website": "https://oldcap.uiowa.edu/",
-      "museum": "local_history",
-      "addr_state": "IA",
-      "addr_city": "Iowa City",
-      "addr_postcode": "52242",
-      "addr_street": "North Clinton Street",
-      "addr_housenumber": "21"
+      "id": 3565,
+      "geometry": "POINT (-74.005072 40.713744)",
+      "poi_name": "Frank Sinatra's Birthplace",
+      "osm_id": 5468067617,
+      "tourism": "attraction",
+      "addr_state": "NJ",
+      "addr_city": "Hoboken",
+      "addr_street": "Monroe Street",
+      "addr_housenumber": "415"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Coral Ridge Ice Arena, IA",
-      "geo_wkt": "POINT (-91.600665 41.690452)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Hall des Lumi\u00e8res, New York, NY",
+      "geo_wkt": "POINT (-74.005072 40.713744)",
       "poi": {
-        "id": 265360,
-        "geometry": "POINT (-91.600665 41.690452)",
-        "poi_name": "Coral Ridge Ice Arena",
-        "osm_id": 367088905,
-        "leisure": "stadium",
-        "addr_state": "IA"
+        "id": 1082,
+        "geometry": "POINT (-74.005072 40.713744)",
+        "poi_name": "Hall des Lumi\u00e8res",
+        "osm_id": 2825233330,
+        "tourism": "museum",
+        "fee": "yes",
+        "opening_hours": "10:00-18:00; Tu off; Th-Sa 10:00-22:00",
+        "website": "https://www.halldeslumieres.com/",
+        "museum": "art",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10007",
+        "addr_street": "Chambers Street",
+        "addr_housenumber": "49"
       }
     },
     "[3]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1114,

@@ -1,41 +1,51 @@
 {
-  "question": "How distant is the closest fast food restaurant located from UIW SPS Alamo Heights Center, San Antonio, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-98.490182 29.460428)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-98.490182 29.460428)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest museum located from SpringHill Suites Atlanta Airport Gateway, College Park, GA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.457572 33.643829)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.457572 33.643829)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 198841,
-      "geometry": "POINT (-98.499036 29.46622)",
-      "poi_name": "Taco Cabana",
-      "osm_id": 921116456,
-      "amenity": "fast_food",
-      "cuisine": "mexican",
-      "distance": 1072.27566868
+      "id": 17699,
+      "geometry": "POINT (-84.406783 33.755806)",
+      "poi_name": "Herndon Home Museum",
+      "osm_id": 367915546,
+      "tourism": "museum",
+      "website": "https://www.theherndonfoundation.org/",
+      "phone": "+1 (404) 581-9813",
+      "wikidata": "Q5742312",
+      "addr_state": "GA",
+      "addr_city": "Atlanta",
+      "addr_postcode": "30314",
+      "addr_street": "University Place Northwest",
+      "addr_housenumber": "587",
+      "distance": 13282.75133784
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "UIW SPS Alamo Heights Center, San Antonio, TX",
-      "geo_wkt": "POINT (-98.490182 29.460428)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "SpringHill Suites Atlanta Airport Gateway, College Park, GA",
+      "geo_wkt": "POINT (-84.457572 33.643829)",
       "poi": {
-        "id": 206218,
-        "geometry": "POINT (-98.490182 29.460428)",
-        "poi_name": "UIW SPS Alamo Heights Center",
-        "osm_id": 7201375091,
-        "amenity": "university",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_street": "McCullough Avenue",
-        "addr_housenumber": "3200"
+        "id": 1832,
+        "geometry": "POINT (-84.457572 33.643829)",
+        "poi_name": "SpringHill Suites Atlanta Airport Gateway",
+        "osm_id": 3167035862,
+        "tourism": "hotel",
+        "website": "https://www.marriott.com/hotels/travel/atlgi-springhill-suites-atlanta-airport-gateway/",
+        "phone": "1-770-907-8880",
+        "addr_state": "GA",
+        "addr_city": "College Park",
+        "addr_postcode": "30337",
+        "addr_street": "Convention Center Concourse",
+        "addr_housenumber": "2091"
       }
     }
   },
-  "id": 2438,
+  "id": 638,
   "type": "knn+distance"
 }

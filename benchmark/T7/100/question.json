@@ -1,45 +1,48 @@
 {
-  "question": "When was the nearest university from Monrovia Canyon Park, Monrovia, CA established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest stadium from English Street Community Garden, New Haven, CT first opened?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167732,
-      "geometry": "POINT (-117.972022 34.130394)",
-      "poi_name": "Irell & Manella Graduate School of Biological Sciences",
-      "osm_id": 358858517,
-      "amenity": "university",
-      "website": "https://www.cityofhope.org/education/irell-and-manella-graduate-school-of-biological-sciences",
-      "wikidata": "Q5123725",
-      "multihop_answer": "1994",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Irell & Manella Graduate School of Biological Sciences Established: 1994"
+      "id": 245936,
+      "geometry": "POINT (-72.089711 41.491106)",
+      "poi_name": "Mohegan Sun Arena",
+      "osm_id": 5339696382,
+      "leisure": "stadium",
+      "operator": "Mohegan Gaming and Entertainment",
+      "sport": "basketball",
+      "wikidata": "Q2056942",
+      "multi_source_answer": "October 2001",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Mohegan Sun Arena Opened: October 2001"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Monrovia Canyon Park, Monrovia, CA",
-      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "sub_category": "garden",
+      "display_name": "English Street Community Garden, New Haven, CT",
+      "geo_wkt": "POINT (-72.896423 41.316453)",
       "poi": {
-        "id": 262527,
-        "geometry": "POINT (-117.988399 34.176394)",
-        "poi_name": "Monrovia Canyon Park",
-        "osm_id": 358789318,
-        "leisure": "nature_reserve",
-        "addr_state": "CA",
-        "addr_city": "Monrovia",
-        "addr_postcode": "91016",
-        "addr_street": "N. Canyon Boulevard",
-        "addr_housenumber": "1200"
+        "id": 246384,
+        "geometry": "POINT (-72.896423 41.316453)",
+        "poi_name": "English Street Community Garden",
+        "osm_id": 11413367600,
+        "leisure": "garden",
+        "operator": "Gather New Haven",
+        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
+        "addr_state": "CT",
+        "addr_city": "New Haven",
+        "addr_postcode": "06513",
+        "addr_street": "English Street",
+        "addr_housenumber": "220"
       }
     }
   },
-  "id": 999,
-  "type": "knn+name+multihop1"
+  "id": 899,
+  "type": "knn+name+multi_source1"
 }

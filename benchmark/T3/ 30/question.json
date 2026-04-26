@@ -1,48 +1,51 @@
 {
-  "question": "Which garden can I find west of ECPI University Denver, Centennial, CO, within a radius of 120 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.860994 39.595547)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.860994 39.595547)',4326)::geography, 120000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "What caf\u00e9 are within 50 kilometers in the northwestward direction of the Coachlight Inn Motel, Oconto Falls, WI?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography, 50000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
   "answers": [
     {
-      "id": 245516,
-      "geometry": "POINT (-104.860994 39.595547)",
-      "poi_name": "Denver Botanic Gardens at Chatfield",
-      "osm_id": 3021327418,
-      "leisure": "garden"
+      "id": 152900,
+      "geometry": "POINT (-88.144657 44.876538)",
+      "poi_name": "Sunset cafe",
+      "osm_id": 4166631996,
+      "amenity": "cafe",
+      "cuisine": "american"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "ECPI University Denver, Centennial, CO",
-      "geo_wkt": "POINT (-104.860994 39.595547)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
       "poi": {
-        "id": 70277,
-        "geometry": "POINT (-104.860994 39.595547)",
-        "poi_name": "ECPI University Denver",
-        "osm_id": 11356406020,
-        "amenity": "university",
-        "addr_state": "CO",
-        "addr_city": "Centennial",
-        "addr_postcode": "80111",
-        "addr_street": "South Kenton Street",
-        "addr_housenumber": "6675"
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
-  "id": 2629,
+  "id": 2329,
   "type": "range:direction+name"
 }

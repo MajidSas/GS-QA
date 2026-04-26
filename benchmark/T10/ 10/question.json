@@ -1,70 +1,69 @@
 {
-  "question": "Which fast food is closest along the route to Charlotte's Quest Nature Center, Manchester, MD from River Deck, Edgewater, MD?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest caf\u00e9 encountered when moving from Children's Wisconsin-Fox Valley Hospital, Neenah, WI toward the Coachlight Inn Motel, Oconto Falls, WI?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.454227 44.187892)',4326)::geography, ST_GeomFromText('POINT (-88.144657 44.876538)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.454227 44.187892)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.454227 44.187892)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 120667,
-      "geometry": "POINT (-76.542328 38.974672)",
-      "poi_name": "Robeks",
-      "osm_id": 6718395547,
-      "amenity": "fast_food",
-      "cuisine": "juice",
-      "description": "Smoothies",
-      "opening_hours": "Mo-Th 07:00-21:00; Fr 07:00-21:30; Sa 08:00-21:30; Su 10:00-20:00",
-      "takeaway": "yes",
-      "addr_state": "MD",
-      "addr_city": "Annapolis",
-      "addr_postcode": "21401",
-      "addr_street": "Solomons Island Road",
-      "addr_housenumber": "2466",
-      "value": 340.007922531941
+      "id": 212030,
+      "geometry": "POINT (-88.448079 44.201292)",
+      "poi_name": "Your Daily Grind",
+      "osm_id": 5184622184,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "addr_state": "WI",
+      "addr_city": "Menasha",
+      "addr_street": "Main Street",
+      "addr_housenumber": "204",
+      "value": 17.716820254505517
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Wisconsin-Fox Valley Hospital, Neenah, WI",
+      "geo_wkt": "POINT (-88.454227 44.187892)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
-        "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "id": 57799,
+        "geometry": "POINT (-88.454227 44.187892)",
+        "poi_name": "Children's Wisconsin-Fox Valley Hospital",
+        "osm_id": 5352023735,
+        "amenity": "hospital",
+        "operator": "Children's Hospital of Wisconsin",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "WI",
+        "addr_city": "Neenah",
+        "addr_postcode": "54956",
+        "addr_street": "2nd Street",
+        "addr_housenumber": "130"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
-      "geo_wkt": "POINT (-76.882917 39.667863)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Coachlight Inn Motel, Oconto Falls, WI",
+      "geo_wkt": "POINT (-88.144657 44.876538)",
       "poi": {
-        "id": 266753,
-        "geometry": "POINT (-76.882917 39.667863)",
-        "poi_name": "Charlotte's Quest Nature Center",
-        "osm_id": 9347780177,
-        "leisure": "nature_reserve",
-        "operator": "Manchester Parks Foundation",
-        "addr_state": "MD",
-        "addr_city": "Manchester",
-        "addr_postcode": "21102",
-        "addr_street": "Wilhelm Lane",
-        "addr_housenumber": "3400"
+        "id": 38,
+        "geometry": "POINT (-88.144657 44.876538)",
+        "poi_name": "The Coachlight Inn Motel",
+        "osm_id": 416309233,
+        "tourism": "hotel",
+        "website": "https://coachlightinnmotel.com/",
+        "phone": "920-846-3424",
+        "addr_state": "WI",
+        "addr_city": "Oconto Falls",
+        "addr_postcode": "54154",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "248"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 109,
+  "id": 1609,
   "type": "knn:towards+name"
 }

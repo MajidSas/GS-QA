@@ -1,69 +1,67 @@
 {
-  "question": "Where is the closest caf\u00e9 along the way to Turkey Creek Preserve, Gainesville, FL from College of Central Florida, Levy Campus, Chiefland, FL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.903143 29.552567)',4326)::geography, ST_GeomFromText('POINT (-82.410107 29.739419)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.903143 29.552567)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.903143 29.552567)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant forward of Strawberry Hill, San Francisco, CA in the direction of Oldest Light Bulb, Livermore, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, ST_GeomFromText('POINT (-121.739397 37.680213)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.475512 37.768668)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 231921,
-      "geometry": "POINT (-82.438413 29.607187)",
-      "poi_name": "Patticakes in the Village",
-      "osm_id": 4497579171,
-      "amenity": "cafe",
-      "outdoor_seating": "yes",
-      "addr_state": "FL",
-      "addr_city": "Gainesville",
-      "addr_postcode": "32608",
-      "addr_street": "Southwest 51st Road",
-      "addr_housenumber": "9124",
-      "value": 66.42432428120516
+      "id": 172027,
+      "geometry": "POINT (-122.4663 37.765762)",
+      "poi_name": "Pacific Catch",
+      "osm_id": 2392311612,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "website": "https://pacificcatch.com/",
+      "phone": "415 5046905",
+      "addr_state": "CA",
+      "addr_city": "San Francisco",
+      "addr_postcode": "94122",
+      "addr_street": "9th Avenue",
+      "addr_housenumber": "1200",
+      "value": 98.37738911540968
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "College of Central Florida, Levy Campus, Chiefland, FL",
-      "geo_wkt": "POINT (-82.903143 29.552567)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Strawberry Hill, San Francisco, CA",
+      "geo_wkt": "POINT (-122.475512 37.768668)",
       "poi": {
-        "id": 97241,
-        "geometry": "POINT (-82.903143 29.552567)",
-        "poi_name": "College of Central Florida, Levy Campus",
-        "osm_id": 6468540428,
-        "amenity": "university",
-        "operator": "College of Central Florida",
-        "website": "https://cf.edu/community/locations/levy/",
-        "phone": "+1-352-658-4077",
-        "addr_state": "FL",
-        "addr_city": "Chiefland",
-        "addr_postcode": "32626",
-        "addr_street": "Northwest Highway 19",
-        "addr_housenumber": "15390"
+        "id": 6747,
+        "geometry": "POINT (-122.475512 37.768668)",
+        "poi_name": "Strawberry Hill",
+        "osm_id": 1948074360,
+        "tourism": "viewpoint",
+        "internet_access": "no",
+        "addr_state": "CA",
+        "addr_city": "San Francisco"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Turkey Creek Preserve, Gainesville, FL",
-      "geo_wkt": "POINT (-82.410107 29.739419)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Oldest Light Bulb, Livermore, CA",
+      "geo_wkt": "POINT (-121.739397 37.680213)",
       "poi": {
-        "id": 245830,
-        "geometry": "POINT (-82.410107 29.739419)",
-        "poi_name": "Turkey Creek Preserve",
-        "osm_id": 10153284768,
-        "leisure": "park",
-        "operator": "Turkey Creek",
-        "addr_state": "FL",
-        "addr_city": "Gainesville",
-        "addr_postcode": "32653",
-        "addr_street": "Northwest 93rd Avenue",
-        "addr_housenumber": "6300"
+        "id": 5360,
+        "geometry": "POINT (-121.739397 37.680213)",
+        "poi_name": "Oldest Light Bulb",
+        "osm_id": 746901440,
+        "tourism": "attraction",
+        "website": "http://www.centennialbulb.org/",
+        "wikidata": "Q736374",
+        "addr_state": "CA",
+        "addr_city": "Livermore",
+        "addr_postcode": "94550",
+        "addr_street": "East Avenue",
+        "addr_housenumber": "4550"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1317,
+  "id": 1517,
   "type": "knn:towards+loc"
 }

@@ -1,46 +1,43 @@
 {
-  "question": "What's the proximity of the nearest hospital relative to Algonquin Woods, IL?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the closest zoo relative to I-20 Wildlife Preserve, Midland, TX?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-102.120752 31.962885)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-102.120752 31.962885)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182004,
-      "geometry": "POINT (-87.879034 42.043438)",
-      "poi_name": "Chicago Behavioral Hospital",
-      "osm_id": 10874634231,
-      "amenity": "hospital",
-      "website": "https://chicagobehavioralhospital.com",
-      "phone": "+1 847 768 5430",
-      "healthcare": "hospital",
-      "addr_state": "IL",
-      "addr_city": "Des Plaines",
-      "addr_postcode": "60016",
-      "addr_street": "Wilson Lane",
-      "addr_housenumber": "555",
-      "distance": 2273.75774875
+      "id": 12109,
+      "geometry": "POINT (-101.398051 35.65198)",
+      "poi_name": "Frank J Smith Bird Sanctuary",
+      "osm_id": 6189542194,
+      "tourism": "zoo",
+      "distance": 414622.08048102
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Algonquin Woods, IL",
-      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "sub_category": "park",
+      "display_name": "I-20 Wildlife Preserve, Midland, TX",
+      "geo_wkt": "POINT (-102.120752 31.962885)",
       "poi": {
-        "id": 265397,
-        "geometry": "POINT (-87.872175 42.023616)",
-        "poi_name": "Algonquin Woods",
-        "osm_id": 369047872,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 15178,
+        "geometry": "POINT (-102.120752 31.962885)",
+        "poi_name": "I-20 Wildlife Preserve",
+        "osm_id": 4822803046,
+        "leisure": "park",
+        "tourism": "attraction",
+        "website": "http://www.i20wildlifepreserve.org/",
+        "phone": "+1-432-853-9453",
+        "addr_state": "TX",
+        "addr_city": "Midland",
+        "addr_street": "South Midland Dr",
+        "addr_housenumber": "2201"
       }
     }
   },
-  "id": 2410,
+  "id": 610,
   "type": "knn+distance"
 }

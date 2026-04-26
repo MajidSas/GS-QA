@@ -1,51 +1,45 @@
 {
-  "question": "When was the nearest museum from Nohra Haime Gallery, New York, NY established?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What is the closest city from the nearest nature reserve from Voorhees College, Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25375,
-      "geometry": "POINT (-74.005944 40.749442)",
-      "poi_name": "Gagosian",
-      "osm_id": 4470030189,
-      "tourism": "museum",
-      "opening_hours": "Tu-Sa 10:00-18:00",
-      "website": "https://gagosian.com",
-      "phone": "+1-212-741-1111",
-      "wikidata": "Q2748031",
-      "addr_street": "West 24th Street",
-      "addr_housenumber": "555",
-      "multihop_answer": "1980; 44\u00a0years ago",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Gagosian Established: 1980; 44\u00a0years ago"
+      "id": 265997,
+      "geometry": "POINT (-81.100209 32.160618)",
+      "poi_name": "Savannah National Wildlife Refuge",
+      "osm_id": 1549137171,
+      "leisure": "nature_reserve",
+      "wikidata": "Q7427867",
+      "multi_source_answer": "Savannah, Georgia",
+      "multi_source_attribute": "Nearest\u00a0city",
+      "multi_source_long_answer": "Savannah National Wildlife Refuge Nearest\u00a0city: Savannah, Georgia"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Nohra Haime Gallery, New York, NY",
-      "geo_wkt": "POINT (-74.005499 40.746428)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 2885,
-        "geometry": "POINT (-74.005499 40.746428)",
-        "poi_name": "Nohra Haime Gallery",
-        "osm_id": 10064063749,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 10:00-18:00",
-        "website": "https://nohrahaimegallery.com",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10011",
-        "addr_street": "West 21st Street",
-        "addr_housenumber": "500A"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 945,
-  "type": "knn+name+multihop1"
+  "id": 845,
+  "type": "knn+name+multi_source1"
 }

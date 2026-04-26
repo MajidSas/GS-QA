@@ -1,48 +1,45 @@
 {
-  "question": "Which fast food restaurant is nearest when considering the west direction of James C. Curry Nature Center, Canyon Lake, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest stadium located in the northeast direction starting from Phoenix Urban Research Laboratory, Phoenix, AZ?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-112.074127 33.451201)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 46071,
-      "geometry": "POINT (-98.194766 29.848573)",
-      "poi_name": "McDonald's",
-      "osm_id": 3244628775,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "website": "https://www.mcdonalds.com/us/en-us/location/tx/spring-branch/7765-highway-281-n/33060.html",
-      "takeaway": "yes"
+      "id": 266148,
+      "geometry": "POINT (-112.074127 33.451201)",
+      "poi_name": "Navajo Fairgrounds Rodeo Grounds",
+      "osm_id": 979729360,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
-      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Phoenix Urban Research Laboratory, Phoenix, AZ",
+      "geo_wkt": "POINT (-112.074127 33.451201)",
       "poi": {
-        "id": 246012,
-        "geometry": "POINT (-98.194766 29.848573)",
-        "poi_name": "James C. Curry Nature Center",
-        "osm_id": 5449527323,
-        "leisure": "nature_reserve",
-        "operator": "Comal County",
-        "addr_state": "TX",
-        "addr_city": "Canyon Lake",
-        "addr_postcode": "78133",
-        "addr_street": "Skyline Drive",
-        "addr_housenumber": "1889"
+        "id": 85478,
+        "geometry": "POINT (-112.074127 33.451201)",
+        "poi_name": "Phoenix Urban Research Laboratory",
+        "osm_id": 1870876317,
+        "amenity": "university",
+        "phone": "+1-480-727-9890",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85004",
+        "addr_street": "North Central Avenue",
+        "addr_housenumber": "234"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2514,
+  "id": 1214,
   "type": "knn:direction+name"
 }

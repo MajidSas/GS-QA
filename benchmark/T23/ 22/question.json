@@ -1,42 +1,41 @@
 {
-  "question": "Could you tell me how many universities are present within a 130 kilometers radius from Blue Ocean Discovery Center, Hampton, NH?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography, 130000)\nAND amenity = 'university';\n",
+  "question": "What\u2019s the total count of golf courses within 60 kilometers from the location Watercrest Senior Living, Myrtle Beach, SC?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.843021 33.745556)',4326)::geography, 60000)\nAND leisure = 'golf_course';\n",
   "answers": [
     {
-      "count": 17
+      "count": 2
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
-      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Watercrest Senior Living, Myrtle Beach, SC",
+      "geo_wkt": "POINT (-78.843021 33.745556)",
       "poi": {
-        "id": 4389,
-        "geometry": "POINT (-70.810543 42.909869)",
-        "poi_name": "Blue Ocean Discovery Center",
-        "osm_id": 11244479725,
-        "tourism": "aquarium",
-        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
-        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
-        "addr_state": "NH",
-        "addr_city": "Hampton",
-        "addr_postcode": "03842",
-        "addr_street": "Ocean Boulevard",
-        "addr_housenumber": "180"
+        "id": 77136,
+        "geometry": "POINT (-78.843021 33.745556)",
+        "poi_name": "Watercrest Senior Living",
+        "osm_id": 9808902356,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "SC",
+        "addr_city": "Myrtle Beach",
+        "addr_postcode": "29572",
+        "addr_street": "Colline Verde Way",
+        "addr_housenumber": "6151"
       }
     }
   },
-  "id": 2221,
+  "id": 1821,
   "type": "range+count"
 }

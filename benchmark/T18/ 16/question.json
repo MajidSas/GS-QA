@@ -1,52 +1,49 @@
 {
-  "question": "Where is the closest maritime museum from Wolf Hill Forest Preserve, Smithfield, RI?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'maritime'\nORDER BY geometry <-> ST_GeomFromText('POINT (-71.539863 41.898564)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest emergency hospital around the area of Hoop-Dee-Doo Musical Revue, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.561715 28.411566)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17357,
-      "geometry": "POINT (-70.661851 42.613832)",
-      "poi_name": "Cape Ann Historical Museum",
-      "osm_id": 367781156,
-      "tourism": "museum",
-      "wheelchair": "yes",
-      "fee": "yes",
-      "website": "https://home.capeannmuseum.org/",
-      "phone": "+1 978 283 0455",
-      "museum": "maritime",
-      "addr_state": "MA",
-      "addr_city": "Gloucester",
-      "addr_postcode": "01930",
-      "addr_street": "Pleasant Street",
-      "addr_housenumber": "27"
+      "id": 135749,
+      "geometry": "POINT (-81.478832 28.429229)",
+      "poi_name": "Orlando Health Dr. P. Phillips Hospital",
+      "osm_id": 11534665333,
+      "amenity": "hospital",
+      "operator": "Orlando Health",
+      "website": "https://orlandohealth.com",
+      "phone": "+1-407-351-8500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "FL",
+      "addr_city": "Orlando",
+      "addr_postcode": "32819",
+      "addr_street": "Turkey Lake Road",
+      "addr_housenumber": "9400"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "maritime museum",
-      "poi_filter_sql": "museum = 'maritime'"
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wolf Hill Forest Preserve, Smithfield, RI",
-      "geo_wkt": "POINT (-71.539863 41.898564)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Hoop-Dee-Doo Musical Revue, FL",
+      "geo_wkt": "POINT (-81.561715 28.411566)",
       "poi": {
-        "id": 246002,
-        "geometry": "POINT (-71.539863 41.898564)",
-        "poi_name": "Wolf Hill Forest Preserve",
-        "osm_id": 5422164134,
-        "leisure": "nature_reserve",
-        "website": "https://exploreri.org/",
-        "addr_state": "RI",
-        "addr_city": "Smithfield",
-        "addr_postcode": "02917",
-        "addr_street": "Waterview Drive"
+        "id": 2529,
+        "geometry": "POINT (-81.561715 28.411566)",
+        "poi_name": "Hoop-Dee-Doo Musical Revue",
+        "osm_id": 3507891368,
+        "amenity": "restaurant",
+        "tourism": "attraction",
+        "addr_state": "FL"
       }
     }
   },
-  "id": 315,
+  "id": 1315,
   "type": "knn:non_spat_filter+loc"
 }

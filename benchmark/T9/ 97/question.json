@@ -1,45 +1,52 @@
 {
-  "question": "What is the closest golf course northeast of Jones Art Gallery, Kansas City, MO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.582258 39.092692)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest fast food restaurant to the north of Watkins Community Museum of History, Lawrence, KS?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-95.236191 38.963991)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 245551,
-      "geometry": "POINT (-94.582258 39.092692)",
-      "poi_name": "Carthage Golf Club",
-      "osm_id": 3095981624,
-      "leisure": "golf_course"
+      "id": 34644,
+      "geometry": "POINT (-95.236191 38.963991)",
+      "poi_name": "Pita Pit",
+      "osm_id": 2702673113,
+      "amenity": "fast_food",
+      "cuisine": "pita",
+      "opening_hours": "Mo-We 10:30-23:00; Th-Sa 10:30-03:00; Su 10:30-22:00",
+      "website": "https://www.facebook.com/PitaPitKU",
+      "phone": "+1-785-856-2500",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Jones Art Gallery, Kansas City, MO",
-      "geo_wkt": "POINT (-94.582258 39.092692)",
+      "sub_category": "museum",
+      "display_name": "Watkins Community Museum of History, Lawrence, KS",
+      "geo_wkt": "POINT (-95.236191 38.963991)",
       "poi": {
-        "id": 3160,
-        "geometry": "POINT (-94.582258 39.092692)",
-        "poi_name": "Jones Art Gallery",
-        "osm_id": 10216148256,
-        "tourism": "gallery",
-        "website": "https://jonesgallerykc.com/",
-        "addr_state": "MO",
-        "addr_city": "Kansas City",
-        "addr_postcode": "64108",
-        "addr_street": "Walnut Street",
-        "addr_housenumber": "1717"
+        "id": 1142,
+        "geometry": "POINT (-95.236191 38.963991)",
+        "poi_name": "Watkins Community Museum of History",
+        "osm_id": 2863476938,
+        "tourism": "museum",
+        "opening_hours": "Tu-We 10:00-16:00;Th 10:00-20:00;Fr-Sa 10:00-16:00",
+        "website": "https://www.watkinsmuseum.org/",
+        "phone": "+1-785-841-4109",
+        "addr_state": "KS",
+        "addr_city": "Lawrence",
+        "addr_postcode": "66044",
+        "addr_street": "Massachusetts Street",
+        "addr_housenumber": "1047"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 2596,
+  "id": 1296,
   "type": "knn:direction+name"
 }

@@ -1,60 +1,98 @@
 {
-  "question": "What restaurant can I find along the way to Southside Gallery, Oxford, MS within 50 kilometers from Chickasaw County Coliseum, MS?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, ST_GeomFromText('POINT (-89.519384 34.365941)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, 50000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.982282 33.879002)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
+  "question": "Which nature reserve are available within 60 kilometers on the way from Main Street Art, Girard, PA to Courtyard by Marriott Erie Ambassador Conference Center, Erie, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, ST_GeomFromText('POINT (-80.084642 42.050192)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE leisure = 'nature_reserve'\nAND ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, 60000)\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.318615 42.000159)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5);\n",
   "answers": [
     {
-      "id": 182256,
-      "geometry": "POINT (-89.003402 33.906095)",
-      "poi_name": "Pizza Hut",
-      "osm_id": 10884331840,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "value": 317.61896911573444
+      "id": 267513,
+      "geometry": "POINT (-80.174816 42.060037)",
+      "poi_name": "Asbury Barn Recreation Center",
+      "osm_id": 7616964775,
+      "leisure": "nature_reserve",
+      "operator": "Millcreek Township",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16506",
+      "addr_street": "Asbury Road",
+      "addr_housenumber": "4106",
+      "value": 73.91888504992565
+    },
+    {
+      "id": 267523,
+      "geometry": "POINT (-80.172179 42.046723)",
+      "poi_name": "Brown's Farm Barn",
+      "osm_id": 7620791993,
+      "leisure": "nature_reserve",
+      "operator": "Millcreek Township",
+      "addr_state": "PA",
+      "addr_city": "Fairview",
+      "addr_postcode": "16415",
+      "addr_street": "Sterrettania Road",
+      "addr_housenumber": "5774",
+      "value": 73.91888504992565
+    },
+    {
+      "id": 267515,
+      "geometry": "POINT (-80.171826 42.061617)",
+      "poi_name": "Andrew J. Conner Nature Center",
+      "osm_id": 7617074952,
+      "leisure": "nature_reserve",
+      "operator": "Millcreek Township",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16506",
+      "addr_street": "Asbury Road",
+      "addr_housenumber": "4105",
+      "value": 73.91888504992565
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Chickasaw County Coliseum, MS",
-      "geo_wkt": "POINT (-88.982282 33.879002)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Main Street Art, Girard, PA",
+      "geo_wkt": "POINT (-80.318615 42.000159)",
       "poi": {
-        "id": 265362,
-        "geometry": "POINT (-88.982282 33.879002)",
-        "poi_name": "Chickasaw County Coliseum",
-        "osm_id": 367134879,
-        "leisure": "stadium",
-        "addr_state": "MS"
+        "id": 253,
+        "geometry": "POINT (-80.318615 42.000159)",
+        "poi_name": "Main Street Art",
+        "osm_id": 8262672118,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Girard",
+        "addr_postcode": "16417",
+        "addr_street": "West Main Street",
+        "addr_housenumber": "138"
       }
     },
     "[4]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Southside Gallery, Oxford, MS",
-      "geo_wkt": "POINT (-89.519384 34.365941)",
+      "sub_category": "hotel",
+      "display_name": "Courtyard by Marriott Erie Ambassador Conference Center, Erie, PA",
+      "geo_wkt": "POINT (-80.084642 42.050192)",
       "poi": {
-        "id": 4177,
-        "geometry": "POINT (-89.519384 34.365941)",
-        "poi_name": "Southside Gallery",
-        "osm_id": 5705321985,
-        "tourism": "gallery",
-        "addr_state": "MS",
-        "addr_city": "Oxford",
-        "addr_postcode": "38655",
-        "addr_street": "Courthouse Square",
-        "addr_housenumber": "150"
+        "id": 27123,
+        "geometry": "POINT (-80.084642 42.050192)",
+        "poi_name": "Courtyard by Marriott Erie Ambassador Conference Center",
+        "osm_id": 7714874893,
+        "tourism": "hotel",
+        "official_name": "Courtyard by Marriott",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16509",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "7792"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "leisure",
+      "sub_category": "nature_reserve"
     }
   },
-  "id": 1615,
+  "id": 2715,
   "type": "range:towards+name"
 }

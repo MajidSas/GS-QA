@@ -1,48 +1,50 @@
 {
-  "question": "In which direction should I proceed to reach the closest hospital from ABQ BioPark (Aquarium), Albuquerque, NM?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the compass direction to the closest gallery from Niagara Amusement Park & Splash World, Grand Island, NY?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167508,
-      "geometry": "POINT (-106.638038 35.089039)",
-      "poi_name": "Kindred Hospital - Albuquerque",
-      "osm_id": 357613858,
-      "amenity": "hospital",
-      "website": "http://www.kindredalbuquerque.com/",
-      "phone": "+1 505 242 4444",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "addr_state": "NM",
-      "addr_city": "Albuquerque",
-      "addr_postcode": "87102",
-      "addr_street": "High Street Northeast",
-      "addr_housenumber": "700",
-      "angle": 97.09292177137814
+      "id": 11360,
+      "geometry": "POINT (-78.877103 43.0241)",
+      "poi_name": "River Art Gallery & Gifts",
+      "osm_id": 9947842239,
+      "tourism": "gallery",
+      "addr_state": "NY",
+      "addr_city": "North Tonawanda",
+      "addr_postcode": "14120",
+      "addr_street": "Webster Street",
+      "addr_housenumber": "83",
+      "angle": 90.31747285178609
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
-      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
       "poi": {
-        "id": 6226,
-        "geometry": "POINT (-106.678998 35.093235)",
-        "poi_name": "ABQ BioPark (Aquarium)",
-        "osm_id": 1788029735,
-        "tourism": "aquarium",
-        "wikidata": "Q4712807",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque"
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
       }
     }
   },
-  "id": 1416,
+  "id": 516,
   "type": "knn+angle"
 }

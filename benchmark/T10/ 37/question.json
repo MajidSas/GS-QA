@@ -1,58 +1,71 @@
 {
-  "question": "Which caf\u00e9 is closest when moving towards Bowditch Middle School Auditorium, Foster City, CA from Golden Gate Bridge Lookout, Sausalito, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hotel is closest forward of North Olmsted Recreation Center, North Olmsted, OH when heading toward Spirit of '76 Museum, Wellington, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, ST_GeomFromText('POINT (-82.217682 41.168979)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 193847,
-      "geometry": "POINT (-122.468663 37.793808)",
-      "poi_name": "General Store (Cafe)",
-      "osm_id": 1564470253,
-      "amenity": "cafe",
-      "value": 144.95390943994025
+      "id": 24470,
+      "geometry": "POINT (-83.013207 40.760627)",
+      "poi_name": "HideAway Country Inn",
+      "osm_id": 11067131676,
+      "description": "Set on 6 acres, this secluded boutique hotel occupies a historic manor house 3.6 miles from Sears Woods State Nature Preserve.",
+      "tourism": "hotel",
+      "opening_hours": "Mo-Th 09:00-20:00, Fr-Sa 09:00-21:00, Su 09:00-16:00",
+      "addr_state": "OH",
+      "addr_city": "Bucyrus",
+      "addr_postcode": "44820",
+      "addr_street": "Ohio 4",
+      "addr_housenumber": "1601",
+      "value": 222.44363469485074
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
-      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
+      "geo_wkt": "POINT (-81.910184 41.423463)",
       "poi": {
-        "id": 20450,
-        "geometry": "POINT (-122.486003 37.82872)",
-        "poi_name": "Golden Gate Bridge Lookout",
-        "osm_id": 1183476394,
-        "tourism": "viewpoint",
-        "addr_state": "CA",
-        "addr_city": "Sausalito",
-        "addr_street": "Conzelman Road"
+        "id": 247332,
+        "geometry": "POINT (-81.910184 41.423463)",
+        "poi_name": "North Olmsted Recreation Center",
+        "osm_id": 8944513246,
+        "leisure": "stadium",
+        "operator": "City of North Olmsted",
+        "addr_state": "OH",
+        "addr_city": "North Olmsted",
+        "addr_postcode": "44070",
+        "addr_street": "Lorain Road",
+        "addr_housenumber": "26000"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
-      "geo_wkt": "POINT (-122.248613 37.559053)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Spirit of '76 Museum, Wellington, OH",
+      "geo_wkt": "POINT (-82.217682 41.168979)",
       "poi": {
-        "id": 246975,
-        "geometry": "POINT (-122.248613 37.559053)",
-        "poi_name": "Bowditch Middle School Auditorium",
-        "osm_id": 8468035653,
-        "leisure": "stadium",
-        "sport": "basketball;volleyball",
-        "addr_state": "CA",
-        "addr_city": "Foster City",
-        "addr_postcode": "94404",
-        "addr_street": "Tarpon Street",
-        "addr_housenumber": "1450"
+        "id": 21857,
+        "geometry": "POINT (-82.217682 41.168979)",
+        "poi_name": "Spirit of '76 Museum",
+        "osm_id": 10695458939,
+        "tourism": "museum",
+        "fee": "no",
+        "opening_hours": "Apr-Oct Sa,Su 13:00-15:30",
+        "website": "https://thespiritof76museum.org/",
+        "phone": "+4406475312",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "North Main Street",
+        "addr_housenumber": "201"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 136,
+  "id": 1636,
   "type": "knn:towards+name"
 }

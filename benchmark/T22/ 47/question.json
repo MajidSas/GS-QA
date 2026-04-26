@@ -1,42 +1,42 @@
 {
-  "question": "Which way should I go to reach the closest theme park from Humboldt Botanical Garden, Eureka, CA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the compass direction to the closest hotel from Ruffner Park, Irondale, AL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.7106 33.541909)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.7106 33.541909)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7176,
-      "geometry": "POINT (-122.880566 42.349499)",
-      "poi_name": "Southern Oregon Live Streamers",
-      "osm_id": 1991878080,
-      "tourism": "theme_park",
-      "angle": 30.664833687330834
+      "id": 13161,
+      "geometry": "POINT (-86.697597 33.530562)",
+      "poi_name": "Rime Garden Inn & Suites",
+      "osm_id": 4071310629,
+      "tourism": "hotel",
+      "angle": 136.1771949375099
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "theme park"
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Humboldt Botanical Garden, Eureka, CA",
-      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "sub_category": "park",
+      "display_name": "Ruffner Park, Irondale, AL",
+      "geo_wkt": "POINT (-86.7106 33.541909)",
       "poi": {
-        "id": 266946,
-        "geometry": "POINT (-124.203982 40.700941)",
-        "poi_name": "Humboldt Botanical Garden",
-        "osm_id": 11161511489,
-        "leisure": "garden",
-        "website": "https://www.hbgf.org/",
-        "addr_state": "CA",
-        "addr_city": "Eureka",
-        "addr_postcode": "95503",
-        "addr_street": "Tompkins Hill Road",
-        "addr_housenumber": "7707"
+        "id": 246091,
+        "geometry": "POINT (-86.7106 33.541909)",
+        "poi_name": "Ruffner Park",
+        "osm_id": 5553315036,
+        "leisure": "park",
+        "description": "RUFFNER PARK  is a scenic 20.3 acre baseball and softball complex. The complex is made up of six lighted baseball fields, a concession stand built in 1999, public restrooms, picnic eating area and a large barbecue pit and storage buildings.",
+        "addr_state": "AL",
+        "addr_city": "Irondale",
+        "addr_postcode": "35210",
+        "addr_street": "Ruffner Road",
+        "addr_housenumber": "301"
       }
     }
   },
-  "id": 1446,
+  "id": 546,
   "type": "knn+angle"
 }

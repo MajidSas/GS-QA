@@ -1,52 +1,61 @@
 {
-  "question": "What's the closest museum on the route to Wilderness Park, Lincoln, NE from Center for Drug Delivery and Nanomedicine, Omaha, NE?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography, ST_GeomFromText('POINT (-96.716962 40.75139)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.980829 41.255456)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum is closest along the path to Arts by the Bay Gallery, Havre de Grace, MD from Leon and Ethel Yeiser Rose Garden, Annville, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, ST_GeomFromText('POINT (-76.08988 39.550044)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.51439 40.331543)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16738,
-      "geometry": "POINT (-96.440886 40.96062)",
-      "poi_name": "Greenwood Depot Museum",
-      "osm_id": 366492311,
+      "id": 8371,
+      "geometry": "POINT (-76.394069 40.16458)",
+      "poi_name": "The Keath House",
+      "osm_id": 6655864677,
+      "description": "Historic House Museum",
       "tourism": "museum",
-      "website": "https://www.facebook.com/GreenwoodDepotMuseumGreenwoodHistoricalSociety/",
-      "addr_state": "NE",
-      "value": 228.13222690983264
+      "operator": "Manheim Historical Society",
+      "website": "https://www.manheimhistoricalsociety.org/",
+      "phone": "717-665-7989",
+      "addr_state": "PA",
+      "addr_city": "Manheim",
+      "addr_postcode": "17545",
+      "addr_street": "East High Street",
+      "addr_housenumber": "32",
+      "value": 157.17242757613838
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Center for Drug Delivery and Nanomedicine, Omaha, NE",
-      "geo_wkt": "POINT (-95.980829 41.255456)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Leon and Ethel Yeiser Rose Garden, Annville, PA",
+      "geo_wkt": "POINT (-76.51439 40.331543)",
       "poi": {
-        "id": 147575,
-        "geometry": "POINT (-95.980829 41.255456)",
-        "poi_name": "Center for Drug Delivery and Nanomedicine",
-        "osm_id": 7546124073,
-        "amenity": "university",
-        "website": "cddn.unmc.edu",
-        "phone": "+1-402-559-9330",
-        "addr_state": "NE",
-        "addr_city": "Omaha",
-        "addr_postcode": "68198"
+        "id": 267072,
+        "geometry": "POINT (-76.51439 40.331543)",
+        "poi_name": "Leon and Ethel Yeiser Rose Garden",
+        "osm_id": 4422290591,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Annville",
+        "addr_postcode": "17003"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Wilderness Park, Lincoln, NE",
-      "geo_wkt": "POINT (-96.716962 40.75139)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Arts by the Bay Gallery, Havre de Grace, MD",
+      "geo_wkt": "POINT (-76.08988 39.550044)",
       "poi": {
-        "id": 257917,
-        "geometry": "POINT (-96.716962 40.75139)",
-        "poi_name": "Wilderness Park",
-        "osm_id": 357793476,
-        "leisure": "park",
-        "wikidata": "Q8001152",
-        "addr_state": "NE",
-        "addr_city": "Lincoln"
+        "id": 10664,
+        "geometry": "POINT (-76.08988 39.550044)",
+        "poi_name": "Arts by the Bay Gallery",
+        "osm_id": 6990492207,
+        "tourism": "gallery",
+        "website": "https://www.artsbythebaygallery.com/",
+        "phone": "+1-410-939-1818",
+        "addr_state": "MD",
+        "addr_city": "Havre de Grace",
+        "addr_postcode": "21078",
+        "addr_street": "Saint John Street",
+        "addr_housenumber": "307"
       }
     },
     "[1]": {
@@ -54,6 +63,6 @@
       "sub_category": "museum"
     }
   },
-  "id": 163,
+  "id": 1663,
   "type": "knn:towards+name"
 }

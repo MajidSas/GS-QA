@@ -1,46 +1,49 @@
 {
-  "question": "What's the closest viewpoint to the east of Fire Museum of Memphis, Memphis, TN?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.050718 35.148317)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which attraction is nearest in the northeast direction from Xtreme Action Park, Fort Lauderdale, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24137,
-      "geometry": "POINT (-90.050718 35.148317)",
-      "poi_name": "Overlook",
-      "osm_id": 9344527675,
-      "tourism": "viewpoint"
+      "id": 24770,
+      "geometry": "POINT (-80.153423 26.191598)",
+      "poi_name": "Amsterdam Beach Trail",
+      "osm_id": 4316479295,
+      "tourism": "attraction",
+      "addr_street": "Ranch Road"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Fire Museum of Memphis, Memphis, TN",
-      "geo_wkt": "POINT (-90.050718 35.148317)",
+      "sub_category": "theme park",
+      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
+      "geo_wkt": "POINT (-80.153423 26.191598)",
       "poi": {
-        "id": 21177,
-        "geometry": "POINT (-90.050718 35.148317)",
-        "poi_name": "Fire Museum of Memphis",
-        "osm_id": 1432947859,
-        "tourism": "museum",
-        "opening_hours": "Mo-Sa 09:00-16:30",
-        "website": "https://firemuseum.com/",
-        "wikidata": "Q5451397",
-        "addr_state": "TN",
-        "addr_city": "Memphis",
-        "addr_street": "Adams Avenue",
-        "addr_housenumber": "118"
+        "id": 8743,
+        "geometry": "POINT (-80.153423 26.191598)",
+        "poi_name": "Xtreme Action Park",
+        "osm_id": 8665236909,
+        "tourism": "theme_park",
+        "wheelchair": "yes",
+        "website": "https://xtremeactionpark.com",
+        "internet_access": "wlan",
+        "phone": "(954) 491-6265",
+        "addr_state": "FL",
+        "addr_city": "Fort Lauderdale",
+        "addr_postcode": "33309",
+        "addr_street": "Powerline Road",
+        "addr_housenumber": "5300"
       }
     },
     "[3]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2565,
+  "id": 1265,
   "type": "knn:direction+name"
 }

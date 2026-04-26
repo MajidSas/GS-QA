@@ -1,41 +1,56 @@
 {
-  "question": "What is the nearest garden towards the northeast of Algonquin Woods, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which fast food restaurant is nearest in the east direction from Horrigan Hall, Louisville, KY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-85.70426 38.218629)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246414,
-      "geometry": "POINT (-87.872175 42.023616)",
-      "poi_name": "Hilltop Garden",
-      "osm_id": 9604232785,
-      "leisure": "garden"
+      "id": 119182,
+      "geometry": "POINT (-85.70426 38.218629)",
+      "poi_name": "Popeyes",
+      "osm_id": 9086856252,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "opening_hours": "Mo-Su 10:30-21:30",
+      "website": "https://locations.popeyes.com",
+      "phone": "+1 502 459 3770",
+      "takeaway": "yes",
+      "drive_through": "yes",
+      "official_name": "Popeyes Louisiana Kitchen",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40218",
+      "addr_street": "Bardstown Road",
+      "addr_housenumber": "3317"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Algonquin Woods, IL",
-      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Horrigan Hall, Louisville, KY",
+      "geo_wkt": "POINT (-85.70426 38.218629)",
       "poi": {
-        "id": 265397,
-        "geometry": "POINT (-87.872175 42.023616)",
-        "poi_name": "Algonquin Woods",
-        "osm_id": 369047872,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "id": 48688,
+        "geometry": "POINT (-85.70426 38.218629)",
+        "poi_name": "Horrigan Hall",
+        "osm_id": 3395956265,
+        "amenity": "university",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40205",
+        "addr_street": "Bellarmine Boulevard",
+        "addr_housenumber": "2021"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2593,
+  "id": 1293,
   "type": "knn:direction+name"
 }

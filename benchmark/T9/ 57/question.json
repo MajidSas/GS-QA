@@ -1,46 +1,51 @@
 {
-  "question": "Which park is nearest when considering the south direction of Sky Oaks Reserve, Warner Springs, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-116.62249 33.374661)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest aquarium located in the northeast direction starting from Neversink Pit, Fackler, AL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.008428 34.800382)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 262666,
-      "geometry": "POINT (-116.62249 33.374661)",
-      "poi_name": "Butterfield Stage Station",
-      "osm_id": 358803053,
-      "leisure": "park"
+      "id": 10602,
+      "geometry": "POINT (-86.008428 34.800382)",
+      "poi_name": "SeaQuest",
+      "osm_id": 6937652614,
+      "tourism": "aquarium",
+      "opening_hours": "Mo-Sa 10:00-20:00; Su 12:00-18:00; PH off",
+      "website": "https://visitseaquest.com/lynchburg/",
+      "addr_state": "VA",
+      "addr_city": "Lynchburg",
+      "addr_postcode": "24502",
+      "addr_street": "Candlers Mountain Road",
+      "addr_housenumber": "3405"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Sky Oaks Reserve, Warner Springs, CA",
-      "geo_wkt": "POINT (-116.62249 33.374661)",
+      "display_name": "Neversink Pit, Fackler, AL",
+      "geo_wkt": "POINT (-86.008428 34.800382)",
       "poi": {
-        "id": 247638,
-        "geometry": "POINT (-116.62249 33.374661)",
-        "poi_name": "Sky Oaks Reserve",
-        "osm_id": 7990437450,
+        "id": 246237,
+        "geometry": "POINT (-86.008428 34.800382)",
+        "poi_name": "Neversink Pit",
+        "osm_id": 11190930577,
         "leisure": "nature_reserve",
-        "opening_hours": "24/7",
-        "operator": "San Diego State University",
-        "website": "https://fsp.sdsu.edu/",
-        "addr_state": "CA",
-        "addr_city": "Warner Springs",
-        "addr_postcode": "92086",
-        "addr_street": "Lost Valley Road"
+        "website": "https://www.saveyourcaves.org/preserve?rowid=neversink-cave-preserve",
+        "addr_state": "AL",
+        "addr_city": "Fackler",
+        "addr_postcode": "35746",
+        "addr_street": "County Road 264"
       }
     },
     "[3]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
-  "id": 2556,
+  "id": 1256,
   "type": "knn:direction+name"
 }

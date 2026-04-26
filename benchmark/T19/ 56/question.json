@@ -1,45 +1,51 @@
 {
-  "question": "Where's the closest caf\u00e9 located in the direction of west from Cherry Lane Park, OR?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-123.241489 44.845675)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest nature reserve in the south direction from Oak Ridge Children's Museum, Oak Ridge, TN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 179406,
-      "geometry": "POINT (-123.241489 44.845675)",
-      "poi_name": "The Cheeky Cauldron",
-      "osm_id": 10761711228,
-      "amenity": "cafe",
-      "opening_hours": "Su 10:00-14:00; Mo,Fr-Sa 10:00-17:30",
-      "phone": "+1 541 614 0693",
-      "addr_state": "OR",
-      "addr_city": "Lincoln City",
-      "addr_postcode": "97367",
-      "addr_street": "Northeast Highway 101",
-      "addr_housenumber": "1640"
+      "id": 247528,
+      "geometry": "POINT (-84.272003 36.02315)",
+      "poi_name": "Chicopee Woods Nature Preserve",
+      "osm_id": 6770238149,
+      "leisure": "nature_reserve",
+      "operator": "Elachee Nature Science Center",
+      "addr_state": "GA",
+      "addr_city": "Gainesville",
+      "addr_postcode": "30504",
+      "addr_street": "Elachee Drive",
+      "addr_housenumber": "2125"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Cherry Lane Park, OR",
-      "geo_wkt": "POINT (-123.241489 44.845675)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
       "poi": {
-        "id": 254440,
-        "geometry": "POINT (-123.241489 44.845675)",
-        "poi_name": "Cherry Lane Park",
-        "osm_id": 357355292,
-        "leisure": "park",
-        "addr_state": "OR"
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
+        "tourism": "museum",
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
   "id": 1155,

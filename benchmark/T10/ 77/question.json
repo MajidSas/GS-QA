@@ -1,62 +1,63 @@
 {
-  "question": "What's the nearest restaurant on the way to Half-Mile Farm, Highlands, NC from Crave Golf Club, Pigeon Forge, TN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, ST_GeomFromText('POINT (-83.197783 35.070356)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant encountered heading toward Suzanne Barrett Justis Fine Art, Kingsport, TN from Gem Mountain Gemstone Mine, Spruce Pine, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography, ST_GeomFromText('POINT (-82.560228 36.546269)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 149969,
-      "geometry": "POINT (-83.561299 35.793013)",
-      "poi_name": "Kinkaku Japanese Steak House",
-      "osm_id": 4036071576,
+      "id": 31379,
+      "geometry": "POINT (-82.056352 35.879949)",
+      "poi_name": "Anchor's Away Cafe' Inc.",
+      "osm_id": 8421455506,
       "amenity": "restaurant",
-      "cuisine": "japanese",
-      "website": "https://www.pigeonforgejapanese.com/",
-      "addr_city": "Pigeon Forge",
-      "addr_postcode": "37863",
-      "addr_street": "Parkway",
-      "addr_housenumber": "3152",
-      "value": 157.4380986695535
+      "phone": "+18285201700",
+      "addr_state": "NC",
+      "addr_city": "Spruce Pine",
+      "addr_postcode": "28777",
+      "addr_street": "Skyview Circle",
+      "addr_housenumber": "163",
+      "value": 328.62377718020986
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Crave Golf Club, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "sub_category": "attraction",
+      "display_name": "Gem Mountain Gemstone Mine, Spruce Pine, NC",
+      "geo_wkt": "POINT (-82.050287 35.872594)",
       "poi": {
-        "id": 11219,
-        "geometry": "POINT (-83.564838 35.797212)",
-        "poi_name": "Crave Golf Club",
-        "osm_id": 9900873342,
-        "tourism": "theme_park",
-        "phone": "(865) 366-3403",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Parkway",
-        "addr_housenumber": "2925"
+        "id": 524,
+        "geometry": "POINT (-82.050287 35.872594)",
+        "poi_name": "Gem Mountain Gemstone Mine",
+        "osm_id": 8421455508,
+        "tourism": "attraction",
+        "opening_hours": "Temporary Closed",
+        "addr_state": "NC",
+        "addr_city": "Spruce Pine",
+        "addr_postcode": "28777",
+        "addr_street": "NC-226",
+        "addr_housenumber": "13780"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Half-Mile Farm, Highlands, NC",
-      "geo_wkt": "POINT (-83.197783 35.070356)",
+      "sub_category": "gallery",
+      "display_name": "Suzanne Barrett Justis Fine Art, Kingsport, TN",
+      "geo_wkt": "POINT (-82.560228 36.546269)",
       "poi": {
-        "id": 3333,
-        "geometry": "POINT (-83.197783 35.070356)",
-        "poi_name": "Half-Mile Farm",
-        "osm_id": 5358549817,
-        "description": "Experience a sumptuous, cozy country inn, with all the comforts of Old Edwards, on the outskirts of downtown Highlands, North Carolina.",
-        "tourism": "hotel",
-        "website": "https://www.halfmilefarm.com/",
-        "phone": "855-271-7246",
-        "addr_state": "NC",
-        "addr_city": "Highlands",
-        "addr_postcode": "28741",
-        "addr_street": "Half Mile Dr",
-        "addr_housenumber": "214"
+        "id": 4755,
+        "geometry": "POINT (-82.560228 36.546269)",
+        "poi_name": "Suzanne Barrett Justis Fine Art",
+        "osm_id": 11445377805,
+        "tourism": "gallery",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa 10:00-13:00",
+        "operator": "Suzanne Barrett",
+        "website": "https://sbjfineart.com",
+        "phone": "(423) 967-4040",
+        "addr_state": "TN",
+        "addr_city": "Kingsport",
+        "addr_postcode": "37660",
+        "addr_street": "East Market Street",
+        "addr_housenumber": "110"
       }
     },
     "[1]": {
@@ -64,6 +65,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 176,
+  "id": 1676,
   "type": "knn:towards+name"
 }

@@ -1,70 +1,71 @@
 {
-  "question": "Where can I find a gallery towards the northeast of Funkmeyer New Reality Garden, Los Angeles, CA within 20 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, 20000)\nAND tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "Where can I find a garden that are within 40 kilometers and lie south of New Mexico Slaughter House, Albuquerque, NM?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography, 40000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 8280,
-      "geometry": "POINT (-118.366951 34.039786)",
-      "poi_name": "Roslin Art Gallery",
-      "osm_id": 6604550929,
-      "tourism": "gallery",
-      "wikidata": "Q7369028",
-      "addr_state": "CA",
-      "addr_city": "Glendale",
-      "addr_street": "West California Avenue",
-      "addr_housenumber": "111"
+      "id": 246600,
+      "geometry": "POINT (-106.657079 35.199273)",
+      "poi_name": "ABQ BioPark (Botanic Garden)",
+      "osm_id": 1788029997,
+      "leisure": "garden",
+      "wikidata": "Q2843476",
+      "addr_state": "NM",
+      "addr_city": "Albuquerque"
     },
     {
-      "id": 4615,
-      "geometry": "POINT (-118.366951 34.039786)",
-      "poi_name": "Baltic Crossroads Art Gallery",
-      "osm_id": 11357421363,
-      "tourism": "gallery",
-      "opening_hours": "Mo-Su 11:00-19:00",
-      "operator": "Inguna Galvina",
-      "website": "https://baltic-crossroads.com",
-      "addr_state": "CA",
-      "addr_city": "Los Angeles",
-      "addr_postcode": "90039",
-      "addr_street": "Riverside Drive",
-      "addr_housenumber": "1955"
+      "id": 246779,
+      "geometry": "POINT (-106.657079 35.199273)",
+      "poi_name": "Curandera Garden",
+      "osm_id": 6414855543,
+      "leisure": "garden",
+      "description": "honors the centuries-old traditions of folk healers in New Mexico; represents a landscape from which a curander@ would draw remedies; garden features native New Mexico & exotic plants; highlights the multi-cultural influences in curanderismo",
+      "operator": "Albuquerque BioPark",
+      "website": "https://cabq.gov/culturalservices/biopark/garden/exhibits/curandera-garden"
+    },
+    {
+      "id": 266275,
+      "geometry": "POINT (-106.657079 35.199273)",
+      "poi_name": "Model Railroad Garden",
+      "osm_id": 7113478418,
+      "leisure": "garden"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "gallery"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
+      "geo_wkt": "POINT (-106.657079 35.199273)",
       "poi": {
-        "id": 247152,
-        "geometry": "POINT (-118.366951 34.039786)",
-        "poi_name": "Funkmeyer New Reality Garden",
-        "osm_id": 3659354357,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "operator": "Otis and Jenny Funkmeyer",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90016",
-        "addr_street": "South Spaulding Avenue",
-        "addr_housenumber": "2033"
+        "id": 10873,
+        "geometry": "POINT (-106.657079 35.199273)",
+        "poi_name": "New Mexico Slaughter House",
+        "osm_id": 8107941834,
+        "tourism": "theme_park",
+        "opening_hours": "Oct Fr-Su 19:00-22:00",
+        "website": "https://www.nmslaughterhouse.com/",
+        "phone": "+1-505-764-2868",
+        "addr_state": "NM",
+        "addr_city": "Albuquerque",
+        "addr_postcode": "87114",
+        "addr_street": "Coors Boulevard Bypass Northwest",
+        "addr_housenumber": "10000"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 6,
+  "id": 2206,
   "type": "range:direction+loc"
 }

@@ -1,43 +1,44 @@
 {
-  "question": "What's the distance to the closest garden with respect to Blue Ocean Discovery Center, Hampton, NH?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the closest viewpoint relative to Oxbow Park and Zollman Zoo, Byron, MN?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.648741 44.083478)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265735,
-      "geometry": "POINT (-70.925294 43.038633)",
-      "poi_name": "Great Bay Community Wildlife Garden",
-      "osm_id": 10888687993,
-      "leisure": "garden",
-      "distance": 17095.29854977
+      "id": 6146,
+      "geometry": "POINT (-92.469403 44.038557)",
+      "poi_name": "Skyline View",
+      "osm_id": 1759196972,
+      "tourism": "viewpoint",
+      "distance": 15211.51686857
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
-      "geo_wkt": "POINT (-70.810543 42.909869)",
+      "sub_category": "zoo",
+      "display_name": "Oxbow Park and Zollman Zoo, Byron, MN",
+      "geo_wkt": "POINT (-92.648741 44.083478)",
       "poi": {
-        "id": 4389,
-        "geometry": "POINT (-70.810543 42.909869)",
-        "poi_name": "Blue Ocean Discovery Center",
-        "osm_id": 11244479725,
-        "tourism": "aquarium",
-        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
-        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
-        "addr_state": "NH",
-        "addr_city": "Hampton",
-        "addr_postcode": "03842",
-        "addr_street": "Ocean Boulevard",
-        "addr_housenumber": "180"
+        "id": 8983,
+        "geometry": "POINT (-92.648741 44.083478)",
+        "poi_name": "Oxbow Park and Zollman Zoo",
+        "osm_id": 3606133825,
+        "tourism": "zoo",
+        "fee": "no",
+        "opening_hours": "Mo-Su 10:00-16:00",
+        "operator": "Olmsted County",
+        "addr_state": "MN",
+        "addr_city": "Byron",
+        "addr_postcode": "55920",
+        "addr_street": "County Road 105 Northwest",
+        "addr_housenumber": "5731"
       }
     }
   },
-  "id": 2460,
+  "id": 660,
   "type": "knn+distance"
 }

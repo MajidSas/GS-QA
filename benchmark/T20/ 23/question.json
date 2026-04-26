@@ -1,75 +1,70 @@
 {
-  "question": "Where's the closest fast food restaurant in the direction of Popcorn Park Animal Refuge, Forked River, NJ from New York Institute of Technology, New York, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.983176 40.770074)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest caf\u00e9 on the way from Sea Life Aquarium, San Antonio, TX toward Spring Lake Glass-Bottom Boat Tour, San Marcos, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, ST_GeomFromText('POINT (-97.930627 29.893289)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 112276,
-      "geometry": "POINT (-73.98328 40.767656)",
-      "poi_name": "Subway",
-      "osm_id": 3785189226,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "opening_hours": "07:00-22:00",
-      "operator": "Subway",
-      "takeaway": "yes",
-      "drive_through": "no",
-      "delivery": "no",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_postcode": "10019",
-      "addr_street": "West 58th Street",
-      "addr_housenumber": "130",
-      "value": 197.1380518933509
+      "id": 203121,
+      "geometry": "POINT (-98.465723 29.463639)",
+      "poi_name": "Brew's Lee Tea",
+      "osm_id": 7064774684,
+      "amenity": "cafe",
+      "cuisine": "tea;asian",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78209",
+      "addr_street": "Broadway",
+      "addr_housenumber": "4009",
+      "value": 45.80700841081963
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "New York Institute of Technology, New York, NY",
-      "geo_wkt": "POINT (-73.983176 40.770074)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
       "poi": {
-        "id": 35073,
-        "geometry": "POINT (-73.983176 40.770074)",
-        "poi_name": "New York Institute of Technology",
-        "osm_id": 2710082455,
-        "amenity": "university",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10023",
-        "addr_street": "West 61st Street",
-        "addr_housenumber": "26"
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
-      "geo_wkt": "POINT (-74.327266 39.910289)",
+      "sub_category": "attraction",
+      "display_name": "Spring Lake Glass-Bottom Boat Tour, San Marcos, TX",
+      "geo_wkt": "POINT (-97.930627 29.893289)",
       "poi": {
-        "id": 20004,
-        "geometry": "POINT (-74.327266 39.910289)",
-        "poi_name": "Popcorn Park Animal Refuge",
-        "osm_id": 7810633955,
-        "tourism": "zoo",
+        "id": 10464,
+        "geometry": "POINT (-97.930627 29.893289)",
+        "poi_name": "Spring Lake Glass-Bottom Boat Tour",
+        "osm_id": 6863562421,
+        "tourism": "attraction",
         "fee": "yes",
-        "opening_hours": "Mo-Su 11:00-17:00",
-        "operator": "Associated Humane Societies",
-        "website": "https://ahscares.org/popcorn-park/",
-        "phone": "(609) 693-1900",
-        "addr_state": "NJ",
-        "addr_city": "Forked River",
-        "addr_postcode": "08731",
-        "addr_street": "Humane Way",
-        "addr_housenumber": "1"
+        "opening_hours": "09:30-17:00",
+        "operator": "Meadows Center for Water and the Environment -Texas State University",
+        "addr_state": "TX",
+        "addr_city": "San Marcos",
+        "addr_postcode": "78666",
+        "addr_street": "San Marcos Springs Drive",
+        "addr_housenumber": "201"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "cafe"
     }
   },
-  "id": 1322,
+  "id": 1522,
   "type": "knn:towards+loc"
 }

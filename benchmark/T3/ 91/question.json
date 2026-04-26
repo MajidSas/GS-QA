@@ -1,59 +1,150 @@
 {
-  "question": "Which golf course is available east of Salus University, Elkins Park, PA, within a radius of 130 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography, 130000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "What university exist within a 190 kilometers distance southeast of Residence Inn, Los Angeles, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.265659 34.045984)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.265659 34.045984)',4326)::geography, 190000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 265797,
-      "geometry": "POINT (-75.129394 40.086172)",
-      "poi_name": "Golf Kings",
-      "osm_id": 7808376352,
-      "leisure": "golf_course",
-      "description": "Indoor Golf Simulator Lounge",
-      "opening_hours": "09:00-21:00",
-      "website": "https://golfkingsnj.com/",
-      "phone": "+17328006923",
-      "addr_state": "NJ",
-      "addr_city": "Wall",
-      "addr_street": "State Highway 35",
-      "addr_housenumber": "1825"
+      "id": 117543,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "USD School of law",
+      "osm_id": 8999676161,
+      "amenity": "university",
+      "website": "https://www.sandiego.edu/law/",
+      "internet_access": "wlan"
+    },
+    {
+      "id": 39164,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "West Coast University",
+      "osm_id": 2906669294,
+      "amenity": "university"
+    },
+    {
+      "id": 33280,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "Founders Hall",
+      "osm_id": 2660475358,
+      "amenity": "university"
+    },
+    {
+      "id": 33281,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "Camino Hall",
+      "osm_id": 2660475359,
+      "amenity": "university"
+    },
+    {
+      "id": 58058,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "SDSU Department of Geography",
+      "osm_id": 5361949175,
+      "amenity": "university"
+    },
+    {
+      "id": 125495,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "Office of Academic Integrity & Student Conduct",
+      "osm_id": 6961368130,
+      "amenity": "university",
+      "website": "https://aisc.uci.edu/",
+      "internet_access": "yes",
+      "phone": "+1-949-824-1479",
+      "addr_state": "CA",
+      "addr_city": "Irvine",
+      "addr_postcode": "92617-5135",
+      "addr_street": "West Peltason Drive",
+      "addr_housenumber": "800"
+    },
+    {
+      "id": 149718,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "School of Global Policy and Strategy",
+      "osm_id": 4022670997,
+      "amenity": "university",
+      "wikidata": "Q5592038"
+    },
+    {
+      "id": 167733,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "Laguna College of Art and Design",
+      "osm_id": 358858601,
+      "amenity": "university",
+      "website": "https://www.lcad.edu/",
+      "wikidata": "Q6472813"
+    },
+    {
+      "id": 150261,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "CSUSM",
+      "osm_id": 4048122405,
+      "amenity": "university"
+    },
+    {
+      "id": 156792,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "The Basement",
+      "osm_id": 4670774477,
+      "amenity": "university"
+    },
+    {
+      "id": 177864,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "Sdsu Mems Lab",
+      "osm_id": 2607827438,
+      "amenity": "university"
+    },
+    {
+      "id": 234952,
+      "geometry": "POINT (-118.265659 34.045984)",
+      "poi_name": "UCI Campus Assault Resources & Education (CARE)",
+      "osm_id": 5741894635,
+      "amenity": "university",
+      "description": "Offering support to those affected by sexual assault, relationship abuse, family violence and stalking at UCI.",
+      "operator": "University of California, Irvine",
+      "website": "https://care.uci.edu/",
+      "internet_access": "wlan",
+      "phone": "949-824-7273",
+      "addr_state": "CA",
+      "addr_city": "Irvine",
+      "addr_postcode": "92697",
+      "addr_street": "West Peltason Drive",
+      "addr_housenumber": "311"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Salus University, Elkins Park, PA",
-      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Residence Inn, Los Angeles, CA",
+      "geo_wkt": "POINT (-118.265659 34.045984)",
       "poi": {
-        "id": 39110,
-        "geometry": "POINT (-75.129394 40.086172)",
-        "poi_name": "Salus University",
-        "osm_id": 2903322114,
-        "amenity": "university",
-        "website": "https://www.salus.edu/",
-        "phone": "+1-215-780-1400",
-        "wikidata": "Q7406311",
-        "addr_state": "PA",
-        "addr_city": "Elkins Park",
-        "addr_postcode": "19027",
-        "addr_street": "Old York Road",
-        "addr_housenumber": "8360"
+        "id": 427,
+        "geometry": "POINT (-118.265659 34.045984)",
+        "poi_name": "Residence Inn",
+        "osm_id": 8369844542,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "internet_access": "wlan",
+        "official_name": "Residence Inn by Marriott",
+        "addr_state": "CA",
+        "addr_city": "Los Angeles",
+        "addr_street": "West Olympic Boulevard",
+        "addr_housenumber": "901"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2690,
+  "id": 2390,
   "type": "range:direction+name"
 }

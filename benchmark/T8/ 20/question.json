@@ -1,42 +1,52 @@
 {
-  "question": "What's the closest nature reserve in proximity to the university established in the year 1897 in Denmark, SC?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant near the attraction that was opened on June\u00a03,\u00a01937 in Rapid City, SD is nearest overall?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-103.271398 43.990679)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265997,
-      "geometry": "POINT (-81.100209 32.160618)",
-      "poi_name": "Savannah National Wildlife Refuge",
-      "osm_id": 1549137171,
-      "leisure": "nature_reserve",
-      "wikidata": "Q7427867"
+      "id": 208220,
+      "geometry": "POINT (-103.255847 44.000933)",
+      "poi_name": "Ft. hays Chuckwagon Supper and Show",
+      "osm_id": 4980190721,
+      "amenity": "restaurant",
+      "cuisine": "pancake",
+      "wheelchair": "limited",
+      "opening_hours": "Mo-Su 08:00-20:00",
+      "website": "https://mountrushmoretours.com",
+      "internet_access": "wlan",
+      "phone": "+1-605-343-3113",
+      "addr_state": "SD",
+      "addr_city": "Wildwood Addition",
+      "addr_street": "Fort Hayes Drive",
+      "addr_housenumber": "2255"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Voorhees College, Denmark, SC",
-      "geo_wkt": "POINT (-81.128567 33.305858)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Reptile Gardens, Rapid City, SD",
+      "geo_wkt": "POINT (-103.271398 43.990679)",
       "poi": {
-        "id": 61586,
-        "geometry": "POINT (-81.128567 33.305858)",
-        "poi_name": "Voorhees College",
-        "osm_id": 5525414124,
-        "amenity": "university",
-        "wikidata": "Q7941707",
-        "addr_state": "SC",
-        "addr_city": "Denmark",
-        "addr_postcode": "29042",
-        "addr_street": "Porter Drive",
-        "addr_housenumber": "481"
+        "id": 1210,
+        "geometry": "POINT (-103.271398 43.990679)",
+        "poi_name": "Reptile Gardens",
+        "osm_id": 2897438619,
+        "tourism": "attraction",
+        "website": "https://www.reptilegardens.com/",
+        "wikidata": "Q3427461",
+        "addr_state": "SD",
+        "addr_city": "Rapid City",
+        "addr_postcode": "57702",
+        "addr_street": "South Highway 16",
+        "addr_housenumber": "8955"
       }
     }
   },
-  "id": 2719,
-  "type": "knn+name+multihop2"
+  "id": 919,
+  "type": "knn+name+multi_source2"
 }

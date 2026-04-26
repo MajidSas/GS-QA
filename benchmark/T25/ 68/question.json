@@ -1,16 +1,31 @@
 {
-  "question": "How distant can I find an aquarium positioned from Adventure Park, Scottsdale, AZ within 120 kilometers?",
-  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-111.890218 33.543572)',4326)::geography, 120000)\nAND tourism = 'aquarium';\n",
+  "question": "How far is an aquarium located from DoubleTree by Hilton Hotel, Bedford, MA within a 120 kilometers radius?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, 120000)\nAND tourism = 'aquarium';\n",
   "answers": [
     {
-      "id": 1374,
-      "geometry": "POINT (-111.963252 33.384803)",
-      "poi_name": "Arizona Sea Life Aquarium",
-      "osm_id": 2963997360,
+      "id": 4389,
+      "geometry": "POINT (-70.810543 42.909869)",
+      "poi_name": "Blue Ocean Discovery Center",
+      "osm_id": 11244479725,
       "tourism": "aquarium",
-      "wikidata": "Q20712720",
-      "addr_city": "Tempe",
-      "distance": 18872.94117325
+      "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+      "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+      "addr_state": "NH",
+      "addr_city": "Hampton",
+      "addr_postcode": "03842",
+      "addr_street": "Ocean Boulevard",
+      "addr_housenumber": "180",
+      "distance": 56584.60039468
+    },
+    {
+      "id": 4746,
+      "geometry": "POINT (-70.975093 42.242514)",
+      "poi_name": "New England Aquarium Animal Care Center",
+      "osm_id": 11429315521,
+      "tourism": "aquarium",
+      "addr_street": "South Street",
+      "addr_housenumber": "549",
+      "distance": 36569.42426673
     }
   ],
   "answer_type": "distance",
@@ -25,22 +40,28 @@
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Adventure Park, Scottsdale, AZ",
-      "geo_wkt": "POINT (-111.890218 33.543572)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 9897,
-        "geometry": "POINT (-111.890218 33.543572)",
-        "poi_name": "Adventure Park",
-        "osm_id": 9048785325,
-        "tourism": "theme_park",
-        "addr_state": "AZ",
-        "addr_city": "Scottsdale",
-        "addr_street": "North Pima Road",
-        "addr_housenumber": "7333"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     }
   },
-  "id": 767,
+  "id": 1967,
   "type": "range+distance"
 }

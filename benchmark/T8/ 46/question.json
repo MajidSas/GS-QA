@@ -1,41 +1,51 @@
 {
-  "question": "Seeking the nearest museum from the stadium with the former name University of Denver Auditorium in CO, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest beach resort close to the university established in the year 1975 in Houston, TX?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.398757 29.720135)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5160,
-      "geometry": "POINT (-104.982453 39.70918)",
-      "poi_name": "International Church of Cannabis",
-      "osm_id": 9784520819,
-      "tourism": "museum",
-      "website": "https://elevationists.org/",
-      "addr_postcode": "80209",
-      "addr_street": "South Logan Street",
-      "addr_housenumber": "400"
+      "id": 249010,
+      "geometry": "POINT (-87.546195 30.279291)",
+      "poi_name": "Caribe Resort",
+      "osm_id": 9583387690,
+      "leisure": "beach_resort",
+      "fee": "yes",
+      "website": "https://cariberesort.com/",
+      "phone": "+1 251 980 9010",
+      "addr_state": "AL",
+      "addr_city": "Orange Beach",
+      "addr_postcode": "36561",
+      "addr_street": "Perdido Beach Boulevard",
+      "addr_housenumber": "28103"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Magness Arena, CO",
-      "geo_wkt": "POINT (-104.961685 39.682266)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "George R. Brown School of Engineering, Houston, TX",
+      "geo_wkt": "POINT (-95.398757 29.720135)",
       "poi": {
-        "id": 265349,
-        "geometry": "POINT (-104.961685 39.682266)",
-        "poi_name": "Magness Arena",
-        "osm_id": 366396379,
-        "leisure": "stadium",
-        "wikidata": "Q14684923",
-        "addr_state": "CO"
+        "id": 30759,
+        "geometry": "POINT (-95.398757 29.720135)",
+        "poi_name": "George R. Brown School of Engineering",
+        "osm_id": 8379958482,
+        "amenity": "university",
+        "website": "https://engineering.rice.edu/",
+        "phone": "+1-713-348-4955",
+        "wikidata": "Q5543612",
+        "addr_state": "TX",
+        "addr_city": "Houston",
+        "addr_postcode": "77005",
+        "addr_street": "Main Street",
+        "addr_housenumber": "6100"
       }
     }
   },
-  "id": 2745,
-  "type": "knn+name+multihop2"
+  "id": 945,
+  "type": "knn+name+multi_source2"
 }

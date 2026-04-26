@@ -1,46 +1,51 @@
 {
-  "question": "What's the distance between Algonquin Woods, IL and the closest theme park?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest hospital from Hickory Grove Riverfront, Cary, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21492,
-      "geometry": "POINT (-88.034026 42.039672)",
-      "poi_name": "Legoland Discovery Center Chicago",
-      "osm_id": 10285659853,
-      "tourism": "theme_park",
-      "operator": "Merlin Entertainments",
-      "website": "https://www.legolanddiscoverycenter.com/chicago/",
-      "wikidata": "Q20711319",
+      "id": 67613,
+      "geometry": "POINT (-88.285376 42.216938)",
+      "poi_name": "Mercyhealth Hospital and Physician Clinic",
+      "osm_id": 11242669956,
+      "amenity": "hospital",
+      "phone": "+1-779-220-5500",
+      "healthcare": "hospital",
+      "emergency": "yes",
       "addr_state": "IL",
-      "addr_city": "Schaumburg",
-      "addr_postcode": "60173",
-      "addr_street": "North Martingale Road",
-      "addr_housenumber": "601",
-      "distance": 13520.9488477
+      "addr_city": "Crystal Lake",
+      "addr_postcode": "60014",
+      "addr_street": "S IL31",
+      "addr_housenumber": "875",
+      "distance": 6694.40000354
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Algonquin Woods, IL",
-      "geo_wkt": "POINT (-87.872175 42.023616)",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
       "poi": {
-        "id": 265397,
-        "geometry": "POINT (-87.872175 42.023616)",
-        "poi_name": "Algonquin Woods",
-        "osm_id": 369047872,
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
         "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "addr_state": "IL"
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
       }
     }
   },
-  "id": 2496,
+  "id": 696,
   "type": "knn+distance"
 }

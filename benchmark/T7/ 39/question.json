@@ -1,44 +1,54 @@
 {
-  "question": "When was the the nearest attraction from African American Cultural Garden, Cleveland, OH built?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.629472 41.530044)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Who is the director of the nearest museum from CUNY Graduate School of Journalism, New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.988988 40.755324)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 16205,
-      "geometry": "POINT (-81.627924 41.529212)",
-      "poi_name": "Cleveland Cultural Gardens",
-      "osm_id": 357465429,
-      "tourism": "attraction",
-      "wikidata": "Q5132117",
-      "multihop_answer": "1916 through 2019 and still building",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "Cleveland Cultural Gardens Built: 1916 through 2019 and still building"
+      "id": 2728,
+      "geometry": "POINT (-73.983725 40.755739)",
+      "poi_name": "International Center of Photography",
+      "osm_id": 566445454,
+      "tourism": "museum",
+      "website": "https://www.icp.org/",
+      "wikidata": "Q636942",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10036",
+      "addr_street": "6th Avenue",
+      "addr_housenumber": "1133",
+      "multi_source_answer": "Bob Jeffrey",
+      "multi_source_attribute": "Director",
+      "multi_source_long_answer": "International Center of Photography Director: Bob Jeffrey"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "African American Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.629472 41.530044)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY Graduate School of Journalism, New York, NY",
+      "geo_wkt": "POINT (-73.988988 40.755324)",
       "poi": {
-        "id": 247006,
-        "geometry": "POINT (-81.629472 41.530044)",
-        "poi_name": "African American Cultural Garden",
-        "osm_id": 8567373858,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "890"
+        "id": 232217,
+        "geometry": "POINT (-73.988988 40.755324)",
+        "poi_name": "CUNY Graduate School of Journalism",
+        "osm_id": 4515559287,
+        "amenity": "university",
+        "operator": "City University of New York (CUNY)",
+        "website": "https://www.journalism.cuny.edu/",
+        "phone": "+1 646 758 7700",
+        "wikidata": "Q14706210",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10018",
+        "addr_street": "West 40th Street",
+        "addr_housenumber": "219"
       }
     }
   },
-  "id": 938,
-  "type": "knn+name+multihop1"
+  "id": 838,
+  "type": "knn+name+multi_source1"
 }

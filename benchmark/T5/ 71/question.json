@@ -1,43 +1,49 @@
 {
-  "question": "What's the closest park in proximity to Regency Hospital Of Cleveland West, Middleburg Heights, OH?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.827654 41.377343)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest restaurant relative to MAC 650 Gallery, Middletown, CT?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 255489,
-      "geometry": "POINT (-81.838603 41.381019)",
-      "poi_name": "Lake Abram Marsh",
-      "osm_id": 357525987,
-      "leisure": "park"
+      "id": 40015,
+      "geometry": "POINT (-72.652316 41.565422)",
+      "poi_name": "Krust",
+      "osm_id": 2954479184,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "outdoor_seating": "no",
+      "addr_state": "CT",
+      "addr_city": "Middletown",
+      "addr_postcode": "06457",
+      "addr_street": "Main Street",
+      "addr_housenumber": "686"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Regency Hospital Of Cleveland West, Middleburg Heights, OH",
-      "geo_wkt": "POINT (-81.827654 41.377343)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "MAC 650 Gallery, Middletown, CT",
+      "geo_wkt": "POINT (-72.652064 41.564871)",
       "poi": {
-        "id": 182764,
-        "geometry": "POINT (-81.827654 41.377343)",
-        "poi_name": "Regency Hospital Of Cleveland West",
-        "osm_id": 10904095975,
-        "amenity": "hospital",
-        "website": "https://www.regencyhospital.com/locations-and-tours/oh/middleburg-heights/cleveland-west/",
-        "phone": "+1 717 975 4503",
-        "healthcare": "hospital",
-        "addr_state": "OH",
-        "addr_city": "Middleburg Heights",
-        "addr_postcode": "44130",
-        "addr_street": "Engle Road",
-        "addr_housenumber": "6990"
+        "id": 1357,
+        "geometry": "POINT (-72.652064 41.564871)",
+        "poi_name": "MAC 650 Gallery",
+        "osm_id": 2954479201,
+        "tourism": "gallery",
+        "fee": "no",
+        "operator": "Middletown Artists' Cooperative",
+        "addr_state": "CT",
+        "addr_city": "Middletown",
+        "addr_postcode": "06457",
+        "addr_street": "Main Street",
+        "addr_housenumber": "650"
       }
     }
   },
-  "id": 270,
+  "id": 1070,
   "type": "knn+name"
 }

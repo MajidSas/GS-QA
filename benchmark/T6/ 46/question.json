@@ -1,50 +1,51 @@
 {
-  "question": "What's the nearest emergency hospital available from Tensas River National Wildlife Refuge, Tallulah, LA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-91.377071 32.317567)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which drive-through restaurant in the area of Akron Children's Hospital at Wooster, Wooster, OH is closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND drive_through ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.93207 40.820745)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 119136,
-      "geometry": "POINT (-92.106765 32.450616)",
-      "poi_name": "Ochsner LSU Health Monroe",
-      "osm_id": 9083312647,
-      "amenity": "hospital",
-      "operator": "Ochsner LSU Health Shreveport",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "LA",
-      "addr_city": "Monroe",
-      "addr_postcode": "71202",
-      "addr_street": "Jackson Street",
-      "addr_housenumber": "4864"
+      "id": 235759,
+      "geometry": "POINT (-81.579589 41.083392)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 5766083261,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "drive_through": "yes",
+      "addr_state": "OH",
+      "addr_city": "Akron",
+      "addr_postcode": "44320",
+      "addr_street": "Copley Road",
+      "addr_housenumber": "1591"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "drive through restaurant",
+      "poi_filter_sql": "drive_through ILIKE '%yes%'"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Tensas River National Wildlife Refuge, Tallulah, LA",
-      "geo_wkt": "POINT (-91.377071 32.317567)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Akron Children's Hospital at Wooster, Wooster, OH",
+      "geo_wkt": "POINT (-81.93207 40.820745)",
       "poi": {
-        "id": 247209,
-        "geometry": "POINT (-91.377071 32.317567)",
-        "poi_name": "Tensas River National Wildlife Refuge",
-        "osm_id": 3777211992,
-        "leisure": "nature_reserve",
-        "addr_state": "LA",
-        "addr_city": "Tallulah",
-        "addr_postcode": "71282",
-        "addr_street": "Quebec Road",
-        "addr_housenumber": "2312"
+        "id": 76649,
+        "geometry": "POINT (-81.93207 40.820745)",
+        "poi_name": "Akron Children's Hospital at Wooster",
+        "osm_id": 9786687958,
+        "amenity": "hospital",
+        "operator": "Akron Children's Hospital",
+        "healthcare": "hospital",
+        "addr_state": "OH",
+        "addr_city": "Wooster",
+        "addr_postcode": "44691",
+        "addr_street": "Beall Avenue",
+        "addr_housenumber": "1761"
       }
     }
   },
-  "id": 645,
+  "id": 1445,
   "type": "knn:non_spat_filter+name"
 }

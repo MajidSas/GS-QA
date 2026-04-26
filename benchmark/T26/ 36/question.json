@@ -1,40 +1,48 @@
 {
-  "question": "What's the separation to the closest stadium from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the measured distance to the closest university from Watercrest Senior Living, Myrtle Beach, SC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.843021 33.745556)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.843021 33.745556)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247978,
-      "geometry": "POINT (-82.816119 40.086092)",
-      "poi_name": "Eagles Stadium",
-      "osm_id": 6188676781,
-      "leisure": "stadium",
-      "distance": 25978.26573038
+      "id": 64870,
+      "geometry": "POINT (-77.927013 34.237558)",
+      "poi_name": "Kenan House",
+      "osm_id": 5675848019,
+      "amenity": "university",
+      "operator": "University of North Carolina Wilmington",
+      "addr_state": "NC",
+      "addr_city": "Wilmington",
+      "addr_postcode": "28403",
+      "addr_street": "Market Street",
+      "addr_housenumber": "1705",
+      "distance": 100702.58316382
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Watercrest Senior Living, Myrtle Beach, SC",
+      "geo_wkt": "POINT (-78.843021 33.745556)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 77136,
+        "geometry": "POINT (-78.843021 33.745556)",
+        "poi_name": "Watercrest Senior Living",
+        "osm_id": 9808902356,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "SC",
+        "addr_city": "Myrtle Beach",
+        "addr_postcode": "29572",
+        "addr_street": "Colline Verde Way",
+        "addr_housenumber": "6151"
       }
     }
   },
-  "id": 2435,
+  "id": 635,
   "type": "knn+distance"
 }

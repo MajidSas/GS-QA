@@ -1,41 +1,40 @@
 {
-  "question": "How many hospitals are available within 80 kilometers from Rhododendron Species Botanical Garden, Federal Way, WA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.302257 47.292739)',4326)::geography, 80000)\nAND amenity = 'hospital';\n",
+  "question": "What\u2019s the count of all zoos within a 140 kilometers distance from Ole Haugsrud Stadium, Superior, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.08572 46.719546)',4326)::geography, 140000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "count": 9
+      "count": 1
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Rhododendron Species Botanical Garden, Federal Way, WA",
-      "geo_wkt": "POINT (-122.302257 47.292739)",
+      "sub_category": "stadium",
+      "display_name": "Ole Haugsrud Stadium, Superior, WI",
+      "geo_wkt": "POINT (-92.08572 46.719546)",
       "poi": {
-        "id": 248648,
-        "geometry": "POINT (-122.302257 47.292739)",
-        "poi_name": "Rhododendron Species Botanical Garden",
-        "osm_id": 4721258058,
-        "leisure": "garden",
-        "website": "https://rhodygarden.org/",
-        "addr_state": "WA",
-        "addr_city": "Federal Way",
-        "addr_postcode": "98003",
-        "addr_street": "South 336th Street",
-        "addr_housenumber": "2525"
+        "id": 248569,
+        "geometry": "POINT (-92.08572 46.719546)",
+        "poi_name": "Ole Haugsrud Stadium",
+        "osm_id": 4639063671,
+        "leisure": "stadium",
+        "addr_state": "WI",
+        "addr_city": "Superior",
+        "addr_postcode": "54880",
+        "addr_street": "Mertz Mortorelli Memorial Drive",
+        "addr_housenumber": "1515"
       }
     }
   },
-  "id": 2289,
+  "id": 1889,
   "type": "range+count"
 }

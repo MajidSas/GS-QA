@@ -1,47 +1,46 @@
 {
-  "question": "What's the distance to the nearest restaurant from Bittersweet Falls, Weybridge, VT?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.217661 44.029954)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the separation distance between Chopper's Lawn Equipment, Kissimmee, FL and the closest gallery?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 205302,
-      "geometry": "POINT (-73.177349 44.008188)",
-      "poi_name": "The Grille",
-      "osm_id": 7164715410,
-      "amenity": "restaurant",
-      "cuisine": "american;burger;pizza;sandwich",
-      "wheelchair": "limited",
-      "opening_hours": "\"closed due to illness\"",
-      "operator": "Middlebury College",
-      "internet_access": "yes",
-      "takeaway": "yes",
-      "distance": 4036.8970199
+      "id": 1464,
+      "geometry": "POINT (-81.546201 28.36993)",
+      "poi_name": "House of the Whispering Willows",
+      "osm_id": 2993369595,
+      "tourism": "gallery",
+      "wheelchair": "yes",
+      "website": "https://disneyworld.disney.go.com/attractions/epcot/house-of-the-whispering-willows-gallery/",
+      "distance": 24545.0290905
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Bittersweet Falls, Weybridge, VT",
-      "geo_wkt": "POINT (-73.217661 44.029954)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Chopper's Lawn Equipment, Kissimmee, FL",
+      "geo_wkt": "POINT (-81.327543 28.262181)",
       "poi": {
-        "id": 25384,
-        "geometry": "POINT (-73.217661 44.029954)",
-        "poi_name": "Bittersweet Falls",
-        "osm_id": 4475236640,
-        "tourism": "viewpoint",
-        "addr_state": "VT",
-        "addr_city": "Weybridge",
-        "addr_postcode": "05753",
-        "addr_street": "Bittersweet Falls Road",
-        "addr_housenumber": "617"
+        "id": 246454,
+        "geometry": "POINT (-81.327543 28.262181)",
+        "poi_name": "Chopper's Lawn Equipment",
+        "osm_id": 9684453306,
+        "leisure": "garden",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "website": "https://chopperslawnequipment.com",
+        "phone": "+1-407-891-8990",
+        "addr_state": "FL",
+        "addr_city": "Kissimmee",
+        "addr_postcode": "34744",
+        "addr_street": "Big Sky Boulevard",
+        "addr_housenumber": "2899"
       }
     }
   },
-  "id": 2416,
+  "id": 616,
   "type": "knn+distance"
 }

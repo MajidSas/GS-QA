@@ -1,66 +1,67 @@
 {
-  "question": "Which restaurant is closest along the route to Carolina Beach Inn, Carolina Beach, NC from Wise House, Wilmington, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography, ST_GeomFromText('POINT (-77.89455 34.034896)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.926432 34.23764)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is nearest along the route connecting Lucille Ball Childhood Home, Jamestown, NY to Avalon Hotel & Conference Center, Erie, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography, ST_GeomFromText('POINT (-80.083383 42.125528)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 136422,
-      "geometry": "POINT (-77.892472 34.17456)",
-      "poi_name": "Slice of Life Pizzeria & Pub",
-      "osm_id": 11583590050,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "website": "https://grabslice.com",
-      "addr_street": "Patriot Way",
-      "addr_housenumber": "3715",
-      "value": 172.54133888900014
+      "id": 216165,
+      "geometry": "POINT (-79.307844 42.098522)",
+      "poi_name": "Tim Hortons",
+      "osm_id": 9159461679,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "Lakewood",
+      "addr_postcode": "14750",
+      "addr_street": "East Fairmount Avenue",
+      "addr_housenumber": "277",
+      "value": 272.47001242540034
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Wise House, Wilmington, NC",
-      "geo_wkt": "POINT (-77.926432 34.23764)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Lucille Ball Childhood Home, Jamestown, NY",
+      "geo_wkt": "POINT (-79.286417 42.102703)",
       "poi": {
-        "id": 64871,
-        "geometry": "POINT (-77.926432 34.23764)",
-        "poi_name": "Wise House",
-        "osm_id": 5675848020,
-        "amenity": "university",
-        "operator": "University of North Carolina Wilmington",
-        "addr_state": "NC",
-        "addr_city": "Wilmington",
-        "addr_postcode": "28403",
-        "addr_street": "Market Street",
-        "addr_housenumber": "1713"
+        "id": 373,
+        "geometry": "POINT (-79.286417 42.102703)",
+        "poi_name": "Lucille Ball Childhood Home",
+        "osm_id": 8342270492,
+        "tourism": "museum",
+        "website": "https://59lucylane.com/",
+        "addr_state": "NY",
+        "addr_city": "Jamestown",
+        "addr_postcode": "14701",
+        "addr_street": "Lucy Lane",
+        "addr_housenumber": "59"
       }
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Carolina Beach Inn, Carolina Beach, NC",
-      "geo_wkt": "POINT (-77.89455 34.034896)",
+      "display_name": "Avalon Hotel & Conference Center, Erie, PA",
+      "geo_wkt": "POINT (-80.083383 42.125528)",
       "poi": {
-        "id": 25826,
-        "geometry": "POINT (-77.89455 34.034896)",
-        "poi_name": "Carolina Beach Inn",
-        "osm_id": 4616135786,
+        "id": 11539,
+        "geometry": "POINT (-80.083383 42.125528)",
+        "poi_name": "Avalon Hotel & Conference Center",
+        "osm_id": 10003035974,
         "tourism": "hotel",
-        "website": "https://carolinabeachinn.com/",
-        "phone": "+1-910-622-8393",
-        "addr_state": "NC",
-        "addr_city": "Carolina Beach",
-        "addr_postcode": "28428",
-        "addr_street": "Harper Avenue",
-        "addr_housenumber": "205"
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16501",
+        "addr_street": "West 10th Street",
+        "addr_housenumber": "16"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 192,
+  "id": 1692,
   "type": "knn:towards+name"
 }

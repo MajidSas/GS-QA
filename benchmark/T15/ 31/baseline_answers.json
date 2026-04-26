@@ -1,7 +1,35 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Long Beach, New York.",
+      "answer": "Red Rocks Park and Amphitheatre, approximately one hundred and seventy kilometers south.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1,
+        "R": 0.0833333333333333,
+        "F1": 0.0909090909090909
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Red Rocks Park and Amphitheatre",
+          "address": "18301W Colfax Ave, Golden, CO 80401, USA",
+          "distance": 170,
+          "azimuth_angle": 180
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.125,
+        "R": 0.1666666666666666,
+        "F1": 0.1428571428571428,
+        "distance_error": 0.0362903072512938
+      }
+    }
+  },
+  "ministral-3:14b-cloud_rag": {
+    "text": {
+      "answer": "SkyView Atlanta.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,11 +40,88 @@
     "parsed": {
       "answer": [
         {
-          "name": "Long Beach",
-          "address": "1 Long Beach Blvd, Long Beach, NY 11561",
-          "distance": 20,
-          "length": null,
-          "area": null,
+          "name": "SkyView Atlanta",
+          "address": "Atlanta, GA",
+          "distance": 180
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "shuffled": {
+    "text": {
+      "answer": "",
+      "scores": {
+        "attempted": true,
+        "P": 0.2,
+        "R": 0.0833333333333333,
+        "F1": 0.1176470588235294
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "address": "Denver Health Medical Center Emergency Department Trauma Center, Denver, CO"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.1,
+        "R": 0.1666666666666666,
+        "F1": 0.125,
+        "distance_error": 8.882353504952335e-08
+      }
+    }
+  },
+  "ministral-3:14b-cloud_text2sql": {
+    "text": {
+      "answer": "South Platte Park.",
+      "scores": {
+        "attempted": true,
+        "P": 0.3333333333333333,
+        "R": 0.0833333333333333,
+        "F1": 0.1333333333333333
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "South Platte Park",
+          "address": "Denver, CO",
+          "distance": 180
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.5,
+        "R": 0.1666666666666666,
+        "F1": 0.25,
+        "distance_error": 0.0025936681781423
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "Pueblo, Colorado is home to the Pueblo Zoo, located approximately **180** kilometers south.\n\nWait, let me provide a proper attraction:\n\nThe **Pueblo Zoo** is found approximately **180** kilometers south.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Pueblo Zoo",
+          "address": "Pueblo, Colorado",
+          "distance": 180,
           "azimuth_angle": 180
         }
       ],
@@ -25,13 +130,13 @@
         "P": 0.0,
         "R": 0.0,
         "F1": 0.0,
-        "distance_error": 0.0778527010499444
+        "distance_error": 0.3316359982891706
       }
     }
   },
-  "GT": {
+  "sonnet4.6_rag": {
     "text": {
-      "answer": "Long Beach Island, New Jersey.",
+      "answer": "Here are the attractions found within 180 kilometers heading south:\n\n- **Ten Commandments** \u2013 one hundred forty thousand one hundred sixty meters\n- **SkyView Atlanta** \u2013 ten thousand one hundred fifty meters\n- **Winston GA** \u2013 fifty-five thousand two hundred meters\n- **APM Tech Specialist** \u2013 eighteen thousand five hundred eighty meters\n- **Schnepf Farms** \u2013 sixty-one thousand six hundred thirty meters\n- **The Crayola Experience** \u2013 thirty-three thousand meters\n- **Rick Grimes finds a Gas Station S1:1** \u2013 thirty-five thousand seven hundred meters\n- **Prayer Mountain** \u2013 one hundred forty-one thousand six hundred eighty meters",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -42,24 +147,49 @@
     "parsed": {
       "answer": [
         {
-          "name": "Long Beach Island",
-          "address": "Long Beach Island, NJ",
-          "distance": 193,
-          "azimuth_angle": 270
+          "name": "Ten Commandments",
+          "distance": 140160
+        }
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "sonnet4.6_text2sql": {
+    "text": {
+      "answer": "Larkspur, CO and Divide, CO",
+      "scores": {
+        "attempted": true,
+        "P": 0.75,
+        "R": 0.25,
+        "F1": 0.375
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Larkspur, CO",
+          "address": "Larkspur, CO",
+          "distance": 180
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.25,
-        "R": 0.1666666666666666,
-        "F1": 0.2,
-        "distance_error": 0.2814791481840574
+        "P": 1.0,
+        "R": 0.3333333333333333,
+        "F1": 0.5,
+        "distance_error": 0.1124348358328181
       }
     }
   },
-  "GR": {
+  "gpt4o_direct": {
     "text": {
-      "answer": "Narragansett, Rhode Island.",
+      "answer": "Pueblo is located within one hundred eighty kilometers south of Denver Health Medical Center Emergency Department Trauma Center.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -70,27 +200,23 @@
     "parsed": {
       "answer": [
         {
-          "name": "Narragansett",
-          "address": "Ocean Road, Narragansett, RI 02882, USA",
-          "count": null,
-          "distance": 213,
-          "length": null,
-          "area": null,
-          "azimuth_angle": 270
+          "name": "Pueblo",
+          "distance": 180,
+          "azimuth_angle": 180
         }
       ],
       "scores": {
-        "attempted": true,
-        "P": 0.1666666666666666,
-        "R": 0.1666666666666666,
-        "F1": 0.1666666666666666,
-        "distance_error": 0.4247177738647135
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0,
+        "distance_error": 1.0
       }
     }
   },
-  "L": {
+  "gpt4o_rag": {
     "text": {
-      "answer": "The closest beach resort is in Coney Island, Brooklyn, New York. It is approximately Fifty kilometers southeast of the Children's Hospital at Montefiore, Bronx, NY.",
+      "answer": "South Pittsburg Municipal Hospital",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -101,10 +227,9 @@
     "parsed": {
       "answer": [
         {
-          "name": "Coney Island Beach Resort",
-          "address": "Coney Island, Brooklyn, New York",
-          "distance": 50,
-          "azimuth_angle": 135
+          "name": "South Pittsburg Municipal Hospital",
+          "address": "South Pittsburg, TN",
+          "distance": 180
         }
       ],
       "scores": {
@@ -112,13 +237,13 @@
         "P": 0.0,
         "R": 0.0,
         "F1": 0.0,
-        "distance_error": 0.0701842274429407
+        "distance_error": 1.0
       }
     }
   },
-  "LT": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "The closest beach resort is in Coney Island, Brooklyn, New York. It is approximately One Hundred kilometers from the Children's Hospital at Montefiore, Bronx, NY.",
+      "answer": "Pueblo, Colorado.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -129,9 +254,9 @@
     "parsed": {
       "answer": [
         {
-          "name": "Coney Island Beach Resort",
-          "address": "Coney Island, Brooklyn, New York",
-          "distance": 100,
+          "name": "Pueblo",
+          "address": "Pueblo, Colorado",
+          "distance": 180,
           "azimuth_angle": 180
         }
       ],
@@ -140,38 +265,7 @@
         "P": 0.0,
         "R": 0.0,
         "F1": 0.0,
-        "distance_error": 0.0701842274429407
-      }
-    }
-  },
-  "LR": {
-    "text": {
-      "answer": "Rosedale.",
-      "scores": {
-        "attempted": true,
-        "P": 0.0,
-        "R": 0.0,
-        "F1": 0.0
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "Rosedale",
-          "address": "Rosedale, NY",
-          "count": null,
-          "distance": 195,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.0,
-        "R": 0.0,
-        "F1": 0.0,
-        "distance_error": 0.0542055073824711
+        "distance_error": 0.3316359982891706
       }
     }
   }

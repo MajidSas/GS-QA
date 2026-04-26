@@ -1,43 +1,49 @@
 {
-  "question": "How distant is the closest park in relation to Kentucky Action Park, Cave City, KY?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-86.0041 37.132939)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.0041 37.132939)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the straight-line distance to the nearest caf\u00e9 from Gem Mountain Gemstone Mine, Spruce Pine, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246106,
-      "geometry": "POINT (-85.887851 37.257297)",
-      "poi_name": "Battle for the Bridge Preserve",
-      "osm_id": 5577540403,
-      "leisure": "park",
-      "distance": 17233.80184711
+      "id": 56820,
+      "geometry": "POINT (-82.069838 35.916072)",
+      "poi_name": "DT's Blue Ridge Java",
+      "osm_id": 10249526364,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "phone": "+18287668008",
+      "addr_state": "NC",
+      "addr_city": "Spruce Pine",
+      "addr_postcode": "28777",
+      "addr_street": "Locust Street",
+      "addr_housenumber": "169",
+      "distance": 5137.01280436
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Kentucky Action Park, Cave City, KY",
-      "geo_wkt": "POINT (-86.0041 37.132939)",
+      "sub_category": "attraction",
+      "display_name": "Gem Mountain Gemstone Mine, Spruce Pine, NC",
+      "geo_wkt": "POINT (-82.050287 35.872594)",
       "poi": {
-        "id": 14316,
-        "geometry": "POINT (-86.0041 37.132939)",
-        "poi_name": "Kentucky Action Park",
-        "osm_id": 4268014471,
-        "tourism": "theme_park",
-        "website": "https://www.kentuckyactionpark.com/",
-        "phone": "+1 270-773-2560",
-        "addr_state": "KY",
-        "addr_city": "Cave City",
-        "addr_postcode": "42127",
-        "addr_street": "Mammoth Cave Road",
-        "addr_housenumber": "3057"
+        "id": 524,
+        "geometry": "POINT (-82.050287 35.872594)",
+        "poi_name": "Gem Mountain Gemstone Mine",
+        "osm_id": 8421455508,
+        "tourism": "attraction",
+        "opening_hours": "Temporary Closed",
+        "addr_state": "NC",
+        "addr_city": "Spruce Pine",
+        "addr_postcode": "28777",
+        "addr_street": "NC-226",
+        "addr_housenumber": "13780"
       }
     }
   },
-  "id": 2491,
+  "id": 691,
   "type": "knn+distance"
 }

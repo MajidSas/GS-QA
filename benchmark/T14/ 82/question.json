@@ -1,55 +1,65 @@
 {
-  "question": "Could you track down an art museum and is conveniently situated within 130 kilometers from Parker Manatee Aquarium, Bradenton, FL?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.571569 27.497999)',4326)::geography, 130000)\nAND tourism = 'museum'\nAND museum = 'art';\n",
+  "question": "Where might I find a hot pot restaurant within 100 kilometers from Schoolhouse Gallery, Provincetown, MA?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.177183 42.057577)',4326)::geography, 100000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%hot_pot%';\n",
   "answers": [
     {
-      "id": 235,
-      "geometry": "POINT (-82.529024 27.325641)",
-      "poi_name": "Sarasota Art Museum",
-      "osm_id": 8248296789,
-      "tourism": "museum",
-      "operator": "Ringling College of Art + Design",
-      "phone": "+1 (941) 309-4300",
-      "museum": "art",
-      "addr_state": "FL",
-      "addr_city": "Sarasota",
-      "addr_postcode": "34236",
-      "addr_street": "South Tamiami Trail",
-      "addr_housenumber": "1001"
+      "id": 121358,
+      "geometry": "POINT (-71.063048 42.351148)",
+      "poi_name": "Happy Lamb Hot Pot",
+      "osm_id": 6757428785,
+      "amenity": "restaurant",
+      "cuisine": "mongolian;hot_pot",
+      "opening_hours": "Mo-Th 12:00-14:30, 17:30-21:30; Fr 12:00-14:30, 17:30-22:00; Sa 12:00-22:00; Su 12:00-21:30",
+      "addr_postcode": "02111",
+      "addr_street": "Washington Street",
+      "addr_housenumber": "693"
+    },
+    {
+      "id": 149527,
+      "geometry": "POINT (-71.101239 42.364162)",
+      "poi_name": "Happy Lamb Hot Pot",
+      "osm_id": 4013910075,
+      "amenity": "restaurant",
+      "cuisine": "mongolian;hot_pot",
+      "addr_state": "MA",
+      "addr_city": "Cambridge",
+      "addr_postcode": "02139",
+      "addr_street": "Massachusetts Avenue",
+      "addr_housenumber": "485"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "art museum",
-      "poi_filter_sql": "museum = 'art'"
+      "main_category": "amenity",
+      "sub_category": "restaurant",
+      "poi_filter_desc": "hot pot restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%hot_pot%'"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Parker Manatee Aquarium, Bradenton, FL",
-      "geo_wkt": "POINT (-82.571569 27.497999)",
+      "sub_category": "gallery",
+      "display_name": "Schoolhouse Gallery, Provincetown, MA",
+      "geo_wkt": "POINT (-70.177183 42.057577)",
       "poi": {
-        "id": 2533,
-        "geometry": "POINT (-82.571569 27.497999)",
-        "poi_name": "Parker Manatee Aquarium",
-        "osm_id": 493892785,
-        "tourism": "aquarium",
-        "fee": "yes",
-        "addr_state": "FL",
-        "addr_city": "Bradenton",
-        "addr_postcode": "34205",
-        "addr_street": "10th Street West",
-        "addr_housenumber": "201"
+        "id": 4045,
+        "geometry": "POINT (-70.177183 42.057577)",
+        "poi_name": "Schoolhouse Gallery",
+        "osm_id": 5650483060,
+        "tourism": "gallery",
+        "website": "http://www.galleryschoolhouse.com/",
+        "addr_state": "MA",
+        "addr_city": "Provincetown",
+        "addr_postcode": "02657",
+        "addr_street": "Commercial Street",
+        "addr_housenumber": "494"
       }
     }
   },
-  "id": 481,
+  "id": 2481,
   "type": "range:non_spat_filter+loc"
 }

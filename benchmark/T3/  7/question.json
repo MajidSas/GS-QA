@@ -1,48 +1,123 @@
 {
-  "question": "What viewpoint is in the direction of southwest from Bunker Hill, IL, within a radius of 40 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.781473 42.004049)',4326)::geography, 40000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "What fast food restaurant are present inside a 90 kilometers boundary toward the southwest of Broadbent Arena, Louisville, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography, 90000)\nAND amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 3912,
-      "geometry": "POINT (-87.781473 42.004049)",
-      "poi_name": "Des Plaines River Scenic Overlook",
-      "osm_id": 5631437027,
-      "tourism": "viewpoint"
+      "id": 93938,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Sonic",
+      "osm_id": 2193587905,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes"
     },
     {
-      "id": 8340,
-      "geometry": "POINT (-87.781473 42.004049)",
-      "poi_name": "Greene Valley Scenic Overlook",
-      "osm_id": 6634611192,
-      "tourism": "viewpoint"
+      "id": 50056,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Subway",
+      "osm_id": 3464462729,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40216",
+      "addr_street": "Dixie Highway",
+      "addr_housenumber": "5242"
+    },
+    {
+      "id": 93885,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Burger King",
+      "osm_id": 2190663190,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "takeaway": "yes"
+    },
+    {
+      "id": 93940,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Penn Station Subs",
+      "osm_id": 2193594196,
+      "amenity": "fast_food",
+      "cuisine": "sandwich"
+    },
+    {
+      "id": 93941,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Papa John's",
+      "osm_id": 2193594197,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "takeaway": "yes"
+    },
+    {
+      "id": 130316,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Qdoba",
+      "osm_id": 9864888446,
+      "amenity": "fast_food",
+      "cuisine": "mexican",
+      "website": "https://locations.qdoba.com/us/ky/fort-knox/127-gold-vault-rd.html",
+      "takeaway": "yes",
+      "official_name": "Qdoba Mexican Grill"
+    },
+    {
+      "id": 130317,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Popeyes",
+      "osm_id": 9864888447,
+      "amenity": "fast_food",
+      "cuisine": "chicken",
+      "takeaway": "yes",
+      "official_name": "Popeyes Louisiana Kitchen"
+    },
+    {
+      "id": 130318,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Subway",
+      "osm_id": 9864888448,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
+    },
+    {
+      "id": 130319,
+      "geometry": "POINT (-85.745629 38.200638)",
+      "poi_name": "Charleys Philly Steaks",
+      "osm_id": 9864888449,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "distance": 40000,
-      "text": "40 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Bunker Hill, IL",
-      "geo_wkt": "POINT (-87.781473 42.004049)",
+      "sub_category": "stadium",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
       "poi": {
-        "id": 265726,
-        "geometry": "POINT (-87.781473 42.004049)",
-        "poi_name": "Bunker Hill",
-        "osm_id": 10874811379,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/places/locations/bunker-hill/",
-        "phone": "+1-800-870-3666",
-        "addr_state": "IL"
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
+        "leisure": "stadium",
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
       }
     },
     "[4]": {
@@ -50,6 +125,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2606,
+  "id": 2306,
   "type": "range:direction+name"
 }

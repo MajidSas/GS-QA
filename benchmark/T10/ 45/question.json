@@ -1,68 +1,63 @@
 {
-  "question": "What is the closest restaurant along the way to Joppa Hill Farm, Bedford, NH from Plaistow Emergency Room, Plaistow, NH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.104578 42.820057)',4326)::geography, ST_GeomFromText('POINT (-71.575992 42.931889)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.104578 42.820057)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.104578 42.820057)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest caf\u00e9 along the path leading from Out of Africa Wildlife Park, Camp Verde, AZ to 7 Wonders Gallery, Flagstaff, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, ST_GeomFromText('POINT (-111.659437 35.192476)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 119922,
-      "geometry": "POINT (-71.180228 42.820516)",
-      "poi_name": "Stagecoach Grill",
-      "osm_id": 9127822684,
-      "amenity": "restaurant",
-      "cuisine": "american",
-      "opening_hours": "Su-Mo 11:00-21:00, Fr-Sa 11:00-22:00",
-      "website": "https://atkinsonresort.com",
-      "phone": "+1-603-489-0211",
-      "addr_state": "NH",
-      "addr_city": "Atkinson",
-      "addr_postcode": "03811",
-      "addr_street": "Country Club Drive",
-      "addr_housenumber": "85",
-      "value": 288.03720707787
+      "id": 98240,
+      "geometry": "POINT (-111.764054 34.775205)",
+      "poi_name": "Miley's Cafe",
+      "osm_id": 6512421540,
+      "amenity": "cafe",
+      "value": 20.290741096794267
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Plaistow Emergency Room, Plaistow, NH",
-      "geo_wkt": "POINT (-71.104578 42.820057)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
+      "geo_wkt": "POINT (-111.9207 34.612641)",
       "poi": {
-        "id": 72366,
-        "geometry": "POINT (-71.104578 42.820057)",
-        "poi_name": "Plaistow Emergency Room",
-        "osm_id": 11423619777,
-        "amenity": "hospital",
-        "operator": "Parkland Medical Center",
-        "emergency": "only",
-        "addr_state": "NH",
-        "addr_city": "Plaistow",
-        "addr_street": "Plaistow Road",
-        "addr_housenumber": "26"
+        "id": 1846,
+        "geometry": "POINT (-111.9207 34.612641)",
+        "poi_name": "Out of Africa Wildlife Park",
+        "osm_id": 3181394247,
+        "tourism": "zoo",
+        "opening_hours": "09:30-17:00",
+        "addr_state": "AZ",
+        "addr_city": "Camp Verde",
+        "addr_postcode": "86322",
+        "addr_street": "State Route 260",
+        "addr_housenumber": "3505"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Joppa Hill Farm, Bedford, NH",
-      "geo_wkt": "POINT (-71.575992 42.931889)",
+      "sub_category": "gallery",
+      "display_name": "7 Wonders Gallery, Flagstaff, AZ",
+      "geo_wkt": "POINT (-111.659437 35.192476)",
       "poi": {
-        "id": 10743,
-        "geometry": "POINT (-71.575992 42.931889)",
-        "poi_name": "Joppa Hill Farm",
-        "osm_id": 8014170407,
-        "tourism": "zoo",
-        "zoo": "petting_zoo",
-        "addr_state": "NH",
-        "addr_city": "Bedford",
-        "addr_postcode": "03110"
+        "id": 25970,
+        "geometry": "POINT (-111.659437 35.192476)",
+        "poi_name": "7 Wonders Gallery",
+        "osm_id": 5750743789,
+        "tourism": "gallery",
+        "wheelchair": "yes",
+        "opening_hours": "Mo-Sa 10:00-21:00; Su 10:00-18:00",
+        "shop": "art",
+        "addr_state": "AZ",
+        "addr_city": "Flagstaff",
+        "addr_postcode": "86001",
+        "addr_street": "South Milton Road",
+        "addr_housenumber": "801"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 144,
+  "id": 1644,
   "type": "knn:towards+name"
 }

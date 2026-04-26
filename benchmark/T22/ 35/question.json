@@ -1,45 +1,51 @@
 {
-  "question": "Which way should I head to access the closest hotel from Smith Street Food Forest, Lexington, KY?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.494962 38.056302)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.494962 38.056302)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction is the nearest aquarium from Senior Helpers, Largo, FL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.769703 27.919893)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-82.769703 27.919893)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3156,
-      "geometry": "POINT (-84.501805 38.048288)",
-      "poi_name": "Hyatt Regency Lexington",
-      "osm_id": 10213044366,
-      "tourism": "hotel",
-      "phone": "8592531234",
-      "addr_street": "West High Street",
-      "addr_housenumber": "401",
-      "angle": 214.0267207265431
+      "id": 2533,
+      "geometry": "POINT (-82.571569 27.497999)",
+      "poi_name": "Parker Manatee Aquarium",
+      "osm_id": 493892785,
+      "tourism": "aquarium",
+      "fee": "yes",
+      "addr_state": "FL",
+      "addr_city": "Bradenton",
+      "addr_postcode": "34205",
+      "addr_street": "10th Street West",
+      "addr_housenumber": "201",
+      "angle": 157.27040470144908
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "aquarium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Smith Street Food Forest, Lexington, KY",
-      "geo_wkt": "POINT (-84.494962 38.056302)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Senior Helpers, Largo, FL",
+      "geo_wkt": "POINT (-82.769703 27.919893)",
       "poi": {
-        "id": 248380,
-        "geometry": "POINT (-84.494962 38.056302)",
-        "poi_name": "Smith Street Food Forest",
-        "osm_id": 4070871292,
-        "leisure": "garden",
-        "operator": "Seedleaf",
-        "website": "https://www.seedleaf.org/",
-        "addr_state": "KY",
-        "addr_city": "Lexington",
-        "addr_street": "Smith Street",
-        "addr_housenumber": "426"
+        "id": 68748,
+        "geometry": "POINT (-82.769703 27.919893)",
+        "poi_name": "Senior Helpers",
+        "osm_id": 11283147572,
+        "amenity": "hospital",
+        "description": "We offer tailored home care services ranging from companion care for seniors who need daily assistance to in-depth specialized care for those with Alzheimer's, Dementia, Parkinson's and other chronic diseases.",
+        "opening_hours": "24/7",
+        "operator": "Senior Helpers",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Largo",
+        "addr_postcode": "33771",
+        "addr_street": "Lake Avenue Northeast",
+        "addr_housenumber": "300"
       }
     }
   },
-  "id": 1434,
+  "id": 534,
   "type": "knn+angle"
 }

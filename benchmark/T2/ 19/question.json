@@ -1,57 +1,51 @@
 {
-  "question": "Could you track down a fusion restaurant that is conveniently situated within 100 kilometers from Southern National Motorsport Park, Lucama, NC?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography, 100000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%fusion%';\n",
+  "question": "Can you find a nature museum within a 160 kilometers limit of Mount Washington Boat Terminal, Wolfeboro, NH?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.21302 43.583693)',4326)::geography, 160000)\nAND tourism = 'museum'\nAND museum = 'nature';\n",
   "answers": [
     {
-      "id": 225999,
-      "geometry": "POINT (-78.930486 35.910568)",
-      "poi_name": "Kokyu",
-      "osm_id": 11146259018,
-      "amenity": "restaurant",
-      "cuisine": "sandwich;asian_fusion",
-      "opening_hours": "Tu,We,Su 11:00-21:00; Th,Fr,Sa 11:00-22:00",
-      "website": "http://www.kokyubbq.com/",
-      "phone": "+19192519017",
-      "addr_state": "NC",
-      "addr_city": "Durham",
-      "addr_postcode": "27713",
-      "addr_street": "NC-54",
-      "addr_housenumber": "254 E"
+      "id": 17350,
+      "geometry": "POINT (-71.115646 42.378466)",
+      "poi_name": "Harvard Museum of Natural History",
+      "osm_id": 367781130,
+      "tourism": "museum",
+      "opening_hours": "Mo-Su 09:00-17:00",
+      "operator": "Harvard University",
+      "website": "https://hmnh.harvard.edu/",
+      "museum": "nature",
+      "wikidata": "Q2001855",
+      "addr_state": "MA"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "fusion restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%fusion%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "nature museum",
+      "poi_filter_sql": "museum = 'nature'"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Southern National Motorsport Park, Lucama, NC",
-      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Washington Boat Terminal, Wolfeboro, NH",
+      "geo_wkt": "POINT (-71.21302 43.583693)",
       "poi": {
-        "id": 248769,
-        "geometry": "POINT (-78.060871 35.61119)",
-        "poi_name": "Southern National Motorsport Park",
-        "osm_id": 4773889332,
-        "leisure": "stadium",
-        "sport": "motor",
-        "wikidata": "Q7570163",
-        "addr_state": "NC",
-        "addr_city": "Lucama",
-        "addr_postcode": "27851",
-        "addr_street": "Newsome Mill Road",
-        "addr_housenumber": "8071"
+        "id": 943,
+        "geometry": "POINT (-71.21302 43.583693)",
+        "poi_name": "Mount Washington Boat Terminal",
+        "osm_id": 2730505188,
+        "tourism": "attraction",
+        "addr_state": "NH",
+        "addr_city": "Wolfeboro",
+        "addr_postcode": "03894",
+        "addr_street": "North Main Street"
       }
     }
   },
-  "id": 518,
+  "id": 2518,
   "type": "range:non_spat_filter+name"
 }

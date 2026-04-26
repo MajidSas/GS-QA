@@ -1,41 +1,40 @@
 {
-  "question": "Within 140 kilometers from Silvermann Gallery, Holicong, PA, how many universities are available?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.055544 40.329172)',4326)::geography, 140000)\nAND amenity = 'university';\n",
+  "question": "How many gardens exist within 70 kilometers of the location James Hite Park, Kearneysville, WV?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.898376 39.3503)',4326)::geography, 70000)\nAND leisure = 'garden';\n",
   "answers": [
     {
-      "count": 58
+      "count": 1
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Silvermann Gallery, Holicong, PA",
-      "geo_wkt": "POINT (-75.055544 40.329172)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "James Hite Park, Kearneysville, WV",
+      "geo_wkt": "POINT (-77.898376 39.3503)",
       "poi": {
-        "id": 23307,
-        "geometry": "POINT (-75.055544 40.329172)",
-        "poi_name": "Silvermann Gallery",
-        "osm_id": 5108548074,
-        "tourism": "gallery",
-        "artwork_type": "painting",
-        "addr_state": "PA",
-        "addr_city": "Holicong",
-        "addr_postcode": "18928",
-        "addr_street": "York Road",
-        "addr_housenumber": "4920"
+        "id": 247532,
+        "geometry": "POINT (-77.898376 39.3503)",
+        "poi_name": "James Hite Park",
+        "osm_id": 6780114039,
+        "leisure": "park",
+        "addr_state": "WV",
+        "addr_city": "Kearneysville",
+        "addr_postcode": "25430",
+        "addr_street": "Hite Road",
+        "addr_housenumber": "1425"
       }
     }
   },
-  "id": 2277,
+  "id": 1877,
   "type": "range+count"
 }

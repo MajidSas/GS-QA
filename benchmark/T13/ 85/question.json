@@ -1,45 +1,51 @@
 {
-  "question": "I'm searching for a garden within 130 kilometers radii from Brick City Park Stadium, FL, any suggestions where it is?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.121758 29.166644)',4326)::geography, 130000)\nAND leisure = 'garden';\n",
+  "question": "Where can I find a hospital within 170 kilometers of where Creede Underground Mining Museum, Creede, CO is?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.928078 37.857337)',4326)::geography, 170000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "id": 246454,
-      "geometry": "POINT (-81.327543 28.262181)",
-      "poi_name": "Chopper's Lawn Equipment",
-      "osm_id": 9684453306,
-      "leisure": "garden",
-      "opening_hours": "Mo-Fr 08:00-17:00",
-      "website": "https://chopperslawnequipment.com",
-      "phone": "+1-407-891-8990",
-      "addr_state": "FL",
-      "addr_city": "Kissimmee",
-      "addr_postcode": "34744",
-      "addr_street": "Big Sky Boulevard",
-      "addr_housenumber": "2899"
+      "id": 167492,
+      "geometry": "POINT (-108.216007 36.725515)",
+      "poi_name": "San Juan Regional Rehabilitation Hospital",
+      "osm_id": 357588655,
+      "amenity": "hospital",
+      "website": "https://www.sanjuanregional.com/sjrrh",
+      "phone": "+1-505-609-2625",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Farmington",
+      "addr_postcode": "87401",
+      "addr_street": "South Schwartz Avenue",
+      "addr_housenumber": "525"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Brick City Park Stadium, FL",
-      "geo_wkt": "POINT (-82.121758 29.166644)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "Creede Underground Mining Museum, Creede, CO",
+      "geo_wkt": "POINT (-106.928078 37.857337)",
       "poi": {
-        "id": 265376,
-        "geometry": "POINT (-82.121758 29.166644)",
-        "poi_name": "Brick City Park Stadium",
-        "osm_id": 367826901,
-        "leisure": "stadium",
-        "addr_state": "FL"
+        "id": 1835,
+        "geometry": "POINT (-106.928078 37.857337)",
+        "poi_name": "Creede Underground Mining Museum",
+        "osm_id": 3169766562,
+        "tourism": "museum",
+        "opening_hours": "May 28-Sep 13: 10:00-16:00 open || 10:30-14:15 open \"Audio Tours\" || 10:00-15:00 open \" Guided Tours\"; Sep 14-May 27: Mo-Fr 09:30-15:00 open || Sep 14-May 27: 10:30-14:15 open \"Audio Tours only\"; PH off",
+        "phone": "+1-719-658-0811",
+        "addr_state": "CO",
+        "addr_city": "Creede",
+        "addr_postcode": "81130",
+        "addr_street": "West Willow Creek Road",
+        "addr_housenumber": "503"
       }
     }
   },

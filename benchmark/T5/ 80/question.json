@@ -1,43 +1,50 @@
 {
-  "question": "Looking for the closest garden in relation to Smoky Mountain Alpine Coaster, Pigeon Forge, TN, any insights what it is?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-83.596543 35.793397)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is the closest one near Inn at Bay Harbor, Bay Harbor, MI?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'cafe'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.015501 45.36903)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246396,
-      "geometry": "POINT (-83.380987 35.181761)",
-      "poi_name": "Franklin Garden",
-      "osm_id": 11435442749,
-      "leisure": "garden",
-      "operator": "Franklin Garden Club"
+      "id": 53917,
+      "geometry": "POINT (-84.956798 45.375171)",
+      "poi_name": "Roast & Toast",
+      "osm_id": 10106478856,
+      "amenity": "cafe",
+      "opening_hours": "07:00-18:00",
+      "website": "https://www.roastandtoast.com/",
+      "internet_access": "wlan",
+      "phone": "+1 231-347-7767",
+      "outdoor_seating": "yes",
+      "addr_street": "East Lake Street",
+      "addr_housenumber": "309"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Smoky Mountain Alpine Coaster, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.596543 35.793397)",
+      "sub_category": "hotel",
+      "display_name": "Inn at Bay Harbor, Bay Harbor, MI",
+      "geo_wkt": "POINT (-85.015501 45.36903)",
       "poi": {
-        "id": 13057,
-        "geometry": "POINT (-83.596543 35.793397)",
-        "poi_name": "Smoky Mountain Alpine Coaster",
-        "osm_id": 4035710749,
-        "tourism": "theme_park",
-        "website": "http://www.smokymountainalpinecoaster.com/",
-        "wikidata": "Q29831450",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Wears Valley Road",
-        "addr_housenumber": "867"
+        "id": 815,
+        "geometry": "POINT (-85.015501 45.36903)",
+        "poi_name": "Inn at Bay Harbor",
+        "osm_id": 2699157719,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.innatbayharbor.com/",
+        "phone": "+1-231-439-4000",
+        "addr_state": "MI",
+        "addr_city": "Bay Harbor",
+        "addr_postcode": "49770",
+        "addr_street": "Village Harbor Drive",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 279,
+  "id": 1079,
   "type": "knn+name"
 }

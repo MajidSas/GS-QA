@@ -1,75 +1,55 @@
 {
-  "question": "Could you track down an emergency hospital and is conveniently situated within 100 kilometers from Mason in Loudoun, Sterling, VA?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.389666 39.024942)',4326)::geography, 100000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Can you find a thai restaurant that\u2019s within 30 kilometers of Ruffner Park, Irondale, AL?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.7106 33.541909)',4326)::geography, 30000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%thai%';\n",
   "answers": [
     {
-      "id": 204829,
-      "geometry": "POINT (-77.222205 38.878159)",
-      "poi_name": "Dominion Plastic Surgery",
-      "osm_id": 7143550380,
-      "amenity": "hospital",
-      "opening_hours": "Mo-Fr 09:00-17:00",
-      "website": "https://www.dominionplasticsurgery.com/",
-      "phone": "+1 703-544-8971",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "VA",
-      "addr_city": "Falls Church",
-      "addr_postcode": "22043",
-      "addr_street": "Hartland Road",
-      "addr_housenumber": "2755"
-    },
-    {
-      "id": 95401,
-      "geometry": "POINT (-77.234714 39.825123)",
-      "poi_name": "Gettysburg Hospital ER Entrance",
-      "osm_id": 6394945930,
-      "amenity": "hospital",
-      "operator": "WellSpan Health",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "PA",
-      "addr_city": "Gettysburg",
-      "addr_postcode": "17325",
-      "addr_street": "Gettys Street",
-      "addr_housenumber": "147"
+      "id": 203284,
+      "geometry": "POINT (-86.797035 33.500493)",
+      "poi_name": "Surin West",
+      "osm_id": 7076123572,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "website": "https://surinofthailand.com/location/surin-west/",
+      "phone": "+1-205-324-1928",
+      "addr_state": "AL",
+      "addr_city": "Birmingham",
+      "addr_postcode": "35205",
+      "addr_street": "11th Avenue South",
+      "addr_housenumber": "1918"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "thai restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%thai%'"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 30000,
+      "text": "30 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Mason in Loudoun, Sterling, VA",
-      "geo_wkt": "POINT (-77.389666 39.024942)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Ruffner Park, Irondale, AL",
+      "geo_wkt": "POINT (-86.7106 33.541909)",
       "poi": {
-        "id": 105912,
-        "geometry": "POINT (-77.389666 39.024942)",
-        "poi_name": "Mason in Loudoun",
-        "osm_id": 8653269684,
-        "amenity": "university",
-        "operator": "George Mason University",
-        "website": "https://loudoun.gmu.edu/",
-        "internet_access": "yes",
-        "phone": "+1-703-993-4350",
-        "addr_state": "VA",
-        "addr_city": "Sterling",
-        "addr_postcode": "20164",
-        "addr_street": "Signal Hill Plaza",
-        "addr_housenumber": "21335"
+        "id": 246091,
+        "geometry": "POINT (-86.7106 33.541909)",
+        "poi_name": "Ruffner Park",
+        "osm_id": 5553315036,
+        "leisure": "park",
+        "description": "RUFFNER PARK  is a scenic 20.3 acre baseball and softball complex. The complex is made up of six lighted baseball fields, a concession stand built in 1999, public restrooms, picnic eating area and a large barbecue pit and storage buildings.",
+        "addr_state": "AL",
+        "addr_city": "Irondale",
+        "addr_postcode": "35210",
+        "addr_street": "Ruffner Road",
+        "addr_housenumber": "301"
       }
     }
   },
-  "id": 434,
+  "id": 2434,
   "type": "range:non_spat_filter+loc"
 }

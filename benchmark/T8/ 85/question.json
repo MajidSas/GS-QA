@@ -1,44 +1,44 @@
 {
-  "question": "Seeking the nearest aquarium from the attraction with the former name Hollywoodland Sign in Los Angeles, CA, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'aquarium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-118.321652 34.134099)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest fast food restaurant around the university with the former name Denmark Industrial School for African Americans in Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25545,
-      "geometry": "POINT (-118.496003 34.010345)",
-      "poi_name": "Santa M\u00f3nica Pier Aquarium",
-      "osm_id": 4538240692,
-      "tourism": "aquarium",
-      "addr_postcode": "90401",
-      "addr_street": "Ocean Front Walk",
-      "addr_housenumber": "1600"
+      "id": 245007,
+      "geometry": "POINT (-81.134546 33.325115)",
+      "poi_name": "Subway",
+      "osm_id": 7757571062,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 09:00-21:00",
+      "takeaway": "yes"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Hollywood Sign, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.321652 34.134099)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 1885,
-        "geometry": "POINT (-118.321652 34.134099)",
-        "poi_name": "Hollywood Sign",
-        "osm_id": 3204926589,
-        "tourism": "attraction",
-        "operator": "The Trust for Public Land",
-        "wikidata": "Q180376",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mount Lee Drive"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2784,
-  "type": "knn+name+multihop2"
+  "id": 984,
+  "type": "knn+name+multi_source2"
 }

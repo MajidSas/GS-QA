@@ -1,47 +1,50 @@
 {
-  "question": "What's the proximity of the nearest zoo relative to North Carolina Heart & Vascular Hospital, Raleigh, NC?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-78.703359 35.819392)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.703359 35.819392)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance from Rockford Career College, Rockford, IL to the closest museum available?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-89.027608 42.25571)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.027608 42.25571)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 21981,
-      "geometry": "POINT (-79.114316 35.710947)",
-      "poi_name": "Carolina Tiger Rescue",
-      "osm_id": 947443188,
-      "tourism": "zoo",
-      "wheelchair": "yes",
-      "opening_hours": "\"by appointment only\"",
-      "website": "https://carolinatigerrescue.org/",
-      "wikidata": "Q5044904",
-      "distance": 39062.23871217
+      "id": 1337,
+      "geometry": "POINT (-89.088732 42.276889)",
+      "poi_name": "Discovery Center Museum",
+      "osm_id": 2944711116,
+      "tourism": "museum",
+      "opening_hours": "Tu-Su 09:30-14:30",
+      "website": "http://www.discoverycentermuseum.org/",
+      "phone": "+1-8159682787",
+      "addr_state": "IL",
+      "addr_city": "Rockford",
+      "addr_postcode": "61103",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "711",
+      "distance": 5564.76567521
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "zoo"
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "North Carolina Heart & Vascular Hospital, Raleigh, NC",
-      "geo_wkt": "POINT (-78.703359 35.819392)",
+      "sub_category": "university",
+      "display_name": "Rockford Career College, Rockford, IL",
+      "geo_wkt": "POINT (-89.027608 42.25571)",
       "poi": {
-        "id": 195426,
-        "geometry": "POINT (-78.703359 35.819392)",
-        "poi_name": "North Carolina Heart & Vascular Hospital",
-        "osm_id": 10304703981,
-        "amenity": "hospital",
-        "phone": "(919) 784-3100",
-        "healthcare": "hospital",
-        "addr_state": "NC",
-        "addr_city": "Raleigh",
-        "addr_postcode": "27607",
-        "addr_street": "Lake Boone Trail",
-        "addr_housenumber": "4420"
+        "id": 30721,
+        "geometry": "POINT (-89.027608 42.25571)",
+        "poi_name": "Rockford Career College",
+        "osm_id": 8378810046,
+        "amenity": "university",
+        "wheelchair": "yes",
+        "addr_state": "IL",
+        "addr_city": "Rockford",
+        "addr_postcode": "61108",
+        "addr_street": "South Alpine Road",
+        "addr_housenumber": "1130"
       }
     }
   },
-  "id": 2402,
+  "id": 602,
   "type": "knn+distance"
 }

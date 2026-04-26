@@ -1,13 +1,14 @@
 {
-  "question": "What's the closest park nearby the stadium that can hold 14500 spectators in Wichita Falls, TX?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which park nearby the hospital that has pediatric emergency department in Bronx, NY is the closest?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.878898 40.880372)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 252357,
-      "geometry": "POINT (-98.585334 33.852876)",
-      "poi_name": "Sunrise Optimist Fields",
-      "osm_id": 356845960,
-      "leisure": "park"
+      "id": 256432,
+      "geometry": "POINT (-73.882778 40.872222)",
+      "poi_name": "Mosholu Playground",
+      "osm_id": 357634994,
+      "leisure": "park",
+      "wikidata": "Q49528704"
     }
   ],
   "answer_type": "name",
@@ -17,22 +18,27 @@
       "sub_category": "park"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Memorial Stadium, Wichita Falls, TX",
-      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Children's Hospital at Montefiore, Bronx, NY",
+      "geo_wkt": "POINT (-73.878898 40.880372)",
       "poi": {
-        "id": 252230,
-        "geometry": "POINT (-98.582518 33.854202)",
-        "poi_name": "Memorial Stadium",
-        "osm_id": 356844791,
-        "leisure": "stadium",
-        "wikidata": "Q6815531",
-        "addr_state": "TX",
-        "addr_city": "Wichita Falls"
+        "id": 37381,
+        "geometry": "POINT (-73.878898 40.880372)",
+        "poi_name": "Children's Hospital at Montefiore",
+        "osm_id": 2810045562,
+        "amenity": "hospital",
+        "operator": "Montefiore Medical Center",
+        "healthcare": "hospital",
+        "wikidata": "Q30279893",
+        "addr_state": "NY",
+        "addr_city": "Bronx",
+        "addr_postcode": "10467",
+        "addr_street": "Bainbridge Avenue",
+        "addr_housenumber": "3415"
       }
     }
   },
-  "id": 2732,
-  "type": "knn+name+multihop2"
+  "id": 932,
+  "type": "knn+name+multi_source2"
 }

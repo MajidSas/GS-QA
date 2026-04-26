@@ -1,51 +1,51 @@
 {
-  "question": "Where is the closest emergency hospital situated from Hairpin Turn, Clarksburg, MA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest fusion restaurant close to Catskill Mountain Lodge, Palenville, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fusion%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-74.009838 42.163279)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167781,
-      "geometry": "POINT (-72.936331 41.304241)",
-      "poi_name": "Yale New Haven Children's Hospital",
-      "osm_id": 359283462,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Yale New Haven Health",
-      "website": "https://www.ynhh.org/childrens-hospital.aspx",
-      "phone": "+1 203 688 4242",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q91153398",
+      "id": 43841,
+      "geometry": "POINT (-73.079617 41.344843)",
+      "poi_name": "Uptown",
+      "osm_id": 3134500527,
+      "amenity": "restaurant",
+      "cuisine": "caribbean;fusion;tapas",
+      "website": "http://www.crave102.com",
+      "capacity": "50",
+      "phone": "203-735-3300",
       "addr_state": "CT",
-      "addr_city": "New Haven",
-      "addr_postcode": "06510",
-      "addr_street": "Park Street",
-      "addr_housenumber": "1"
+      "addr_city": "Ansonia",
+      "addr_postcode": "06401",
+      "addr_street": "Main Street",
+      "addr_housenumber": "102"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "fusion restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%fusion%'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Hairpin Turn, Clarksburg, MA",
-      "geo_wkt": "POINT (-73.062971 42.709369)",
+      "sub_category": "hotel",
+      "display_name": "Catskill Mountain Lodge, Palenville, NY",
+      "geo_wkt": "POINT (-74.009838 42.163279)",
       "poi": {
-        "id": 7303,
-        "geometry": "POINT (-73.062971 42.709369)",
-        "poi_name": "Hairpin Turn",
-        "osm_id": 2072400239,
-        "tourism": "viewpoint",
-        "addr_state": "MA",
-        "addr_city": "Clarksburg"
+        "id": 477,
+        "geometry": "POINT (-74.009838 42.163279)",
+        "poi_name": "Catskill Mountain Lodge",
+        "osm_id": 8401145450,
+        "tourism": "hotel",
+        "addr_state": "NY",
+        "addr_city": "Palenville",
+        "addr_postcode": "12463",
+        "addr_street": "Route 32A",
+        "addr_housenumber": "334"
       }
     }
   },
-  "id": 339,
+  "id": 1339,
   "type": "knn:non_spat_filter+loc"
 }

@@ -1,55 +1,47 @@
 {
-  "question": "Which museum is the closest to the northeast of Gallery Henoch, New York, NY?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.005402 40.750031)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest nature reserve towards the southeast of Blasingame Soccer Complex, Alma, AR?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.213871 35.478418)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 1950,
-      "geometry": "POINT (-74.005402 40.750031)",
-      "poi_name": "American Folk Art Museum",
-      "osm_id": 3224793125,
-      "tourism": "museum",
-      "wheelchair": "yes",
-      "website": "http://www.folkartmuseum.org",
-      "museum": "art",
-      "wikidata": "Q464354",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_street": "Lincoln Square",
-      "addr_housenumber": "2"
+      "id": 248630,
+      "geometry": "POINT (-94.213871 35.478418)",
+      "poi_name": "Mount Magazine State Park",
+      "osm_id": 4698202640,
+      "leisure": "nature_reserve",
+      "website": "http://www.mountmagazinestatepark.com/",
+      "wikidata": "Q6921965"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Gallery Henoch, New York, NY",
-      "geo_wkt": "POINT (-74.005402 40.750031)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Blasingame Soccer Complex, Alma, AR",
+      "geo_wkt": "POINT (-94.213871 35.478418)",
       "poi": {
-        "id": 19658,
-        "geometry": "POINT (-74.005402 40.750031)",
-        "poi_name": "Gallery Henoch",
-        "osm_id": 10859974148,
-        "tourism": "gallery",
-        "opening_hours": "Tu-Sa 10:30-18:00",
-        "website": "https://www.galleryhenoch.com",
-        "phone": "+1-917-305-0003",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10001",
-        "addr_street": "West 25th Street",
-        "addr_housenumber": "555"
+        "id": 247497,
+        "geometry": "POINT (-94.213871 35.478418)",
+        "poi_name": "Blasingame Soccer Complex",
+        "osm_id": 9138991278,
+        "leisure": "park",
+        "operator": "Boys & Girls Club of the Diamond Hills",
+        "addr_state": "AR",
+        "addr_city": "Alma",
+        "addr_postcode": "72921",
+        "addr_street": "East Main Street",
+        "addr_housenumber": "410"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2531,
+  "id": 1231,
   "type": "knn:direction+name"
 }

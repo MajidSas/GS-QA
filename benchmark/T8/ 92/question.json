@@ -1,48 +1,51 @@
 {
-  "question": "Any recommendations for the closest hospital from the park that was constructed in 1998 in Phoenix, AZ?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-112.173653 33.489497)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant to the museum established in the year 1961 in New York, NY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.981596 40.77323)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167784,
-      "geometry": "POINT (-112.09927 33.517203)",
-      "poi_name": "North Phoenix Heart Center",
-      "osm_id": 359292620,
-      "amenity": "hospital",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "addr_state": "AZ",
-      "addr_city": "Phoenix",
-      "addr_postcode": "85015",
-      "addr_street": "North 19th Avenue",
-      "addr_housenumber": "5501"
+      "id": 48172,
+      "geometry": "POINT (-73.981425 40.772836)",
+      "poi_name": "Shun Lee",
+      "osm_id": 3369582795,
+      "amenity": "restaurant",
+      "cuisine": "chinese",
+      "website": "https://www.shunleewest.com/",
+      "outdoor_seating": "no",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10023",
+      "addr_street": "West 65th Street",
+      "addr_housenumber": "43"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Maryvale Baseball Park, Phoenix, AZ",
-      "geo_wkt": "POINT (-112.173653 33.489497)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "American Folk Art Museum, New York, NY",
+      "geo_wkt": "POINT (-73.981596 40.77323)",
       "poi": {
-        "id": 245566,
-        "geometry": "POINT (-112.173653 33.489497)",
-        "poi_name": "Maryvale Baseball Park",
-        "osm_id": 3136386495,
-        "leisure": "park",
-        "wikidata": "Q6781782",
-        "addr_state": "AZ",
-        "addr_city": "Phoenix",
-        "addr_postcode": "85031",
-        "addr_street": "North 51st Avenue",
-        "addr_housenumber": "3600"
+        "id": 1950,
+        "geometry": "POINT (-73.981596 40.77323)",
+        "poi_name": "American Folk Art Museum",
+        "osm_id": 3224793125,
+        "tourism": "museum",
+        "wheelchair": "yes",
+        "website": "http://www.folkartmuseum.org",
+        "museum": "art",
+        "wikidata": "Q464354",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_street": "Lincoln Square",
+        "addr_housenumber": "2"
       }
     }
   },
-  "id": 2791,
-  "type": "knn+name+multihop2"
+  "id": 991,
+  "type": "knn+name+multi_source2"
 }

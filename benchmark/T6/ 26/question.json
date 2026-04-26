@@ -1,45 +1,49 @@
 {
-  "question": "What's the nearest fast food restaurant situated from Kartway, Eagle River, WI?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%fast_food%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.251612 45.940777)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which history museum in the area of Curtis Motel, Bridgeton, NC is closest?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.017685 35.11729)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 228053,
-      "geometry": "POINT (-88.519254 44.02063)",
-      "poi_name": "Lakefly Cafe",
-      "osm_id": 4328369871,
-      "amenity": "restaurant",
-      "cuisine": "fast_food"
+      "id": 21443,
+      "geometry": "POINT (-77.992775 35.383236)",
+      "poi_name": "Wayne County Museum",
+      "osm_id": 10266300079,
+      "tourism": "museum",
+      "website": "https://www.waynemuseum.org/",
+      "phone": "+1 919 734 5023",
+      "museum": "history",
+      "addr_state": "NC",
+      "addr_city": "Goldsboro",
+      "addr_postcode": "27530",
+      "addr_street": "North William Street",
+      "addr_housenumber": "116"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant",
-      "poi_filter_desc": "fast food restaurant",
-      "poi_filter_sql": "cuisine ILIKE '%fast_food%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Kartway, Eagle River, WI",
-      "geo_wkt": "POINT (-89.251612 45.940777)",
+      "sub_category": "hotel",
+      "display_name": "Curtis Motel, Bridgeton, NC",
+      "geo_wkt": "POINT (-77.017685 35.11729)",
       "poi": {
-        "id": 9758,
-        "geometry": "POINT (-89.251612 45.940777)",
-        "poi_name": "Kartway",
-        "osm_id": 8976002654,
-        "tourism": "theme_park",
-        "website": "http://rockingwkartway.com/kartway.html",
-        "phone": "+1-715-479-4450",
-        "addr_state": "WI",
-        "addr_city": "Eagle River",
-        "addr_postcode": "54521",
-        "addr_street": "Pleasure Island Road",
-        "addr_housenumber": "1890"
+        "id": 280,
+        "geometry": "POINT (-77.017685 35.11729)",
+        "poi_name": "Curtis Motel",
+        "osm_id": 8280832784,
+        "tourism": "hotel",
+        "phone": "+12526383011",
+        "addr_state": "NC",
+        "addr_city": "Bridgeton",
+        "addr_postcode": "28519"
       }
     }
   },
-  "id": 625,
+  "id": 1425,
   "type": "knn:non_spat_filter+name"
 }

@@ -1,41 +1,44 @@
 {
-  "question": "What's the orientation towards the closest park from Go Fish, Rosedale, MD?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.48474 39.339761)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In which direction lies the nearest nature reserve from sanitas medical center, Orlando, FL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.462119 28.517267)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.462119 28.517267)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 259326,
-      "geometry": "POINT (-76.515797 39.352052)",
-      "poi_name": "Holt Park",
-      "osm_id": 358242024,
-      "leisure": "park",
-      "angle": 297.0168010358112
+      "id": 266486,
+      "geometry": "POINT (-81.900697 28.778025)",
+      "poi_name": "Flat Island Preserve",
+      "osm_id": 5180993142,
+      "leisure": "nature_reserve",
+      "operator": "Lake County Water Authority",
+      "website": "http://www.lcwa.org/wp-content/uploads/2016/03/LandRes_FlatIsl_Brochure.pdf",
+      "angle": 304.0845193949447
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "park"
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Go Fish, Rosedale, MD",
-      "geo_wkt": "POINT (-76.48474 39.339761)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "sanitas medical center, Orlando, FL",
+      "geo_wkt": "POINT (-81.462119 28.517267)",
       "poi": {
-        "id": 1512,
-        "geometry": "POINT (-76.48474 39.339761)",
-        "poi_name": "Go Fish",
-        "osm_id": 3026471881,
-        "tourism": "aquarium",
-        "addr_state": "MD",
-        "addr_city": "Rosedale",
-        "addr_postcode": "21237",
-        "addr_street": "Philadelphia Road",
-        "addr_housenumber": "8767 G"
+        "id": 53423,
+        "geometry": "POINT (-81.462119 28.517267)",
+        "poi_name": "sanitas medical center",
+        "osm_id": 10080208967,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "addr_state": "FL",
+        "addr_city": "Orlando",
+        "addr_postcode": "32811",
+        "addr_street": "Metropolis Way",
+        "addr_housenumber": "5920"
       }
     }
   },
-  "id": 1474,
+  "id": 574,
   "type": "knn+angle"
 }

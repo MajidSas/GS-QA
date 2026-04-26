@@ -1,41 +1,37 @@
 {
-  "question": "In the vicinity of Schoolhouse Gallery, Provincetown, MA, within 160 kilometers, how many hospitals are there?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-70.177183 42.057577)',4326)::geography, 160000)\nAND amenity = 'hospital';\n",
+  "question": "How many restaurants are situated within a 170 kilometers range of Magness Arena, CO?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography, 170000)\nAND amenity = 'restaurant';\n",
   "answers": [
     {
-      "count": 29
+      "count": 3171
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Schoolhouse Gallery, Provincetown, MA",
-      "geo_wkt": "POINT (-70.177183 42.057577)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
       "poi": {
-        "id": 4045,
-        "geometry": "POINT (-70.177183 42.057577)",
-        "poi_name": "Schoolhouse Gallery",
-        "osm_id": 5650483060,
-        "tourism": "gallery",
-        "website": "http://www.galleryschoolhouse.com/",
-        "addr_state": "MA",
-        "addr_city": "Provincetown",
-        "addr_postcode": "02657",
-        "addr_street": "Commercial Street",
-        "addr_housenumber": "494"
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
+        "leisure": "stadium",
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
       }
     }
   },
-  "id": 2236,
+  "id": 1836,
   "type": "range+count"
 }

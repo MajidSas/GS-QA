@@ -1,43 +1,47 @@
 {
-  "question": "In what direction can I find the closest garden situated from Pacific University, Portland, OR?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.68312 45.527042)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.68312 45.527042)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What direction should I head in from Taylor's Aquarium, Dunn, NC to reach the closest stadium?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246461,
-      "geometry": "POINT (-122.708819 45.5189)",
-      "poi_name": "Bonsai Terrace",
-      "osm_id": 9696789127,
-      "leisure": "garden",
-      "angle": 245.7474974279057
+      "id": 246067,
+      "geometry": "POINT (-78.909681 35.008472)",
+      "poi_name": "J P Riddle Stadium",
+      "osm_id": 5529754475,
+      "leisure": "stadium",
+      "addr_state": "NC",
+      "addr_city": "Fayetteville",
+      "addr_postcode": "28306",
+      "addr_street": "Legion Road",
+      "addr_housenumber": "2823",
+      "angle": 233.9773668439457
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Pacific University, Portland, OR",
-      "geo_wkt": "POINT (-122.68312 45.527042)",
+      "main_category": "tourism",
+      "sub_category": "aquarium",
+      "display_name": "Taylor's Aquarium, Dunn, NC",
+      "geo_wkt": "POINT (-78.589533 35.200429)",
       "poi": {
-        "id": 143659,
-        "geometry": "POINT (-122.68312 45.527042)",
-        "poi_name": "Pacific University",
-        "osm_id": 6346326097,
-        "amenity": "university",
-        "description": "Master of Fine Arts in Writing",
-        "website": "https://www.pacificu.edu/",
-        "addr_state": "OR",
-        "addr_city": "Portland",
-        "addr_postcode": "97209",
-        "addr_street": "Northwest 12th Avenue",
-        "addr_housenumber": "530"
+        "id": 24624,
+        "geometry": "POINT (-78.589533 35.200429)",
+        "poi_name": "Taylor's Aquarium",
+        "osm_id": 11141985607,
+        "tourism": "aquarium",
+        "phone": "+19105675377",
+        "addr_state": "NC",
+        "addr_city": "Dunn",
+        "addr_postcode": "28334",
+        "addr_street": "North Spring Branch Road",
+        "addr_housenumber": "590"
       }
     }
   },
-  "id": 1422,
+  "id": 522,
   "type": "knn+angle"
 }

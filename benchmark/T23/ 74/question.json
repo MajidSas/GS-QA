@@ -1,40 +1,42 @@
 {
-  "question": "Within 130 kilometers from Marvin Popcorn Sutton's Homeplace, Waynesville, NC, how many nature reserves are available?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.069451 35.56574)',4326)::geography, 130000)\nAND leisure = 'nature_reserve';\n",
+  "question": "How many fast food restaurants are located inside a 60 kilometers radius of Sense Fine Art, Menlo Park, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.185358 37.450435)',4326)::geography, 60000)\nAND amenity = 'fast_food';\n",
   "answers": [
     {
-      "count": 4
+      "count": 2106
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Marvin Popcorn Sutton's Homeplace, Waynesville, NC",
-      "geo_wkt": "POINT (-83.069451 35.56574)",
+      "sub_category": "gallery",
+      "display_name": "Sense Fine Art, Menlo Park, CA",
+      "geo_wkt": "POINT (-122.185358 37.450435)",
       "poi": {
-        "id": 19318,
-        "geometry": "POINT (-83.069451 35.56574)",
-        "poi_name": "Marvin Popcorn Sutton's Homeplace",
-        "osm_id": 10723640157,
-        "tourism": "attraction",
-        "addr_state": "NC",
-        "addr_city": "Waynesville",
-        "addr_postcode": "28785",
-        "addr_street": "Hemphill Road",
-        "addr_housenumber": "3134"
+        "id": 647,
+        "geometry": "POINT (-122.185358 37.450435)",
+        "poi_name": "Sense Fine Art",
+        "osm_id": 2628201933,
+        "description": "verify open",
+        "tourism": "gallery",
+        "website": "https://www.sensefineart.com/",
+        "addr_state": "CA",
+        "addr_city": "Menlo Park",
+        "addr_postcode": "94025",
+        "addr_street": "Santa Cruz Avenue",
+        "addr_housenumber": "845"
       }
     }
   },
-  "id": 2273,
+  "id": 1873,
   "type": "range+count"
 }

@@ -1,46 +1,51 @@
 {
-  "question": "What's the nearest local museum situated from Portland Trails, Falmouth, ME?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'local'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.265885 43.717725)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which emergency hospital around Ole Haugsrud Stadium, Superior, WI is closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-92.08572 46.719546)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17430,
-      "geometry": "POINT (-70.704658 44.053556)",
-      "poi_name": "Bridgton Historical Society Museum",
-      "osm_id": 367795464,
-      "historic": "yes",
-      "tourism": "museum",
-      "website": "https://www.bridgtonhistory.org/",
-      "museum": "local",
-      "addr_state": "ME"
+      "id": 95326,
+      "geometry": "POINT (-92.77338 46.441195)",
+      "poi_name": "Mercy Hospital",
+      "osm_id": 6392025805,
+      "amenity": "hospital",
+      "website": "https://www.mercymooselake.org",
+      "phone": "+1-218-485-4481",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "MN",
+      "addr_city": "Moose Lake",
+      "addr_postcode": "55767",
+      "addr_street": "County Highway 61",
+      "addr_housenumber": "4572"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "local museum",
-      "poi_filter_sql": "museum = 'local'"
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Portland Trails, Falmouth, ME",
-      "geo_wkt": "POINT (-70.265885 43.717725)",
+      "sub_category": "stadium",
+      "display_name": "Ole Haugsrud Stadium, Superior, WI",
+      "geo_wkt": "POINT (-92.08572 46.719546)",
       "poi": {
-        "id": 266339,
-        "geometry": "POINT (-70.265885 43.717725)",
-        "poi_name": "Portland Trails",
-        "osm_id": 7188370158,
-        "leisure": "park",
-        "addr_state": "ME",
-        "addr_city": "Falmouth",
-        "addr_postcode": "04105",
-        "addr_street": "Allen Avenue Extension",
-        "addr_housenumber": "88"
+        "id": 248569,
+        "geometry": "POINT (-92.08572 46.719546)",
+        "poi_name": "Ole Haugsrud Stadium",
+        "osm_id": 4639063671,
+        "leisure": "stadium",
+        "addr_state": "WI",
+        "addr_city": "Superior",
+        "addr_postcode": "54880",
+        "addr_street": "Mertz Mortorelli Memorial Drive",
+        "addr_housenumber": "1515"
       }
     }
   },
-  "id": 673,
+  "id": 1473,
   "type": "knn:non_spat_filter+name"
 }

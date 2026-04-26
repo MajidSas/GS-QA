@@ -1,39 +1,41 @@
 {
-  "question": "Can you recommend the nearest golf course from the stadium that can hold 14500 spectators in Wichita Falls, TX?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest theme park near the stadium that was constructed in Construction in Eau Claire, WI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.520118 44.808189)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247961,
-      "geometry": "POINT (-98.443868 35.172342)",
-      "poi_name": "Ft Cobb Golf Course",
-      "osm_id": 6146337570,
-      "leisure": "golf_course",
-      "operator": "Ft Cobb State PArk"
+      "id": 23703,
+      "geometry": "POINT (-91.23864 43.861114)",
+      "poi_name": "Riverside Amusement Park",
+      "osm_id": 5281021242,
+      "tourism": "theme_park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Memorial Stadium, Wichita Falls, TX",
-      "geo_wkt": "POINT (-98.582518 33.854202)",
+      "display_name": "Carson Park Stadium, Eau Claire, WI",
+      "geo_wkt": "POINT (-91.520118 44.808189)",
       "poi": {
-        "id": 252230,
-        "geometry": "POINT (-98.582518 33.854202)",
-        "poi_name": "Memorial Stadium",
-        "osm_id": 356844791,
+        "id": 247238,
+        "geometry": "POINT (-91.520118 44.808189)",
+        "poi_name": "Carson Park Stadium",
+        "osm_id": 3843182571,
         "leisure": "stadium",
-        "wikidata": "Q6815531",
-        "addr_state": "TX",
-        "addr_city": "Wichita Falls"
+        "sport": "american_football",
+        "wikidata": "Q16028032",
+        "addr_state": "WI",
+        "addr_city": "Eau Claire",
+        "addr_postcode": "54703",
+        "addr_street": "Carson Park Drive"
       }
     }
   },
-  "id": 2757,
-  "type": "knn+name+multihop2"
+  "id": 957,
+  "type": "knn+name+multi_source2"
 }

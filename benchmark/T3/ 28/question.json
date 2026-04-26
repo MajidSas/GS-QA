@@ -1,60 +1,84 @@
 {
-  "question": "Within a radius of 120 kilometers, which museum is in the south direction from Eddy Lookout Tower, Sanderson, FL?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.34337 30.543305)',4326)::geography, 120000)\nAND tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
+  "question": "Which hospital can be found within 200 kilometers toward the east of Gem Mountain Gemstone Mine, Spruce Pine, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.050287 35.872594)',4326)::geography, 200000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 17654,
-      "geometry": "POINT (-82.34337 30.543305)",
-      "poi_name": "Micanopy Historical Society Museum",
-      "osm_id": 367827588,
-      "tourism": "museum",
-      "fee": "donation",
-      "opening_hours": "We-Su 13:00-16:00",
-      "website": "http://micanopyhistoricalsociety.com/home.htm",
-      "addr_state": "FL"
+      "id": 191433,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Old Vineyard Behavioral Health Services",
+      "osm_id": 1366901650,
+      "amenity": "hospital",
+      "website": "https://oldvineyardbhs.com/",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_state": "NC",
+      "addr_city": "Winston-Salem",
+      "addr_postcode": "27104",
+      "addr_street": "Old Vineyard Road",
+      "addr_housenumber": "3637"
     },
     {
-      "id": 15800,
-      "geometry": "POINT (-82.34337 30.543305)",
-      "poi_name": "Waldo Historical Railway Museum",
-      "osm_id": 9535453410,
-      "tourism": "museum",
-      "website": "https://waldohistoricalsociety.yolasite.com/"
+      "id": 196889,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Frye Surgery Center - Tate Campus",
+      "osm_id": 10601806527,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "addr_state": "NC",
+      "addr_city": "Hickory",
+      "addr_postcode": "28602",
+      "addr_street": "18th Street Southeast",
+      "addr_housenumber": "250"
+    },
+    {
+      "id": 181097,
+      "geometry": "POINT (-82.050287 35.872594)",
+      "poi_name": "Novant Health Rehabilitation Hospital",
+      "osm_id": 10832197982,
+      "amenity": "hospital",
+      "website": "https://www.encompasshealth.com/locations/novanthealthrehab",
+      "phone": "+1 336 754 3500",
+      "healthcare": "rehabilitation",
+      "addr_city": "Winston-Salem",
+      "addr_postcode": "27103",
+      "addr_street": "Hillcrest Center Circle",
+      "addr_housenumber": "2475"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 200000,
+      "text": "200 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Eddy Lookout Tower, Sanderson, FL",
-      "geo_wkt": "POINT (-82.34337 30.543305)",
+      "sub_category": "attraction",
+      "display_name": "Gem Mountain Gemstone Mine, Spruce Pine, NC",
+      "geo_wkt": "POINT (-82.050287 35.872594)",
       "poi": {
-        "id": 8681,
-        "geometry": "POINT (-82.34337 30.543305)",
-        "poi_name": "Eddy Lookout Tower",
-        "osm_id": 8618634369,
-        "tourism": "viewpoint",
-        "addr_state": "FL",
-        "addr_city": "Sanderson",
-        "addr_postcode": "32087",
-        "addr_street": "State Road 2",
-        "addr_housenumber": "18568"
+        "id": 524,
+        "geometry": "POINT (-82.050287 35.872594)",
+        "poi_name": "Gem Mountain Gemstone Mine",
+        "osm_id": 8421455508,
+        "tourism": "attraction",
+        "opening_hours": "Temporary Closed",
+        "addr_state": "NC",
+        "addr_city": "Spruce Pine",
+        "addr_postcode": "28777",
+        "addr_street": "NC-226",
+        "addr_housenumber": "13780"
       }
     },
     "[4]": {
-      "direction_desc": "south",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2627,
+  "id": 2327,
   "type": "range:direction+name"
 }

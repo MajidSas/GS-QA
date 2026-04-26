@@ -1,39 +1,46 @@
 {
-  "question": "How far is the nearest garden from the location Golden Gate Bridge Lookout, Sausalito, CA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-122.486003 37.82872)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the closest attraction from the location Legoland Discovery Center Chicago, Schaumburg, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.034026 42.039672)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246909,
-      "geometry": "POINT (-122.476671 37.77487)",
-      "poi_name": "Argonne School Native Garden and Outdoor Classroom",
-      "osm_id": 6592179996,
-      "leisure": "garden",
-      "distance": 6033.24540113
+      "id": 27120,
+      "geometry": "POINT (-87.912277 42.030281)",
+      "poi_name": "1000 gecs tree",
+      "osm_id": 7712302563,
+      "description": "Tree featured on the cover of the 100 gecs studio album \"1000 gecs\"",
+      "tourism": "attraction",
+      "wikidata": "Q120965597",
+      "distance": 10135.26882201
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Golden Gate Bridge Lookout, Sausalito, CA",
-      "geo_wkt": "POINT (-122.486003 37.82872)",
+      "sub_category": "theme park",
+      "display_name": "Legoland Discovery Center Chicago, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.034026 42.039672)",
       "poi": {
-        "id": 20450,
-        "geometry": "POINT (-122.486003 37.82872)",
-        "poi_name": "Golden Gate Bridge Lookout",
-        "osm_id": 1183476394,
-        "tourism": "viewpoint",
-        "addr_state": "CA",
-        "addr_city": "Sausalito",
-        "addr_street": "Conzelman Road"
+        "id": 21492,
+        "geometry": "POINT (-88.034026 42.039672)",
+        "poi_name": "Legoland Discovery Center Chicago",
+        "osm_id": 10285659853,
+        "tourism": "theme_park",
+        "operator": "Merlin Entertainments",
+        "website": "https://www.legolanddiscoverycenter.com/chicago/",
+        "wikidata": "Q20711319",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "North Martingale Road",
+        "addr_housenumber": "601"
       }
     }
   },
-  "id": 2461,
+  "id": 661,
   "type": "knn+distance"
 }

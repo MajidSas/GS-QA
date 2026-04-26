@@ -1,68 +1,169 @@
 {
-  "question": "Within a radius of 170 kilometers, which stadium is in the southeast direction from Homewood Suites, Atlanta, GA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.460938 33.87927)',4326)::geography, 170000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Which hotel are positioned southwest of Concordia University Wisconsin-Beloit Center, Beloit, WI and fall within 180 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.989469 42.524066)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.989469 42.524066)',4326)::geography, 180000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 247372,
-      "geometry": "POINT (-84.460938 33.87927)",
-      "poi_name": "Dekalb Schools Memorial Stadium",
-      "osm_id": 8984677094,
-      "leisure": "stadium"
+      "id": 18587,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Best Western Moline",
+      "osm_id": 2342914150,
+      "tourism": "hotel",
+      "internet_access": "wlan",
+      "phone": "+1-309-762-9191",
+      "addr_state": "IL",
+      "addr_city": "Moline",
+      "addr_postcode": "61265",
+      "addr_street": "52nd Avenue",
+      "addr_housenumber": "2550"
     },
     {
-      "id": 266839,
-      "geometry": "POINT (-84.460938 33.87927)",
-      "poi_name": "Hawkins Arena",
-      "osm_id": 11024041666,
-      "leisure": "stadium",
-      "operator": "Mercer University"
+      "id": 3290,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "The Current Iowa, Autograph Collection",
+      "osm_id": 5339490110,
+      "tourism": "hotel",
+      "addr_state": "IA",
+      "addr_city": "Davenport",
+      "addr_postcode": "52801",
+      "addr_street": "North Main Street",
+      "addr_housenumber": "215"
     },
     {
-      "id": 247100,
-      "geometry": "POINT (-84.460938 33.87927)",
-      "poi_name": "McConnell-Talbert Stadium",
-      "osm_id": 3529306056,
-      "leisure": "stadium"
+      "id": 8351,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Best Western",
+      "osm_id": 6642686370,
+      "tourism": "hotel"
+    },
+    {
+      "id": 12119,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Country Inn & Suites Freeport",
+      "osm_id": 6195079941,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-freeport-il",
+      "phone": "+1-815-233-3300",
+      "addr_state": "IL",
+      "addr_city": "Freeport",
+      "addr_postcode": "61032",
+      "addr_street": "South Dirck Drive",
+      "addr_housenumber": "1710"
+    },
+    {
+      "id": 21439,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Hyatt Place",
+      "osm_id": 10263039544,
+      "tourism": "hotel",
+      "website": "https://www.hyatt.com/en-US/hotel/illinois/hyatt-place-east-moline-quad-cities/mlize",
+      "internet_access": "wlan",
+      "phone": "+1-309-755-6000",
+      "addr_state": "IL",
+      "addr_city": "East Moline",
+      "addr_postcode": "61244",
+      "addr_street": "Bend Boulevard",
+      "addr_housenumber": "111"
+    },
+    {
+      "id": 25832,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Holiday Inn Express & Suites Davenport North",
+      "osm_id": 4616213394,
+      "tourism": "hotel"
+    },
+    {
+      "id": 22242,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Oak Tree Inn",
+      "osm_id": 621306733,
+      "tourism": "hotel",
+      "phone": "+1-563-243-1000",
+      "addr_state": "IA",
+      "addr_city": "Clinton",
+      "addr_postcode": "52732",
+      "addr_street": "Valley West Court",
+      "addr_housenumber": "2300"
+    },
+    {
+      "id": 22243,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Timber Motel",
+      "osm_id": 621433285,
+      "tourism": "hotel",
+      "website": "http://www.clintontimbermotel.com/"
+    },
+    {
+      "id": 22244,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Country Inn & Suites",
+      "osm_id": 621447870,
+      "tourism": "hotel",
+      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-clinton-ia",
+      "phone": "+1-563-244-9922",
+      "addr_state": "IA",
+      "addr_city": "Clinton",
+      "addr_postcode": "52732",
+      "addr_street": "Lincoln Way",
+      "addr_housenumber": "2224"
+    },
+    {
+      "id": 25833,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Holiday Inn Rock Island - Quad Cities",
+      "osm_id": 4616213437,
+      "tourism": "hotel"
+    },
+    {
+      "id": 26923,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Castle Bed & Breakfast",
+      "osm_id": 7630737729,
+      "tourism": "hotel",
+      "operator": "Sharon Mangler",
+      "website": "https://www.sabulacastle.com/",
+      "internet_access": "yes",
+      "phone": "+1-563-357-5467",
+      "addr_state": "IA",
+      "addr_city": "Sabula",
+      "addr_postcode": "52070",
+      "addr_street": "River Street",
+      "addr_housenumber": "616"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Homewood Suites, Atlanta, GA",
-      "geo_wkt": "POINT (-84.460938 33.87927)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Concordia University Wisconsin-Beloit Center, Beloit, WI",
+      "geo_wkt": "POINT (-88.989469 42.524066)",
       "poi": {
-        "id": 1442,
-        "geometry": "POINT (-84.460938 33.87927)",
-        "poi_name": "Homewood Suites",
-        "osm_id": 2986245627,
-        "tourism": "hotel",
-        "opening_hours": "24/7",
-        "operator": "Hilton",
-        "website": "https://homewoodsuites3.hilton.com/en/hotels/georgia/homewood-suites-by-hilton-atlanta-galleria-cumberland-ATLCLHW/index.html",
-        "phone": "+1 (770) 988-9449",
-        "official_name": "Homewood Suites by Hilton",
-        "addr_state": "GA",
-        "addr_city": "Atlanta",
-        "addr_postcode": "30339",
-        "addr_street": "Cobb Parkway",
-        "addr_housenumber": "3200"
+        "id": 58950,
+        "geometry": "POINT (-88.989469 42.524066)",
+        "poi_name": "Concordia University Wisconsin-Beloit Center",
+        "osm_id": 5404250879,
+        "amenity": "university",
+        "operator": "Concordia University Wisconsin",
+        "addr_state": "WI",
+        "addr_city": "Beloit",
+        "addr_postcode": "53511",
+        "addr_street": "Sutler Avenue",
+        "addr_housenumber": "2040"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2643,
+  "id": 2343,
   "type": "range:direction+name"
 }

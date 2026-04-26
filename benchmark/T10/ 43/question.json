@@ -1,69 +1,69 @@
 {
-  "question": "What is the closest museum from Kimo theater Historic Site, Albuquerque, NM towards Best Western Plus Executive Suites, Albuquerque, NM?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography, ST_GeomFromText('POINT (-106.606813 35.133309)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-106.652561 35.084818)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest zoo when heading from DoubleTree by Hilton Hotel, Bedford, MA toward Weare Historical Society, Weare, NH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, ST_GeomFromText('POINT (-71.729864 43.095131)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'zoo'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 14751,
-      "geometry": "POINT (-106.111685 35.573584)",
-      "poi_name": "El Rancho de las Golondrinas",
-      "osm_id": 4708774236,
-      "tourism": "museum",
-      "website": "https://golondrinas.org/",
-      "phone": "+1-505-471-2261",
-      "wikidata": "Q5351983",
-      "addr_state": "NM",
-      "addr_city": "Santa Fe",
-      "addr_postcode": "87507",
-      "addr_street": "Los Pinos Road",
-      "addr_housenumber": "334",
-      "value": 37.77199274454415
+      "id": 10743,
+      "geometry": "POINT (-71.575992 42.931889)",
+      "poi_name": "Joppa Hill Farm",
+      "osm_id": 8014170407,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "NH",
+      "addr_city": "Bedford",
+      "addr_postcode": "03110",
+      "value": 328.374069702725
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Kimo Theater Historic Site, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.652561 35.084818)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 16605,
-        "geometry": "POINT (-106.652561 35.084818)",
-        "poi_name": "Kimo Theater Historic Site",
-        "osm_id": 366378268,
-        "amenity": "theatre",
-        "tourism": "attraction",
-        "wikidata": "Q6403585",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_street": "Central Avenue Northwest",
-        "addr_housenumber": "423"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Best Western Plus Executive Suites, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.606813 35.133309)",
+      "sub_category": "museum",
+      "display_name": "Weare Historical Society, Weare, NH",
+      "geo_wkt": "POINT (-71.729864 43.095131)",
       "poi": {
-        "id": 24166,
-        "geometry": "POINT (-106.606813 35.133309)",
-        "poi_name": "Best Western Plus Executive Suites",
-        "osm_id": 9360810123,
-        "tourism": "hotel",
-        "internet_access": "wlan",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_postcode": "87109",
-        "addr_street": "Pan American Freeway Northeast",
-        "addr_housenumber": "4630"
+        "id": 23200,
+        "geometry": "POINT (-71.729864 43.095131)",
+        "poi_name": "Weare Historical Society",
+        "osm_id": 5069218859,
+        "description": "To collect and preserve records and artifacts relating to the town of Weare, New Hampshire; to provide assistance in protecting historical sites in town; and to encourage the study and appreciation of local history.",
+        "tourism": "museum",
+        "website": "http://www.wearehistoricalsociety.org/",
+        "addr_state": "NH",
+        "addr_city": "Weare",
+        "addr_postcode": "03281",
+        "addr_street": "North Stark Highway"
       }
     },
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "zoo"
     }
   },
-  "id": 142,
+  "id": 1642,
   "type": "knn:towards+name"
 }

@@ -1,46 +1,45 @@
 {
-  "question": "Can you recommend the nearest museum from Hopewell Park, Center Valley, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.429632 40.537218)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which viewpoint is closest to where Popcorn Park Animal Refuge, Forked River, NJ is?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.327266 39.910289)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25087,
-      "geometry": "POINT (-75.470347 40.602161)",
-      "poi_name": "The Liberty Bell Museum",
-      "osm_id": 4393570830,
-      "tourism": "museum",
-      "website": "https://libertybellmuseum.org/",
-      "wikidata": "Q6541604",
-      "addr_state": "PA",
-      "addr_city": "Allentown",
-      "addr_postcode": "18101",
-      "addr_street": "Hamilton Street",
-      "addr_housenumber": "622"
+      "id": 12671,
+      "geometry": "POINT (-74.225193 39.894003)",
+      "poi_name": "Scenic Overlook / Bridge Crossing",
+      "osm_id": 7435963030,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Hopewell Park, Center Valley, PA",
-      "geo_wkt": "POINT (-75.429632 40.537218)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Popcorn Park Animal Refuge, Forked River, NJ",
+      "geo_wkt": "POINT (-74.327266 39.910289)",
       "poi": {
-        "id": 246443,
-        "geometry": "POINT (-75.429632 40.537218)",
-        "poi_name": "Hopewell Park",
-        "osm_id": 9672700702,
-        "leisure": "park",
-        "addr_state": "PA",
-        "addr_city": "Center Valley",
-        "addr_street": "West Hopewell Road",
-        "addr_housenumber": "4695"
+        "id": 20004,
+        "geometry": "POINT (-74.327266 39.910289)",
+        "poi_name": "Popcorn Park Animal Refuge",
+        "osm_id": 7810633955,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Su 11:00-17:00",
+        "operator": "Associated Humane Societies",
+        "website": "https://ahscares.org/popcorn-park/",
+        "phone": "(609) 693-1900",
+        "addr_state": "NJ",
+        "addr_city": "Forked River",
+        "addr_postcode": "08731",
+        "addr_street": "Humane Way",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 286,
+  "id": 1086,
   "type": "knn+name"
 }

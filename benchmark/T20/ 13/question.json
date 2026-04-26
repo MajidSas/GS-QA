@@ -1,67 +1,68 @@
 {
-  "question": "Where's the closest restaurant on the route to Old Woman Creek Nature Center, Huron, OH from North Olmsted Recreation Center, North Olmsted, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, ST_GeomFromText('POINT (-82.50891 41.377571)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.910184 41.423463)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel you\u2019d find going toward Carl E. Johnson Lovers Key State Park, Fort Myers Beach, FL starting at South Venice Lemon Bay Preserve - South Entrance, Venice, FL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.41031 27.022499)',4326)::geography, ST_GeomFromText('POINT (-81.877303 26.39688)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.41031 27.022499)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-82.41031 27.022499)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 76180,
-      "geometry": "POINT (-82.004561 41.394928)",
-      "poi_name": "City Diner",
-      "osm_id": 9764326678,
-      "amenity": "restaurant",
-      "addr_state": "OH",
-      "addr_city": "North Ridgeville",
-      "addr_postcode": "44039",
-      "addr_street": "Center Ridge Road",
-      "addr_housenumber": "34900",
-      "value": 264.3854054848159
+      "id": 6687,
+      "geometry": "POINT (-82.193853 26.538069)",
+      "poi_name": "South Seas Island Resort",
+      "osm_id": 1923296920,
+      "tourism": "hotel",
+      "website": "https://www.southseas.com/",
+      "addr_state": "FL",
+      "addr_city": "Captiva",
+      "addr_postcode": "33924",
+      "addr_street": "South Seas Plantation Rd",
+      "addr_housenumber": "5400",
+      "value": 142.458414468663
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "North Olmsted Recreation Center, North Olmsted, OH",
-      "geo_wkt": "POINT (-81.910184 41.423463)",
+      "sub_category": "nature reserve",
+      "display_name": "South Venice Lemon Bay Preserve - South Entrance, Venice, FL",
+      "geo_wkt": "POINT (-82.41031 27.022499)",
       "poi": {
-        "id": 247332,
-        "geometry": "POINT (-81.910184 41.423463)",
-        "poi_name": "North Olmsted Recreation Center",
-        "osm_id": 8944513246,
-        "leisure": "stadium",
-        "operator": "City of North Olmsted",
-        "addr_state": "OH",
-        "addr_city": "North Olmsted",
-        "addr_postcode": "44070",
-        "addr_street": "Lorain Road",
-        "addr_housenumber": "26000"
+        "id": 247840,
+        "geometry": "POINT (-82.41031 27.022499)",
+        "poi_name": "South Venice Lemon Bay Preserve - South Entrance",
+        "osm_id": 11461500012,
+        "leisure": "nature_reserve",
+        "opening_hours": "06:00-sunset",
+        "operator": "Sarasota County",
+        "website": "https://www.sarasotacountyparks.com/Home/Components/FacilityDirectory/FacilityDirectory/499/6484",
+        "addr_state": "FL",
+        "addr_city": "Venice",
+        "addr_postcode": "34293",
+        "addr_street": "Osprey Road",
+        "addr_housenumber": "6200"
       }
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Old Woman Creek Nature Center, Huron, OH",
-      "geo_wkt": "POINT (-82.50891 41.377571)",
+      "sub_category": "park",
+      "display_name": "Carl E. Johnson Lovers Key State Park, Fort Myers Beach, FL",
+      "geo_wkt": "POINT (-81.877303 26.39688)",
       "poi": {
-        "id": 246823,
-        "geometry": "POINT (-82.50891 41.377571)",
-        "poi_name": "Old Woman Creek Nature Center",
-        "osm_id": 6476932244,
-        "leisure": "nature_reserve",
-        "information": "nature_center",
-        "operator": "Ohio Department of Natural Resources",
-        "addr_state": "OH",
-        "addr_city": "Huron",
-        "addr_postcode": "44839",
-        "addr_street": "Cleveland Road East",
-        "addr_housenumber": "2514"
+        "id": 261759,
+        "geometry": "POINT (-81.877303 26.39688)",
+        "poi_name": "Carl E. Johnson Lovers Key State Park",
+        "osm_id": 358737983,
+        "leisure": "park",
+        "addr_state": "FL",
+        "addr_city": "Fort Myers Beach",
+        "addr_postcode": "33931",
+        "addr_street": "Estero Blvd",
+        "addr_housenumber": "8700"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1312,
+  "id": 1512,
   "type": "knn:towards+loc"
 }

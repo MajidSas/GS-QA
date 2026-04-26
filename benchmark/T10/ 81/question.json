@@ -1,65 +1,66 @@
 {
-  "question": "What is the nearest restaurant as you head towards Track 16 Gallery 1, Los Angeles, CA from the Last House on Mulholland, Los Angeles, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, ST_GeomFromText('POINT (-118.256279 34.035411)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant you\u2019d reach going toward Ink 48 Hotel, New York, NY from Nohra Haime Gallery, New York, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography, ST_GeomFromText('POINT (-73.995886 40.764515)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.005499 40.746428)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 74780,
-      "geometry": "POINT (-118.315153 34.102334)",
-      "poi_name": "Natalie Peruvian Seafood",
-      "osm_id": 9695452717,
+      "id": 99171,
+      "geometry": "POINT (-74.005028 40.746893)",
+      "poi_name": "Pepe Giallo",
+      "osm_id": 6543504647,
       "amenity": "restaurant",
-      "cuisine": "seafood",
-      "website": "http://ordernatalieperuvianseafoodrestauranthollywood.com/",
-      "phone": "323-463-8340",
-      "addr_state": "CA",
-      "addr_city": "Hollywood,Los Angeles",
-      "addr_postcode": "90028",
-      "addr_street": "Hollywood Boulevard",
-      "addr_housenumber": "5759",
-      "value": 150.8546103232953
+      "cuisine": "italian",
+      "opening_hours": "Mo-Fr 11:30-22:30; Sa 12:00-22:30; Su 14:00-22:30",
+      "website": "https://pepegiallo.com/",
+      "phone": "+1-212-242-6055",
+      "takeaway": "yes",
+      "outdoor_seating": "sidewalk; backyard",
+      "toilets": "yes",
+      "addr_street": "10th Avenue",
+      "addr_housenumber": "195",
+      "value": 22.003427704344627
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The Last House on Mulholland, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "sub_category": "gallery",
+      "display_name": "Nohra Haime Gallery, New York, NY",
+      "geo_wkt": "POINT (-74.005499 40.746428)",
       "poi": {
-        "id": 3061,
-        "geometry": "POINT (-118.320457 34.131243)",
-        "poi_name": "The Last House on Mulholland",
-        "osm_id": 10152480147,
-        "description": "Hollywood Sign Viewpoint",
-        "tourism": "viewpoint",
-        "parking": "no",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mulholland Highway",
-        "addr_housenumber": "6101"
+        "id": 2885,
+        "geometry": "POINT (-74.005499 40.746428)",
+        "poi_name": "Nohra Haime Gallery",
+        "osm_id": 10064063749,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Sa 10:00-18:00",
+        "website": "https://nohrahaimegallery.com",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10011",
+        "addr_street": "West 21st Street",
+        "addr_housenumber": "500A"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Track 16 Gallery 1, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.256279 34.035411)",
+      "sub_category": "hotel",
+      "display_name": "Ink 48 Hotel, New York, NY",
+      "geo_wkt": "POINT (-73.995886 40.764515)",
       "poi": {
-        "id": 12121,
-        "geometry": "POINT (-118.256279 34.035411)",
-        "poi_name": "Track 16 Gallery 1",
-        "osm_id": 6197156485,
-        "tourism": "gallery",
-        "opening_hours": "We-Sa 12:00-18:00",
-        "website": "https://www.track16.com/",
-        "phone": "1-310-815-8080",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90015",
-        "addr_street": "Maple Avenue",
-        "addr_housenumber": "1206"
+        "id": 6578,
+        "geometry": "POINT (-73.995886 40.764515)",
+        "poi_name": "Ink 48 Hotel",
+        "osm_id": 1873813874,
+        "tourism": "hotel",
+        "website": "https://www.ink48.com/",
+        "internet_access": "wlan",
+        "phone": "+1 212 757 0088",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10036",
+        "addr_street": "11th Avenue",
+        "addr_housenumber": "653"
       }
     },
     "[1]": {
@@ -67,6 +68,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 180,
+  "id": 1680,
   "type": "knn:towards+name"
 }

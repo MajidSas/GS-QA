@@ -1,63 +1,72 @@
 {
-  "question": "What's the nearest restaurant heading towards James C. Curry Nature Center, Canyon Lake, TX from Baptist Neighborhood Hospital Kelly, San Antonio, TX?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography, ST_GeomFromText('POINT (-98.194766 29.848573)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.547766 29.402768)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest museum you\u2019d reach going toward Chicago-Kent College of Law, Chicago, IL from Hickory Grove Riverfront, Cary, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, ST_GeomFromText('POINT (-87.642099 41.878862)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 129970,
-      "geometry": "POINT (-98.5247 29.449178)",
-      "poi_name": "Charrito's Cafe",
-      "osm_id": 9848502059,
-      "amenity": "restaurant",
-      "cuisine": "mexican",
-      "value": 34.58911071541372
+      "id": 13010,
+      "geometry": "POINT (-87.863996 41.992185)",
+      "poi_name": "Museum of Hummels",
+      "osm_id": 4012150293,
+      "tourism": "museum",
+      "website": "https://rosemont.com/museum-of-hummels/",
+      "museum": "art",
+      "addr_state": "IL",
+      "addr_city": "Rosemont",
+      "addr_postcode": "60018",
+      "addr_street": "West Higgins Road",
+      "addr_housenumber": "9513",
+      "value": 129.96093224575884
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Baptist Neighborhood Hospital Kelly, San Antonio, TX",
-      "geo_wkt": "POINT (-98.547766 29.402768)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
       "poi": {
-        "id": 183208,
-        "geometry": "POINT (-98.547766 29.402768)",
-        "poi_name": "Baptist Neighborhood Hospital Kelly",
-        "osm_id": 10917049935,
-        "amenity": "hospital",
-        "website": "https://www.baptisthealthsystem.com/locations/detail/baptist-emergency-hospital---kelly",
-        "healthcare": "hospital",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78237",
-        "addr_street": "Cupples Road",
-        "addr_housenumber": "806"
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "James C. Curry Nature Center, Canyon Lake, TX",
-      "geo_wkt": "POINT (-98.194766 29.848573)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Chicago-Kent College of Law, Chicago, IL",
+      "geo_wkt": "POINT (-87.642099 41.878862)",
       "poi": {
-        "id": 246012,
-        "geometry": "POINT (-98.194766 29.848573)",
-        "poi_name": "James C. Curry Nature Center",
-        "osm_id": 5449527323,
-        "leisure": "nature_reserve",
-        "operator": "Comal County",
-        "addr_state": "TX",
-        "addr_city": "Canyon Lake",
-        "addr_postcode": "78133",
-        "addr_street": "Skyline Drive",
-        "addr_housenumber": "1889"
+        "id": 167314,
+        "geometry": "POINT (-87.642099 41.878862)",
+        "poi_name": "Chicago-Kent College of Law",
+        "osm_id": 354233512,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://kentlaw.iit.edu/",
+        "internet_access": "wlan",
+        "wikidata": "Q4551377",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 184,
+  "id": 1684,
   "type": "knn:towards+name"
 }

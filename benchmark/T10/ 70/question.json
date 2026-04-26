@@ -1,67 +1,66 @@
 {
-  "question": "Which fast food is closest towards Hampton Inn Ashtabula, Austinburg, OH from Latvian Cultural Garden, Cleveland, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, ST_GeomFromText('POINT (-80.8576 41.783775)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.626843 41.526119)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum lies closest ahead of Bastion Studios, Erie, PA toward Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography, ST_GeomFromText('POINT (-79.348409 41.636215)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.078195 42.115808)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 89103,
-      "geometry": "POINT (-81.582194 41.530741)",
-      "poi_name": "Rally's",
-      "osm_id": 8825635932,
-      "amenity": "fast_food",
-      "cuisine": "burger",
-      "takeaway": "yes",
-      "addr_state": "OH",
-      "addr_city": "East Cleveland",
-      "addr_postcode": "44112",
-      "addr_street": "Euclid Avenue",
-      "addr_housenumber": "14421",
-      "value": 65.67852805259811
+      "id": 11392,
+      "geometry": "POINT (-79.64506 41.931905)",
+      "poi_name": "Corry Area Historical Society",
+      "osm_id": 9957488818,
+      "tourism": "museum",
+      "operator": "City of Corry",
+      "website": "https://www.corryareahistoricalsociety.org/",
+      "addr_state": "PA",
+      "addr_city": "Corry",
+      "addr_postcode": "16407",
+      "addr_street": "Mead Avenue",
+      "addr_housenumber": "945",
+      "value": 131.08129943180666
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Latvian Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.626843 41.526119)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Bastion Studios, Erie, PA",
+      "geo_wkt": "POINT (-80.078195 42.115808)",
       "poi": {
-        "id": 247015,
-        "geometry": "POINT (-81.626843 41.526119)",
-        "poi_name": "Latvian Cultural Garden",
-        "osm_id": 8567373868,
-        "leisure": "garden",
-        "fee": "no",
-        "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1030"
+        "id": 389,
+        "geometry": "POINT (-80.078195 42.115808)",
+        "poi_name": "Bastion Studios",
+        "osm_id": 8349970743,
+        "tourism": "gallery",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16502",
+        "addr_street": "Peach Street",
+        "addr_housenumber": "2016"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hampton Inn Ashtabula, Austinburg, OH",
-      "geo_wkt": "POINT (-80.8576 41.783775)",
+      "sub_category": "viewpoint",
+      "display_name": "Jakes Rock Overlook and Mountain Bike Trail, Tidioute, PA",
+      "geo_wkt": "POINT (-79.348409 41.636215)",
       "poi": {
-        "id": 21630,
-        "geometry": "POINT (-80.8576 41.783775)",
-        "poi_name": "Hampton Inn Ashtabula",
-        "osm_id": 10584118043,
-        "tourism": "hotel",
-        "official_name": "Hampton by Hilton",
-        "addr_state": "OH",
-        "addr_city": "Austinburg",
-        "addr_postcode": "44010",
-        "addr_street": "G.H. Drive",
-        "addr_housenumber": "2900"
+        "id": 19939,
+        "geometry": "POINT (-79.348409 41.636215)",
+        "poi_name": "Jakes Rock Overlook and Mountain Bike Trail",
+        "osm_id": 7771460457,
+        "tourism": "viewpoint",
+        "addr_state": "PA",
+        "addr_city": "Tidioute",
+        "addr_postcode": "16351",
+        "addr_street": "Old Forest Road",
+        "addr_housenumber": "492"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "museum"
     }
   },
-  "id": 169,
+  "id": 1669,
   "type": "knn:towards+name"
 }

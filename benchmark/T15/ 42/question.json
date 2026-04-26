@@ -1,57 +1,156 @@
 {
-  "question": "Where can I find a golf course towards the southeast of Cal, Sr.'s Yard, Aberdeen, MD within 180 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography, 180000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Where are a park located within a 140 kilometers radius to the west of Anvil Arts Studio, Newland, NC?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.957927 35.968786)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.957927 35.968786)',4326)::geography, 140000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 246143,
-      "geometry": "POINT (-76.186327 39.533089)",
-      "poi_name": "Jonathans Landing Golf Club",
-      "osm_id": 5612442466,
-      "leisure": "golf_course",
-      "opening_hours": "11:00-19:00",
-      "takeaway": "yes",
-      "addr_state": "DE",
-      "addr_city": "Magnolia",
-      "addr_postcode": "19962",
-      "addr_street": "Ponderosa Drive",
-      "addr_housenumber": "1309"
+      "id": 246349,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Kiwanis Park",
+      "osm_id": 11346699036,
+      "leisure": "park"
+    },
+    {
+      "id": 252193,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Andrew Johnson National Historic Site",
+      "osm_id": 356842527,
+      "leisure": "park",
+      "wikidata": "Q4757521"
+    },
+    {
+      "id": 252923,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Great Indian War Trail Monument",
+      "osm_id": 356860798,
+      "leisure": "park"
+    },
+    {
+      "id": 252924,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Henderson Island Wildlife Refuge",
+      "osm_id": 356860816,
+      "leisure": "park"
+    },
+    {
+      "id": 252936,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Lon Price Park",
+      "osm_id": 356866098,
+      "leisure": "park",
+      "wikidata": "Q49518785"
+    },
+    {
+      "id": 253102,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Tusculum University Historical District",
+      "osm_id": 356882737,
+      "leisure": "park",
+      "wikidata": "Q49572621",
+      "addr_state": "TN",
+      "addr_city": "Greeneville",
+      "addr_postcode": "37743",
+      "addr_street": "Shiloh Road",
+      "addr_housenumber": "60"
+    },
+    {
+      "id": 253144,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Paint Creek Recreation Area",
+      "osm_id": 356887396,
+      "leisure": "park",
+      "wikidata": "Q49537022"
+    },
+    {
+      "id": 253145,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Andrew Johnson Wildlife Management Area",
+      "osm_id": 356887397,
+      "leisure": "park",
+      "wikidata": "Q34813586"
+    },
+    {
+      "id": 253185,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Saint Clair Park",
+      "osm_id": 356894991,
+      "leisure": "park",
+      "wikidata": "Q49555608"
+    },
+    {
+      "id": 253186,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Rattlesnake Branch Recreation Area",
+      "osm_id": 356895008,
+      "leisure": "park",
+      "wikidata": "Q49548258"
+    },
+    {
+      "id": 253187,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Old Forge Recreation Area",
+      "osm_id": 356895011,
+      "leisure": "park",
+      "wikidata": "Q49534986"
+    },
+    {
+      "id": 253204,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Houston Valley Recreation Area",
+      "osm_id": 356895466,
+      "leisure": "park",
+      "wikidata": "Q49503452"
+    },
+    {
+      "id": 258067,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Harmon Den Wildlife Management Area",
+      "osm_id": 357801999,
+      "leisure": "park",
+      "wikidata": "Q49498039"
+    },
+    {
+      "id": 258093,
+      "geometry": "POINT (-81.957927 35.968786)",
+      "poi_name": "Rich-Laurel Wildlife Area",
+      "osm_id": 357809719,
+      "leisure": "park",
+      "wikidata": "Q49549772"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Anvil Arts Studio, Newland, NC",
+      "geo_wkt": "POINT (-81.957927 35.968786)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 537,
+        "geometry": "POINT (-81.957927 35.968786)",
+        "poi_name": "Anvil Arts Studio",
+        "osm_id": 8432590370,
+        "tourism": "gallery",
+        "phone": "+18287656226",
+        "addr_state": "NC",
+        "addr_city": "Newland",
+        "addr_postcode": "28657",
+        "addr_street": "Linville Falls Highway",
+        "addr_housenumber": "9600"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 41,
+  "id": 2241,
   "type": "range:direction+loc"
 }

@@ -1,44 +1,51 @@
 {
-  "question": "Seeking the nearest restaurant from the museum established in the year 1974 in New York, NY, any recommendations?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.983725 40.755739)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which hospital near the museum that was built in 1943 in Oak Ridge, TN stands out as closest?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 204670,
-      "geometry": "POINT (-73.98501 40.755877)",
-      "poi_name": "Burger & Lobster",
-      "osm_id": 7139389687,
-      "amenity": "restaurant",
-      "cuisine": "burger;seafood",
-      "opening_hours": "Mo 11:30-22:00; Tu-Th, Su 11:30-23:00; Fr, Sa 11:30-24:00"
+      "id": 167410,
+      "geometry": "POINT (-84.243149 36.02587)",
+      "poi_name": "Ridgeview Behavioral Health Services",
+      "osm_id": 356847116,
+      "amenity": "hospital",
+      "website": "https://www.ridgeview.com/",
+      "phone": "+1 865 482 1076",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Oak Ridge",
+      "addr_postcode": "37830",
+      "addr_street": "West Tyrone Road",
+      "addr_housenumber": "240"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "museum",
-      "display_name": "International Center of Photography, New York, NY",
-      "geo_wkt": "POINT (-73.983725 40.755739)",
+      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
+      "geo_wkt": "POINT (-84.272003 36.02315)",
       "poi": {
-        "id": 2728,
-        "geometry": "POINT (-73.983725 40.755739)",
-        "poi_name": "International Center of Photography",
-        "osm_id": 566445454,
+        "id": 683,
+        "geometry": "POINT (-84.272003 36.02315)",
+        "poi_name": "Oak Ridge Children's Museum",
+        "osm_id": 2635855829,
         "tourism": "museum",
-        "website": "https://www.icp.org/",
-        "wikidata": "Q636942",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10036",
-        "addr_street": "6th Avenue",
-        "addr_housenumber": "1133"
+        "website": "https://childrensmuseumofoakridge.org/",
+        "phone": "+1 (865) 482-1074",
+        "wikidata": "Q5098179",
+        "addr_state": "TN",
+        "addr_city": "Oak Ridge",
+        "addr_postcode": "37830",
+        "addr_street": "West Outer Drive",
+        "addr_housenumber": "461"
       }
     }
   },
-  "id": 2744,
-  "type": "knn+name+multihop2"
+  "id": 944,
+  "type": "knn+name+multi_source2"
 }

@@ -1,65 +1,69 @@
 {
-  "question": "Within a radius of 120 kilometers, where can I find a nature reserve towards the northeast of South 6th St. Community Garden, Philadelphia, PA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography, 120000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5;\n",
+  "question": "Where can I find a hospital that fall inside a 90 kilometers boundary to the southwest of Hasley Canyon Equestrian Center, Valencia, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography, 90000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 267301,
-      "geometry": "POINT (-75.153583 39.935532)",
-      "poi_name": "Stransky Nature Trails",
-      "osm_id": 5810940582,
-      "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "173"
+      "id": 181849,
+      "geometry": "POINT (-118.636206 34.452191)",
+      "poi_name": "Los Robles - Thousand Oaks Surgical Hospital",
+      "osm_id": 10866469819,
+      "amenity": "hospital",
+      "website": "https://losrobleshospital.com/specialties/surgery",
+      "phone": "+1 805 777 7750",
+      "healthcare": "hospital",
+      "addr_city": "Thousand Oaks",
+      "addr_postcode": "91361-1050",
+      "addr_street": "Rolling Oaks Drive",
+      "addr_housenumber": "401"
     },
     {
-      "id": 267302,
-      "geometry": "POINT (-75.153583 39.935532)",
-      "poi_name": "Dealaman Nature Trail and Pond",
-      "osm_id": 5811042630,
-      "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "182"
+      "id": 181867,
+      "geometry": "POINT (-118.636206 34.452191)",
+      "poi_name": "Los Robles Hospital And Medical Center - East Campus",
+      "osm_id": 10866505921,
+      "amenity": "hospital",
+      "website": "https://losrobleshospital.com",
+      "phone": "+1 805 370 4421",
+      "healthcare": "hospital",
+      "addr_city": "Westlake Village",
+      "addr_postcode": "91362-3816",
+      "addr_street": "Via Merida",
+      "addr_housenumber": "150"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 120000,
-      "text": "120 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "South 6th St. Community Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.153583 39.935532)",
+      "sub_category": "park",
+      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
+      "geo_wkt": "POINT (-118.636206 34.452191)",
       "poi": {
-        "id": 247114,
-        "geometry": "POINT (-75.153583 39.935532)",
-        "poi_name": "South 6th St. Community Garden",
-        "osm_id": 3559321959,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_postcode": "19147",
-        "addr_street": "S 6TH ST",
-        "addr_housenumber": "1035"
+        "id": 246005,
+        "geometry": "POINT (-118.636206 34.452191)",
+        "poi_name": "Hasley Canyon Equestrian Center",
+        "osm_id": 5431737185,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Valencia",
+        "addr_postcode": "91355",
+        "addr_street": "Avenue Penn",
+        "addr_housenumber": "29161"
       }
     },
     "[4]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 47,
+  "id": 2247,
   "type": "range:direction+loc"
 }

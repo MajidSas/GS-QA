@@ -1,52 +1,51 @@
 {
-  "question": "Where can I find the nearest hospital relative to Qubed, San Antonio, TX?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.401168 29.484507)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the closest fast food restaurant near Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 62285,
-      "geometry": "POINT (-98.473444 29.587966)",
-      "poi_name": "Baptist Emergency Hospital",
-      "osm_id": 5561067570,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "website": "http://www.baptistemergencyhospital.com/thousand-oaks/",
-      "phone": "+1-210-402-4092",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_city": "San Antonio",
-      "addr_postcode": "78232",
-      "addr_street": "North US Highway 281",
-      "addr_housenumber": "16088"
+      "id": 61062,
+      "geometry": "POINT (-80.086994 26.673144)",
+      "poi_name": "Subway",
+      "osm_id": 5497061999,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://www.subway.com",
+      "takeaway": "yes",
+      "addr_state": "FL",
+      "addr_city": "West Palm Beach",
+      "addr_postcode": "33406",
+      "addr_street": "South Congress Avenue",
+      "addr_housenumber": "242"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Qubed, San Antonio, TX",
-      "geo_wkt": "POINT (-98.401168 29.484507)",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 24304,
-        "geometry": "POINT (-98.401168 29.484507)",
-        "poi_name": "Qubed",
-        "osm_id": 10997144465,
-        "tourism": "hotel",
-        "opening_hours": "24/7",
-        "website": "https://qubedliving.com/",
-        "phone": "+1-210-653-6325",
-        "addr_state": "TX",
-        "addr_city": "San Antonio",
-        "addr_postcode": "78218",
-        "addr_street": "Rittiman Road",
-        "addr_housenumber": "4321"
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     }
   },
-  "id": 1819,
+  "id": 719,
   "type": "knn+loc"
 }

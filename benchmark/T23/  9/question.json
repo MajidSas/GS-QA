@@ -1,42 +1,43 @@
 {
-  "question": "What's the total count of aquaria within 180 kilometers from Raynay Alpaca Farm, Ruffin, NC?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.503121 36.362766)',4326)::geography, 180000)\nAND tourism = 'aquarium';\n",
+  "question": "How many nature reserves lie within 190 kilometers distance of Sarasota Art Museum, Sarasota, FL?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography, 190000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "count": 4
+      "count": 9
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Raynay Alpaca Farm, Ruffin, NC",
-      "geo_wkt": "POINT (-79.503121 36.362766)",
+      "sub_category": "museum",
+      "display_name": "Sarasota Art Museum, Sarasota, FL",
+      "geo_wkt": "POINT (-82.529024 27.325641)",
       "poi": {
-        "id": 5116,
-        "geometry": "POINT (-79.503121 36.362766)",
-        "poi_name": "Raynay Alpaca Farm",
-        "osm_id": 9761648623,
-        "tourism": "zoo",
-        "phone": "+13369393645",
-        "zoo": "petting_zoo",
-        "addr_state": "NC",
-        "addr_city": "Ruffin",
-        "addr_postcode": "27326",
-        "addr_street": "Ashland Road",
-        "addr_housenumber": "1897"
+        "id": 235,
+        "geometry": "POINT (-82.529024 27.325641)",
+        "poi_name": "Sarasota Art Museum",
+        "osm_id": 8248296789,
+        "tourism": "museum",
+        "operator": "Ringling College of Art + Design",
+        "phone": "+1 (941) 309-4300",
+        "museum": "art",
+        "addr_state": "FL",
+        "addr_city": "Sarasota",
+        "addr_postcode": "34236",
+        "addr_street": "South Tamiami Trail",
+        "addr_housenumber": "1001"
       }
     }
   },
-  "id": 2208,
+  "id": 1808,
   "type": "range+count"
 }

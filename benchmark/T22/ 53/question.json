@@ -1,43 +1,45 @@
 {
-  "question": "What's the heading to the closest park from Ulrich Wildlife Preserve, Morton, IL?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the directional bearing to the nearest museum from Chopper's Lawn Equipment, Kissimmee, FL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.327543 28.262181)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246473,
-      "geometry": "POINT (-89.57462 40.698196)",
-      "poi_name": "Sinclair Grove",
-      "osm_id": 9728483675,
-      "leisure": "park",
-      "angle": 306.9037975840777
+      "id": 17657,
+      "geometry": "POINT (-81.44149 28.304853)",
+      "poi_name": "Veterans Tribute and Museum of Osceola",
+      "osm_id": 367827594,
+      "tourism": "museum",
+      "addr_state": "FL",
+      "angle": 292.9577382245193
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
-      "geo_wkt": "POINT (-89.490228 40.649994)",
+      "sub_category": "garden",
+      "display_name": "Chopper's Lawn Equipment, Kissimmee, FL",
+      "geo_wkt": "POINT (-81.327543 28.262181)",
       "poi": {
-        "id": 246437,
-        "geometry": "POINT (-89.490228 40.649994)",
-        "poi_name": "Ulrich Wildlife Preserve",
-        "osm_id": 9654359178,
-        "leisure": "nature_reserve",
-        "opening_hours": "dawn-dusk",
-        "operator": "Morton Park District",
-        "addr_state": "IL",
-        "addr_city": "Morton",
-        "addr_postcode": "61550",
-        "addr_street": "Turtle Creek Trail",
-        "addr_housenumber": "100"
+        "id": 246454,
+        "geometry": "POINT (-81.327543 28.262181)",
+        "poi_name": "Chopper's Lawn Equipment",
+        "osm_id": 9684453306,
+        "leisure": "garden",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "website": "https://chopperslawnequipment.com",
+        "phone": "+1-407-891-8990",
+        "addr_state": "FL",
+        "addr_city": "Kissimmee",
+        "addr_postcode": "34744",
+        "addr_street": "Big Sky Boulevard",
+        "addr_housenumber": "2899"
       }
     }
   },
-  "id": 1452,
+  "id": 552,
   "type": "knn+angle"
 }

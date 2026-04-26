@@ -1,53 +1,52 @@
 {
-  "question": "Where can I find a hotel positioned within 190 kilometers towards the southwest of Daubenspeck Nature Reserve, Indianapolis, IN?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.185252 39.917104)',4326)::geography, 190000)\nAND tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Where can I find a gallery within 70 kilometers, oriented toward the north of Hairpin Turn, Clarksburg, MA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.062971 42.709369)',4326)::geography, 70000)\nAND tourism = 'gallery'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 13226,
-      "geometry": "POINT (-86.185252 39.917104)",
-      "poi_name": "Best Western Airport Suites",
-      "osm_id": 4079672858,
-      "tourism": "hotel",
-      "addr_state": "IN",
-      "addr_city": "Indianapolis",
-      "addr_postcode": "46241",
-      "addr_street": "South High School Road",
-      "addr_housenumber": "55"
+      "id": 25348,
+      "geometry": "POINT (-73.062971 42.709369)",
+      "poi_name": "John Zaccheo Fine Art Gallery",
+      "osm_id": 4458827900,
+      "tourism": "gallery",
+      "website": "http://johnzaccheofineart.com",
+      "phone": "+1-802-366-1066",
+      "addr_state": "VT",
+      "addr_city": "Manchester Center",
+      "addr_postcode": "05255",
+      "addr_street": "Main Street",
+      "addr_housenumber": "4716"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Daubenspeck Nature Reserve, Indianapolis, IN",
-      "geo_wkt": "POINT (-86.185252 39.917104)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Hairpin Turn, Clarksburg, MA",
+      "geo_wkt": "POINT (-73.062971 42.709369)",
       "poi": {
-        "id": 245905,
-        "geometry": "POINT (-86.185252 39.917104)",
-        "poi_name": "Daubenspeck Nature Reserve",
-        "osm_id": 10258441478,
-        "leisure": "nature_reserve",
-        "addr_state": "IN",
-        "addr_city": "Indianapolis",
-        "addr_postcode": "46260",
-        "addr_street": "Ditch Road",
-        "addr_housenumber": "8900"
+        "id": 7303,
+        "geometry": "POINT (-73.062971 42.709369)",
+        "poi_name": "Hairpin Turn",
+        "osm_id": 2072400239,
+        "tourism": "viewpoint",
+        "addr_state": "MA",
+        "addr_city": "Clarksburg"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 76,
+  "id": 2276,
   "type": "range:direction+loc"
 }

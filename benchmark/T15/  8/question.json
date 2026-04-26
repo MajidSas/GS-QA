@@ -1,30 +1,19 @@
 {
-  "question": "Where can I find a nature reserve located within 150 kilometers in the direction of southeast from Pocono Go-Karts and Play Park, East Stroudsburg, PA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.108007 41.052123)',4326)::geography, 150000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Where are a nature reserve located within a 160 kilometers range toward the southwest of Barons Bus Arena, Parma, OH?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, 160000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 267301,
-      "geometry": "POINT (-75.108007 41.052123)",
-      "poi_name": "Stransky Nature Trails",
-      "osm_id": 5810940582,
+      "id": 248135,
+      "geometry": "POINT (-81.758046 41.416012)",
+      "poi_name": "Wellington Reservation",
+      "osm_id": 7256911177,
       "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "173"
-    },
-    {
-      "id": 267302,
-      "geometry": "POINT (-75.108007 41.052123)",
-      "poi_name": "Dealaman Nature Trail and Pond",
-      "osm_id": 5811042630,
-      "leisure": "nature_reserve",
-      "addr_state": "NJ",
-      "addr_city": "Warren Township",
-      "addr_postcode": "07059",
-      "addr_street": "Mount Horeb Road",
-      "addr_housenumber": "182"
+      "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+      "addr_state": "OH",
+      "addr_city": "Wellington",
+      "addr_postcode": "44090",
+      "addr_street": "Jones Road",
+      "addr_housenumber": "535"
     }
   ],
   "answer_type": "loc",
@@ -34,33 +23,32 @@
       "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Pocono Go-Karts and Play Park, East Stroudsburg, PA",
-      "geo_wkt": "POINT (-75.108007 41.052123)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Barons Bus Arena, Parma, OH",
+      "geo_wkt": "POINT (-81.758046 41.416012)",
       "poi": {
-        "id": 26207,
-        "geometry": "POINT (-75.108007 41.052123)",
-        "poi_name": "Pocono Go-Karts and Play Park",
-        "osm_id": 5809688278,
-        "tourism": "theme_park",
-        "website": "http://poconogokarts.com/",
-        "addr_state": "PA",
-        "addr_city": "East Stroudsburg",
-        "addr_postcode": "18302",
-        "addr_street": "Milford Road",
-        "addr_housenumber": "5021"
+        "id": 247265,
+        "geometry": "POINT (-81.758046 41.416012)",
+        "poi_name": "Barons Bus Arena",
+        "osm_id": 8888267688,
+        "leisure": "stadium",
+        "addr_state": "OH",
+        "addr_city": "Parma",
+        "addr_postcode": "44129",
+        "addr_street": "Hauserman Road",
+        "addr_housenumber": "5310"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 7,
+  "id": 2207,
   "type": "range:direction+loc"
 }

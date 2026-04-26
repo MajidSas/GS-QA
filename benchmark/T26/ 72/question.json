@@ -1,41 +1,46 @@
 {
-  "question": "How far is the nearest gallery situated from Dayton Historic Depot, WA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-117.980043 46.320886)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-117.980043 46.320886)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest zoo located from Cox Science Center and Aquarium, West Palm Beach, FL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'zoo'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.069796 26.669305)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25003,
-      "geometry": "POINT (-117.001179 46.731206)",
-      "poi_name": "Pritchard Art Gallery",
-      "osm_id": 4371622394,
-      "tourism": "gallery",
-      "fee": "no",
-      "operator": "University of Idaho",
-      "shop": "art",
-      "distance": 87868.71165686
+      "id": 8889,
+      "geometry": "POINT (-80.581199 25.760687)",
+      "poi_name": "Gator Park",
+      "osm_id": 3566347835,
+      "tourism": "zoo",
+      "website": "https://www.gatorpark.com/",
+      "phone": "+1 800 559 2205",
+      "distance": 112896.65817504
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Dayton Historic Depot, WA",
-      "geo_wkt": "POINT (-117.980043 46.320886)",
+      "sub_category": "aquarium",
+      "display_name": "Cox Science Center and Aquarium, West Palm Beach, FL",
+      "geo_wkt": "POINT (-80.069796 26.669305)",
       "poi": {
-        "id": 16403,
-        "geometry": "POINT (-117.980043 46.320886)",
-        "poi_name": "Dayton Historic Depot",
-        "osm_id": 366030375,
-        "historic": "yes",
-        "tourism": "viewpoint",
-        "addr_state": "WA"
+        "id": 4789,
+        "geometry": "POINT (-80.069796 26.669305)",
+        "poi_name": "Cox Science Center and Aquarium",
+        "osm_id": 9624174440,
+        "tourism": "aquarium",
+        "opening_hours": "Mo-Fr 09:00-17:00, Sa-Su 10:00-18:00",
+        "website": "https://www.coxsciencecenter.org/",
+        "phone": "+1 (561) 832-1988",
+        "addr_state": "FL",
+        "addr_city": "West Palm Beach",
+        "addr_postcode": "33405",
+        "addr_street": "Dreher Trail North",
+        "addr_housenumber": "4801"
       }
     }
   },
-  "id": 2471,
+  "id": 671,
   "type": "knn+distance"
 }

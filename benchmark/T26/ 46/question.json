@@ -1,44 +1,50 @@
 {
-  "question": "What's the proximity of the nearest beach resort relative to the Church of Jesus Christ of Latter-day Saints, Maricopa, AZ?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-111.967748 33.0442)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-111.967748 33.0442)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the nearest attraction with respect to Wildlife West Nature Park, Edgewood, NM?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'attraction'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247694,
-      "geometry": "POINT (-118.359396 33.736673)",
-      "poi_name": "Portuguese Bend Beach Club",
-      "osm_id": 8122387798,
-      "leisure": "beach_resort",
-      "website": "https://www.pbcbeachclub.com/",
-      "distance": 599513.43105779
+      "id": 14761,
+      "geometry": "POINT (-106.213674 35.265368)",
+      "poi_name": "Henderson Store",
+      "osm_id": 4710726070,
+      "tourism": "attraction",
+      "website": "https://www.hendersonstore.com/",
+      "shop": "gift",
+      "addr_state": "NM",
+      "addr_city": "Golden",
+      "addr_street": "Turquoise Trail",
+      "distance": 21497.13059646
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "The Church of Jesus Christ of Latter-day Saints, Maricopa, AZ",
-      "geo_wkt": "POINT (-111.967748 33.0442)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wildlife West Nature Park, Edgewood, NM",
+      "geo_wkt": "POINT (-106.202309 35.071827)",
       "poi": {
-        "id": 15125,
-        "geometry": "POINT (-111.967748 33.0442)",
-        "poi_name": "The Church of Jesus Christ of Latter-day Saints",
-        "osm_id": 4810756321,
-        "tourism": "attraction",
-        "website": "https://www.mormon.org/",
-        "phone": "1-520-568-5894",
-        "addr_state": "AZ",
-        "addr_city": "Maricopa",
-        "addr_postcode": "85138",
-        "addr_street": "West Bowlin Road",
-        "addr_housenumber": "37280"
+        "id": 246820,
+        "geometry": "POINT (-106.202309 35.071827)",
+        "poi_name": "Wildlife West Nature Park",
+        "osm_id": 6471544426,
+        "leisure": "nature_reserve",
+        "opening_hours": "10:00-18:00",
+        "operator": "New Mexico Wildlife Association",
+        "website": "https://wildlifewest.org/",
+        "phone": "+1 505 281-7655",
+        "addr_state": "NM",
+        "addr_city": "Edgewood",
+        "addr_postcode": "87015",
+        "addr_street": "North Frontage Road",
+        "addr_housenumber": "87"
       }
     }
   },
-  "id": 2445,
+  "id": 645,
   "type": "knn+distance"
 }

@@ -1,43 +1,44 @@
 {
-  "question": "Which direction leads to the nearest nature reserve situated from Hudson Gateway Place LLC, San Jose, CA?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.923427 37.369617)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-121.923427 37.369617)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the directional bearing to the nearest garden from Sherwood Forest Faire, McDade, TX?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'garden'\nORDER BY geometry <-> ST_GeomFromText('POINT (-97.166138 30.231527)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267497,
-      "geometry": "POINT (-121.881471 37.214754)",
-      "poi_name": "McAbee Entry",
-      "osm_id": 7600110978,
-      "leisure": "nature_reserve",
-      "opening_hours": "08:00-sunset",
-      "official_name": "Almaden Quicksilver County Park",
-      "angle": 167.7738262155306
+      "id": 248144,
+      "geometry": "POINT (-97.165622 30.230967)",
+      "poi_name": "Memorial Grove",
+      "osm_id": 7298137153,
+      "leisure": "garden",
+      "fee": "no",
+      "operator": "Sherwood Forest Faire",
+      "angle": 141.37294604696507
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Hudson Gateway Place LLC, San Jose, CA",
-      "geo_wkt": "POINT (-121.923427 37.369617)",
+      "sub_category": "theme park",
+      "display_name": "Sherwood Forest Faire, McDade, TX",
+      "geo_wkt": "POINT (-97.166138 30.231527)",
       "poi": {
-        "id": 8752,
-        "geometry": "POINT (-121.923427 37.369617)",
-        "poi_name": "Hudson Gateway Place LLC",
-        "osm_id": 8671046749,
-        "tourism": "gallery",
-        "addr_state": "CA",
-        "addr_city": "San Jose",
-        "addr_postcode": "95110",
-        "addr_street": "Gateway Place",
-        "addr_housenumber": "2001;2033;2055,2077;2099"
+        "id": 1735,
+        "geometry": "POINT (-97.166138 30.231527)",
+        "poi_name": "Sherwood Forest Faire",
+        "osm_id": 3129085781,
+        "tourism": "theme_park",
+        "website": "https://www.sherwoodforestfaire.com/",
+        "addr_state": "TX",
+        "addr_city": "McDade",
+        "addr_postcode": "78650",
+        "addr_street": "Old Highway 20",
+        "addr_housenumber": "1883"
       }
     }
   },
-  "id": 1473,
+  "id": 573,
   "type": "knn+angle"
 }

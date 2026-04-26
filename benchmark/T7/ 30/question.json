@@ -1,52 +1,52 @@
 {
-  "question": "How many spectators can the nearest stadium from the Dells Mill and Museum, Augusta, WI hold?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest museum from Blue Ocean Discovery Center, Hampton, NH established?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.810543 42.909869)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247238,
-      "geometry": "POINT (-91.520118 44.808189)",
-      "poi_name": "Carson Park Stadium",
-      "osm_id": 3843182571,
-      "leisure": "stadium",
-      "sport": "american_football",
-      "wikidata": "Q16028032",
-      "addr_state": "WI",
-      "addr_city": "Eau Claire",
-      "addr_postcode": "54703",
-      "addr_street": "Carson Park Drive",
-      "multihop_answer": "2856",
-      "multihop_attribute": "Capacity",
-      "multihop_long_answer": "Carson Park Stadium Capacity: 2856"
+      "id": 17358,
+      "geometry": "POINT (-70.928666 42.845368)",
+      "poi_name": "Bartlett Museum",
+      "osm_id": 367781160,
+      "tourism": "museum",
+      "website": "http://bartlettmuseum.org/",
+      "wikidata": "Q4865412",
+      "addr_state": "MA",
+      "addr_city": "Amesbury",
+      "addr_postcode": "01913",
+      "addr_street": "Main Street",
+      "addr_housenumber": "220",
+      "multi_source_answer": "1968",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Bartlett Museum Established: 1968"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "The Dells Mill and Museum, Augusta, WI",
-      "geo_wkt": "POINT (-91.148747 44.72554)",
+      "sub_category": "aquarium",
+      "display_name": "Blue Ocean Discovery Center, Hampton, NH",
+      "geo_wkt": "POINT (-70.810543 42.909869)",
       "poi": {
-        "id": 540,
-        "geometry": "POINT (-91.148747 44.72554)",
-        "poi_name": "The Dells Mill and Museum",
-        "osm_id": 8435491750,
-        "tourism": "museum",
-        "opening_hours": "May-Oct 10:00-17:00",
-        "website": "https://dellsmill.com/",
-        "phone": "715-286-2714",
-        "addr_state": "WI",
-        "addr_city": "Augusta",
-        "addr_postcode": "54722",
-        "addr_street": "County Highway V",
-        "addr_housenumber": "E18855"
+        "id": 4389,
+        "geometry": "POINT (-70.810543 42.909869)",
+        "poi_name": "Blue Ocean Discovery Center",
+        "osm_id": 11244479725,
+        "tourism": "aquarium",
+        "opening_hours": "Jun 03-Sep 04 10:00-18:00",
+        "website": "https://www.blueoceansociety.org/our-programswhat-we-do/blue-ocean-discovery-center/",
+        "addr_state": "NH",
+        "addr_city": "Hampton",
+        "addr_postcode": "03842",
+        "addr_street": "Ocean Boulevard",
+        "addr_housenumber": "180"
       }
     }
   },
-  "id": 929,
-  "type": "knn+name+multihop1"
+  "id": 829,
+  "type": "knn+name+multi_source1"
 }

@@ -1,62 +1,67 @@
 {
-  "question": "Where's the nearest hotel on the way to Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio from Barons Bus Arena, Parma, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, ST_GeomFromText('POINT (-80.844899 41.715412)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest museum located between Kettle Creek Environmental Education Center, Stroudsburg, PA and the Historic Greeley Inn, Greeley, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, ST_GeomFromText('POINT (-75.001323 41.431334)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.29615 40.988615)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 6990,
-      "geometry": "POINT (-81.524438 41.429064)",
-      "poi_name": "Economy Inn & Suites",
-      "osm_id": 8804126271,
-      "tourism": "hotel",
-      "addr_state": "OH",
-      "addr_city": "North Randall",
-      "addr_postcode": "44128",
-      "addr_street": "Northfield Road",
-      "addr_housenumber": "4751",
-      "value": 66.1125680743461
+      "id": 24575,
+      "geometry": "POINT (-75.191916 41.532718)",
+      "poi_name": "Dorflinger Glass Museum",
+      "osm_id": 11116297709,
+      "tourism": "museum",
+      "website": "https://dorflinger.org/dorflinger-glass-museum/",
+      "phone": "570-253-1185",
+      "wikidata": "Q85717580",
+      "addr_state": "PA",
+      "addr_city": "White Mills",
+      "addr_postcode": "18473",
+      "addr_street": "Elizabeth Street",
+      "addr_housenumber": "5",
+      "value": 26.600915853520767
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Barons Bus Arena, Parma, OH",
-      "geo_wkt": "POINT (-81.758046 41.416012)",
+      "sub_category": "nature reserve",
+      "display_name": "Kettle Creek Environmental Education Center, Stroudsburg, PA",
+      "geo_wkt": "POINT (-75.29615 40.988615)",
       "poi": {
-        "id": 247265,
-        "geometry": "POINT (-81.758046 41.416012)",
-        "poi_name": "Barons Bus Arena",
-        "osm_id": 8888267688,
-        "leisure": "stadium",
-        "addr_state": "OH",
-        "addr_city": "Parma",
-        "addr_postcode": "44129",
-        "addr_street": "Hauserman Road",
-        "addr_housenumber": "5310"
+        "id": 246853,
+        "geometry": "POINT (-75.29615 40.988615)",
+        "poi_name": "Kettle Creek Environmental Education Center",
+        "osm_id": 6536561704,
+        "leisure": "nature_reserve",
+        "website": "https://www.mcconservation.org/",
+        "addr_state": "PA",
+        "addr_city": "Stroudsburg",
+        "addr_postcode": "18360",
+        "addr_street": "Running Valley Road",
+        "addr_housenumber": "8050"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Eagleville Road WRGT Trailhead and Parking, Jefferson, Ohio",
-      "geo_wkt": "POINT (-80.844899 41.715412)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "The Historic Greeley Inn, Greeley, PA",
+      "geo_wkt": "POINT (-75.001323 41.431334)",
       "poi": {
-        "id": 246522,
-        "geometry": "POINT (-80.844899 41.715412)",
-        "poi_name": "Eagleville Road WRGT Trailhead and Parking",
-        "osm_id": 9804147199,
-        "leisure": "park",
-        "operator": "Western Reserve Greenway Trail",
-        "addr_state": "Ohio",
-        "addr_city": "Jefferson"
+        "id": 20109,
+        "geometry": "POINT (-75.001323 41.431334)",
+        "poi_name": "The Historic Greeley Inn",
+        "osm_id": 7875987923,
+        "tourism": "hotel",
+        "addr_state": "PA",
+        "addr_city": "Greeley",
+        "addr_street": "PA-590",
+        "addr_housenumber": "218"
       }
     },
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "hotel"
+      "sub_category": "museum"
     }
   },
-  "id": 1351,
+  "id": 1551,
   "type": "knn:towards+loc"
 }

@@ -1,45 +1,52 @@
 {
-  "question": "How many spectators can the nearest stadium from Acushnet Sawmill, Acushnet, MA hold?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest hospital from Richland County University of Illinois Extension, Olney, IL first opened?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-88.083164 38.729531)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246343,
-      "geometry": "POINT (-71.515966 41.717988)",
-      "poi_name": "McCarthy Field",
-      "osm_id": 11331230041,
-      "leisure": "stadium",
-      "wikidata": "Q14709442",
-      "multihop_answer": "2500",
-      "multihop_attribute": "Capacity",
-      "multihop_long_answer": "McCarthy Field Capacity: 2500"
+      "id": 113141,
+      "geometry": "POINT (-87.53358 38.672428)",
+      "poi_name": "Good Samaritan Hospital",
+      "osm_id": 3821320364,
+      "amenity": "hospital",
+      "wheelchair": "yes",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "wikidata": "Q5582915",
+      "addr_state": "IN",
+      "addr_city": "Vincennes",
+      "addr_postcode": "47591",
+      "addr_street": "South 7th Street",
+      "addr_housenumber": "520",
+      "multi_source_answer": "1908",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Good Samaritan Hospital Opened: 1908"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Acushnet Sawmill, Acushnet, MA",
-      "geo_wkt": "POINT (-70.919597 41.683778)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Richland County University of Illinois Extension, Olney, IL",
+      "geo_wkt": "POINT (-88.083164 38.729531)",
       "poi": {
-        "id": 245596,
-        "geometry": "POINT (-70.919597 41.683778)",
-        "poi_name": "Acushnet Sawmill",
-        "osm_id": 3197476151,
-        "leisure": "park",
-        "website": "https://www.savebuzzardsbay.org/",
-        "addr_state": "MA",
-        "addr_city": "Acushnet",
-        "addr_postcode": "02743",
-        "addr_street": "Mill Road",
-        "addr_housenumber": "38"
+        "id": 110489,
+        "geometry": "POINT (-88.083164 38.729531)",
+        "poi_name": "Richland County University of Illinois Extension",
+        "osm_id": 3705947431,
+        "amenity": "university",
+        "addr_state": "IL",
+        "addr_city": "Olney",
+        "addr_postcode": "62450",
+        "addr_street": "South Fair Street",
+        "addr_housenumber": "306"
       }
     }
   },
-  "id": 961,
-  "type": "knn+name+multihop1"
+  "id": 861,
+  "type": "knn+name+multi_source1"
 }

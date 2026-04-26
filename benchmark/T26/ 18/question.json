@@ -1,41 +1,51 @@
 {
-  "question": "How far away is the nearest theme park from Hotel Seward, Seward, AK?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-149.439168 60.10204)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'theme_park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-149.439168 60.10204)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest restaurant away from Missisquoi National Wildlife Refuge, Swanton, VT?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-73.168301 44.963098)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'restaurant'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.168301 44.963098)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 8004,
-      "geometry": "POINT (-122.766681 47.059267)",
-      "poi_name": "Charlie's Safari - The Family Fun Center",
-      "osm_id": 6506740654,
-      "tourism": "theme_park",
-      "distance": 2259151.80250676
+      "id": 240210,
+      "geometry": "POINT (-73.36345 44.983363)",
+      "poi_name": "Ristorante Casa Capitano",
+      "osm_id": 5962439895,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "opening_hours": "Mo-Su 16:30-21:00",
+      "website": "https://www.casa-capitano.com/",
+      "phone": "+1-518-206-4232",
+      "addr_state": "NY",
+      "addr_city": "Rouses Point",
+      "addr_street": "Lake Street",
+      "addr_housenumber": "216",
+      "distance": 15557.8833239
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hotel Seward, Seward, AK",
-      "geo_wkt": "POINT (-149.439168 60.10204)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Missisquoi National Wildlife Refuge, Swanton, VT",
+      "geo_wkt": "POINT (-73.168301 44.963098)",
       "poi": {
-        "id": 13964,
-        "geometry": "POINT (-149.439168 60.10204)",
-        "poi_name": "Hotel Seward",
-        "osm_id": 4204636007,
-        "tourism": "hotel",
-        "addr_state": "AK",
-        "addr_city": "Seward",
-        "addr_postcode": "99664",
-        "addr_street": "5th Avenue",
-        "addr_housenumber": "221"
+        "id": 251075,
+        "geometry": "POINT (-73.168301 44.963098)",
+        "poi_name": "Missisquoi National Wildlife Refuge",
+        "osm_id": 356553865,
+        "leisure": "nature_reserve",
+        "opening_hours": "08:00-16:30",
+        "operator": "United States Fish and Wildlife Service",
+        "addr_state": "VT",
+        "addr_city": "Swanton",
+        "addr_postcode": "05488",
+        "addr_street": "Tabor Road",
+        "addr_housenumber": "29"
       }
     }
   },
-  "id": 2417,
+  "id": 617,
   "type": "knn+distance"
 }

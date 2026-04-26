@@ -1,54 +1,58 @@
 {
-  "question": "Where is the closest emergency hospital within proximity to Gordon College, Wenham, MA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-70.820301 42.588853)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where can I find the nearest history museum in the vicinity of Kona Cloud Forest - Guided Walking Tours, Kailua-Kona, HI?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'history'\nORDER BY geometry <-> ST_GeomFromText('POINT (-155.946499 19.706114)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 188951,
-      "geometry": "POINT (-70.906447 42.511844)",
-      "poi_name": "MassGeneral for Children at North Shore Medical Center",
-      "osm_id": 257489655,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "website": "https://nsmc.partners.org/locations/nsmc_north_shore_childrens",
-      "phone": "+1 978 745 2100",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "MA",
-      "addr_city": "Salem",
-      "addr_postcode": "01970",
-      "addr_street": "Highland Avenue",
-      "addr_housenumber": "57"
+      "id": 19932,
+      "geometry": "POINT (-157.85678 21.303797)",
+      "poi_name": "Hawaii Mission Houses Museum",
+      "osm_id": 7767850578,
+      "historic": "building",
+      "tourism": "museum",
+      "opening_hours": "Tu-Sa 10:00-16:00",
+      "website": "https://www.missionhouses.org/",
+      "phone": "+1 808 447 3910",
+      "museum": "history",
+      "wikidata": "Q6878617",
+      "addr_state": "HI",
+      "addr_city": "Honolulu",
+      "addr_postcode": "96813",
+      "addr_street": "South King Street",
+      "addr_housenumber": "553"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "poi_filter_desc": "history museum",
+      "poi_filter_sql": "museum = 'history'"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Gordon College, Wenham, MA",
-      "geo_wkt": "POINT (-70.820301 42.588853)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Kona Cloud Forest - Guided Walking Tours, Kailua-Kona, HI",
+      "geo_wkt": "POINT (-155.946499 19.706114)",
       "poi": {
-        "id": 167600,
-        "geometry": "POINT (-70.820301 42.588853)",
-        "poi_name": "Gordon College",
-        "osm_id": 358258911,
-        "amenity": "university",
-        "operator": "Gordon College",
-        "wikidata": "Q5585004",
-        "addr_state": "MA",
-        "addr_city": "Wenham",
-        "addr_postcode": "01984",
-        "addr_street": "Grapevine Road",
-        "addr_housenumber": "255"
+        "id": 246983,
+        "geometry": "POINT (-155.946499 19.706114)",
+        "poi_name": "Kona Cloud Forest - Guided Walking Tours",
+        "osm_id": 8504192679,
+        "leisure": "nature_reserve",
+        "description": "The Only Cloud Forest in the United States. Three Hour Guided Walking Tours weather permitting. All tours are offered through our educational non profit Painted Trees of Hawaii. All donations are 100% tax deductible. All tours are by appointment only.",
+        "opening_hours": "Mo-Su 09:00-16:30",
+        "operator": "Kelly Dunn",
+        "website": "KonaCloudForest.Org",
+        "phone": "+1-808-640-3888",
+        "addr_state": "HI",
+        "addr_city": "Kailua-Kona",
+        "addr_postcode": "96740",
+        "addr_street": "Hao Street",
+        "addr_housenumber": "73-1865"
       }
     }
   },
-  "id": 373,
+  "id": 1373,
   "type": "knn:non_spat_filter+loc"
 }

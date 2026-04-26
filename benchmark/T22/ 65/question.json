@@ -1,42 +1,39 @@
 {
-  "question": "What's the heading to the closest stadium from River Deck, Edgewater, MD?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'stadium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which way should I move to reach the closest beach resort from Historic Whites Mill, Abingdon, VA?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.98798 36.768081)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-81.98798 36.768081)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267000,
-      "geometry": "POINT (-77.073539 38.772717)",
-      "poi_name": "Jeffrey C. Dietze Stadium",
-      "osm_id": 4320512551,
-      "leisure": "stadium",
-      "angle": 248.0677640019582
+      "id": 245523,
+      "geometry": "POINT (-87.421202 33.272894)",
+      "poi_name": "Rocky Branch",
+      "osm_id": 3048380506,
+      "leisure": "beach_resort",
+      "angle": 233.5606914070588
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "beach resort"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Historic Whites Mill, Abingdon, VA",
+      "geo_wkt": "POINT (-81.98798 36.768081)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
-        "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "id": 247328,
+        "geometry": "POINT (-81.98798 36.768081)",
+        "poi_name": "Historic Whites Mill",
+        "osm_id": 8936689712,
+        "leisure": "park",
+        "addr_state": "VA",
+        "addr_city": "Abingdon",
+        "addr_street": "Whites Mill Road"
       }
     }
   },
-  "id": 1464,
+  "id": 564,
   "type": "knn+angle"
 }

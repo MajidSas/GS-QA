@@ -1,52 +1,48 @@
 {
-  "question": "How distant is the closest hospital from the reference location Getting's Garden, Sanborn, IA?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'hospital'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.724521 43.234748)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance to the closest fast food restaurant from Red Wolf Sanctuary, Rising Sun, IN?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'fast_food'\nORDER BY geometry <-> ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167321,
-      "geometry": "POINT (-95.743071 43.410247)",
-      "poi_name": "Avera Medical Group Sibley",
-      "osm_id": 354339936,
-      "amenity": "hospital",
-      "operator": "Avera Health",
-      "website": "https://www.avera.org/locations/profile/?id=169",
-      "phone": "+1-712-754-3658",
-      "healthcare": "hospital",
-      "addr_city": "Sibley",
-      "addr_postcode": "51249",
-      "addr_street": "9th Avenue North",
-      "addr_housenumber": "600",
-      "distance": 19555.69509947
+      "id": 51363,
+      "geometry": "POINT (-84.714587 39.02657)",
+      "poi_name": "Subway",
+      "osm_id": 531686680,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "distance": 16229.1984387
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Getting's Garden, Sanborn, IA",
-      "geo_wkt": "POINT (-95.724521 43.234748)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
+      "geo_wkt": "POINT (-84.875376 38.951571)",
       "poi": {
-        "id": 266116,
-        "geometry": "POINT (-95.724521 43.234748)",
-        "poi_name": "Getting's Garden",
-        "osm_id": 10686198179,
-        "leisure": "garden",
-        "opening_hours": "Su off",
-        "website": "https://www.gettingsgarden.com/",
-        "shop": "farm",
-        "addr_state": "IA",
-        "addr_city": "Sanborn",
-        "addr_postcode": "51248",
-        "addr_street": "Pierce Avenue",
-        "addr_housenumber": "2861"
+        "id": 1647,
+        "geometry": "POINT (-84.875376 38.951571)",
+        "poi_name": "Red Wolf Sanctuary",
+        "osm_id": 3099118301,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "\"By appointment only\"",
+        "operator": "THE RED WOLF SANCTUARY INC",
+        "website": "https://www.redwolf.org/",
+        "phone": "+1 812 438 2306",
+        "addr_state": "IN",
+        "addr_city": "Rising Sun",
+        "addr_postcode": "47040",
+        "addr_street": "IN-262",
+        "addr_housenumber": "3027"
       }
     }
   },
-  "id": 2467,
+  "id": 667,
   "type": "knn+distance"
 }

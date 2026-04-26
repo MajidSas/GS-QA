@@ -1,43 +1,53 @@
 {
-  "question": "What's the closest theme park nearby the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant in the area of the museum established in the year 2015 in Richmond City, VA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.432516 37.534824)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 19524,
-      "geometry": "POINT (-74.28079 40.24007)",
-      "poi_name": "iPlay America",
-      "osm_id": 10799803593,
-      "tourism": "theme_park"
+      "id": 80054,
+      "geometry": "POINT (-77.433189 37.53508)",
+      "poi_name": "City Dogs",
+      "osm_id": 846282145,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "description": "Casual eatery serving city-themed hot dogs, plus burgers & sandwiches, in a cozy space.",
+      "website": "https://citydogsrva.com/",
+      "phone": "+1 804-343-3647",
+      "addr_state": "VA",
+      "addr_city": "Richmond City",
+      "addr_postcode": "23219",
+      "addr_street": "East Cary Street",
+      "addr_housenumber": "1316"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Salus University, Elkins Park, PA",
-      "geo_wkt": "POINT (-75.129394 40.086172)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "First Freedom Center, Richmond City, VA",
+      "geo_wkt": "POINT (-77.432516 37.534824)",
       "poi": {
-        "id": 39110,
-        "geometry": "POINT (-75.129394 40.086172)",
-        "poi_name": "Salus University",
-        "osm_id": 2903322114,
-        "amenity": "university",
-        "website": "https://www.salus.edu/",
-        "phone": "+1-215-780-1400",
-        "wikidata": "Q7406311",
-        "addr_state": "PA",
-        "addr_city": "Elkins Park",
-        "addr_postcode": "19027",
-        "addr_street": "Old York Road",
-        "addr_housenumber": "8360"
+        "id": 2521,
+        "geometry": "POINT (-77.432516 37.534824)",
+        "poi_name": "First Freedom Center",
+        "osm_id": 3500856476,
+        "tourism": "museum",
+        "opening_hours": "Mo off; Tu-Sa 10:00-17:00; Su 12:00-17:00",
+        "website": "https://www.firstfreedom.org/",
+        "phone": "+1 804-649-0711",
+        "wikidata": "Q5453036",
+        "addr_state": "VA",
+        "addr_city": "Richmond City",
+        "addr_postcode": "23219",
+        "addr_street": "South 14th Street",
+        "addr_housenumber": "14"
       }
     }
   },
-  "id": 2792,
-  "type": "knn+name+multihop2"
+  "id": 992,
+  "type": "knn+name+multi_source2"
 }

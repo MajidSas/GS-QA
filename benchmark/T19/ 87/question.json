@@ -1,50 +1,51 @@
 {
-  "question": "Where is the nearest hospital situated towards the northwest of Ramada Vicksburg, Vicksburg, MS?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-90.880423 32.316222)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery along the east direction from Easton Hospital, Easton, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-75.242538 40.687207)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 182446,
-      "geometry": "POINT (-90.880423 32.316222)",
-      "poi_name": "Cypress Grove Behavioral Health",
-      "osm_id": 10892282629,
-      "amenity": "hospital",
-      "website": "https://cypressgrovehealth.com",
-      "phone": "+1 318 281 2448",
-      "healthcare": "hospital",
-      "addr_state": "LA",
-      "addr_city": "Bastrop",
-      "addr_postcode": "71220",
-      "addr_street": "Eugene Ware Boulevard",
-      "addr_housenumber": "4673"
+      "id": 10977,
+      "geometry": "POINT (-75.242538 40.687207)",
+      "poi_name": "Gallery on Fourth",
+      "osm_id": 8181767026,
+      "tourism": "gallery",
+      "website": "https://www.galleryonfourth.org/",
+      "phone": "610.905.4627",
+      "addr_state": "PA",
+      "addr_city": "Easton",
+      "addr_postcode": "18042",
+      "addr_street": "Northampton Street",
+      "addr_housenumber": "401"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Ramada Vicksburg, Vicksburg, MS",
-      "geo_wkt": "POINT (-90.880423 32.316222)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Easton Hospital, Easton, PA",
+      "geo_wkt": "POINT (-75.242538 40.687207)",
       "poi": {
-        "id": 13564,
-        "geometry": "POINT (-90.880423 32.316222)",
-        "poi_name": "Ramada Vicksburg",
-        "osm_id": 4119156424,
-        "tourism": "hotel",
-        "addr_state": "MS",
-        "addr_city": "Vicksburg",
-        "addr_postcode": "39180",
-        "addr_street": "Orme Drive",
-        "addr_housenumber": "20"
+        "id": 64145,
+        "geometry": "POINT (-75.242538 40.687207)",
+        "poi_name": "Easton Hospital",
+        "osm_id": 5641614323,
+        "amenity": "hospital",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "addr_state": "PA",
+        "addr_city": "Easton",
+        "addr_postcode": "18042",
+        "addr_street": "South 21st Street",
+        "addr_housenumber": "250"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1186,

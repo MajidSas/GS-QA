@@ -1,67 +1,64 @@
 {
-  "question": "What's the closest restaurant in the direction of Monarch Sculpture Park, Tenino, WA from University of Phoenix - Western Washington Campus, Tukwila, WA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, ST_GeomFromText('POINT (-122.761023 46.901484)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.246496 47.468396)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food is closest when progressing from Mountain Creek gold mine, New London, NC toward Old Vineyard Behavioral Health Services, Winston-Salem, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, ST_GeomFromText('POINT (-80.31855 36.078324)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.185301 35.43723)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 61304,
-      "geometry": "POINT (-122.253743 47.460895)",
-      "poi_name": "Manila Sunset",
-      "osm_id": 5512312521,
-      "amenity": "restaurant",
-      "cuisine": "filipino",
-      "addr_city": "Tukwila",
-      "addr_postcode": "98188",
-      "addr_street": "Tukwila Parkway",
-      "addr_housenumber": "307",
-      "value": 211.93628149345292
+      "id": 100825,
+      "geometry": "POINT (-80.260663 35.771626)",
+      "poi_name": "Subway",
+      "osm_id": 6601227874,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "takeaway": "yes",
+      "value": 350.4234321849486
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "University of Phoenix - Western Washington Campus, Tukwila, WA",
-      "geo_wkt": "POINT (-122.246496 47.468396)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mountain Creek gold mine, New London, NC",
+      "geo_wkt": "POINT (-80.185301 35.43723)",
       "poi": {
-        "id": 142373,
-        "geometry": "POINT (-122.246496 47.468396)",
-        "poi_name": "University of Phoenix - Western Washington Campus",
-        "osm_id": 6312094607,
-        "amenity": "university",
-        "website": "https://www.phoenix.edu/campus-locations/wa/seattle-tacoma-campus.html",
-        "addr_state": "WA",
-        "addr_city": "Tukwila",
-        "addr_postcode": "98188",
-        "addr_street": "Fort Dent Way",
-        "addr_housenumber": "7100"
+        "id": 3105,
+        "geometry": "POINT (-80.185301 35.43723)",
+        "poi_name": "Mountain Creek gold mine",
+        "osm_id": 10175978887,
+        "tourism": "attraction",
+        "addr_state": "NC",
+        "addr_city": "New London",
+        "addr_postcode": "28127",
+        "addr_street": "Gurley Road",
+        "addr_housenumber": "41801"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Monarch Sculpture Park, Tenino, WA",
-      "geo_wkt": "POINT (-122.761023 46.901484)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Old Vineyard Behavioral Health Services, Winston-Salem, NC",
+      "geo_wkt": "POINT (-80.31855 36.078324)",
       "poi": {
-        "id": 246391,
-        "geometry": "POINT (-122.761023 46.901484)",
-        "poi_name": "Monarch Sculpture Park",
-        "osm_id": 11429079139,
-        "leisure": "park",
-        "opening_hours": "Mo-Su 07:00-18:00",
-        "phone": "360-264-2408",
-        "addr_state": "WA",
-        "addr_city": "Tenino",
-        "addr_postcode": "98589",
-        "addr_street": "Waldrick Road Southeast",
-        "addr_housenumber": "8431"
+        "id": 191433,
+        "geometry": "POINT (-80.31855 36.078324)",
+        "poi_name": "Old Vineyard Behavioral Health Services",
+        "osm_id": 1366901650,
+        "amenity": "hospital",
+        "website": "https://oldvineyardbhs.com/",
+        "healthcare": "hospital",
+        "emergency": "no",
+        "addr_state": "NC",
+        "addr_city": "Winston-Salem",
+        "addr_postcode": "27104",
+        "addr_street": "Old Vineyard Road",
+        "addr_housenumber": "3637"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 118,
+  "id": 1618,
   "type": "knn:towards+name"
 }

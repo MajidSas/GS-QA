@@ -1,48 +1,53 @@
 {
-  "question": "Where can I find the nearest restaurant relative to Taylor's Aquarium, Dunn, NC?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.589533 35.200429)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the nearest hotel close to Malibu Jack's, Springfield, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'hotel'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 134127,
-      "geometry": "POINT (-78.530094 35.182328)",
-      "poi_name": "Corner Mart & La Costena",
-      "osm_id": 10031792970,
-      "amenity": "restaurant",
-      "cuisine": "mexican",
-      "phone": "+19105674505",
-      "addr_state": "NC",
-      "addr_city": "Dunn",
-      "addr_postcode": "28334",
-      "addr_street": "Fayetteville Highway",
-      "addr_housenumber": "2585"
+      "id": 7964,
+      "geometry": "POINT (-89.707736 39.749785)",
+      "poi_name": "Quality Inn & Suites",
+      "osm_id": 6491410459,
+      "tourism": "hotel",
+      "website": "https://www.choicehotels.com/illinois/springfield/quality-inn-hotels/il083",
+      "internet_access": "wlan",
+      "phone": "+1-217-787-2250",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "Freedom Drive",
+      "addr_housenumber": "3442"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Taylor's Aquarium, Dunn, NC",
-      "geo_wkt": "POINT (-78.589533 35.200429)",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
       "poi": {
-        "id": 24624,
-        "geometry": "POINT (-78.589533 35.200429)",
-        "poi_name": "Taylor's Aquarium",
-        "osm_id": 11141985607,
-        "tourism": "aquarium",
-        "phone": "+19105675377",
-        "addr_state": "NC",
-        "addr_city": "Dunn",
-        "addr_postcode": "28334",
-        "addr_street": "North Spring Branch Road",
-        "addr_housenumber": "590"
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
       }
     }
   },
-  "id": 1845,
+  "id": 745,
   "type": "knn+loc"
 }

@@ -1,43 +1,48 @@
 {
-  "question": "Can you recommend the nearest theme park from the stadium that can hold 6600 spectators in Louisville, KY?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food restaurant relative to the stadium designed by the architect Davis Partnership Architects and Sink Combs Dethlefs in CO?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'fast_food'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-104.961685 39.682266)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 5830,
-      "geometry": "POINT (-86.611912 38.554867)",
-      "poi_name": "Big Splash Adventure Indoor Water Park",
-      "osm_id": 1637199223,
-      "leisure": "water_park",
-      "tourism": "theme_park",
-      "website": "https://www.bigsplashadventure.com/waterpark-information"
+      "id": 34259,
+      "geometry": "POINT (-104.958878 39.680044)",
+      "poi_name": "Bruegger's Bagels",
+      "osm_id": 2698612445,
+      "amenity": "fast_food",
+      "cuisine": "bagel",
+      "opening_hours": "Su-Fr 05:30-15:00; Sa 05:30-16:00",
+      "website": "https://locations.brueggers.com/us/co/denver/2000-s-university-boulevard",
+      "phone": "+1-303-777-7600",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "addr_state": "CO",
+      "addr_city": "Denver",
+      "addr_postcode": "80210",
+      "addr_street": "South University Boulevard",
+      "addr_housenumber": "2000"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Broadbent Arena, Louisville, KY",
-      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "display_name": "Magness Arena, CO",
+      "geo_wkt": "POINT (-104.961685 39.682266)",
       "poi": {
-        "id": 245703,
-        "geometry": "POINT (-85.745629 38.200638)",
-        "poi_name": "Broadbent Arena",
-        "osm_id": 3418007532,
+        "id": 265349,
+        "geometry": "POINT (-104.961685 39.682266)",
+        "poi_name": "Magness Arena",
+        "osm_id": 366396379,
         "leisure": "stadium",
-        "wikidata": "Q4972040",
-        "addr_state": "KY",
-        "addr_city": "Louisville",
-        "addr_postcode": "40209",
-        "addr_street": "Broadbent Drive",
-        "addr_housenumber": "3100"
+        "wikidata": "Q14684923",
+        "addr_state": "CO"
       }
     }
   },
-  "id": 2704,
-  "type": "knn+name+multihop2"
+  "id": 904,
+  "type": "knn+name+multi_source2"
 }

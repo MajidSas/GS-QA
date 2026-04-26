@@ -1,47 +1,45 @@
 {
-  "question": "What is the closest golf course north of Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the nearest museum located in the east of Holiday Inn & Suites Joliet Southwest, Joliet, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-88.170817 41.495612)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 246577,
-      "geometry": "POINT (-119.685686 34.410426)",
-      "poi_name": "El Dorado Hills Golf Course",
-      "osm_id": 1594712953,
-      "leisure": "golf_course"
+      "id": 17841,
+      "geometry": "POINT (-88.170817 41.495612)",
+      "poi_name": "Old Zion Museum",
+      "osm_id": 368074620,
+      "tourism": "museum",
+      "addr_state": "IL"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
-      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "sub_category": "hotel",
+      "display_name": "Holiday Inn & Suites Joliet Southwest, Joliet, IL",
+      "geo_wkt": "POINT (-88.170817 41.495612)",
       "poi": {
-        "id": 18273,
-        "geometry": "POINT (-119.685686 34.410426)",
-        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
-        "osm_id": 368174545,
-        "tourism": "aquarium",
-        "operator": "Santa Barbara Museum of Natural History",
-        "website": "https://www.sbnature.org/twsc/2.html",
-        "wikidata": "Q3542641",
-        "addr_state": "CA",
-        "addr_city": "Santa Barbara",
-        "addr_postcode": "93101",
-        "addr_street": "Stearns Wharf",
-        "addr_housenumber": "211"
+        "id": 353,
+        "geometry": "POINT (-88.170817 41.495612)",
+        "poi_name": "Holiday Inn & Suites Joliet Southwest",
+        "osm_id": 8329832132,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Joliet",
+        "addr_postcode": "60431",
+        "addr_street": "Rock Creek Boulevard",
+        "addr_housenumber": "1471"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2502,
+  "id": 1202,
   "type": "knn:direction+name"
 }

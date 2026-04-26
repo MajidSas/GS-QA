@@ -1,73 +1,65 @@
 {
-  "question": "What's the nearest restaurant on the way to Center for Photographic Art, Carmel, CA from Sea Goddess Whale Watching, Moss Landing, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography, ST_GeomFromText('POINT (-121.921383 36.551348)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-121.785442 36.801022)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which gallery is closest when progressing from Gary Lapelusa Landscaping LLC, Bayonne, NJ toward Sloth Encounters, Hauppauge, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 98283,
-      "geometry": "POINT (-121.786131 36.798854)",
-      "poi_name": "Haute Enchilada Cafe",
-      "osm_id": 6514122788,
-      "amenity": "restaurant",
-      "opening_hours": "Mo-Su 11:00-21:00",
-      "website": "https://www.hauteenchilada.com/",
-      "addr_postcode": "95039",
-      "addr_street": "Moss Landing Road",
-      "addr_housenumber": "7902",
-      "value": 203.7216442651959
+      "id": 19552,
+      "geometry": "POINT (-74.013531 40.676987)",
+      "poi_name": "Canal St Studios",
+      "osm_id": 10802257008,
+      "tourism": "gallery",
+      "value": 76.54836064130103
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Sea Goddess Whale Watching, Moss Landing, CA",
-      "geo_wkt": "POINT (-121.785442 36.801022)",
+      "sub_category": "garden",
+      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
+      "geo_wkt": "POINT (-74.122011 40.662412)",
       "poi": {
-        "id": 266074,
-        "geometry": "POINT (-121.785442 36.801022)",
-        "poi_name": "Sea Goddess Whale Watching",
-        "osm_id": 10562026816,
-        "leisure": "nature_reserve",
-        "description": "Sea Goddess Whale Watching gives you a once-in-a-lifetime experience. Our whale-watching and shark tours depart from Moss Landing, at the mouth of the Monterey Bay Canyon, one of the largest underwater canyons in the world! The canyon is a nutrient-rich z",
-        "opening_hours": "Mo,We,Fr,Su 07:00-20:00; Tu,Th,Sa 07:00-17:00",
-        "website": "https://seagoddesswhalewatch.com/",
-        "phone": "831-920-1499",
-        "addr_state": "CA",
-        "addr_city": "Moss Landing",
-        "addr_postcode": "95039",
-        "addr_street": "Sandholdt Road",
-        "addr_housenumber": "7881"
+        "id": 246948,
+        "geometry": "POINT (-74.122011 40.662412)",
+        "poi_name": "Gary Lapelusa Landscaping LLC",
+        "osm_id": 6627360488,
+        "leisure": "garden",
+        "website": "http://garylapelusalanscaping.com",
+        "phone": "+1-201-823-1868",
+        "addr_state": "NJ",
+        "addr_city": "Bayonne",
+        "addr_postcode": "07002",
+        "addr_street": "W 19th St",
+        "addr_housenumber": "41"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Center for Photographic Art, Carmel, CA",
-      "geo_wkt": "POINT (-121.921383 36.551348)",
+      "sub_category": "zoo",
+      "display_name": "Sloth Encounters, Hauppauge, NY",
+      "geo_wkt": "POINT (-73.210029 40.824517)",
       "poi": {
-        "id": 1026,
-        "geometry": "POINT (-121.921383 36.551348)",
-        "poi_name": "Center for Photographic Art",
-        "osm_id": 2799337563,
-        "tourism": "museum",
-        "wheelchair": "yes",
-        "fee": "yes",
-        "opening_hours": "Mo-Su 09:00-21:00",
-        "website": "https://photography.org/",
-        "museum": "art",
-        "addr_state": "CA",
-        "addr_city": "Carmel",
-        "addr_postcode": "93921",
-        "addr_street": "San Carlos Street",
-        "addr_housenumber": "9"
+        "id": 6973,
+        "geometry": "POINT (-73.210029 40.824517)",
+        "poi_name": "Sloth Encounters",
+        "osm_id": 8791898433,
+        "tourism": "zoo",
+        "opening_hours": "Sa-Su 11:00-19:00",
+        "website": "https://www.slothencounters.com/",
+        "phone": "+1-631-257-5683",
+        "zoo": "petting_zoo",
+        "addr_state": "NY",
+        "addr_city": "Hauppauge",
+        "addr_postcode": "11788",
+        "addr_street": "Veterans Memorial Highway",
+        "addr_housenumber": "551"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 198,
+  "id": 1698,
   "type": "knn:towards+name"
 }

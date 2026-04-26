@@ -1,43 +1,44 @@
 {
-  "question": "Could you tell me how many viewpoints are present within a 190 kilometers radius from International Quilt Study Center and Museum, Lincoln, NE?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-96.673502 40.828356)',4326)::geography, 190000)\nAND tourism = 'viewpoint';\n",
+  "question": "How many museums exist inside 50 kilometers from House of Air, San Francisco, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-122.468617 37.804932)',4326)::geography, 50000)\nAND tourism = 'museum';\n",
   "answers": [
     {
-      "count": 34
+      "count": 80
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "museum"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 50000,
+      "text": "50 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "International Quilt Study Center and Museum, Lincoln, NE",
-      "geo_wkt": "POINT (-96.673502 40.828356)",
+      "sub_category": "theme park",
+      "display_name": "House of Air, San Francisco, CA",
+      "geo_wkt": "POINT (-122.468617 37.804932)",
       "poi": {
-        "id": 7782,
-        "geometry": "POINT (-96.673502 40.828356)",
-        "poi_name": "International Quilt Study Center and Museum",
-        "osm_id": 6400867743,
-        "tourism": "museum",
-        "operator": "University of Nebraska-Lincoln",
-        "website": "https://www.internationalquiltmuseum.org/",
-        "wikidata": "Q14704886",
-        "addr_state": "NE",
-        "addr_city": "Lincoln",
-        "addr_postcode": "68503",
-        "addr_street": "North 33rd Street",
-        "addr_housenumber": "1523"
+        "id": 14569,
+        "geometry": "POINT (-122.468617 37.804932)",
+        "poi_name": "House of Air",
+        "osm_id": 4659836677,
+        "tourism": "theme_park",
+        "opening_hours": "Su-Mo 10:00-20:00; Tu-Th 14:00-21:00; Fr-Sa 10:00-22:00",
+        "website": "https://www.houseofair.com/",
+        "phone": "+1 (415) 345-9675",
+        "wikidata": "Q5914641",
+        "addr_state": "CA",
+        "addr_city": "San Francisco",
+        "addr_postcode": "94129",
+        "addr_street": "Mason Street",
+        "addr_housenumber": "926"
       }
     }
   },
-  "id": 2203,
+  "id": 1803,
   "type": "range+count"
 }

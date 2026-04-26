@@ -1,66 +1,79 @@
 {
-  "question": "Where is the nearest restaurant as you progress towards Youth Science Institute Sanborn, Saratoga, CA from Cogswell University of Silicon Valley, San Jose, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography, ST_GeomFromText('POINT (-122.064121 37.233991)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-121.941 37.414064)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant along the travel direction toward Engelheim Vineyards Tasting Room, Ellijay, GA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, ST_GeomFromText('POINT (-84.569999 34.605844)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-84.087955 33.833501)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 51843,
-      "geometry": "POINT (-121.945585 37.410668)",
-      "poi_name": "Gyro Express",
-      "osm_id": 563361294,
-      "amenity": "restaurant",
-      "cuisine": "gyros",
-      "addr_city": "San Jose",
-      "addr_postcode": "95134",
-      "addr_street": "North 1st Street",
-      "addr_housenumber": "3730",
-      "value": 208.67325939013216
+      "id": 147639,
+      "geometry": "POINT (-84.092974 33.867326)",
+      "poi_name": "Subway",
+      "osm_id": 7551746963,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "opening_hours": "Mo-Su 08:00-21:00",
+      "website": "https://restaurants.subway.com/united-states/ga/lilburn/4100-five-forks-trickum-rd?utm_source=yxt-goog&utm_medium=local&utm_term=acq&utm_content=46763&utm_campaign=evergreen-2020",
+      "phone": "(770) 717-1237",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "outdoor_seating": "no",
+      "addr_state": "GA",
+      "addr_city": "Lilburn",
+      "addr_postcode": "30047",
+      "addr_street": "Five Forks Trickum Road",
+      "addr_housenumber": "4100",
+      "value": 332.73007017087093
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Cogswell University of Silicon Valley, San Jose, CA",
-      "geo_wkt": "POINT (-121.941 37.414064)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Yellow River Game Ranch, Lilburn, GA",
+      "geo_wkt": "POINT (-84.087955 33.833501)",
       "poi": {
-        "id": 104359,
-        "geometry": "POINT (-121.941 37.414064)",
-        "poi_name": "Cogswell University of Silicon Valley",
-        "osm_id": 8566442104,
-        "amenity": "university",
-        "addr_state": "CA",
-        "addr_city": "San Jose",
-        "addr_postcode": "95134",
-        "addr_street": "Baypointe Parkway",
-        "addr_housenumber": "191"
+        "id": 5592,
+        "geometry": "POINT (-84.087955 33.833501)",
+        "poi_name": "Yellow River Game Ranch",
+        "osm_id": 827126721,
+        "tourism": "zoo",
+        "opening_hours": "Sep Mo[1]-May Mo[-1]: Mo-Fr 10:00-17:00; Sa-Su 10:00-18:00; May Mo[-1]-Sep Mo[1]: Mo-Su 10:00-18:00",
+        "website": "https://www.yellowrivergameranch.com/",
+        "phone": "+1 (770) 972-6643",
+        "zoo": "petting_zoo",
+        "addr_state": "GA",
+        "addr_city": "Lilburn",
+        "addr_postcode": "30047",
+        "addr_street": "US 78",
+        "addr_housenumber": "4525"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Youth Science Institute Sanborn, Saratoga, CA",
-      "geo_wkt": "POINT (-122.064121 37.233991)",
+      "sub_category": "attraction",
+      "display_name": "Engelheim Vineyards Tasting Room, Ellijay, GA",
+      "geo_wkt": "POINT (-84.569999 34.605844)",
       "poi": {
-        "id": 8576,
-        "geometry": "POINT (-122.064121 37.233991)",
-        "poi_name": "Youth Science Institute Sanborn",
-        "osm_id": 8568837666,
-        "tourism": "museum",
-        "operator": "Youth Science Institute",
-        "museum": "nature",
-        "addr_state": "CA",
-        "addr_city": "Saratoga",
-        "addr_postcode": "95070",
-        "addr_street": "Sanborn Road",
-        "addr_housenumber": "16055"
+        "id": 25392,
+        "geometry": "POINT (-84.569999 34.605844)",
+        "poi_name": "Engelheim Vineyards Tasting Room",
+        "osm_id": 4480156504,
+        "amenity": "bar",
+        "tourism": "attraction",
+        "building": "yes",
+        "opening_hours": "Mo-Su 12:30-18:00",
+        "operator": "Engelheim Vineyards",
+        "addr_state": "GA",
+        "addr_city": "Ellijay",
+        "addr_postcode": "30540",
+        "addr_street": "Lakeview Road",
+        "addr_housenumber": "127"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 1378,
+  "id": 1578,
   "type": "knn:towards+loc"
 }

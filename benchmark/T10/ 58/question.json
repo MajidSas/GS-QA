@@ -1,73 +1,63 @@
 {
-  "question": "Which museum is closest when moving towards Houmas House Plantation and Gardens, Darrow, LA from Audubon Insectarium, New Orleans, LA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography, ST_GeomFromText('POINT (-90.935337 30.141359)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.063318 29.951359)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant you encounter en route to Arthur Hoyt Scott Amphitheature, PA from South 6th St. Community Garden, Philadelphia, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography, ST_GeomFromText('POINT (-75.355533 39.902444)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 26235,
-      "geometry": "POINT (-90.091531 29.965243)",
-      "poi_name": "Katrina National Memorial Museum",
-      "osm_id": 5822739953,
-      "description": "The Katrina National Memorial Museum honors, archives, & celebrates the strength & memories of those who perished, survived & rebuilt the Gulf Coast.",
-      "tourism": "museum",
-      "opening_hours": "Mo-Sa 10:30-16:00",
-      "website": "https://knmfno.org/",
-      "phone": "+1-504-510-9570",
-      "addr_state": "LA",
-      "addr_city": "New Orleans",
-      "addr_postcode": "70119",
-      "addr_street": "Cleveland Avenue",
-      "addr_housenumber": "2800",
-      "value": 284.2782869238409
+      "id": 132678,
+      "geometry": "POINT (-75.158731 39.934358)",
+      "poi_name": "J & J Pizza",
+      "osm_id": 9963872785,
+      "amenity": "restaurant",
+      "opening_hours": "Mo-Su 09:00-24:00",
+      "website": "https://www.j-jpizza.com/",
+      "phone": "+1-215-551-1233",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19147",
+      "addr_street": "South 9th Street",
+      "addr_housenumber": "1177",
+      "value": 258.0523156225573
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Audubon Insectarium, New Orleans, LA",
-      "geo_wkt": "POINT (-90.063318 29.951359)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "South 6th St. Community Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.153583 39.935532)",
       "poi": {
-        "id": 15891,
-        "geometry": "POINT (-90.063318 29.951359)",
-        "poi_name": "Audubon Insectarium",
-        "osm_id": 9588493777,
-        "tourism": "zoo",
-        "wheelchair": "yes",
-        "building": "yes",
-        "opening_hours": "Tu-Su 10:00-17:00",
-        "website": "http://www.auduboninstitute.org/visit/insectarium",
-        "zoo": "insectarium",
-        "wikidata": "Q4820238",
-        "addr_state": "LA",
-        "addr_city": "New Orleans",
-        "addr_postcode": "70130",
-        "addr_street": "Canal Street",
-        "addr_housenumber": "403"
+        "id": 247114,
+        "geometry": "POINT (-75.153583 39.935532)",
+        "poi_name": "South 6th St. Community Garden",
+        "osm_id": 3559321959,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_postcode": "19147",
+        "addr_street": "S 6TH ST",
+        "addr_housenumber": "1035"
       }
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Houmas House Plantation and Gardens, Darrow, LA",
-      "geo_wkt": "POINT (-90.935337 30.141359)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Arthur Hoyt Scott Amphitheature, PA",
+      "geo_wkt": "POINT (-75.355533 39.902444)",
       "poi": {
-        "id": 14178,
-        "geometry": "POINT (-90.935337 30.141359)",
-        "poi_name": "Houmas House Plantation and Gardens",
-        "osm_id": 4242944475,
-        "tourism": "attraction",
-        "addr_state": "LA",
-        "addr_city": "Darrow",
-        "addr_street": "River Road",
-        "addr_housenumber": "40136"
+        "id": 265384,
+        "geometry": "POINT (-75.355533 39.902444)",
+        "poi_name": "Arthur Hoyt Scott Amphitheature",
+        "osm_id": 367975510,
+        "leisure": "stadium",
+        "addr_state": "PA"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     }
   },
-  "id": 157,
+  "id": 1657,
   "type": "knn:towards+name"
 }

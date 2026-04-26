@@ -1,46 +1,45 @@
 {
-  "question": "What's the course towards the closest hotel from Muse SE, Grand Rapids, MI?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.649547 42.953616)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-85.649547 42.953616)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "In which direction lies the nearest caf\u00e9 from Ruffner Park, Irondale, AL?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-86.7106 33.541909)',4326)::geography, pois.geometry)) AS angle  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.7106 33.541909)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 24699,
-      "geometry": "POINT (-85.670419 42.966739)",
-      "poi_name": "Homewood Suites by Hilton Grand Rapids Downtown",
-      "osm_id": 11175144707,
-      "tourism": "hotel",
-      "official_name": "Homewood Suites by Hilton",
-      "addr_state": "MI",
-      "addr_city": "Grand Rapids",
-      "addr_street": "Ottawa Avenue Northwest",
-      "addr_housenumber": "161",
-      "angle": 310.5718973916999
+      "id": 179163,
+      "geometry": "POINT (-86.719401 33.527)",
+      "poi_name": "Starbucks",
+      "osm_id": 10751583048,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "angle": 206.3079594268287
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Muse SE, Grand Rapids, MI",
-      "geo_wkt": "POINT (-85.649547 42.953616)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Ruffner Park, Irondale, AL",
+      "geo_wkt": "POINT (-86.7106 33.541909)",
       "poi": {
-        "id": 24708,
-        "geometry": "POINT (-85.649547 42.953616)",
-        "poi_name": "Muse SE",
-        "osm_id": 11177351025,
-        "tourism": "gallery",
-        "addr_state": "MI",
-        "addr_city": "Grand Rapids",
-        "addr_postcode": "49503",
-        "addr_street": "Eastern Avenue Southeast",
-        "addr_housenumber": "501"
+        "id": 246091,
+        "geometry": "POINT (-86.7106 33.541909)",
+        "poi_name": "Ruffner Park",
+        "osm_id": 5553315036,
+        "leisure": "park",
+        "description": "RUFFNER PARK  is a scenic 20.3 acre baseball and softball complex. The complex is made up of six lighted baseball fields, a concession stand built in 1999, public restrooms, picnic eating area and a large barbecue pit and storage buildings.",
+        "addr_state": "AL",
+        "addr_city": "Irondale",
+        "addr_postcode": "35210",
+        "addr_street": "Ruffner Road",
+        "addr_housenumber": "301"
       }
     }
   },
-  "id": 1418,
+  "id": 518,
   "type": "knn+angle"
 }

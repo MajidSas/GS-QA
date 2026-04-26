@@ -1,85 +1,96 @@
 {
-  "question": "Is there a chance you could find me an emergency hospital, preferably within 180 kilometers from Memory Garden, Mequon, WI?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography, 180000)\nAND amenity = 'hospital'\nAND emergency ILIKE '%yes%';\n",
+  "question": "Could you help track down a seafood restaurant within 20 kilometers from Horrigan Hall, Louisville, KY?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.70426 38.218629)',4326)::geography, 20000)\nAND amenity = 'restaurant'\nAND cuisine ILIKE '%Seafood%';\n",
   "answers": [
     {
-      "id": 57799,
-      "geometry": "POINT (-88.454227 44.187892)",
-      "poi_name": "Children's Wisconsin-Fox Valley Hospital",
-      "osm_id": 5352023735,
-      "amenity": "hospital",
-      "operator": "Children's Hospital of Wisconsin",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "WI",
-      "addr_city": "Neenah",
-      "addr_postcode": "54956",
-      "addr_street": "2nd Street",
-      "addr_housenumber": "130"
+      "id": 78029,
+      "geometry": "POINT (-85.575183 38.237898)",
+      "poi_name": "Bonefish Grill",
+      "osm_id": 736821970,
+      "amenity": "restaurant",
+      "cuisine": "seafood"
     },
     {
-      "id": 67613,
-      "geometry": "POINT (-88.285376 42.216938)",
-      "poi_name": "Mercyhealth Hospital and Physician Clinic",
-      "osm_id": 11242669956,
-      "amenity": "hospital",
-      "phone": "+1-779-220-5500",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "IL",
-      "addr_city": "Crystal Lake",
-      "addr_postcode": "60014",
-      "addr_street": "S IL31",
-      "addr_housenumber": "875"
+      "id": 78159,
+      "geometry": "POINT (-85.57715 38.308253)",
+      "poi_name": "Mitchell's Fish Market",
+      "osm_id": 738010898,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "opening_hours": "Mo-Th 11:30-22:00;Fr-Sa 11:30-24:00;Su 11:00-22:00",
+      "phone": "+1 502 4121818",
+      "addr_street": "Summit Plaza Drive",
+      "addr_housenumber": "4031"
     },
     {
-      "id": 214643,
-      "geometry": "POINT (-87.732089 41.72357)",
-      "poi_name": "Advocate Children's Hospital",
-      "osm_id": 5276572197,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Advocate Aurora Health",
-      "website": "https://www.advocatechildrenshospital.com/",
-      "phone": "+1 708 684 8000",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q30254234",
-      "addr_state": "IL",
-      "addr_city": "Oak Lawn",
-      "addr_postcode": "60453",
-      "addr_street": "West 95th Street",
-      "addr_housenumber": "4440"
+      "id": 106801,
+      "geometry": "POINT (-85.755611 38.256788)",
+      "poi_name": "Jeff Ruby's Steakhouse - Louisville",
+      "osm_id": 3516418236,
+      "amenity": "restaurant",
+      "cuisine": "steak_house;seafood",
+      "opening_hours": "Mo-Th 17:00-22:00; Fr-Sa 17:00-23:00",
+      "website": "https://www.jeffruby.com/louisville",
+      "phone": "+1-502-584-0102",
+      "addr_state": "KY",
+      "addr_city": "Louisville",
+      "addr_postcode": "40202",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "325"
+    },
+    {
+      "id": 101438,
+      "geometry": "POINT (-85.675278 38.254134)",
+      "poi_name": "Hooked on Frankfort",
+      "osm_id": 6629335485,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "phone": "+1-502-690-9835",
+      "addr_street": "Frankfort Avenue",
+      "addr_housenumber": "3200"
+    },
+    {
+      "id": 243171,
+      "geometry": "POINT (-85.63635 38.328493)",
+      "poi_name": "Cunningham's Creekside",
+      "osm_id": 7629878785,
+      "amenity": "restaurant",
+      "cuisine": "american;seafood",
+      "phone": "5022283625",
+      "addr_postcode": "40059"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "seafood restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%Seafood%'"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 20000,
+      "text": "20 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Memory Garden, Mequon, WI",
-      "geo_wkt": "POINT (-87.959122 43.254358)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Horrigan Hall, Louisville, KY",
+      "geo_wkt": "POINT (-85.70426 38.218629)",
       "poi": {
-        "id": 245940,
-        "geometry": "POINT (-87.959122 43.254358)",
-        "poi_name": "Memory Garden",
-        "osm_id": 5345442455,
-        "leisure": "garden",
-        "addr_state": "WI",
-        "addr_city": "Mequon"
+        "id": 48688,
+        "geometry": "POINT (-85.70426 38.218629)",
+        "poi_name": "Horrigan Hall",
+        "osm_id": 3395956265,
+        "amenity": "university",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40205",
+        "addr_street": "Bellarmine Boulevard",
+        "addr_housenumber": "2021"
       }
     }
   },
-  "id": 597,
+  "id": 2597,
   "type": "range:non_spat_filter+name"
 }

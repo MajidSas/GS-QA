@@ -1,60 +1,49 @@
 {
-  "question": "What's the distance between Bagley Nature Area viewing platform, Duluth, MN and a zoo within a 160 kilometers span?",
-  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.08933 46.822185)',4326)::geography, 160000)\nAND tourism = 'zoo';\n",
+  "question": "How distant is a nature reserve from Manatee Viewing Center, Apollo Beach, FL inside an 80 kilometers range?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-82.400924 27.792747)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.400924 27.792747)',4326)::geography, 80000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "id": 2384,
-      "geometry": "POINT (-92.190199 46.725959)",
-      "poi_name": "Lake Superior Zoo",
-      "osm_id": 3420689893,
-      "tourism": "zoo",
-      "operator": "Lake Superior Zoological Society",
-      "wikidata": "Q20858045",
-      "distance": 13182.51996138
-    },
-    {
-      "id": 22954,
-      "geometry": "POINT (-93.006874 48.09928)",
-      "poi_name": "Vince Shute Wildlife Sancuary",
-      "osm_id": 4980237782,
-      "description": "View wild black bears. Depending on year, sanctuary may be open to publc in late May and/or early September. Call or see website for details.",
-      "tourism": "zoo",
-      "opening_hours": "Jun-Aug: Tu-Su 17:00-20:00",
-      "website": "https://www.americanbear.org/",
-      "phone": "+1-218-757-0172",
-      "distance": 157941.89376195
+      "id": 266370,
+      "geometry": "POINT (-82.58935 28.084848)",
+      "poi_name": "Old Memorial Conservation Area",
+      "osm_id": 7223646824,
+      "leisure": "nature_reserve",
+      "distance": 37305.72251925
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 80000,
+      "text": "80 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Bagley Nature Area viewing platform, Duluth, MN",
-      "geo_wkt": "POINT (-92.08933 46.822185)",
+      "sub_category": "attraction",
+      "display_name": "Manatee Viewing Center, Apollo Beach, FL",
+      "geo_wkt": "POINT (-82.400924 27.792747)",
       "poi": {
-        "id": 16041,
-        "geometry": "POINT (-92.08933 46.822185)",
-        "poi_name": "Bagley Nature Area viewing platform",
-        "osm_id": 316372272,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "addr_state": "MN",
-        "addr_city": "Duluth",
-        "addr_postcode": "55812",
-        "addr_street": "Junction Avenue",
-        "addr_housenumber": "1325"
+        "id": 772,
+        "geometry": "POINT (-82.400924 27.792747)",
+        "poi_name": "Manatee Viewing Center",
+        "osm_id": 2676923692,
+        "tourism": "attraction",
+        "opening_hours": "Nov 01-Apr 15 10:00-17:00; Nov: Th[4] off; Dec 24-25 off; easter off",
+        "operator": "TECO",
+        "website": "https://www.tampaelectric.com/company/mvc/",
+        "phone": "+1 (813) 228-4289",
+        "addr_state": "FL",
+        "addr_city": "Apollo Beach",
+        "addr_postcode": "33572",
+        "addr_street": "Dickman Road",
+        "addr_housenumber": "6990"
       }
     }
   },
-  "id": 725,
+  "id": 1925,
   "type": "range+distance"
 }

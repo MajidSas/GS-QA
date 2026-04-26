@@ -1,9 +1,9 @@
 {
-  "question": "How many galleries are situated within a 180 kilometers distance from Research Psychiatric Center, Kansas City, MO?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-94.560016 39.011403)',4326)::geography, 180000)\nAND tourism = 'gallery';\n",
+  "question": "How many galleries are there within 170 kilometers of the point Glenhill Farmhouse, Erie, PA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 170000)\nAND tourism = 'gallery';\n",
   "answers": [
     {
-      "count": 14
+      "count": 40
     }
   ],
   "answer_type": "count",
@@ -13,32 +13,30 @@
       "sub_category": "gallery"
     },
     "[2]": {
-      "distance": 180000,
-      "text": "180 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Research Psychiatric Center, Kansas City, MO",
-      "geo_wkt": "POINT (-94.560016 39.011403)",
+      "main_category": "tourism",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
       "poi": {
-        "id": 182512,
-        "geometry": "POINT (-94.560016 39.011403)",
-        "poi_name": "Research Psychiatric Center",
-        "osm_id": 10894596657,
-        "amenity": "hospital",
-        "wheelchair": "yes",
-        "website": "https://hcamidwest.com/locations/research-psychiatric-center",
-        "phone": "+1 816 444 8161",
-        "healthcare": "hospital",
-        "addr_state": "MO",
-        "addr_city": "Kansas City",
-        "addr_postcode": "64130",
-        "addr_street": "East 63rd Street",
-        "addr_housenumber": "2323"
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
       }
     }
   },
-  "id": 2246,
+  "id": 1846,
   "type": "range+count"
 }

@@ -1,53 +1,108 @@
 {
-  "question": "Where can I find a university in the west direction of Proghorn Nature Area, Aurora, CO, within a radius of 170 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.674157 39.63892)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.674157 39.63892)',4326)::geography, 170000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where are a hospital within 180 kilometers of Bay Drive Park, Okee, WI in the southeast direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.564374 43.366447)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.564374 43.366447)',4326)::geography, 180000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 70277,
-      "geometry": "POINT (-104.674157 39.63892)",
-      "poi_name": "ECPI University Denver",
-      "osm_id": 11356406020,
-      "amenity": "university",
-      "addr_state": "CO",
-      "addr_city": "Centennial",
-      "addr_postcode": "80111",
-      "addr_street": "South Kenton Street",
-      "addr_housenumber": "6675"
+      "id": 183255,
+      "geometry": "POINT (-89.564374 43.366447)",
+      "poi_name": "Prohealth Waukesha Memorial Hospital - Mukwonago Campus",
+      "osm_id": 10920549159,
+      "amenity": "hospital",
+      "website": "https://www.prohealthcare.org/locations/profile/hospital-mukwonago/",
+      "healthcare": "hospital",
+      "addr_state": "WI",
+      "addr_city": "Mukwonago",
+      "addr_postcode": "53149",
+      "addr_street": "Maple Avenue",
+      "addr_housenumber": "240"
+    },
+    {
+      "id": 190195,
+      "geometry": "POINT (-89.564374 43.366447)",
+      "poi_name": "Hospice & Palliative Care of Northeastern Illinois",
+      "osm_id": 1275158535,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no"
+    },
+    {
+      "id": 63331,
+      "geometry": "POINT (-89.564374 43.366447)",
+      "poi_name": "Beloit Clinic",
+      "osm_id": 5610650867,
+      "amenity": "hospital",
+      "operator": "Beloit Health",
+      "healthcare": "hospital",
+      "addr_state": "WI",
+      "addr_city": "Beloit",
+      "addr_postcode": "53511",
+      "addr_street": "Huebbe Parkway",
+      "addr_housenumber": "1905"
+    },
+    {
+      "id": 67613,
+      "geometry": "POINT (-89.564374 43.366447)",
+      "poi_name": "Mercyhealth Hospital and Physician Clinic",
+      "osm_id": 11242669956,
+      "amenity": "hospital",
+      "phone": "+1-779-220-5500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Crystal Lake",
+      "addr_postcode": "60014",
+      "addr_street": "S IL31",
+      "addr_housenumber": "875"
+    },
+    {
+      "id": 129097,
+      "geometry": "POINT (-89.564374 43.366447)",
+      "poi_name": "Midwest Orthopedic Specialty Hospital",
+      "osm_id": 8215444654,
+      "amenity": "hospital",
+      "operator": "Ascension",
+      "website": "https://healthcare.ascension.org/locations/wisconsin/wiwhe/franklin%20midwest%20orthopedic%20specialty%20hospital",
+      "healthcare": "hospital",
+      "addr_state": "WI",
+      "addr_city": "Franklin",
+      "addr_postcode": "53132",
+      "addr_street": "South 27th Street",
+      "addr_housenumber": "10101"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Proghorn Nature Area, Aurora, CO",
-      "geo_wkt": "POINT (-104.674157 39.63892)",
+      "sub_category": "park",
+      "display_name": "Bay Drive Park, Okee, WI",
+      "geo_wkt": "POINT (-89.564374 43.366447)",
       "poi": {
-        "id": 266925,
-        "geometry": "POINT (-104.674157 39.63892)",
-        "poi_name": "Proghorn Nature Area",
-        "osm_id": 11135148290,
-        "leisure": "nature_reserve",
-        "addr_state": "CO",
-        "addr_city": "Aurora",
-        "addr_postcode": "80016",
-        "addr_street": "East Quincy Avenue",
-        "addr_housenumber": "27800"
+        "id": 246302,
+        "geometry": "POINT (-89.564374 43.366447)",
+        "poi_name": "Bay Drive Park",
+        "osm_id": 11271846680,
+        "leisure": "park",
+        "operator": "Town of Lodi",
+        "addr_state": "WI",
+        "addr_city": "Okee",
+        "addr_street": "Bay Drive",
+        "addr_housenumber": "W11370"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2,
+  "id": 2202,
   "type": "range:direction+loc"
 }

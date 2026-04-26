@@ -1,71 +1,42 @@
 {
-  "question": "What's the distance between King's Grove, IL and a stadium within a 130 kilometers span?",
-  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.656017 41.47522)',4326)::geography, 130000)\nAND leisure = 'stadium';\n",
+  "question": "How far away is a golf course relative to Memory Garden, Mequon, WI, bounded by 40 kilometers?",
+  "sql": "SELECT *, ST_Distance(ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography, pois.geometry) AS distance FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.959122 43.254358)',4326)::geography, 40000)\nAND leisure = 'golf_course';\n",
   "answers": [
     {
-      "id": 266107,
-      "geometry": "POINT (-87.688467 41.661626)",
-      "poi_name": "Memorial Stadium",
-      "osm_id": 10655734023,
-      "leisure": "stadium",
-      "distance": 20879.36019475
-    },
-    {
-      "id": 249391,
-      "geometry": "POINT (-86.308998 41.983136)",
-      "poi_name": "Beaver Stadium",
-      "osm_id": 354042116,
-      "leisure": "stadium",
-      "distance": 125468.68821434
-    },
-    {
-      "id": 265389,
-      "geometry": "POINT (-88.082005 41.605308)",
-      "poi_name": "Neil Carey Arena",
-      "osm_id": 368073990,
-      "leisure": "stadium",
-      "operator": "Lewis University",
-      "sport": "basketball;volleyball",
-      "addr_state": "IL",
-      "distance": 38370.38084996
-    },
-    {
-      "id": 267121,
-      "geometry": "POINT (-86.494444 42.088955)",
-      "poi_name": "Dickenson Stadium (St. Joseph High School)",
-      "osm_id": 4567937947,
-      "leisure": "stadium",
-      "sport": "american_football",
-      "distance": 118199.27368087
+      "id": 246065,
+      "geometry": "POINT (-88.354887 43.336968)",
+      "poi_name": "Washington County Golf Course",
+      "osm_id": 5523160167,
+      "leisure": "golf_course",
+      "distance": 33401.52562192
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "King's Grove, IL",
-      "geo_wkt": "POINT (-87.656017 41.47522)",
+      "sub_category": "garden",
+      "display_name": "Memory Garden, Mequon, WI",
+      "geo_wkt": "POINT (-87.959122 43.254358)",
       "poi": {
-        "id": 265407,
-        "geometry": "POINT (-87.656017 41.47522)",
-        "poi_name": "King's Grove",
-        "osm_id": 369051905,
-        "leisure": "nature_reserve",
-        "operator": "Forest Preserve District of Cook County",
-        "website": "https://fpdcc.com/",
-        "addr_state": "IL"
+        "id": 245940,
+        "geometry": "POINT (-87.959122 43.254358)",
+        "poi_name": "Memory Garden",
+        "osm_id": 5345442455,
+        "leisure": "garden",
+        "addr_state": "WI",
+        "addr_city": "Mequon"
       }
     }
   },
-  "id": 730,
+  "id": 1930,
   "type": "range+distance"
 }

@@ -1,49 +1,53 @@
 {
-  "question": "Where is the nearest aquarium situated towards the northeast of Joy Burns Arena, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.961111 39.6825)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hospital when heading west from Rolling Hills Asylum, East Bethany, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-78.132805 42.881184)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25908,
-      "geometry": "POINT (-104.961111 39.6825)",
-      "poi_name": "SEA LIFE Minnesota Aquarium",
-      "osm_id": 5739830095,
-      "description": "Sea Life at Mall of America is a public aquarium located in the Mall of America in Bloomington, Minnesota, United States. The 1.3 million-US-gallon aquarium contains thousands of aquatic creatures, including sea turtles, sharks, sawfish, stingrays, jellyf",
-      "tourism": "aquarium",
-      "fee": "yes",
-      "opening_hours": "Mo-Th 11:00-18:00; Fr-Sa 10:00-20:00; Su 11:00-18:00",
-      "operator": "Merlin Entertainments'",
-      "website": "https://www.visitsealife.com/minnesota/",
-      "phone": "+1-952-883-0202",
-      "addr_state": "MN",
-      "addr_city": "Bloomington",
-      "addr_postcode": "55425",
-      "addr_street": "East Broadway",
-      "addr_housenumber": "120"
+      "id": 102778,
+      "geometry": "POINT (-78.132805 42.881184)",
+      "poi_name": "Mercy Hospital - Mercy Hospital Orchard Park Division",
+      "osm_id": 8457918967,
+      "amenity": "hospital",
+      "website": "https://www.chsbuffalo.org/facilities/diagnostic/mercyambulatorycarecenter",
+      "phone": "+1 716 662 0500",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "NY",
+      "addr_city": "Orchard Park",
+      "addr_postcode": "14127",
+      "addr_street": "Southwestern Boulevard",
+      "addr_housenumber": "3669"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Joy Burns Arena, CO",
-      "geo_wkt": "POINT (-104.961111 39.6825)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Rolling Hills Asylum, East Bethany, NY",
+      "geo_wkt": "POINT (-78.132805 42.881184)",
       "poi": {
-        "id": 265350,
-        "geometry": "POINT (-104.961111 39.6825)",
-        "poi_name": "Joy Burns Arena",
-        "osm_id": 366396382,
-        "leisure": "stadium",
-        "addr_state": "CO"
+        "id": 3399,
+        "geometry": "POINT (-78.132805 42.881184)",
+        "poi_name": "Rolling Hills Asylum",
+        "osm_id": 5390600736,
+        "tourism": "attraction",
+        "website": "https://www.rollinghillsasylum.com/",
+        "phone": "+1 585 502 4066",
+        "addr_state": "NY",
+        "addr_city": "East Bethany",
+        "addr_postcode": "14054",
+        "addr_street": "Bethany Center Road",
+        "addr_housenumber": "11001"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
   "id": 1199,

@@ -1,46 +1,53 @@
 {
-  "question": "Is there a nature reserve within 70 kilometers from Country Inn & Suites, Rochester, NY?",
-  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.616916 43.104227)',4326)::geography, 70000)\nAND leisure = 'nature_reserve';\n",
+  "question": "Can you suggest a nearby a university within 140 kilometers of Inn at Bay Harbor, Bay Harbor, MI?",
+  "sql": "SELECT * FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.015501 45.36903)',4326)::geography, 140000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "id": 246680,
-      "geometry": "POINT (-77.431318 43.17575)",
-      "poi_name": "Four Mile Creek Nature Preserve",
-      "osm_id": 8818657932,
-      "leisure": "nature_reserve"
+      "id": 182815,
+      "geometry": "POINT (-83.818127 45.421977)",
+      "poi_name": "Michigan State University (MSU) Extension - Presque Isle County",
+      "osm_id": 10905649867,
+      "amenity": "university",
+      "website": "https://www.canr.msu.edu/presque_isle/index",
+      "addr_state": "MI",
+      "addr_city": "Rogers City",
+      "addr_postcode": "49779",
+      "addr_street": "East Huron Avenue",
+      "addr_housenumber": "106"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 70000,
-      "text": "70 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Country Inn & Suites, Rochester, NY",
-      "geo_wkt": "POINT (-77.616916 43.104227)",
+      "display_name": "Inn at Bay Harbor, Bay Harbor, MI",
+      "geo_wkt": "POINT (-85.015501 45.36903)",
       "poi": {
-        "id": 13454,
-        "geometry": "POINT (-77.616916 43.104227)",
-        "poi_name": "Country Inn & Suites",
-        "osm_id": 4097678679,
+        "id": 815,
+        "geometry": "POINT (-85.015501 45.36903)",
+        "poi_name": "Inn at Bay Harbor",
+        "osm_id": 2699157719,
         "tourism": "hotel",
-        "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-rochester-university-ny",
-        "phone": "+1-585-427-0131",
-        "addr_state": "NY",
-        "addr_city": "Rochester",
-        "addr_postcode": "14623",
-        "addr_street": "East Henrietta Road",
-        "addr_housenumber": "797"
+        "wheelchair": "yes",
+        "website": "https://www.innatbayharbor.com/",
+        "phone": "+1-231-439-4000",
+        "addr_state": "MI",
+        "addr_city": "Bay Harbor",
+        "addr_postcode": "49770",
+        "addr_street": "Village Harbor Drive",
+        "addr_housenumber": "3600"
       }
     }
   },
-  "id": 804,
+  "id": 2104,
   "type": "range+name"
 }

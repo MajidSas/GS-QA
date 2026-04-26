@@ -1,69 +1,66 @@
 {
-  "question": "Where is the closest fast food restaurant along the way to Gardner Historical Museum, KS from Sea Life Aquarium Kansas City, Kansas City, MO?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography, ST_GeomFromText('POINT (-94.93128 38.811288)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-94.5816 39.082158)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant along the direction of travel from Sea Life Aquarium, San Antonio, TX to the Cross at Kerrville, Kerrville, TX?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, ST_GeomFromText('POINT (-99.11422 30.074279)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-98.485816 29.424103)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 164215,
-      "geometry": "POINT (-94.60585 39.073274)",
-      "poi_name": "Miranda's Mexican Food Truck",
-      "osm_id": 9456251657,
-      "amenity": "fast_food",
-      "cuisine": "mexican",
-      "opening_hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-22:00",
-      "website": "https://mirandas-mexican-food-truck.business.site/",
-      "phone": "+-816-695-8356",
-      "drive_through": "no",
-      "outdoor_seating": "yes",
-      "addr_state": "MO",
-      "addr_city": "Kansas City",
-      "addr_postcode": "64108",
-      "addr_street": "Southwest Boulevard",
-      "addr_housenumber": "3029",
-      "value": 225.34128637759005
+      "id": 111839,
+      "geometry": "POINT (-98.486258 29.424459)",
+      "poi_name": "Colonial Room",
+      "osm_id": 3764366958,
+      "amenity": "restaurant",
+      "addr_state": "TX",
+      "addr_city": "San Antonio",
+      "addr_postcode": "78205",
+      "addr_street": "Alamo Plaza",
+      "addr_housenumber": "204",
+      "value": 320.01134180072955
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sea Life Aquarium Kansas City, Kansas City, MO",
-      "geo_wkt": "POINT (-94.5816 39.082158)",
+      "sub_category": "aquarium",
+      "display_name": "Sea Life Aquarium, San Antonio, TX",
+      "geo_wkt": "POINT (-98.485816 29.424103)",
       "poi": {
-        "id": 12063,
-        "geometry": "POINT (-94.5816 39.082158)",
-        "poi_name": "Sea Life Aquarium Kansas City",
-        "osm_id": 6171269243,
-        "tourism": "zoo",
-        "website": "https://www.visitsealife.com/kansas-city/",
-        "phone": "+1 (816)471-4386",
-        "addr_state": "MO",
-        "addr_city": "Kansas City",
-        "addr_postcode": "64108",
-        "addr_street": "Grand Boulevard",
-        "addr_housenumber": "2475"
+        "id": 3121,
+        "geometry": "POINT (-98.485816 29.424103)",
+        "poi_name": "Sea Life Aquarium",
+        "osm_id": 10184935041,
+        "tourism": "aquarium",
+        "website": "https://www.visitsealife.com/san-antonio/",
+        "wikidata": "Q664334",
+        "addr_state": "TX",
+        "addr_city": "San Antonio",
+        "addr_postcode": "78205",
+        "addr_street": "East Commerce Street",
+        "addr_housenumber": "849"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Gardner Historical Museum, KS",
-      "geo_wkt": "POINT (-94.93128 38.811288)",
+      "sub_category": "attraction",
+      "display_name": "The Cross at Kerrville, Kerrville, TX",
+      "geo_wkt": "POINT (-99.11422 30.074279)",
       "poi": {
-        "id": 16895,
-        "geometry": "POINT (-94.93128 38.811288)",
-        "poi_name": "Gardner Historical Museum",
-        "osm_id": 366765946,
-        "tourism": "museum",
-        "website": "https://gardnerhistoricalmuseum.com/",
-        "addr_state": "KS"
+        "id": 8308,
+        "geometry": "POINT (-99.11422 30.074279)",
+        "poi_name": "The Cross at Kerrville",
+        "osm_id": 6615413563,
+        "tourism": "attraction",
+        "addr_state": "TX",
+        "addr_city": "Kerrville",
+        "addr_postcode": "78028",
+        "addr_street": "Benson Drive",
+        "addr_housenumber": "520"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 1397,
+  "id": 1597,
   "type": "knn:towards+loc"
 }

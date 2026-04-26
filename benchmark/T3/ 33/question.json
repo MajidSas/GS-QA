@@ -1,88 +1,57 @@
 {
-  "question": "Within a radius of 190 kilometers, what stadium can I find to the north of Freedom Lake Park, Pinellas Park, FL?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.698397 27.861949)',4326)::geography, 190000)\nAND leisure = 'stadium'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Which zoo fall within 160 kilometers when moving southwest from West End Park, Queensbury, NY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography, 160000)\nAND tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 265372,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "Trinity Catholic High School Football Stadium",
-      "osm_id": 367826897,
-      "leisure": "stadium",
-      "addr_state": "FL"
-    },
-    {
-      "id": 265373,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "North Marion High School Football Stadium",
-      "osm_id": 367826898,
-      "leisure": "stadium",
-      "addr_state": "FL"
-    },
-    {
-      "id": 265374,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "West Port Football Stadium",
-      "osm_id": 367826899,
-      "leisure": "stadium",
-      "addr_state": "FL"
-    },
-    {
-      "id": 265375,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "Dunnellon High School Football Stadium",
-      "osm_id": 367826900,
-      "leisure": "stadium",
-      "addr_state": "FL"
-    },
-    {
-      "id": 265376,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "Brick City Park Stadium",
-      "osm_id": 367826901,
-      "leisure": "stadium",
-      "addr_state": "FL"
-    },
-    {
-      "id": 265377,
-      "geometry": "POINT (-82.698397 27.861949)",
-      "poi_name": "Hernando High School Football Stadium",
-      "osm_id": 367826909,
-      "leisure": "stadium",
-      "addr_state": "FL"
+      "id": 18982,
+      "geometry": "POINT (-73.679735 43.302111)",
+      "poi_name": "Adirondack Animal Land",
+      "osm_id": 2471668960,
+      "tourism": "zoo",
+      "website": "http://www.adirondackanimalland.com/",
+      "phone": "(518) 883-5748",
+      "addr_city": "Gloversville",
+      "addr_postcode": "12078",
+      "addr_street": "State Highway 30",
+      "addr_housenumber": "3554"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Freedom Lake Park, Pinellas Park, FL",
-      "geo_wkt": "POINT (-82.698397 27.861949)",
+      "display_name": "West End Park, Queensbury, NY",
+      "geo_wkt": "POINT (-73.679735 43.302111)",
       "poi": {
-        "id": 246614,
-        "geometry": "POINT (-82.698397 27.861949)",
-        "poi_name": "Freedom Lake Park",
-        "osm_id": 1871938101,
+        "id": 245515,
+        "geometry": "POINT (-73.679735 43.302111)",
+        "poi_name": "West End Park",
+        "osm_id": 3009465102,
         "leisure": "park",
-        "addr_state": "FL",
-        "addr_city": "Pinellas Park",
-        "addr_postcode": "33782",
-        "addr_street": "US 19"
+        "opening_hours": "Apr-Nov: sunrise-sunset",
+        "operator": "Town of QueensburyRecreation Department",
+        "website": "https://recreation.queensbury.net/parks/",
+        "addr_state": "NY",
+        "addr_city": "Queensbury",
+        "addr_postcode": "12804",
+        "addr_street": "Luzerne Road",
+        "addr_housenumber": "117"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2632,
+  "id": 2332,
   "type": "range:direction+name"
 }

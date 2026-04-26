@@ -1,37 +1,44 @@
 {
-  "question": "Any suggestions for the nearest park from the Lodge, CA?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-119.7507 36.810228)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which theme park closest to Park Hyatt Washington, Washington, DC is available?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.051092 38.905797)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 263148,
-      "geometry": "POINT (-119.752644 36.811616)",
-      "poi_name": "Bulldog Diamond",
-      "osm_id": 358833050,
-      "leisure": "park",
-      "wikidata": "Q49476173"
+      "id": 15017,
+      "geometry": "POINT (-78.140089 39.059962)",
+      "poi_name": "Dinosaur Land",
+      "osm_id": 4783030838,
+      "tourism": "theme_park"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "The Lodge, CA",
-      "geo_wkt": "POINT (-119.7507 36.810228)",
+      "display_name": "Park Hyatt Washington, Washington, DC",
+      "geo_wkt": "POINT (-77.051092 38.905797)",
       "poi": {
-        "id": 18180,
-        "geometry": "POINT (-119.7507 36.810228)",
-        "poi_name": "The Lodge",
-        "osm_id": 368173893,
+        "id": 5435,
+        "geometry": "POINT (-77.051092 38.905797)",
+        "poi_name": "Park Hyatt Washington",
+        "osm_id": 759570200,
         "tourism": "hotel",
-        "addr_state": "CA"
+        "operator": "Hyatt",
+        "website": "https://washingtondc.park.hyatt.com/",
+        "phone": "+1 202-789-1234",
+        "wikidata": "Q18386726",
+        "addr_state": "DC",
+        "addr_city": "Washington",
+        "addr_postcode": "20037",
+        "addr_street": "24th Street",
+        "addr_housenumber": "1201"
       }
     }
   },
-  "id": 292,
+  "id": 1092,
   "type": "knn+name"
 }

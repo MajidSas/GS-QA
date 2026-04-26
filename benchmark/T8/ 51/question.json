@@ -1,47 +1,47 @@
 {
-  "question": "Seeking suggestions for the nearest beach resort in relation to the stadium with the former name Southern National Speedway in Lucama, NC.",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.060871 35.61119)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest hospital in proximity to the stadium that can hold 6600 spectators in Louisville, KY?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265570,
-      "geometry": "POINT (-73.973041 40.365235)",
-      "poi_name": "Seabright Beach Club",
-      "osm_id": 2575212863,
-      "leisure": "beach_resort",
-      "addr_state": "NJ",
-      "addr_city": "Sea Bright",
-      "addr_postcode": "07760",
-      "addr_street": "Ocean Avenue",
-      "addr_housenumber": "999"
+      "id": 167629,
+      "geometry": "POINT (-85.751272 38.248963)",
+      "poi_name": "Frazier Rehabilitation Institute",
+      "osm_id": 358621512,
+      "amenity": "hospital",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Louisville",
+      "addr_postcode": "40202",
+      "addr_street": "Abraham Flexner Way",
+      "addr_housenumber": "220"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Southern National Motorsport Park, Lucama, NC",
-      "geo_wkt": "POINT (-78.060871 35.61119)",
+      "display_name": "Broadbent Arena, Louisville, KY",
+      "geo_wkt": "POINT (-85.745629 38.200638)",
       "poi": {
-        "id": 248769,
-        "geometry": "POINT (-78.060871 35.61119)",
-        "poi_name": "Southern National Motorsport Park",
-        "osm_id": 4773889332,
+        "id": 245703,
+        "geometry": "POINT (-85.745629 38.200638)",
+        "poi_name": "Broadbent Arena",
+        "osm_id": 3418007532,
         "leisure": "stadium",
-        "sport": "motor",
-        "wikidata": "Q7570163",
-        "addr_state": "NC",
-        "addr_city": "Lucama",
-        "addr_postcode": "27851",
-        "addr_street": "Newsome Mill Road",
-        "addr_housenumber": "8071"
+        "wikidata": "Q4972040",
+        "addr_state": "KY",
+        "addr_city": "Louisville",
+        "addr_postcode": "40209",
+        "addr_street": "Broadbent Drive",
+        "addr_housenumber": "3100"
       }
     }
   },
-  "id": 2750,
-  "type": "knn+name+multihop2"
+  "id": 950,
+  "type": "knn+name+multi_source2"
 }

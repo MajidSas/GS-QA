@@ -1,56 +1,63 @@
 {
-  "question": "What's the closest museum located en route to Belk Activity Center, Tuscaloosa, AL from Oak Grove Baseball Stadium, Bessemer, AL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, ST_GeomFromText('POINT (-87.510604 33.1765)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.156908 33.467656)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which museum is closest as you go from South Suburban College Oak Forest Center, Oak Forest, IL to Homewood Suites, Schaumburg, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.719202 41.592582)',4326)::geography, ST_GeomFromText('POINT (-88.059089 42.047655)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'museum'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.719202 41.592582)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.719202 41.592582)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 754,
-      "geometry": "POINT (-87.54398 33.211886)",
-      "poi_name": "Alabama Museum of Natural History",
-      "osm_id": 2665481258,
+      "id": 26494,
+      "geometry": "POINT (-87.82001 41.827884)",
+      "poi_name": "Riverside Historical Museum",
+      "osm_id": 5905978457,
       "tourism": "museum",
-      "fee": "yes",
-      "opening_hours": "Mo-Sa 10:00-16:30",
-      "website": "https://almnh.museums.ua.edu/",
-      "value": 225.66053512568195
+      "opening_hours": "Sa 10:00-14:00",
+      "operator": "Riverside Historical Commission",
+      "website": "http://www.riversidemuseum.net",
+      "addr_state": "IL",
+      "addr_city": "Riverside",
+      "addr_postcode": "60546",
+      "addr_street": "Pine Avenue",
+      "addr_housenumber": "10",
+      "value": 330.92139446653965
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Oak Grove Baseball Stadium, Bessemer, AL",
-      "geo_wkt": "POINT (-87.156908 33.467656)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "South Suburban College Oak Forest Center, Oak Forest, IL",
+      "geo_wkt": "POINT (-87.719202 41.592582)",
       "poi": {
-        "id": 247942,
-        "geometry": "POINT (-87.156908 33.467656)",
-        "poi_name": "Oak Grove Baseball Stadium",
-        "osm_id": 6120962256,
-        "leisure": "stadium",
-        "addr_state": "AL",
-        "addr_city": "Bessemer",
-        "addr_postcode": "35023",
-        "addr_street": "Oak Grove Parkway",
-        "addr_housenumber": "9494"
+        "id": 110104,
+        "geometry": "POINT (-87.719202 41.592582)",
+        "poi_name": "South Suburban College Oak Forest Center",
+        "osm_id": 3687805176,
+        "amenity": "university",
+        "operator": "South Suburban College",
+        "addr_state": "IL",
+        "addr_city": "Oak Forest",
+        "addr_postcode": "60452",
+        "addr_street": "KIlbourn Avenue",
+        "addr_housenumber": "16333"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Belk Activity Center, Tuscaloosa, AL",
-      "geo_wkt": "POINT (-87.510604 33.1765)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Homewood Suites, Schaumburg, IL",
+      "geo_wkt": "POINT (-88.059089 42.047655)",
       "poi": {
-        "id": 265877,
-        "geometry": "POINT (-87.510604 33.1765)",
-        "poi_name": "Belk Activity Center",
-        "osm_id": 1098722810,
-        "leisure": "park",
-        "website": "https://www.tcpara.org/",
-        "addr_state": "AL",
-        "addr_city": "Tuscaloosa",
-        "addr_postcode": "35405",
-        "addr_street": "Bowers Park Drive",
-        "addr_housenumber": "2101"
+        "id": 671,
+        "geometry": "POINT (-88.059089 42.047655)",
+        "poi_name": "Homewood Suites",
+        "osm_id": 2633342285,
+        "tourism": "hotel",
+        "website": "http://www.homewoodsuitesschaumburg.com/",
+        "official_name": "Homewood Suites by Hilton",
+        "addr_state": "IL",
+        "addr_city": "Schaumburg",
+        "addr_postcode": "60173",
+        "addr_street": "East American Lane",
+        "addr_housenumber": "815"
       }
     },
     "[1]": {
@@ -58,6 +65,6 @@
       "sub_category": "museum"
     }
   },
-  "id": 152,
+  "id": 1652,
   "type": "knn:towards+name"
 }

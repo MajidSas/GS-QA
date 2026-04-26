@@ -1,70 +1,73 @@
 {
-  "question": "What is the closest caf\u00e9 from Funkmeyer New Reality Garden, Los Angeles, CA towards Monrovia Canyon Park, Monrovia, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, ST_GeomFromText('POINT (-117.988399 34.176394)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.366951 34.039786)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which fast food comes up first when traveling toward the Keath House, Manheim, PA from Mays Chapel Medical Care Center, Lutherville, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography, ST_GeomFromText('POINT (-76.394069 40.16458)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.663402 39.458755)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 74519,
-      "geometry": "POINT (-118.343939 34.051719)",
-      "poi_name": "Starbucks",
-      "osm_id": 9684100262,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "takeaway": "yes",
-      "official_name": "Starbucks Coffee",
-      "outdoor_seating": "yes",
-      "addr_state": "CA",
-      "addr_city": "Los Angeles",
-      "addr_postcode": "90019",
-      "addr_street": "S La Brea Avenue",
-      "addr_housenumber": "1250",
-      "value": 66.44088195179847
+      "id": 237848,
+      "geometry": "POINT (-76.64819 39.491914)",
+      "poi_name": "The Pizza Connection",
+      "osm_id": 5850704892,
+      "amenity": "fast_food",
+      "cuisine": "pizza",
+      "website": "http://www.gopizzaconnection.com",
+      "phone": "+1 410-527-1888",
+      "addr_state": "MD",
+      "addr_city": "Cockeysville",
+      "addr_postcode": "21030",
+      "addr_street": "York Rd",
+      "addr_housenumber": "11215",
+      "value": 16.31211668450687
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Funkmeyer New Reality Garden, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.366951 34.039786)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Mays Chapel Medical Care Center, Lutherville, MD",
+      "geo_wkt": "POINT (-76.663402 39.458755)",
       "poi": {
-        "id": 247152,
-        "geometry": "POINT (-118.366951 34.039786)",
-        "poi_name": "Funkmeyer New Reality Garden",
-        "osm_id": 3659354357,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "operator": "Otis and Jenny Funkmeyer",
-        "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90016",
-        "addr_street": "South Spaulding Avenue",
-        "addr_housenumber": "2033"
+        "id": 41532,
+        "geometry": "POINT (-76.663402 39.458755)",
+        "poi_name": "Mays Chapel Medical Care Center",
+        "osm_id": 3019370509,
+        "amenity": "hospital",
+        "operator": "Lifebridge Health",
+        "website": "https://www.lifebridgehealth.org/Main/MaysChapelMedicalCareCenters.aspx",
+        "addr_state": "MD",
+        "addr_city": "Lutherville",
+        "addr_postcode": "21093",
+        "addr_street": "Tullamore Road",
+        "addr_housenumber": "12221"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Monrovia Canyon Park, Monrovia, CA",
-      "geo_wkt": "POINT (-117.988399 34.176394)",
+      "main_category": "tourism",
+      "sub_category": "museum",
+      "display_name": "The Keath House, Manheim, PA",
+      "geo_wkt": "POINT (-76.394069 40.16458)",
       "poi": {
-        "id": 262527,
-        "geometry": "POINT (-117.988399 34.176394)",
-        "poi_name": "Monrovia Canyon Park",
-        "osm_id": 358789318,
-        "leisure": "nature_reserve",
-        "addr_state": "CA",
-        "addr_city": "Monrovia",
-        "addr_postcode": "91016",
-        "addr_street": "N. Canyon Boulevard",
-        "addr_housenumber": "1200"
+        "id": 8371,
+        "geometry": "POINT (-76.394069 40.16458)",
+        "poi_name": "The Keath House",
+        "osm_id": 6655864677,
+        "description": "Historic House Museum",
+        "tourism": "museum",
+        "operator": "Manheim Historical Society",
+        "website": "https://www.manheimhistoricalsociety.org/",
+        "phone": "717-665-7989",
+        "addr_state": "PA",
+        "addr_city": "Manheim",
+        "addr_postcode": "17545",
+        "addr_street": "East High Street",
+        "addr_housenumber": "32"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "fast_food"
     }
   },
-  "id": 122,
+  "id": 1622,
   "type": "knn:towards+name"
 }

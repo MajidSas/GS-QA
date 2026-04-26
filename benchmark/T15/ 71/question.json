@@ -1,50 +1,48 @@
 {
-  "question": "Where can I find a hospital positioned towards the north of Lucille Ball Childhood Home, Jamestown, NY, within a radius of 140 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.286417 42.102703)',4326)::geography, 140000)\nAND amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where can I find a golf course that sit within 60 kilometers on the north side of WORKS/San Jos\u00e9, San Jose, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-121.887315 37.329661)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-121.887315 37.329661)',4326)::geography, 60000)\nAND leisure = 'golf_course'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 102725,
-      "geometry": "POINT (-79.286417 42.102703)",
-      "poi_name": "Brylin Hospital",
-      "osm_id": 8454635711,
-      "amenity": "hospital",
-      "website": "https://www.brylin.com",
-      "phone": "+1 716 886 8200",
-      "healthcare": "hospital",
-      "addr_state": "NY",
-      "addr_city": "Buffalo",
-      "addr_postcode": "14209",
-      "addr_street": "Delaware Avenue",
-      "addr_housenumber": "1263"
+      "id": 266086,
+      "geometry": "POINT (-121.887315 37.329661)",
+      "poi_name": "Bay View Golf Club",
+      "osm_id": 10587750047,
+      "leisure": "golf_course",
+      "description": "great golf course woth views of east bay hills",
+      "sport": "golf",
+      "addr_state": "CA",
+      "addr_city": "Milpitas",
+      "addr_postcode": "95035",
+      "addr_street": "Country Club Drive",
+      "addr_housenumber": "1500"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Lucille Ball Childhood Home, Jamestown, NY",
-      "geo_wkt": "POINT (-79.286417 42.102703)",
+      "sub_category": "gallery",
+      "display_name": "WORKS/San Jos\u00e9, San Jose, CA",
+      "geo_wkt": "POINT (-121.887315 37.329661)",
       "poi": {
-        "id": 373,
-        "geometry": "POINT (-79.286417 42.102703)",
-        "poi_name": "Lucille Ball Childhood Home",
-        "osm_id": 8342270492,
-        "tourism": "museum",
-        "website": "https://59lucylane.com/",
-        "addr_state": "NY",
-        "addr_city": "Jamestown",
-        "addr_postcode": "14701",
-        "addr_street": "Lucy Lane",
-        "addr_housenumber": "59"
+        "id": 2850,
+        "geometry": "POINT (-121.887315 37.329661)",
+        "poi_name": "WORKS/San Jos\u00e9",
+        "osm_id": 10052566494,
+        "tourism": "gallery",
+        "wikidata": "Q106986491",
+        "addr_state": "CA",
+        "addr_city": "San Jose",
+        "addr_street": "South Market Street",
+        "addr_housenumber": "365"
       }
     },
     "[4]": {
@@ -52,6 +50,6 @@
       "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 70,
+  "id": 2270,
   "type": "range:direction+loc"
 }

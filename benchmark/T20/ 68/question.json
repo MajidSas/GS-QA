@@ -1,68 +1,72 @@
 {
-  "question": "Where's the closest restaurant located en route to Hasley Canyon Equestrian Center, Valencia, CA from Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, ST_GeomFromText('POINT (-118.636206 34.452191)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-119.685686 34.410426)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest gallery encountered en route to Acushnet Sawmill, Acushnet, MA from DoubleTree by Hilton Hotel, Bedford, MA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, ST_GeomFromText('POINT (-70.919597 41.683778)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 209622,
-      "geometry": "POINT (-119.642548 34.421364)",
-      "poi_name": "Trattoria Mollie",
-      "osm_id": 5046932921,
-      "amenity": "restaurant",
-      "cuisine": "italian",
-      "phone": "805-565-9381",
-      "addr_state": "CA",
-      "addr_postcode": "93108",
-      "addr_street": "Coast Village Road",
-      "addr_housenumber": "1250",
-      "value": 86.95364690797894
+      "id": 24015,
+      "geometry": "POINT (-71.181915 42.367852)",
+      "poi_name": "Drive By Projects",
+      "osm_id": 9249399944,
+      "tourism": "gallery",
+      "website": "https://drive-byprojects.com/",
+      "phone": "+1 617 835 8255",
+      "addr_state": "MA",
+      "addr_city": "Watertown",
+      "addr_postcode": "02472",
+      "addr_street": "Spring Street",
+      "addr_housenumber": "81",
+      "value": 163.939639924942
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "Santa Barbara Museum of Natural History Sea Center, Santa Barbara, CA",
-      "geo_wkt": "POINT (-119.685686 34.410426)",
+      "sub_category": "hotel",
+      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
+      "geo_wkt": "POINT (-71.236261 42.508756)",
       "poi": {
-        "id": 18273,
-        "geometry": "POINT (-119.685686 34.410426)",
-        "poi_name": "Santa Barbara Museum of Natural History Sea Center",
-        "osm_id": 368174545,
-        "tourism": "aquarium",
-        "operator": "Santa Barbara Museum of Natural History",
-        "website": "https://www.sbnature.org/twsc/2.html",
-        "wikidata": "Q3542641",
-        "addr_state": "CA",
-        "addr_city": "Santa Barbara",
-        "addr_postcode": "93101",
-        "addr_street": "Stearns Wharf",
-        "addr_housenumber": "211"
+        "id": 182,
+        "geometry": "POINT (-71.236261 42.508756)",
+        "poi_name": "DoubleTree by Hilton Hotel",
+        "osm_id": 472496629,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
+        "internet_access": "yes",
+        "phone": "+1-781-275-5500",
+        "official_name": "DoubleTree by Hilton",
+        "addr_state": "MA",
+        "addr_city": "Bedford",
+        "addr_postcode": "01730",
+        "addr_street": "Middlesex Turnpike",
+        "addr_housenumber": "44"
       }
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "park",
-      "display_name": "Hasley Canyon Equestrian Center, Valencia, CA",
-      "geo_wkt": "POINT (-118.636206 34.452191)",
+      "display_name": "Acushnet Sawmill, Acushnet, MA",
+      "geo_wkt": "POINT (-70.919597 41.683778)",
       "poi": {
-        "id": 246005,
-        "geometry": "POINT (-118.636206 34.452191)",
-        "poi_name": "Hasley Canyon Equestrian Center",
-        "osm_id": 5431737185,
+        "id": 245596,
+        "geometry": "POINT (-70.919597 41.683778)",
+        "poi_name": "Acushnet Sawmill",
+        "osm_id": 3197476151,
         "leisure": "park",
-        "addr_state": "CA",
-        "addr_city": "Valencia",
-        "addr_postcode": "91355",
-        "addr_street": "Avenue Penn",
-        "addr_housenumber": "29161"
+        "website": "https://www.savebuzzardsbay.org/",
+        "addr_state": "MA",
+        "addr_city": "Acushnet",
+        "addr_postcode": "02743",
+        "addr_street": "Mill Road",
+        "addr_housenumber": "38"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1367,
+  "id": 1567,
   "type": "knn:towards+loc"
 }

@@ -1,47 +1,48 @@
 {
-  "question": "Where is the closest park in the southeast direction starting from Urban Air Adventure Park, Port Saint Lucie, FL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.303867 27.301988)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest caf\u00e9 in the southeast direction from Sawgrass Lake Park, Saint Petersburg, FL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.668905 27.841344)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265677,
-      "geometry": "POINT (-80.303867 27.301988)",
-      "poi_name": "Civic Center Interactive Fountains",
-      "osm_id": 10822628591,
-      "leisure": "park",
-      "opening_hours": "10:00-dusk",
-      "operator": "City of Port St Lucie",
-      "addr_state": "Florida",
-      "addr_city": "Port St Lucie",
-      "addr_postcode": "34952",
-      "addr_street": "Main Street",
-      "addr_housenumber": "9200"
+      "id": 82976,
+      "geometry": "POINT (-82.668905 27.841344)",
+      "poi_name": "Starbucks",
+      "osm_id": 1723545094,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "internet_access": "wlan",
+      "takeaway": "yes",
+      "drive_through": "no",
+      "official_name": "Starbucks Coffee",
+      "outdoor_seating": "yes",
+      "addr_state": "FL",
+      "addr_city": "Saint Petersburg",
+      "addr_postcode": "33703",
+      "addr_street": "4th Street North",
+      "addr_housenumber": "4946"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Urban Air Adventure Park, Port Saint Lucie, FL",
-      "geo_wkt": "POINT (-80.303867 27.301988)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Sawgrass Lake Park, Saint Petersburg, FL",
+      "geo_wkt": "POINT (-82.668905 27.841344)",
       "poi": {
-        "id": 27036,
-        "geometry": "POINT (-80.303867 27.301988)",
-        "poi_name": "Urban Air Adventure Park",
-        "osm_id": 7656494335,
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 16:00-20:00; Fr 12:00-23:00; Sa 10:00-23:00; Su 10:00-20:00",
-        "website": "https://www.urbanairtrampolinepark.com/locations/florida/port-st-lucie",
-        "phone": "+1-772-408-9349",
+        "id": 248452,
+        "geometry": "POINT (-82.668905 27.841344)",
+        "poi_name": "Sawgrass Lake Park",
+        "osm_id": 4164276748,
+        "leisure": "park",
         "addr_state": "FL",
-        "addr_city": "Port Saint Lucie",
-        "addr_postcode": "34952",
-        "addr_street": "S US Highway 1",
-        "addr_housenumber": "9020"
+        "addr_city": "Saint Petersburg",
+        "addr_postcode": "33702",
+        "addr_street": "25th St North",
+        "addr_housenumber": "7400"
       }
     },
     "[3]": {

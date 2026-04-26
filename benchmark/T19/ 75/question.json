@@ -1,51 +1,48 @@
 {
-  "question": "Where's the nearest restaurant located in the north of Sautee Mountain Retreat, Clarkesville, GA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-83.632508 34.709056)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'restaurant'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest zoo if you move northwest from the Lake House, East Springfield, PA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.433908 41.993983)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'zoo'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 123074,
-      "geometry": "POINT (-83.632508 34.709056)",
-      "poi_name": "The Happy Hawg BBQ",
-      "osm_id": 6833676143,
-      "amenity": "restaurant",
-      "phone": "(828) 321-2900",
-      "addr_state": "NC",
-      "addr_city": "Andrews",
-      "addr_postcode": "28901",
-      "addr_street": "Main Street",
-      "addr_housenumber": "1130"
+      "id": 24437,
+      "geometry": "POINT (-80.433908 41.993983)",
+      "poi_name": "Rainbow Valley Family Farms",
+      "osm_id": 11054966206,
+      "tourism": "zoo",
+      "zoo": "petting_zoo",
+      "addr_state": "MI",
+      "addr_city": "Traverse City",
+      "addr_postcode": "49685",
+      "addr_street": "Culver Road",
+      "addr_housenumber": "6040"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "hotel",
-      "display_name": "Sautee Mountain Retreat, Clarkesville, GA",
-      "geo_wkt": "POINT (-83.632508 34.709056)",
+      "display_name": "The Lake House, East Springfield, PA",
+      "geo_wkt": "POINT (-80.433908 41.993983)",
       "poi": {
-        "id": 11056,
-        "geometry": "POINT (-83.632508 34.709056)",
-        "poi_name": "Sautee Mountain Retreat",
-        "osm_id": 9838813375,
+        "id": 368,
+        "geometry": "POINT (-80.433908 41.993983)",
+        "poi_name": "The Lake House",
+        "osm_id": 8338947755,
         "tourism": "hotel",
-        "website": "https://www.sauteemountainretreat.com/",
-        "internet_access": "wlan",
-        "phone": "+1-404-985-7859",
-        "addr_state": "GA",
-        "addr_city": "Clarkesville",
-        "addr_postcode": "30523",
-        "addr_street": "Georgia 255",
-        "addr_housenumber": "595"
+        "addr_state": "PA",
+        "addr_city": "East Springfield",
+        "addr_postcode": "16411",
+        "addr_street": "Old Lake Road",
+        "addr_housenumber": "12689"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "northwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
     }
   },
   "id": 1174,

@@ -1,40 +1,45 @@
 {
-  "question": "How distant is the closest park from the reference location Good Knight Castle Children's Museum, MD?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'park'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.911889 39.035649)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How distant is the nearest hotel compared to Lake County Discovery Museum, Libertyville, IL?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-88.107526 42.260034)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'hotel'\nORDER BY geometry <-> ST_GeomFromText('POINT (-88.107526 42.260034)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 259548,
-      "geometry": "POINT (-76.91335 39.054195)",
-      "poi_name": "Beltsville North Park",
-      "osm_id": 358253160,
-      "leisure": "park",
-      "wikidata": "Q34896272",
-      "distance": 2062.75705071
+      "id": 6034,
+      "geometry": "POINT (-88.285386 42.220125)",
+      "poi_name": "Crystal Lake Holiday Inn",
+      "osm_id": 1717024971,
+      "tourism": "hotel",
+      "internet_access": "wlan",
+      "distance": 15335.02266563
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "park"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "museum",
-      "display_name": "Good Knight Castle Children's Museum, MD",
-      "geo_wkt": "POINT (-76.911889 39.035649)",
+      "display_name": "Lake County Discovery Museum, Libertyville, IL",
+      "geo_wkt": "POINT (-88.107526 42.260034)",
       "poi": {
-        "id": 17464,
-        "geometry": "POINT (-76.911889 39.035649)",
-        "poi_name": "Good Knight Castle Children's Museum",
-        "osm_id": 367799293,
+        "id": 2130,
+        "geometry": "POINT (-88.107526 42.260034)",
+        "poi_name": "Lake County Discovery Museum",
+        "osm_id": 3269928614,
         "tourism": "museum",
-        "operator": "Good Knight Child Empowerment Network",
-        "website": "https://goodknight.org/the-castle/",
-        "addr_state": "MD"
+        "website": "https://www.lcfpd.org/museum/",
+        "phone": "+1-847-367-6640",
+        "wikidata": "Q6475496",
+        "addr_state": "IL",
+        "addr_city": "Libertyville",
+        "addr_postcode": "60048",
+        "addr_street": "Winchester Road",
+        "addr_housenumber": "1899"
       }
     }
   },
-  "id": 2462,
+  "id": 662,
   "type": "knn+distance"
 }

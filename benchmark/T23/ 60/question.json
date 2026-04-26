@@ -1,41 +1,42 @@
 {
-  "question": "What's the count of aquaria within 110 kilometers from the location Beltzville State Park - Parking Lot B, Lehighton, PA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-75.632738 40.859032)',4326)::geography, 110000)\nAND tourism = 'aquarium';\n",
+  "question": "What\u2019s the number of gardens situated within 120 kilometers from Sugarplum Zoo, Temecula, CA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-117.055191 33.546915)',4326)::geography, 120000)\nAND leisure = 'garden';\n",
   "answers": [
     {
-      "count": 1
+      "count": 98
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Beltzville State Park - Parking Lot B, Lehighton, PA",
-      "geo_wkt": "POINT (-75.632738 40.859032)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Sugarplum Zoo, Temecula, CA",
+      "geo_wkt": "POINT (-117.055191 33.546915)",
       "poi": {
-        "id": 247266,
-        "geometry": "POINT (-75.632738 40.859032)",
-        "poi_name": "Beltzville State Park - Parking Lot B",
-        "osm_id": 8888290705,
-        "leisure": "park",
-        "operator": "PA DCNR - Brueau of State Parks",
-        "addr_state": "PA",
-        "addr_city": "Lehighton",
-        "addr_postcode": "18235",
-        "addr_street": "Pohopoco DR",
-        "addr_housenumber": "2950"
+        "id": 24034,
+        "geometry": "POINT (-117.055191 33.546915)",
+        "poi_name": "Sugarplum Zoo",
+        "osm_id": 9270599265,
+        "tourism": "zoo",
+        "fee": "yes",
+        "opening_hours": "Mo-Sa 08:00-18:00",
+        "addr_state": "CA",
+        "addr_city": "Temecula",
+        "addr_postcode": "92591",
+        "addr_street": "Berenda Rd",
+        "addr_housenumber": "39695"
       }
     }
   },
-  "id": 2259,
+  "id": 1859,
   "type": "range+count"
 }

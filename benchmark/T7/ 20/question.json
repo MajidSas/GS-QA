@@ -1,49 +1,47 @@
 {
-  "question": "What is the mascot of the nearest university from Malibu Jack's, Springfield, IL?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest stadium from Cardiovascular Institute of New England, Cranston, RI hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.472092 41.786868)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167308,
-      "geometry": "POINT (-89.618331 39.729874)",
-      "poi_name": "University of Illinois Springfield",
-      "osm_id": 354142925,
-      "amenity": "university",
-      "wikidata": "Q941855",
-      "multihop_answer": "Orion",
-      "multihop_attribute": "Mascot",
-      "multihop_long_answer": "University of Illinois Springfield Mascot: Orion"
+      "id": 246343,
+      "geometry": "POINT (-71.515966 41.717988)",
+      "poi_name": "McCarthy Field",
+      "osm_id": 11331230041,
+      "leisure": "stadium",
+      "wikidata": "Q14709442",
+      "multi_source_answer": "2500",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "McCarthy Field Capacity: 2500"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Malibu Jack's, Springfield, IL",
-      "geo_wkt": "POINT (-89.704796 39.767257)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Cardiovascular Institute of New England, Cranston, RI",
+      "geo_wkt": "POINT (-71.472092 41.786868)",
       "poi": {
-        "id": 67633,
-        "geometry": "POINT (-89.704796 39.767257)",
-        "poi_name": "Malibu Jack's",
-        "osm_id": 11244218192,
-        "amenity": "restaurant",
-        "leisure": "amusement_arcade",
-        "tourism": "theme_park",
-        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
-        "website": "https://www.malibujacksspringfield.com/",
-        "phone": "+1-217-280-4787",
-        "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62704",
-        "addr_street": "Wabash Avenue",
-        "addr_housenumber": "2501"
+        "id": 30660,
+        "geometry": "POINT (-71.472092 41.786868)",
+        "poi_name": "Cardiovascular Institute of New England",
+        "osm_id": 8372733079,
+        "amenity": "hospital",
+        "website": "https://www.necardiologists.com/contact-locations/",
+        "phone": "+14014649751",
+        "healthcare": "hospital",
+        "addr_state": "RI",
+        "addr_city": "Cranston",
+        "addr_postcode": "02920",
+        "addr_street": "Atwood Avenue",
+        "addr_housenumber": "395"
       }
     }
   },
-  "id": 919,
-  "type": "knn+name+multihop1"
+  "id": 819,
+  "type": "knn+name+multi_source1"
 }

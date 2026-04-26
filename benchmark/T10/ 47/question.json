@@ -1,65 +1,71 @@
 {
-  "question": "What's the closest fast food on the path leading to Wildlife West Nature Park, Edgewood, NM from Water History Museum, Santa Fe, NM?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.915414 35.678945)',4326)::geography, ST_GeomFromText('POINT (-106.202309 35.071827)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.915414 35.678945)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-105.915414 35.678945)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant is closest along the path to the Juilliard School, New York, NY from Greenpoint Gallery, Brooklyn, NY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.95243 40.736354)',4326)::geography, ST_GeomFromText('POINT (-73.983102 40.773839)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.95243 40.736354)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.95243 40.736354)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 97328,
-      "geometry": "POINT (-105.957146 35.641389)",
-      "poi_name": "Blimpie's",
-      "osm_id": 6473953631,
-      "amenity": "fast_food",
-      "cuisine": "sandwich",
-      "value": 201.2413324332108
+      "id": 209770,
+      "geometry": "POINT (-73.953817 40.742557)",
+      "poi_name": "Cafe Henri",
+      "osm_id": 5057453978,
+      "amenity": "restaurant",
+      "cuisine": "french",
+      "website": "https://henrinyc.com/cafe-henri/",
+      "addr_city": "Long Island City",
+      "addr_street": "Vernon Boulevard",
+      "addr_housenumber": "10-10",
+      "value": 328.1191037240153
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Water History Museum, Santa Fe, NM",
-      "geo_wkt": "POINT (-105.915414 35.678945)",
+      "sub_category": "gallery",
+      "display_name": "Greenpoint Gallery, Brooklyn, NY",
+      "geo_wkt": "POINT (-73.95243 40.736354)",
       "poi": {
-        "id": 10250,
-        "geometry": "POINT (-105.915414 35.678945)",
-        "poi_name": "Water History Museum",
-        "osm_id": 6761284111,
-        "tourism": "museum",
-        "museum": "history",
-        "addr_state": "NM",
-        "addr_city": "Santa Fe",
-        "addr_postcode": "87501",
-        "addr_street": "Upper Canyon Road",
-        "addr_housenumber": "1209"
+        "id": 1127,
+        "geometry": "POINT (-73.95243 40.736354)",
+        "poi_name": "Greenpoint Gallery",
+        "osm_id": 2843018177,
+        "tourism": "gallery",
+        "operator": "Greenpoint Gallery",
+        "website": "https://greenpointgallery.com",
+        "phone": "(718) 510-5773",
+        "addr_state": "NY",
+        "addr_city": "Brooklyn",
+        "addr_postcode": "11222",
+        "addr_street": "Mc Guinness Boulevard",
+        "addr_housenumber": "390"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wildlife West Nature Park, Edgewood, NM",
-      "geo_wkt": "POINT (-106.202309 35.071827)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "The Juilliard School, New York, NY",
+      "geo_wkt": "POINT (-73.983102 40.773839)",
       "poi": {
-        "id": 246820,
-        "geometry": "POINT (-106.202309 35.071827)",
-        "poi_name": "Wildlife West Nature Park",
-        "osm_id": 6471544426,
-        "leisure": "nature_reserve",
-        "opening_hours": "10:00-18:00",
-        "operator": "New Mexico Wildlife Association",
-        "website": "https://wildlifewest.org/",
-        "phone": "+1 505 281-7655",
-        "addr_state": "NM",
-        "addr_city": "Edgewood",
-        "addr_postcode": "87015",
-        "addr_street": "North Frontage Road",
-        "addr_housenumber": "87"
+        "id": 167503,
+        "geometry": "POINT (-73.983102 40.773839)",
+        "poi_name": "The Juilliard School",
+        "osm_id": 357607753,
+        "amenity": "university",
+        "website": "https://www.juilliard.edu/",
+        "internet_access": "wlan",
+        "phone": "+1-212-799-5000",
+        "wikidata": "Q503246",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10023-6588",
+        "addr_street": "Lincoln Center Plaza",
+        "addr_housenumber": "60"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast_food"
+      "sub_category": "restaurant"
     }
   },
-  "id": 146,
+  "id": 1646,
   "type": "knn:towards+name"
 }

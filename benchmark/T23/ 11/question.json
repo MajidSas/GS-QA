@@ -1,45 +1,43 @@
 {
-  "question": "Could you tell me the number of museums located within a 190 kilometers radius from Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-78.658874 38.840265)',4326)::geography, 190000)\nAND tourism = 'museum';\n",
+  "question": "How many zoos are within 120 kilometers of West End Park, Queensbury, NY?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-73.679735 43.302111)',4326)::geography, 120000)\nAND tourism = 'zoo';\n",
   "answers": [
     {
-      "count": 149
+      "count": 1
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 120000,
+      "text": "120 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Heavenly Heart Farm & Mini Petting Zoo, Edinburg, VA",
-      "geo_wkt": "POINT (-78.658874 38.840265)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "West End Park, Queensbury, NY",
+      "geo_wkt": "POINT (-73.679735 43.302111)",
       "poi": {
-        "id": 9965,
-        "geometry": "POINT (-78.658874 38.840265)",
-        "poi_name": "Heavenly Heart Farm & Mini Petting Zoo",
-        "osm_id": 9081274336,
-        "description": "Traveling petting zoo, open on location for special events or by appointment. Contact via email or phone for details.",
-        "tourism": "zoo",
-        "fee": "yes",
-        "website": "https://www.heavenlyheartfarmandminipettingzoo.com/",
-        "phone": "+1 540 984 3925",
-        "zoo": "petting_zoo",
-        "addr_state": "VA",
-        "addr_city": "Edinburg",
-        "addr_postcode": "22824",
-        "addr_street": "Swover Creek Road",
-        "addr_housenumber": "3795"
+        "id": 245515,
+        "geometry": "POINT (-73.679735 43.302111)",
+        "poi_name": "West End Park",
+        "osm_id": 3009465102,
+        "leisure": "park",
+        "opening_hours": "Apr-Nov: sunrise-sunset",
+        "operator": "Town of QueensburyRecreation Department",
+        "website": "https://recreation.queensbury.net/parks/",
+        "addr_state": "NY",
+        "addr_city": "Queensbury",
+        "addr_postcode": "12804",
+        "addr_street": "Luzerne Road",
+        "addr_housenumber": "117"
       }
     }
   },
-  "id": 2210,
+  "id": 1810,
   "type": "range+count"
 }

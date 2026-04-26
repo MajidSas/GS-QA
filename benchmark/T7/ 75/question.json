@@ -1,54 +1,52 @@
 {
-  "question": "When was the nearest university from Hall des Lumi\u00e8res, New York, NY established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.005072 40.713744)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How many spectators can the nearest stadium from Meadow Museum, Benson, NC hold?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.457419 35.320622)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 158346,
-      "geometry": "POINT (-73.995686 40.728648)",
-      "poi_name": "Courant Institute of Mathematical Sciences",
-      "osm_id": 4743911217,
-      "amenity": "university",
-      "internet_access": "no",
-      "wikidata": "Q946028",
-      "addr_state": "NY",
-      "addr_city": "New York",
-      "addr_postcode": "10012",
-      "addr_street": "Mercer Street",
-      "addr_housenumber": "251",
-      "multihop_answer": "1935",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Courant Institute of Mathematical Sciences Established: 1935"
+      "id": 248769,
+      "geometry": "POINT (-78.060871 35.61119)",
+      "poi_name": "Southern National Motorsport Park",
+      "osm_id": 4773889332,
+      "leisure": "stadium",
+      "sport": "motor",
+      "wikidata": "Q7570163",
+      "addr_state": "NC",
+      "addr_city": "Lucama",
+      "addr_postcode": "27851",
+      "addr_street": "Newsome Mill Road",
+      "addr_housenumber": "8071",
+      "multi_source_answer": "4500[1]",
+      "multi_source_attribute": "Capacity",
+      "multi_source_long_answer": "Southern National Motorsport Park Capacity: 4500[1]"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "tourism",
       "sub_category": "museum",
-      "display_name": "Hall des Lumi\u00e8res, New York, NY",
-      "geo_wkt": "POINT (-74.005072 40.713744)",
+      "display_name": "Meadow Museum, Benson, NC",
+      "geo_wkt": "POINT (-78.457419 35.320622)",
       "poi": {
-        "id": 1082,
-        "geometry": "POINT (-74.005072 40.713744)",
-        "poi_name": "Hall des Lumi\u00e8res",
-        "osm_id": 2825233330,
+        "id": 455,
+        "geometry": "POINT (-78.457419 35.320622)",
+        "poi_name": "Meadow Museum",
+        "osm_id": 8380269313,
         "tourism": "museum",
-        "fee": "yes",
-        "opening_hours": "10:00-18:00; Tu off; Th-Sa 10:00-22:00",
-        "website": "https://www.halldeslumieres.com/",
-        "museum": "art",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10007",
-        "addr_street": "Chambers Street",
-        "addr_housenumber": "49"
+        "website": "https://www.johnstoncountync.org/listing/meadow-museum/2436/",
+        "phone": "+19193985342",
+        "addr_state": "NC",
+        "addr_city": "Benson",
+        "addr_postcode": "27504",
+        "addr_street": "NC-50 South",
+        "addr_housenumber": "7296"
       }
     }
   },
-  "id": 974,
-  "type": "knn+name+multihop1"
+  "id": 874,
+  "type": "knn+name+multi_source1"
 }

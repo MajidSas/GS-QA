@@ -1,60 +1,63 @@
 {
-  "question": "Where's the closest restaurant on the route to Franklin RV Park, Franklin, NC from Crave Golf Club, Pigeon Forge, TN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, ST_GeomFromText('POINT (-83.39508 35.123294)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.564838 35.797212)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest restaurant along the travel direction toward West Chester Cardiology, West Chester, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography, ST_GeomFromText('POINT (-75.599564 39.969582)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.153583 39.935532)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 131062,
-      "geometry": "POINT (-83.55808 35.789014)",
-      "poi_name": "Gaucho Urbano - Brazilian Steakhouse",
-      "osm_id": 9900890651,
+      "id": 132678,
+      "geometry": "POINT (-75.158731 39.934358)",
+      "poi_name": "J & J Pizza",
+      "osm_id": 9963872785,
       "amenity": "restaurant",
-      "cuisine": "steak_house",
-      "phone": "+18653661002",
-      "addr_state": "TN",
-      "addr_city": "Pigeon Forge",
-      "addr_postcode": "37863",
-      "addr_street": "Valley Drive",
-      "addr_housenumber": "111",
-      "value": 168.30552005950113
+      "opening_hours": "Mo-Su 09:00-24:00",
+      "website": "https://www.j-jpizza.com/",
+      "phone": "+1-215-551-1233",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19147",
+      "addr_street": "South 9th Street",
+      "addr_housenumber": "1177",
+      "value": 275.80859354739954
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Crave Golf Club, Pigeon Forge, TN",
-      "geo_wkt": "POINT (-83.564838 35.797212)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "South 6th St. Community Garden, Philadelphia, PA",
+      "geo_wkt": "POINT (-75.153583 39.935532)",
       "poi": {
-        "id": 11219,
-        "geometry": "POINT (-83.564838 35.797212)",
-        "poi_name": "Crave Golf Club",
-        "osm_id": 9900873342,
-        "tourism": "theme_park",
-        "phone": "(865) 366-3403",
-        "addr_state": "TN",
-        "addr_city": "Pigeon Forge",
-        "addr_postcode": "37863",
-        "addr_street": "Parkway",
-        "addr_housenumber": "2925"
+        "id": 247114,
+        "geometry": "POINT (-75.153583 39.935532)",
+        "poi_name": "South 6th St. Community Garden",
+        "osm_id": 3559321959,
+        "leisure": "garden",
+        "addr_state": "PA",
+        "addr_city": "Philadelphia",
+        "addr_postcode": "19147",
+        "addr_street": "S 6TH ST",
+        "addr_housenumber": "1035"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Franklin RV Park, Franklin, NC",
-      "geo_wkt": "POINT (-83.39508 35.123294)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "West Chester Cardiology, West Chester, PA",
+      "geo_wkt": "POINT (-75.599564 39.969582)",
       "poi": {
-        "id": 247108,
-        "geometry": "POINT (-83.39508 35.123294)",
-        "poi_name": "Franklin RV Park",
-        "osm_id": 3542084589,
-        "leisure": "park",
-        "addr_state": "NC",
-        "addr_city": "Franklin",
-        "addr_postcode": "28734-9285",
-        "addr_street": "Old Addington Bridge Road",
-        "addr_housenumber": "230"
+        "id": 123316,
+        "geometry": "POINT (-75.599564 39.969582)",
+        "poi_name": "West Chester Cardiology",
+        "osm_id": 6848366733,
+        "amenity": "hospital",
+        "website": "https://westchestercardiology.com",
+        "phone": "+1 610-692-4382",
+        "healthcare": "hospital",
+        "addr_state": "PA",
+        "addr_city": "West Chester",
+        "addr_postcode": "19380",
+        "addr_street": "Maple Avenue",
+        "addr_housenumber": "531"
       }
     },
     "[1]": {
@@ -62,6 +65,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 1325,
+  "id": 1525,
   "type": "knn:towards+loc"
 }

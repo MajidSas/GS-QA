@@ -1,48 +1,49 @@
 {
-  "question": "When was the the nearest museum from Montefiore Medical Center - Wakefield Campus, Bronx, NY built?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.861082 40.893776)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest zoo from Elyria Arts Council, Elyria, OH opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-82.105078 41.367311)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17824,
-      "geometry": "POINT (-73.80564 40.871781)",
-      "poi_name": "Bartow-Pell Mansion Museum",
-      "osm_id": 368061866,
-      "tourism": "museum",
-      "opening_hours": "We-Su 12:00-16:00; Th off; Fr off",
-      "website": "https://www.bartowpellmansionmuseum.org/",
-      "wikidata": "Q4865770",
-      "addr_state": "NY",
-      "multihop_answer": "1836",
-      "multihop_attribute": "Built",
-      "multihop_long_answer": "Bartow-Pell Mansion Museum Built: 1836"
+      "id": 5801,
+      "geometry": "POINT (-81.703823 41.496747)",
+      "poi_name": "Greater Cleveland Aquarium",
+      "osm_id": 1601169068,
+      "tourism": "zoo",
+      "website": "http://greaterclevelandaquarium.com/",
+      "wikidata": "Q5600498",
+      "addr_street": "Sycamore St",
+      "addr_housenumber": "2000",
+      "multi_source_answer": "January 21, 2012",
+      "multi_source_attribute": "Date opened",
+      "multi_source_long_answer": "Greater Cleveland Aquarium Date opened: January 21, 2012"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Montefiore Medical Center - Wakefield Campus, Bronx, NY",
-      "geo_wkt": "POINT (-73.861082 40.893776)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Elyria Arts Council, Elyria, OH",
+      "geo_wkt": "POINT (-82.105078 41.367311)",
       "poi": {
-        "id": 37608,
-        "geometry": "POINT (-73.861082 40.893776)",
-        "poi_name": "Montefiore Medical Center - Wakefield Campus",
-        "osm_id": 2822777418,
-        "amenity": "hospital",
-        "healthcare": "hospital",
-        "addr_state": "NY",
-        "addr_city": "Bronx",
-        "addr_postcode": "10466",
-        "addr_street": "Carpenter Avenue",
-        "addr_housenumber": "4141"
+        "id": 456,
+        "geometry": "POINT (-82.105078 41.367311)",
+        "poi_name": "Elyria Arts Council",
+        "osm_id": 8381421204,
+        "tourism": "gallery",
+        "fee": "no",
+        "opening_hours": "We-Sa 11:00-15:00",
+        "addr_state": "OH",
+        "addr_city": "Elyria",
+        "addr_postcode": "44035",
+        "addr_street": "Broad Street",
+        "addr_housenumber": "336"
       }
     }
   },
-  "id": 990,
-  "type": "knn+name+multihop1"
+  "id": 890,
+  "type": "knn+name+multi_source1"
 }

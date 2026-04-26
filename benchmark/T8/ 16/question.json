@@ -1,44 +1,47 @@
 {
-  "question": "Seeking suggestions for the nearest university in relation to the museum that was built in 1830 in Arlington, MA.",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-71.15241 42.415769)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest garden near the hospital that has Level I pediatric trauma center emergency department in Cleveland, OH?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.605748 41.504861)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 106806,
-      "geometry": "POINT (-71.119678 42.379106)",
-      "poi_name": "Harvard Law School",
-      "osm_id": 3516592380,
-      "amenity": "university"
+      "id": 247452,
+      "geometry": "POINT (-81.61026 41.505315)",
+      "poi_name": "Howell Terrace",
+      "osm_id": 9108620462,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Cyrus Dallin Art Museum, Arlington, MA",
-      "geo_wkt": "POINT (-71.15241 42.415769)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UH Rainbow Babies & Children\u2019s Hospital, Cleveland, OH",
+      "geo_wkt": "POINT (-81.605748 41.504861)",
       "poi": {
-        "id": 148,
-        "geometry": "POINT (-71.15241 42.415769)",
-        "poi_name": "Cyrus Dallin Art Museum",
-        "osm_id": 456710478,
-        "tourism": "museum",
-        "fee": "donation",
-        "opening_hours": "Sa,Su 12:00-16:00",
-        "website": "https://dallin.org/",
-        "wikidata": "Q74035008",
-        "addr_state": "MA",
-        "addr_city": "Arlington",
-        "addr_postcode": "02476",
-        "addr_street": "Massachusetts Avenue",
-        "addr_housenumber": "611"
+        "id": 64505,
+        "geometry": "POINT (-81.605748 41.504861)",
+        "poi_name": "UH Rainbow Babies & Children\u2019s Hospital",
+        "osm_id": 5656050761,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "University Hospitals",
+        "website": "https://www.uhhospitals.org/rainbow",
+        "phone": "+1 216 844 5437",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q7284577",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_postcode": "44106",
+        "addr_street": "Adelbert Road",
+        "addr_housenumber": "2101"
       }
     }
   },
-  "id": 2715,
-  "type": "knn+name+multihop2"
+  "id": 915,
+  "type": "knn+name+multi_source2"
 }

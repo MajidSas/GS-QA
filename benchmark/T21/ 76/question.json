@@ -1,52 +1,47 @@
 {
-  "question": "What direction does one need to follow to reach a zoo from Hidden Hills Ice Arena, CO within 100 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.041111 39.868611)',4326)::geography, 100000)\nAND tourism = 'zoo';\n",
+  "question": "Which direction should I aim for to get to a nature reserve from Douglas Motorsports Park, Nicholls, GA within 90 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.721626 31.422596)',4326)::geography, 90000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "id": 5788,
-      "geometry": "POINT (-105.129607 39.976701)",
-      "poi_name": "My Nature Lab",
-      "osm_id": 1588879863,
-      "tourism": "zoo",
-      "opening_hours": "We-Fr 09:00-17:00; Sa,Su 10:00-16:00",
-      "website": "https://www.mynaturelab.org/",
-      "zoo": "reptile",
-      "angle": 327.8019440248097
-    },
-    {
-      "id": 12897,
-      "geometry": "POINT (-104.254326 39.406558)",
-      "poi_name": "Prairy Wind Animal Refuge",
-      "osm_id": 3945064487,
-      "tourism": "zoo",
-      "angle": 126.96720997953865
+      "id": 266875,
+      "geometry": "POINT (-82.312532 31.9075)",
+      "poi_name": "Moody Forest Tavia's Trailorest Natural area",
+      "osm_id": 11077720299,
+      "leisure": "nature_reserve",
+      "website": "https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/moody-forest-natural-area",
+      "angle": 35.70599680733196
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "zoo"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 100000,
-      "text": "100 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Hidden Hills Ice Arena, CO",
-      "geo_wkt": "POINT (-105.041111 39.868611)",
+      "display_name": "Douglas Motorsports Park, Nicholls, GA",
+      "geo_wkt": "POINT (-82.721626 31.422596)",
       "poi": {
-        "id": 265351,
-        "geometry": "POINT (-105.041111 39.868611)",
-        "poi_name": "Hidden Hills Ice Arena",
-        "osm_id": 366396389,
+        "id": 246444,
+        "geometry": "POINT (-82.721626 31.422596)",
+        "poi_name": "Douglas Motorsports Park",
+        "osm_id": 9673566883,
         "leisure": "stadium",
-        "addr_state": "CO"
+        "sport": "motor",
+        "addr_state": "GA",
+        "addr_city": "Nicholls",
+        "addr_postcode": "31554",
+        "addr_street": "Ronnie Walker Road",
+        "addr_housenumber": "1560"
       }
     }
   },
-  "id": 1075,
+  "id": 1775,
   "type": "range+angle"
 }

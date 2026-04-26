@@ -1,42 +1,42 @@
 {
-  "question": "What's the count of stadia within 80 kilometers from the location Glenhill Farmhouse, Erie, PA?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 80000)\nAND leisure = 'stadium';\n",
+  "question": "How many nature reserves exist inside 150 kilometers from Go Ape Treetop Adventure Course, Strongsville, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.818381 41.322133)',4326)::geography, 150000)\nAND leisure = 'nature_reserve';\n",
   "answers": [
     {
-      "count": 3
+      "count": 19
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Glenhill Farmhouse, Erie, PA",
-      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "sub_category": "theme park",
+      "display_name": "Go Ape Treetop Adventure Course, Strongsville, OH",
+      "geo_wkt": "POINT (-81.818381 41.322133)",
       "poi": {
-        "id": 241,
-        "geometry": "POINT (-79.985748 42.119196)",
-        "poi_name": "Glenhill Farmhouse",
-        "osm_id": 8255522795,
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Fr 08:00-17:00",
-        "operator": "Penn State Behrend",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16563",
-        "addr_street": "College Drive",
-        "addr_housenumber": "4701"
+        "id": 14029,
+        "geometry": "POINT (-81.818381 41.322133)",
+        "poi_name": "Go Ape Treetop Adventure Course",
+        "osm_id": 4214519779,
+        "tourism": "theme_park",
+        "operator": "Go Ape",
+        "website": "https://goape.com/zip-line/mill-stream-run-reservation",
+        "addr_state": "OH",
+        "addr_city": "Strongsville",
+        "addr_postcode": "44136",
+        "addr_street": "Valley Parkway",
+        "addr_housenumber": "16200"
       }
     }
   },
-  "id": 2215,
+  "id": 1815,
   "type": "range+count"
 }

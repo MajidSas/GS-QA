@@ -1,64 +1,63 @@
 {
-  "question": "Where is the closest restaurant along the way to Dealaman Nature Trail and Pond, Warren Township, NJ from S 22nd and Sears St. Garden, Philadelphia, PA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography, ST_GeomFromText('POINT (-74.506528 40.625648)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.180513 39.935321)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest caf\u00e9 when heading toward Missouri State University, Fairfax, VA from Battle of the Bulge Memorial, VA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography, ST_GeomFromText('POINT (-77.265815 38.872507)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 35963,
-      "geometry": "POINT (-75.175885 39.940436)",
-      "poi_name": "South Side Pizza",
-      "osm_id": 2740627574,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "website": "http://www.southsidepizzaphilly.com/",
-      "addr_city": "Philadelphia",
-      "addr_postcode": "19146",
-      "addr_street": "South 20th Street",
-      "addr_housenumber": "917",
-      "value": 36.56991270543738
+      "id": 212559,
+      "geometry": "POINT (-77.103512 38.882804)",
+      "poi_name": "Le Caf\u00e9 Market",
+      "osm_id": 5212763636,
+      "amenity": "cafe",
+      "opening_hours": "Mo-Fr 07:00-21:00; Sa 08:00-21:00; Su 09:00-20:00",
+      "website": "https://www.lecafemarket.com/",
+      "phone": "+1 703-527-6000",
+      "addr_state": "VA",
+      "addr_street": "North Nelson Street",
+      "addr_housenumber": "901",
+      "value": 269.11583141227146
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "S 22nd and Sears St. Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.180513 39.935321)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Battle of the Bulge Memorial, VA",
+      "geo_wkt": "POINT (-77.075579 38.874957)",
       "poi": {
-        "id": 247116,
-        "geometry": "POINT (-75.180513 39.935321)",
-        "poi_name": "S 22nd and Sears St. Garden",
-        "osm_id": 3559344530,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_street": "S 22nd St",
-        "addr_housenumber": "1315"
+        "id": 2722,
+        "geometry": "POINT (-77.075579 38.874957)",
+        "poi_name": "Battle of the Bulge Memorial",
+        "osm_id": 564589871,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Dealaman Nature Trail and Pond, Warren Township, NJ",
-      "geo_wkt": "POINT (-74.506528 40.625648)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Missouri State University, Fairfax, VA",
+      "geo_wkt": "POINT (-77.265815 38.872507)",
       "poi": {
-        "id": 267302,
-        "geometry": "POINT (-74.506528 40.625648)",
-        "poi_name": "Dealaman Nature Trail and Pond",
-        "osm_id": 5811042630,
-        "leisure": "nature_reserve",
-        "addr_state": "NJ",
-        "addr_city": "Warren Township",
-        "addr_postcode": "07059",
-        "addr_street": "Mount Horeb Road",
-        "addr_housenumber": "182"
+        "id": 221044,
+        "geometry": "POINT (-77.265815 38.872507)",
+        "poi_name": "Missouri State University",
+        "osm_id": 10965936913,
+        "amenity": "university",
+        "website": "https://dss.missouristate.edu/",
+        "addr_state": "VA",
+        "addr_city": "Fairfax",
+        "addr_postcode": "22031",
+        "addr_street": "Route 29",
+        "addr_housenumber": "9302"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "cafe"
     }
   },
-  "id": 1393,
+  "id": 1593,
   "type": "knn:towards+loc"
 }

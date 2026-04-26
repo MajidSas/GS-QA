@@ -1,59 +1,379 @@
 {
-  "question": "Within a radius of 80 kilometers, what viewpoint is available towards the east of Sarasota Art Museum, Sarasota, FL?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.529024 27.325641)',4326)::geography, 80000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "What restaurant are located within 90 kilometers range in the direction of southeast from North Pole Community Garden, Lexington, KY?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography, 90000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
   "answers": [
     {
-      "id": 13022,
-      "geometry": "POINT (-82.529024 27.325641)",
-      "poi_name": "Observation Deck",
-      "osm_id": 4017979623,
-      "tourism": "viewpoint"
+      "id": 33855,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Sugano Japanese Restaurant",
+      "osm_id": 2685284062,
+      "amenity": "restaurant",
+      "cuisine": "japanese",
+      "addr_city": "Lexington",
+      "addr_postcode": "40505",
+      "addr_street": "Eastland Parkway",
+      "addr_housenumber": "1533"
     },
     {
-      "id": 26523,
-      "geometry": "POINT (-82.529024 27.325641)",
-      "poi_name": "Observation Mound",
-      "osm_id": 5918542648,
-      "description": "View of the Celery Fields and surrounding area",
-      "tourism": "viewpoint"
+      "id": 74322,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Momma D's Smokin' Oak Country Store",
+      "osm_id": 9675530655,
+      "amenity": "restaurant",
+      "cuisine": "american;burger;breakfast;southern"
+    },
+    {
+      "id": 36486,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Hananoki",
+      "osm_id": 2767093625,
+      "amenity": "restaurant",
+      "cuisine": "japanese",
+      "opening_hours": "Mo-Fr 11:30-14:00 open \"Lunch\"; Mo-Th 16:30-22:00 open \"Dinner\"; Fr 16:30-22:30 open \"Dinner\"; Sa 12:00-22:30; Su 12:00-20:00",
+      "addr_city": "Lexington",
+      "addr_postcode": "40509",
+      "addr_street": "Eagle View Lane",
+      "addr_housenumber": "3284"
+    },
+    {
+      "id": 36490,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Chuck E. Cheese",
+      "osm_id": 2767106209,
+      "amenity": "restaurant",
+      "cuisine": "pizza",
+      "leisure": "amusement_arcade",
+      "wheelchair": "yes",
+      "website": "https://locations.chuckecheese.com/us/ky/lexington/1555-new-circle-rd.",
+      "phone": "+1 (859) 268-1800"
+    },
+    {
+      "id": 43540,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Sarah's BBQ",
+      "osm_id": 3118581567,
+      "amenity": "restaurant",
+      "cuisine": "barbecue",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40505",
+      "addr_street": "Henry Clay Boulevard"
+    },
+    {
+      "id": 45812,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Golden Wok",
+      "osm_id": 3230618139,
+      "amenity": "restaurant",
+      "cuisine": "chinese"
+    },
+    {
+      "id": 79097,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Gillums Sports Bar",
+      "osm_id": 773395648,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 79098,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Red Lobster",
+      "osm_id": 773395670,
+      "amenity": "restaurant",
+      "cuisine": "seafood"
+    },
+    {
+      "id": 79101,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Masala Indian Cuisine",
+      "osm_id": 773395700,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 79103,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Outback Steakhouse",
+      "osm_id": 773396922,
+      "amenity": "restaurant",
+      "cuisine": "american;steak"
+    },
+    {
+      "id": 79104,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Casa Cafe Mexican",
+      "osm_id": 773396957,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 150693,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Liberty Road Cafe",
+      "osm_id": 4062742955,
+      "amenity": "restaurant",
+      "opening_hours": "Mo-Fr 11:00-15:00",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40505",
+      "addr_street": "Henry Clay Boulevard",
+      "addr_housenumber": "720"
+    },
+    {
+      "id": 146983,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Los Two Brothers",
+      "osm_id": 7490701963,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 150694,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Archa Nine Thai Kitchen",
+      "osm_id": 4062851128,
+      "amenity": "restaurant",
+      "cuisine": "thai",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Old Todds Road",
+      "addr_housenumber": "162"
+    },
+    {
+      "id": 155281,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Red River Rockhouse",
+      "osm_id": 4279127189,
+      "amenity": "restaurant",
+      "cuisine": "burger;mexican",
+      "internet_access": "wlan"
+    },
+    {
+      "id": 150834,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Restaurante Santa Fe",
+      "osm_id": 4070388796,
+      "amenity": "restaurant",
+      "cuisine": "mexican",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Woodhill Drive",
+      "addr_housenumber": "2350"
+    },
+    {
+      "id": 150835,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Koreana",
+      "osm_id": 4070388804,
+      "amenity": "restaurant",
+      "cuisine": "asian",
+      "takeaway": "yes",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40509",
+      "addr_street": "Woodhill Drive",
+      "addr_housenumber": "2360"
+    },
+    {
+      "id": 150836,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Yamaguchi's Sake and Tapas",
+      "osm_id": 4070394021,
+      "amenity": "restaurant",
+      "cuisine": "japanese",
+      "opening_hours": "Mo-Th 20:00-24:00; Fr-Sa 20:00-02:00",
+      "website": "http://www.sakeandtapas.com/index.html",
+      "addr_city": "Lexington",
+      "addr_postcode": "40509",
+      "addr_street": "Codell Drive",
+      "addr_housenumber": "125"
+    },
+    {
+      "id": 193784,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Giovanni's Pizza",
+      "osm_id": 1560931164,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 174959,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Bonefish Grill",
+      "osm_id": 2502253385,
+      "amenity": "restaurant",
+      "cuisine": "seafood",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_street": "Sir Barton Way",
+      "addr_housenumber": "2341"
+    },
+    {
+      "id": 175815,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Outback Steakhouse",
+      "osm_id": 2542532810,
+      "amenity": "restaurant",
+      "cuisine": "american;steak"
+    },
+    {
+      "id": 177683,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Mi Pueblo II",
+      "osm_id": 2601676706,
+      "amenity": "restaurant",
+      "cuisine": "spanish",
+      "addr_state": "KY",
+      "addr_postcode": "40475",
+      "addr_street": "Eastern Bypass",
+      "addr_housenumber": "465"
+    },
+    {
+      "id": 193757,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Cracker Barrel",
+      "osm_id": 1559998166,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "official_name": "Cracker Barrel Old Country Store"
+    },
+    {
+      "id": 193764,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "O'Charley's",
+      "osm_id": 1560798568,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 193765,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Applebee's",
+      "osm_id": 1560801656,
+      "amenity": "restaurant",
+      "cuisine": "american",
+      "official_name": "Applebee's Neighborhood Grill & Bar"
+    },
+    {
+      "id": 193766,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Cicis",
+      "osm_id": 1560801661,
+      "amenity": "restaurant",
+      "cuisine": "pizza;buffet"
+    },
+    {
+      "id": 193767,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Sonny's Barbecue",
+      "osm_id": 1560805588,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 193790,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Frisch's Big Boy",
+      "osm_id": 1560970966,
+      "amenity": "restaurant",
+      "cuisine": "burger",
+      "takeaway": "yes"
+    },
+    {
+      "id": 194027,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "IHOP",
+      "osm_id": 1577371950,
+      "amenity": "restaurant",
+      "cuisine": "breakfast;pancake",
+      "wheelchair": "yes"
+    },
+    {
+      "id": 194030,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "O'Charley's",
+      "osm_id": 1577450675,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 194032,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Mr. Kabob",
+      "osm_id": 1577450689,
+      "amenity": "restaurant",
+      "cuisine": "kebab",
+      "addr_state": "KY",
+      "addr_city": "Lexington",
+      "addr_postcode": "40509",
+      "addr_street": "Richmond Road",
+      "addr_housenumber": "2901"
+    },
+    {
+      "id": 194033,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Chili's",
+      "osm_id": 1577450691,
+      "amenity": "restaurant",
+      "cuisine": "tex-mex",
+      "official_name": "Chili's Grill & Bar"
+    },
+    {
+      "id": 196635,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Smashing Tomato",
+      "osm_id": 10589517117,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_street": "War Admiral Way",
+      "addr_housenumber": "2200"
+    },
+    {
+      "id": 231018,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Apollo Pizza and Beer Emporium",
+      "osm_id": 4452296262,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 231019,
+      "geometry": "POINT (-84.47951 38.058992)",
+      "poi_name": "Babylon Market",
+      "osm_id": 4452300301,
+      "amenity": "restaurant"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Sarasota Art Museum, Sarasota, FL",
-      "geo_wkt": "POINT (-82.529024 27.325641)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "North Pole Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.47951 38.058992)",
       "poi": {
-        "id": 235,
-        "geometry": "POINT (-82.529024 27.325641)",
-        "poi_name": "Sarasota Art Museum",
-        "osm_id": 8248296789,
-        "tourism": "museum",
-        "operator": "Ringling College of Art + Design",
-        "phone": "+1 (941) 309-4300",
-        "museum": "art",
-        "addr_state": "FL",
-        "addr_city": "Sarasota",
-        "addr_postcode": "34236",
-        "addr_street": "South Tamiami Trail",
-        "addr_housenumber": "1001"
+        "id": 248386,
+        "geometry": "POINT (-84.47951 38.058992)",
+        "poi_name": "North Pole Community Garden",
+        "osm_id": 4072709120,
+        "leisure": "garden",
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "North Limestone",
+        "addr_housenumber": "909"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
     }
   },
-  "id": 2662,
+  "id": 2362,
   "type": "range:direction+name"
 }

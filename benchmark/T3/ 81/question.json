@@ -1,59 +1,61 @@
 {
-  "question": "What stadium is positioned towards the southwest of the Dells Mill and Museum, Augusta, WI within 150 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 150000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
+  "question": "Which garden lie within 70 kilometers in the forward east direction from John Natsoulas Gallery, Davis, CA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography, 70000)\nAND leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
   "answers": [
     {
-      "id": 247519,
-      "geometry": "POINT (-91.148747 44.72554)",
-      "poi_name": "Taylor Arena",
-      "osm_id": 6762253966,
-      "leisure": "stadium"
+      "id": 265511,
+      "geometry": "POINT (-121.740978 38.54212)",
+      "poi_name": "Community Garden",
+      "osm_id": 2427486495,
+      "leisure": "garden",
+      "addr_city": "Sacramento",
+      "addr_postcode": "95833",
+      "addr_street": "Northstead Drive",
+      "addr_housenumber": "3075"
     },
     {
-      "id": 265357,
-      "geometry": "POINT (-91.148747 44.72554)",
-      "poi_name": "Ice Arena",
-      "osm_id": 367067698,
-      "leisure": "stadium",
-      "addr_state": "MN"
+      "id": 265481,
+      "geometry": "POINT (-121.740978 38.54212)",
+      "poi_name": "McKinley Park Rose Garden",
+      "osm_id": 2388736191,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "stadium"
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 150000,
-      "text": "150 kilometers"
+      "distance": 70000,
+      "text": "70 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "The Dells Mill and Museum, Augusta, WI",
-      "geo_wkt": "POINT (-91.148747 44.72554)",
+      "sub_category": "gallery",
+      "display_name": "John Natsoulas Gallery, Davis, CA",
+      "geo_wkt": "POINT (-121.740978 38.54212)",
       "poi": {
-        "id": 540,
-        "geometry": "POINT (-91.148747 44.72554)",
-        "poi_name": "The Dells Mill and Museum",
-        "osm_id": 8435491750,
-        "tourism": "museum",
-        "opening_hours": "May-Oct 10:00-17:00",
-        "website": "https://dellsmill.com/",
-        "phone": "715-286-2714",
-        "addr_state": "WI",
-        "addr_city": "Augusta",
-        "addr_postcode": "54722",
-        "addr_street": "County Highway V",
-        "addr_housenumber": "E18855"
+        "id": 1952,
+        "geometry": "POINT (-121.740978 38.54212)",
+        "poi_name": "John Natsoulas Gallery",
+        "osm_id": 3226037808,
+        "tourism": "gallery",
+        "opening_hours": "07:00-19:00",
+        "internet_access": "yes",
+        "addr_state": "CA",
+        "addr_city": "Davis",
+        "addr_postcode": "95616",
+        "addr_street": "1st Street",
+        "addr_housenumber": "521"
       }
     },
     "[4]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2680,
+  "id": 2380,
   "type": "range:direction+name"
 }

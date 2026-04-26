@@ -1,49 +1,51 @@
 {
-  "question": "Where is the closest hotel southwest of Gannon University, Erie, PA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-80.086729 42.128105)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'hotel'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the closest fast food restaurant relative to the east of Plaza Sports Center, Edinburg, TX?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-98.166433 26.232776)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 20047,
-      "geometry": "POINT (-80.086729 42.128105)",
-      "poi_name": "Quality Inn & Suites",
-      "osm_id": 7837815204,
-      "tourism": "hotel",
-      "addr_state": "PA",
-      "addr_city": "Fairview",
-      "addr_postcode": "16415",
-      "addr_street": "Sterrettania Road",
-      "addr_housenumber": "6467"
+      "id": 185318,
+      "geometry": "POINT (-98.166433 26.232776)",
+      "poi_name": "Whataburger",
+      "osm_id": 7844988386,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "phone": "+1-956-262-1321",
+      "takeaway": "yes",
+      "addr_state": "TX",
+      "addr_city": "Elsa",
+      "addr_postcode": "78543",
+      "addr_street": "Edinburg Avenue",
+      "addr_housenumber": "100"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Gannon University, Erie, PA",
-      "geo_wkt": "POINT (-80.086729 42.128105)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Plaza Sports Center, Edinburg, TX",
+      "geo_wkt": "POINT (-98.166433 26.232776)",
       "poi": {
-        "id": 133663,
-        "geometry": "POINT (-80.086729 42.128105)",
-        "poi_name": "Gannon University",
-        "osm_id": 10003127082,
-        "amenity": "university",
-        "operator": "Gannon University",
-        "wikidata": "Q5521430",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16541",
-        "addr_street": "University Square",
-        "addr_housenumber": "109"
+        "id": 248451,
+        "geometry": "POINT (-98.166433 26.232776)",
+        "poi_name": "Plaza Sports Center",
+        "osm_id": 4161977645,
+        "leisure": "stadium",
+        "sport": "soccer",
+        "addr_state": "TX",
+        "addr_city": "Edinburg",
+        "addr_postcode": "78577",
+        "addr_street": "E. Nolana Loop",
+        "addr_housenumber": "1101"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
   "id": 1129,

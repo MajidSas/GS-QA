@@ -1,41 +1,43 @@
 {
-  "question": "What's the count of hotels within 20 kilometers from the location Animal Haven Farm Zoo, Weyauwega, WI?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.961358 44.301611)',4326)::geography, 20000)\nAND tourism = 'hotel';\n",
+  "question": "How many fast food restaurants can be found inside a 60 kilometers radius of the Dells Mill and Museum, Augusta, WI?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.148747 44.72554)',4326)::geography, 60000)\nAND amenity = 'fast_food';\n",
   "answers": [
     {
-      "count": 1
+      "count": 33
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 60000,
+      "text": "60 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Animal Haven Farm Zoo, Weyauwega, WI",
-      "geo_wkt": "POINT (-88.961358 44.301611)",
+      "sub_category": "museum",
+      "display_name": "The Dells Mill and Museum, Augusta, WI",
+      "geo_wkt": "POINT (-91.148747 44.72554)",
       "poi": {
-        "id": 23088,
-        "geometry": "POINT (-88.961358 44.301611)",
-        "poi_name": "Animal Haven Farm Zoo",
-        "osm_id": 5030324218,
-        "tourism": "zoo",
-        "phone": "+1-920-867-3707",
+        "id": 540,
+        "geometry": "POINT (-91.148747 44.72554)",
+        "poi_name": "The Dells Mill and Museum",
+        "osm_id": 8435491750,
+        "tourism": "museum",
+        "opening_hours": "May-Oct 10:00-17:00",
+        "website": "https://dellsmill.com/",
+        "phone": "715-286-2714",
         "addr_state": "WI",
-        "addr_city": "Weyauwega",
-        "addr_postcode": "54983",
-        "addr_street": "Bucholtz Road",
-        "addr_housenumber": "N1720"
+        "addr_city": "Augusta",
+        "addr_postcode": "54722",
+        "addr_street": "County Highway V",
+        "addr_housenumber": "E18855"
       }
     }
   },
-  "id": 2264,
+  "id": 1864,
   "type": "range+count"
 }

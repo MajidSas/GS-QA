@@ -1,40 +1,51 @@
 {
-  "question": "Can you recommend the nearest attraction from Speert Hall, Wayne, NJ?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-74.19993 40.945873)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest museum near Amelia Frightfest, Amelia Court House, VA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.982261 37.326063)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 15732,
-      "geometry": "POINT (-74.198013 40.969877)",
-      "poi_name": "American flag rock",
-      "osm_id": 9484980187,
-      "tourism": "attraction"
+      "id": 24041,
+      "geometry": "POINT (-77.67368 37.404845)",
+      "poi_name": "Children's Museum of Richmond",
+      "osm_id": 9281283834,
+      "tourism": "museum",
+      "fee": "yes",
+      "opening_hours": "Tu-Su 09:30-17:00",
+      "website": "https://www.childrensmuseumofrichmond.org/",
+      "phone": "+1 804-474-7000",
+      "museum": "children",
+      "addr_state": "VA",
+      "addr_city": "Midlothian",
+      "addr_postcode": "23112",
+      "addr_street": "Lake Harbour Drive",
+      "addr_housenumber": "6629"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Speert Hall, Wayne, NJ",
-      "geo_wkt": "POINT (-74.19993 40.945873)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Amelia Frightfest, Amelia Court House, VA",
+      "geo_wkt": "POINT (-77.982261 37.326063)",
       "poi": {
-        "id": 63024,
-        "geometry": "POINT (-74.19993 40.945873)",
-        "poi_name": "Speert Hall",
-        "osm_id": 5597729522,
-        "amenity": "university",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Pompton Road",
-        "addr_housenumber": "300"
+        "id": 2891,
+        "geometry": "POINT (-77.982261 37.326063)",
+        "poi_name": "Amelia Frightfest",
+        "osm_id": 10065681409,
+        "tourism": "attraction",
+        "website": "https://www.acepromotions23002.com/amelia-frightfest",
+        "addr_state": "VA",
+        "addr_city": "Amelia Court House",
+        "addr_postcode": "23002",
+        "addr_street": "Five Forks Road",
+        "addr_housenumber": "16441"
       }
     }
   },
-  "id": 269,
+  "id": 1069,
   "type": "knn+name"
 }

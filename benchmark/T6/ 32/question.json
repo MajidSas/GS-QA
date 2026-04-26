@@ -1,53 +1,53 @@
 {
-  "question": "What's the nearest emergency hospital situated from River Deck, Edgewater, MD?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which sandwich restaurant near Missisquoi National Wildlife Refuge, Swanton, VT is nearest overall?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nAND cuisine ILIKE '%sandwich%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-73.168301 44.963098)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 204829,
-      "geometry": "POINT (-77.222205 38.878159)",
-      "poi_name": "Dominion Plastic Surgery",
-      "osm_id": 7143550380,
-      "amenity": "hospital",
-      "opening_hours": "Mo-Fr 09:00-17:00",
-      "website": "https://www.dominionplasticsurgery.com/",
-      "phone": "+1 703-544-8971",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "addr_state": "VA",
-      "addr_city": "Falls Church",
-      "addr_postcode": "22043",
-      "addr_street": "Hartland Road",
-      "addr_housenumber": "2755"
+      "id": 214466,
+      "geometry": "POINT (-73.181859 44.503269)",
+      "poi_name": "Vermont Bagel Company",
+      "osm_id": 5272669099,
+      "amenity": "restaurant",
+      "cuisine": "sandwich;coffee_shop",
+      "opening_hours": "Mo-Fr 07:00-13:30; Sa-Su 07:00-13:00",
+      "website": "https://vermontbagelcompany.wixsite.com/bagel",
+      "phone": "+1 802-489-5672",
+      "addr_state": "VT",
+      "addr_city": "Colchester",
+      "addr_postcode": "05446",
+      "addr_street": "Roosevelt Highway",
+      "addr_housenumber": "70"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "poi_filter_desc": "emergency hospital",
-      "poi_filter_sql": "emergency ILIKE '%yes%'"
+      "sub_category": "restaurant",
+      "poi_filter_desc": "sandwich restaurant",
+      "poi_filter_sql": "cuisine ILIKE '%sandwich%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "River Deck, Edgewater, MD",
-      "geo_wkt": "POINT (-76.540922 38.941815)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Missisquoi National Wildlife Refuge, Swanton, VT",
+      "geo_wkt": "POINT (-73.168301 44.963098)",
       "poi": {
-        "id": 11905,
-        "geometry": "POINT (-76.540922 38.941815)",
-        "poi_name": "River Deck",
-        "osm_id": 6080459896,
-        "description": "View of the South River",
-        "tourism": "viewpoint",
-        "addr_state": "MD",
-        "addr_city": "Edgewater",
-        "addr_postcode": "21037",
-        "addr_street": "Londontown Road",
-        "addr_housenumber": "839"
+        "id": 251075,
+        "geometry": "POINT (-73.168301 44.963098)",
+        "poi_name": "Missisquoi National Wildlife Refuge",
+        "osm_id": 356553865,
+        "leisure": "nature_reserve",
+        "opening_hours": "08:00-16:30",
+        "operator": "United States Fish and Wildlife Service",
+        "addr_state": "VT",
+        "addr_city": "Swanton",
+        "addr_postcode": "05488",
+        "addr_street": "Tabor Road",
+        "addr_housenumber": "29"
       }
     }
   },
-  "id": 631,
+  "id": 1431,
   "type": "knn:non_spat_filter+name"
 }

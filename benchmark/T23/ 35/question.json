@@ -1,40 +1,45 @@
 {
-  "question": "What's the total count of museums within 90 kilometers from Bellevue University, Santa Fe, NM?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-105.974343 35.653894)',4326)::geography, 90000)\nAND tourism = 'museum';\n",
+  "question": "How many parks are located inside a 90 kilometers radius of Red Wolf Sanctuary, Rising Sun, IN?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, 90000)\nAND leisure = 'park';\n",
   "answers": [
     {
-      "count": 40
+      "count": 107
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
       "distance": 90000,
       "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Bellevue University, Santa Fe, NM",
-      "geo_wkt": "POINT (-105.974343 35.653894)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
+      "geo_wkt": "POINT (-84.875376 38.951571)",
       "poi": {
-        "id": 127804,
-        "geometry": "POINT (-105.974343 35.653894)",
-        "poi_name": "Bellevue University",
-        "osm_id": 8095198425,
-        "amenity": "university",
-        "addr_state": "NM",
-        "addr_city": "Santa Fe",
-        "addr_postcode": "87505",
-        "addr_street": "Siringo Road",
-        "addr_housenumber": "1950"
+        "id": 245554,
+        "geometry": "POINT (-84.875376 38.951571)",
+        "poi_name": "Red Wolf Sanctuary",
+        "osm_id": 3099118301,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "\"By appointment only\"",
+        "operator": "THE RED WOLF SANCTUARY INC",
+        "website": "https://www.redwolf.org/",
+        "phone": "+1 812 438 2306",
+        "addr_state": "IN",
+        "addr_city": "Rising Sun",
+        "addr_postcode": "47040",
+        "addr_street": "IN-262",
+        "addr_housenumber": "3027"
       }
     }
   },
-  "id": 2234,
+  "id": 1834,
   "type": "range+count"
 }

@@ -1,49 +1,46 @@
 {
-  "question": "What's the separation to the closest beach resort relative to Bayou Safari Wildlife Park, Alvin, TX?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'beach_resort'\nORDER BY geometry <-> ST_GeomFromText('POINT (-95.169372 29.43079)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far is the nearest aquarium in relation to Curtis Motel, Bridgeton, NC?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-77.017685 35.11729)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'aquarium'\nORDER BY geometry <-> ST_GeomFromText('POINT (-77.017685 35.11729)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 249010,
-      "geometry": "POINT (-87.546195 30.279291)",
-      "poi_name": "Caribe Resort",
-      "osm_id": 9583387690,
-      "leisure": "beach_resort",
-      "fee": "yes",
-      "website": "https://cariberesort.com/",
-      "phone": "+1 251 980 9010",
-      "addr_state": "AL",
-      "addr_city": "Orange Beach",
-      "addr_postcode": "36561",
-      "addr_street": "Perdido Beach Boulevard",
-      "addr_housenumber": "28103",
-      "distance": 742432.39095474
+      "id": 24624,
+      "geometry": "POINT (-78.589533 35.200429)",
+      "poi_name": "Taylor's Aquarium",
+      "osm_id": 11141985607,
+      "tourism": "aquarium",
+      "phone": "+19105675377",
+      "addr_state": "NC",
+      "addr_city": "Dunn",
+      "addr_postcode": "28334",
+      "addr_street": "North Spring Branch Road",
+      "addr_housenumber": "590",
+      "distance": 143508.45186507
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "aquarium"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Bayou Safari Wildlife Park, Alvin, TX",
-      "geo_wkt": "POINT (-95.169372 29.43079)",
+      "sub_category": "hotel",
+      "display_name": "Curtis Motel, Bridgeton, NC",
+      "geo_wkt": "POINT (-77.017685 35.11729)",
       "poi": {
-        "id": 11427,
-        "geometry": "POINT (-95.169372 29.43079)",
-        "poi_name": "Bayou Safari Wildlife Park",
-        "osm_id": 9966719427,
-        "tourism": "zoo",
-        "addr_state": "TX",
-        "addr_city": "Alvin",
-        "addr_postcode": "77511",
-        "addr_street": "FM 517",
-        "addr_housenumber": "5050"
+        "id": 280,
+        "geometry": "POINT (-77.017685 35.11729)",
+        "poi_name": "Curtis Motel",
+        "osm_id": 8280832784,
+        "tourism": "hotel",
+        "phone": "+12526383011",
+        "addr_state": "NC",
+        "addr_city": "Bridgeton",
+        "addr_postcode": "28519"
       }
     }
   },
-  "id": 2486,
+  "id": 686,
   "type": "knn+distance"
 }

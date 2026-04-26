@@ -1,67 +1,70 @@
 {
-  "question": "Where's the closest fast food restaurant on the route to Blasingame Soccer Complex, Alma, AR from Bryan University, Rogers, AR?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography, ST_GeomFromText('POINT (-94.213871 35.478418)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-94.170029 36.334108)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest hotel positioned on the way to Mount Hope Estate, Manheim, PA from Charlotte's Quest Nature Center, Manchester, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography, ST_GeomFromText('POINT (-76.429747 40.227758)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-76.882917 39.667863)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 188078,
-      "geometry": "POINT (-94.179764 36.312579)",
-      "poi_name": "Slim Chickens",
-      "osm_id": 1127240348,
-      "amenity": "fast_food",
-      "cuisine": "chicken",
-      "takeaway": "yes",
-      "addr_state": "AR",
-      "addr_city": "Rogers",
-      "addr_postcode": "72758",
-      "addr_street": "Promenade Boulevard",
-      "addr_housenumber": "2002",
-      "value": 182.39977753483785
+      "id": 4516,
+      "geometry": "POINT (-76.727396 39.962201)",
+      "poi_name": "ONE South Boutique Hotel & Venue",
+      "osm_id": 11287332164,
+      "tourism": "hotel",
+      "website": "https://www.onesouthyork.com/",
+      "phone": "+17172205330",
+      "addr_state": "PA",
+      "addr_city": "York",
+      "addr_postcode": "17401",
+      "addr_street": "South George Street",
+      "addr_housenumber": "1",
+      "value": 31.775810038761527
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Bryan University, Rogers, AR",
-      "geo_wkt": "POINT (-94.170029 36.334108)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Charlotte's Quest Nature Center, Manchester, MD",
+      "geo_wkt": "POINT (-76.882917 39.667863)",
       "poi": {
-        "id": 188088,
-        "geometry": "POINT (-94.170029 36.334108)",
-        "poi_name": "Bryan University",
-        "osm_id": 1127253817,
-        "amenity": "university",
-        "addr_state": "AR",
-        "addr_city": "Rogers",
-        "addr_postcode": "72756",
-        "addr_street": "West Walnut Street",
-        "addr_housenumber": "3704"
+        "id": 266753,
+        "geometry": "POINT (-76.882917 39.667863)",
+        "poi_name": "Charlotte's Quest Nature Center",
+        "osm_id": 9347780177,
+        "leisure": "nature_reserve",
+        "operator": "Manchester Parks Foundation",
+        "addr_state": "MD",
+        "addr_city": "Manchester",
+        "addr_postcode": "21102",
+        "addr_street": "Wilhelm Lane",
+        "addr_housenumber": "3400"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Blasingame Soccer Complex, Alma, AR",
-      "geo_wkt": "POINT (-94.213871 35.478418)",
+      "main_category": "tourism",
+      "sub_category": "attraction",
+      "display_name": "Mount Hope Estate, Manheim, PA",
+      "geo_wkt": "POINT (-76.429747 40.227758)",
       "poi": {
-        "id": 247497,
-        "geometry": "POINT (-94.213871 35.478418)",
-        "poi_name": "Blasingame Soccer Complex",
-        "osm_id": 9138991278,
-        "leisure": "park",
-        "operator": "Boys & Girls Club of the Diamond Hills",
-        "addr_state": "AR",
-        "addr_city": "Alma",
-        "addr_postcode": "72921",
-        "addr_street": "East Main Street",
-        "addr_housenumber": "410"
+        "id": 1653,
+        "geometry": "POINT (-76.429747 40.227758)",
+        "poi_name": "Mount Hope Estate",
+        "osm_id": 3102603200,
+        "tourism": "attraction",
+        "website": "https://mounthope.estate/store/",
+        "phone": "(717) 665-7021",
+        "wikidata": "Q6921302",
+        "addr_state": "PA",
+        "addr_city": "Manheim",
+        "addr_postcode": "17545",
+        "addr_street": "Lebanon Road",
+        "addr_housenumber": "2775"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "fast_food"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1331,
+  "id": 1531,
   "type": "knn:towards+loc"
 }

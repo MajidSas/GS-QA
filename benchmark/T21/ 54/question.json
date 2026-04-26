@@ -1,55 +1,57 @@
 {
-  "question": "Which way should I head to get to a museum from Wellington Reservation, Wellington, OH within 10 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, 10000)\nAND tourism = 'museum';\n",
+  "question": "Which way should I proceed to reach a hospital from UIS Greenhouse, Springfield, IL within 40 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography, 40000)\nAND amenity = 'hospital';\n",
   "answers": [
     {
-      "id": 21857,
-      "geometry": "POINT (-82.217682 41.168979)",
-      "poi_name": "Spirit of '76 Museum",
-      "osm_id": 10695458939,
-      "tourism": "museum",
-      "fee": "no",
-      "opening_hours": "Apr-Oct Sa,Su 13:00-15:30",
-      "website": "https://thespiritof76museum.org/",
-      "phone": "+4406475312",
-      "addr_state": "OH",
-      "addr_city": "Wellington",
-      "addr_postcode": "44090",
-      "addr_street": "North Main Street",
-      "addr_housenumber": "201",
-      "angle": 25.832515619327165
+      "id": 233215,
+      "geometry": "POINT (-89.697466 39.763463)",
+      "poi_name": "Springfield Clinic Wabash",
+      "osm_id": 4563757800,
+      "amenity": "hospital",
+      "website": "https://www.springfieldclinic.com/",
+      "phone": "+1-217-528-7541",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62705",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2200",
+      "angle": 299.3651155858291
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 10000,
-      "text": "10 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Wellington Reservation, Wellington, OH",
-      "geo_wkt": "POINT (-82.231694 41.147108)",
+      "sub_category": "garden",
+      "display_name": "UIS Greenhouse, Springfield, IL",
+      "geo_wkt": "POINT (-89.6166 39.728376)",
       "poi": {
-        "id": 248135,
-        "geometry": "POINT (-82.231694 41.147108)",
-        "poi_name": "Wellington Reservation",
-        "osm_id": 7256911177,
-        "leisure": "nature_reserve",
-        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
-        "addr_state": "OH",
-        "addr_city": "Wellington",
-        "addr_postcode": "44090",
-        "addr_street": "Jones Road",
-        "addr_housenumber": "535"
+        "id": 245618,
+        "geometry": "POINT (-89.6166 39.728376)",
+        "poi_name": "UIS Greenhouse",
+        "osm_id": 3214252196,
+        "leisure": "garden",
+        "wheelchair": "yes",
+        "website": "https://www.uis.edu/biology/",
+        "phone": "+1-217-206-6630",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "University Plaza",
+        "addr_housenumber": "1"
       }
     }
   },
-  "id": 1053,
+  "id": 1753,
   "type": "range+angle"
 }

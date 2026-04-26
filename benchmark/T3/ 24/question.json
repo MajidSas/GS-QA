@@ -1,55 +1,156 @@
 {
-  "question": "Which stadium is available in the northwest direction of Hamtramck Disneyland, Hamtramck, MI within 110 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.058623 42.407216)',4326)::geography, 110000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Which viewpoint are available within 170 kilometers distance to the west of Tilt Studio, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.973072 42.24581)',4326)::geography, 170000)\nAND tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 267317,
-      "geometry": "POINT (-83.058623 42.407216)",
-      "poi_name": "O'Rena",
-      "osm_id": 5842381796,
-      "leisure": "stadium",
-      "addr_state": "MI",
-      "addr_city": "Rochester",
-      "addr_postcode": "48309-4482",
-      "addr_street": "Pioneer Drive",
-      "addr_housenumber": "569"
+      "id": 5841,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Black Oak Dune Overlook",
+      "osm_id": 1647962262,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 1507,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Oak Point",
+      "osm_id": 3021571334,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 1508,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "High Point",
+      "osm_id": 3021619313,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 5727,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Bellevue Overlook",
+      "osm_id": 892648606,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 15856,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Scenic Overlook",
+      "osm_id": 9568710827,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 8984,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Observation Deck",
+      "osm_id": 3606168742,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11424,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Twin Sisters",
+      "osm_id": 9966518026,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 20055,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Inspiration Point",
+      "osm_id": 7841313935,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 16138,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Horseshoe Bluff",
+      "osm_id": 354306224,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 25252,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Thunder Bay Falls",
+      "osm_id": 4431707234,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24178,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Indian Head Rock",
+      "osm_id": 9369520794,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26666,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Ozzie's Point",
+      "osm_id": 5977345584,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 25198,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "River Viewing Point",
+      "osm_id": 4421228684,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 25199,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Allison Point",
+      "osm_id": 4421228819,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 25200,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Shiras Point",
+      "osm_id": 4421228820,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26667,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Louis' Point",
+      "osm_id": 5977384685,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26668,
+      "geometry": "POINT (-88.973072 42.24581)",
+      "poi_name": "Lookout Point",
+      "osm_id": 5977384687,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "stadium"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 110000,
-      "text": "110 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "attraction",
-      "display_name": "Hamtramck Disneyland, Hamtramck, MI",
-      "geo_wkt": "POINT (-83.058623 42.407216)",
+      "sub_category": "theme park",
+      "display_name": "Tilt Studio, IL",
+      "geo_wkt": "POINT (-88.973072 42.24581)",
       "poi": {
-        "id": 2296,
-        "geometry": "POINT (-83.058623 42.407216)",
-        "poi_name": "Hamtramck Disneyland",
-        "osm_id": 3371170310,
-        "tourism": "attraction",
-        "website": "https://en.wikipedia.org/wiki/Hamtramck_Disneyland",
-        "wikidata": "Q5646445",
-        "addr_state": "MI",
-        "addr_city": "Hamtramck",
-        "addr_postcode": "48212",
-        "addr_street": "Klinger Street",
-        "addr_housenumber": "12087"
+        "id": 5126,
+        "geometry": "POINT (-88.973072 42.24581)",
+        "poi_name": "Tilt Studio",
+        "osm_id": 9768506456,
+        "tourism": "theme_park",
+        "addr_state": "IL"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 2623,
+  "id": 2323,
   "type": "range:direction+name"
 }

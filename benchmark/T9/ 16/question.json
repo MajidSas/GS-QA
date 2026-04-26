@@ -1,56 +1,52 @@
 {
-  "question": "Which university is the nearest to the north of UIS Greenhouse, Springfield, IL?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.6166 39.728376)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What's the closest garden towards the south of First Responders Park, Germantown Hills, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.472894 40.76596)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'garden'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 139542,
-      "geometry": "POINT (-89.6166 39.728376)",
-      "poi_name": "Robert Morris University Illinois\u2014Peoria Campus",
-      "osm_id": 6202521229,
-      "amenity": "university",
-      "operator": "Robert Morris University Illinois",
-      "website": "https://robertmorris.edu/peoria/",
-      "phone": "+1 309 636 8600",
-      "wikidata": "Q7347822",
+      "id": 267108,
+      "geometry": "POINT (-89.472894 40.76596)",
+      "poi_name": "Washington Park Botanical Garden",
+      "osm_id": 4530576300,
+      "leisure": "garden",
+      "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+      "phone": "+1-217-546-4116",
       "addr_state": "IL",
-      "addr_city": "Peoria",
-      "addr_postcode": "61602",
-      "addr_street": "Fulton Street",
-      "addr_housenumber": "211"
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "West Fayette Avenue",
+      "addr_housenumber": "1740"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "UIS Greenhouse, Springfield, IL",
-      "geo_wkt": "POINT (-89.6166 39.728376)",
+      "sub_category": "park",
+      "display_name": "First Responders Park, Germantown Hills, IL",
+      "geo_wkt": "POINT (-89.472894 40.76596)",
       "poi": {
-        "id": 245618,
-        "geometry": "POINT (-89.6166 39.728376)",
-        "poi_name": "UIS Greenhouse",
-        "osm_id": 3214252196,
-        "leisure": "garden",
-        "wheelchair": "yes",
-        "website": "https://www.uis.edu/biology/",
-        "phone": "+1-217-206-6630",
+        "id": 245170,
+        "geometry": "POINT (-89.472894 40.76596)",
+        "poi_name": "First Responders Park",
+        "osm_id": 8340064919,
+        "leisure": "park",
+        "operator": "Village of Germantown Hills",
         "addr_state": "IL",
-        "addr_city": "Springfield",
-        "addr_postcode": "62703",
-        "addr_street": "University Plaza",
-        "addr_housenumber": "1"
+        "addr_city": "Germantown Hills",
+        "addr_postcode": "61548",
+        "addr_street": "Holland Road",
+        "addr_housenumber": "102"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2515,
+  "id": 1215,
   "type": "knn:direction+name"
 }

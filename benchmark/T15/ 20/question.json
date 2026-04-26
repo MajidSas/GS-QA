@@ -1,96 +1,63 @@
 {
-  "question": "Where can I find an attraction towards the west of Whitney Avenue Community Garden, Lexington, KY within 160 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.504606 38.061259)',4326)::geography, 160000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where are a stadium positioned toward the southwest of After Gallery, Milwaukee, WI and inside 110 kilometers?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-87.904893 43.067631)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-87.904893 43.067631)',4326)::geography, 110000)\nAND leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 2423,
-      "geometry": "POINT (-84.504606 38.061259)",
-      "poi_name": "Jeffersonville Overlook",
-      "osm_id": 3443754881,
-      "tourism": "attraction",
-      "operator": "Jeffersonville",
-      "addr_state": "IN",
-      "addr_city": "Jeffersonville",
-      "addr_postcode": "47130",
-      "addr_street": "Spring Street"
+      "id": 249191,
+      "geometry": "POINT (-87.904893 43.067631)",
+      "poi_name": "Monterey Stadium",
+      "osm_id": 353885114,
+      "leisure": "stadium"
     },
     {
-      "id": 8976,
-      "geometry": "POINT (-84.504606 38.061259)",
-      "poi_name": "Squire Boone Caverns",
-      "osm_id": 3603283581,
-      "tourism": "attraction",
-      "website": "https://www.squireboonecaverns.com/",
-      "phone": "+1-888-934-1804",
-      "wikidata": "Q7582288",
-      "addr_state": "IN",
-      "addr_city": "Mauckport",
-      "addr_postcode": "47142",
-      "addr_street": "Squire Boone Rd",
-      "addr_housenumber": "100"
-    },
-    {
-      "id": 26275,
-      "geometry": "POINT (-84.504606 38.061259)",
-      "poi_name": "Jeptha Creed Distillery",
-      "osm_id": 5832472576,
-      "tourism": "attraction",
-      "website": "https://jepthacreed.com/",
-      "phone": "(502) 487-5007",
-      "addr_state": "KY",
-      "addr_city": "Shelbyville",
-      "addr_postcode": "40065",
-      "addr_street": "Gordon Lane",
-      "addr_housenumber": "500"
-    },
-    {
-      "id": 26156,
-      "geometry": "POINT (-84.504606 38.061259)",
-      "poi_name": "Escape Lou",
-      "osm_id": 5795892353,
-      "tourism": "attraction",
-      "website": "https://escapelou.com/",
-      "phone": "5027097533",
-      "addr_state": "KY",
-      "addr_city": "Louisville",
-      "addr_postcode": "40206",
-      "addr_street": "Frankfort Avenue",
-      "addr_housenumber": "2235"
+      "id": 266349,
+      "geometry": "POINT (-87.904893 43.067631)",
+      "poi_name": "Team 1732 Thunderdome",
+      "osm_id": 7209590118,
+      "leisure": "stadium",
+      "operator": "Hilltopper Robotics Team 1732",
+      "addr_state": "WI",
+      "addr_city": "Milwaukee",
+      "addr_postcode": "53233",
+      "addr_street": "West Michigan Street",
+      "addr_housenumber": "2203"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "distance": 160000,
-      "text": "160 kilometers"
+      "distance": 110000,
+      "text": "110 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Whitney Avenue Community Garden, Lexington, KY",
-      "geo_wkt": "POINT (-84.504606 38.061259)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "After Gallery, Milwaukee, WI",
+      "geo_wkt": "POINT (-87.904893 43.067631)",
       "poi": {
-        "id": 248350,
-        "geometry": "POINT (-84.504606 38.061259)",
-        "poi_name": "Whitney Avenue Community Garden",
-        "osm_id": 4045039017,
-        "leisure": "garden",
-        "operator": "Seedleaf",
-        "addr_state": "KY",
-        "addr_city": "Lexington",
-        "addr_street": "Whitney Avenue",
-        "addr_housenumber": "829"
+        "id": 7244,
+        "geometry": "POINT (-87.904893 43.067631)",
+        "poi_name": "After Gallery",
+        "osm_id": 2020025120,
+        "tourism": "gallery",
+        "opening_hours": "Tu-Su 12:00-19:00",
+        "website": "https://www.after.gallery",
+        "addr_state": "WI",
+        "addr_city": "Milwaukee",
+        "addr_postcode": "53212",
+        "addr_street": "East Center Street",
+        "addr_housenumber": "510"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 19,
+  "id": 2219,
   "type": "range:direction+loc"
 }

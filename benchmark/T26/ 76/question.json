@@ -1,52 +1,47 @@
 {
-  "question": "What's the proximity of the closest museum from New Mexico Slaughter House, Albuquerque, NM?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'museum'\nORDER BY geometry <-> ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance to the closest gallery starting from Brown's Farm Barn, Fairview, PA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.172179 42.046723)',4326)::geography)  AS distance  FROM pois\nWHERE tourism = 'gallery'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.172179 42.046723)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7341,
-      "geometry": "POINT (-106.654624 35.103176)",
-      "poi_name": "New Mexico Steam Locomotive and Railroad Historical Society",
-      "osm_id": 2094286421,
-      "tourism": "museum",
-      "operator": "NMSL&RHS",
-      "website": "http://www.nmslrhs.org/",
-      "museum": "railway",
-      "addr_state": "NM",
-      "addr_city": "Albuquerque",
-      "addr_postcode": "87102",
-      "addr_street": "8th Street Northwest",
-      "addr_housenumber": "1833",
-      "distance": 10663.68045544
+      "id": 19969,
+      "geometry": "POINT (-80.14927 42.08451)",
+      "poi_name": "V Gallery",
+      "osm_id": 7792397535,
+      "tourism": "gallery",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16506",
+      "addr_street": "West 26th Street",
+      "addr_housenumber": "3330",
+      "distance": 4605.54777049
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "gallery"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Brown's Farm Barn, Fairview, PA",
+      "geo_wkt": "POINT (-80.172179 42.046723)",
       "poi": {
-        "id": 10873,
-        "geometry": "POINT (-106.657079 35.199273)",
-        "poi_name": "New Mexico Slaughter House",
-        "osm_id": 8107941834,
-        "tourism": "theme_park",
-        "opening_hours": "Oct Fr-Su 19:00-22:00",
-        "website": "https://www.nmslaughterhouse.com/",
-        "phone": "+1-505-764-2868",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_postcode": "87114",
-        "addr_street": "Coors Boulevard Bypass Northwest",
-        "addr_housenumber": "10000"
+        "id": 267523,
+        "geometry": "POINT (-80.172179 42.046723)",
+        "poi_name": "Brown's Farm Barn",
+        "osm_id": 7620791993,
+        "leisure": "nature_reserve",
+        "operator": "Millcreek Township",
+        "addr_state": "PA",
+        "addr_city": "Fairview",
+        "addr_postcode": "16415",
+        "addr_street": "Sterrettania Road",
+        "addr_housenumber": "5774"
       }
     }
   },
-  "id": 2475,
+  "id": 675,
   "type": "knn+distance"
 }

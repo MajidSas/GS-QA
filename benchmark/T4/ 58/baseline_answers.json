@@ -1,7 +1,55 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "The Picket Fence.",
+      "answer": "Starbucks at **Mile Marker 100**, **Lyons, IL**, approximately **one hundred and thirty kilometers** northeast.",
+      "scores": {
+        "attempted": true,
+        "P": 0.0833333333333333,
+        "R": 0.0043478260869565,
+        "F1": 0.0082644628099173
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Starbucks",
+          "address": "Mile Marker 100, Lyons, IL",
+          "distance": 130
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 1.0,
+        "F1": 1.0
+      }
+    }
+  },
+  "ministral-3:14b-cloud_rag": {
+    "text": {
+      "answer": "No relevant caf\u00e9 information available.",
+      "scores": {
+        "attempted": true,
+        "P": 0.25,
+        "R": 0.0043478260869565,
+        "F1": 0.0085470085470085
+      }
+    },
+    "parsed": {
+      "answer": [
+        {}
+      ],
+      "scores": {
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    }
+  },
+  "shuffled": {
+    "text": {
+      "answer": "",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,12 +60,9 @@
     "parsed": {
       "answer": [
         {
-          "name": "The Picket Fence",
-          "address": "on the route towards Hotel Blessing, TX from Downtown Gazebo, Lake Jackson, TX",
-          "distance": 110,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "PublicUs",
+          "address": "Chicago, IL",
+          "distance": 140
         }
       ],
       "scores": {
@@ -28,9 +73,62 @@
       }
     }
   },
-  "GT": {
+  "ministral-3:14b-cloud_text2sql": {
     "text": {
-      "answer": "No relevant records available.",
+      "answer": "Starbucks Reserve Roastery.",
+      "scores": {
+        "attempted": true,
+        "P": 0.3333333333333333,
+        "R": 0.0043478260869565,
+        "F1": 0.0085836909871244
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Starbucks Reserve Roastery",
+          "address": "Chicago, IL",
+          "distance": 140
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.3333333333333333,
+        "R": 1.0,
+        "F1": 0.5
+      }
+    }
+  },
+  "sonnet4.6_direct": {
+    "text": {
+      "answer": "Here are the caf\u00e9s within 140 kilometers along the path from IIT Stuart School of Business, Chicago, IL to Chicago Portage National Historic Site, Lyons, IL:\n\n1. **Bridgeport Coffee** \u2013 Chicago, IL\n2. **Cafecito** \u2013 Chicago, IL\n3. **Spoke & Bird** \u2013 Chicago, IL\n4. **Bridgehouse Caf\u00e9** \u2013 Chicago, IL",
+      "scores": {
+        "attempted": true,
+        "P": 0.0714285714285714,
+        "R": 0.0130434782608695,
+        "F1": 0.0220588235294117
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Bridgeport Coffee, Cafecito, Spoke & Bird, Bridgehouse Caf\u00e9",
+          "address": "Chicago, IL",
+          "count": 4,
+          "distance": 140
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.1428571428571428,
+        "R": 0.5,
+        "F1": 0.2222222222222222
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "No caf\u00e9s are found within 140 kilometers along the path to Chicago Portage National Historic Site from IIT Stuart School of Business based on the available records.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -41,12 +139,7 @@
     "parsed": {
       "answer": [
         {
-          "name": null,
-          "address": null,
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "count": 0
         }
       ],
       "scores": {
@@ -57,63 +150,58 @@
       }
     }
   },
-  "GR": {
+  "sonnet4.6_text2sql": {
     "text": {
-      "answer": "Papa John's",
+      "answer": "Here are the caf\u00e9s along the path:\n\n1. Starbucks\n2. CornerStone Cafe\n3. Atmos Coffee Shop\n4. Yolk\n5. Cafe Mustache\n6. Chef Sara's Cafe\n7. Pittsfield Cafe\n8. Dollop Coffee\n9. Starbucks (Evergreen Park)\n10. La Borra Cafe\n11. Tempo Cafe\n12. La Colombe Coffee\n13. Peet's Coffee\n14. Peet's Coffee (Chicago)\n15. Starbucks (Chicago)\n16. Heritage Outpost\n17. Pancake Cafe\n18. Coffee Chat\n19. FROTH\n20. Foxtrot\n21. Sipping Turtle Cafe\n22. Argo Tea\n23. Klein's Bakery & Cafe\n24. Starbucks (Schiller Park)\n25. Starbucks (Melrose Park)\n26. Robust Coffee Lounge\n27. Beograd Cafe\n28. Blackberry Market\n29. Gnarly Knots\n30. Starbucks (Oak Park)\n31. Starbucks (West Chicago)\n32. Endiro Coffee Aurora\n33. Grindhouse Cafe\n34. Starbucks (Lemont)\n35. Starbucks (Bolingbrook)\n36. Coffee Beanery",
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.0526315789473684,
-        "F1": 0.0909090909090909
+        "P": 0.104,
+        "R": 0.0565217391304347,
+        "F1": 0.0732394366197183
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Papa John's",
-          "address": "on the route towards Hotel Blessing, TX from Downtown Gazebo, Lake Jackson, TX within a radius of 110 kilometers"
+          "count": 36
         }
       ],
       "scores": {
-        "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.3333333333333333,
-        "F1": 0.3333333333333333
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     }
   },
-  "L": {
+  "gpt4o_direct": {
     "text": {
-      "answer": "The restaurant is \"Moe's Southwest Grill\".",
+      "answer": "Sip of Hope Coffee Bar",
       "scores": {
         "attempted": true,
-        "P": 0.2857142857142857,
-        "R": 0.1052631578947368,
-        "F1": 0.1538461538461538
+        "P": 0.25,
+        "R": 0.0043478260869565,
+        "F1": 0.0085470085470085
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Moe's Southwest Grill",
-          "address": "The restaurant is located on the route towards Hotel Blessing, TX from Downtown Gazebo, Lake Jackson, TX.",
-          "distance": 110,
-          "azimuth_angle": null,
-          "length": null,
-          "area": null
+          "name": "Sip of Hope Coffee Bar",
+          "address": "Chicago, IL"
         }
       ],
       "scores": {
         "attempted": true,
         "P": 0.25,
-        "R": 0.3333333333333333,
-        "F1": 0.2857142857142857
+        "R": 0.5,
+        "F1": 0.3333333333333333
       }
     }
   },
-  "LT": {
+  "gpt4o_rag": {
     "text": {
-      "answer": "I cannot provide real-time information about specific restaurants. However, I can provide general directions and information about the area. \n\nHotel Blessing is located in Wimberley, Texas. Downtown Gazebo is likely a reference to downtown Lake Jackson, Texas. \n\nIf you're looking for restaurants near Hotel Blessing or on the route from Downtown Gazebo, TX, I suggest checking online directories like Google Maps or TripAdvisor for the most up-to-date information and reviews.",
+      "answer": "None.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -124,12 +212,7 @@
     "parsed": {
       "answer": [
         {
-          "name": null,
-          "address": "Wimberley, Texas",
-          "distance": null,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "count": 0
         }
       ],
       "scores": {
@@ -140,33 +223,27 @@
       }
     }
   },
-  "LR": {
+  "gpt4o_text2sql": {
     "text": {
-      "answer": "Fiesta Mexicana Restaurant",
+      "answer": "No caf\u00e9s lie within one hundred forty kilometers along the path to Chicago Portage National Historic Site from IIT Stuart School of Business.",
       "scores": {
         "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.0526315789473684,
-        "F1": 0.0909090909090909
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": "Fiesta Mexicana Restaurant",
-          "address": "on the route towards Hotel Blessing, TX from Downtown Gazebo, Lake Jackson, TX",
-          "count": null,
-          "distance": 110,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "count": 0
         }
       ],
       "scores": {
-        "attempted": true,
-        "P": 0.3333333333333333,
-        "R": 0.3333333333333333,
-        "F1": 0.3333333333333333
+        "attempted": false,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
       }
     }
   }

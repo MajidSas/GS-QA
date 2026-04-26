@@ -1,43 +1,40 @@
 {
-  "question": "What's the total count of nature reserves within 20 kilometers from the Willough At Naples, Naples, FL?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-81.73631 26.096028)',4326)::geography, 20000)\nAND leisure = 'nature_reserve';\n",
+  "question": "How many parks can be found inside a 40 kilometers radius of MERGE, Iowa City, IA?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-91.53294 41.659113)',4326)::geography, 40000)\nAND leisure = 'park';\n",
   "answers": [
     {
-      "count": 1
+      "count": 6
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 20000,
-      "text": "20 kilometers"
+      "distance": 40000,
+      "text": "40 kilometers"
     },
     "[3]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "The Willough At Naples, Naples, FL",
-      "geo_wkt": "POINT (-81.73631 26.096028)",
+      "sub_category": "university",
+      "display_name": "MERGE, Iowa City, IA",
+      "geo_wkt": "POINT (-91.53294 41.659113)",
       "poi": {
-        "id": 181398,
-        "geometry": "POINT (-81.73631 26.096028)",
-        "poi_name": "The Willough At Naples",
-        "osm_id": 10844780198,
-        "amenity": "hospital",
-        "website": "https://www.thewilloughatnaples.com",
-        "phone": "+1 239 775 4500",
-        "healthcare": "hospital",
-        "addr_state": "FL",
-        "addr_city": "Naples",
-        "addr_postcode": "34113",
-        "addr_street": "Tamiami Trail East",
-        "addr_housenumber": "9001"
+        "id": 117117,
+        "geometry": "POINT (-91.53294 41.659113)",
+        "poi_name": "MERGE",
+        "osm_id": 8977439505,
+        "amenity": "university",
+        "operator": "University of Iowa",
+        "addr_state": "IA",
+        "addr_city": "Iowa City",
+        "addr_street": "South Dubuque Street",
+        "addr_housenumber": "136"
       }
     }
   },
-  "id": 2270,
+  "id": 1870,
   "type": "range+count"
 }

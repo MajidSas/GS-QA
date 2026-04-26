@@ -1,49 +1,44 @@
 {
-  "question": "Where is the nearest attraction in the north direction of Health Unit, Lakewood, CO?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-105.116451 39.717362)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest museum located toward southwest from Bresnan Arena, Mankato, MN?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-93.995655 44.145616)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 25347,
-      "geometry": "POINT (-105.116451 39.717362)",
-      "poi_name": "The Frightmare Compound",
-      "osm_id": 4458165580,
-      "tourism": "attraction",
-      "addr_state": "CO",
-      "addr_city": "Westminster",
-      "addr_postcode": "80021",
-      "addr_street": "Yukon Street",
-      "addr_housenumber": "10798"
+      "id": 16947,
+      "geometry": "POINT (-93.995655 44.145616)",
+      "poi_name": "Martin County Historical Society and Pioneer Museum",
+      "osm_id": 367068178,
+      "tourism": "museum",
+      "addr_state": "MN"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "attraction"
+      "sub_category": "museum"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Health Unit, Lakewood, CO",
-      "geo_wkt": "POINT (-105.116451 39.717362)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bresnan Arena, Mankato, MN",
+      "geo_wkt": "POINT (-93.995655 44.145616)",
       "poi": {
-        "id": 159276,
-        "geometry": "POINT (-105.116451 39.717362)",
-        "poi_name": "Health Unit",
-        "osm_id": 4785308206,
-        "amenity": "hospital",
-        "phone": "+1-303-236-3333",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "CO",
-        "addr_city": "Lakewood",
-        "addr_street": "Fifth Street",
-        "addr_housenumber": "40"
+        "id": 266082,
+        "geometry": "POINT (-93.995655 44.145616)",
+        "poi_name": "Bresnan Arena",
+        "osm_id": 10582238330,
+        "leisure": "stadium",
+        "sport": "basketball;volleyball;wrestling",
+        "addr_state": "MN",
+        "addr_city": "Mankato",
+        "addr_postcode": "56001",
+        "addr_street": "Warren Street",
+        "addr_housenumber": "1651"
       }
     },
     "[3]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1191,

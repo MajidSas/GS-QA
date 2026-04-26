@@ -1,46 +1,46 @@
 {
-  "question": "Can you recommend the nearest restaurant from the stadium that can hold 6600 spectators in Louisville, KY?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-85.745629 38.200638)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which zoo is the closest one near the university established in the year 1969 in Chicago, IL?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'zoo'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.642109 41.879101)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 49566,
-      "geometry": "POINT (-85.735935 38.205321)",
-      "poi_name": "The Wing Zone",
-      "osm_id": 3442060420,
-      "amenity": "restaurant",
-      "addr_state": "KY",
-      "addr_city": "Louisville",
-      "addr_postcode": "40217",
-      "addr_street": "Hess Lane",
-      "addr_housenumber": "905"
+      "id": 16137,
+      "geometry": "POINT (-87.911048 42.278444)",
+      "poi_name": "Lambs Farm Petting Zoo and Amusement Park",
+      "osm_id": 354282642,
+      "tourism": "zoo",
+      "fee": "yes",
+      "zoo": "petting_zoo",
+      "wikidata": "Q6481575"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "zoo"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Broadbent Arena, Louisville, KY",
-      "geo_wkt": "POINT (-85.745629 38.200638)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "IIT Stuart School of Business, Chicago, IL",
+      "geo_wkt": "POINT (-87.642109 41.879101)",
       "poi": {
-        "id": 245703,
-        "geometry": "POINT (-85.745629 38.200638)",
-        "poi_name": "Broadbent Arena",
-        "osm_id": 3418007532,
-        "leisure": "stadium",
-        "wikidata": "Q4972040",
-        "addr_state": "KY",
-        "addr_city": "Louisville",
-        "addr_postcode": "40209",
-        "addr_street": "Broadbent Drive",
-        "addr_housenumber": "3100"
+        "id": 81297,
+        "geometry": "POINT (-87.642109 41.879101)",
+        "poi_name": "IIT Stuart School of Business",
+        "osm_id": 1619741019,
+        "amenity": "university",
+        "operator": "Illinois Institute of Technology",
+        "website": "https://www.iit.edu/stuart",
+        "wikidata": "Q5971402",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60661",
+        "addr_street": "West Adams Street",
+        "addr_housenumber": "565"
       }
     }
   },
-  "id": 2763,
-  "type": "knn+name+multihop2"
+  "id": 963,
+  "type": "knn+name+multi_source2"
 }

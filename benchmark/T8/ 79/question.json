@@ -1,43 +1,38 @@
 {
-  "question": "Could you tell me the closest viewpoint relative to the museum established in the year 1973 in Oak Ridge, TN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.272003 36.02315)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest attraction near the stadium that can hold 14500 spectators in Wichita Falls, TX?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-98.582518 33.854202)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 9140,
-      "geometry": "POINT (-84.094556 36.223266)",
-      "poi_name": "Norris Dam Overlook",
-      "osm_id": 3686006506,
-      "tourism": "viewpoint"
+      "id": 8386,
+      "geometry": "POINT (-98.506653 33.91327)",
+      "poi_name": "Wichita Falls",
+      "osm_id": 6669091835,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Oak Ridge Children's Museum, Oak Ridge, TN",
-      "geo_wkt": "POINT (-84.272003 36.02315)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Memorial Stadium, Wichita Falls, TX",
+      "geo_wkt": "POINT (-98.582518 33.854202)",
       "poi": {
-        "id": 683,
-        "geometry": "POINT (-84.272003 36.02315)",
-        "poi_name": "Oak Ridge Children's Museum",
-        "osm_id": 2635855829,
-        "tourism": "museum",
-        "website": "https://childrensmuseumofoakridge.org/",
-        "phone": "+1 (865) 482-1074",
-        "wikidata": "Q5098179",
-        "addr_state": "TN",
-        "addr_city": "Oak Ridge",
-        "addr_postcode": "37830",
-        "addr_street": "West Outer Drive",
-        "addr_housenumber": "461"
+        "id": 252230,
+        "geometry": "POINT (-98.582518 33.854202)",
+        "poi_name": "Memorial Stadium",
+        "osm_id": 356844791,
+        "leisure": "stadium",
+        "wikidata": "Q6815531",
+        "addr_state": "TX",
+        "addr_city": "Wichita Falls"
       }
     }
   },
-  "id": 2778,
-  "type": "knn+name+multihop2"
+  "id": 978,
+  "type": "knn+name+multi_source2"
 }

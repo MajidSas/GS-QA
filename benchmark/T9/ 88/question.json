@@ -1,44 +1,44 @@
 {
-  "question": "What is the closest aquarium in the northeast direction of Role Play Bldg, Wayne, NJ?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-74.222484 40.967732)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which viewpoint is closest when moving in the south direction from Wildlife Sanctuary, Irvine, CA?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-117.838861 33.669618)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'viewpoint'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3269,
-      "geometry": "POINT (-74.222484 40.967732)",
-      "poi_name": "Aquatic Wildlife",
-      "osm_id": 5327521505,
-      "tourism": "aquarium"
+      "id": 12450,
+      "geometry": "POINT (-117.838861 33.669618)",
+      "poi_name": "Parker Vista",
+      "osm_id": 7251835118,
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "aquarium"
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "Role Play Bldg, Wayne, NJ",
-      "geo_wkt": "POINT (-74.222484 40.967732)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Wildlife Sanctuary, Irvine, CA",
+      "geo_wkt": "POINT (-117.838861 33.669618)",
       "poi": {
-        "id": 63246,
-        "geometry": "POINT (-74.222484 40.967732)",
-        "poi_name": "Role Play Bldg",
-        "osm_id": 5605978385,
-        "amenity": "university",
-        "addr_state": "NJ",
-        "addr_city": "Wayne",
-        "addr_postcode": "07470",
-        "addr_street": "Valley Road",
-        "addr_housenumber": "1600"
+        "id": 248097,
+        "geometry": "POINT (-117.838861 33.669618)",
+        "poi_name": "Wildlife Sanctuary",
+        "osm_id": 6340434000,
+        "leisure": "park",
+        "addr_state": "CA",
+        "addr_city": "Irvine",
+        "addr_postcode": "92612",
+        "addr_street": "Riparian Way",
+        "addr_housenumber": "5"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 2587,
+  "id": 1287,
   "type": "knn:direction+name"
 }

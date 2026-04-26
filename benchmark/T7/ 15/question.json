@@ -1,47 +1,53 @@
 {
-  "question": "When was the nearest university from City of Farmington Museum, Farmington, UT established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-111.887141 40.98238)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest theme park from Kindred Hospital Chicago Northlake, Northlake, IL first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 230559,
-      "geometry": "POINT (-111.890792 40.766101)",
-      "poi_name": "Neumont College",
-      "osm_id": 4431459466,
-      "amenity": "university",
-      "website": "https://www.neumont.edu/",
-      "wikidata": "Q7001981",
-      "multihop_answer": "2003",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Neumont College Established: 2003"
+      "id": 21492,
+      "geometry": "POINT (-88.034026 42.039672)",
+      "poi_name": "Legoland Discovery Center Chicago",
+      "osm_id": 10285659853,
+      "tourism": "theme_park",
+      "operator": "Merlin Entertainments",
+      "website": "https://www.legolanddiscoverycenter.com/chicago/",
+      "wikidata": "Q20711319",
+      "addr_state": "IL",
+      "addr_city": "Schaumburg",
+      "addr_postcode": "60173",
+      "addr_street": "North Martingale Road",
+      "addr_housenumber": "601",
+      "multi_source_answer": "2008; 16\u00a0years ago",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Legoland Discovery Center Chicago Opened: 2008; 16\u00a0years ago"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "City of Farmington Museum, Farmington, UT",
-      "geo_wkt": "POINT (-111.887141 40.98238)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Kindred Hospital Chicago Northlake, Northlake, IL",
+      "geo_wkt": "POINT (-87.89054 41.906867)",
       "poi": {
-        "id": 963,
-        "geometry": "POINT (-111.887141 40.98238)",
-        "poi_name": "City of Farmington Museum",
-        "osm_id": 2750936682,
-        "tourism": "museum",
-        "fee": "yes",
-        "website": "https://artsandmuseums.utah.gov/utah-museums-directory/listing/farmington-historical-museum__trashed/",
-        "addr_state": "UT",
-        "addr_city": "Farmington",
-        "addr_postcode": "84025",
-        "addr_street": "North Main Street",
-        "addr_housenumber": "110"
+        "id": 53851,
+        "geometry": "POINT (-87.89054 41.906867)",
+        "poi_name": "Kindred Hospital Chicago Northlake",
+        "osm_id": 10100695466,
+        "amenity": "hospital",
+        "operator": "Kindred Healthcare",
+        "healthcare": "hospital",
+        "addr_state": "IL",
+        "addr_city": "Northlake",
+        "addr_postcode": "60164",
+        "addr_street": "East North Avenue",
+        "addr_housenumber": "365"
       }
     }
   },
-  "id": 914,
-  "type": "knn+name+multihop1"
+  "id": 814,
+  "type": "knn+name+multi_source1"
 }

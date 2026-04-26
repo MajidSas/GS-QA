@@ -1,45 +1,45 @@
 {
-  "question": "Which beach resort is the nearest in the northeast direction of Irish Cultural Garden, Cleveland, OH?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-81.621886 41.522378)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'beach_resort'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which gallery is closest in the southwest direction of Denison Biological Reserve / Polly Anderson Field Station, Granville, OH?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-82.52007 40.084033)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'gallery'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 267249,
-      "geometry": "POINT (-81.621886 41.522378)",
-      "poi_name": "Burlington Surf Club",
-      "osm_id": 5769217582,
-      "leisure": "beach_resort",
-      "website": "https://www.burlingtonsurfclub.com/"
+      "id": 8343,
+      "geometry": "POINT (-82.52007 40.084033)",
+      "poi_name": "North South Studios",
+      "osm_id": 6635634724,
+      "tourism": "gallery",
+      "shop": "tattoo"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "beach resort"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Irish Cultural Garden, Cleveland, OH",
-      "geo_wkt": "POINT (-81.621886 41.522378)",
+      "sub_category": "nature reserve",
+      "display_name": "Denison Biological Reserve / Polly Anderson Field Station, Granville, OH",
+      "geo_wkt": "POINT (-82.52007 40.084033)",
       "poi": {
-        "id": 247028,
-        "geometry": "POINT (-81.621886 41.522378)",
-        "poi_name": "Irish Cultural Garden",
-        "osm_id": 8567373881,
-        "leisure": "garden",
-        "fee": "no",
+        "id": 246339,
+        "geometry": "POINT (-82.52007 40.084033)",
+        "poi_name": "Denison Biological Reserve / Polly Anderson Field Station",
+        "osm_id": 11329562516,
+        "leisure": "nature_reserve",
         "addr_state": "OH",
-        "addr_city": "Cleveland",
-        "addr_street": "Martin Luther King Junior Drive",
-        "addr_housenumber": "1201"
+        "addr_city": "Granville",
+        "addr_postcode": "43023",
+        "addr_street": "North Street",
+        "addr_housenumber": "1760"
       }
     },
     "[3]": {
-      "direction_desc": "northeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2510,
+  "id": 1210,
   "type": "knn:direction+name"
 }

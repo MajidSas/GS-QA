@@ -1,47 +1,41 @@
 {
-  "question": "Seeking suggestions for the nearest theme park in relation to EE Robinson Park, Sugar Hill, GA.",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-84.043215 34.098092)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which nature reserve closest to Gator Country Wildlife Adventure Park, Beaumont, TX is available?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-94.274211 29.929639)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 13057,
-      "geometry": "POINT (-83.596543 35.793397)",
-      "poi_name": "Smoky Mountain Alpine Coaster",
-      "osm_id": 4035710749,
-      "tourism": "theme_park",
-      "website": "http://www.smokymountainalpinecoaster.com/",
-      "wikidata": "Q29831450",
-      "addr_state": "TN",
-      "addr_city": "Pigeon Forge",
-      "addr_postcode": "37863",
-      "addr_street": "Wears Valley Road",
-      "addr_housenumber": "867"
+      "id": 265454,
+      "geometry": "POINT (-94.150494 29.667148)",
+      "poi_name": "McFaddin National Wildlife Refuge",
+      "osm_id": 2346887169,
+      "leisure": "nature_reserve"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "theme park"
+      "main_category": "leisure",
+      "sub_category": "nature reserve"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "EE Robinson Park, Sugar Hill, GA",
-      "geo_wkt": "POINT (-84.043215 34.098092)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Gator Country Wildlife Adventure Park, Beaumont, TX",
+      "geo_wkt": "POINT (-94.274211 29.929639)",
       "poi": {
-        "id": 248331,
-        "geometry": "POINT (-84.043215 34.098092)",
-        "poi_name": "EE Robinson Park",
-        "osm_id": 3991336957,
-        "leisure": "park",
-        "addr_state": "GA",
-        "addr_city": "Sugar Hill",
-        "addr_postcode": "30518",
-        "addr_street": "Level Creek Road",
-        "addr_housenumber": "850"
+        "id": 14222,
+        "geometry": "POINT (-94.274211 29.929639)",
+        "poi_name": "Gator Country Wildlife Adventure Park",
+        "osm_id": 4252509346,
+        "tourism": "zoo",
+        "website": "https://www.gatorrescue.com/",
+        "addr_state": "TX",
+        "addr_city": "Beaumont",
+        "addr_postcode": "77705",
+        "addr_street": "Farm to Market Road 365",
+        "addr_housenumber": "21159"
       }
     }
   },
-  "id": 212,
+  "id": 1012,
   "type": "knn+name"
 }

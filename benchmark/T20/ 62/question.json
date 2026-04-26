@@ -1,57 +1,64 @@
 {
-  "question": "Where's the closest restaurant located en route to J P Riddle Stadium, Fayetteville, NC from Strickland Art Gallery, Selma, NC?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography, ST_GeomFromText('POINT (-78.909681 35.008472)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.283565 35.53543)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest restaurant you encounter heading toward Sycamore Park, Medina, OH from UH Rainbow Babies & Children\u2019s Hospital, Cleveland, OH?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.605748 41.504861)',4326)::geography, ST_GeomFromText('POINT (-81.859349 41.123385)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-81.605748 41.504861)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-81.605748 41.504861)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 120397,
-      "geometry": "POINT (-78.286642 35.534184)",
-      "poi_name": "My Casa Hispano Restaurant",
-      "osm_id": 6701077669,
+      "id": 33709,
+      "geometry": "POINT (-81.643917 41.462364)",
+      "poi_name": "Pizza Hut",
+      "osm_id": 2678884422,
       "amenity": "restaurant",
-      "addr_city": "Selma",
-      "addr_postcode": "27576",
-      "addr_street": "South Pollock Street",
-      "addr_housenumber": "302",
-      "value": 224.43843736607866
+      "cuisine": "pizza",
+      "addr_city": "Cleveland",
+      "addr_postcode": "44105",
+      "addr_street": "Broadway Avenue",
+      "addr_housenumber": "6557",
+      "value": 206.70484346245516
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Strickland Art Gallery, Selma, NC",
-      "geo_wkt": "POINT (-78.283565 35.53543)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "UH Rainbow Babies & Children\u2019s Hospital, Cleveland, OH",
+      "geo_wkt": "POINT (-81.605748 41.504861)",
       "poi": {
-        "id": 4984,
-        "geometry": "POINT (-78.283565 35.53543)",
-        "poi_name": "Strickland Art Gallery",
-        "osm_id": 9707094897,
-        "tourism": "gallery",
-        "phone": "Strickland Art Gallery",
-        "addr_state": "NC",
-        "addr_city": "Selma",
-        "addr_postcode": "27576",
-        "addr_street": "South Raiford Street",
-        "addr_housenumber": "115"
+        "id": 64505,
+        "geometry": "POINT (-81.605748 41.504861)",
+        "poi_name": "UH Rainbow Babies & Children\u2019s Hospital",
+        "osm_id": 5656050761,
+        "amenity": "hospital",
+        "opening_hours": "24/7",
+        "operator": "University Hospitals",
+        "website": "https://www.uhhospitals.org/rainbow",
+        "phone": "+1 216 844 5437",
+        "healthcare": "hospital",
+        "emergency": "yes",
+        "wikidata": "Q7284577",
+        "addr_state": "OH",
+        "addr_city": "Cleveland",
+        "addr_postcode": "44106",
+        "addr_street": "Adelbert Road",
+        "addr_housenumber": "2101"
       }
     },
     "[3]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "J P Riddle Stadium, Fayetteville, NC",
-      "geo_wkt": "POINT (-78.909681 35.008472)",
+      "sub_category": "park",
+      "display_name": "Sycamore Park, Medina, OH",
+      "geo_wkt": "POINT (-81.859349 41.123385)",
       "poi": {
-        "id": 246067,
-        "geometry": "POINT (-78.909681 35.008472)",
-        "poi_name": "J P Riddle Stadium",
-        "osm_id": 5529754475,
-        "leisure": "stadium",
-        "addr_state": "NC",
-        "addr_city": "Fayetteville",
-        "addr_postcode": "28306",
-        "addr_street": "Legion Road",
-        "addr_housenumber": "2823"
+        "id": 247810,
+        "geometry": "POINT (-81.859349 41.123385)",
+        "poi_name": "Sycamore Park",
+        "osm_id": 9957382881,
+        "leisure": "park",
+        "website": "https://medinaoh.org/city-hall/parks/sycamore-park",
+        "addr_state": "OH",
+        "addr_city": "Medina",
+        "addr_street": "Valley Drive",
+        "addr_housenumber": "350"
       }
     },
     "[1]": {
@@ -59,6 +66,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 1361,
+  "id": 1561,
   "type": "knn:towards+loc"
 }

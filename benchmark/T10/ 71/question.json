@@ -1,61 +1,60 @@
 {
-  "question": "Which fast food is closest towards English Street Community Garden, New Haven, CT from Sloth Encounters, Hauppauge, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, ST_GeomFromText('POINT (-72.896423 41.316453)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.210029 40.824517)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest fast food along the route from Shechem Ministries, Lawrenceburg, KY to North Pole Community Garden, Lexington, KY?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, ST_GeomFromText('POINT (-84.47951 38.058992)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 107823,
-      "geometry": "POINT (-73.185888 40.853435)",
-      "poi_name": "Moe's Southwest Grill",
-      "osm_id": 3580579326,
+      "id": 36491,
+      "geometry": "POINT (-84.73388 38.062764)",
+      "poi_name": "Dairy Queen",
+      "osm_id": 2767117700,
       "amenity": "fast_food",
-      "cuisine": "mexican",
+      "cuisine": "ice_cream;burger",
+      "phone": "859-873-3079",
       "takeaway": "yes",
-      "outdoor_seating": "no",
-      "value": 25.652022074831095
+      "addr_state": "KY",
+      "addr_city": "Versailles",
+      "addr_street": "Frankfort Street",
+      "addr_housenumber": "198",
+      "value": 86.39939812967702
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Sloth Encounters, Hauppauge, NY",
-      "geo_wkt": "POINT (-73.210029 40.824517)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
       "poi": {
-        "id": 6973,
-        "geometry": "POINT (-73.210029 40.824517)",
-        "poi_name": "Sloth Encounters",
-        "osm_id": 8791898433,
-        "tourism": "zoo",
-        "opening_hours": "Sa-Su 11:00-19:00",
-        "website": "https://www.slothencounters.com/",
-        "phone": "+1-631-257-5683",
-        "zoo": "petting_zoo",
-        "addr_state": "NY",
-        "addr_city": "Hauppauge",
-        "addr_postcode": "11788",
-        "addr_street": "Veterans Memorial Highway",
-        "addr_housenumber": "551"
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
+        "leisure": "nature_reserve",
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
       }
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "garden",
-      "display_name": "English Street Community Garden, New Haven, CT",
-      "geo_wkt": "POINT (-72.896423 41.316453)",
+      "display_name": "North Pole Community Garden, Lexington, KY",
+      "geo_wkt": "POINT (-84.47951 38.058992)",
       "poi": {
-        "id": 246384,
-        "geometry": "POINT (-72.896423 41.316453)",
-        "poi_name": "English Street Community Garden",
-        "osm_id": 11413367600,
+        "id": 248386,
+        "geometry": "POINT (-84.47951 38.058992)",
+        "poi_name": "North Pole Community Garden",
+        "osm_id": 4072709120,
         "leisure": "garden",
-        "operator": "Gather New Haven",
-        "website": "https://gathernewhaven.org/farm-sites/english-street-community-garden",
-        "addr_state": "CT",
-        "addr_city": "New Haven",
-        "addr_postcode": "06513",
-        "addr_street": "English Street",
-        "addr_housenumber": "220"
+        "operator": "Seedleaf",
+        "website": "https://www.seedleaf.org/",
+        "addr_state": "KY",
+        "addr_city": "Lexington",
+        "addr_street": "North Limestone",
+        "addr_housenumber": "909"
       }
     },
     "[1]": {
@@ -63,6 +62,6 @@
       "sub_category": "fast_food"
     }
   },
-  "id": 170,
+  "id": 1670,
   "type": "knn:towards+name"
 }

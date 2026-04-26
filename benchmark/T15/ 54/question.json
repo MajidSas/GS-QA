@@ -1,58 +1,65 @@
 {
-  "question": "Within a radius of 80 kilometers, where can I find a caf\u00e9 towards the east of the Denver Hospice, Denver, CO?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-104.891985 39.719901)',4326)::geography, 80000)\nAND amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Where can I find a university that are within 180 kilometers and lie south of Country Inn & Suites, Springfield, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.608253 39.757227)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.608253 39.757227)',4326)::geography, 180000)\nAND amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 164781,
-      "geometry": "POINT (-104.891985 39.719901)",
-      "poi_name": "Ziggi's Coffee",
-      "osm_id": 9500011958,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop",
-      "addr_state": "CO",
-      "addr_city": "Bennett",
-      "addr_postcode": "80102",
-      "addr_street": "Marketplace Drive",
-      "addr_housenumber": "111"
+      "id": 121774,
+      "geometry": "POINT (-89.608253 39.757227)",
+      "poi_name": "Lindenwood University",
+      "osm_id": 6779561972,
+      "amenity": "university",
+      "website": "https://www.lindenwood.edu/belleville/",
+      "addr_state": "IL",
+      "addr_city": "Belleville",
+      "addr_postcode": "62226",
+      "addr_street": "West Main Street",
+      "addr_housenumber": "2600"
+    },
+    {
+      "id": 167308,
+      "geometry": "POINT (-89.608253 39.757227)",
+      "poi_name": "University of Illinois Springfield",
+      "osm_id": 354142925,
+      "amenity": "university",
+      "wikidata": "Q941855"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "cafe"
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 80000,
-      "text": "80 kilometers"
+      "distance": 180000,
+      "text": "180 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "The Denver Hospice, Denver, CO",
-      "geo_wkt": "POINT (-104.891985 39.719901)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Country Inn & Suites, Springfield, IL",
+      "geo_wkt": "POINT (-89.608253 39.757227)",
       "poi": {
-        "id": 37397,
-        "geometry": "POINT (-104.891985 39.719901)",
-        "poi_name": "The Denver Hospice",
-        "osm_id": 2810255127,
-        "amenity": "hospital",
-        "website": "https://thedenverhospice.org/",
-        "phone": "+1-303-418-3000",
-        "healthcare": "hospital",
-        "emergency": "no",
-        "addr_state": "CO",
-        "addr_city": "Denver",
-        "addr_postcode": "80230",
-        "addr_street": "East Lowry Boulevard",
-        "addr_housenumber": "8299"
+        "id": 705,
+        "geometry": "POINT (-89.608253 39.757227)",
+        "poi_name": "Country Inn & Suites",
+        "osm_id": 2642683287,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-springfield-il",
+        "phone": "+1-217-544-5151",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62703",
+        "addr_street": "Stevenson Drive",
+        "addr_housenumber": "3092"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 53,
+  "id": 2253,
   "type": "range:direction+loc"
 }

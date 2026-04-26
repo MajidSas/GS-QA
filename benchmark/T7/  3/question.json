@@ -1,52 +1,45 @@
 {
-  "question": "Does the nearest hospital from Amazing Fun Center, Coram, MT have a helipad?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-114.04441 48.42455)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest theme park from Alta Vista Gardens, Vista, CA first opened?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'theme_park'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-117.219371 33.210166)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 226998,
-      "geometry": "POINT (-114.323317 48.214604)",
-      "poi_name": "Logan Health Medical Center",
-      "osm_id": 11176850386,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Logan Healthcare",
-      "website": "https://www.logan.org/health/locations/logan-health-medical-center",
-      "phone": "+1 406 752 5111",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q14704640",
-      "multihop_answer": "Yes",
-      "multihop_attribute": "Helipad",
-      "multihop_long_answer": "Logan Health Medical Center Helipad: Yes"
+      "id": 16342,
+      "geometry": "POINT (-116.883359 32.841995)",
+      "poi_name": "Marshal Scottys Playland",
+      "osm_id": 358845750,
+      "tourism": "theme_park",
+      "wikidata": "Q17020373",
+      "multi_source_answer": "1967",
+      "multi_source_attribute": "Opened",
+      "multi_source_long_answer": "Marshal Scottys Playland Opened: 1967"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "tourism",
+      "sub_category": "theme park"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Amazing Fun Center, Coram, MT",
-      "geo_wkt": "POINT (-114.04441 48.42455)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Alta Vista Gardens, Vista, CA",
+      "geo_wkt": "POINT (-117.219371 33.210166)",
       "poi": {
-        "id": 8767,
-        "geometry": "POINT (-114.04441 48.42455)",
-        "poi_name": "Amazing Fun Center",
-        "osm_id": 8685774536,
-        "tourism": "theme_park",
-        "operator": "AFC",
-        "phone": "(406) 387-5902",
-        "addr_state": "MT",
-        "addr_city": "Coram",
-        "addr_postcode": "59912",
-        "addr_street": "US Hwy 2 E",
-        "addr_housenumber": "10265"
+        "id": 266183,
+        "geometry": "POINT (-117.219371 33.210166)",
+        "poi_name": "Alta Vista Gardens",
+        "osm_id": 597177626,
+        "leisure": "garden",
+        "wikidata": "Q4736012",
+        "addr_state": "CA",
+        "addr_city": "Vista",
+        "addr_postcode": "92084",
+        "addr_street": "Vale Terrace Drive",
+        "addr_housenumber": "1270"
       }
     }
   },
-  "id": 902,
-  "type": "knn+name+multihop1"
+  "id": 802,
+  "type": "knn+name+multi_source1"
 }

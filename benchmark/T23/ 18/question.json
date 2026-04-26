@@ -1,38 +1,41 @@
 {
-  "question": "What's the total count of golf courses within 140 kilometers from ABQ BioPark (Aquarium), Albuquerque, NM?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography, 140000)\nAND leisure = 'golf_course';\n",
+  "question": "What\u2019s the total number of universities within a 90 kilometers distance from Wellington Reservation, Wellington, OH?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-82.231694 41.147108)',4326)::geography, 90000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "count": 1
+      "count": 3
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 140000,
-      "text": "140 kilometers"
+      "distance": 90000,
+      "text": "90 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
-      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Wellington Reservation, Wellington, OH",
+      "geo_wkt": "POINT (-82.231694 41.147108)",
       "poi": {
-        "id": 6226,
-        "geometry": "POINT (-106.678998 35.093235)",
-        "poi_name": "ABQ BioPark (Aquarium)",
-        "osm_id": 1788029735,
-        "tourism": "aquarium",
-        "wikidata": "Q4712807",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque"
+        "id": 248135,
+        "geometry": "POINT (-82.231694 41.147108)",
+        "poi_name": "Wellington Reservation",
+        "osm_id": 7256911177,
+        "leisure": "nature_reserve",
+        "website": "https://www.loraincountymetroparks.com/wellington-reservation",
+        "addr_state": "OH",
+        "addr_city": "Wellington",
+        "addr_postcode": "44090",
+        "addr_street": "Jones Road",
+        "addr_housenumber": "535"
       }
     }
   },
-  "id": 2217,
+  "id": 1817,
   "type": "range+count"
 }

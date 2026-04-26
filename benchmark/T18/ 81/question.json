@@ -1,45 +1,53 @@
 {
-  "question": "Where can I find the nearest railway museum from Element Nashville Vanderbilt West End, Nashville, TN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nAND museum = 'railway'\nORDER BY geometry <-> ST_GeomFromText('POINT (-86.819366 36.152015)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest emergency hospital positioned near Procter Farm Preserve, Wendell, NC?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nAND emergency ILIKE '%yes%'\nORDER BY geometry <-> ST_GeomFromText('POINT (-78.390009 35.831172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 17891,
-      "geometry": "POINT (-86.01026 35.163972)",
-      "poi_name": "Cowan Railroad Museum",
-      "osm_id": 368158234,
-      "tourism": "museum",
-      "website": "http://cowanrailroadmuseum.org/",
-      "museum": "railway",
-      "addr_state": "TN"
+      "id": 167557,
+      "geometry": "POINT (-78.703262 35.818116)",
+      "poi_name": "UNC REX Healthcare",
+      "osm_id": 357814276,
+      "amenity": "hospital",
+      "operator": "UNC Health Care",
+      "website": "http://www.rexhealth.com/",
+      "phone": "+1 919 784 3100",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "wikidata": "Q7319213",
+      "addr_state": "NC",
+      "addr_city": "Raleigh",
+      "addr_postcode": "27607",
+      "addr_street": "Lake Boone Trail",
+      "addr_housenumber": "4420"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum",
-      "poi_filter_desc": "railway museum",
-      "poi_filter_sql": "museum = 'railway'"
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "poi_filter_desc": "emergency hospital",
+      "poi_filter_sql": "emergency ILIKE '%yes%'"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Element Nashville Vanderbilt West End, Nashville, TN",
-      "geo_wkt": "POINT (-86.819366 36.152015)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Procter Farm Preserve, Wendell, NC",
+      "geo_wkt": "POINT (-78.390009 35.831172)",
       "poi": {
-        "id": 23968,
-        "geometry": "POINT (-86.819366 36.152015)",
-        "poi_name": "Element Nashville Vanderbilt West End",
-        "osm_id": 9227869750,
-        "tourism": "hotel",
-        "addr_state": "TN",
-        "addr_city": "Nashville",
-        "addr_postcode": "37209",
-        "addr_street": "C1TY BLVD",
-        "addr_housenumber": "4"
+        "id": 247665,
+        "geometry": "POINT (-78.390009 35.831172)",
+        "poi_name": "Procter Farm Preserve",
+        "osm_id": 8057386012,
+        "leisure": "nature_reserve",
+        "addr_state": "NC",
+        "addr_city": "Wendell",
+        "addr_postcode": "27591",
+        "addr_street": "Doc Procter Road",
+        "addr_housenumber": "7201"
       }
     }
   },
-  "id": 380,
+  "id": 1380,
   "type": "knn:non_spat_filter+loc"
 }

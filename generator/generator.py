@@ -5,6 +5,7 @@
 import json
 import random
 import psycopg2
+import time
 import shapely
 from tqdm import tqdm
 from textblob.blob import Word
@@ -92,9 +93,45 @@ def poi_category_to_sql_name(value):
 regions_selector = ["city","town","village", "island","municipality","county","neighbourhood","suburb","state"]
 
 sql_no_ref = "SELECT * FROM TABLE2  TABLESAMPLE SYSTEM(5) WHERE PREDICATE MUST_HAVE IS NOT NULL LIMIT 1"
-sql_with_ref = "SELECT * FROM TABLE2  TABLESAMPLE SYSTEM(5) WHERE PREDICATE MUST_HAVE IS NOT NULL AND ST_DWithin(TABLE.geometry, ST_GeomFromText('WKT',4326)::geography, 1E5) LIMIT 1"
+sql_with_ref = "SELECT * FROM TABLE2 TABLESAMPLE SYSTEM(5) WHERE PREDICATE MUST_HAVE IS NOT NULL AND ST_DWithin(TABLE2.geometry, ST_GeomFromText('WKT',4326)::geography, 1E5) LIMIT 1"
 
 # %%
+def verify_geo_wkts(template_tokens, selected_entities, sql):
+    """
+    For each [k_wkt] token in template_tokens, verify that:
+    1. selected_entities[k]['geo_wkt'] is present in the built SQL (correct substitution).
+    2. The geometry matches the DB record for that entity (looked up by osm_id).
+    """
+    for tt in template_tokens:
+        token_key = tt[0]
+        if not token_key.endswith('_wkt]'):
+            continue
+        entity_key = token_key.replace('_wkt]', ']')
+        if entity_key not in selected_entities:
+            continue
+        entity = selected_entities[entity_key]
+        if 'geo_wkt' not in entity:
+            continue
+        expected_wkt = entity['geo_wkt']
+        # Check 1: WKT was correctly substituted into the SQL
+        assert expected_wkt in sql, \
+            f"geo_wkt for {entity_key} not found in SQL. Expected '{expected_wkt}' to appear in:\n{sql}"
+        # Check 2: verify geometry matches the DB record via osm_id
+        for subkey, table in [('poi', 'pois'), ('region', 'regions')]:
+            if subkey in entity:
+                osm_id = entity[subkey].get('osm_id')
+                if osm_id:
+                    db_result = run_sql_select(
+                        f"SELECT geometry FROM {table} WHERE osm_id = {osm_id} LIMIT 1"
+                    )
+                    assert db_result, \
+                        f"No DB record found in {table} for osm_id={osm_id} (entity {entity_key})"
+                    db_wkt = shapely.to_wkt(shapely.from_wkb(db_result[0][0]))
+                    assert db_wkt == expected_wkt, \
+                        f"geo_wkt mismatch for {entity_key} (osm_id={osm_id}): stored='{expected_wkt}' vs db='{db_wkt}'"
+                break
+
+
 def question_generator(text_templates, variable_types, template_tokens, sql_template, answer_type, verifier, n=100, disable_progress=False):
     '''
     @text_templates: an array containing text templates with substrings that contain the template variables.
@@ -129,7 +166,14 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
                 main_category = random.choice(list(pois_selector.keys()))
                 sub_category = random.choice(pois_selector[main_category])
                 if 'distance_limited' in v and ref_geo_wkt is not None:
-                    output = run_sql_select(sql_with_ref.replace('TABLE2', 'pois').replace('MUST_HAVE', 'addr_state').replace('WKT', ref_geo_wkt).replace('PREDICATE', "%s ILIKE '%s' AND " % (main_category, poi_category_to_sql_name(sub_category))), return_dict=True)
+                    predicate = "%s ILIKE '%s' AND " % (main_category, poi_category_to_sql_name(sub_category))
+                    if sub_category == 'restaurant' or sub_category == 'food':
+                        predicate = " (amenity ILIKE 'fast_food' OR amenity ILIKE 'restaurant' OR amenity ILIKE 'food') AND "
+                    elif sub_category == 'cafe' or sub_category == 'coffee_shop':
+                        predicate = " (amenity ILIKE 'cafe' OR amenity ILIKE 'coffee_shop') AND "
+                    _sql = sql_with_ref.replace('TABLE2', 'pois').replace('MUST_HAVE', 'addr_state').replace('WKT', ref_geo_wkt).replace('PREDICATE', predicate)
+                    # print(_sql)
+                    output = run_sql_select(_sql, return_dict=True)
                     if len(output) == 0:
                         skip_iteration = True
                         break
@@ -151,10 +195,37 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
                                 sub_category = random_poi[kk]
                                 break
 
-                        # main category
-                        # sub category
+                elif 'multi_source' in v:
+                    select_sql = f'''
+                    SELECT p.*
+                    FROM pois p TABLESAMPLE SYSTEM (5)
+                    JOIN LATERAL (
+                    SELECT n.*
+                    FROM pois n
+                    WHERE n.id <> p.id
+                        AND n.addr_state IS NOT NULL
+                        AND n.{selected_entities['[1]']['main_category']} ILIKE '{selected_entities['[1]']['sub_category']}'
+                        AND n.wikidata IS NOT NULL
+                    ORDER BY ST_Distance(p.geometry, n.geometry)
+                    LIMIT 1
+                    ) nn ON TRUE
+                    WHERE p.{main_category} ILIKE '{sub_category}'
+                    AND p.addr_state IS NOT NULL
+                    LIMIT 1;
+                    '''
+                    # print(select_sql)
+                    output = run_sql_select(select_sql, return_dict=True)
+                    # print('point with knn with wikidata: ', len(output))
+                    if len(output) == 0:
+                        skip_iteration = True
+                        break
+                    else:
+                        random_poi = output[0]
+                        ref_geo_wkt = shapely.to_wkt(shapely.from_wkb(random_poi['geometry']))
                 else:
-                    output = run_sql_select(sql_no_ref.replace('TABLE2', 'pois').replace('MUST_HAVE', 'addr_state').replace('PREDICATE', "%s ILIKE '%s' AND " % (main_category, poi_category_to_sql_name(sub_category))), return_dict=True)
+                    select_sql = sql_no_ref.replace('TABLE2', 'pois').replace('MUST_HAVE', 'addr_state').replace('PREDICATE', "%s ILIKE '%s' AND " % (main_category, poi_category_to_sql_name(sub_category)))
+                    # print(select_sql)
+                    output = run_sql_select(select_sql, return_dict=True)
                     if len(output) == 0:
                         skip_iteration = True
                         break
@@ -177,12 +248,12 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
                 predicate =  " ST_Intersects(geometry, ST_GeomFromText('%s',4326)::geography) " % (geo_wkt)
                 ss = '''SELECT * FROM regions WHERE PREDICATE AND wikipedia IS NOT NULL LIMIT 1'''.replace('PREDICATE', predicate)
                 output = run_sql_select(ss, return_dict=True)
-                print(len(output))
+                # print(len(output))
                 if len(output) == 0:
                     skip_iteration = True
                     break
                 random_region = output[0]
-                print(random_region['wikipedia'])
+                # print(random_region['wikipedia'])
                 geo_wkt = shapely.to_wkt(shapely.from_wkb(random_region['geometry']))
                 random_region['geometry'] = geo_wkt
                 selected_entities[k] = {'region_name': random_region['wikipedia'][3:], 'geo_wkt': geo_wkt, 'region': random_region}
@@ -222,7 +293,7 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
                 # # ss = sql_no_ref.replace('TABLE2', table).replace('MUST_HAVE', 'wikipedia').replace('PREDICATE', predicate)
                 # # print(ss)
                 output = run_sql_select(ss, return_dict=True)
-                print(sub_category, len(output))
+                # print(sub_category, len(output))
                 if len(output) == 0:
                     skip_iteration = True
                     break
@@ -242,7 +313,12 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
             continue
         # print(selected_entities)
         t = random.choice(text_templates)
-        sql = sql_template
+        sql = str(sql_template)
+        if "[1_type] = '[1]'" in sql_template and 'sub_category' in selected_entities:
+            if selected_entities['sub_category'] == 'restaurant' or selected_entities['sub_category'] == 'food':
+                sql = sql.replace("[1_type] = '[1]'","(amenity ILIKE 'fast_food' OR amenity ILIKE 'restaurant' OR amenity ILIKE 'food')")
+            elif selected_entities['sub_category'] == 'cafe' or selected_entities['sub_category'] == 'coffee_shop':
+                sql = sql.replace("[1_type] = '[1]'","(amenity ILIKE 'cafe' OR amenity ILIKE 'coffee_shop')")
         for tt in template_tokens:
             k, v = tt[0], tt[1]
             for _k in selected_entities:
@@ -271,11 +347,18 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
         #     continue
         # answers = []
         # try:
-        # predicate = "(road_name IS NOT NULL OR wikipedia IS NOT NULL) AND highway =  '%s' " % sub_category if main_category == 'highway' else "(lake_name IS NOT NULL OR wikipedia IS NOT NULL) AND (waterway = '%s' OR water = '%s') " % (sub_category, sub_category)
-        _sql = sql.replace('WHERE', 'WHERE %s AND ' % predicate)
+        _sql = sql
+        if main_category == 'highway':
+            predicate = "(road_name IS NOT NULL OR wikipedia IS NOT NULL) AND highway =  '%s' " % sub_category 
+            _sql = sql.replace('WHERE', 'WHERE %s AND ' % predicate)
+        elif main_category == 'waterway' or main_category == 'water':
+            predicate = "(lake_name IS NOT NULL OR wikipedia IS NOT NULL) AND (waterway = '%s' OR water = '%s') " % (sub_category, sub_category)
+            _sql = sql.replace('WHERE', 'WHERE %s AND ' % predicate)
         answers = run_sql_select(_sql, return_dict=True)
+        # print('answers size: ', len(answers))
         # except:
         #     answers = []
+        verify_geo_wkts(template_tokens, selected_entities, sql)
         if verifier(template_tokens, selected_entities, answers):
             matches = language_tool.check(t)
             matches = [rule for rule in matches if not is_bad_rule(rule)]
@@ -289,6 +372,7 @@ def question_generator(text_templates, variable_types, template_tokens, sql_temp
                 progress.update(1)
     if progress:
         progress.close()
+    # print(generated_questions)
     return generated_questions
                 
 
@@ -298,43 +382,37 @@ def save(questions, filename):
             f.write(json.dumps(q)+'\n')
 
 # %%
-# source: https://stackoverflow.com/questions/37079989/how-to-get-wikipedia-page-from-wikidata-id
-def get_wikipedia_url_from_wikidata_id(wikidata_id, lang='en', debug=False):
-    import requests
-    from requests import utils
-    url = (
-        'https://www.wikidata.org/w/api.php'
-        '?action=wbgetentities'
-        '&props=sitelinks/urls'
-        f'&sitefilter={lang}wiki'
-        f'&ids={wikidata_id}'
-        '&format=json')
-    json_response = requests.get(url).json()
-    if debug: print(wikidata_id, url, json_response) 
+import requests
 
-    entities = json_response.get('entities')    
-    if entities:
-        entity = entities.get(wikidata_id)
-        if entity:
-            sitelinks = entity.get('sitelinks')
-            if sitelinks:
-                if lang:
-                    # filter only the specified language
-                    sitelink = sitelinks.get(f'{lang}wiki')
-                    if sitelink:
-                        wiki_url = sitelink.get('url')
-                        if wiki_url:
-                            return requests.utils.unquote(wiki_url)
-                else:
-                    # return all of the urls
-                    wiki_urls = {}
-                    for key, sitelink in sitelinks.items():
-                        wiki_url = sitelink.get('url')
-                        if wiki_url:
-                            wiki_urls[key] = requests.utils.unquote(wiki_url)
-                    return wiki_urls
-    return None   
+SESSION = requests.Session()
+SESSION.headers.update({
+    # Put something real here (app name + contact). Wikimedia wants this.
+    "Accept": "application/json",
+    "User-Agent": "UCRPOIQuestionGenerator_Research/1.0 (contact:@ucr.edu)",
+})
 
+def get_wikipedia_url_from_wikidata_id(wikidata_id, lang = "en"):
+    time.sleep(10)
+    url = "https://www.wikidata.org/w/api.php"
+    params = {
+        "action": "wbgetentities",
+        "ids": wikidata_id,
+        "props": "sitelinks",
+        "sitefilter": f"{lang}wiki",
+        "format": "json",
+    }
+
+    r = SESSION.get(url, params=params, timeout=15)
+    r.raise_for_status()
+    data = r.json()
+
+    entity = data.get("entities", {}).get(wikidata_id, {})
+    site = entity.get("sitelinks", {}).get(f"{lang}wiki")
+    if not site or "title" not in site:
+        return None
+
+    title = site["title"].replace(" ", "_")
+    return f"https://{lang}.wikipedia.org/wiki/{title}"
 # %%
 def get_wikipedia_info(wikipedia_url, wikidataid):
     path = f'./wikipedia_cache/{wikidataid}.json'
@@ -775,6 +853,11 @@ save(questions, 'knn+loc.jsonl')
 
 # %%
 
+variable_types = [
+    ('[1]', 'poi'),
+    ('[2]', 'poi'),
+]
+
 template_sql = '''SELECT * FROM pois
 WHERE [1_type] = '[1]'
 ORDER BY  geometry <-> ST_GeomFromText('[2_wkt]',4326)::geography ASC
@@ -800,25 +883,33 @@ while len(questions) < 150:
     if 'wikidata' not in answer:
         print('no wikidata id')
         continue
-    wikipedia_url = get_wikipedia_url_from_wikidata_id(answer['wikidata'])
+    wikipedia_url = None
+    try:
+        wikipedia_url = get_wikipedia_url_from_wikidata_id(answer['wikidata'])
+    except Exception as e:
+        print('no wikipedia url')
+        print(e)
+        continue
     if wikipedia_url == None:
         continue
     info = get_wikipedia_info(wikipedia_url, answer['wikidata'])
     if info == None:
+        print('info is none')
         continue
     possible_values = list(set(info['data'].keys()) & set(picked_features_q_phrases.keys()))
     if len(possible_values) == 0:
+        print('no possible values')
         continue
     selected_key = random.choice(possible_values)
-    multihop_answer = info['data'][selected_key]
-    multihop_q_phrase = picked_features_q_phrases[selected_key]
-    question['question'] = multihop_q_phrase.replace('[1]', question['question_entities']['[1]']['sub_category']).replace('[2]', question['question_entities']['[2]']['display_name'])
-    question['answers'][0]['multihop_answer'] = str(multihop_answer)
-    question['answers'][0]['multihop_attribute'] = selected_key
-    question['answers'][0]['multihop_long_answer'] = question['answers'][0]['poi_name'] + ' ' + selected_key + ': ' + str(multihop_answer)
+    multi_source_answer = info['data'][selected_key]
+    multi_source_q_phrase = picked_features_q_phrases[selected_key]
+    question['question'] = multi_source_q_phrase.replace('[1]', question['question_entities']['[1]']['sub_category']).replace('[2]', question['question_entities']['[2]']['display_name'])
+    question['answers'][0]['multi_source_answer'] = str(multi_source_answer)
+    question['answers'][0]['multi_source_attribute'] = selected_key
+    question['answers'][0]['multi_source_long_answer'] = question['answers'][0]['poi_name'] + ' ' + selected_key + ': ' + str(multi_source_answer)
     questions.append(question)
     print('Questions count: ' + str(len(questions)))
-save(questions, 'knn+name+multihop1.jsonl')
+save(questions, 'knn+name+multi_source1.jsonl')
 
 # %%
 # type 2: replace the name of the anchoring entity with one of its attributes from wikipedia
@@ -827,6 +918,12 @@ WHERE [1_type] = '[1]'
 ORDER BY  geometry <-> ST_GeomFromText('[2_wkt]',4326)::geography ASC
 LIMIT 1;
 '''
+
+variable_types = [
+    ('[1]', 'poi'),
+    ('[2]', 'poi'),
+]
+
 text_templates =  [l.strip() for l in open('templates/knn+name.txt','r').readlines()]
 
 answer_type = 'name'
@@ -859,29 +956,29 @@ while len(questions) < 150:
         print('no possible values')
         continue
     selected_key = random.choice(possible_values)
-    multihop_attribute = str(info['data'][selected_key])
-    ob = multihop_attribute.find('(')
+    multi_source_attribute = str(info['data'][selected_key])
+    ob = multi_source_attribute.find('(')
     if ob != -1:
-        multihop_attribute = multihop_attribute[:ob]
-    ob = multihop_attribute.find('[')
+        multi_source_attribute = multi_source_attribute[:ob]
+    ob = multi_source_attribute.find('[')
     if ob != -1:
-        multihop_attribute = multihop_attribute[:ob]
-    ob = multihop_attribute.find(';')
+        multi_source_attribute = multi_source_attribute[:ob]
+    ob = multi_source_attribute.find(';')
     if ob != -1:
-        multihop_attribute = multihop_attribute[:ob]
+        multi_source_attribute = multi_source_attribute[:ob]
     if selected_key in ['Built', 'Created', 'Established']:
         try:
-            multihop_attribute = parse(multihop_attribute, fuzzy=True).year
+            multi_source_attribute = parse(multi_source_attribute, fuzzy=True).year
         except Exception as e:
             print(e)
             continue
-    multihop_discriptor = picked_features_descriptors[selected_key] % (sub_category.replace('_', ' '), str(multihop_attribute))
-    new_display_name = display_name.replace(poi_name + ',', multihop_discriptor + ' in')
+    multi_source_discriptor = picked_features_descriptors[selected_key] % (sub_category.replace('_', ' '), str(multi_source_attribute))
+    new_display_name = display_name.replace(poi_name + ',', multi_source_discriptor + ' in')
     print(display_name, '##' , new_display_name)
     question['question'] = question['question'].replace(display_name, new_display_name)
     questions.append(question)
     print('Questions count: ' + str(len(questions)))
-save(questions, 'knn+name+multihop2.jsonl')
+save(questions, 'knn+name+multi_source2.jsonl')
 
 # %%
 

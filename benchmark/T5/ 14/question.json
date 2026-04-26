@@ -1,44 +1,47 @@
 {
-  "question": "Seeking suggestions for the nearest garden in relation to Miguel Abreu Gallery, New York, NY.",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-73.991291 40.715832)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which restaurant is closest to where Glenhill Farmhouse, Erie, PA is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 248429,
-      "geometry": "POINT (-73.988321 40.725831)",
-      "poi_name": "Schoolchildren's Greenhouse",
-      "osm_id": 4113336291,
-      "leisure": "garden"
+      "id": 127682,
+      "geometry": "POINT (-79.982537 42.118158)",
+      "poi_name": "Dobbins Dining Hall",
+      "osm_id": 8085834833,
+      "amenity": "restaurant",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16563",
+      "addr_street": "College Drive",
+      "addr_housenumber": "4701"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "garden"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Miguel Abreu Gallery, New York, NY",
-      "geo_wkt": "POINT (-73.991291 40.715832)",
+      "sub_category": "viewpoint",
+      "display_name": "Glenhill Farmhouse, Erie, PA",
+      "geo_wkt": "POINT (-79.985748 42.119196)",
       "poi": {
-        "id": 24139,
-        "geometry": "POINT (-73.991291 40.715832)",
-        "poi_name": "Miguel Abreu Gallery",
-        "osm_id": 9346533768,
-        "tourism": "gallery",
-        "opening_hours": "We-Su 10:00-18:00",
-        "operator": "Miguel Abreu",
-        "website": "https://miguelabreugallery.com/",
-        "phone": "+1-212-995-1774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_postcode": "10002",
-        "addr_street": "Orchard Street",
-        "addr_housenumber": "36"
+        "id": 241,
+        "geometry": "POINT (-79.985748 42.119196)",
+        "poi_name": "Glenhill Farmhouse",
+        "osm_id": 8255522795,
+        "tourism": "viewpoint",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "operator": "Penn State Behrend",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16563",
+        "addr_street": "College Drive",
+        "addr_housenumber": "4701"
       }
     }
   },
-  "id": 213,
+  "id": 1013,
   "type": "knn+name"
 }

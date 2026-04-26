@@ -1,48 +1,55 @@
 {
-  "question": "Where can I find the nearest university in the vicinity of Cal, Sr.'s Yard, Aberdeen, MD?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.186327 39.533089)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the closest restaurant relative to where Malibu Jack's, Springfield, IL is?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'restaurant'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-89.704796 39.767257)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 234159,
-      "geometry": "POINT (-76.617663 39.322242)",
-      "poi_name": "Johns Hopkins University School of Education",
-      "osm_id": 4608984015,
-      "amenity": "university",
-      "internet_access": "yes",
-      "addr_state": "MD",
-      "addr_city": "Baltimore",
-      "addr_postcode": "21218",
-      "addr_street": "North Charles Street",
-      "addr_housenumber": "2800"
+      "id": 4386,
+      "geometry": "POINT (-89.704796 39.767257)",
+      "poi_name": "Malibu Jack's",
+      "osm_id": 11244218192,
+      "amenity": "restaurant",
+      "leisure": "amusement_arcade",
+      "tourism": "theme_park",
+      "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+      "website": "https://www.malibujacksspringfield.com/",
+      "phone": "+1-217-280-4787",
+      "addr_state": "IL",
+      "addr_city": "Springfield",
+      "addr_postcode": "62704",
+      "addr_street": "Wabash Avenue",
+      "addr_housenumber": "2501"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Cal, Sr.'s Yard, Aberdeen, MD",
-      "geo_wkt": "POINT (-76.186327 39.533089)",
+      "main_category": "tourism",
+      "sub_category": "theme park",
+      "display_name": "Malibu Jack's, Springfield, IL",
+      "geo_wkt": "POINT (-89.704796 39.767257)",
       "poi": {
-        "id": 246798,
-        "geometry": "POINT (-76.186327 39.533089)",
-        "poi_name": "Cal, Sr.'s Yard",
-        "osm_id": 6441911494,
-        "leisure": "stadium",
-        "sport": "baseball",
-        "website": "https://www.ripkenfoundation.org/park/cal-srs-yard",
-        "addr_state": "MD",
-        "addr_city": "Aberdeen",
-        "addr_postcode": "21001",
-        "addr_street": "Long Drive",
-        "addr_housenumber": "873"
+        "id": 4386,
+        "geometry": "POINT (-89.704796 39.767257)",
+        "poi_name": "Malibu Jack's",
+        "osm_id": 11244218192,
+        "amenity": "restaurant",
+        "leisure": "amusement_arcade",
+        "tourism": "theme_park",
+        "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-23:00; Su 12:00-21:00",
+        "website": "https://www.malibujacksspringfield.com/",
+        "phone": "+1-217-280-4787",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "Wabash Avenue",
+        "addr_housenumber": "2501"
       }
     }
   },
-  "id": 1865,
+  "id": 765,
   "type": "knn+loc"
 }

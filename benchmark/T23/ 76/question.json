@@ -1,41 +1,44 @@
 {
-  "question": "Could you provide me with the number of museums within a 130 kilometers radius from Whitefish Community Garden, Whitefish, MT?",
-  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-114.343403 48.426323)',4326)::geography, 130000)\nAND tourism = 'museum';\n",
+  "question": "How many universities are located inside a 140 kilometers radius of Olmsted Medical Center, Stewartville, MN?",
+  "sql": "SELECT COUNT(*)FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-92.487221 43.85642)',4326)::geography, 140000)\nAND amenity = 'university';\n",
   "answers": [
     {
-      "count": 9
+      "count": 6
     }
   ],
   "answer_type": "count",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "university"
     },
     "[2]": {
-      "distance": 130000,
-      "text": "130 kilometers"
+      "distance": 140000,
+      "text": "140 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Whitefish Community Garden, Whitefish, MT",
-      "geo_wkt": "POINT (-114.343403 48.426323)",
+      "main_category": "amenity",
+      "sub_category": "hospital",
+      "display_name": "Olmsted Medical Center, Stewartville, MN",
+      "geo_wkt": "POINT (-92.487221 43.85642)",
       "poi": {
-        "id": 247141,
-        "geometry": "POINT (-114.343403 48.426323)",
-        "poi_name": "Whitefish Community Garden",
-        "osm_id": 3628015925,
-        "leisure": "garden",
-        "website": "http://www.whitefishcommunitygarden.net/",
-        "addr_state": "MT",
-        "addr_city": "Whitefish",
-        "addr_postcode": "59937",
-        "addr_street": "Glenwood Road",
-        "addr_housenumber": "509"
+        "id": 63795,
+        "geometry": "POINT (-92.487221 43.85642)",
+        "poi_name": "Olmsted Medical Center",
+        "osm_id": 5629792192,
+        "amenity": "hospital",
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa-Su closed",
+        "website": "https://www.olmmed.org/locations/walk-in-care/?id=40",
+        "phone": "+1-507-533-4727",
+        "emergency": "no",
+        "addr_state": "MN",
+        "addr_city": "Stewartville",
+        "addr_postcode": "55976",
+        "addr_street": "Centertown Plaza",
+        "addr_housenumber": "208"
       }
     }
   },
-  "id": 2275,
+  "id": 1875,
   "type": "range+count"
 }

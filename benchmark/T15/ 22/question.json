@@ -1,91 +1,509 @@
 {
-  "question": "Where can I find a golf course located in the northwest of Gary Lapelusa Landscaping LLC, Bayonne, NJ, within a radius of 190 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-74.122011 40.662412)',4326)::geography, 190000)\nAND leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5;\n",
+  "question": "Where are a viewpoint located within a 150 kilometers radius to the north of MAC 650 Gallery, Middletown, CT?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-72.652064 41.564871)',4326)::geography, 150000)\nAND tourism = 'viewpoint'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 247935,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "All Weather Golf",
-      "osm_id": 6110180969,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Wilkes-Barre",
-      "addr_postcode": "18705",
-      "addr_street": "North Pennsylvania Avenue",
-      "addr_housenumber": "634"
+      "id": 244,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Waterfall",
+      "osm_id": 8256400720,
+      "tourism": "viewpoint"
     },
     {
-      "id": 246812,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "Great Bear Golf Club",
-      "osm_id": 6466631565,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "East Stroudsburg",
-      "addr_postcode": "18302",
-      "addr_street": "Great Bear Court",
-      "addr_housenumber": "1"
+      "id": 969,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Bogg Bridge",
+      "osm_id": 2758959002,
+      "tourism": "viewpoint"
     },
     {
-      "id": 246819,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "Country Club of the Poconos Municipal Golf Course",
-      "osm_id": 6471208669,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "East Stroudsburg",
-      "addr_postcode": "18302",
-      "addr_street": "Big Ridge Drive",
-      "addr_housenumber": "1445"
+      "id": 1319,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Summit House",
+      "osm_id": 2937964935,
+      "tourism": "viewpoint"
     },
     {
-      "id": 246826,
-      "geometry": "POINT (-74.122011 40.662412)",
-      "poi_name": "Pinecrest Lake Golf Club",
-      "osm_id": 6480941365,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Pocono Pines",
-      "addr_postcode": "18350",
-      "addr_street": "Pinecrest Drive",
-      "addr_housenumber": "679"
+      "id": 1471,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Small Waterfall",
+      "osm_id": 2994431364,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 1785,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Raycroft Outlook",
+      "osm_id": 3154204943,
+      "tourism": "viewpoint",
+      "wheelchair": "no"
+    },
+    {
+      "id": 2961,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "King Philip's Stockade Viewpoint",
+      "osm_id": 10098631333,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 5912,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Horse Caves",
+      "osm_id": 1669473085,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 6259,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Sunset Rock",
+      "osm_id": 1800099184,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 6883,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Quabbin Spillway",
+      "osm_id": 8744249117,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 6971,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Derrick Site",
+      "osm_id": 8789521819,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 7051,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Bissell Bridge Falls",
+      "osm_id": 8827352339,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 7260,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "stone post view",
+      "osm_id": 2030594566,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 7303,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Hairpin Turn",
+      "osm_id": 2072400239,
+      "tourism": "viewpoint",
+      "addr_state": "MA",
+      "addr_city": "Clarksburg"
+    },
+    {
+      "id": 7948,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "view to west",
+      "osm_id": 6483221313,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 8930,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Scenic Brook",
+      "osm_id": 3577723084,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9320,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Falls",
+      "osm_id": 3740720258,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9321,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Dam",
+      "osm_id": 3740720262,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9393,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Rock Formations",
+      "osm_id": 3781298746,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9404,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Diamond Ledge Cliff",
+      "osm_id": 3789798983,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9424,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Long Pond Overlook",
+      "osm_id": 3800670936,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9429,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Lynn's Falls",
+      "osm_id": 3801495528,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9430,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Mary's Rock",
+      "osm_id": 3801581806,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9465,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Waterfall",
+      "osm_id": 3823630240,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9466,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Overlook",
+      "osm_id": 3823630242,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9529,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Crag Mountain Vista",
+      "osm_id": 3864017464,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9530,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "East View",
+      "osm_id": 3864017466,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 9531,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "West View",
+      "osm_id": 3864017476,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10054,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Hubbard Hill Vista",
+      "osm_id": 9130433049,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10143,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Pond & Beaver dam",
+      "osm_id": 6719979686,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 10974,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "White Rock",
+      "osm_id": 8180775665,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11437,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Williamstown view",
+      "osm_id": 9970562584,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11487,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Dort Knob Vista",
+      "osm_id": 9986653917,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11488,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Beal's Knob Vista",
+      "osm_id": 9986664812,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11654,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Forest Cove Vista",
+      "osm_id": 11467992613,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 11687,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Hot Point",
+      "osm_id": 11483610661,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18428,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Lookout",
+      "osm_id": 2296082070,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18699,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Waterfall",
+      "osm_id": 2383650174,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18818,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Overlook",
+      "osm_id": 2415439804,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18819,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Overlook",
+      "osm_id": 2415439909,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18820,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Snake Peak",
+      "osm_id": 2415475285,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18923,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Royalston Falls",
+      "osm_id": 2450037551,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18994,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Mt Nonotuck",
+      "osm_id": 2475992020,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18995,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Goat Peak",
+      "osm_id": 2475992058,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 18996,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Dry Knoll",
+      "osm_id": 2475992061,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 20064,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Kiwanis Point",
+      "osm_id": 7847061049,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 20127,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Ragged Mountain",
+      "osm_id": 7890951503,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 21690,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Fife Brook Overlook",
+      "osm_id": 10606602757,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 21691,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "View",
+      "osm_id": 10606602762,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 22465,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Enfield Look Out",
+      "osm_id": 7092641845,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 22992,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Overlook",
+      "osm_id": 4989032578,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23034,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Salmon Falls Potholes",
+      "osm_id": 5009922374,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23053,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Robinson's Point",
+      "osm_id": 5017116734,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23054,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Vista",
+      "osm_id": 5017116735,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23055,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "The Hopper",
+      "osm_id": 5017116962,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23148,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Fitch Overlook",
+      "osm_id": 5051381989,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23679,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Apple Valley Overlook",
+      "osm_id": 5270993961,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 23682,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Lone Boulder Hill",
+      "osm_id": 5271251425,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24108,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Orchard View",
+      "osm_id": 9324777314,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24123,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Overlook",
+      "osm_id": 9333191674,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24187,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Scarlet Tanager Outlook",
+      "osm_id": 9374892580,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24251,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Ladder Rock",
+      "osm_id": 10981391880,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24557,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Adams Overlook",
+      "osm_id": 11110491303,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 24774,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Scenic Overlook",
+      "osm_id": 4317862784,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26426,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Thoreau's Seat",
+      "osm_id": 5882891504,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 26817,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Western Summit",
+      "osm_id": 158900492,
+      "tourism": "viewpoint"
+    },
+    {
+      "id": 27201,
+      "geometry": "POINT (-72.652064 41.564871)",
+      "poi_name": "Mausert's Camp",
+      "osm_id": 7741691820,
+      "historic": "ruins",
+      "tourism": "viewpoint"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "golf course"
+      "main_category": "tourism",
+      "sub_category": "viewpoint"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 150000,
+      "text": "150 kilometers"
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Gary Lapelusa Landscaping LLC, Bayonne, NJ",
-      "geo_wkt": "POINT (-74.122011 40.662412)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "MAC 650 Gallery, Middletown, CT",
+      "geo_wkt": "POINT (-72.652064 41.564871)",
       "poi": {
-        "id": 246948,
-        "geometry": "POINT (-74.122011 40.662412)",
-        "poi_name": "Gary Lapelusa Landscaping LLC",
-        "osm_id": 6627360488,
-        "leisure": "garden",
-        "website": "http://garylapelusalanscaping.com",
-        "phone": "+1-201-823-1868",
-        "addr_state": "NJ",
-        "addr_city": "Bayonne",
-        "addr_postcode": "07002",
-        "addr_street": "W 19th St",
-        "addr_housenumber": "41"
+        "id": 1357,
+        "geometry": "POINT (-72.652064 41.564871)",
+        "poi_name": "MAC 650 Gallery",
+        "osm_id": 2954479201,
+        "tourism": "gallery",
+        "fee": "no",
+        "operator": "Middletown Artists' Cooperative",
+        "addr_state": "CT",
+        "addr_city": "Middletown",
+        "addr_postcode": "06457",
+        "addr_street": "Main Street",
+        "addr_housenumber": "650"
       }
     },
     "[4]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 21,
+  "id": 2221,
   "type": "range:direction+loc"
 }

@@ -1,45 +1,52 @@
 {
-  "question": "What's the closest university towards the southwest of Humboldt Botanical Garden, Eureka, CA?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-124.203982 40.700941)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is nearest when considering the east direction of CUNY School of Professional Studies, New York, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.990094 40.748387)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'cafe'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 214392,
-      "geometry": "POINT (-124.203982 40.700941)",
-      "poi_name": "Chaminade University",
-      "osm_id": 5271167124,
-      "amenity": "university"
+      "id": 145567,
+      "geometry": "POINT (-73.990094 40.748387)",
+      "poi_name": "Biao Sugar",
+      "osm_id": 7368466282,
+      "amenity": "cafe",
+      "cuisine": "chinese",
+      "takeaway": "yes",
+      "addr_state": "NY",
+      "addr_city": "New York",
+      "addr_postcode": "10001",
+      "addr_street": "Broadway",
+      "addr_housenumber": "1271"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Humboldt Botanical Garden, Eureka, CA",
-      "geo_wkt": "POINT (-124.203982 40.700941)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "CUNY School of Professional Studies, New York, NY",
+      "geo_wkt": "POINT (-73.990094 40.748387)",
       "poi": {
-        "id": 266946,
-        "geometry": "POINT (-124.203982 40.700941)",
-        "poi_name": "Humboldt Botanical Garden",
-        "osm_id": 11161511489,
-        "leisure": "garden",
-        "website": "https://www.hbgf.org/",
-        "addr_state": "CA",
-        "addr_city": "Eureka",
-        "addr_postcode": "95503",
-        "addr_street": "Tompkins Hill Road",
-        "addr_housenumber": "7707"
+        "id": 34678,
+        "geometry": "POINT (-73.990094 40.748387)",
+        "poi_name": "CUNY School of Professional Studies",
+        "osm_id": 2703449228,
+        "amenity": "university",
+        "operator": "City University of New York",
+        "addr_state": "NY",
+        "addr_city": "New York",
+        "addr_postcode": "10001",
+        "addr_street": "West 31st Street",
+        "addr_housenumber": "119"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "east",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
     }
   },
-  "id": 2561,
+  "id": 1261,
   "type": "knn:direction+name"
 }

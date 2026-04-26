@@ -1,77 +1,63 @@
 {
-  "question": "Where is the closest restaurant from Lowe Art Museum, Coral Gables, FL towards Xtreme Action Park, Fort Lauderdale, FL?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography, ST_GeomFromText('POINT (-80.153423 26.191598)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-80.27561 25.719383)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest hotel located between Battle of the Bulge Memorial, VA and River Deck, Edgewater, MD?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography, ST_GeomFromText('POINT (-76.540922 38.941815)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-77.075579 38.874957)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 55942,
-      "geometry": "POINT (-80.264298 25.749716)",
-      "poi_name": "P.Pole Pizza",
-      "osm_id": 10216469147,
-      "amenity": "restaurant",
-      "cuisine": "pizza",
-      "opening_hours": "Su-Mo 11:00-22:00; We-Sa 10:00-23:00",
-      "website": "https://ppolepizza.com/",
-      "phone": "786-618-5287",
-      "takeaway": "yes",
-      "delivery": "yes",
-      "addr_state": "FL",
-      "addr_city": "Coral Gables",
-      "addr_postcode": "33134",
-      "addr_street": "Miracle Mile",
-      "addr_housenumber": "279",
-      "value": 13.139263106903723
+      "id": 23400,
+      "geometry": "POINT (-77.024001 38.878548)",
+      "poi_name": "Hyatt House",
+      "osm_id": 5170537878,
+      "tourism": "hotel",
+      "operator": "Hyatt",
+      "addr_state": "DC",
+      "addr_city": "Washington",
+      "addr_postcode": "20024",
+      "addr_street": "Wharf Street Southwest",
+      "addr_housenumber": "725",
+      "value": 80.73930307597709
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Lowe Art Museum, Coral Gables, FL",
-      "geo_wkt": "POINT (-80.27561 25.719383)",
+      "sub_category": "attraction",
+      "display_name": "Battle of the Bulge Memorial, VA",
+      "geo_wkt": "POINT (-77.075579 38.874957)",
       "poi": {
-        "id": 17633,
-        "geometry": "POINT (-80.27561 25.719383)",
-        "poi_name": "Lowe Art Museum",
-        "osm_id": 367827364,
-        "tourism": "museum",
-        "website": "http://www6.miami.edu/lowe/",
-        "phone": "+1-305-284-3535",
-        "wikidata": "Q3837886",
-        "addr_state": "FL",
-        "addr_city": "Coral Gables",
-        "addr_postcode": "33124-6310",
-        "addr_street": "Stanford Drive",
-        "addr_housenumber": "1301"
+        "id": 2722,
+        "geometry": "POINT (-77.075579 38.874957)",
+        "poi_name": "Battle of the Bulge Memorial",
+        "osm_id": 564589871,
+        "historic": "memorial",
+        "tourism": "attraction",
+        "addr_state": "VA"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "Xtreme Action Park, Fort Lauderdale, FL",
-      "geo_wkt": "POINT (-80.153423 26.191598)",
+      "sub_category": "viewpoint",
+      "display_name": "River Deck, Edgewater, MD",
+      "geo_wkt": "POINT (-76.540922 38.941815)",
       "poi": {
-        "id": 8743,
-        "geometry": "POINT (-80.153423 26.191598)",
-        "poi_name": "Xtreme Action Park",
-        "osm_id": 8665236909,
-        "tourism": "theme_park",
-        "wheelchair": "yes",
-        "website": "https://xtremeactionpark.com",
-        "internet_access": "wlan",
-        "phone": "(954) 491-6265",
-        "addr_state": "FL",
-        "addr_city": "Fort Lauderdale",
-        "addr_postcode": "33309",
-        "addr_street": "Powerline Road",
-        "addr_housenumber": "5300"
+        "id": 11905,
+        "geometry": "POINT (-76.540922 38.941815)",
+        "poi_name": "River Deck",
+        "osm_id": 6080459896,
+        "description": "View of the South River",
+        "tourism": "viewpoint",
+        "addr_state": "MD",
+        "addr_city": "Edgewater",
+        "addr_postcode": "21037",
+        "addr_street": "Londontown Road",
+        "addr_housenumber": "839"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "restaurant"
+      "main_category": "tourism",
+      "sub_category": "hotel"
     }
   },
-  "id": 1349,
+  "id": 1549,
   "type": "knn:towards+loc"
 }

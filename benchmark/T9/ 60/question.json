@@ -1,39 +1,47 @@
 {
-  "question": "Which museum is nearest in the southwest direction from Ragsdale Arena, AR?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.090486 34.905099)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'museum'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "What is the nearest hospital towards the southwest of South Suburban College Oak Forest Center, Oak Forest, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-87.719202 41.592582)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 11152,
-      "geometry": "POINT (-94.090486 34.905099)",
-      "poi_name": "Museum of the Red River",
-      "osm_id": 9870395916,
-      "tourism": "museum",
-      "fee": "no",
-      "opening_hours": "Mo-Sa 10:00-17:00; Su 09:45-15:00; PH off",
-      "website": "https://www.museumoftheredriver.org/",
-      "addr_city": "Idabel",
-      "addr_street": "East Lincoln Road",
-      "addr_housenumber": "812"
+      "id": 63365,
+      "geometry": "POINT (-87.719202 41.592582)",
+      "poi_name": "Hopedale Medical Complex",
+      "osm_id": 5612743006,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.hopedalemc.com/",
+      "phone": "+1 309 449 3321",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_city": "Hopedale",
+      "addr_postcode": "61747",
+      "addr_street": "Tremont Street",
+      "addr_housenumber": "107"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "museum"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Ragsdale Arena, AR",
-      "geo_wkt": "POINT (-94.090486 34.905099)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "South Suburban College Oak Forest Center, Oak Forest, IL",
+      "geo_wkt": "POINT (-87.719202 41.592582)",
       "poi": {
-        "id": 265361,
-        "geometry": "POINT (-94.090486 34.905099)",
-        "poi_name": "Ragsdale Arena",
-        "osm_id": 367131556,
-        "leisure": "stadium",
-        "addr_state": "AR"
+        "id": 110104,
+        "geometry": "POINT (-87.719202 41.592582)",
+        "poi_name": "South Suburban College Oak Forest Center",
+        "osm_id": 3687805176,
+        "amenity": "university",
+        "operator": "South Suburban College",
+        "addr_state": "IL",
+        "addr_city": "Oak Forest",
+        "addr_postcode": "60452",
+        "addr_street": "KIlbourn Avenue",
+        "addr_housenumber": "16333"
       }
     },
     "[3]": {
@@ -41,6 +49,6 @@
       "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 2559,
+  "id": 1259,
   "type": "knn:direction+name"
 }

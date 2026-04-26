@@ -1,56 +1,64 @@
 {
-  "question": "What's the closest attraction located en route to Wilkin County Museum, Breckenridge, MN from Detroit Lakes Sports Arena, MN?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, ST_GeomFromText('POINT (-96.584722 46.265)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'attraction'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-95.853333 46.806944)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is nearest along the way toward the Langham, Chicago, Chicago, IL from Algonquin Woods, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography, ST_GeomFromText('POINT (-87.627512 41.888424)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-87.872175 42.023616)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7972,
-      "geometry": "POINT (-102.241593 43.991974)",
-      "poi_name": "Story of Wounded Knee",
-      "osm_id": 6496482785,
-      "tourism": "attraction",
-      "value": 223.22944463540972
+      "id": 140307,
+      "geometry": "POINT (-87.829626 42.010506)",
+      "poi_name": "Starbucks",
+      "osm_id": 6239208763,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "takeaway": "yes",
+      "official_name": "Starbucks Coffee",
+      "addr_state": "IL",
+      "addr_city": "Park Ridge",
+      "addr_postcode": "60068",
+      "addr_street": "South Prospect Avenue",
+      "addr_housenumber": "15",
+      "value": 126.42982256114354
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "stadium",
-      "display_name": "Detroit Lakes Sports Arena, MN",
-      "geo_wkt": "POINT (-95.853333 46.806944)",
+      "sub_category": "nature reserve",
+      "display_name": "Algonquin Woods, IL",
+      "geo_wkt": "POINT (-87.872175 42.023616)",
       "poi": {
-        "id": 265358,
-        "geometry": "POINT (-95.853333 46.806944)",
-        "poi_name": "Detroit Lakes Sports Arena",
-        "osm_id": 367067717,
-        "leisure": "stadium",
-        "addr_state": "MN"
+        "id": 265397,
+        "geometry": "POINT (-87.872175 42.023616)",
+        "poi_name": "Algonquin Woods",
+        "osm_id": 369047872,
+        "leisure": "nature_reserve",
+        "operator": "Forest Preserve District of Cook County",
+        "addr_state": "IL"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Wilkin County Museum, Breckenridge, MN",
-      "geo_wkt": "POINT (-96.584722 46.265)",
+      "sub_category": "hotel",
+      "display_name": "The Langham, Chicago, Chicago, IL",
+      "geo_wkt": "POINT (-87.627512 41.888424)",
       "poi": {
-        "id": 17018,
-        "geometry": "POINT (-96.584722 46.265)",
-        "poi_name": "Wilkin County Museum",
-        "osm_id": 367068452,
-        "tourism": "museum",
-        "website": "https://www.exploreminnesota.com/profile/wilkin-county-museum/2270",
-        "addr_state": "MN",
-        "addr_city": "Breckenridge",
-        "addr_postcode": "56520",
-        "addr_street": "Nebraska Avenue",
-        "addr_housenumber": "704"
+        "id": 8919,
+        "geometry": "POINT (-87.627512 41.888424)",
+        "poi_name": "The Langham, Chicago",
+        "osm_id": 3572698797,
+        "tourism": "hotel",
+        "addr_state": "IL",
+        "addr_city": "Chicago",
+        "addr_postcode": "60611",
+        "addr_street": "North Wabash Avenue",
+        "addr_housenumber": "330"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "amenity",
+      "sub_category": "cafe"
     }
   },
-  "id": 167,
+  "id": 1667,
   "type": "knn:towards+name"
 }

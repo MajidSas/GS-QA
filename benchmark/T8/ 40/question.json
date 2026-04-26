@@ -1,43 +1,50 @@
 {
-  "question": "Seeking suggestions for the nearest viewpoint in relation to the university established in the year 1972 in Houston, TX.",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-95.403152 29.702991)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest hospital in the area of the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 2525,
-      "geometry": "POINT (-95.387965 29.721559)",
-      "poi_name": "The Mount",
-      "osm_id": 3503438738,
-      "tourism": "viewpoint"
+      "id": 181376,
+      "geometry": "POINT (-75.184168 40.011821)",
+      "poi_name": "Haven Behavioral Hospital Of Philadelphia",
+      "osm_id": 10844708981,
+      "amenity": "hospital",
+      "website": "https://www.havenphiladelphia.com",
+      "phone": "+1 215 475 3400",
+      "addr_state": "PA",
+      "addr_city": "Philadelphia",
+      "addr_postcode": "19129",
+      "addr_street": "Henry Avenue",
+      "addr_housenumber": "3300"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "The University of Texas Health Science Center, Houston, TX",
-      "geo_wkt": "POINT (-95.403152 29.702991)",
+      "display_name": "Salus University, Elkins Park, PA",
+      "geo_wkt": "POINT (-75.129394 40.086172)",
       "poi": {
-        "id": 167414,
-        "geometry": "POINT (-95.403152 29.702991)",
-        "poi_name": "The University of Texas Health Science Center",
-        "osm_id": 356865589,
+        "id": 39110,
+        "geometry": "POINT (-75.129394 40.086172)",
+        "poi_name": "Salus University",
+        "osm_id": 2903322114,
         "amenity": "university",
-        "website": "https://www.uth.edu",
-        "phone": "+1-713-500-4472",
-        "wikidata": "Q7896431",
-        "addr_state": "TX",
-        "addr_city": "Houston",
-        "addr_postcode": "77030",
-        "addr_street": "Fannin Street",
-        "addr_housenumber": "7000"
+        "website": "https://www.salus.edu/",
+        "phone": "+1-215-780-1400",
+        "wikidata": "Q7406311",
+        "addr_state": "PA",
+        "addr_city": "Elkins Park",
+        "addr_postcode": "19027",
+        "addr_street": "Old York Road",
+        "addr_housenumber": "8360"
       }
     }
   },
-  "id": 2739,
-  "type": "knn+name+multihop2"
+  "id": 939,
+  "type": "knn+name+multi_source2"
 }

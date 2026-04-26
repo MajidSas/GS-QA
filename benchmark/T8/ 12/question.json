@@ -1,43 +1,40 @@
 {
-  "question": "What's the nearest garden from the university that has the nickname Ravens in Rindge, NH?",
-  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-72.055892 42.779337)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest stadium to the university established in the year 1911 in Memphis, TN?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.031353 35.139317)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 265842,
-      "geometry": "POINT (-72.062495 42.883794)",
-      "poi_name": "Noahs Ark",
-      "osm_id": 7886830678,
-      "leisure": "garden",
-      "operator": "The Alberts"
+      "id": 265364,
+      "geometry": "POINT (-88.56394 34.66815)",
+      "poi_name": "Bonner Arnold Coliseum",
+      "osm_id": 367134883,
+      "leisure": "stadium",
+      "addr_state": "MS"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "garden"
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "Franklin Pierce University, Rindge, NH",
-      "geo_wkt": "POINT (-72.055892 42.779337)",
+      "display_name": "The University of Tennessee Health Science Center, Memphis, TN",
+      "geo_wkt": "POINT (-90.031353 35.139317)",
       "poi": {
-        "id": 97577,
-        "geometry": "POINT (-72.055892 42.779337)",
-        "poi_name": "Franklin Pierce University",
-        "osm_id": 6484120956,
+        "id": 30527,
+        "geometry": "POINT (-90.031353 35.139317)",
+        "poi_name": "The University of Tennessee Health Science Center",
+        "osm_id": 8364364991,
         "amenity": "university",
-        "website": "https://franklinpierce.edu/",
-        "wikidata": "Q5491762",
-        "addr_state": "NH",
-        "addr_city": "Rindge",
-        "addr_postcode": "03461",
-        "addr_street": "University Drive",
-        "addr_housenumber": "40"
+        "wikidata": "Q7896420",
+        "addr_state": "TN",
+        "addr_city": "Memphis",
+        "addr_postcode": "38163"
       }
     }
   },
-  "id": 2711,
-  "type": "knn+name+multihop2"
+  "id": 911,
+  "type": "knn+name+multi_source2"
 }

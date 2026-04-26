@@ -1,78 +1,739 @@
 {
-  "question": "In which direction is a golf course located from Glenhill Farmhouse, Erie, PA within 50 kilometers?",
-  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-79.985748 42.119196)',4326)::geography, 50000)\nAND leisure = 'golf_course';\n",
+  "question": "What direction leads to a garden from Hickory Grove Riverfront, Cary, IL, constrained to 160 kilometers?",
+  "sql": "SELECT *, degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, pois.geometry)) AS angle FROM pois\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, 160000)\nAND leisure = 'garden';\n",
   "answers": [
     {
-      "id": 245163,
-      "geometry": "POINT (-80.205379 42.062406)",
-      "poi_name": "B&B Sportland",
-      "osm_id": 8321441909,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16506",
-      "addr_street": "West Ridge Road",
-      "addr_housenumber": "6000",
-      "angle": 250.92919384439864
+      "id": 245381,
+      "geometry": "POINT (-89.353631 43.104477)",
+      "poi_name": "Emerson Wildflower Garden",
+      "osm_id": 2820926001,
+      "leisure": "garden",
+      "wheelchair": "no",
+      "angle": 316.2019990260872
     },
     {
-      "id": 247719,
-      "geometry": "POINT (-79.849038 42.21104)",
-      "poi_name": "The Clubhouse Indoor Golf",
-      "osm_id": 8188142743,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "North East",
-      "addr_postcode": "16428",
-      "addr_street": "West Main Street",
-      "addr_housenumber": "10722",
-      "angle": 47.87103527130193
+      "id": 245526,
+      "geometry": "POINT (-89.034064 42.292798)",
+      "poi_name": "La Paloma Gardens",
+      "osm_id": 3055792777,
+      "leisure": "garden",
+      "opening_hours": "Mo-Fr 8:00-17:00",
+      "website": "http://www.lapalomagardens.com/",
+      "phone": "+1-815-399-0324",
+      "addr_city": "Rockford",
+      "addr_postcode": "61107",
+      "addr_street": "Spring Creek Road",
+      "addr_housenumber": "3622",
+      "angle": 275.70259937966625
     },
     {
-      "id": 245198,
-      "geometry": "POINT (-80.082768 42.125255)",
-      "poi_name": "Golf Evolution",
-      "osm_id": 8412227139,
-      "leisure": "golf_course",
-      "addr_state": "PA",
-      "addr_city": "Erie",
-      "addr_postcode": "16501",
-      "addr_street": "State Street",
-      "addr_housenumber": "1002",
-      "angle": 274.82753481490516
+      "id": 245527,
+      "geometry": "POINT (-89.071033 42.282255)",
+      "poi_name": "Nicholas Conservatory & Gardens",
+      "osm_id": 3055826906,
+      "leisure": "garden",
+      "fee": "yes",
+      "opening_hours": "Tu-Fr 10:00-16:00; Sa,Su 10:00-15:00",
+      "website": "https://rockfordparkdistrict.org/ncg",
+      "phone": "+1-815-987-8858",
+      "addr_city": "Rockford",
+      "addr_postcode": "61107",
+      "addr_street": "North 2nd Street",
+      "addr_housenumber": "1354",
+      "angle": 274.54790429680656
+    },
+    {
+      "id": 245528,
+      "geometry": "POINT (-89.013691 42.309124)",
+      "poi_name": "Womanspace Gardens & Labyrinth",
+      "osm_id": 3056471712,
+      "leisure": "garden",
+      "opening_hours": "Mo-Th 9:00-17:00",
+      "website": "https://womanspace-rockford.org/",
+      "phone": "+1 815-877-0118",
+      "angle": 277.3765447647894
+    },
+    {
+      "id": 245635,
+      "geometry": "POINT (-88.041742 41.814723)",
+      "poi_name": "Ashes",
+      "osm_id": 3277925085,
+      "leisure": "garden",
+      "angle": 163.50978287974803
+    },
+    {
+      "id": 245636,
+      "geometry": "POINT (-88.050043 41.814293)",
+      "poi_name": "Oaks",
+      "osm_id": 3277925086,
+      "leisure": "garden",
+      "angle": 164.30804662988618
+    },
+    {
+      "id": 245637,
+      "geometry": "POINT (-88.051708 41.816284)",
+      "poi_name": "Maples",
+      "osm_id": 3277925087,
+      "leisure": "garden",
+      "angle": 164.39576169945255
+    },
+    {
+      "id": 245638,
+      "geometry": "POINT (-88.051347 41.818135)",
+      "poi_name": "Beeches",
+      "osm_id": 3277925088,
+      "leisure": "garden",
+      "angle": 164.2957236348996
+    },
+    {
+      "id": 245639,
+      "geometry": "POINT (-88.054234 41.813464)",
+      "poi_name": "Tree Evaluation Area",
+      "osm_id": 3277925089,
+      "leisure": "garden",
+      "angle": 164.73381489040884
+    },
+    {
+      "id": 245640,
+      "geometry": "POINT (-88.055339 41.815683)",
+      "poi_name": "Buckeyes",
+      "osm_id": 3277925090,
+      "leisure": "garden",
+      "angle": 164.7625185813788
+    },
+    {
+      "id": 245641,
+      "geometry": "POINT (-88.060376 41.812036)",
+      "poi_name": "Crabapples",
+      "osm_id": 3277925091,
+      "leisure": "garden",
+      "angle": 165.36491202800886
+    },
+    {
+      "id": 245642,
+      "geometry": "POINT (-88.062039 41.811948)",
+      "poi_name": "Crabapples",
+      "osm_id": 3277925092,
+      "leisure": "garden",
+      "angle": 165.52594890860308
+    },
+    {
+      "id": 245643,
+      "geometry": "POINT (-88.065199 41.811541)",
+      "poi_name": "Rose Family",
+      "osm_id": 3277925093,
+      "leisure": "garden",
+      "angle": 165.84005616274277
+    },
+    {
+      "id": 245644,
+      "geometry": "POINT (-88.068772 41.811693)",
+      "poi_name": "Pine Family",
+      "osm_id": 3277925095,
+      "leisure": "garden",
+      "angle": 166.17641224609838
+    },
+    {
+      "id": 245645,
+      "geometry": "POINT (-88.06624 41.813788)",
+      "poi_name": "Northern Illinois",
+      "osm_id": 3277925096,
+      "leisure": "garden",
+      "angle": 165.86768337736137
+    },
+    {
+      "id": 245646,
+      "geometry": "POINT (-88.062372 41.814339)",
+      "poi_name": "Magnolias",
+      "osm_id": 3277925097,
+      "leisure": "garden",
+      "angle": 165.47939267283797
+    },
+    {
+      "id": 245647,
+      "geometry": "POINT (-88.066245 41.814659)",
+      "poi_name": "Rare plants",
+      "osm_id": 3277925098,
+      "leisure": "garden",
+      "angle": 165.84022293683213
+    },
+    {
+      "id": 245648,
+      "geometry": "POINT (-88.066508 41.815083)",
+      "poi_name": "Honeysuckles and Vibernums",
+      "osm_id": 3277925099,
+      "leisure": "garden",
+      "angle": 165.85184325079518
+    },
+    {
+      "id": 245649,
+      "geometry": "POINT (-88.065081 41.815979)",
+      "poi_name": "Korea",
+      "osm_id": 3277925100,
+      "leisure": "garden",
+      "angle": 165.68561188151565
+    },
+    {
+      "id": 245650,
+      "geometry": "POINT (-88.06668 41.816242)",
+      "poi_name": "Azaleas",
+      "osm_id": 3277925101,
+      "leisure": "garden",
+      "angle": 165.83099293023704
+    },
+    {
+      "id": 245651,
+      "geometry": "POINT (-88.06749 41.817474)",
+      "poi_name": "Lindens",
+      "osm_id": 3277925102,
+      "leisure": "garden",
+      "angle": 165.86940766929752
+    },
+    {
+      "id": 245652,
+      "geometry": "POINT (-88.06927 41.817366)",
+      "poi_name": "Elms",
+      "osm_id": 3277925103,
+      "leisure": "garden",
+      "angle": 166.04521899546037
+    },
+    {
+      "id": 245653,
+      "geometry": "POINT (-88.068541 41.818301)",
+      "poi_name": "Ginkgo",
+      "osm_id": 3277925104,
+      "leisure": "garden",
+      "angle": 165.9445209491416
+    },
+    {
+      "id": 245654,
+      "geometry": "POINT (-88.064566 41.817586)",
+      "poi_name": "Maples",
+      "osm_id": 3277925105,
+      "leisure": "garden",
+      "angle": 165.58334566167932
+    },
+    {
+      "id": 245655,
+      "geometry": "POINT (-88.064318 41.818634)",
+      "poi_name": "Apalachia",
+      "osm_id": 3277925106,
+      "leisure": "garden",
+      "angle": 165.5247416872804
+    },
+    {
+      "id": 245656,
+      "geometry": "POINT (-88.07262 41.729142)",
+      "poi_name": "Oak Savanna",
+      "osm_id": 3279478302,
+      "leisure": "garden",
+      "angle": 168.66696685111626
+    },
+    {
+      "id": 245720,
+      "geometry": "POINT (-88.178844 42.071944)",
+      "poi_name": "Spruce Trees Nursery",
+      "osm_id": 3455054499,
+      "leisure": "garden",
+      "angle": 172.43711824804123
+    },
+    {
+      "id": 245940,
+      "geometry": "POINT (-87.959122 43.254358)",
+      "poi_name": "Memory Garden",
+      "osm_id": 5345442455,
+      "leisure": "garden",
+      "addr_state": "WI",
+      "addr_city": "Mequon",
+      "angle": 10.10493803092702
+    },
+    {
+      "id": 246128,
+      "geometry": "POINT (-88.071128 41.81333)",
+      "poi_name": "Hedge Collection",
+      "osm_id": 5595782665,
+      "leisure": "garden",
+      "angle": 166.35148006034552
+    },
+    {
+      "id": 246209,
+      "geometry": "POINT (-88.327724 42.069532)",
+      "poi_name": "Sherman Natural Prairie and Community Garden",
+      "osm_id": 5703701098,
+      "leisure": "garden",
+      "angle": 208.44590344446772
+    },
+    {
+      "id": 246289,
+      "geometry": "POINT (-88.14321 41.717748)",
+      "poi_name": "Tree Nursery",
+      "osm_id": 11258924298,
+      "leisure": "garden",
+      "fee": "no",
+      "angle": 174.64895946329324
+    },
+    {
+      "id": 246290,
+      "geometry": "POINT (-88.143314 41.717448)",
+      "poi_name": "Herb Garden",
+      "osm_id": 11258924300,
+      "leisure": "garden",
+      "fee": "no",
+      "angle": 174.66056904894782
+    },
+    {
+      "id": 246291,
+      "geometry": "POINT (-88.143458 41.717396)",
+      "poi_name": "Lenore's Backyard Garden",
+      "osm_id": 11258924301,
+      "leisure": "garden",
+      "fee": "no",
+      "angle": 174.67288540254032
+    },
+    {
+      "id": 246292,
+      "geometry": "POINT (-88.143385 41.717351)",
+      "poi_name": "Sensory Garden",
+      "osm_id": 11258924302,
+      "leisure": "garden",
+      "fee": "no",
+      "angle": 174.66733487332124
+    },
+    {
+      "id": 246293,
+      "geometry": "POINT (-88.540242 42.582626)",
+      "poi_name": "Butterfly Garden",
+      "osm_id": 11259060370,
+      "leisure": "garden",
+      "angle": 324.8256434776
+    },
+    {
+      "id": 246295,
+      "geometry": "POINT (-88.054252 41.817163)",
+      "poi_name": "Lindens",
+      "osm_id": 11261450691,
+      "leisure": "garden",
+      "angle": 164.60745146636845
+    },
+    {
+      "id": 246414,
+      "geometry": "POINT (-87.788532 42.144838)",
+      "poi_name": "Hilltop Garden",
+      "osm_id": 9604232785,
+      "leisure": "garden",
+      "angle": 105.90459718578055
+    },
+    {
+      "id": 246520,
+      "geometry": "POINT (-87.845305 41.814554)",
+      "poi_name": "Fairy Garden",
+      "osm_id": 9801980092,
+      "leisure": "garden",
+      "angle": 147.11247415217127
+    },
+    {
+      "id": 246640,
+      "geometry": "POINT (-88.149896 41.76165)",
+      "poi_name": "Healing Gardens",
+      "osm_id": 8730107069,
+      "leisure": "garden",
+      "angle": 174.76033168505725
+    },
+    {
+      "id": 246869,
+      "geometry": "POINT (-88.083024 41.81435)",
+      "poi_name": "Bobolink Meadow",
+      "osm_id": 6554412265,
+      "leisure": "garden",
+      "angle": 167.47145766649822
+    },
+    {
+      "id": 246871,
+      "geometry": "POINT (-88.077929 41.820762)",
+      "poi_name": "Four Seasons Garden",
+      "osm_id": 6559190787,
+      "leisure": "garden",
+      "operator": "Morton Arboretum",
+      "angle": 166.78336267206714
+    },
+    {
+      "id": 246900,
+      "geometry": "POINT (-87.999385 41.786436)",
+      "poi_name": "Hurwitz Memorial Garden",
+      "osm_id": 6579965466,
+      "leisure": "garden",
+      "angle": 160.79794102327446
+    },
+    {
+      "id": 247348,
+      "geometry": "POINT (-87.71771 41.886015)",
+      "poi_name": "Sugar from the Sun",
+      "osm_id": 8980777459,
+      "leisure": "garden",
+      "angle": 133.4932257237504
+    },
+    {
+      "id": 247349,
+      "geometry": "POINT (-87.717736 41.88625)",
+      "poi_name": "Fern Room",
+      "osm_id": 8980777462,
+      "leisure": "garden",
+      "angle": 133.47547820816268
+    },
+    {
+      "id": 247350,
+      "geometry": "POINT (-87.717689 41.886465)",
+      "poi_name": "Show House",
+      "osm_id": 8980777465,
+      "leisure": "garden",
+      "angle": 133.4551487646885
+    },
+    {
+      "id": 247351,
+      "geometry": "POINT (-87.717322 41.886266)",
+      "poi_name": "Palm House",
+      "osm_id": 8980777466,
+      "leisure": "garden",
+      "angle": 133.4499569694953
+    },
+    {
+      "id": 247352,
+      "geometry": "POINT (-87.717847 41.885818)",
+      "poi_name": "Sensory Garden",
+      "osm_id": 8980777468,
+      "leisure": "garden",
+      "angle": 133.51745957420033
+    },
+    {
+      "id": 247353,
+      "geometry": "POINT (-87.717728 41.886886)",
+      "poi_name": "Horticulture Hall",
+      "osm_id": 8980777470,
+      "leisure": "garden",
+      "angle": 133.4228605291465
+    },
+    {
+      "id": 247354,
+      "geometry": "POINT (-87.718139 41.88647)",
+      "poi_name": "Aroid House",
+      "osm_id": 8980777477,
+      "leisure": "garden",
+      "angle": 133.48118848973485
+    },
+    {
+      "id": 247355,
+      "geometry": "POINT (-87.718137 41.886244)",
+      "poi_name": "Desert House",
+      "osm_id": 8980777480,
+      "leisure": "garden",
+      "angle": 133.49956284891184
+    },
+    {
+      "id": 247356,
+      "geometry": "POINT (-87.717445 41.886792)",
+      "poi_name": "Artist\u2019s Garden",
+      "osm_id": 8980777483,
+      "leisure": "garden",
+      "fee": "yes",
+      "angle": 133.4140388298367
+    },
+    {
+      "id": 247362,
+      "geometry": "POINT (-87.718119 41.885824)",
+      "poi_name": "Labyrinth",
+      "osm_id": 8984147898,
+      "leisure": "garden",
+      "angle": 133.53287034264287
+    },
+    {
+      "id": 247363,
+      "geometry": "POINT (-87.720219 41.886232)",
+      "poi_name": "Quaking Aspens",
+      "osm_id": 8984147922,
+      "leisure": "garden",
+      "angle": 133.6231451012465
+    },
+    {
+      "id": 247364,
+      "geometry": "POINT (-87.718466 41.885984)",
+      "poi_name": "Demonstration Garden",
+      "osm_id": 8984147956,
+      "leisure": "garden",
+      "angle": 133.54018720374688
+    },
+    {
+      "id": 247365,
+      "geometry": "POINT (-87.718116 41.886021)",
+      "poi_name": "EMG Children's Garden",
+      "osm_id": 8984147957,
+      "leisure": "garden",
+      "angle": 133.51660784410126
+    },
+    {
+      "id": 247366,
+      "geometry": "POINT (-87.719189 41.88553)",
+      "poi_name": "Grassy Hills",
+      "osm_id": 8984147958,
+      "leisure": "garden",
+      "angle": 133.61994951257802
+    },
+    {
+      "id": 247367,
+      "geometry": "POINT (-87.720187 41.885707)",
+      "poi_name": "Hawthorm Grove",
+      "osm_id": 8984147959,
+      "leisure": "garden",
+      "angle": 133.66424763079874
+    },
+    {
+      "id": 247368,
+      "geometry": "POINT (-87.719658 41.886199)",
+      "poi_name": "City Garden",
+      "osm_id": 8984147960,
+      "leisure": "garden",
+      "angle": 133.59284701785208
+    },
+    {
+      "id": 247369,
+      "geometry": "POINT (-87.719658 41.887101)",
+      "poi_name": "Child Wild",
+      "osm_id": 8984147961,
+      "leisure": "garden",
+      "angle": 133.518792745708
+    },
+    {
+      "id": 247370,
+      "geometry": "POINT (-87.718982 41.886416)",
+      "poi_name": "Gravel Garden",
+      "osm_id": 8984147962,
+      "leisure": "garden",
+      "angle": 133.53518510452434
+    },
+    {
+      "id": 248214,
+      "geometry": "POINT (-88.184081 42.195259)",
+      "poi_name": "Smart Farm",
+      "osm_id": 7434246263,
+      "leisure": "garden",
+      "angle": 155.79167269828733
+    },
+    {
+      "id": 248877,
+      "geometry": "POINT (-88.649647 42.638262)",
+      "poi_name": "Paul Lange Arboretum",
+      "osm_id": 4896106861,
+      "leisure": "garden",
+      "website": "http://ci.delavan.wi.us/departments/parks-recreation/city-parks/#paul",
+      "phone": "+1-262-728-5585",
+      "addr_state": "WI",
+      "addr_city": "Delavan",
+      "addr_postcode": "53115",
+      "addr_street": "North Terrace Street",
+      "addr_housenumber": "515",
+      "angle": 321.12025015454424
+    },
+    {
+      "id": 249016,
+      "geometry": "POINT (-87.987532 43.040948)",
+      "poi_name": "Monarch Waystation",
+      "osm_id": 9592124346,
+      "leisure": "garden",
+      "angle": 11.327974326380753
+    },
+    {
+      "id": 249525,
+      "geometry": "POINT (-89.112255 42.244845)",
+      "poi_name": "Klehm Arboretum & Botanic Gardens",
+      "osm_id": 354155996,
+      "leisure": "garden",
+      "tourism": "attraction",
+      "fee": "yes",
+      "opening_hours": "9:00-16:00",
+      "website": "https://klehm.org/",
+      "phone": "+1-815-965-8146",
+      "addr_city": "Rockford",
+      "addr_street": "S Main Street",
+      "addr_housenumber": "2715",
+      "angle": 271.18454417818094
+    },
+    {
+      "id": 250129,
+      "geometry": "POINT (-87.831111 42.386111)",
+      "poi_name": "Bowen Formal Garden",
+      "osm_id": 354276586,
+      "leisure": "garden",
+      "angle": 61.40742953939847
+    },
+    {
+      "id": 265507,
+      "geometry": "POINT (-87.881207 42.257629)",
+      "poi_name": "Elawa Farm",
+      "osm_id": 2420407060,
+      "leisure": "garden",
+      "website": "https://elawafarm.org/",
+      "angle": 84.44934555769872
+    },
+    {
+      "id": 265987,
+      "geometry": "POINT (-88.070314 41.813895)",
+      "poi_name": "Maze Garden",
+      "osm_id": 1429248990,
+      "leisure": "garden",
+      "angle": 166.25557727092524
+    },
+    {
+      "id": 265988,
+      "geometry": "POINT (-88.066435 41.818449)",
+      "poi_name": "Japan",
+      "osm_id": 1429441971,
+      "leisure": "garden",
+      "angle": 165.7356580891664
+    },
+    {
+      "id": 266069,
+      "geometry": "POINT (-87.867548 42.911066)",
+      "poi_name": "Growing South Milwaukee",
+      "osm_id": 10541906328,
+      "leisure": "garden",
+      "angle": 20.276682281684238
+    },
+    {
+      "id": 266403,
+      "geometry": "POINT (-89.334974 43.092022)",
+      "poi_name": "Sunken Garden",
+      "osm_id": 4991028015,
+      "leisure": "garden",
+      "angle": 316.24995054038357
+    },
+    {
+      "id": 266404,
+      "geometry": "POINT (-89.334226 43.092025)",
+      "poi_name": "Herb Garden",
+      "osm_id": 4991028016,
+      "leisure": "garden",
+      "angle": 316.26881530741707
+    },
+    {
+      "id": 266405,
+      "geometry": "POINT (-89.334443 43.091431)",
+      "poi_name": "Rock Garden",
+      "osm_id": 4991028017,
+      "leisure": "garden",
+      "angle": 316.24337082648816
+    },
+    {
+      "id": 266406,
+      "geometry": "POINT (-89.333899 43.092339)",
+      "poi_name": "Perennial Garden",
+      "osm_id": 4991028018,
+      "leisure": "garden",
+      "angle": 316.2875747759296
+    },
+    {
+      "id": 266407,
+      "geometry": "POINT (-89.334799 43.092336)",
+      "poi_name": "Event Garden",
+      "osm_id": 4991028019,
+      "leisure": "garden",
+      "angle": 316.26492247678027
+    },
+    {
+      "id": 266408,
+      "geometry": "POINT (-89.335046 43.093175)",
+      "poi_name": "Rose Garden",
+      "osm_id": 4991028020,
+      "leisure": "garden",
+      "angle": 316.28690656629277
+    },
+    {
+      "id": 266415,
+      "geometry": "POINT (-87.796628 42.183938)",
+      "poi_name": "Rose Garden at Laurel Park",
+      "osm_id": 5000719178,
+      "leisure": "garden",
+      "angle": 99.2564643239493
+    },
+    {
+      "id": 266493,
+      "geometry": "POINT (-87.652949 41.908167)",
+      "poi_name": "Urban Rivers Floating Garden",
+      "osm_id": 5197266084,
+      "leisure": "garden",
+      "website": "https://www.urbanriv.org/",
+      "angle": 128.10148135242872
+    },
+    {
+      "id": 267183,
+      "geometry": "POINT (-89.068161 42.283594)",
+      "poi_name": "Rose garden",
+      "osm_id": 4631205431,
+      "leisure": "garden",
+      "angle": 274.680539899047
+    },
+    {
+      "id": 267378,
+      "geometry": "POINT (-88.857061 42.963406)",
+      "poi_name": "Community Garden",
+      "osm_id": 5933169876,
+      "leisure": "garden",
+      "angle": 326.87149290256747
+    },
+    {
+      "id": 267456,
+      "geometry": "POINT (-86.36001 41.825733)",
+      "poi_name": "flower walk",
+      "osm_id": 6028772804,
+      "leisure": "garden",
+      "angle": 105.90701085451661
+    },
+    {
+      "id": 16133,
+      "geometry": "POINT (-89.112255 42.244845)",
+      "poi_name": "Klehm Arboretum & Botanic Gardens",
+      "osm_id": 354155996,
+      "leisure": "garden",
+      "tourism": "attraction",
+      "fee": "yes",
+      "opening_hours": "9:00-16:00",
+      "website": "https://klehm.org/",
+      "phone": "+1-815-965-8146",
+      "addr_city": "Rockford",
+      "addr_street": "S Main Street",
+      "addr_housenumber": "2715",
+      "angle": 271.18454417818094
     }
   ],
   "answer_type": "angle",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "garden"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Glenhill Farmhouse, Erie, PA",
-      "geo_wkt": "POINT (-79.985748 42.119196)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
       "poi": {
-        "id": 241,
-        "geometry": "POINT (-79.985748 42.119196)",
-        "poi_name": "Glenhill Farmhouse",
-        "osm_id": 8255522795,
-        "tourism": "viewpoint",
-        "opening_hours": "Mo-Fr 08:00-17:00",
-        "operator": "Penn State Behrend",
-        "addr_state": "PA",
-        "addr_city": "Erie",
-        "addr_postcode": "16563",
-        "addr_street": "College Drive",
-        "addr_housenumber": "4701"
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
       }
     }
   },
-  "id": 1090,
+  "id": 1790,
   "type": "range+angle"
 }

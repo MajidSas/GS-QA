@@ -1,27 +1,20 @@
 {
-  "question": "Could you tell me the closest hospital relative to the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest garden close to the university that has Sal the Salamander as its mascot in Elkins Park, PA?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'garden'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.129394 40.086172)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 181376,
-      "geometry": "POINT (-75.184168 40.011821)",
-      "poi_name": "Haven Behavioral Hospital Of Philadelphia",
-      "osm_id": 10844708981,
-      "amenity": "hospital",
-      "website": "https://www.havenphiladelphia.com",
-      "phone": "+1 215 475 3400",
-      "addr_state": "PA",
-      "addr_city": "Philadelphia",
-      "addr_postcode": "19129",
-      "addr_street": "Henry Avenue",
-      "addr_housenumber": "3300"
+      "id": 266351,
+      "geometry": "POINT (-75.16625 40.052648)",
+      "poi_name": "Henry Cope Garden",
+      "osm_id": 7212920987,
+      "leisure": "garden"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "garden"
     },
     "[2]": {
       "main_category": "amenity",
@@ -45,6 +38,6 @@
       }
     }
   },
-  "id": 2737,
-  "type": "knn+name+multihop2"
+  "id": 937,
+  "type": "knn+name+multi_source2"
 }

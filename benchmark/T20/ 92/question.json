@@ -1,72 +1,71 @@
 {
-  "question": "Where's the closest restaurant on the path leading to SSM Health Saint Louis University Hospital, Saint Louis, MO from Our Lady of the Rivers Shrine, Portage Des Sioux, MO?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography, ST_GeomFromText('POINT (-90.239046 38.622971)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-90.338654 38.931031)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest fast food restaurant while traveling toward Kindred Hospital Chicago Northlake, Northlake, IL from Hickory Grove Riverfront, Cary, IL?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, ST_GeomFromText('POINT (-87.89054 41.906867)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-88.207814 42.234515)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 203781,
-      "geometry": "POINT (-90.345935 38.814648)",
-      "poi_name": "Roberto's",
-      "osm_id": 7100109906,
-      "amenity": "restaurant",
-      "cuisine": "italian",
-      "website": "www.robertositalianstl.com/",
-      "addr_city": "Florissant",
-      "addr_postcode": "63031",
-      "addr_street": "Mullanphy Gardens Shopping Center",
-      "addr_housenumber": "16",
-      "value": 165.7652496337952
+      "id": 177962,
+      "geometry": "POINT (-88.143314 42.154004)",
+      "poi_name": "Original Dog Tracks",
+      "osm_id": 2611485319,
+      "amenity": "fast_food",
+      "cuisine": "hot_dog",
+      "opening_hours": "Mo-Fr 11:00-20:00, Sa 11:00-18:00, Su closed",
+      "website": "https://dogtracks.000webhostapp.com/",
+      "addr_state": "IL",
+      "addr_city": "Barrington",
+      "addr_postcode": "60010",
+      "addr_street": "South Lageshulte Street",
+      "addr_housenumber": "100",
+      "value": 144.08372206907697
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Our Lady of the Rivers Shrine, Portage Des Sioux, MO",
-      "geo_wkt": "POINT (-90.338654 38.931031)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Hickory Grove Riverfront, Cary, IL",
+      "geo_wkt": "POINT (-88.207814 42.234515)",
       "poi": {
-        "id": 2278,
-        "geometry": "POINT (-90.338654 38.931031)",
-        "poi_name": "Our Lady of the Rivers Shrine",
-        "osm_id": 3362489091,
-        "description": "Our Lady of the Rivers Shrine gets its name from the fact that three major rivers-the Illinois, Missouri, and the Mississippi-meet within a few miles of the site. Dedicated October 1957 to commemorate an event in July 1951.",
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://ourladyoftheriversshrine.org/",
-        "addr_state": "MO",
-        "addr_city": "Portage Des Sioux",
-        "addr_postcode": "63373"
+        "id": 245519,
+        "geometry": "POINT (-88.207814 42.234515)",
+        "poi_name": "Hickory Grove Riverfront",
+        "osm_id": 3030995710,
+        "leisure": "nature_reserve",
+        "opening_hours": "sunrise-sunset",
+        "operator": "McHenry County Conservation District",
+        "website": "https://www.mccdistrict.org/visit___explore/places_to_go/find_a_site/hickory_grove_highlands_and_lyons_prairie___marsh.php",
+        "addr_state": "IL",
+        "addr_city": "Cary",
+        "addr_street": "Hickory Nut Grove Lane",
+        "addr_housenumber": "500"
       }
     },
     "[3]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "SSM Health Saint Louis University Hospital, Saint Louis, MO",
-      "geo_wkt": "POINT (-90.239046 38.622971)",
+      "display_name": "Kindred Hospital Chicago Northlake, Northlake, IL",
+      "geo_wkt": "POINT (-87.89054 41.906867)",
       "poi": {
-        "id": 167585,
-        "geometry": "POINT (-90.239046 38.622971)",
-        "poi_name": "SSM Health Saint Louis University Hospital",
-        "osm_id": 358083459,
+        "id": 53851,
+        "geometry": "POINT (-87.89054 41.906867)",
+        "poi_name": "Kindred Hospital Chicago Northlake",
+        "osm_id": 10100695466,
         "amenity": "hospital",
-        "operator": "SSM Health",
-        "website": "http://www.ssmhealth.com/sluhospital",
-        "phone": "+1 314 577 8000",
+        "operator": "Kindred Healthcare",
         "healthcare": "hospital",
-        "emergency": "yes",
-        "wikidata": "Q7401677",
-        "addr_state": "MO",
-        "addr_city": "Saint Louis",
-        "addr_postcode": "63110",
-        "addr_street": "Vista Avenue",
-        "addr_housenumber": "3635"
+        "addr_state": "IL",
+        "addr_city": "Northlake",
+        "addr_postcode": "60164",
+        "addr_street": "East North Avenue",
+        "addr_housenumber": "365"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 1391,
+  "id": 1591,
   "type": "knn:towards+loc"
 }

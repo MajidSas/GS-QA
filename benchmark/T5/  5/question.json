@@ -1,40 +1,42 @@
 {
-  "question": "What's the nearest viewpoint near Titan Street Garden, Philadelphia, PA?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'viewpoint'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-75.179318 39.936134)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the closest stadium near Harbor Hotel, Clayton, NY?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'stadium'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-76.084777 44.243271)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7991,
-      "geometry": "POINT (-75.193811 39.995283)",
-      "poi_name": "Strawberry Mansion Bridge",
-      "osm_id": 6503002885,
-      "tourism": "viewpoint"
+      "id": 256571,
+      "geometry": "POINT (-76.125278 43.024444)",
+      "poi_name": "J. Stanley Coyne Stadium",
+      "osm_id": 357643699,
+      "leisure": "stadium"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint"
+      "main_category": "leisure",
+      "sub_category": "stadium"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Titan Street Garden, Philadelphia, PA",
-      "geo_wkt": "POINT (-75.179318 39.936134)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Harbor Hotel, Clayton, NY",
+      "geo_wkt": "POINT (-76.084777 44.243271)",
       "poi": {
-        "id": 247117,
-        "geometry": "POINT (-75.179318 39.936134)",
-        "poi_name": "Titan Street Garden",
-        "osm_id": 3559350720,
-        "leisure": "garden",
-        "addr_state": "PA",
-        "addr_city": "Philadelphia",
-        "addr_postcode": "19146",
-        "addr_street": "Titan Street",
-        "addr_housenumber": "2111"
+        "id": 1358,
+        "geometry": "POINT (-76.084777 44.243271)",
+        "poi_name": "Harbor Hotel",
+        "osm_id": 2954511836,
+        "tourism": "hotel",
+        "operator": "Hart Hotels",
+        "phone": "315-686-1100",
+        "addr_state": "NY",
+        "addr_city": "Clayton",
+        "addr_postcode": "13624",
+        "addr_street": "Riverside Drive",
+        "addr_housenumber": "200"
       }
     }
   },
-  "id": 204,
+  "id": 1004,
   "type": "knn+name"
 }

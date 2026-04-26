@@ -1,40 +1,50 @@
 {
-  "question": "How distant is the closest university located from Lee Richardson Zoo, KS?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-100.872277 37.960476)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'university'\nORDER BY geometry <-> ST_GeomFromText('POINT (-100.872277 37.960476)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "How far away is the closest caf\u00e9 from Asbury Barn Recreation Center, Erie, PA?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-80.174816 42.060037)',4326)::geography)  AS distance  FROM pois\nWHERE amenity = 'cafe'\nORDER BY geometry <-> ST_GeomFromText('POINT (-80.174816 42.060037)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 62608,
-      "geometry": "POINT (-97.782283 37.634412)",
-      "poi_name": "Cheney High School",
-      "osm_id": 5578562286,
-      "amenity": "university",
-      "distance": 274529.09380741
+      "id": 92141,
+      "geometry": "POINT (-80.134977 42.088583)",
+      "poi_name": "Tim Hortons",
+      "osm_id": 2104910112,
+      "amenity": "cafe",
+      "cuisine": "coffee_shop",
+      "website": "https://www.timhortons.com/",
+      "takeaway": "yes",
+      "addr_state": "PA",
+      "addr_city": "Erie",
+      "addr_postcode": "16506",
+      "addr_street": "West 26th Street",
+      "addr_housenumber": "2745",
+      "distance": 4574.1554384
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "university"
+      "sub_category": "cafe"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Lee Richardson Zoo, KS",
-      "geo_wkt": "POINT (-100.872277 37.960476)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Asbury Barn Recreation Center, Erie, PA",
+      "geo_wkt": "POINT (-80.174816 42.060037)",
       "poi": {
-        "id": 21298,
-        "geometry": "POINT (-100.872277 37.960476)",
-        "poi_name": "Lee Richardson Zoo",
-        "osm_id": 1482564086,
-        "tourism": "zoo",
-        "wikidata": "Q6514798",
-        "addr_state": "KS",
-        "addr_street": "East Finnup Drive",
-        "addr_housenumber": "312"
+        "id": 267513,
+        "geometry": "POINT (-80.174816 42.060037)",
+        "poi_name": "Asbury Barn Recreation Center",
+        "osm_id": 7616964775,
+        "leisure": "nature_reserve",
+        "operator": "Millcreek Township",
+        "addr_state": "PA",
+        "addr_city": "Erie",
+        "addr_postcode": "16506",
+        "addr_street": "Asbury Road",
+        "addr_housenumber": "4106"
       }
     }
   },
-  "id": 2424,
+  "id": 624,
   "type": "knn+distance"
 }

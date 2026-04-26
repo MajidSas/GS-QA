@@ -1,54 +1,53 @@
 {
-  "question": "What's the closest restaurant in the direction of Dwarfskill Preserve, Milford, PA from Top of the Rock, New York, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, ST_GeomFromText('POINT (-74.895166 41.300832)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-73.979395 40.759034)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest restaurant encountered heading toward Hamilton Street Gallery, Bound Brook, NJ from Camel's Hump Farm Nature Education Center, Bethlehem, PA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography, ST_GeomFromText('POINT (-74.529876 40.561886)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-75.351884 40.66941)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 69880,
-      "geometry": "POINT (-73.980766 40.760372)",
-      "poi_name": "Avra Rockefeller Center",
-      "osm_id": 11335080026,
+      "id": 107449,
+      "geometry": "POINT (-75.307874 40.666193)",
+      "poi_name": "Sicily Restaurant",
+      "osm_id": 3561965410,
       "amenity": "restaurant",
-      "value": 308.2996196851042
+      "cuisine": "italian",
+      "value": 99.47233165073837
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Top of the Rock, New York, NY",
-      "geo_wkt": "POINT (-73.979395 40.759034)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Camel's Hump Farm Nature Education Center, Bethlehem, PA",
+      "geo_wkt": "POINT (-75.351884 40.66941)",
       "poi": {
-        "id": 26307,
-        "geometry": "POINT (-73.979395 40.759034)",
-        "poi_name": "Top of the Rock",
-        "osm_id": 5844051585,
-        "tourism": "viewpoint",
-        "wheelchair": "yes",
-        "website": "https://www.topoftherocknyc.com/",
-        "wikidata": "Q66722774",
-        "addr_state": "NY",
-        "addr_city": "New York",
-        "addr_street": "Rockefeller Plaza",
-        "addr_housenumber": "30"
+        "id": 247086,
+        "geometry": "POINT (-75.351884 40.66941)",
+        "poi_name": "Camel's Hump Farm Nature Education Center",
+        "osm_id": 3518135469,
+        "leisure": "nature_reserve",
+        "addr_state": "PA",
+        "addr_city": "Bethlehem",
+        "addr_postcode": "18017",
+        "addr_street": "Santee Mill Road",
+        "addr_housenumber": "1311"
       }
     },
     "[3]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Dwarfskill Preserve, Milford, PA",
-      "geo_wkt": "POINT (-74.895166 41.300832)",
+      "main_category": "tourism",
+      "sub_category": "gallery",
+      "display_name": "Hamilton Street Gallery, Bound Brook, NJ",
+      "geo_wkt": "POINT (-74.529876 40.561886)",
       "poi": {
-        "id": 267602,
-        "geometry": "POINT (-74.895166 41.300832)",
-        "poi_name": "Dwarfskill Preserve",
-        "osm_id": 7740705080,
-        "leisure": "nature_reserve",
-        "addr_state": "PA",
-        "addr_city": "Milford",
-        "addr_postcode": "18337",
-        "addr_street": "Dwarfskill Falls Lane",
-        "addr_housenumber": "132"
+        "id": 15750,
+        "geometry": "POINT (-74.529876 40.561886)",
+        "poi_name": "Hamilton Street Gallery",
+        "osm_id": 9502088817,
+        "tourism": "gallery",
+        "addr_state": "NJ",
+        "addr_city": "Bound Brook",
+        "addr_postcode": "08805",
+        "addr_street": "Hamilton Street",
+        "addr_housenumber": "6"
       }
     },
     "[1]": {
@@ -56,6 +55,6 @@
       "sub_category": "restaurant"
     }
   },
-  "id": 130,
+  "id": 1630,
   "type": "knn:towards+name"
 }

@@ -1,110 +1,100 @@
 {
-  "question": "Where can I find a hospital located in the southeast of DoubleTree by Hilton Hotel, Bedford, MA, within a radius of 170 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-71.236261 42.508756)',4326)::geography, 170000)\nAND amenity = 'hospital'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5;\n",
+  "question": "Where can I find a park within 100 kilometers, oriented toward the south of Shavers Creek Environmental Center, Petersburg, PA?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography, 100000)\nAND leisure = 'park'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5;\n",
   "answers": [
     {
-      "id": 188948,
-      "geometry": "POINT (-71.236261 42.508756)",
-      "poi_name": "Massachusetts Eye and Ear",
-      "osm_id": 257489564,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "website": "https://www.masseyeandear.org/",
-      "phone": "+1 617 523 7900",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q6784269",
-      "addr_city": "Boston",
-      "addr_postcode": "02114",
-      "addr_street": "Charles Street",
-      "addr_housenumber": "243"
+      "id": 247224,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Riverside Park",
+      "osm_id": 3811413159,
+      "leisure": "park",
+      "wheelchair": "yes",
+      "opening_hours": "dawn-dusk",
+      "operator": "Borough of Mapleton",
+      "addr_city": "Mapleton",
+      "addr_postcode": "17052",
+      "addr_street": "Oriskany Rd.",
+      "addr_housenumber": "13412"
     },
     {
-      "id": 188949,
-      "geometry": "POINT (-71.236261 42.508756)",
-      "poi_name": "Pocasset Mental Health Center",
-      "osm_id": 257489589,
-      "amenity": "hospital",
-      "phone": "+1 508 564 9600",
-      "healthcare": "hospital",
-      "emergency": "no",
-      "addr_city": "Bourne",
-      "addr_postcode": "02559",
-      "addr_street": "County Road",
-      "addr_housenumber": "830"
+      "id": 253890,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Harpers Memorial Park",
+      "osm_id": 357289578,
+      "leisure": "park"
     },
     {
-      "id": 188950,
-      "geometry": "POINT (-71.236261 42.508756)",
-      "poi_name": "Floating Hospital for Children",
-      "osm_id": 257489648,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Tufts Medical Center",
-      "website": "https://www.floatinghospital.org/",
-      "phone": "+1 617 636 8100",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q22073805",
-      "addr_city": "Boston",
-      "addr_postcode": "02111",
-      "addr_street": "Washington Street",
-      "addr_housenumber": "755"
+      "id": 254022,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Stone Creek Valley Park",
+      "osm_id": 357315069,
+      "leisure": "park"
     },
     {
-      "id": 188955,
-      "geometry": "POINT (-71.236261 42.508756)",
-      "poi_name": "Dr. Solomon Carter Fuller Mental Health Center",
-      "osm_id": 257578331,
-      "amenity": "hospital",
-      "website": "https://www.mass.gov/locations/metro-boston-mental-health-unit-at-dr-solomon-carter-fuller-mental-health-center",
-      "phone": "+1 617-626-8857",
-      "healthcare": "hospital",
-      "addr_state": "MA",
-      "addr_city": "Boston",
-      "addr_postcode": "02118",
-      "addr_street": "East Newton Street",
-      "addr_housenumber": "85"
+      "id": 254298,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Redbud Valley Nature Center",
+      "osm_id": 357349024,
+      "leisure": "park"
+    },
+    {
+      "id": 254530,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "State Game Refuge",
+      "osm_id": 357360337,
+      "leisure": "park"
+    },
+    {
+      "id": 254531,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Enoch Brown Memorial Park",
+      "osm_id": 357360474,
+      "leisure": "park"
+    },
+    {
+      "id": 266345,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Klingsberg Aviary",
+      "osm_id": 7204069522,
+      "leisure": "park",
+      "operator": "Shaver's Creek Environmental Center"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "hospital"
+      "main_category": "leisure",
+      "sub_category": "park"
     },
     "[2]": {
-      "distance": 170000,
-      "text": "170 kilometers"
+      "distance": 100000,
+      "text": "100 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "DoubleTree by Hilton Hotel, Bedford, MA",
-      "geo_wkt": "POINT (-71.236261 42.508756)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
       "poi": {
-        "id": 182,
-        "geometry": "POINT (-71.236261 42.508756)",
-        "poi_name": "DoubleTree by Hilton Hotel",
-        "osm_id": 472496629,
-        "tourism": "hotel",
-        "wheelchair": "yes",
-        "website": "https://www.hilton.com/en/hotels/bosbfdt-doubletree-boston-bedford-glen/",
-        "internet_access": "yes",
-        "phone": "+1-781-275-5500",
-        "official_name": "DoubleTree by Hilton",
-        "addr_state": "MA",
-        "addr_city": "Bedford",
-        "addr_postcode": "01730",
-        "addr_street": "Middlesex Turnpike",
-        "addr_housenumber": "44"
+        "id": 2748,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
       }
     },
     "[4]": {
-      "direction_desc": "southeast",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 112.5 AND 157.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
-  "id": 51,
+  "id": 2251,
   "type": "range:direction+loc"
 }

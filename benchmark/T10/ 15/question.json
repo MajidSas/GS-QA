@@ -1,60 +1,60 @@
 {
-  "question": "Which caf\u00e9 is nearest when approaching UCI Campus Assault Resources & Education (CARE), Irvine, CA from the Last House on Mulholland, Los Angeles, CA?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, ST_GeomFromText('POINT (-117.842493 33.6485)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-118.320457 34.131243)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Which caf\u00e9 is nearest along the route connecting John Natsoulas Gallery, Davis, CA to the Wright Institute, Berkeley, CA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography, ST_GeomFromText('POINT (-122.253167 37.868383)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-121.740978 38.54212)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 102972,
-      "geometry": "POINT (-118.300113 34.118292)",
-      "poi_name": "Cafe at the End of the Universe",
-      "osm_id": 8473996364,
+      "id": 51361,
+      "geometry": "POINT (-121.750208 38.536218)",
+      "poi_name": "Sodexho Coffee",
+      "osm_id": 531004701,
       "amenity": "cafe",
-      "website": "https://wolfgangpuck.com/dining/griffith-cafe/",
-      "value": 140.3196707659245
+      "cuisine": "coffee_shop",
+      "historic": "yes",
+      "wheelchair": "limited",
+      "value": 211.1168899783056
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "The Last House on Mulholland, Los Angeles, CA",
-      "geo_wkt": "POINT (-118.320457 34.131243)",
+      "sub_category": "gallery",
+      "display_name": "John Natsoulas Gallery, Davis, CA",
+      "geo_wkt": "POINT (-121.740978 38.54212)",
       "poi": {
-        "id": 3061,
-        "geometry": "POINT (-118.320457 34.131243)",
-        "poi_name": "The Last House on Mulholland",
-        "osm_id": 10152480147,
-        "description": "Hollywood Sign Viewpoint",
-        "tourism": "viewpoint",
-        "parking": "no",
+        "id": 1952,
+        "geometry": "POINT (-121.740978 38.54212)",
+        "poi_name": "John Natsoulas Gallery",
+        "osm_id": 3226037808,
+        "tourism": "gallery",
+        "opening_hours": "07:00-19:00",
+        "internet_access": "yes",
         "addr_state": "CA",
-        "addr_city": "Los Angeles",
-        "addr_postcode": "90068",
-        "addr_street": "Mulholland Highway",
-        "addr_housenumber": "6101"
+        "addr_city": "Davis",
+        "addr_postcode": "95616",
+        "addr_street": "1st Street",
+        "addr_housenumber": "521"
       }
     },
     "[3]": {
       "main_category": "amenity",
       "sub_category": "university",
-      "display_name": "UCI Campus Assault Resources & Education (CARE), Irvine, CA",
-      "geo_wkt": "POINT (-117.842493 33.6485)",
+      "display_name": "The Wright Institute, Berkeley, CA",
+      "geo_wkt": "POINT (-122.253167 37.868383)",
       "poi": {
-        "id": 234952,
-        "geometry": "POINT (-117.842493 33.6485)",
-        "poi_name": "UCI Campus Assault Resources & Education (CARE)",
-        "osm_id": 5741894635,
+        "id": 167728,
+        "geometry": "POINT (-122.253167 37.868383)",
+        "poi_name": "The Wright Institute",
+        "osm_id": 358858264,
         "amenity": "university",
-        "description": "Offering support to those affected by sexual assault, relationship abuse, family violence and stalking at UCI.",
-        "operator": "University of California, Irvine",
-        "website": "https://care.uci.edu/",
-        "internet_access": "wlan",
-        "phone": "949-824-7273",
+        "website": "https://www.wi.edu",
+        "internet_access": "yes",
+        "wikidata": "Q8038222",
         "addr_state": "CA",
-        "addr_city": "Irvine",
-        "addr_postcode": "92697",
-        "addr_street": "West Peltason Drive",
-        "addr_housenumber": "311"
+        "addr_city": "Berkeley",
+        "addr_postcode": "94704",
+        "addr_street": "Durant Avenue",
+        "addr_housenumber": "2728"
       }
     },
     "[1]": {
@@ -62,6 +62,6 @@
       "sub_category": "cafe"
     }
   },
-  "id": 114,
+  "id": 1614,
   "type": "knn:towards+name"
 }

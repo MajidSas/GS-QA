@@ -1,52 +1,53 @@
 {
-  "question": "Where is the nearest attraction towards the northwest of Hellsgate Farms, Astoria, NY?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.930068 40.768724)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest golf course in the southwestward direction from Feather Factory Hotel, Long Island City, NY?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-73.94065 40.74418)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 23386,
-      "geometry": "POINT (-73.930068 40.768724)",
-      "poi_name": "Urban Air Trampoline & Adventure Park",
-      "osm_id": 5159110696,
-      "leisure": "playground",
-      "description": "Trampoline Park in South Hackensack.",
-      "tourism": "attraction",
-      "operator": "Urban Air LLC",
-      "website": "https://www.urbanairtrampolinepark.com/trampoline-park-locations/south-hackensack-nj/",
-      "phone": "+1-201- 212-6454",
+      "id": 246767,
+      "geometry": "POINT (-73.94065 40.74418)",
+      "poi_name": "Cobblestone Creek Country Club",
+      "osm_id": 6381391425,
+      "leisure": "golf_course",
+      "opening_hours": "Tu-Su 10:00-18:00",
       "addr_state": "NJ",
-      "addr_city": "South Hackensack",
-      "addr_postcode": "07606",
-      "addr_street": "Wesley Street",
-      "addr_housenumber": "69"
+      "addr_city": "Lawrence Township",
+      "addr_postcode": "08648",
+      "addr_street": "Lawrence Road",
+      "addr_housenumber": "2170"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "garden",
-      "display_name": "Hellsgate Farms, Astoria, NY",
-      "geo_wkt": "POINT (-73.930068 40.768724)",
+      "main_category": "tourism",
+      "sub_category": "hotel",
+      "display_name": "Feather Factory Hotel, Long Island City, NY",
+      "geo_wkt": "POINT (-73.94065 40.74418)",
       "poi": {
-        "id": 266410,
-        "geometry": "POINT (-73.930068 40.768724)",
-        "poi_name": "Hellsgate Farms",
-        "osm_id": 4991507390,
-        "leisure": "garden",
+        "id": 1131,
+        "geometry": "POINT (-73.94065 40.74418)",
+        "poi_name": "Feather Factory Hotel",
+        "osm_id": 2847093111,
+        "tourism": "hotel",
+        "wheelchair": "yes",
+        "website": "http://www.hotelfeatherfactory.com/",
+        "internet_access": "wlan",
+        "phone": "+1 718-786-7869",
+        "parking": "yes",
         "addr_state": "NY",
-        "addr_city": "Astoria",
-        "addr_postcode": "11102",
-        "addr_street": "30th Drive",
-        "addr_housenumber": "14-33"
+        "addr_city": "Long Island City",
+        "addr_postcode": "11101",
+        "addr_street": "Skillman Avenue",
+        "addr_housenumber": "26-32"
       }
     },
     "[3]": {
-      "direction_desc": "northwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
   "id": 1136,

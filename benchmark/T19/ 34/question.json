@@ -1,52 +1,52 @@
 {
-  "question": "Where's the closest aquarium to the southwest of Oceans Behavioral Hospital Of Lufkin, Lufkin, TX?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-94.745768 31.307051)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.tourism = 'aquarium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest fast food restaurant in the northeastward direction from Concordia University Wisconsin-Beloit Center, Beloit, WI?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-88.989469 42.524066)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 3121,
-      "geometry": "POINT (-94.745768 31.307051)",
-      "poi_name": "Sea Life Aquarium",
-      "osm_id": 10184935041,
-      "tourism": "aquarium",
-      "website": "https://www.visitsealife.com/san-antonio/",
-      "wikidata": "Q664334",
-      "addr_state": "TX",
-      "addr_city": "San Antonio",
-      "addr_postcode": "78205",
-      "addr_street": "East Commerce Street",
-      "addr_housenumber": "849"
+      "id": 185234,
+      "geometry": "POINT (-88.989469 42.524066)",
+      "poi_name": "Subway",
+      "osm_id": 7839530158,
+      "amenity": "fast_food",
+      "cuisine": "sandwich",
+      "website": "https://order.subway.com/en-us/restaurant/18835/menu/?segment_code=0",
+      "phone": "+1-608-676-4097",
+      "takeaway": "yes",
+      "addr_state": "WI",
+      "addr_city": "Clinton",
+      "addr_postcode": "53525",
+      "addr_street": "Peck Avenue",
+      "addr_housenumber": "503"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium"
+      "main_category": "amenity",
+      "sub_category": "fast food restaurant"
     },
     "[2]": {
       "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Oceans Behavioral Hospital Of Lufkin, Lufkin, TX",
-      "geo_wkt": "POINT (-94.745768 31.307051)",
+      "sub_category": "university",
+      "display_name": "Concordia University Wisconsin-Beloit Center, Beloit, WI",
+      "geo_wkt": "POINT (-88.989469 42.524066)",
       "poi": {
-        "id": 183136,
-        "geometry": "POINT (-94.745768 31.307051)",
-        "poi_name": "Oceans Behavioral Hospital Of Lufkin",
-        "osm_id": 10916930770,
-        "amenity": "hospital",
-        "website": "https://oceanshealthcare.com/ohc-location/lufkin/",
-        "phone": "+1 936 632 2276",
-        "healthcare": "hospital",
-        "addr_state": "TX",
-        "addr_city": "Lufkin",
-        "addr_postcode": "75904",
-        "addr_street": "Gobblers Knob Road",
-        "addr_housenumber": "302"
+        "id": 58950,
+        "geometry": "POINT (-88.989469 42.524066)",
+        "poi_name": "Concordia University Wisconsin-Beloit Center",
+        "osm_id": 5404250879,
+        "amenity": "university",
+        "operator": "Concordia University Wisconsin",
+        "addr_state": "WI",
+        "addr_city": "Beloit",
+        "addr_postcode": "53511",
+        "addr_street": "Sutler Avenue",
+        "addr_housenumber": "2040"
       }
     },
     "[3]": {
-      "direction_desc": "southwest",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
+      "direction_desc": "northeast",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 22.5 AND 67.5"
     }
   },
   "id": 1133,

@@ -1,38 +1,41 @@
 {
-  "question": "What's the closest attraction nearby the aquarium that was opened on 5 December 1996 in Albuquerque, NM?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-106.678998 35.093235)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest golf course around the university that has Tiger as its mascot in Denmark, SC?",
+  "sql": "SELECT * FROM pois\nWHERE leisure = 'golf_course'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.128567 33.305858)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 553,
-      "geometry": "POINT (-106.660591 35.082548)",
-      "poi_name": "pinkman\u2019s residence",
-      "osm_id": 8441040919,
-      "tourism": "attraction"
+      "id": 266797,
+      "geometry": "POINT (-80.765499 32.693664)",
+      "poi_name": "Cherokee Plantation",
+      "osm_id": 10964381633,
+      "leisure": "golf_course"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "attraction"
+      "main_category": "leisure",
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "aquarium",
-      "display_name": "ABQ BioPark (Aquarium), Albuquerque, NM",
-      "geo_wkt": "POINT (-106.678998 35.093235)",
+      "main_category": "amenity",
+      "sub_category": "university",
+      "display_name": "Voorhees College, Denmark, SC",
+      "geo_wkt": "POINT (-81.128567 33.305858)",
       "poi": {
-        "id": 6226,
-        "geometry": "POINT (-106.678998 35.093235)",
-        "poi_name": "ABQ BioPark (Aquarium)",
-        "osm_id": 1788029735,
-        "tourism": "aquarium",
-        "wikidata": "Q4712807",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque"
+        "id": 61586,
+        "geometry": "POINT (-81.128567 33.305858)",
+        "poi_name": "Voorhees College",
+        "osm_id": 5525414124,
+        "amenity": "university",
+        "wikidata": "Q7941707",
+        "addr_state": "SC",
+        "addr_city": "Denmark",
+        "addr_postcode": "29042",
+        "addr_street": "Porter Drive",
+        "addr_housenumber": "481"
       }
     }
   },
-  "id": 2776,
-  "type": "knn+name+multihop2"
+  "id": 976,
+  "type": "knn+name+multi_source2"
 }

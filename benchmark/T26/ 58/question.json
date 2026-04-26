@@ -1,42 +1,49 @@
 {
-  "question": "What's the distance to the closest nature reserve in reference to Hotel Indigo, Baltimore, MD?",
-  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-76.616719 39.295205)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'nature_reserve'\nORDER BY geometry <-> ST_GeomFromText('POINT (-76.616719 39.295205)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the distance separating Luthy Botanical Garden, Peoria, IL and the nearest golf course?",
+  "sql": "SELECT *, ST_Distance(geometry, ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography)  AS distance  FROM pois\nWHERE leisure = 'golf_course'\nORDER BY geometry <-> ST_GeomFromText('POINT (-89.575754 40.71863)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 247219,
-      "geometry": "POINT (-76.644819 39.325664)",
-      "poi_name": "African Journey",
-      "osm_id": 3800902412,
-      "leisure": "nature_reserve",
-      "operator": "Maryland Zoo",
-      "distance": 4160.43125966
+      "id": 266212,
+      "geometry": "POINT (-89.613572 40.586986)",
+      "poi_name": "Lick Creek Golf Course",
+      "osm_id": 7052823509,
+      "leisure": "golf_course",
+      "addr_state": "IL",
+      "addr_city": "Pekin",
+      "addr_postcode": "61554",
+      "addr_street": "N Parkway Dr",
+      "addr_housenumber": "2210",
+      "distance": 14964.4782846
     }
   ],
   "answer_type": "distance",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "sub_category": "golf course"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "hotel",
-      "display_name": "Hotel Indigo, Baltimore, MD",
-      "geo_wkt": "POINT (-76.616719 39.295205)",
+      "main_category": "leisure",
+      "sub_category": "garden",
+      "display_name": "Luthy Botanical Garden, Peoria, IL",
+      "geo_wkt": "POINT (-89.575754 40.71863)",
       "poi": {
-        "id": 1257,
-        "geometry": "POINT (-76.616719 39.295205)",
-        "poi_name": "Hotel Indigo",
-        "osm_id": 2918406739,
-        "tourism": "hotel",
-        "addr_state": "MD",
-        "addr_city": "Baltimore",
-        "addr_postcode": "21201",
-        "addr_street": "West Franklin Street",
-        "addr_housenumber": "30"
+        "id": 245782,
+        "geometry": "POINT (-89.575754 40.71863)",
+        "poi_name": "Luthy Botanical Garden",
+        "osm_id": 10050323006,
+        "leisure": "garden",
+        "fee": "no",
+        "website": "https://peoriaparks.org/places/luthy/",
+        "official_name": "George L. Luthy Memorial Botanical Garden",
+        "wikidata": "Q5541469",
+        "addr_state": "IL",
+        "addr_city": "Peoria",
+        "addr_street": "North Prospect Road",
+        "addr_housenumber": "2520"
       }
     }
   },
-  "id": 2457,
+  "id": 657,
   "type": "knn+distance"
 }

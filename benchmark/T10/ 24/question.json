@@ -1,67 +1,64 @@
 {
-  "question": "What is the closest restaurant along the way to the Creators Hands, Rochester, NY from Lytle Nature Preserve, Lockport, NY?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography, ST_GeomFromText('POINT (-77.61823 43.123992)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'restaurant'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.666286 43.193323)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "What\u2019s the nearest fast food when heading from Debbie Doolittle's Petting Zoo, Tacoma, WA toward World's Largest Egg, Winlock, WA?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, ST_GeomFromText('POINT (-122.937891 46.493327)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-122.432984 47.131086)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 65186,
-      "geometry": "POINT (-78.388109 43.220564)",
-      "poi_name": "Rudy's Family Diner",
-      "osm_id": 5689205118,
-      "amenity": "restaurant",
-      "addr_state": "NY",
-      "addr_city": "Medina",
-      "addr_postcode": "14103",
-      "addr_street": "Proctor Place",
-      "addr_housenumber": "118",
-      "value": 94.80473787004628
+      "id": 61363,
+      "geometry": "POINT (-122.434174 47.128304)",
+      "poi_name": "Herfy's Burgers",
+      "osm_id": 5514590730,
+      "amenity": "fast_food",
+      "cuisine": "burger",
+      "website": "https://www.herfysburgers.com",
+      "phone": "+1-253-267-5526",
+      "value": 208.71002241987674
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[2]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve",
-      "display_name": "Lytle Nature Preserve, Lockport, NY",
-      "geo_wkt": "POINT (-78.666286 43.193323)",
+      "main_category": "tourism",
+      "sub_category": "zoo",
+      "display_name": "Debbie Doolittle's Petting Zoo, Tacoma, WA",
+      "geo_wkt": "POINT (-122.432984 47.131086)",
       "poi": {
-        "id": 247569,
-        "geometry": "POINT (-78.666286 43.193323)",
-        "poi_name": "Lytle Nature Preserve",
-        "osm_id": 6868645749,
-        "leisure": "nature_reserve",
-        "opening_hours": "sunrise-sunset",
-        "operator": "Town of Lockport",
-        "website": "https://www.elockport.com/department-parks-trails.php",
-        "addr_state": "NY",
-        "addr_city": "Lockport",
-        "addr_postcode": "14094",
-        "addr_street": "North Canal Road",
-        "addr_housenumber": "6637"
+        "id": 11808,
+        "geometry": "POINT (-122.432984 47.131086)",
+        "poi_name": "Debbie Doolittle's Petting Zoo",
+        "osm_id": 11550085362,
+        "tourism": "zoo",
+        "zoo": "petting_zoo",
+        "addr_state": "WA",
+        "addr_city": "Tacoma",
+        "addr_postcode": "98444",
+        "addr_street": "138th St. S.",
+        "addr_housenumber": "120"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "The Creators Hands, Rochester, NY",
-      "geo_wkt": "POINT (-77.61823 43.123992)",
+      "sub_category": "attraction",
+      "display_name": "World's Largest Egg, Winlock, WA",
+      "geo_wkt": "POINT (-122.937891 46.493327)",
       "poi": {
-        "id": 6953,
-        "geometry": "POINT (-77.61823 43.123992)",
-        "poi_name": "The Creators Hands",
-        "osm_id": 8786026225,
-        "tourism": "gallery",
-        "addr_state": "NY",
-        "addr_city": "Rochester",
-        "addr_postcode": "14620",
-        "addr_street": "Mt Hope Avenue",
-        "addr_housenumber": "1311"
+        "id": 2147,
+        "geometry": "POINT (-122.937891 46.493327)",
+        "poi_name": "World's Largest Egg",
+        "osm_id": 3280903215,
+        "tourism": "attraction",
+        "operator": "City of Winlock",
+        "addr_state": "WA",
+        "addr_city": "Winlock",
+        "addr_postcode": "98596",
+        "addr_street": "Northwest Kerron Street",
+        "addr_housenumber": "520"
       }
     },
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "restaurant"
+      "sub_category": "fast_food"
     }
   },
-  "id": 123,
+  "id": 1623,
   "type": "knn:towards+name"
 }

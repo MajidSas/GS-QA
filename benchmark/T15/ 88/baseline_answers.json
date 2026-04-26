@@ -1,7 +1,35 @@
 {
-  "G": {
+  "ministral-3:14b-cloud_direct": {
     "text": {
-      "answer": "Luthy Botanical Garden.",
+      "answer": "**The Erie Marriott at Bayfront** is approximately twenty kilometers northwest.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1428571428571428,
+        "R": 0.0588235294117647,
+        "F1": 0.0833333333333333
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "The Erie Marriott at Bayfront",
+          "address": "200Erieview Dr, Erie, PA 16507",
+          "distance": 20,
+          "azimuth_angle": 315
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.5,
+        "R": 0.6,
+        "F1": 0.5454545454545454,
+        "distance_error": 1.0
+      }
+    }
+  },
+  "ministral-3:14b-cloud_rag": {
+    "text": {
+      "answer": "Fuzzy's Taco Shop.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -12,24 +40,49 @@
     "parsed": {
       "answer": [
         {
-          "name": "Luthy Botanical Garden",
-          "address": "1800 S. Orchard St., Springfield, IL 62703",
-          "distance": 104,
-          "azimuth_angle": 180
+          "name": "Fuzzy's Taco Shop",
+          "address": "AHN Cancer Institute, Erie, PA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.4285714285714285,
-        "R": 0.6,
-        "F1": 0.5,
-        "distance_error": 1.0
+        "P": 0.4,
+        "R": 0.4,
+        "F1": 0.4000000000000001,
+        "distance_error": 7.969947241203818e-08
       }
     }
   },
-  "GT": {
+  "shuffled": {
     "text": {
-      "answer": "Luthy Botanical Garden.",
+      "answer": "",
+      "scores": {
+        "attempted": true,
+        "P": 0.25,
+        "R": 0.0588235294117647,
+        "F1": 0.0952380952380952
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "address": "AHN Cancer Institute, Erie, PA",
+          "distance": 20,
+          "azimuth_angle": 315
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.4,
+        "R": 0.4,
+        "F1": 0.4000000000000001,
+        "distance_error": 7.969947241203818e-08
+      }
+    }
+  },
+  "ministral-3:14b-cloud_text2sql": {
+    "text": {
+      "answer": "Preferred Restaurants.",
       "scores": {
         "attempted": true,
         "P": 0.0,
@@ -40,41 +93,171 @@
     "parsed": {
       "answer": [
         {
-          "name": "Luthy Botanical Garden",
-          "address": "1800 S. Orchard St., Springfield, IL 62703",
-          "distance": 104,
-          "azimuth_angle": 180
+          "name": "Preferred Restaurants",
+          "address": "Erie, PA"
         }
       ],
       "scores": {
         "attempted": true,
-        "P": 0.4285714285714285,
-        "R": 0.6,
-        "F1": 0.5,
-        "distance_error": 1.0
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.004364681729359
       }
     }
   },
-  "GR": {
+  "sonnet4.6_direct": {
     "text": {
-      "answer": "There is no information available about a garden in the direction of south from Ulrich Wildlife Preserve, Morton, IL within one hundred ten kilometers.",
+      "answer": "Searching for restaurants northwest of AHN Cancer Institute, Erie, PA within 20 kilometers:\n\n**Pineapple Eddie Southern Bistro** is located in downtown Erie, approximately **ten kilometers** to the northwest.",
       "scores": {
         "attempted": true,
-        "P": 0.0666666666666666,
-        "R": 0.0909090909090909,
-        "F1": 0.0769230769230769
+        "P": 0.0909090909090909,
+        "R": 0.1176470588235294,
+        "F1": 0.1025641025641025
       }
     },
     "parsed": {
       "answer": [
         {
-          "name": null,
-          "address": null,
-          "count": null,
-          "distance": 110,
-          "length": null,
-          "area": null,
-          "azimuth_angle": null
+          "name": "Pineapple Eddie Southern Bistro",
+          "address": "downtown Erie, PA",
+          "distance": 10,
+          "azimuth_angle": 315
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.6666666666666666,
+        "R": 0.4,
+        "F1": 0.5,
+        "distance_error": 0.0039663687601305
+      }
+    }
+  },
+  "sonnet4.6_rag": {
+    "text": {
+      "answer": "There are no restaurants within 20 kilometers to the northwest of AHN Cancer Institute, Erie, PA based on the available records.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1538461538461538,
+        "R": 0.1176470588235294,
+        "F1": 0.1333333333333333
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "AHN Cancer Institute",
+          "address": "Erie, PA",
+          "count": 0,
+          "azimuth_angle": 315
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.004364681729359
+      }
+    }
+  },
+  "sonnet4.6_text2sql": {
+    "text": {
+      "answer": "The restaurants situated within 20 kilometers to the northwest of AHN Cancer Institute, Erie, PA are:\n\n- **Preferred Restaurants** \u2013 Erie, PA\n- **Virgil's Plate** \u2013 Erie, PA\n- **Sloppy Duck Saloon** \u2013 Erie, PA",
+      "scores": {
+        "attempted": true,
+        "P": 0.0714285714285714,
+        "R": 0.1176470588235294,
+        "F1": 0.0888888888888888
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "Preferred Restaurants",
+          "address": "Erie, PA"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.004364681729359
+      }
+    }
+  },
+  "gpt4o_direct": {
+    "text": {
+      "answer": "The Cork 1794 is situated within twenty kilometers northwest from AHN Cancer Institute, Erie, PA.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1666666666666666,
+        "R": 0.1176470588235294,
+        "F1": 0.1379310344827586
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "The Cork 1794",
+          "address": "1794West 12th Street, Erie, PA 16502",
+          "distance": 20,
+          "azimuth_angle": 315
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 0.5714285714285714,
+        "R": 0.6666666666666666,
+        "F1": 0.6153846153846153,
+        "distance_error": 0.0039167557212673
+      }
+    }
+  },
+  "gpt4o_rag": {
+    "text": {
+      "answer": "TGI Friday's",
+      "scores": {
+        "attempted": true,
+        "P": 0.0,
+        "R": 0.0,
+        "F1": 0.0
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "TGI Friday's",
+          "address": "Erie, PA"
+        }
+      ],
+      "scores": {
+        "attempted": true,
+        "P": 1.0,
+        "R": 0.4,
+        "F1": 0.5714285714285715,
+        "distance_error": 0.004364681729359
+      }
+    }
+  },
+  "gpt4o_text2sql": {
+    "text": {
+      "answer": "Northwest of AHN Cancer Institute, Erie, PA, within twenty kilometers, there is a restaurant called The Cork 1794.",
+      "scores": {
+        "attempted": true,
+        "P": 0.1538461538461538,
+        "R": 0.1176470588235294,
+        "F1": 0.1333333333333333
+      }
+    },
+    "parsed": {
+      "answer": [
+        {
+          "name": "The Cork 1794",
+          "distance": 20,
+          "azimuth_angle": 315
         }
       ],
       "scores": {
@@ -82,95 +265,6 @@
         "P": 0.0,
         "R": 0.0,
         "F1": 0.0,
-        "distance_error": 1.0
-      }
-    }
-  },
-  "L": {
-    "text": {
-      "answer": "The Garden of the Gardens is located approximately forty kilometers southeast of Ulrich Wildlife Preserve, Morton, IL.",
-      "scores": {
-        "attempted": true,
-        "P": 0.0833333333333333,
-        "R": 0.0909090909090909,
-        "F1": 0.0869565217391304
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "Garden of the Gardens",
-          "address": "approximately forty kilometers southeast of Ulrich Wildlife Preserve, Morton, IL",
-          "distance": 40,
-          "azimuth_angle": 135
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.1111111111111111,
-        "R": 0.2,
-        "F1": 0.1428571428571428,
-        "distance_error": 1.0
-      }
-    }
-  },
-  "LT": {
-    "text": {
-      "answer": "Ardens Lake Park is approximately twenty kilometers southeast of Ulrich Wildlife Preserve, Morton, IL.",
-      "scores": {
-        "attempted": true,
-        "P": 0.0833333333333333,
-        "R": 0.0909090909090909,
-        "F1": 0.0869565217391304
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "Ardens Lake Park",
-          "address": "approximately twenty kilometers southeast of Ulrich Wildlife Preserve, Morton, IL",
-          "distance": 20,
-          "azimuth_angle": 135,
-          "length": null,
-          "area": null
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.1111111111111111,
-        "R": 0.2,
-        "F1": 0.1428571428571428,
-        "distance_error": 1.0
-      }
-    }
-  },
-  "LR": {
-    "text": {
-      "answer": "The Ulrich Wildlife Preserve is located at 1600 N. Harwood Ave, Morton, IL 62353.\n\nA nearby garden that fits your criteria is the \"Tong Sui\" bubble tea cafe, which has a small outdoor seating area with some plants and flowers. It's approximately 10 kilometers north of the preserve.\n\nHowever, if you're looking for a more traditional garden, I couldn't find any within the specified distance and direction from Ulrich Wildlife Preserve that meets your requirements.",
-      "scores": {
-        "attempted": true,
-        "P": 0.0196078431372549,
-        "R": 0.0909090909090909,
-        "F1": 0.032258064516129
-      }
-    },
-    "parsed": {
-      "answer": [
-        {
-          "name": "Tong Sui",
-          "address": "1600 N. Harwood Ave, Morton, IL 62353",
-          "count": null,
-          "distance": 10,
-          "length": null,
-          "area": null,
-          "azimuth_angle": 180
-        }
-      ],
-      "scores": {
-        "attempted": true,
-        "P": 0.1428571428571428,
-        "R": 0.2,
-        "F1": 0.1666666666666666,
         "distance_error": 1.0
       }
     }

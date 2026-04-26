@@ -1,60 +1,136 @@
 {
-  "question": "Where can I find a nature reserve positioned within 50 kilometers towards the east of New Mexico Slaughter House, Albuquerque, NM?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-106.657079 35.199273)',4326)::geography, 50000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5;\n",
+  "question": "Where are a restaurant located within 160 kilometers distance toward the southwest of Ulrich Wildlife Preserve, Morton, IL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-89.490228 40.649994)',4326)::geography, 160000)\nAND amenity = 'restaurant'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5;\n",
   "answers": [
     {
-      "id": 246820,
-      "geometry": "POINT (-106.657079 35.199273)",
-      "poi_name": "Wildlife West Nature Park",
-      "osm_id": 6471544426,
-      "leisure": "nature_reserve",
-      "opening_hours": "10:00-18:00",
-      "operator": "New Mexico Wildlife Association",
-      "website": "https://wildlifewest.org/",
-      "phone": "+1 505 281-7655",
-      "addr_state": "NM",
-      "addr_city": "Edgewood",
-      "addr_postcode": "87015",
-      "addr_street": "North Frontage Road",
-      "addr_housenumber": "87"
+      "id": 216703,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Cranwell's Rootbeer",
+      "osm_id": 9180287327,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 217219,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "El Patron",
+      "osm_id": 9212551082,
+      "amenity": "restaurant",
+      "cuisine": "mexican"
+    },
+    {
+      "id": 99771,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Buffalo Wild Wings",
+      "osm_id": 6564735511,
+      "amenity": "restaurant",
+      "cuisine": "wings"
+    },
+    {
+      "id": 82846,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Monical's Pizza",
+      "osm_id": 1715282834,
+      "amenity": "restaurant",
+      "cuisine": "pizza"
+    },
+    {
+      "id": 99773,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Best Buffet",
+      "osm_id": 6564752601,
+      "amenity": "restaurant"
+    },
+    {
+      "id": 188851,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Bob Evans",
+      "osm_id": 1187991231,
+      "amenity": "restaurant",
+      "cuisine": "american"
+    },
+    {
+      "id": 156820,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Rudy's Grill",
+      "osm_id": 4672806053,
+      "amenity": "restaurant",
+      "addr_state": "IL",
+      "addr_city": "Jacksonville",
+      "addr_postcode": "62650",
+      "addr_street": "West Morton Avenue",
+      "addr_housenumber": "1913"
+    },
+    {
+      "id": 130681,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Head West",
+      "osm_id": 9884000562,
+      "amenity": "restaurant",
+      "cuisine": "sandwich",
+      "website": "https://www.headwestsubs.com/",
+      "phone": "+1-217-271-1614",
+      "addr_state": "IL",
+      "addr_city": "Jacksonville",
+      "addr_postcode": "62650",
+      "addr_street": "South Main Street",
+      "addr_housenumber": "401"
+    },
+    {
+      "id": 192000,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Leo's Pizza",
+      "osm_id": 1412541082,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "addr_housenumber": "230 S Main"
+    },
+    {
+      "id": 192001,
+      "geometry": "POINT (-89.490228 40.649994)",
+      "poi_name": "Lonzerotti's",
+      "osm_id": 1412541086,
+      "amenity": "restaurant",
+      "cuisine": "italian",
+      "website": "http://www.lonzerottis.biz/",
+      "addr_street": "E State",
+      "addr_housenumber": "600"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "restaurant"
     },
     "[2]": {
-      "distance": 50000,
-      "text": "50 kilometers"
+      "distance": 160000,
+      "text": "160 kilometers"
     },
     "[3]": {
-      "main_category": "tourism",
-      "sub_category": "theme park",
-      "display_name": "New Mexico Slaughter House, Albuquerque, NM",
-      "geo_wkt": "POINT (-106.657079 35.199273)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Ulrich Wildlife Preserve, Morton, IL",
+      "geo_wkt": "POINT (-89.490228 40.649994)",
       "poi": {
-        "id": 10873,
-        "geometry": "POINT (-106.657079 35.199273)",
-        "poi_name": "New Mexico Slaughter House",
-        "osm_id": 8107941834,
-        "tourism": "theme_park",
-        "opening_hours": "Oct Fr-Su 19:00-22:00",
-        "website": "https://www.nmslaughterhouse.com/",
-        "phone": "+1-505-764-2868",
-        "addr_state": "NM",
-        "addr_city": "Albuquerque",
-        "addr_postcode": "87114",
-        "addr_street": "Coors Boulevard Bypass Northwest",
-        "addr_housenumber": "10000"
+        "id": 246437,
+        "geometry": "POINT (-89.490228 40.649994)",
+        "poi_name": "Ulrich Wildlife Preserve",
+        "osm_id": 9654359178,
+        "leisure": "nature_reserve",
+        "opening_hours": "dawn-dusk",
+        "operator": "Morton Park District",
+        "addr_state": "IL",
+        "addr_city": "Morton",
+        "addr_postcode": "61550",
+        "addr_street": "Turtle Creek Trail",
+        "addr_housenumber": "100"
       }
     },
     "[4]": {
-      "direction_desc": "east",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 67.5 AND 112.5"
+      "direction_desc": "southwest",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 202.5 AND 247.5"
     }
   },
-  "id": 55,
+  "id": 2255,
   "type": "range:direction+loc"
 }

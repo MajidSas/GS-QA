@@ -1,53 +1,132 @@
 {
-  "question": "Within a radius of 90 kilometers, where can I find a nature reserve situated towards the west of University of North Georgia (Oconee Campus), Watkinsville, GA?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-83.42624 33.866134)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-83.42624 33.866134)',4326)::geography, 90000)\nAND leisure = 'nature_reserve'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
+  "question": "Where are a hospital positioned within 190 kilometers in the direction of north from Bill Harris Arena, Birmingham, AL?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-86.874042 33.494874)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-86.874042 33.494874)',4326)::geography, 190000)\nAND amenity = 'hospital'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
   "answers": [
     {
-      "id": 247803,
-      "geometry": "POINT (-83.42624 33.866134)",
-      "poi_name": "Forty Oaks",
-      "osm_id": 9951770357,
-      "leisure": "nature_reserve",
-      "addr_state": "GA",
-      "addr_city": "Clarkston",
-      "addr_postcode": "30021",
-      "addr_street": "Market Street",
-      "addr_housenumber": "3790"
+      "id": 167745,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "Sequel TSI Courtland",
+      "osm_id": 358949352,
+      "amenity": "hospital",
+      "website": "https://www.sequelyouthservices.com/html/secure-courtland.html",
+      "phone": "+1 256 637 2199",
+      "healthcare": "hospital",
+      "emergency": "no"
+    },
+    {
+      "id": 167760,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "The Sanctuary at the Woodlands",
+      "osm_id": 359004739,
+      "amenity": "hospital",
+      "operator": "USA Healthcare",
+      "website": "http://www.usahealthcare.net/Facilities/TheSanctuaryattheWoodlands.aspx",
+      "phone": "+1 256 255 0820",
+      "healthcare": "hospital",
+      "emergency": "no",
+      "addr_city": "Cullman",
+      "addr_postcode": "35056",
+      "addr_street": "Cherokee Avenue Southwest",
+      "addr_housenumber": "1910"
+    },
+    {
+      "id": 181693,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "Huntsville Hospital for Women And Children",
+      "osm_id": 10861375501,
+      "amenity": "hospital",
+      "website": "https://www.hhwomenandchildren.org",
+      "phone": "+1 256 265 8133",
+      "healthcare": "hospital",
+      "addr_state": "AL",
+      "addr_city": "Huntsville",
+      "addr_postcode": "35801",
+      "addr_street": "Governors Drive Southeast",
+      "addr_housenumber": "245"
+    },
+    {
+      "id": 181696,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "Unity Psychiatric Care - Huntsville",
+      "osm_id": 10861380595,
+      "amenity": "hospital",
+      "website": "https://unitypsych.com/huntsville",
+      "phone": "+1 256 964 6700",
+      "healthcare": "hospital",
+      "addr_state": "AL",
+      "addr_city": "Huntsville",
+      "addr_postcode": "35806",
+      "addr_street": "Millennium Drive",
+      "addr_housenumber": "5315"
+    },
+    {
+      "id": 181714,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "Decatur Morgan West",
+      "osm_id": 10861414599,
+      "amenity": "hospital",
+      "website": "https://decaturmorganhospital.net",
+      "phone": "+1 256 973 2000",
+      "healthcare": "hospital",
+      "addr_state": "AL",
+      "addr_city": "Decatur",
+      "addr_postcode": "35601",
+      "addr_street": "Beltline Road Southwest",
+      "addr_housenumber": "2205"
+    },
+    {
+      "id": 185510,
+      "geometry": "POINT (-86.874042 33.494874)",
+      "poi_name": "UAB Freestanding ER",
+      "osm_id": 7860493314,
+      "amenity": "hospital",
+      "opening_hours": "24/7",
+      "website": "https://www.uabmedicine.org/gardendale-fed",
+      "phone": "+1-205-263-0952",
+      "healthcare": "hospital",
+      "emergency": "yes",
+      "addr_state": "AL",
+      "addr_city": "Gardendale",
+      "addr_postcode": "35071",
+      "addr_street": "Rocket Way",
+      "addr_housenumber": "960"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
-      "main_category": "leisure",
-      "sub_category": "nature reserve"
+      "main_category": "amenity",
+      "sub_category": "hospital"
     },
     "[2]": {
-      "distance": 90000,
-      "text": "90 kilometers"
+      "distance": 190000,
+      "text": "190 kilometers"
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "university",
-      "display_name": "University of North Georgia (Oconee Campus), Watkinsville, GA",
-      "geo_wkt": "POINT (-83.42624 33.866134)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Bill Harris Arena, Birmingham, AL",
+      "geo_wkt": "POINT (-86.874042 33.494874)",
       "poi": {
-        "id": 78627,
-        "geometry": "POINT (-83.42624 33.866134)",
-        "poi_name": "University of North Georgia (Oconee Campus)",
-        "osm_id": 761326697,
-        "amenity": "university",
-        "addr_state": "GA",
-        "addr_city": "Watkinsville",
-        "addr_postcode": "30677",
-        "addr_street": "Bishop Farms Parkway",
-        "addr_housenumber": "1207"
+        "id": 266251,
+        "geometry": "POINT (-86.874042 33.494874)",
+        "poi_name": "Bill Harris Arena",
+        "osm_id": 7096572035,
+        "leisure": "stadium",
+        "sport": "wrestling;volleyball;basketball",
+        "phone": "+1-205-279-8900",
+        "addr_state": "AL",
+        "addr_city": "Birmingham",
+        "addr_postcode": "35208",
+        "addr_street": "Bessemer Road",
+        "addr_housenumber": "2331"
       }
     },
     "[4]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "north",
+      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
     }
   },
-  "id": 74,
+  "id": 2274,
   "type": "range:direction+loc"
 }

@@ -1,163 +1,400 @@
 {
-  "question": "Where can I find a museum towards the north of Red Wolf Sanctuary, Rising Sun, IN within 190 kilometers?",
-  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-84.875376 38.951571)',4326)::geography, 190000)\nAND tourism = 'museum'\nAND ((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360));\n",
+  "question": "Where are an attraction positioned within 170 kilometers relative to Shechem Ministries, Lawrenceburg, KY in the west direction?",
+  "sql": "\nWITH origin AS  (SELECT ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography AS geometry)\nSELECT * FROM pois, origin\nWHERE ST_DWithin(pois.geometry, ST_GeomFromText('POINT (-85.035109 38.032662)',4326)::geography, 170000)\nAND tourism = 'attraction'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5;\n",
   "answers": [
     {
-      "id": 10475,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Joseph Moore Museum",
-      "osm_id": 6872505605,
-      "tourism": "museum",
-      "opening_hours": "13:00-17:00; Tu,Th off",
-      "website": "https://jmm.earlham.edu/",
-      "wikidata": "Q28171569",
+      "id": 8594,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Belle of Louisville",
+      "osm_id": 8589312353,
+      "tourism": "attraction",
+      "website": "https://belleoflouisville.org/",
+      "addr_street": "4th Street Warf"
+    },
+    {
+      "id": 8975,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Marengo Cave",
+      "osm_id": 3603272893,
+      "tourism": "attraction",
+      "website": "http://marengocave.com/",
+      "phone": "+1-888-702-2837",
+      "wikidata": "Q6758964",
       "addr_state": "IN",
-      "addr_city": "Richmond",
-      "addr_postcode": "47374",
-      "addr_street": "National Road West",
-      "addr_housenumber": "801"
+      "addr_city": "Marengo",
+      "addr_postcode": "47140",
+      "addr_street": "East State Road 64",
+      "addr_housenumber": "400"
     },
     {
-      "id": 17865,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Hefner Museum",
-      "osm_id": 368155558,
-      "tourism": "museum",
-      "fee": "no",
-      "opening_hours": "Mo-Fr 09:00-16:00; PH off",
-      "website": "https://miamioh.edu/cas/academics/centers/hefner-museum/",
-      "museum": "nature",
-      "addr_state": "OH"
-    },
-    {
-      "id": 17867,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Limper Museum",
-      "osm_id": 368155567,
-      "tourism": "museum",
-      "website": "https://www.miamioh.edu/cas/academics/centers/limper-museum/",
-      "museum": "geology",
-      "wikidata": "Q6372035",
-      "addr_state": "OH"
-    },
-    {
-      "id": 17880,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "New Bremen Historical Museum",
-      "osm_id": 368155602,
-      "tourism": "museum",
-      "website": "https://newbremenhistory.org/en/",
-      "museum": "local",
-      "addr_state": "OH",
-      "addr_city": "New Bremen",
-      "addr_postcode": "45869",
-      "addr_street": "North Main Street",
-      "addr_housenumber": "120"
-    },
-    {
-      "id": 17882,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Pioneer Farm Museum",
-      "osm_id": 368155605,
-      "tourism": "museum",
-      "website": "https://pioneerfarmmuseum.org/",
-      "addr_state": "OH"
-    },
-    {
-      "id": 18806,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Model T Museum",
-      "osm_id": 2411629109,
-      "tourism": "museum",
-      "addr_city": "Richmond",
-      "addr_street": "North 8th Street",
-      "addr_housenumber": "309"
-    },
-    {
-      "id": 18407,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Fayette County Historical Museum",
-      "osm_id": 2288308868,
-      "tourism": "museum",
-      "opening_hours": "Sa-Su 10:00-15:00",
-      "website": "https://fayetteinchamber.com/list/member/fayette-county-historical-museum-856",
-      "phone": "+1 (765) 825-0946",
+      "id": 8976,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Squire Boone Caverns",
+      "osm_id": 3603283581,
+      "tourism": "attraction",
+      "website": "https://www.squireboonecaverns.com/",
+      "phone": "+1-888-934-1804",
+      "wikidata": "Q7582288",
       "addr_state": "IN",
-      "addr_city": "Connersville",
-      "addr_postcode": "47331",
-      "addr_street": "East 5th Street",
-      "addr_housenumber": "200"
+      "addr_city": "Mauckport",
+      "addr_postcode": "47142",
+      "addr_street": "Squire Boone Rd",
+      "addr_housenumber": "100"
     },
     {
-      "id": 18773,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "Bicycle Museum of America",
-      "osm_id": 2400588016,
-      "tourism": "museum",
-      "website": "https://www.bicyclemuseum.com/",
-      "museum": "transport",
-      "wikidata": "Q4903758",
-      "addr_state": "OH",
-      "addr_city": "New Bremen",
-      "addr_postcode": "45869",
-      "addr_street": "West Monroe Street",
-      "addr_housenumber": "7"
+      "id": 9835,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Jim Beam Distillery",
+      "osm_id": 9017719836,
+      "tourism": "attraction"
     },
     {
-      "id": 25353,
-      "geometry": "POINT (-84.875376 38.951571)",
-      "poi_name": "David Owsley Museum of Art",
-      "osm_id": 4459754589,
-      "tourism": "museum",
-      "website": "http://cms.bsu.edu/web/museumofart",
-      "phone": "+1-765-285-5242",
-      "museum": "art",
-      "wikidata": "Q5238285",
-      "addr_state": "IN",
-      "addr_city": "Muncie",
-      "addr_postcode": "47306",
-      "addr_street": "West Riverside Avenue",
-      "addr_housenumber": "2021"
+      "id": 10484,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Camel Area",
+      "osm_id": 6882884523,
+      "description": "Camels",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/dromedary-camel/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10485,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Warthog Area",
+      "osm_id": 6882884525,
+      "description": "Warthog (Phacocchoerinae)",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/warthog/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10490,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Penguin Cove",
+      "osm_id": 6886832678,
+      "description": "Penguin habitat",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/louisville-zoo-opens-penguin-cove/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10491,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Tortoise Area",
+      "osm_id": 6886875021,
+      "description": "Greek and Star Tortoises",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/tortoise-greek/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10492,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Ring-Tailed Lemur",
+      "osm_id": 6886875022,
+      "description": "Ring-tailed Lemur",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/lemur-ring-tailed/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10493,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Pygmy Hippo Area",
+      "osm_id": 6886875027,
+      "description": "Pygmy Hippos",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/pygmy-hippo/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10494,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Stellar's Sea-Eagle Aviary",
+      "osm_id": 6886875030,
+      "description": "Steller's Sea-Eagle",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/glacier-run/stellers-sea-eagle-aviary/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10495,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Snowy Owl Area",
+      "osm_id": 6886875031,
+      "description": "Snowy Owl",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/owl-snowy/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10496,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Nakid Mole Rat Area",
+      "osm_id": 6886875032,
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10497,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Meerkat Area",
+      "osm_id": 6886875033,
+      "description": "Meerkats",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/meerkat/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10498,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Guanaco Area",
+      "osm_id": 6886875036,
+      "description": "Guanaco",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/guanaco/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10499,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Flamingo Area",
+      "osm_id": 6886875037,
+      "description": "Chilean Flamingo",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/chilean-flamingo/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10500,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Macaw Area",
+      "osm_id": 6886875038,
+      "description": "Hyacinth Macaw",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/macaw-hyacinth/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10501,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Jaguar Area",
+      "osm_id": 6886875039,
+      "description": "Jaguar",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/jaguar/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10502,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Maned Wolf Area",
+      "osm_id": 6886875041,
+      "description": "Maned Wolf",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/wolf-maned/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10503,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Lynx Area",
+      "osm_id": 6886875044,
+      "description": "Lynx",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/lynx-canada/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10504,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Bald Eagle Area",
+      "osm_id": 6886875045,
+      "description": "Bald Eagle",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/bald-eagle/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10505,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Rhinoceros Area",
+      "osm_id": 6886875047,
+      "description": "Rhinoceros",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/southern-white-rhinoceros/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10506,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Elephant Area",
+      "osm_id": 6886875050,
+      "description": "African and Asian Elephants",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/african-elephant/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10507,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Zebra Area",
+      "osm_id": 6886875051,
+      "description": "Zebra",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/hartmanns-mountain-zebra/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10508,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Addex Area",
+      "osm_id": 6886875052,
+      "description": "Addax",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/addax-antelope/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10509,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Bongo Area",
+      "osm_id": 6886875053,
+      "description": "Bongo",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/bongo/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10510,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Crane Area",
+      "osm_id": 6886875055,
+      "description": "Cranes",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/crane-wattled/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10511,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Lion Area",
+      "osm_id": 6886875056,
+      "description": "Lions",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/african-lion/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10512,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Vulture Area",
+      "osm_id": 6886875057,
+      "description": "Vultures",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/vulture-turkey/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10513,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Giraffe Area",
+      "osm_id": 6886875058,
+      "description": "Giraffes",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/giraffe-masai/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10521,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Lorikeet Landing",
+      "osm_id": 6892136401,
+      "description": "Lorikeets",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/australia/lorikeet-landing/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10569,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Puma Area",
+      "osm_id": 6924934184,
+      "description": "Puma",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/puma/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 10592,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Walleroo Walkabout",
+      "osm_id": 6932968217,
+      "description": "Walleroo",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/australia/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 11875,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Bingo City",
+      "osm_id": 6069642907,
+      "tourism": "attraction"
+    },
+    {
+      "id": 22701,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Gorilla Sanctuary",
+      "osm_id": 7221043976,
+      "description": "Gorilla habitat",
+      "tourism": "attraction",
+      "website": "https://louisvillezoo.org/animalsandplants/gorilla/",
+      "zoo": "enclosure"
+    },
+    {
+      "id": 23929,
+      "geometry": "POINT (-85.035109 38.032662)",
+      "poi_name": "Santa\u2019s Candy Castle",
+      "osm_id": 9203540417,
+      "tourism": "attraction"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "museum"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "distance": 190000,
-      "text": "190 kilometers"
+      "distance": 170000,
+      "text": "170 kilometers"
     },
     "[3]": {
       "main_category": "leisure",
       "sub_category": "nature reserve",
-      "display_name": "Red Wolf Sanctuary, Rising Sun, IN",
-      "geo_wkt": "POINT (-84.875376 38.951571)",
+      "display_name": "Shechem Ministries, Lawrenceburg, KY",
+      "geo_wkt": "POINT (-85.035109 38.032662)",
       "poi": {
-        "id": 245554,
-        "geometry": "POINT (-84.875376 38.951571)",
-        "poi_name": "Red Wolf Sanctuary",
-        "osm_id": 3099118301,
+        "id": 245122,
+        "geometry": "POINT (-85.035109 38.032662)",
+        "poi_name": "Shechem Ministries",
+        "osm_id": 8265494788,
         "leisure": "nature_reserve",
-        "tourism": "attraction",
-        "opening_hours": "\"By appointment only\"",
-        "operator": "THE RED WOLF SANCTUARY INC",
-        "website": "https://www.redwolf.org/",
-        "phone": "+1 812 438 2306",
-        "addr_state": "IN",
-        "addr_city": "Rising Sun",
-        "addr_postcode": "47040",
-        "addr_street": "IN-262",
-        "addr_housenumber": "3027"
+        "website": "http://www.shechemministries.com",
+        "addr_state": "KY",
+        "addr_city": "Lawrenceburg",
+        "addr_street": "Timber Creek Road",
+        "addr_housenumber": "1683"
       }
     },
     "[4]": {
-      "direction_desc": "north",
-      "direction_predicate": "((degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 0.0 AND 22.5) OR (degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 337.5 AND 360))"
+      "direction_desc": "west",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
     }
   },
-  "id": 22,
+  "id": 2222,
   "type": "range:direction+loc"
 }

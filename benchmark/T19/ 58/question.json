@@ -1,51 +1,48 @@
 {
-  "question": "Where's the closest golf course to the west of Rehabilitation Hospital of Indiana, Indianapolis, IN?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-86.277386 39.829975)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'golf_course'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest stadium going south from SCL Health Saint Joseph Hospital, Denver, CO?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-104.971086 39.746176)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.leisure = 'stadium'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 266212,
-      "geometry": "POINT (-86.277386 39.829975)",
-      "poi_name": "Lick Creek Golf Course",
-      "osm_id": 7052823509,
-      "leisure": "golf_course",
-      "addr_state": "IL",
-      "addr_city": "Pekin",
-      "addr_postcode": "61554",
-      "addr_street": "N Parkway Dr",
-      "addr_housenumber": "2210"
+      "id": 265350,
+      "geometry": "POINT (-104.971086 39.746176)",
+      "poi_name": "Joy Burns Arena",
+      "osm_id": 366396382,
+      "leisure": "stadium",
+      "addr_state": "CO"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "leisure",
-      "sub_category": "golf course"
+      "sub_category": "stadium"
     },
     "[2]": {
       "main_category": "amenity",
       "sub_category": "hospital",
-      "display_name": "Rehabilitation Hospital of Indiana, Indianapolis, IN",
-      "geo_wkt": "POINT (-86.277386 39.829975)",
+      "display_name": "SCL Health Saint Joseph Hospital, Denver, CO",
+      "geo_wkt": "POINT (-104.971086 39.746176)",
       "poi": {
-        "id": 100793,
-        "geometry": "POINT (-86.277386 39.829975)",
-        "poi_name": "Rehabilitation Hospital of Indiana",
-        "osm_id": 6597811085,
+        "id": 61565,
+        "geometry": "POINT (-104.971086 39.746176)",
+        "poi_name": "SCL Health Saint Joseph Hospital",
+        "osm_id": 5523640617,
         "amenity": "hospital",
-        "website": "http://rhin.com",
-        "internet_access": "wlan",
-        "phone": "+1-317-329-2000",
+        "website": "https://www.sclhealth.org/locations/saint-joseph-hospital/",
+        "phone": "+1-303-812-2000",
         "healthcare": "hospital",
-        "addr_state": "IN",
-        "addr_city": "Indianapolis",
-        "addr_postcode": "46254",
-        "addr_street": "Shore Drive",
-        "addr_housenumber": "4141"
+        "emergency": "yes",
+        "wikidata": "Q5419994",
+        "addr_state": "CO",
+        "addr_city": "Denver",
+        "addr_postcode": "80218",
+        "addr_street": "East 19th Avenue",
+        "addr_housenumber": "1375"
       }
     },
     "[3]": {
-      "direction_desc": "west",
-      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 247.5 AND 292.5"
+      "direction_desc": "south",
+      "direction_predicate": "degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 157.5 AND 202.5"
     }
   },
   "id": 1157,

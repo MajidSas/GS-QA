@@ -1,56 +1,44 @@
 {
-  "question": "What is the name of the university that is affiliated with the closest hospital from Bowditch Middle School Auditorium, Foster City, CA?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'hospital'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-122.248613 37.559053)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the nearest university from Barons Bus Arena, Parma, OH established?",
+  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-81.758046 41.416012)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 236727,
-      "geometry": "POINT (-122.255023 37.479511)",
-      "poi_name": "Sequoia Hospital",
-      "osm_id": 5805243057,
-      "amenity": "hospital",
-      "opening_hours": "24/7",
-      "operator": "Dignity Health",
-      "website": "https://www.dignityhealth.org/bayarea/locations/sequoia",
-      "phone": "+1 650 369 5811",
-      "healthcare": "hospital",
-      "emergency": "yes",
-      "wikidata": "Q7452546",
-      "addr_state": "CA",
-      "addr_city": "Redwood City",
-      "addr_postcode": "94062",
-      "addr_street": "Alameda de las Pulgas",
-      "addr_housenumber": "170",
-      "multihop_answer": "nan",
-      "multihop_attribute": "Affiliated university",
-      "multihop_long_answer": "Sequoia Hospital Affiliated university: nan"
+      "id": 189725,
+      "geometry": "POINT (-81.604878 41.504382)",
+      "poi_name": "Research Campus, CWRU School of Medicine",
+      "osm_id": 1246986337,
+      "amenity": "university",
+      "wikidata": "Q5048331",
+      "multi_source_answer": "1843; 181\u00a0years ago",
+      "multi_source_attribute": "Established",
+      "multi_source_long_answer": "Research Campus, CWRU School of Medicine Established: 1843; 181\u00a0years ago"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "hospital"
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "leisure",
       "sub_category": "stadium",
-      "display_name": "Bowditch Middle School Auditorium, Foster City, CA",
-      "geo_wkt": "POINT (-122.248613 37.559053)",
+      "display_name": "Barons Bus Arena, Parma, OH",
+      "geo_wkt": "POINT (-81.758046 41.416012)",
       "poi": {
-        "id": 246975,
-        "geometry": "POINT (-122.248613 37.559053)",
-        "poi_name": "Bowditch Middle School Auditorium",
-        "osm_id": 8468035653,
+        "id": 247265,
+        "geometry": "POINT (-81.758046 41.416012)",
+        "poi_name": "Barons Bus Arena",
+        "osm_id": 8888267688,
         "leisure": "stadium",
-        "sport": "basketball;volleyball",
-        "addr_state": "CA",
-        "addr_city": "Foster City",
-        "addr_postcode": "94404",
-        "addr_street": "Tarpon Street",
-        "addr_housenumber": "1450"
+        "addr_state": "OH",
+        "addr_city": "Parma",
+        "addr_postcode": "44129",
+        "addr_street": "Hauserman Road",
+        "addr_housenumber": "5310"
       }
     }
   },
-  "id": 989,
-  "type": "knn+name+multihop1"
+  "id": 889,
+  "type": "knn+name+multi_source1"
 }

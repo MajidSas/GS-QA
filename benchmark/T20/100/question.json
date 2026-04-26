@@ -1,66 +1,70 @@
 {
-  "question": "Where is the nearest hotel as you head towards Mikee Huber Studio & Gallery, Dayton, OH from Indian Run Falls Park - Observation Deck B, Dublin, OH?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, ST_GeomFromText('POINT (-84.183448 39.77631)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'hotel'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-83.120136 40.100971)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest fast food restaurant found as you head from Faith Arena, Surprise, AZ toward Marriott's Canyon Villas, Phoenix, AZ?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, ST_GeomFromText('POINT (-111.972231 33.68452)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'fast_food'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-112.371855 33.62819)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 2467,
-      "geometry": "POINT (-83.838391 39.939911)",
-      "poi_name": "Country Inn & Suites",
-      "osm_id": 3461886974,
-      "tourism": "hotel",
-      "website": "https://www.radissonhotels.com/en-us/hotels/country-inn-springfield-oh",
-      "phone": "+1-937-322-2200",
-      "addr_state": "OH",
-      "addr_city": "Springfield",
-      "addr_postcode": "45504",
-      "addr_street": "West 1st Street",
-      "addr_housenumber": "1751",
-      "value": 248.7061115544597
+      "id": 179439,
+      "geometry": "POINT (-112.369024 33.627887)",
+      "poi_name": "Hetrick Spirit Canteen",
+      "osm_id": 10762941399,
+      "amenity": "fast_food",
+      "website": "https://www.ottawa.edu/ouaz/student-services/meal-plans",
+      "drive_through": "no",
+      "fast_food": "cafeteria",
+      "addr_state": "AZ",
+      "addr_city": "Surprise",
+      "addr_postcode": "85374",
+      "addr_street": "West Tierra Buena Lane",
+      "addr_housenumber": "14360",
+      "value": 80.32166500045606
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "viewpoint",
-      "display_name": "Indian Run Falls Park - Observation Deck B, Dublin, OH",
-      "geo_wkt": "POINT (-83.120136 40.100971)",
+      "main_category": "leisure",
+      "sub_category": "stadium",
+      "display_name": "Faith Arena, Surprise, AZ",
+      "geo_wkt": "POINT (-112.371855 33.62819)",
       "poi": {
-        "id": 7435,
-        "geometry": "POINT (-83.120136 40.100971)",
-        "poi_name": "Indian Run Falls Park - Observation Deck B",
-        "osm_id": 2151385735,
-        "tourism": "viewpoint",
-        "addr_state": "OH",
-        "addr_city": "Dublin",
-        "addr_street": "Shawan Falls Drive",
-        "addr_housenumber": "700"
+        "id": 265626,
+        "geometry": "POINT (-112.371855 33.62819)",
+        "poi_name": "Faith Arena",
+        "osm_id": 10762941402,
+        "leisure": "stadium",
+        "addr_state": "AZ",
+        "addr_city": "Surprise",
+        "addr_postcode": "85374",
+        "addr_street": "West Tierra Buena Lane",
+        "addr_housenumber": "14470"
       }
     },
     "[3]": {
       "main_category": "tourism",
-      "sub_category": "gallery",
-      "display_name": "Mikee Huber Studio & Gallery, Dayton, OH",
-      "geo_wkt": "POINT (-84.183448 39.77631)",
+      "sub_category": "hotel",
+      "display_name": "Marriott's Canyon Villas, Phoenix, AZ",
+      "geo_wkt": "POINT (-111.972231 33.68452)",
       "poi": {
-        "id": 19966,
-        "geometry": "POINT (-84.183448 39.77631)",
-        "poi_name": "Mikee Huber Studio & Gallery",
-        "osm_id": 7787687261,
-        "tourism": "gallery",
-        "website": "https://www.mikeehuber.com/",
-        "addr_state": "OH",
-        "addr_city": "Dayton",
-        "addr_postcode": "45404",
-        "addr_street": "North Keowee Street",
-        "addr_housenumber": "903"
+        "id": 12972,
+        "geometry": "POINT (-111.972231 33.68452)",
+        "poi_name": "Marriott's Canyon Villas",
+        "osm_id": 3996124363,
+        "tourism": "hotel",
+        "operator": "Marriott Vacation Club",
+        "website": "https://www.marriott.com/hotels/travel/phxcv-marriotts-canyon-villas/",
+        "phone": "480-629-3200",
+        "addr_state": "AZ",
+        "addr_city": "Phoenix",
+        "addr_postcode": "85054",
+        "addr_street": "East Marriott Drive",
+        "addr_housenumber": "5220"
       }
     },
     "[1]": {
-      "main_category": "tourism",
-      "sub_category": "hotel"
+      "main_category": "amenity",
+      "sub_category": "fast_food"
     }
   },
-  "id": 1399,
+  "id": 1599,
   "type": "knn:towards+loc"
 }

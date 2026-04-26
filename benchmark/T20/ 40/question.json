@@ -1,68 +1,68 @@
 {
-  "question": "Where's the closest caf\u00e9 on the path leading to Medical Behavioral Hospital Of Northern Arizona, Prescott, AZ from Out of Africa Wildlife Park, Camp Verde, AZ?",
-  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, ST_GeomFromText('POINT (-112.471431 34.556411)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE amenity = 'cafe'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-111.9207 34.612641)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Where\u2019s the closest gallery along the path to Candlestick Park, Four Oaks, NC starting at Aquarium Outfitters Carolina, Wake Forest, NC?",
+  "sql": "WITH\n    angle AS (SELECT degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography, ST_GeomFromText('POINT (-78.432567 35.431626)',4326)::geography)) AS value)\nSELECT * FROM pois,angle\nWHERE tourism = 'gallery'\nAND (degrees(ST_Azimuth(ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography, pois.geometry)) BETWEEN angle.value - 22.5 AND angle.value + 22.5)\nORDER BY pois.geometry <-> ST_GeomFromText('POINT (-78.515805 35.970785)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 210342,
-      "geometry": "POINT (-112.335077 34.595216)",
-      "poi_name": "Open Book Cafe & Coffeehouse",
-      "osm_id": 5098155778,
-      "amenity": "cafe",
-      "cuisine": "coffee_shop;bakery",
-      "addr_state": "AZ",
-      "addr_city": "Prescott Valley",
-      "addr_postcode": "86314",
-      "addr_street": "East Civic Circle",
-      "addr_housenumber": "7401",
-      "value": 263.1187138457265
+      "id": 22743,
+      "geometry": "POINT (-78.45364 35.617975)",
+      "poi_name": "Tinks and Tots Blocks",
+      "osm_id": 7239018678,
+      "tourism": "gallery",
+      "phone": "(919) 896-1903",
+      "addr_state": "NC",
+      "addr_city": "Clayton",
+      "addr_postcode": "27520",
+      "addr_street": "Penny Lane",
+      "addr_housenumber": "2014",
+      "value": 172.79828194157955
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Out of Africa Wildlife Park, Camp Verde, AZ",
-      "geo_wkt": "POINT (-111.9207 34.612641)",
+      "sub_category": "aquarium",
+      "display_name": "Aquarium Outfitters Carolina, Wake Forest, NC",
+      "geo_wkt": "POINT (-78.515805 35.970785)",
       "poi": {
-        "id": 1846,
-        "geometry": "POINT (-111.9207 34.612641)",
-        "poi_name": "Out of Africa Wildlife Park",
-        "osm_id": 3181394247,
-        "tourism": "zoo",
-        "opening_hours": "09:30-17:00",
-        "addr_state": "AZ",
-        "addr_city": "Camp Verde",
-        "addr_postcode": "86322",
-        "addr_street": "State Route 260",
-        "addr_housenumber": "3505"
+        "id": 12563,
+        "geometry": "POINT (-78.515805 35.970785)",
+        "poi_name": "Aquarium Outfitters Carolina",
+        "osm_id": 7329125760,
+        "tourism": "aquarium",
+        "phone": "(919) 556-8335",
+        "addr_state": "NC",
+        "addr_city": "Wake Forest",
+        "addr_postcode": "27587",
+        "addr_street": "South Main Street",
+        "addr_housenumber": "823"
       }
     },
     "[3]": {
-      "main_category": "amenity",
-      "sub_category": "hospital",
-      "display_name": "Medical Behavioral Hospital Of Northern Arizona, Prescott, AZ",
-      "geo_wkt": "POINT (-112.471431 34.556411)",
+      "main_category": "leisure",
+      "sub_category": "park",
+      "display_name": "Candlestick Park, Four Oaks, NC",
+      "geo_wkt": "POINT (-78.432567 35.431626)",
       "poi": {
-        "id": 181765,
-        "geometry": "POINT (-112.471431 34.556411)",
-        "poi_name": "Medical Behavioral Hospital Of Northern Arizona",
-        "osm_id": 10863761294,
-        "amenity": "hospital",
-        "phone": "+1 928 227 3424",
-        "healthcare": "hospital",
-        "addr_state": "AZ",
-        "addr_city": "Prescott",
-        "addr_postcode": "86301",
-        "addr_street": "Whipple Street",
-        "addr_housenumber": "181"
+        "id": 267347,
+        "geometry": "POINT (-78.432567 35.431626)",
+        "poi_name": "Candlestick Park",
+        "osm_id": 5889214484,
+        "leisure": "park",
+        "description": "Community town park with baseball fields.",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "addr_state": "NC",
+        "addr_city": "Four Oaks",
+        "addr_postcode": "27524",
+        "addr_street": "Parker Road",
+        "addr_housenumber": "441"
       }
     },
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "cafe"
+      "main_category": "tourism",
+      "sub_category": "gallery"
     }
   },
-  "id": 1339,
+  "id": 1539,
   "type": "knn:towards+loc"
 }

@@ -1,43 +1,49 @@
 {
-  "question": "Can you point me to the nearest gallery from Pine Grove Zoo, Little Falls, MN?",
-  "sql": "SELECT * FROM pois\nWHERE tourism = 'gallery'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-94.383608 45.979142)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "Do you know the location of the closest attraction relative to Shavers Creek Environmental Center, Petersburg, PA?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'attraction'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-77.909905 40.667715)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 7736,
-      "geometry": "POINT (-93.566326 44.903185)",
-      "poi_name": "Water Street Gallery Ltd",
-      "osm_id": 6384347261,
-      "tourism": "gallery",
-      "addr_state": "MN",
-      "addr_city": "Excelsior",
-      "addr_postcode": "55331",
-      "addr_street": "Water Street",
-      "addr_housenumber": "211"
+      "id": 245766,
+      "geometry": "POINT (-77.909905 40.667715)",
+      "poi_name": "Shavers Creek Environmental Center",
+      "osm_id": 571460091,
+      "leisure": "nature_reserve",
+      "tourism": "attraction",
+      "opening_hours": "Mo-Su 10:00-17:00",
+      "addr_state": "PA",
+      "addr_city": "Petersburg",
+      "addr_postcode": "16669",
+      "addr_street": "Discovery Road",
+      "addr_housenumber": "3400"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "tourism",
-      "sub_category": "gallery"
+      "sub_category": "attraction"
     },
     "[2]": {
-      "main_category": "tourism",
-      "sub_category": "zoo",
-      "display_name": "Pine Grove Zoo, Little Falls, MN",
-      "geo_wkt": "POINT (-94.383608 45.979142)",
+      "main_category": "leisure",
+      "sub_category": "nature reserve",
+      "display_name": "Shavers Creek Environmental Center, Petersburg, PA",
+      "geo_wkt": "POINT (-77.909905 40.667715)",
       "poi": {
-        "id": 22633,
-        "geometry": "POINT (-94.383608 45.979142)",
-        "poi_name": "Pine Grove Zoo",
-        "osm_id": 7185157936,
-        "tourism": "zoo",
-        "website": "https://www.pinegrovezoo.com/",
-        "addr_state": "MN",
-        "addr_city": "Little Falls"
+        "id": 2748,
+        "geometry": "POINT (-77.909905 40.667715)",
+        "poi_name": "Shavers Creek Environmental Center",
+        "osm_id": 571460091,
+        "leisure": "nature_reserve",
+        "tourism": "attraction",
+        "opening_hours": "Mo-Su 10:00-17:00",
+        "addr_state": "PA",
+        "addr_city": "Petersburg",
+        "addr_postcode": "16669",
+        "addr_street": "Discovery Road",
+        "addr_housenumber": "3400"
       }
     }
   },
-  "id": 1835,
+  "id": 735,
   "type": "knn+loc"
 }

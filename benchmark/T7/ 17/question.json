@@ -1,52 +1,50 @@
 {
-  "question": "When was the nearest university from Laura Plantation, Vacherie, LA established?",
-  "sql": "SELECT * FROM pois\nWHERE amenity = 'university'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-90.725426 30.008183)',4326)::geography ASC\nLIMIT 1;\n",
+  "question": "When was the the nearest museum from Niagara Amusement Park & Splash World, Grand Island, NY built?",
+  "sql": "SELECT * FROM pois\nWHERE tourism = 'museum'\nORDER BY  geometry <-> ST_GeomFromText('POINT (-78.975759 43.024544)',4326)::geography ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 167621,
-      "geometry": "POINT (-91.109988 30.401454)",
-      "poi_name": "Franciscan Missionaries of Our Lady University",
-      "osm_id": 358400276,
-      "amenity": "university",
-      "operator": "Franciscan Missionaries of Our Lady",
-      "website": "http://www.ololcollege.edu/",
-      "phone": "+1 225 768 1700",
-      "wikidata": "Q7111019",
-      "addr_city": "Baton Rouge",
-      "addr_postcode": "70808",
-      "addr_street": "Brittany Drive",
-      "addr_housenumber": "5414",
-      "multihop_answer": "1923",
-      "multihop_attribute": "Established",
-      "multihop_long_answer": "Franciscan Missionaries of Our Lady University Established: 1923"
+      "id": 21007,
+      "geometry": "POINT (-78.84806 42.936123)",
+      "poi_name": "Darwin D. Martin House",
+      "osm_id": 1342600765,
+      "tourism": "museum",
+      "fee": "yes",
+      "website": "https://www.darwinmartinhouse.org/",
+      "wikidata": "Q1166906",
+      "multi_source_answer": "1903\u20131905",
+      "multi_source_attribute": "Built",
+      "multi_source_long_answer": "Darwin D. Martin House Built: 1903\u20131905"
     }
   ],
   "answer_type": "name",
   "question_entities": {
     "[1]": {
-      "main_category": "amenity",
-      "sub_category": "university"
+      "main_category": "tourism",
+      "sub_category": "museum"
     },
     "[2]": {
       "main_category": "tourism",
-      "sub_category": "museum",
-      "display_name": "Laura Plantation, Vacherie, LA",
-      "geo_wkt": "POINT (-90.725426 30.008183)",
+      "sub_category": "theme park",
+      "display_name": "Niagara Amusement Park & Splash World, Grand Island, NY",
+      "geo_wkt": "POINT (-78.975759 43.024544)",
       "poi": {
-        "id": 1249,
-        "geometry": "POINT (-90.725426 30.008183)",
-        "poi_name": "Laura Plantation",
-        "osm_id": 2917263591,
-        "tourism": "museum",
-        "website": "https://www.lauraplantation.com",
-        "addr_state": "LA",
-        "addr_city": "Vacherie",
-        "addr_postcode": "70090",
-        "addr_street": "State Route 18",
-        "addr_housenumber": "2247"
+        "id": 354,
+        "geometry": "POINT (-78.975759 43.024544)",
+        "poi_name": "Niagara Amusement Park & Splash World",
+        "osm_id": 8331045218,
+        "tourism": "theme_park",
+        "information": "board",
+        "wheelchair": "yes",
+        "operator": "IB Parks & Entertainment",
+        "website": "https://niagaraamusementpark.com/",
+        "addr_state": "NY",
+        "addr_city": "Grand Island",
+        "addr_postcode": "14072",
+        "addr_street": "Grand Island Boulevard",
+        "addr_housenumber": "2400"
       }
     }
   },
-  "id": 916,
-  "type": "knn+name+multihop1"
+  "id": 816,
+  "type": "knn+name+multi_source1"
 }

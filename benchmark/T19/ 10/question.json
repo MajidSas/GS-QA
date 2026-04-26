@@ -1,48 +1,44 @@
 {
-  "question": "Where's the closest fast food restaurant located in the direction of northwest from Union Park, Little Rock, AR?",
-  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-92.365431 34.719537)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'fast_food'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
+  "question": "Where is the nearest university as you go northwest from Washington Park Botanical Garden, Springfield, IL?",
+  "sql": "\nWITH origin AS (SELECT ST_GeomFromText('POINT (-89.684904 39.78926)',4326)::geography AS geometry)\nSELECT * FROM pois,origin\nWHERE pois.amenity = 'university'\nAND degrees(ST_Azimuth(origin.geometry, pois.geometry)) BETWEEN 292.5 AND 337.5\nORDER BY pois.geometry <-> origin.geometry ASC\nLIMIT 1;\n",
   "answers": [
     {
-      "id": 76343,
-      "geometry": "POINT (-92.365431 34.719537)",
-      "poi_name": "Slim Chickens",
-      "osm_id": 9771747977,
-      "amenity": "fast_food",
-      "cuisine": "chicken",
-      "opening_hours": "10:30-23:00",
-      "website": "https://slimchickens.com/location/little-rock-ar-301-n-shackleford-road-72211/",
-      "phone": "+1-501-954-9999",
-      "takeaway": "yes",
-      "drive_through": "yes",
-      "addr_state": "AR",
-      "addr_city": "Lttle Rock",
-      "addr_postcode": "72211",
-      "addr_street": "North Shackleford Road",
-      "addr_housenumber": "301"
+      "id": 117117,
+      "geometry": "POINT (-89.684904 39.78926)",
+      "poi_name": "MERGE",
+      "osm_id": 8977439505,
+      "amenity": "university",
+      "operator": "University of Iowa",
+      "addr_state": "IA",
+      "addr_city": "Iowa City",
+      "addr_street": "South Dubuque Street",
+      "addr_housenumber": "136"
     }
   ],
   "answer_type": "loc",
   "question_entities": {
     "[1]": {
       "main_category": "amenity",
-      "sub_category": "fast food restaurant"
+      "sub_category": "university"
     },
     "[2]": {
       "main_category": "leisure",
-      "sub_category": "park",
-      "display_name": "Union Park, Little Rock, AR",
-      "geo_wkt": "POINT (-92.365431 34.719537)",
+      "sub_category": "garden",
+      "display_name": "Washington Park Botanical Garden, Springfield, IL",
+      "geo_wkt": "POINT (-89.684904 39.78926)",
       "poi": {
-        "id": 264749,
-        "geometry": "POINT (-92.365431 34.719537)",
-        "poi_name": "Union Park",
-        "osm_id": 359004919,
-        "leisure": "park",
-        "addr_state": "AR",
-        "addr_city": "Little Rock",
-        "addr_postcode": "72204",
-        "addr_street": "West 38th Street",
-        "addr_housenumber": "810"
+        "id": 267108,
+        "geometry": "POINT (-89.684904 39.78926)",
+        "poi_name": "Washington Park Botanical Garden",
+        "osm_id": 4530576300,
+        "leisure": "garden",
+        "website": "https://www.springfieldparks.org/facilities/botanicalGardens/",
+        "phone": "+1-217-546-4116",
+        "addr_state": "IL",
+        "addr_city": "Springfield",
+        "addr_postcode": "62704",
+        "addr_street": "West Fayette Avenue",
+        "addr_housenumber": "1740"
       }
     },
     "[3]": {
